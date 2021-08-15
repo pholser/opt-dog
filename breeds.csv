@@ -1,0 +1,198 @@
+1,Australian Cattle Dog,1
+2,Australian Shepherd,1
+3,Bearded Collie,1
+4,Beauceron,1
+5,Belgian Laekenois,1
+6,Belgian Malinois,1
+7,Belgian Sheepdog,1
+8,Belgian Tervuren,1
+9,Bergamasco,1
+10,Berger Picard,1
+11,Border Collie,1
+12,Bouvier des Flandres,1
+13,Briard,1
+14,Canaan Dog,1
+15,Cardigan Welsh Corgi,1
+16,Collie,1
+17,Entlebucher Mountain Dog,1
+18,Finnish Lapphund,1
+19,German Shepherd Dog,1
+20,Icelandic Sheepdog,1
+21,Miniature American Shepherd,1
+22,Norwegian Buhund,1
+23,Old English Sheepdog,1
+24,Pembroke Welsh Corgi,1
+25,Polish Lowland Sheepdog,1
+26,Puli,1
+27,Pumi,1
+28,Pyrenean Shepherd,1
+29,Shetland Sheepdog,1
+30,Spanish Water Dog,1
+31,Swedish Vallhund,1
+32,Afghan Hound,2
+33,American English Coonhound,2
+34,American Foxhound,2
+35,Azawakh,2
+36,Basenji,2
+37,Basset Hound,2
+38,Beagle,2
+39,Black and Tan Coonhound,2
+40,Bloodhound,2
+41,Bluetick Coonhound,2
+42,Borzoi,2
+43,Cirneco Dell’Etna,2
+44,Dachshund,2
+45,English Foxhound,2
+46,Grand Basset Griffon Vendeen,2
+47,Greyhound,2
+48,Harrier,2
+49,Ibizan Hound,2
+50,Irish Wolfhound,2
+51,Norwegian Elkhound,2
+52,Otterhound,2
+53,Petit Basset Griffon Vendeen,2
+54,Pharaoh Hound,2
+55,Plott Hound,2
+56,Portuguese Podengo Pequeno,2
+57,Redbone Coonhound,2
+58,Rhodesian Ridgeback,2
+59,Saluki,2
+60,Scottish Deerhound,2
+61,Sloughi,2
+62,Treeing Walker Coonhound,2
+63,Whippet,2
+64,Affenpinscher,3
+65,Brussels Griffon,3
+66,Cavalier King Charles Spaniel,3
+67,Chihuahua,3
+68,Chinese Crested,3
+69,English Toy Spaniel,3
+70,Havanese,3
+71,Italian Greyhound,3
+72,Japanese Chin,3
+73,Maltese,3
+74,Manchester Terrier,3
+75,Miniature Pinscher,3
+76,Papillon,3
+77,Pekingese,3
+78,Pomeranian,3
+79,Poodle (Toy),3
+80,Pug,3
+81,Shih Tzu,3
+82,Silky Terrier,3
+83,Toy Fox Terrier,3
+84,Yorkshire Terrier,3
+85,American Eskimo Dog,4
+86,Bichon Frise,4
+87,Boston Terrier,4
+88,Bulldog,4
+89,Chinese Shar-Pei,4
+90,Chow Chow,4
+91,Coton De Tulear,4
+92,Dalmatian,4
+93,Finnish Spitz,4
+94,French Bulldog,4
+95,Keeshond,4
+96,Lhasa Apso,4
+97,Lowchen,4
+98,Norwegian Lundhund,4
+99,Poodle,4
+100,Schipperke,4
+101,Shiba Inu,4
+102,Tibetan Spaniel,4
+103,Tibetan Terrier,4
+104,Xoloitzcuintli,4
+105,American Water Spaniel,5
+106,Barbet,5
+107,Boykin Spaniel,5
+108,Brittany,5
+109,Chesapeake Bay Retriever,5
+110,Clumber Spaniel,5
+111,Cocker Spaniel,5
+112,Curly-Coated Retriever,5
+113,English Cocker Spaniel,5
+114,English Setter,5
+115,English Springer Spaniel,5
+116,Field Spaniel,5
+117,Flat-Coated Retriever,5
+118,German Shorthaired Pointer,5
+119,German Wirehaired Pointer,5
+120,Golden Retriever,5
+121,Gordon Setter,5
+122,Irish Red and White Setter,5
+123,Irish Setter,5
+124,Irish Water Spaniel,5
+125,Labrador Retriever,5
+126,Lagotto Romagnolo,5
+127,Nederlandse Kooikerhondje,5
+128,Nova Scotia Duck Tolling Retriever,5
+129,Pointer,5
+130,Spinone Italiano,5
+131,Sussex Spaniel,5
+132,Vizsla,5
+133,Weimaraner,5
+134,Welsh Springer Spaniel,5
+135,Wirehaired Pointing Griffon,5
+136,Wirehaired Vizsla,5
+137,Airedale Terrier,6
+138,American Hairless Terrier,6
+139,American Staffordshire Terrier,6
+140,Australian Terrier,6
+141,Bedlington Terrier,6
+142,Border Terrier,6
+143,Bull Terrier,6
+144,Cairn Terrier,6
+145,Cesky Terrier,6
+146,Dandie Dinmont Terrier,6
+147,Glen of Imaal Terrier,6
+148,Irish Terrier,6
+149,Kerry Blue Terrier,6
+150,Lakeland Terrier,6
+151,Manchester Terrier,6
+152,Miniature Bull Terrier,6
+153,Miniature Schnauzer,6
+154,Norfolk Terrier,6
+155,Norwich Terrier,6
+156,Parson Russell Terrier,6
+157,Rat Terrier,6
+158,Russell Terrier,6
+159,Scottish Terrier,6
+160,Sealyham Terrier,6
+161,Skye Terrier,6
+162,Smooth Fox Terrier,6
+163,Soft Coated Wheaten Terrier,6
+164,Staffordshire Bull Terrier,6
+165,Welsh Terrier,6
+166,West Highland White Terrier,6
+167,Wire Fox Terrier,6
+168,Akita,7
+169,Alaskan Malamute,7
+170,Anatolian Shepherd Dog,7
+171,Bernese Mountain Dog,7
+172,Black Russian Terrier,7
+173,Boerboel,7
+174,Boxer,7
+175,Bullmastiff,7
+176,Cane Corso,7
+177,Chinook,7
+178,Doberman Pinscher,7
+179,Dogo Argentino,7
+180,Dogue de Bordeaux,7
+181,German Pinscher,7
+182,Giant Schnauzer,7
+183,Great Dane,7
+184,Great Pyrenees,7
+185,Greater Swiss Mountain Dog,7
+186,Komondor,7
+187,Kuvasz,7
+188,Leonberger,7
+189,Mastiff,7
+190,Neapolitan Mastiff,7
+191,Newfoundland,7
+192,Portuguese Water Dog,7
+193,Rottweiler,7
+194,Saint Bernard,7
+195,Samoyed,7
+196,Siberian Husky,7
+197,Standard Schnauzer,7
+198,Tibetan Mastiff,7
