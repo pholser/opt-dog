@@ -62,137 +62,147 @@
 62,Treeing Walker Coonhound,2
 63,Whippet,2
 64,Affenpinscher,3
-65,Brussels Griffon,3
-66,Cavalier King Charles Spaniel,3
-67,Chihuahua,3
-68,Chinese Crested,3
-69,English Toy Spaniel,3
-70,Havanese,3
-71,Italian Greyhound,3
-72,Japanese Chin,3
-73,Maltese,3
-74,Manchester Terrier,3
-75,Miniature Pinscher,3
-76,Papillon,3
-77,Pekingese,3
-78,Pomeranian,3
-79,Poodle (Toy),3
-80,Pug,3
-81,Shih Tzu,3
-82,Silky Terrier,3
-83,Toy Fox Terrier,3
-84,Yorkshire Terrier,3
-85,American Eskimo Dog,4
-86,Bichon Frise,4
-87,Boston Terrier,4
-88,Bulldog,4
-89,Chinese Shar-Pei,4
-90,Chow Chow,4
-91,Coton De Tulear,4
-92,Dalmatian,4
-93,Finnish Spitz,4
-94,French Bulldog,4
-95,Keeshond,4
-96,Lhasa Apso,4
-97,Lowchen,4
-98,Norwegian Lundhund,4
-99,Poodle,4
-100,Schipperke,4
-101,Shiba Inu,4
-102,Tibetan Spaniel,4
-103,Tibetan Terrier,4
-104,Xoloitzcuintli,4
-105,American Water Spaniel,5
-106,Barbet,5
-107,Boykin Spaniel,5
-108,Brittany,5
-109,Chesapeake Bay Retriever,5
-110,Clumber Spaniel,5
-111,Cocker Spaniel,5
-112,Curly-Coated Retriever,5
-113,English Cocker Spaniel,5
-114,English Setter,5
-115,English Springer Spaniel,5
-116,Field Spaniel,5
-117,Flat-Coated Retriever,5
-118,German Shorthaired Pointer,5
-119,German Wirehaired Pointer,5
-120,Golden Retriever,5
-121,Gordon Setter,5
-122,Irish Red and White Setter,5
-123,Irish Setter,5
-124,Irish Water Spaniel,5
-125,Labrador Retriever,5
-126,Lagotto Romagnolo,5
-127,Nederlandse Kooikerhondje,5
-128,Nova Scotia Duck Tolling Retriever,5
-129,Pointer,5
-130,Spinone Italiano,5
-131,Sussex Spaniel,5
-132,Vizsla,5
-133,Weimaraner,5
-134,Welsh Springer Spaniel,5
-135,Wirehaired Pointing Griffon,5
-136,Wirehaired Vizsla,5
-137,Airedale Terrier,6
-138,American Hairless Terrier,6
-139,American Staffordshire Terrier,6
-140,Australian Terrier,6
-141,Bedlington Terrier,6
-142,Border Terrier,6
-143,Bull Terrier,6
-144,Cairn Terrier,6
-145,Cesky Terrier,6
-146,Dandie Dinmont Terrier,6
-147,Glen of Imaal Terrier,6
-148,Irish Terrier,6
-149,Kerry Blue Terrier,6
-150,Lakeland Terrier,6
-151,Manchester Terrier,6
-152,Miniature Bull Terrier,6
-153,Miniature Schnauzer,6
-154,Norfolk Terrier,6
-155,Norwich Terrier,6
-156,Parson Russell Terrier,6
-157,Rat Terrier,6
-158,Russell Terrier,6
-159,Scottish Terrier,6
-160,Sealyham Terrier,6
-161,Skye Terrier,6
-162,Smooth Fox Terrier,6
-163,Soft Coated Wheaten Terrier,6
-164,Staffordshire Bull Terrier,6
-165,Welsh Terrier,6
-166,West Highland White Terrier,6
-167,Wire Fox Terrier,6
-168,Akita,7
-169,Alaskan Malamute,7
-170,Anatolian Shepherd Dog,7
-171,Bernese Mountain Dog,7
-172,Black Russian Terrier,7
-173,Boerboel,7
-174,Boxer,7
-175,Bullmastiff,7
-176,Cane Corso,7
-177,Chinook,7
-178,Doberman Pinscher,7
-179,Dogo Argentino,7
-180,Dogue de Bordeaux,7
-181,German Pinscher,7
-182,Giant Schnauzer,7
-183,Great Dane,7
-184,Great Pyrenees,7
-185,Greater Swiss Mountain Dog,7
-186,Komondor,7
-187,Kuvasz,7
-188,Leonberger,7
-189,Mastiff,7
-190,Neapolitan Mastiff,7
-191,Newfoundland,7
-192,Portuguese Water Dog,7
-193,Rottweiler,7
-194,Saint Bernard,7
-195,Samoyed,7
-196,Siberian Husky,7
-197,Standard Schnauzer,7
-198,Tibetan Mastiff,7
+65,Biewer Terrier,3
+66,Brussels Griffon,3
+67,Cavalier King Charles Spaniel,3
+68,Chihuahua,3
+69,Chinese Crested,3
+70,English Toy Spaniel,3
+71,Havanese,3
+72,Italian Greyhound,3
+73,Japanese Chin,3
+74,Maltese,3
+75,Manchester Terrier,3
+76,Miniature Pinscher,3
+77,Papillon,3
+78,Pekingese,3
+79,Pomeranian,3
+80,Poodle (Toy),3
+81,Pug,3
+82,Shih Tzu,3
+83,Silky Terrier,3
+84,Toy Fox Terrier,3
+85,Yorkshire Terrier,3
+86,American Eskimo Dog,4
+87,Bichon Frise,4
+88,Boston Terrier,4
+89,Bulldog,4
+90,Chinese Shar-Pei,4
+91,Chow Chow,4
+92,Coton De Tulear,4
+93,Dalmatian,4
+94,Finnish Spitz,4
+95,French Bulldog,4
+96,Keeshond,4
+97,Lhasa Apso,4
+98,Lowchen,4
+99,Norwegian Lundhund,4
+100,Poodle,4
+101,Schipperke,4
+102,Shiba Inu,4
+103,Tibetan Spaniel,4
+104,Tibetan Terrier,4
+105,Xoloitzcuintli,4
+106,American Water Spaniel,5
+107,Barbet,5
+108,Boykin Spaniel,5
+109,Brittany,5
+110,Chesapeake Bay Retriever,5
+111,Clumber Spaniel,5
+112,Cocker Spaniel,5
+113,Curly-Coated Retriever,5
+114,English Cocker Spaniel,5
+115,English Setter,5
+116,English Springer Spaniel,5
+117,Field Spaniel,5
+118,Flat-Coated Retriever,5
+119,German Shorthaired Pointer,5
+120,German Wirehaired Pointer,5
+121,Golden Retriever,5
+122,Gordon Setter,5
+123,Irish Red and White Setter,5
+124,Irish Setter,5
+125,Irish Water Spaniel,5
+126,Labrador Retriever,5
+127,Lagotto Romagnolo,5
+128,Nederlandse Kooikerhondje,5
+129,Nova Scotia Duck Tolling Retriever,5
+130,Pointer,5
+131,Spinone Italiano,5
+132,Sussex Spaniel,5
+133,Vizsla,5
+134,Weimaraner,5
+135,Welsh Springer Spaniel,5
+136,Wirehaired Pointing Griffon,5
+137,Wirehaired Vizsla,5
+138,Airedale Terrier,6
+139,American Hairless Terrier,6
+140,American Staffordshire Terrier,6
+141,Australian Terrier,6
+142,Bedlington Terrier,6
+143,Border Terrier,6
+144,Bull Terrier,6
+145,Cairn Terrier,6
+146,Cesky Terrier,6
+147,Dandie Dinmont Terrier,6
+148,Glen of Imaal Terrier,6
+149,Irish Terrier,6
+150,Kerry Blue Terrier,6
+151,Lakeland Terrier,6
+152,Manchester Terrier,6
+153,Miniature Bull Terrier,6
+154,Miniature Schnauzer,6
+155,Norfolk Terrier,6
+156,Norwich Terrier,6
+157,Parson Russell Terrier,6
+158,Rat Terrier,6
+159,Russell Terrier,6
+160,Scottish Terrier,6
+161,Sealyham Terrier,6
+162,Skye Terrier,6
+163,Smooth Fox Terrier,6
+164,Soft Coated Wheaten Terrier,6
+165,Staffordshire Bull Terrier,6
+166,Welsh Terrier,6
+167,West Highland White Terrier,6
+168,Wire Fox Terrier,6
+169,Akita,7
+170,Alaskan Malamute,7
+171,Anatolian Shepherd Dog,7
+172,Bernese Mountain Dog,7
+173,Black Russian Terrier,7
+174,Boerboel,7
+175,Boxer,7
+176,Bullmastiff,7
+177,Cane Corso,7
+178,Chinook,7
+179,Doberman Pinscher,7
+180,Dogo Argentino,7
+181,Dogue de Bordeaux,7
+182,German Pinscher,7
+183,Giant Schnauzer,7
+184,Great Dane,7
+185,Great Pyrenees,7
+186,Greater Swiss Mountain Dog,7
+187,Komondor,7
+188,Kuvasz,7
+189,Leonberger,7
+190,Mastiff,7
+191,Neapolitan Mastiff,7
+192,Newfoundland,7
+193,Portuguese Water Dog,7
+194,Rottweiler,7
+195,Saint Bernard,7
+196,Samoyed,7
+197,Siberian Husky,7
+198,Standard Schnauzer,7
+199,Tibetan Mastiff,7
+200,Bracco Italiano,8
+201,Dutch Shepherd,8
+202,Lancashire Heeler,8
+203,Mudi,8
+204,Norrbottenspets,8
+205,Peruvian Inca Orchid,8
+206,Portuguese Podengo,8
+207,Russian Toy,8
+208,Teddy Roosevelt Terrier,8
