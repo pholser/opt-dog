@@ -472,3 +472,46 @@ breed_count_on_day = [
   |   0,    0,    0,    0,
   |   0,    0,    0,    0,
   |];
+
+number_of_judges = 17;
+
+judge_name = [
+  "Ms Vicki E Allenbrand",
+  "Dr Albert P Bianchi",
+  "Ms Gena Box-Young",
+  "Mr John Constantine-Amodei",
+  "Mr Edmund Dziuk",
+  "Jennie Hynes",
+  "Ms Terri Lyddon",
+  "Mrs Karen S McFarlane",
+  "Mr Ken J Murray",
+  "Mrs Pamela B Peat",
+  "Mr Jeffrey G Pepper",
+  "Mrs Angela Pickett",
+  "Mrs Linda M Riedel",
+  "Ms Yvonne Samuelson",
+  "Mrs Nancy D Simmons",
+  "Mr Joe C Walton",
+  "Mrs Sherry C Webster"
+];
+
+/* what assumptions about day-availability can we make? */
+judge_available_on_day = [
+  |  1,  1,  1,  0,
+  |  0,  1,  1,  1,
+  |  0,  1,  0,  0,
+  |  1,  1,  1,  1,
+  |  0,  0,  0,  1,
+  |  0,  1,  1,  0,
+  |  0,  1,  0,  0,
+  |  1,  0,  0,  0,
+  |  1,  1,  1,  1,
+  |  0,  1,  1,  1,
+  |  1,  1,  0,  0,
+  |  0,  0,  1,  0,
+  |  0,  1,  1,  1,
+  |  0,  1,  0,  0,
+  |  1,  1,  1,  1,
+  |  1,  1,  1,  1,
+  |  1,  0,  0,  0,
+];

@@ -13,6 +13,7 @@ array[BREEDS, DAYS] of int: breed_count_on_day;
 /* How many judges are available for the show */
 int: number_of_judges;
 set of int: JUDGES = 1..number_of_judges;
+array[JUDGES] of string: judge_name;
 
 /* What days of the show the judges are available */
 array[JUDGES, DAYS] of 0..1: judge_available_on_day;
