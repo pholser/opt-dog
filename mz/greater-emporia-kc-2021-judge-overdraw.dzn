@@ -17,7 +17,8 @@ breed_names = [
   "Briard",
   "Canaan Dog",
   "Cardigan Welsh Corgi",
-  "Collie",
+  "Collie (Rough)",
+  "Collie (Smooth)",
   "Entlebucher Mountain Dog",
   "Finnish Lapphund",
   "German Shepherd Dog",
@@ -495,7 +496,119 @@ judge_name = [
   "Mrs Sherry C Webster"
 ];
 
-/* what assumptions about day-availability can we make? */
+/* We don't necessarily have hard info on what days a judge
+   is available. As a proxy, we will say that if a judge has
+   been assigned at least one breed on a given day, then they
+   are available that day; and if not assigned a breed on that
+   day, they aren't considered available for purposes of
+   swapping to resolve overdraws. */
+
+original_judge_assignments_by_breed_and_day = [
+  /* Herding */
+  |  17,  15,  13,   2,
+  |  17,   7,  13,  15,
+  |  17,  15,  13,   2,
+  |  17,   1,  13,   2,
+  |  17,  15,  13,   2,
+  |  17,   1,  13,   2,
+  |  17,  15,  13,   2,
+  |  17,  15,  13,   2,
+  |  17,  15,  13,   2,
+  |  17,  15,  13,   2,
+  |  17,  15,  13,   2,
+  |  17,  15,  13,   2,
+  |  17,  15,  13,   2,
+  |  17,  15,  13,   2,
+  |  17,  15,  13,   2,
+  |  17,  14,  13,  15,
+  |  17,  14,  13,  15,
+  |  17,  15,  13,   2,
+  |  17,  15,  13,   2,
+  |  17,  15,  13,   2,
+  |  17,  15,  13,   2,
+  |  17,  15,  13,   2,
+  |  17,   1,  13,   2,
+  |  17,  15,  13,   2,
+  |  17,   1,  13,   2,
+  |  17,   1,  13,   2,
+  |  17,  15,  13,   2,
+  |  17,  15,  13,   2,
+  |  17,   1,  13,   2,
+  |  17,  14,  13,   2,
+  |  17,  15,  13,   2,
+  |  17,   1,  13,   2,
+
+  /* Hound */
+  |  11,  13,  16,   2,
+  |  11,  13,  16,   5,
+  |  11,  13,  16,   5,
+  |  11,  13,  12,   5,
+  |  11,  13,  12,   5,
+  |  11,  13,  12,   5,
+  |  11,   6,  16,  13,
+  |  11,   6,  16,  13,
+  |  11,  13,  16,   5,
+  |  11,  13,  12,   5,
+  |  11,  13,  12,   5,
+  |  11,  13,  16,   5,
+  |  11,  13,  12,   5,
+  |  11,  13,  12,  16,
+  |  11,  13,  12,  16,
+  |  11,  13,  12,   5,
+  |  11,  13,  16,   5,
+  |  11,  13,  16,   5,
+  |  11,  13,  16,   5,
+  |  11,  13,  16,   5,
+  |  11,  13,  16,   5,
+  |  11,  13,  16,   5,
+  |  11,  13,  16,   5,
+  |  11,  13,  12,   5,
+  |  11,  13,  16,   5,
+  |  11,  13,  16,   5,
+  |  11,  13,  16,   5,
+  |  11,  13,  16,   5,
+  |  11,  13,  16,   5,
+  |  11,   9,  16,  13,
+  |  11,   2,  16,   5,
+  |  11,  13,  16,   5,
+  |  11,  13,  16,   5,
+  |  11,  13,  12,   5,
+  |  11,   2,  16,   5,
+
+  /* Toy */
+  "Affenpinscher",
+  "Biewer Terrier",
+  "Brussels Griffon",
+  "Cavalier King Charles Spaniel",
+  "Chihuahua (Long-Haired)",
+  "Chihuahua (Smooth)",
+  "Chinese Crested",
+  "English Toy Spaniel (B&PC)",
+  "English Toy Spaniel (R&KC)",
+  "Havanese",
+  "Italian Greyhound",
+  "Japanese Chin",
+  "Maltese",
+  "Manchester Terrier (Toy)",
+  "Miniature Pinscher",
+  "Papillon",
+  "Pekingese",
+  "Pomeranian",
+  "Poodle (Toy)",
+  "Pug",
+  "Shih Tzu",
+  "Silky Terrier",
+  "Toy Fox Terrier",
+  "Yorkshire Terrier",
+];
+
+available_judges_by_day = [
+  {  1,  4,  8,  9, 11, 15, 16, 17 },
+  {  1,  2,  3,  4,  6,  7,  9, 10, 11, 13, 14, 15, 16 },
+  {  1,  2,  4,  6,  9, 10, 12, 13, 15, 16 },
+  {  2,  4,  5,  9, 10, 13, 15, 16 } 
+];
+
 judge_available_on_day = [
   |  1,  1,  1,  0,
   |  0,  1,  1,  1,
