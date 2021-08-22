@@ -1,6 +1,6 @@
-number_of_breeds = 217;
+number_of_breeds = 219;
 
-breed_names = [
+breed_name = [
   /* Herding */
   "Australian Cattle Dog",
   "Australian Shepherd",
@@ -49,9 +49,9 @@ breed_names = [
   "Bluetick Coonhound",
   "Borzoi",
   "Cirneco Dell’Etna",
-  "Dachshund (Long-Haired)"
-  "Dachshund (Smooth)"
-  "Dachshund (Wire-Haired)"
+  "Dachshund (Long-Haired)",
+  "Dachshund (Smooth)",
+  "Dachshund (Wire-Haired)",
   "English Foxhound",
   "Grand Basset Griffon Vendeen",
   "Greyhound",
@@ -234,14 +234,14 @@ breed_names = [
   "Portuguese Podengo",
   "Russian Toy",
   "Small Munsterlander",
-  "Teddy Roosevelt Terrier",
+  "Teddy Roosevelt Terrier"
 ];
 
 number_of_days = 4;
 
-breed_count_on_day = [
+breed_count_on_day = [|
   /* Herding */
-  |   6,   10,   10,   10,
+      6,   10,   10,   10,
   |  23,   23,   24,   23,
   |   1,    1,    1,    1,
   |   0,    0,    1,    1,
@@ -346,7 +346,7 @@ breed_count_on_day = [
   |   0,    0,    0,    0,
   |   2,    2,    2,    2,
   |   4,    5,    7,    6,
-  |   0.    1,    1,    1,
+  |   0,    1,    1,    1,
   |  23,   28,   28,   29,
   |   4,    8,    8,    8,
   |   4,    5,    5,    4,
@@ -505,9 +505,9 @@ judge_name = [
    day, they aren't considered available for purposes of
    swapping to resolve overdraws. */
 
-original_judge_assignments_by_breed_and_day = [
+original_judge_assignments_by_breed_and_day = [|
   /* Herding */
-  |  17,  15,  13,   2,
+     17,  15,  13,   2,
   |  17,   7,  13,  15,
   |  17,  15,  13,   2,
   |  17,   1,  13,   2,
@@ -740,4 +740,24 @@ original_judge_assignments_by_breed_and_day = [
   |  1,   10,  12,  15,
   |  1,   10,  12,  15,
   |  1,   10,  12,  15,
-];
+  |];
+
+max_dogs_for_judge_on_day = [|
+    175, 175, 175, 175,
+  | 175, 175, 175, 175,
+  | 175, 175, 175, 175,
+  | 175, 175, 175, 175,
+  | 175, 175, 175, 175,
+  | 175, 175, 175, 175,
+  | 175, 175, 175, 175,
+  | 175, 175, 175, 175,
+  | 175, 175, 175, 175,
+  | 175, 175, 175, 175,
+  | 175, 175, 175, 175,
+  | 175, 175, 175, 175,
+  | 175, 175, 175, 175,
+  | 175, 175, 175, 175,
+  | 175, 175, 175, 175,
+  | 175, 175, 175, 175,
+  | 175, 175, 175, 175,
+  |];

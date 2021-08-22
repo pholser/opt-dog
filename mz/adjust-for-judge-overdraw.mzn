@@ -19,11 +19,12 @@ array[JUDGES] of string: judge_name;
 array[BREEDS, DAYS] of JUDGES: original_judge_assignments_by_breed_and_day;
 
 /* What breeds are judges authorized to judge */
-array[JUDGES, BREEDS] of 0..1: judge_can_judge_breed;
+% array[JUDGES, BREEDS] of 0..1: judge_can_judge_breed;
 
 /* Upper limit on number of dogs a judge can judge on any given day */
 array[JUDGES, DAYS] of int: max_dogs_for_judge_on_day;
 
+solve satisfy;
 
 /* =========== */
 /* Data sanity */
