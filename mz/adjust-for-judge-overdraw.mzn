@@ -24,6 +24,14 @@ array[BREEDS, DAYS] of JUDGES: original_judge_assignments_by_breed_and_day;
 /* Upper limit on number of dogs a judge can judge on any given day */
 array[JUDGES, DAYS] of int: max_dogs_for_judge_on_day;
 
+
+array[BREEDS, DAYS] of var JUDGES: adjusted_judge_assignments_by_breed_and_day;
+constraint forall (b in BREEDS, d in DAYS) (
+  adjusted_judge_assignments_by_breed_and_day[b, d]
+  ==
+  original_judge_assignments_by_breed_and_day[b, d]
+);
+
 solve satisfy;
 
 /* =========== */
@@ -43,4 +51,18 @@ solve satisfy;
    on each day is okay. No need to correct for overdraws. So, first off,
    let us check that there are overdraw conditions before solving for
    no-overdraw. */
+
   
+output([
+  breed_name[b]
+    ++ "\t"
+    ++ concat([
+         judge_name[
+           fix(adjusted_judge_assignments_by_breed_and_day[b, d])
+         ]
+         ++ if d == number_of_days then "\n" else "\t" endif
+         | d in DAYS
+       ])
+  | b in BREEDS
+]);
+   
