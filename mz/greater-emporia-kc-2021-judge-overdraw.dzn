@@ -2,75 +2,75 @@ number_of_breeds = 219;
 
 breed_name = [
   /* Herding */
-  "Australian Cattle Dog",
-  "Australian Shepherd",
-  "Bearded Collie",
-  "Beauceron",
-  "Belgian Laekenois",
-  "Belgian Malinois",
-  "Belgian Sheepdog",
-  "Belgian Tervuren",
-  "Bergamasco",
-  "Berger Picard",
-  "Border Collie",
-  "Bouvier des Flandres",
-  "Briard",
-  "Canaan Dog",
-  "Cardigan Welsh Corgi",
-  "Collie (Rough)",
-  "Collie (Smooth)",
-  "Entlebucher Mountain Dog",
-  "Finnish Lapphund",
-  "German Shepherd Dog",
-  "Icelandic Sheepdog",
-  "Miniature American Shepherd",
-  "Norwegian Buhund",
-  "Old English Sheepdog",
-  "Pembroke Welsh Corgi",
-  "Polish Lowland Sheepdog",
-  "Puli",
-  "Pumi",
-  "Pyrenean Shepherd",
-  "Shetland Sheepdog",
-  "Spanish Water Dog",
-  "Swedish Vallhund",
+/* 1 */  "Australian Cattle Dog",
+/* 2 */  "Australian Shepherd",
+/* 3 */  "Bearded Collie",
+/* 4 */  "Beauceron",
+/* 5 */  "Belgian Laekenois",
+/* 6 */  "Belgian Malinois",
+/* 7 */  "Belgian Sheepdog",
+/* 8 */  "Belgian Tervuren",
+/* 9 */  "Bergamasco",
+/* 10 */  "Berger Picard",
+/* 11 */  "Border Collie",
+/* 12 */  "Bouvier des Flandres",
+/* 13 */  "Briard",
+/* 14 */  "Canaan Dog",
+/* 15 */  "Cardigan Welsh Corgi",
+/* 16 */  "Collie (Rough)",
+/* 17 */  "Collie (Smooth)",
+/* 18 */  "Entlebucher Mountain Dog",
+/* 19 */  "Finnish Lapphund",
+/* 20 */  "German Shepherd Dog",
+/* 21 */  "Icelandic Sheepdog",
+/* 22 */  "Miniature American Shepherd",
+/* 23 */  "Norwegian Buhund",
+/* 24 */  "Old English Sheepdog",
+/* 25 */  "Pembroke Welsh Corgi",
+/* 26 */  "Polish Lowland Sheepdog",
+/* 27 */  "Puli",
+/* 28 */  "Pumi",
+/* 29 */  "Pyrenean Shepherd",
+/* 30 */  "Shetland Sheepdog",
+/* 31 */  "Spanish Water Dog",
+/* 32 */  "Swedish Vallhund",
 
   /* Hound */
-  "Afghan Hound",
-  "American English Coonhound",
-  "American Foxhound",
-  "Azawakh",
-  "Basenji",
-  "Basset Hound",
-  "Beagle (13-inch)",
-  "Beagle (15-inch)",
-  "Black and Tan Coonhound",
-  "Bloodhound",
-  "Bluetick Coonhound",
-  "Borzoi",
-  "Cirneco Dell’Etna",
-  "Dachshund (Long-Haired)",
-  "Dachshund (Smooth)",
-  "Dachshund (Wire-Haired)",
-  "English Foxhound",
-  "Grand Basset Griffon Vendeen",
-  "Greyhound",
-  "Harrier",
-  "Ibizan Hound",
-  "Irish Wolfhound",
-  "Norwegian Elkhound",
-  "Otterhound",
-  "Petit Basset Griffon Vendeen",
-  "Pharaoh Hound",
-  "Plott Hound",
-  "Portuguese Podengo Pequeno",
-  "Redbone Coonhound",
-  "Rhodesian Ridgeback",
-  "Saluki",
-  "Scottish Deerhound",
-  "Sloughi",
-  "Treeing Walker Coonhound",
-  "Whippet",
+/* 33 */  "Afghan Hound",
+/* 34 */  "American English Coonhound",
+/* 35 */  "American Foxhound",
+/* 36 */  "Azawakh",
+/* 37 */  "Basenji",
+/* 38 */  "Basset Hound",
+/* 39 */  "Beagle (13-inch)",
+/* 40 */  "Beagle (15-inch)",
+/* 41 */  "Black and Tan Coonhound",
+/* 42 */  "Bloodhound",
+/* 43 */  "Bluetick Coonhound",
+/* 44 */  "Borzoi",
+/* 45 */  "Cirneco Dell’Etna",
+/* 46 */  "Dachshund (Long-Haired)",
+/* 47 */  "Dachshund (Smooth)",
+/* 48 */  "Dachshund (Wire-Haired)",
+/* 49 */  "English Foxhound",
+/* 50 */  "Grand Basset Griffon Vendeen",
+/* 51 */  "Greyhound",
+/* 52 */  "Harrier",
+/* 53 */  "Ibizan Hound",
+/* 54 */  "Irish Wolfhound",
+/* 55 */  "Norwegian Elkhound",
+/* 56 */  "Otterhound",
+/* 57 */  "Petit Basset Griffon Vendeen",
+/* 58 */  "Pharaoh Hound",
+/* 59 */  "Plott Hound",
+/* 60 */  "Portuguese Podengo Pequeno",
+/* 61 */  "Redbone Coonhound",
+/* 62 */  "Rhodesian Ridgeback",
+/* 63 */  "Saluki",
+/* 64 */  "Scottish Deerhound",
+/* 65 */  "Sloughi",
+/* 66 */  "Treeing Walker Coonhound",
+/* 67 */  "Whippet",
 
   /* Toy */
   "Affenpinscher",
@@ -741,6 +741,73 @@ original_judge_assignments_by_breed_and_day = [|
   |  1,   10,  12,  15,
   |  1,   10,  12,  15,
   |];
+
+eligible_breeds_for_judge = [
+  /* Ms Vicki E Allenbrand */
+  { 1, 2, 4, 6, 9, 10, 11, 13,
+   15, 16, 17, 18, 20, 21, 23,
+   25, 26, 28, 29, 30, 31, 32 /* plus misc */ },
+  },
+  /* Dr Albert P Bianchi */
+Brittanys 	Prov/Permit
+Retrievers (Golden) 	Approved
+Retrievers (Labrador) 	Approved
+Afghan Hounds 	Approved
+Basenjis 	Prov/Permit
+Grand Basset Griffon Vendeens 	Prov/Permit
+Greyhounds 	Prov/Permit
+Norwegian Elkhounds 	Approved
+Otterhounds 	Prov/Permit
+Petits Bassets Griffons Vendeens 	Approved
+Portuguese Podengo Pequenos 	Approved
+Rhodesian Ridgebacks 	Approved
+Salukis 	Approved
+Whippets 	Approved
+Working Group 	Approved
+Manchester Terriers (Standard) 	Approved
+Miniature Schnauzers 	Approved
+Manchester Terriers 	Approved
+Toy Group 	Prov/Permit
+Affenpinschers 	Prov/Permit
+Biewer Terriers 	Prov/Permit
+Brussels Griffons 	Prov/Permit
+Cavalier King Charles Spaniels 	Approved
+Chihuahuas 	Approved
+Chinese Crested 	Approved
+English Toy Spaniels 	Prov/Permit
+Havanese 	Approved
+Italian Greyhounds 	Approved
+Japanese Chin 	Prov/Permit
+Maltese 	Approved
+Manchester Terriers (Toy) 	Approved
+Miniature Pinschers 	Approved
+Papillons 	Approved
+Pekingese 	Prov/Permit
+Pomeranians 	Approved
+Poodles (Toy) 	Approved
+Pugs 	Approved
+Russian Toys 	Prov/Permit
+Shih Tzu 	Prov/Permit
+Silky Terriers 	Prov/Permit
+Toy Fox Terriers 	Prov/Permit
+Yorkshire Terriers 	Prov/Permit
+];
+
+  "Ms Gena Box-Young",
+  "Mr John Constantine-Amodei",
+  "Mr Edmund Dziuk",
+  "Jennie Hynes",
+  "Ms Terri Lyddon",
+  "Mrs Karen S McFarlane",
+  "Mr Ken J Murray",
+  "Mrs Pamela B Peat",
+  "Mr Jeffrey G Pepper",
+  "Mrs Angela Pickett",
+  "Mrs Linda M Riedel",
+  "Ms Yvonne Samuelson",
+  "Mrs Nancy D Simmons",
+  "Mr Joe C Walton",
+  "Mrs Sherry C Webster",
 
 max_dogs_for_judge_on_day = [|
     175, 175, 175, 175,

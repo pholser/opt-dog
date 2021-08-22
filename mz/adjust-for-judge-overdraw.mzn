@@ -19,7 +19,7 @@ array[JUDGES] of string: judge_name;
 array[BREEDS, DAYS] of JUDGES: original_judge_assignments_by_breed_and_day;
 
 /* What breeds are judges authorized to judge */
-% array[JUDGES, BREEDS] of 0..1: judge_can_judge_breed;
+array[JUDGES] of set of BREEDS: eligible_breeds_for_judge;
 
 /* Upper limit on number of dogs a judge can judge on any given day */
 array[JUDGES, DAYS] of int: max_dogs_for_judge_on_day;
@@ -41,7 +41,7 @@ solve satisfy;
 /* If a judge is not available on a given day, then they are assigned
    to judge no breeds on that day. */
 
-/* Every breed on every day has exactly one judgee assigned. */
+/* Every breed on every day has exactly one judge assigned. */
 
 /* The judge assigned to judge a given breed on a given day
    is authorized to judge that breed. */
