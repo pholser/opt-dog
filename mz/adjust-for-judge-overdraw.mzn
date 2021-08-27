@@ -18,7 +18,25 @@ array[JUDGES] of string: judge_name;
 /* Judge assignments to breeds on each day */
 array[BREEDS, DAYS] of JUDGES: original_judge_assignments_by_breed_and_day;
 
+/* Whether a judge is available to judge on a given day */
+array[JUDGES, DAYS] of 0..1: judge_available_on_day;
+
 /* What breeds are judges authorized to judge */
+/* NOTE: When we source this data from the AKC or wherever,
+   note that:
+   (1) Sometimes a judge will have listed, e.g. "Hound Group"
+       but no specific hounds listed. Assume that judge can judge
+       all breeds in that group.
+   (2) Sometimes a judge will have listed, e.g. "Terrier Group"
+       and specific terrier breeds listed. Assume that judge can
+       judge only those breeds of that group listed.
+   (3) Sometimes a judge will have listed, e.g. "Poodles" or
+       "Manchester Terriers". Assume that judge can judge all
+       varieties of that breed, regardless of what group the
+       variety falls under.
+   These are problems to reconcile when sourcing data, not
+   in the model per se.
+*/
 array[JUDGES] of set of BREEDS: eligible_breeds_for_judge;
 
 /* Upper limit on number of dogs a judge can judge on any given day */
@@ -40,9 +58,29 @@ solve satisfy;
 
 /* If a judge is not available on a given day, then they are assigned
    to judge no breeds on that day. */
-
-/* Every breed on every day has exactly one judge assigned. */
-
+constraint
+  forall (j in JUDGES, d in DAYS) (
+    assert(
+      judge_available_on_day[j, d]
+      ==
+      bool2int(
+        sum (b in BREEDS) (
+          bool2int(
+            original_judge_assignments_by_breed_and_day[b, d]
+            ==
+            j
+          )
+        )
+        > 0
+      ),
+      "Judge " ++ judge_name[j] ++ " is not available on day " ++ show(d)
+        ++ " but was originally assigned to judge these breeds on that day: "
+        ++ show([ if original_judge_assignments_by_breed_and_day[b, d] == j
+                  then breed_name[b] ++ " "
+                  else ""
+                  endif | b in BREEDS ])
+    )
+  );
 /* The judge assigned to judge a given breed on a given day
    is authorized to judge that breed. */
 
