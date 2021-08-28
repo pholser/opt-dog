@@ -62,17 +62,17 @@ constraint
   forall (j in JUDGES, d in DAYS) (
     assert(
       judge_available_on_day[j, d]
-      >=
-      bool2int(
-        sum (b in BREEDS) (
-          bool2int(
-            original_judge_assignments_by_breed_and_day[b, d]
-            ==
-            j
+        >=
+        bool2int(
+          sum (b in BREEDS) (
+            bool2int(
+              original_judge_assignments_by_breed_and_day[b, d]
+              ==
+              j
+            )
           )
-        )
-        > 0
-      ),
+          > 0
+        ),
       "Judge " ++ judge_name[j] ++ " is not available on day " ++ show(d)
         ++ " but was originally assigned to judge these breeds on that day: "
         ++ show([ if original_judge_assignments_by_breed_and_day[b, d] == j
@@ -81,8 +81,23 @@ constraint
                   endif | b in BREEDS ])
     )
   );
+
 /* The judge assigned to judge a given breed on a given day
    is authorized to judge that breed. */
+constraint
+  forall (b in BREEDS, d in DAYS) (
+    let { JUDGES: j = original_judge_assignments_by_breed_and_day[b, d] }
+    in
+    assert(
+      b in eligible_breeds_for_judge[j],
+      "Judge " ++ judge_name[j]
+        ++ " is assigned to judge breed " ++ breed_name[b]
+        ++ " on day " ++ show(d)
+        ++ " but is not authorized to judge that breed; the judge is eligible for: "
+        ++ show([ breed_name[b] | b in eligible_breeds_for_judge[j] ])
+
+    )
+  );
 
 /* If no judge on any day is assigned more than their stated maximum
    for that day, we'll assume the current assignment of judges to breeds
