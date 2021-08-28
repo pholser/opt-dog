@@ -62,7 +62,7 @@ constraint
   forall (j in JUDGES, d in DAYS) (
     assert(
       judge_available_on_day[j, d]
-      ==
+      >=
       bool2int(
         sum (b in BREEDS) (
           bool2int(
