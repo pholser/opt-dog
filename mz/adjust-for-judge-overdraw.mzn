@@ -50,7 +50,7 @@ array[JUDGES, DAYS] of int: judge_max_on_day =
       | j in JUDGES, d in DAYS ]
   );
 
-array[JUDGES, DAYS] of int: judge_breed_count_on_day =
+array[JUDGES, DAYS] of int: original_judge_breed_count_on_day =
   array2d(
     JUDGES,
     DAYS,
@@ -62,15 +62,6 @@ array[JUDGES, DAYS] of int: judge_breed_count_on_day =
       | j in JUDGES, d in DAYS ]
   );
 
-
-array[BREEDS, DAYS] of var JUDGES: adjusted_judge_assignments_by_breed_and_day;
-constraint forall (b in BREEDS, d in DAYS) (
-  adjusted_judge_assignments_by_breed_and_day[b, d]
-  ==
-  original_judge_assignments_by_breed_and_day[b, d]
-);
-
-solve satisfy;
 
 /* =========== */
 /* Data sanity */
@@ -100,15 +91,92 @@ constraint
 constraint
   assert(
     sum (j in JUDGES, d in DAYS) (
-      judge_breed_count_on_day[j, d] >= judge_max_on_day[j, d] + 1
+      original_judge_breed_count_on_day[j, d] >= judge_max_on_day[j, d] + 1
     )
     >=
     1,
     "No judges are overdrawn on any of the show days"
   );
-    
-output([
-  breed_name[b]
+
+
+/* ========= */
+/* Decisions */
+/* ========= */
+
+array[BREEDS, DAYS] of var JUDGES: adjusted_judge_assignments_by_breed_and_day;
+
+array[JUDGES, DAYS] of var int: adjusted_judge_breed_count_on_day =
+  array2d(
+    JUDGES,
+    DAYS,
+    [ sum (b in BREEDS) (
+        (adjusted_judge_assignments_by_breed_and_day[b, d] == j)
+        *
+        breed_count_on_day[b, d]
+      )
+      | j in JUDGES, d in DAYS ]
+  );
+
+solve satisfy;
+
+
+/* =========== */
+/* Constraints */
+/* =========== */
+
+/* No judge should be overdrawn on any given day. */
+constraint
+  forall (j in JUDGES, d in DAYS) (
+    adjusted_judge_breed_count_on_day[j, d] <= judge_max_on_day[j, d]
+  );
+
+
+/*
+constraint forall (b in BREEDS, d in DAYS) (
+  adjusted_judge_assignments_by_breed_and_day[b, d]
+  ==
+  original_judge_assignments_by_breed_and_day[b, d]
+);
+*/
+
+
+/* ====== */
+/* Output */
+/* ====== */
+
+output(
+  ["Original breed assignments:",
+   "\n"]
+  ++
+  [breed_name[b]
+    ++ "\t"
+    ++ concat([
+         judge_name[original_judge_assignments_by_breed_and_day[b, d]]
+         ++ if d == number_of_days then "\n" else "\t" endif
+         | d in DAYS
+       ])
+  | b in BREEDS]
+);
+
+output(
+  ["Original judge counts:",
+   "\n"]
+  ++
+  [judge_name[j]
+    ++ "\t"
+    ++ concat([
+      show(original_judge_breed_count_on_day[j, d])
+        ++ if d == number_of_days then "\n" else "\t" endif
+      | d in DAYS
+    ])
+    | j in JUDGES]
+);
+
+output(
+  ["Adjusted breed assignments:",
+   "\n"]
+  ++
+  [breed_name[b]
     ++ "\t"
     ++ concat([
          judge_name[
@@ -117,16 +185,19 @@ output([
          ++ if d == number_of_days then "\n" else "\t" endif
          | d in DAYS
        ])
-  | b in BREEDS
-]);
+  | b in BREEDS]
+);
 
-output([
-  judge_name[j]
+output(
+  ["Adjusted judge counts:",
+   "\n"]
+  ++
+  [judge_name[j]
     ++ "\t"
     ++ concat([
-      show(judge_breed_count_on_day[j, d])
+      show(fix(adjusted_judge_breed_count_on_day[j, d]))
         ++ if d == number_of_days then "\n" else "\t" endif
       | d in DAYS
     ])
-  | j in JUDGES
-]);
+    | j in JUDGES]
+);
