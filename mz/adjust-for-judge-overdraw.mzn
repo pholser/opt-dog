@@ -40,7 +40,27 @@ array[JUDGES, DAYS] of 0..1: judge_available_on_day;
 array[JUDGES] of set of BREEDS: eligible_breeds_for_judge;
 
 /* Upper limit on number of dogs a judge can judge on any given day */
-array[JUDGES, DAYS] of int: max_dogs_for_judge_on_day;
+array[JUDGES, DAYS] of int: upper_limit_dogs_for_judge_on_day;
+
+array[JUDGES, DAYS] of int: judge_max_on_day =
+  array2d(
+    JUDGES,
+    DAYS,
+    [ judge_available_on_day[j, d] * upper_limit_dogs_for_judge_on_day[j, d]
+      | j in JUDGES, d in DAYS ]
+  );
+
+array[JUDGES, DAYS] of int: judge_breed_count_on_day =
+  array2d(
+    JUDGES,
+    DAYS,
+    [ sum (b in BREEDS) (
+        (original_judge_assignments_by_breed_and_day[b, d] == j)
+        *
+        breed_count_on_day[b, d]
+      )
+      | j in JUDGES, d in DAYS ]
+  );
 
 
 array[BREEDS, DAYS] of var JUDGES: adjusted_judge_assignments_by_breed_and_day;
@@ -56,32 +76,6 @@ solve satisfy;
 /* Data sanity */
 /* =========== */
 
-/* If a judge is not available on a given day, then they are assigned
-   to judge no breeds on that day. */
-constraint
-  forall (j in JUDGES, d in DAYS) (
-    assert(
-      judge_available_on_day[j, d]
-        >=
-        bool2int(
-          sum (b in BREEDS) (
-            bool2int(
-              original_judge_assignments_by_breed_and_day[b, d]
-              ==
-              j
-            )
-          )
-          > 0
-        ),
-      "Judge " ++ judge_name[j] ++ " is not available on day " ++ show(d)
-        ++ " but was originally assigned to judge these breeds on that day: "
-        ++ show([ if original_judge_assignments_by_breed_and_day[b, d] == j
-                  then breed_name[b] ++ " "
-                  else ""
-                  endif | b in BREEDS ])
-    )
-  );
-
 /* The judge assigned to judge a given breed on a given day
    is authorized to judge that breed. */
 constraint
@@ -94,8 +88,7 @@ constraint
         ++ " is assigned to judge breed " ++ breed_name[b]
         ++ " on day " ++ show(d)
         ++ " but is not authorized to judge that breed; the judge is eligible for: "
-        ++ show([ breed_name[b] | b in eligible_breeds_for_judge[j] ])
-
+        ++ show([ breed_name[br] | br in eligible_breeds_for_judge[j] ])
     )
   );
 
@@ -104,8 +97,16 @@ constraint
    on each day is okay. No need to correct for overdraws. So, first off,
    let us check that there are overdraw conditions before solving for
    no-overdraw. */
-
-  
+constraint
+  assert(
+    sum (j in JUDGES, d in DAYS) (
+      judge_breed_count_on_day[j, d] >= judge_max_on_day[j, d] + 1
+    )
+    >=
+    1,
+    "No judges are overdrawn on any of the show days"
+  );
+    
 output([
   breed_name[b]
     ++ "\t"
@@ -118,4 +119,14 @@ output([
        ])
   | b in BREEDS
 ]);
-   
+
+output([
+  judge_name[j]
+    ++ "\t"
+    ++ concat([
+      show(judge_breed_count_on_day[j, d])
+        ++ if d == number_of_days then "\n" else "\t" endif
+      | d in DAYS
+    ])
+  | j in JUDGES
+]);
