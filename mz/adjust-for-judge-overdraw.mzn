@@ -98,6 +98,8 @@ constraint
     "No judges are overdrawn on any of the show days"
   );
 
+/* No judge may be assigned to judge the same breed on different days. */
+
 
 /* ========= */
 /* Decisions */
@@ -117,7 +119,18 @@ array[JUDGES, DAYS] of var int: adjusted_judge_breed_count_on_day =
       | j in JUDGES, d in DAYS ]
   );
 
-solve satisfy;
+
+/* ========= */
+/* Objective */
+/* ========= */
+
+var int: obj =
+  sum (b in BREEDS, d in DAYS) (
+    original_judge_assignments_by_breed_and_day[b, d]
+    !=
+    adjusted_judge_assignments_by_breed_and_day[b, d]
+  );
+solve minimize obj;
 
 
 /* =========== */
@@ -129,6 +142,8 @@ constraint
   forall (j in JUDGES, d in DAYS) (
     adjusted_judge_breed_count_on_day[j, d] <= judge_max_on_day[j, d]
   );
+
+/* No judge may be assigned to judge the same breed on different days. */
 
 
 /*
@@ -200,4 +215,15 @@ output(
       | d in DAYS
     ])
     | j in JUDGES]
+  ++
+  ["obj = \(obj)\n"]
+  ++
+  [if original_judge_assignments_by_breed_and_day[b, d]
+     != fix(adjusted_judge_assignments_by_breed_and_day[b, d])
+     then ("Replace \(judge_name[original_judge_assignments_by_breed_and_day[b, d]])"
+       ++ " with \(judge_name[fix(adjusted_judge_assignments_by_breed_and_day[b, d])])"
+       ++ " in breed \(breed_name[b]) on day \(show(d))\n")
+     else ""
+     endif
+    | b in BREEDS, d in DAYS]
 );
