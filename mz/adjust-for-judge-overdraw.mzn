@@ -99,7 +99,25 @@ constraint
   );
 
 /* No judge may be assigned to judge the same breed on different days. */
-
+constraint
+  forall (j in JUDGES, b in BREEDS) (
+    assert(
+      sum (d in DAYS) (
+        original_judge_assignments_by_breed_and_day[b, d] == j
+      )
+      <=
+      1,
+      "Judge " ++ judge_name[j]
+        ++ " is assigned to judge breed " ++ breed_name[b]
+        ++ " on more than one day: "
+        ++ concat([
+          if original_judge_assignments_by_breed_and_day[b, d] == j
+          then show(d) ++ " "
+          else ""
+          endif
+          | d in DAYS ])
+    )
+  );
 
 /* ========= */
 /* Decisions */
@@ -130,6 +148,17 @@ var int: obj =
     !=
     adjusted_judge_assignments_by_breed_and_day[b, d]
   );
+
+/*
+var int: obj =
+  sum (j in JUDGES, d in DAYS) (
+    abs(
+      adjusted_judge_breed_count_on_day[j, d]
+      !=
+      original_judge_breed_count_on_day[j, d]
+    )
+  );
+*/
 solve minimize obj;
 
 
@@ -144,20 +173,20 @@ constraint
   );
 
 /* No judge may be assigned to judge the same breed on different days. */
-
-
-/*
-constraint forall (b in BREEDS, d in DAYS) (
-  adjusted_judge_assignments_by_breed_and_day[b, d]
-  ==
-  original_judge_assignments_by_breed_and_day[b, d]
-);
-*/
+constraint
+  forall (j in JUDGES, b in BREEDS) (
+    sum (d in DAYS) (
+      original_judge_assignments_by_breed_and_day[b, d] == j
+    )
+    <=
+    1
+  );
 
 
 /* ====== */
 /* Output */
 /* ====== */
+output(["obj = \(obj)\n"]);
 
 output(
   ["Original breed assignments:",
@@ -215,8 +244,6 @@ output(
       | d in DAYS
     ])
     | j in JUDGES]
-  ++
-  ["obj = \(obj)\n"]
   ++
   [if original_judge_assignments_by_breed_and_day[b, d]
      != fix(adjusted_judge_assignments_by_breed_and_day[b, d])
