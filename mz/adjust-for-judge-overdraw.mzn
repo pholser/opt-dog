@@ -147,18 +147,16 @@ var int: obj =
     original_judge_assignments_by_breed_and_day[b, d]
     !=
     adjusted_judge_assignments_by_breed_and_day[b, d]
-  );
-
-/*
-var int: obj =
-  sum (j in JUDGES, d in DAYS) (
-    abs(
+  )
+  +
+  500 * sum (j in JUDGES, d in DAYS) (
+    abs (
       adjusted_judge_breed_count_on_day[j, d]
-      !=
+      -
       original_judge_breed_count_on_day[j, d]
     )
   );
-*/
+  
 solve minimize obj;
 
 
@@ -187,7 +185,7 @@ constraint
 /* Output */
 /* ====== */
 output(["obj = \(obj)\n"]);
-
+/*
 output(
   ["Original breed assignments:",
    "\n"]
@@ -201,7 +199,7 @@ output(
        ])
   | b in BREEDS]
 );
-
+*/
 output(
   ["Original judge counts:",
    "\n"]
@@ -215,7 +213,7 @@ output(
     ])
     | j in JUDGES]
 );
-
+/*
 output(
   ["Adjusted breed assignments:",
    "\n"]
@@ -231,7 +229,7 @@ output(
        ])
   | b in BREEDS]
 );
-
+*/
 output(
   ["Adjusted judge counts:",
    "\n"]
