@@ -143,18 +143,21 @@ array[JUDGES, DAYS] of var int: adjusted_judge_breed_count_on_day =
 /* ========= */
 
 var int: obj =
-  sum (b in BREEDS, d in DAYS) (
-    original_judge_assignments_by_breed_and_day[b, d]
-    !=
-    adjusted_judge_assignments_by_breed_and_day[b, d]
-  )
-  +
-  500 * sum (j in JUDGES, d in DAYS) (
+  /* Penalize solutions with wide variances in adjusted breed counts. */
+  sum (j in JUDGES, d in DAYS) (
     abs (
       adjusted_judge_breed_count_on_day[j, d]
       -
       original_judge_breed_count_on_day[j, d]
     )
+  )
+  /* Favor solutions after that, with more judge adjustments
+     (many small entries vs. one larger) */
+  +
+  sum (b in BREEDS, d in DAYS) (
+    original_judge_assignments_by_breed_and_day[b, d]
+    !=
+    adjusted_judge_assignments_by_breed_and_day[b, d]
   );
   
 solve minimize obj;
@@ -163,6 +166,16 @@ solve minimize obj;
 /* =========== */
 /* Constraints */
 /* =========== */
+
+/* Keep judge assignments for zero-count breeds the same. */
+constraint
+  forall (b in BREEDS, d in DAYS) (
+    (breed_count_on_day[b, d] == 0)
+    ->
+    (adjusted_judge_assignments_by_breed_and_day[b, d]
+      ==
+      original_judge_assignments_by_breed_and_day[b, d])
+  );
 
 /* No judge should be overdrawn on any given day. */
 constraint
