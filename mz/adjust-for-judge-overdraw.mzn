@@ -1,3 +1,7 @@
+/* ========== */
+/* Parameters */
+/* ========== */
+
 /* The breeds that can be conformation-judged */
 int: number_of_breeds;
 set of int: BREEDS = 1..number_of_breeds;
@@ -118,6 +122,7 @@ constraint
           | d in DAYS ])
     )
   );
+
 
 /* ========= */
 /* Decisions */
