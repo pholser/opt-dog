@@ -93,6 +93,10 @@ constraint
       "Need exactly one judge for event \(event_name[e])"
     )
   );
+array[JUDGES] of set of EVENTS: judge_events = [
+  {e | e in EVENTS where event_judge[e, j] == 1}
+    | j in JUDGES
+];
 
 /* What exhibitors are showing what dogs in what events */
 array[DOGS, EVENTS, EXHIBITORS] of 0..1: exhibitor_for_dog_in_event;
@@ -104,3 +108,19 @@ constraint
         ++ " in event \(event_name[e])"
     )
   );
+array[DOGS] of set of EVENTS: dog_events = [
+  {e | e in EVENTS, x in EXHIBITORS
+    where exhibitor_for_dog_in_event[d, e, x] == 1
+  }
+  | d in DOGS
+];
+array[EXHIBITORS] of set of EVENTS: exhibitor_events = [
+  {e | e in EVENTS, d in DOGS
+    where exhibitor_for_dog_in_event[d, e, x] == 1
+  }
+  | x in EXHIBITORS
+];
+
+/* Expected duration of events */
+array[EVENTS] of int: event_duration_classes = [
+];
