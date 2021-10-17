@@ -121,6 +121,23 @@ array[EXHIBITORS] of set of EVENTS: exhibitor_events = [
   | x in EXHIBITORS
 ];
 
-/* Expected duration of events */
-array[EVENTS] of int: event_duration_classes = [
+/* Based on number and type of dog entries, duration of events */
+array[EVENTS] of int: event_duration_class = [
+  minutes_per_dog
+  *
+  sum (d in DOGS, x in EXHIBITORS) (
+    exhibitor_for_dog_in_event[d, e, x]
+  )
+  | e in EVENTS
+];
+array[EVENTS] of int: event_duration_champion = [
+  minutes_per_dog
+  *
+  sum (
+    d in DOGS where dog_akc_status[d] == Champion,
+    x in EXHIBITORS) (
+
+    exhibitor_for_dog_in_event[d, e, x]
+  )
+  | e in EVENTS
 ];
