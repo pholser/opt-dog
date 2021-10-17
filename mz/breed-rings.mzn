@@ -1,3 +1,5 @@
+include "globals.mzn";
+
 /* ========== */
 /* Parameters */
 /* ========== */
@@ -141,3 +143,49 @@ array[EVENTS] of int: event_duration_champion = [
   )
   | e in EVENTS
 ];
+
+
+/* ========= */
+/* Decisions */
+/* ========= */
+
+/* Is event held in a given ring? */
+array[EVENTS, RINGS] of var 0..1: event_held_in_ring;
+
+/* When to start each event */
+array[EVENTS] of var TIME: event_start_time;
+
+
+/* =========== */
+/* Constraints */
+/* =========== */
+
+/* An event is held in exactly one ring */
+constraint
+  forall (e in EVENTS) (
+    sum (r in RINGS) (event_held_in_ring[e, r]) == 1
+  );
+
+/* Use each ring at least once */
+constraint
+  forall (r in RINGS) (
+    sum (e in EVENTS) (event_held_in_ring[e, r]) >= 1
+  );
+
+/* Events scheduled for a ring must not overlap in time */
+constraint
+  forall (r in RINGS) (
+    disjunctive(
+      [event_held_in_ring[e, r] * event_start_time[e] | e in EVENTS],
+      [event_held_in_ring[e, r] * event_duration_class[e] | e in EVENTS]
+    )
+  );
+
+/* The events a judge is set to judge must not overlap in time */
+constraint
+  forall (j in JUDGES) (
+    disjunctive(
+      [event_judge[e, j] * event_start_time[e] | e in EVENTS],
+      [event_judge[e, j] * event_duration_class[e] | e in EVENTS]
+    )
+  );
