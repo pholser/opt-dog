@@ -23,7 +23,7 @@ enum CONFORMATION_PLATFORM = {
   Ramp
 };
 
-/* Types of conformation events */
+/* Types of events */
 enum EVENT_TYPE = {
   BreedJudging,
   GroupBreedJudging,
@@ -34,6 +34,11 @@ enum AKC_STATUS = {
   Class,
   Champion
 };
+
+/**/
+/* TODO -- number/which of multi-booked exhibitors and dogs */
+/**/
+
 
 /* The breeds that can be conformation-judged */
 int: number_of_breeds;
@@ -48,7 +53,7 @@ set of int: EVENTS = 1..number_of_events;
 array[EVENTS] of string: event_name;
 array[EVENTS] of EVENT_TYPE: event_type;
 
-/* The dogs registered */
+/* All dogs that are registered in at least one event */
 int: number_of_dogs;
 set of int: DOGS = 1..number_of_dogs;
 array[DOGS] of BREEDS: dog_breed;
@@ -154,6 +159,51 @@ array[EVENTS, RINGS] of var 0..1: event_held_in_ring;
 
 /* When to start each event */
 array[EVENTS] of var TIME: event_start_time;
+
+
+function var int: dog_event_start_time(DOGS: d, EVENTS: v)
+  =
+  if dog_akc_status[d] == Class
+  then event_start_time[v]
+  else event_start_time[v]
+    + event_duration_class[v]
+    - event_duration_champion[v]
+  endif;
+
+function var int: dog_event_duration(DOGS: d, EVENTS: v)
+  =
+  if dog_akc_status[d] == Class
+  then event_duration_class[v]
+  else event_duration_champion[v]
+  endif;
+
+/* Amount of event overlap for events in different rings */
+array[DOGS, EVENTS, EVENTS] of var int: dog_event_overlap =
+  array3d(
+    DOGS,
+    EVENTS,
+    EVENTS,
+    [ if v1 < v2
+        /\ v1 in dog_events[d]
+        /\ v2 in dog_events[d]
+      then
+        let {
+          var int: start1 = dog_event_start_time(d, v1),
+          var int: start2 = dog_event_start_time(d, v2),
+          var int: end1 = start1 + dog_event_duration(d, v1),
+          var int: end2 = start2 + dog_event_duration(d, v2)
+        }
+        in max(0, min(end1, end2) - max(start1, start2))
+      else 0
+      endif
+      | d in DOGS,
+        v1 in EVENTS,
+        v2 in EVENTS
+    ]);
+var int: total_dog_overlap =
+  sum (d in DOGS, v1 in EVENTS, v2 in EVENTS) (
+    dog_event_overlap[d, v1, v2]
+  );
 
 
 /* =========== */
