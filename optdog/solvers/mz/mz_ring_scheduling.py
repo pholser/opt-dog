@@ -5,6 +5,7 @@ from optdog.domain.conformation_platform import ConformationPlatform
 from optdog.domain.event_type import EventType
 from optdog.domain.group import Group
 from optdog.models.ring_scheduling import RingScheduling
+from optdog.models.ring_scheduling_solution import RingSchedulingSolution
 
 
 class MZRingScheduling(RingScheduling):
@@ -26,7 +27,9 @@ class MZRingScheduling(RingScheduling):
     def solve(self):
         result = self.instance.solve()
         if result.status == Status.OPTIMAL_SOLUTION:
-            pass
+            return MZRingSchedulingSolution(result.solution)
+        
 
 
-class MZRingSchedulingSolution
+class MZRingSchedulingSolution(RingSchedulingSolution):
+    pass
