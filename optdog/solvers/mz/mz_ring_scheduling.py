@@ -26,10 +26,15 @@ class MZRingScheduling(RingScheduling):
 
     def solve(self):
         result = self.instance.solve()
-        if result.status == Status.OPTIMAL_SOLUTION:
-            return MZRingSchedulingSolution(result.solution)
-        
+        if result.status.has_solution():
+            return MZRingSchedulingSolution(result.solution, self.breeds)
+        return None
 
 
 class MZRingSchedulingSolution(RingSchedulingSolution):
-    pass
+    def __init__(self, mz_solution, breeds):
+        super().__init__(breeds)
+        self.mz_solution = mz_solution
+
+    def answer(self):
+        return self.breeds[self.mz_solution.x - 1]
