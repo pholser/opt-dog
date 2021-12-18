@@ -22,5 +22,11 @@ set of int: BREEDS = 1..number_of_breeds;
 array[BREEDS] of GROUP: breed_group;
 array[BREEDS] of CONFORMATION_PLATFORM: breed_conformation_platform;
 
-var BREEDS: x;
-solve maximize x;
+/* The events that are being conformation-judged */
+int: number_of_events;
+set of int: EVENTS = 1..number_of_events;
+array[EVENTS] of EVENT_TYPE: event_type;
+
+var BREEDS: b;
+var EVENTS: ev;
+solve minimize b + ev;

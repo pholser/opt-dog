@@ -23,18 +23,24 @@ class MZRingScheduling(RingScheduling):
         self.instance['breed_conformation_platform'] = [
             show_day.confirmation_platform_for_breed(b) for b in self.breeds
         ]
+        self.events = show_day.events
+        self.instance['number_of_events'] = len(self.events)
+        self.instance['event_type'] = [ev.type for ev in self.events]
 
     def solve(self):
         result = self.instance.solve()
         if result.status.has_solution():
-            return MZRingSchedulingSolution(result.solution, self.breeds)
+            return MZRingSchedulingSolution(result.solution, self.breeds, self.events)
         return None
 
 
 class MZRingSchedulingSolution(RingSchedulingSolution):
-    def __init__(self, mz_solution, breeds):
-        super().__init__(breeds)
+    def __init__(self, mz_solution, breeds, events):
+        super().__init__(breeds, events)
         self.mz_solution = mz_solution
 
-    def answer(self):
-        return self.breeds[self.mz_solution.x - 1]
+    def breed(self):
+        return self.breeds[self.mz_solution.b - 1]
+
+    def event(self):
+        return self.events[self.mz_solution.ev - 1]
