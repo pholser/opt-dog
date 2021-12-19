@@ -26,17 +26,23 @@ class MZRingScheduling(RingScheduling):
         self.events = show_day.events
         self.instance['number_of_events'] = len(self.events)
         self.instance['event_type'] = [ev.type for ev in self.events]
+        self.judges = show_day.judges()
+        self.instance['number_of_judges'] = len(self.judges)
 
     def solve(self):
         result = self.instance.solve()
         if result.status.has_solution():
-            return MZRingSchedulingSolution(result.solution, self.breeds, self.events)
+            return MZRingSchedulingSolution(
+                result.solution,
+                self.breeds,
+                self.events,
+                self.judges)
         return None
 
 
 class MZRingSchedulingSolution(RingSchedulingSolution):
-    def __init__(self, mz_solution, breeds, events):
-        super().__init__(breeds, events)
+    def __init__(self, mz_solution, breeds, events, judges):
+        super().__init__(breeds, events, judges)
         self.mz_solution = mz_solution
 
     def breed(self):
@@ -44,3 +50,6 @@ class MZRingSchedulingSolution(RingSchedulingSolution):
 
     def event(self):
         return self.events[self.mz_solution.ev - 1]
+
+    def judge(self):
+        return self.judges[self.mz_solution.j - 1]

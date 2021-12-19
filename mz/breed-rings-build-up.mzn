@@ -27,6 +27,12 @@ int: number_of_events;
 set of int: EVENTS = 1..number_of_events;
 array[EVENTS] of EVENT_TYPE: event_type;
 
+/* The conformation judges */
+int: number_of_judges;
+set of int: JUDGES = 1..number_of_judges;
+
+
 var BREEDS: b;
 var EVENTS: ev;
-solve minimize b + ev;
+var JUDGES: j;
+solve minimize b + ev + j;

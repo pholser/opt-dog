@@ -32,3 +32,6 @@ class ShowDay:
             lambda ev: ev.type == EventType.BestInShowBreedJudging,
             self.events
         ))[0]
+
+    def judges(self):
+        return list(set(map(lambda ev: ev.judge, self.events)))

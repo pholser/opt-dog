@@ -45,5 +45,6 @@ def test_solving():
 
     result = problem.solve()
 
-    assert result.breed() == bostons
-    assert result.event().name == 'Boston Terrier Breed Judging'
+    assert result.breed() == show_day.breeds()[0]
+    assert result.event() == show_day.events[0]
+    assert result.judge() == show_day.judges()[0]
