@@ -20,7 +20,7 @@ def test_solving():
     judge_mary = Judge('Mary Wisenheimer', [german_shepherds, bassets])
     judge_joseph = Judge('Joseph McDougal', [bostons])
 
-    show_day = ShowDay(1)
+    show_day = ShowDay(3)
 
     bostons_breed_event = BreedJudgingEvent(
         'Boston Terrier Breed Judging',
