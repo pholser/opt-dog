@@ -1,5 +1,4 @@
 from abc import ABC
-from optdog.domain.event_entry import EventEntry
 
 
 class Event(ABC):
@@ -7,7 +6,9 @@ class Event(ABC):
         self.name = name
         self.type = type
         self.judge = judge
-        self.entries = []
+        self.exhibitor_for_dog = dict()
 
     def enter(self, dog, exhibitor):
-        self.entries.append(EventEntry(self, dog, exhibitor))
+        # TODO: check that dog is not already entered?
+        assert dog not in self.exhibitor_for_dog
+        self.exhibitor_for_dog[dog] = exhibitor

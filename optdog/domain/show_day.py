@@ -2,8 +2,9 @@ from optdog.domain.event_type import EventType
 
 
 class ShowDay:
-    def __init__(self):
+    def __init__(self, number_of_rings):
         self.events = []
+        self.number_of_rings = number_of_rings
 
     def add_event(self, event):
         self.events.append(event)
@@ -34,4 +35,18 @@ class ShowDay:
         ))[0]
 
     def judges(self):
-        return list(set(map(lambda ev: ev.judge, self.events)))
+        initial = list(map(lambda ev: ev.judge, self.events))
+        result = sorted(set(initial), key=initial.index)
+        return list(result)
+
+    def dogs(self):
+        entries = map(lambda ev: ev.exhibitor_for_dog, self.events)
+        dogs = [en[0] for ens in entries for en in ens.items()]
+        result = sorted(set(dogs), key=dogs.index)
+        return list(result)
+
+    def exhibitors(self):
+        entries = map(lambda ev: ev.exhibitor_for_dog, self.events)
+        exhibitors = [en[1] for ens in entries for en in ens.items()]
+        result = sorted(set(exhibitors), key=exhibitors.index)
+        return list(result)

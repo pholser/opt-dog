@@ -106,24 +106,24 @@ array[JUDGES] of set of EVENTS: judge_events = [
 ];
 
 /* What exhibitors are showing what dogs in what events */
-array[DOGS, EVENTS, EXHIBITORS] of 0..1: exhibitor_for_dog_in_event;
+array[EVENTS, DOGS, EXHIBITORS] of 0..1: exhibitor_for_dog_in_event;
 constraint
   forall (d in DOGS, e in EVENTS) (
     assert(
-      sum (x in EXHIBITORS) (exhibitor_for_dog_in_event[d, e, x]) == 1,
+      sum (x in EXHIBITORS) (exhibitor_for_dog_in_event[e, d, x]) == 1,
       "Need exactly one exhibitor for dog \(dog_name[d])"
         ++ " in event \(event_name[e])"
     )
   );
 array[DOGS] of set of EVENTS: dog_events = [
   {e | e in EVENTS, x in EXHIBITORS
-    where exhibitor_for_dog_in_event[d, e, x] == 1
+    where exhibitor_for_dog_in_event[e, d, x] == 1
   }
   | d in DOGS
 ];
 array[EXHIBITORS] of set of EVENTS: exhibitor_events = [
   {e | e in EVENTS, d in DOGS
-    where exhibitor_for_dog_in_event[d, e, x] == 1
+    where exhibitor_for_dog_in_event[e, d, x] == 1
   }
   | x in EXHIBITORS
 ];
