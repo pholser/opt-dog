@@ -1,0 +1,32 @@
+The things to solve for are:
+* What ring will an event be held in?
+* What time should each event start?
+
+Constraints:
+-----
+* HARD: An event is held in exactly one ring
+* HARD: Each ring hosts at least one event
+* HARD: Events scheduled for a ring must not overlap in time
+* HARD: The events a judge is set to judge must not overlap in time
+* HARD: A group breed judging event must not start until all the
+    breed judging events for breeds in that group are completed
+* HARD: Group breed judging / best in show judging occur in two adjacent rings,
+  one after the other. Group order is choosable
+
+Candidate hard/soft constraints:
+-----
+We want to encourage schedules that:
+* keep judging assignments in the same ring
+* keep judging assignments together in as few "blocks" of time as possible
+  * i.e. minimize the number of judge switches between events
+* attempt to schedule table breeds and ramp breeds being judged
+  in the same ring together to decrease the movement of equipment
+  which causes delays
+* minimize conflicts for dogs/exhibitors registered for such conflict avoidance
+
+
+Objective:
+-----
+minimize ...
+
+Possibly make an assignment of the events a judge 
