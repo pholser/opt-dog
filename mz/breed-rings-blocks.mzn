@@ -143,6 +143,23 @@ array[EVENTS] of int: event_duration_champion = [
 /* Decisions */
 /* ========= */
 
+/*
+ We want to schedule a judge's events in one or more blocks of time,
+ each not to exceed some maximum, say, two hours. This provides natural
+ breaks in time. Longer blocks would leave exhibitors later on in the ring
+ less certain about their start times. 
+ 
+ We want to start blocks of judge time on a five-minute boundary.
+
+ The events in a block, however theey are ordered, are considered to run
+ back-to-back. A block's start time thus induces the start times of the
+ events in the block, by virtue of ordering and the estimated durations of
+ the events.
+ 
+ We will thus need to decide on a partition of each judge's events into
+ one or more blocks, the ordering of the events within each blocks, and
+ 
+ */
 /* Is event held in a given ring? */
 array[EVENTS, RINGS] of var 0..1: event_held_in_ring;
 
