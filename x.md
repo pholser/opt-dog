@@ -41,47 +41,7 @@ as an optimization problem to minimize time conflicts.
 Our analysis and modeling rely upon the following assumptions and data.
 
 [AKC Scheduling Best Practices](http://images.akc.org/pdf/Scheduling_Best_practices.pdf)
-
-### Breed judging (conformation)
-
-Rule of thumb: A breed conformation event runs at approximately
-two minutes per dog entered. (__TODO__: elaborate on this, with examples,
-possibly including concurrent specialities, sweepstakes, etc.)
-
-We will treat designated specialties as no different from a regular
-breed ring.
-
-For a given day's conformation events, the judges for those events will
-be determined ahead of time. Any overdraws (judges assigned to judge
-more than 175 dogs that day) are assumed to have been resolved.
-
-Judges typically can judge 25 dogs per hour.
-
-Judges are required to receive a minimum of 45 minutes for rest or 
-meals should their assignment exceed 5 hours of judging.
-
-Every judge should be allowed some idle time for lunch.
-
-In advance, we know how many rings are available to use for breed
-judging. We will assume that each ring is basically identical, and
-can be equipped with appropriate exhibition apparatuses (ramp, table).
-
-Attempt to schedule table breeds and ramp breeds being judged in the same
-ring together to decrease the movement of equipment which causes delays. 
-
-Attempt to schedule judges in a single ring. If a judge must be scheduled
-in two rings, to minimize disruption, relocate the judge during their
-lunch break. 
-
-Assign breeds with varieties to the same judge if possible; be aware of 
-scheduling conflicts if this is not possible. 
-
-The rings scheduled to be used for group judging should have fewer dogs 
-assigned to them for early conversion into the larger group ring.
-
-Keep judges' assignments consecutive and in the same ring as often as
-possible. Limit the number of judge changes within a ring, and individual
-judges changing rings within a day's assignment.
+[See "Scheduling Rings" here](http://images.akc.org/pdf/RESHOW.pdf)
 
 
 ### Modeling a breed judging program
@@ -91,4 +51,13 @@ judges changing rings within a day's assignment.
 * Every breed recognized by the AKC belongs to one of the following
   groups: Herding, Hound, Non-Sporting, Sporting, Terrier, Toy,
   Working, Miscellaneous.
-* 
+* The winners of breed judging events move on to compete in their
+  respective group breed judging events. Miscellaneous group does not
+  have a group breed judging event.
+* The winners of the group breed judging events move on to compete in the
+  best-in-show breed judging event.
+* We will assume that each breed judging event lasts two minutes
+  per dog entered.
+* Schedule the breed judging events in blocks of time not to exceed
+  60 minutes, . The events within a block have the same judge, and are
+  held in the same ring, starting one after the other. Events 
