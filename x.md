@@ -33,7 +33,9 @@ we should be able to formulate a judging program that obeys the usual
 constraints and minimizes time conflicts for those exhibitors. This document
 describes our understanding of how a day's worth of a dog show works,
 and how to formulate the creation of a judging program for a given day
-as an optimization problem to minimize time conflicts.
+as an optimization problem to minimize time conflicts. We will also
+consider other objectives and constraints that parties other than
+multi-exhibitors may want in a breed judging schedule.
 
 
 ## Assumptions
@@ -44,7 +46,7 @@ Our analysis and modeling rely upon the following assumptions and data.
 [See "Scheduling Rings" here](http://images.akc.org/pdf/RESHOW.pdf)
 
 
-### Modeling a breed judging program
+### Breed judging program info
 
 * There will be one breed judging event per breed of dog that has at
   least one conformation entry for the day.
@@ -56,8 +58,93 @@ Our analysis and modeling rely upon the following assumptions and data.
   have a group breed judging event.
 * The winners of the group breed judging events move on to compete in the
   best-in-show breed judging event.
-* We will assume that each breed judging event lasts two minutes
-  per dog entered.
-* Schedule the breed judging events in blocks of time not to exceed
-  60 minutes, . The events within a block have the same judge, and are
-  held in the same ring, starting one after the other. Events 
+* A particular breed judging event starts by judging "class dogs"
+  (non-AKC-champions). These are puppy classes, open classes,
+  bred-by-exhibitor classes, etc. Then, the best of the classes winners
+  join the champions in the best-of-breed/best-of-variety judging.
+
+
+### Parameters
+
+* The overall breeding judging for a day has a fixed start time.
+  The model doesn't particularly care what that start time is (8 a.m.,
+  8:30 a.m., or what have you): it will represent that start time as
+  "time 1" or some such.
+* Let BG be the set of breed groups: {Herding, Hound, NonSporting,
+  Sporting, Terrier, Toy, Working, Miscellaneous}.
+* Let CP be the set of conformation platforms: {Ground, Table, Ramp}.
+* Let B = [1..b] be the set of breeds of dogs entered.
+  * Every breed in B belongs to a single breed group in BG.
+* Let confirmation_platform_for be an array of elements of CP,
+  indexed by breeds from B, where conformation_platform_for[b]
+  is the designated primary conformation platform to be used in the
+  breed judging event for breed B. Either a judge will express their
+  preference for platform when there are options for a particular
+  breed, or the platform will be the single platform option for a
+  breed.
+* Let AKCS be the set of AKC conformation status: {Class, Champion}.
+* Let V = [1..b] be the set of breed judging events, one per breed/variety
+  in B.
+* Let G = [1..g] be the set of group breed judging events, one per
+  group of dog entered in BG.
+  * We will assume that all the group breed judging events are held
+    in the same ring/rings, consecutively; followed by BIS in the
+    same ring/rings. We may consider these events to be "in more than
+    one ring" if the plan is to convert two or more adjacent rings
+    into one large ring for group.
+* We will assume that each breed judging event (breed, group, or
+  best-in-show) lasts two minutes per dog entered, regardless of
+  breed, classes, etc. We reserve the right to parameterize time
+  per dog shown based on other factors (time of day, breed, ring
+  accommodations, breed/group/BIS, judge/sweeps etc.) at a later time.
+  AKC recommends assuming 25 dogs/hr (2.4 min/dog) for non-
+  futurity/sweepstakes/permit judges ... these judges are 3 min/dog.
+  We may adjust the model later to know about the judges' statuses
+  and assign them a judging rate. Sometimes a club may know a
+  particular judges' estimated rate. We will attempt to accommodate
+  these rate allocations in the model at a later time.
+* Assert that each event in V and G is assigned exactly one judge,
+  along with BIS.
+* Let D = [1..d] be the set of dogs entered in their respective breed
+  judging events.
+  * Assert that a dog is entered only in the breed judging event
+    corresponding to their breed/variety.
+  * Each dog is designated as a class dog or a champion dog w/r/t
+    their breed, i.e. is assigned a member of AKCS.
+* Let X = [1..x] be the set of exhibitors assigned to dogs in D
+  in the breed judging events in V.
+* Let J = [1..j] be the set of judges assigned to judge breed judging
+  events, group breed judging events, and BIS breed judging events.
+  * We will assume that for every event, the judge assigned to it
+    is authorized by the AKC to judge the event. The model will not
+    assert these requirements.
+* Let R = [1..r] be the number of rings available to hold events in.
+  * We will assume that all rings are effectively identical, so that
+    each can accommodate judging of any breed/variety. We reserve the
+    right to change the model in the future to account for rings
+    of different sizes, that may be able to accommodate only breeds
+    smaller than a given size. This would require us to assign each
+    breed/variety a size class, and each ring a maximum-size class.
+  * We know for each ring in R how many rings "away" it is from each
+    other ring. Rings that share an edge are one ring away from each
+    other. Rings that share a corner are two rings away from each other.
+    Otherwise two rings are a "Manhattan distance" away from each other.
+    A ring is zero rings away from itself.
+  * 
+
+TODO: "Within a judging assignment, all breeds judged on a table should be scheduled
+consecutively, and all breeds judged on a ramp should be scheduled consecutively"
+  ... does this mean a judging assignment overall, or a judging assignment period
+      (block)?
+
+### Decisions
+
+
+### Objectives
+
+* End the overall breed judging as early as possible -- that is,
+  minimize the start time of best-in-show.
+
+
+### Constraints
+
