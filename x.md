@@ -137,6 +137,8 @@ consecutively, and all breeds judged on a ramp should be scheduled consecutively
   ... does this mean a judging assignment overall, or a judging assignment period
       (block)?
 
+TODO: Size rings after the fact?
+
 ### Decisions
 
 
