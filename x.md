@@ -70,19 +70,19 @@ Our analysis and modeling rely upon the following assumptions and data.
   The model doesn't particularly care what that start time is (8 a.m.,
   8:30 a.m., or what have you): it will represent that start time as
   "time 1" or some such.
-* Let BG be the set of breed groups: {Herding, Hound, NonSporting,
-  Sporting, Terrier, Toy, Working, Miscellaneous}.
-* Let CP be the set of conformation platforms: {Ground, Table, Ramp}.
-* Let B = [1..b] be the set of breeds of dogs entered.
-  * Every breed in B belongs to a single breed group in BG.
-* Let confirmation_platform_for be an array of elements of CP,
-  indexed by breeds from B, where conformation_platform_for[b]
-  is the designated primary conformation platform to be used in the
-  breed judging event for breed B. Either a judge will express their
-  preference for platform when there are options for a particular
-  breed, or the platform will be the single platform option for a
-  breed.
-* Let AKCS be the set of AKC conformation status: {Class, Champion}.
+* Let $BG$ be the set of breed groups: $\{Herding, Hound, NonSporting,
+  Sporting, Terrier, Toy, Working, Miscellaneous\}$.
+* Let $CP$ be the set of conformation platforms: {Ground, Table, Ramp}.
+* Let $B$ be the set of breeds/varieties of dogs entered.
+  - Every breed/variety in $B$ belongs to a single breed group in $BG$.
+* Let $CPB_{c,b}$ be 1 if conformation platform $c$ will be used to judge
+  dogs in the breed event corresponding to breed $b$, and 0 otherwise,
+  $\forall c \in CPB, b \in B$. This indicates the designated primary
+  conformation platform to be used in the breed judging event for each
+  breed. Either a judge will express their preference for platform when
+  there are options for a particular breed, or the platform will be the
+  single platform option for a breed.
+* Let $AKCS$ be the set of AKC conformation statuses: $\{Class, Champion\}$.
 * Let V = [1..b] be the set of breed judging events, one per breed/variety
   in B.
 * Let G = [1..g] be the set of group breed judging events, one per
