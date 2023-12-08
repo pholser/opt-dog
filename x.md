@@ -83,10 +83,9 @@ Our analysis and modeling rely upon the following assumptions and data.
   there are options for a particular breed, or the platform will be the
   single platform option for a breed.
 * Let $AKCS$ be the set of AKC conformation statuses: $\{Class, Champion\}$.
-* Let V = [1..b] be the set of breed judging events, one per breed/variety
-  in B.
-* Let G = [1..g] be the set of group breed judging events, one per
-  group of dog entered in BG.
+* Let $V$ be the set of breed judging events, one per breed/variety in $B$.
+* Let $G$ be the set of group breed judging events, one per group of dog
+  entered in $BG$.
   * We will assume that all the group breed judging events are held
     in the same ring/rings, consecutively; followed by BIS in the
     same ring/rings. We may consider these events to be "in more than
@@ -103,22 +102,22 @@ Our analysis and modeling rely upon the following assumptions and data.
   and assign them a judging rate. Sometimes a club may know a
   particular judges' estimated rate. We will attempt to accommodate
   these rate allocations in the model at a later time.
-* Assert that each event in V and G is assigned exactly one judge,
+* Assert that each event in $V$ and $G$ is assigned exactly one judge,
   along with BIS.
-* Let D = [1..d] be the set of dogs entered in their respective breed
-  judging events.
+* Let $D$ be the set of dogs entered in their respective breed judging
+  events.
   * Assert that a dog is entered only in the breed judging event
     corresponding to their breed/variety.
   * Each dog is designated as a class dog or a champion dog w/r/t
-    their breed, i.e. is assigned a member of AKCS.
-* Let X = [1..x] be the set of exhibitors assigned to dogs in D
-  in the breed judging events in V.
-* Let J = [1..j] be the set of judges assigned to judge breed judging
-  events, group breed judging events, and BIS breed judging events.
+    their breed, i.e. is assigned a member of $AKCS$.
+* Let $X$ be the set of exhibitors assigned to dogs in $$ in the breed
+  judging events in $V$.
+* Let $J$ be the set of judges assigned to judge breed judging events,
+  group breed judging events, and BIS breed judging events.
   * We will assume that for every event, the judge assigned to it
     is authorized by the AKC to judge the event. The model will not
     assert these requirements.
-* Let R = [1..r] be the number of rings available to hold events in.
+* Let $R$ be set of show rings available to hold events in.
   * We will assume that all rings are effectively identical, so that
     each can accommodate judging of any breed/variety. We reserve the
     right to change the model in the future to account for rings
@@ -130,7 +129,6 @@ Our analysis and modeling rely upon the following assumptions and data.
     other. Rings that share a corner are two rings away from each other.
     Otherwise two rings are a "Manhattan distance" away from each other.
     A ring is zero rings away from itself.
-  * 
 
 TODO: "Within a judging assignment, all breeds judged on a table should be scheduled
 consecutively, and all breeds judged on a ramp should be scheduled consecutively"
