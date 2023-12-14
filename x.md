@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Breeders, owners, and exhibitors ("handlers") often pay entry fees for
+Breeders, owners, and exhibitors (__handlers__) often pay entry fees for
 multiple dogs for any given AKC-sanctioned show. A single dog might be
 entered in both conformation and performance (e.g. rally, obedience,
 dock diving, barn hunt, agility) events. A breeder or owner may be
@@ -11,14 +11,14 @@ to highlight the quality of their breeding stock. A handler may want
 to exhibit many dogs in a given group of shows, so that they can earn more
 in compensation and increase their own visibility and profile.
 
-Via a *premium list* typically issued 6-8 weeks prior to a show, potential
+Via a __premium list__ typically issued 6-8 weeks prior to a show, potential
 entrants learn the dates of the show, events offered, and what judges will
 judge what events. Entrants are interested in exhibiting the dogs to judges
 who have given past favorable results to their dogs or dogs like theirs.
 
 However, currently entrants pay to compete without prior knowledge of the
 actual schedule of events. Typically, 3-4 days after show entries are closed,
-the show superintendent publishes a *judging program* detailing (estimated)
+the show superintendent publishes a __judging program__ detailing (estimated)
 event start times. If the judging program induces scheduling conflicts for
 a particular dog or exhibitor, the exhibitor must make other arrangements
 for the dog to be shown in an event, skip an event outright (basically
@@ -42,8 +42,8 @@ multi-exhibitors may want in a breed judging schedule.
 
 Our analysis and modeling rely upon the following assumptions and data.
 
-[AKC Scheduling Best Practices](http://images.akc.org/pdf/Scheduling_Best_practices.pdf)
-[See "Scheduling Rings" here](http://images.akc.org/pdf/RESHOW.pdf)
+* [AKC Scheduling Best Practices](http://images.akc.org/pdf/Scheduling_Best_practices.pdf)
+* [See "Scheduling Rings" here](http://images.akc.org/pdf/RESHOW.pdf)
 
 
 ### Breed judging program info
@@ -110,13 +110,20 @@ Our analysis and modeling rely upon the following assumptions and data.
     corresponding to their breed/variety.
   * Each dog is designated as a class dog or a champion dog w/r/t
     their breed, i.e. is assigned a member of $AKCS$.
-* Let $X$ be the set of exhibitors assigned to dogs in $$ in the breed
+* Let $X$ be the set of exhibitors assigned to dogs in $D$ in the breed
   judging events in $V$.
+* Let $N_{xdv} = 1$ if exhibitor $x$ is assigned to show dog $d$ in
+  breed judging event $e$, else 0, $\forall x \in X, d \in D, v \in V$.
+  Exactly one exhibitor is assigned to show a dog in an event.
 * Let $J$ be the set of judges assigned to judge breed judging events,
   group breed judging events, and BIS breed judging events.
   * We will assume that for every event, the judge assigned to it
     is authorized by the AKC to judge the event. The model will not
     assert these requirements.
+* Let $JV_{jv} = 1$ if judge $j$ is assigned to judge breed event $v$,
+  $\forall j \in J, v \in V$. Exactly one judge judges a given event.
+* Let $JG_{jg} = 1$ if judge $j$ is assigned to judge group breed event $g$,
+  $\forall j \in J, g \in G$. Exactly one judge judges a given event.
 * Let $R$ be set of show rings available to hold events in.
   * We will assume that all rings are effectively identical, so that
     each can accommodate judging of any breed/variety. We reserve the
@@ -124,16 +131,18 @@ Our analysis and modeling rely upon the following assumptions and data.
     of different sizes, that may be able to accommodate only breeds
     smaller than a given size. This would require us to assign each
     breed/variety a size class, and each ring a maximum-size class.
-  * We know for each ring in R how many rings "away" it is from each
+  * We know for each ring in $R$ how many rings "away" it is from each
     other ring. Rings that share an edge are one ring away from each
     other. Rings that share a corner are two rings away from each other.
-    Otherwise two rings are a "Manhattan distance" away from each other.
+    Otherwise, two rings are a "Manhattan distance" away from each other.
     A ring is zero rings away from itself.
+* A judge's assignment for a day is split into __blocks__ 
 
-TODO: "Within a judging assignment, all breeds judged on a table should be scheduled
-consecutively, and all breeds judged on a ramp should be scheduled consecutively"
-  ... does this mean a judging assignment overall, or a judging assignment period
-      (block)?
+
+TODO: "Within a judging assignment, all breeds judged on a table should be
+scheduled consecutively, and all breeds judged on a ramp should be
+scheduled consecutively" ... does this mean a judging assignment overall,
+or a judging assignment period (block)?
 
 TODO: Size rings after the fact?
 
