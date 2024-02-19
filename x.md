@@ -136,7 +136,8 @@ Our analysis and modeling rely upon the following assumptions and data.
     other. Rings that share a corner are two rings away from each other.
     Otherwise, two rings are a "Manhattan distance" away from each other.
     A ring is zero rings away from itself.
-* A judge's assignment for a day is split into __blocks__ 
+* A judge's assignment for a day is split into __blocks__ of about one hour,
+  
 
 
 TODO: "Within a judging assignment, all breeds judged on a table should be
