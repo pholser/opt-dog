@@ -33,15 +33,25 @@ def extract_from_table(assignments_table):
         )
     sporting_breeds_row = sporting_breeds_cell.find_parent('tr')
     if sporting_breeds_row is not None:
-        breed_row = sporting_breeds_row.find_next_sibling()
+        breed_row = sporting_breeds_row.find_next_sibling('tr')
         while breed_row is not None:
-            breed, judge = extract_breed_row(breed_row)
-            conformation_platforms = []
-            premium_list.add_breed_event(
-                Breed(breed, conformation_platforms, Group.Sporting),
-                judge
-            )
-            breed_row = None
+            if breed_row.find('b', string=re.compile('(?i)breeds')):
+                break
+            if breed_row.find('td', {'colspan': True}):
+                breed_row = breed_row.find_next_sibling('tr')
+                continue
+            if breed_row is not None:
+                breed, judge = extract_breed_row(breed_row)
+                conformation_platforms = []
+                premium_list.add_breed_event(
+                    Breed(breed, conformation_platforms, Group.Sporting),
+                    judge
+                )
+                # if it's the next breed, awesome. loop.
+                # if it's a tr with a td whose colspan is 2, skip it and read the next
+                # if it's a tr with a b with the string BREEDS in it, stop with this group
+                breed_row = breed_row.find_next_sibling('tr')
+
     return premium_list
 
 
@@ -58,3 +68,7 @@ def ingest(filename):
     with open(filename) as f:
         soup = BeautifulSoup(f, features='html.parser')
     return extract_from_page(soup)
+
+
+if __name__ == '__main__':
+    ingest('/Users/pholser/py/opt-dog/docs/palm-springs-2024-premium-list.html')
