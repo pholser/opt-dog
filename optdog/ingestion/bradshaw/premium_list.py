@@ -20,20 +20,22 @@ def extract_best_in_show_judge(assignments_table):
         return extract_group_judge_starting_at(best_in_show_cell)
 
 
-def extract_from_table(assignments_table):
-    premium_list = PremiumList()
+def extract_best_in_show_event(premium_list, assignments_table):
     premium_list.add_best_in_show_event(
         extract_best_in_show_judge(assignments_table)
     )
-    sporting_breeds_cell = assignments_table.find('b', string=re.compile('(?i)sporting breeds'))
-    if sporting_breeds_cell is not None:
+
+
+def extract_breed_events(premium_list, assignments_table, breed_group_regex, breed_group):
+    breeds_cell = assignments_table.find('b', string=re.compile(breed_group_regex))
+    if breeds_cell is not None:
         premium_list.add_breed_group_event(
-            Group.Sporting,
-            extract_group_judge_starting_at(sporting_breeds_cell)
+            breed_group,
+            extract_group_judge_starting_at(breeds_cell)
         )
-    sporting_breeds_row = sporting_breeds_cell.find_parent('tr')
-    if sporting_breeds_row is not None:
-        breed_row = sporting_breeds_row.find_next_sibling('tr')
+    top_breeds_row = breeds_cell.find_parent('tr')
+    if top_breeds_row is not None:
+        breed_row = top_breeds_row.find_next_sibling('tr')
         while breed_row is not None:
             if breed_row.find('b', string=re.compile('(?i)breeds')):
                 break
@@ -44,13 +46,26 @@ def extract_from_table(assignments_table):
                 breed, judge = extract_breed_row(breed_row)
                 conformation_platforms = []
                 premium_list.add_breed_event(
-                    Breed(breed, conformation_platforms, Group.Sporting),
+                    Breed(breed, conformation_platforms, breed_group),
                     judge
                 )
                 # if it's the next breed, awesome. loop.
                 # if it's a tr with a td whose colspan is 2, skip it and read the next
                 # if it's a tr with a b with the string BREEDS in it, stop with this group
                 breed_row = breed_row.find_next_sibling('tr')
+
+
+def extract_from_table(assignments_table):
+    premium_list = PremiumList()
+
+    extract_best_in_show_event(premium_list, assignments_table)
+    extract_breed_events(premium_list, assignments_table, '(?i)^sporting breeds', Group.Sporting)
+    extract_breed_events(premium_list, assignments_table, '(?i)^hound breeds', Group.Hound)
+    extract_breed_events(premium_list, assignments_table, '(?i)^working breeds', Group.Working)
+    extract_breed_events(premium_list, assignments_table, '(?i)^terrier breeds', Group.Terrier)
+    extract_breed_events(premium_list, assignments_table, '(?i)^toy breeds', Group.Toy)
+    extract_breed_events(premium_list, assignments_table, '(?i)^non-sporting breeds', Group.NonSporting)
+    extract_breed_events(premium_list, assignments_table, '(?i)^herding breeds', Group.Herding)
 
     return premium_list
 
@@ -67,8 +82,8 @@ def extract_from_page(soup):
 def ingest(filename):
     with open(filename) as f:
         soup = BeautifulSoup(f, features='html.parser')
-    return extract_from_page(soup)
-
+    x = extract_from_page(soup)
+    return x
 
 if __name__ == '__main__':
     ingest('/Users/pholser/py/opt-dog/docs/palm-springs-2024-premium-list.html')
