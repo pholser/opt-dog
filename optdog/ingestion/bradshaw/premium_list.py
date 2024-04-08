@@ -82,8 +82,11 @@ def extract_from_page(soup):
 def ingest(filename):
     with open(filename) as f:
         soup = BeautifulSoup(f, features='html.parser')
-    x = extract_from_page(soup)
-    return x
+    return extract_from_page(soup)
+
 
 if __name__ == '__main__':
-    ingest('/Users/pholser/py/opt-dog/docs/palm-springs-2024-premium-list.html')
+    premium_list = ingest(
+        '/Users/pholser/py/opt-dog/docs/palm-springs-2024-premium-list.html'
+    )
+
