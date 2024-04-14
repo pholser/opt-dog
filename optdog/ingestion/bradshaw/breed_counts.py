@@ -3,23 +3,25 @@ from more_itertools import partition
 import re
 
 
+def maybe_add_counts(special_substr, key, pieces, counts_by_type):
+    others, count_pieces = partition(lambda p: special_substr in p, pieces)
+    others = list(others)
+    count_pieces = list(count_pieces)
+    if count_pieces:
+        counts_by_type[key] = int(count_pieces[0].replace(special_substr, ''))
+        pieces = others
+    return pieces
+
+
 def parse_counts(raw):
     no_parens = raw.replace('(', '').replace(')', '')
     pieces = no_parens.split('-')
     counts_by_type = {}
 
-    others, veteran_dog_pieces = partition(lambda p: 'VD' in p, pieces)
-    others = list(others)
-    veteran_dog_pieces = list(veteran_dog_pieces)
-    if veteran_dog_pieces:
-        counts_by_type['veteran-dog'] = int(veteran_dog_pieces[0].replace('VD', ''))
-        pieces = others
-    others, veteran_bitch_pieces = list(partition(lambda p: 'VB' in p, pieces))
-    others = list(others)
-    veteran_bitch_pieces = list(veteran_bitch_pieces)
-    if veteran_bitch_pieces:
-        counts_by_type['veteran-bitch'] = int(veteran_bitch_pieces[0].replace('VB', ''))
-        pieces = others
+    pieces = maybe_add_counts('VD', 'veteran-dog', pieces, counts_by_type)
+    pieces = maybe_add_counts('VB', 'veteran-bitch', pieces, counts_by_type)
+    pieces = maybe_add_counts('SD', 'stud-dog', pieces, counts_by_type)
+
     if len(pieces) == 2:
         counts_by_type['class-dog'] = int(pieces[0])
         counts_by_type['class-bitch'] = int(pieces[1])
