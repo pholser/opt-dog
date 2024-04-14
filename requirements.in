@@ -1,6 +1,7 @@
 beautifulsoup4==4.12.3
 # gurobipy==11.0.0
 # gurobipy-pandas==1.1.0
+more-itertools==10.2.0
 pandas==2.2.0
 pyomo==6.7.0
 pytest==8.0.1
