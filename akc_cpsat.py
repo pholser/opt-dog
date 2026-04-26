@@ -14,7 +14,7 @@ CP-SAT advantages over MIP for this problem
 
 Architecture
 ------------
-  solve_show(show, params)    Public entry point (same API as akc_mip2)
+  solve_show(show, params)    Public entry point
   _solve_cpsat(show, params)  Build + solve CP-SAT model, return SolveResult
 
 Constraint mapping from MODEL_SPEC
@@ -57,7 +57,7 @@ log = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 
 def solve_show(show, params: Optional[SolveParams] = None) -> SolveResult:
-    """Solve an AKC show with OR-Tools CP-SAT. Same API as akc_mip2.solve_show."""
+    """Solve an AKC show with OR-Tools CP-SAT."""
     if params is None:
         params = SolveParams(solver="cpsat")
     return _solve_cpsat(show, params)
@@ -274,11 +274,8 @@ def _solve_cpsat(show, params: SolveParams) -> SolveResult:
     # =======================================================================
 
     L3_max = len(rs_pairs_list) + len(soft_lunch_judges) + 1
-    if params.ring_switch_penalty_min > 0:
-        w_L3 = show.params.slots(params.ring_switch_penalty_min)
-    else:
-        w_L3 = 1
-    w_L1 = L3_max * w_L3 + 1
+    w_L3 = 1
+    w_L1 = L3_max + 1
 
     model.Minimize(
         w_L1 * tau_bis
@@ -372,8 +369,6 @@ def _solve_cpsat(show, params: SolveParams) -> SolveResult:
         for rid, sr in sr_map.items():
             model.AddMinEquality(sr, [pres[sa_sid][rid], pres[sb_sid][rid]])
         model.Add(sum(sr_map.values()) + sw == 1)
-        if params.forbid_ring_switches:
-            model.Add(sw == 0)
 
     # =======================================================================
     # C13 — Soft lunch availability  (§3.5 C13)

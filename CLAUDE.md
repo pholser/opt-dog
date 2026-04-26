@@ -257,7 +257,6 @@ z[j,i] ≥ u[seg_{i+1}(j), r] − u[seg_i(j), r]    ∀r ∈ R   (C15b)
 
 `z[j,i] = 1` iff segments i and i+1 of judge j are in different rings.
 
-Optional hard constraint (`SolveParams.forbid_ring_switches = True`): `z[j,i] = 0 ∀(j,i) ∈ RS`.
 
 #### C16 — Symmetry breaking (ring activation order) — *not yet implemented*
 
@@ -279,11 +278,11 @@ minimize  w_L1 · tau_bis  +  w_L3 · (Σ_{(j,i)∈RS} z[j,i]  +  Σ_j lunch_pen
 ```
 
 Where:
-- `w_L3 = slots(ring_switch_penalty_min)` if `SolveParams.ring_switch_penalty_min > 0`, else `1`
+- `w_L3 = 1`
 - `L3_max = |RS| + |J_soft| + 1`
-- `w_L1 = L3_max · w_L3 + 1` — any 1-slot BIS improvement beats any L3 gain
+- `w_L1 = L3_max + 1` — any 1-slot BIS improvement beats any L3 gain
 
-**Rationale:** Finishing early (small `tau_bis`) is the primary goal.  Secondary goal is minimizing ring switches and soft lunch penalties.  `ring_switch_penalty_min` makes each switch cost that many minutes of BIS time; `forbid_ring_switches` bans switches entirely.
+**Rationale:** Finishing early (small `tau_bis`) is the primary goal.  Secondary goal is minimizing ring switches and soft lunch penalties.
 
 ### 3.7 Post-hoc arena ring assignment (`_assign_arena_ring`)
 

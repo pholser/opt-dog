@@ -284,7 +284,6 @@ sw[j,i] + Σ_r same_r[j,i,r] = 1
 
 `sw[j,i] = 1` iff the two segments are in different rings.
 
-Optional hard constraint (`SolveParams.forbid_ring_switches = True`): force all `sw[j,i] = 0`.
 
 #### C16 — Symmetry breaking
 Omitted — CP-SAT handles ring symmetry natively through its search.
@@ -300,13 +299,12 @@ minimize  w_L1 · tau_bis  +  w_L3 · (Σ_{(j,i)∈RS} z[j,i]  +  Σ_j lunch_pen
 ```
 
 Where:
-- `w_L3 = slots(ring_switch_penalty_min)` if `SolveParams.ring_switch_penalty_min > 0`, else `1`
+- `w_L3 = 1`
 - `L3_max = |RS| + |J_soft| + 1`
-- `w_L1 = L3_max · w_L3 + 1` — any 1-slot BIS improvement beats any L3 gain
+- `w_L1 = L3_max + 1` — any 1-slot BIS improvement beats any L3 gain
 
 **Rationale:** Finishing early (`tau_bis` small) is the primary goal. The secondary goal is
-minimizing ring switches and soft lunch penalties. Setting `ring_switch_penalty_min` trades
-BIS time for fewer ring switches; `forbid_ring_switches = True` bans them entirely.
+minimizing ring switches and soft lunch penalties.
 
 ---
 
@@ -381,8 +379,6 @@ python3 akc_cpsat_bench.py small.xlsx
 | `gap` | `0.01` | Optimality gap tolerance (1%) |
 | `threads` | `0` | Worker threads (0 = auto) |
 | `tee` | `True` | Print solver progress |
-| `ring_switch_penalty_min` | `0.0` | BIS minutes traded per ring switch (0 = tiebreaker only) |
-| `forbid_ring_switches` | `False` | Hard-ban all ring switches |
 
 ---
 

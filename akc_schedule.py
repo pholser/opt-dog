@@ -25,14 +25,6 @@ class SolveParams:
     gap:            float = 0.01
     threads:        int   = 0
     tee:            bool  = True
-    # Ring-switch penalty in minutes of BIS time.  Each ring switch a judge
-    # makes is treated as costing this many minutes of finishing time.
-    # 0 (default) → pure epsilon-hierarchy (switches are a tiebreaker only).
-    # E.g. 15 → solver accepts up to 15 extra BIS minutes to eliminate one switch.
-    ring_switch_penalty_min: float = 0.0
-    # Hard constraint: forbid all ring switches entirely.
-    # When True, ring_switch_penalty_min is ignored.
-    forbid_ring_switches: bool = False
 
 
 # ---------------------------------------------------------------------------
