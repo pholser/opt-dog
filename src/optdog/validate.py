@@ -8,11 +8,13 @@ Hard constraints checked here:
     H1  blocks of about one hour (single breed > 30 entries exempt)
     H3  no overlap within a ring
     H4  a judge is never in two places at once (+ travel margin between rings)
-    H6  judges with > 5 hours of judging get a 45–60 minute break
+    H6  judges with > 5 hours of judging get a 45–60 minute break; every lunch starts in the lunch window
     H7  the first group is not scheduled before its breeds are done
     H8  group judges are free (breed assignments done) before their group
     H9  ALL group rings are free of breed judging before the first group begins
     H12 judging ends by the posted closing time (if known)
+    H13 breeds of at least two groups are done before the first group begins
+    H14 the first group begins only after every judge's lunch has ended
     V1  judge daily entry limit (input check)
 Not checkable from a program alone: H5 (published order is taken as given),
 H10 (sequencing is built into the group timeline), H11 (pinned events are not
@@ -81,8 +83,51 @@ def _conformation_blocks(program: JudgingProgram) -> list[ScheduledBlock]:
     return [sb for sb in program.blocks if sb.block.events[0].competition in CONFORMATION]
 
 
+def lunch_fits_window(start: float, length: float, params: ShowParameters, published: bool) -> bool:
+    """Can this lunch start inside the lunch window (H6)?
+
+    A published break starts at its published time. A gap in a judge's day can hold a
+    minimum-length lunch starting anywhere in it, so it fits if some start in the window
+    leaves room for the lunch.
+    """
+    l0, l1 = params.lunch_window
+    if published:
+        return l0 <= start <= l1
+    return max(start, l0) <= min(l1, start + length - params.lunch_min_minutes)
+
+
+def lunch_ends(program: JudgingProgram, params: ShowParameters) -> dict[Judge, float]:
+    """When each conformation judge's lunch ends.
+
+    A published break counts whatever the judge's load, if the judge judges again after it. A judge with no published break
+    but more than five hours of judging takes lunch in their longest lunch-length gap
+    (preferring one that starts in the lunch window), for the minimum lunch length.
+    """
+    p = params.for_show(program.show)
+    blocks = _conformation_blocks(program)
+    judges = {sb.judge for sb in blocks}
+    out: dict[Judge, float] = {}
+    last_start = {}
+    for sb in blocks:
+        last_start[sb.judge] = max(last_start.get(sb.judge, sb.start), sb.start)
+    for br in program.breaks:
+        if br.minutes and br.judge in judges and br.start < last_start[br.judge]:  # a break within the assignment
+            out[br.judge] = max(out.get(br.judge, 0.0), br.start + br.minutes)
+    for judge in judges - out.keys():
+        seq = sorted((sb for sb in blocks if sb.judge == judge), key=lambda b: b.start)
+        if sum(sb.block.duration for sb in seq) <= p.lunch_required_after_minutes:
+            continue
+        gaps = [(a.end, b.start - a.end) for a, b in zip(seq, seq[1:]) if b.start - a.end >= p.lunch_min_minutes]
+        in_window = [g for g in gaps if lunch_fits_window(g[0], g[1], p, published=False)]
+        best = max(in_window or gaps, key=lambda g: g[1], default=None)
+        if best:
+            start = max(best[0], p.lunch_window[0]) if best in in_window else best[0]
+            out[judge] = start + p.lunch_min_minutes
+    return out
+
+
 def validate(program: JudgingProgram, params: ShowParameters | None = None) -> ValidationResult:
-    p = params or ShowParameters()
+    p = (params or ShowParameters()).for_show(program.show)
     res = ValidationResult()
     blocks = _conformation_blocks(program)
     by_ring: dict = defaultdict(list)
@@ -146,7 +191,6 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
     lunch_gaps: dict[Judge, tuple[float, float] | None] = {}
     ring_changes = ring_changes_at_lunch = 0
     idle = 0.0
-    lunch_outside_window = 0
     for judge, seq in by_judge.items():
         work = sum(sb.block.duration for sb in seq)
         gaps = [(a.end, b.start - a.end, a, b) for a, b in zip(seq, seq[1:]) if b.start - a.end > 0]
@@ -160,7 +204,7 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
             if a.start <= br.start < b.start
         ]
         long_gaps = published or [g for g in gaps if g[1] >= p.lunch_min_minutes]
-        in_window = [g for g in long_gaps if p.lunch_window[0] <= g[0] <= p.lunch_window[1]]
+        in_window = [g for g in long_gaps if lunch_fits_window(g[0], g[1], p, published=bool(published))]
         lunch = max(in_window or long_gaps, key=lambda g: g[1], default=None)
         lunch_gaps[judge] = (lunch[0], lunch[1]) if lunch else None
         if work > p.lunch_required_after_minutes:
@@ -169,8 +213,11 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
                     Violation("H6", judge.name,
                               f"{work:.0f} min of judging with no break of {p.lunch_min_minutes}+ min", work - p.lunch_required_after_minutes)
                 )
-            elif lunch not in in_window:
-                lunch_outside_window += 1
+            elif lunch not in in_window and not published:  # published breaks are checked below
+                res.violations.append(
+                    Violation("H6", judge.name, f"no lunch-length gap that can start in the lunch window "
+                              f"{fmt_time(p.lunch_window[0])}–{fmt_time(p.lunch_window[1])}", 0.0)
+                )
         for a, b in zip(seq, seq[1:]):
             if a.ring != b.ring:
                 if lunch is not None and lunch[2] is a and lunch[3] is b:
@@ -178,6 +225,18 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
                 else:
                     ring_changes += 1
         idle += sum(g[1] for g in gaps if lunch is None or g[2] is not lunch[2])
+
+    # every lunch break within a judge's assignment starts inside the window (H6, U); a break
+    # after the judge's last block is free time, not a break in judging
+    conf_judges = set(by_judge)
+    l0, l1 = p.lunch_window
+    for br in program.breaks:
+        within = br.judge in conf_judges and any(sb.start > br.start for sb in by_judge[br.judge])
+        if within and not lunch_fits_window(br.start, br.minutes or 0, p, published=True):
+            res.violations.append(
+                Violation("H6", br.judge.name, f"lunch at {fmt_time(br.start)} is outside the lunch window "
+                          f"{fmt_time(l0)}–{fmt_time(l1)}", min(abs(br.start - l0), abs(br.start - l1)))
+            )
 
     # ---------------------------------------------------------------- S3 equipment switches per ring
     equipment_switches = 0
@@ -215,6 +274,26 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
                           f"group judge busy until {fmt_time(int(first.ready))}; group published {fmt_time(plan.start)}",
                           first.ready - plan.start)
             )
+        # H13: breeds of at least N groups complete before the first group (Show Manual §6)
+        entered = [s for s in timeline.groups if program.show.group_entrants(s.group) > 0]
+        need = min(p.groups_complete_before_start, len(entered))
+        done = sorted(s.breeds_done for s in entered)
+        if need and done[need - 1] > plan.start + p.overlap_tolerance_minutes:
+            res.violations.append(
+                Violation("H13", "groups",
+                          f"only {sum(1 for x in done if x <= plan.start + p.overlap_tolerance_minutes)} group(s) have all "
+                          f"breeds done by {fmt_time(plan.start)}; {need} needed (done at {fmt_time(int(done[need - 1]))})",
+                          done[need - 1] - plan.start)
+            )
+        # H14: no group before every judge's lunch is over (E: all 11 parsed days)
+        lunch_end = lunch_ends(program, p)
+        if p.groups_after_all_lunches and lunch_end:
+            judge, end = max(lunch_end.items(), key=lambda kv: kv[1])
+            if end > plan.start + p.overlap_tolerance_minutes:
+                res.violations.append(
+                    Violation("H14", judge.name, f"at lunch until {fmt_time(int(end))}; groups at {fmt_time(plan.start)}",
+                              end - plan.start)
+                )
         # every group ring must be clear before the first group (U)
         group_ring_free = max((sb.end for r in plan.rings for sb in by_ring.get(r, [])), default=None)
         if group_ring_free is not None:
@@ -272,7 +351,6 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
             "judges": len(by_judge),
             "rings": len(by_ring),
             "judging_start": fmt_time(min(sb.start for sb in blocks)) if blocks else None,
-            "judges_lunch_outside_window": lunch_outside_window,
             "blocks_off_grid": off_grid,
         }
     )

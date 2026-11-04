@@ -6,9 +6,13 @@ replaced by measurements from real judging programs (see docs/calibration.md).
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
+from typing import TYPE_CHECKING
 
 from optdog.domain import Minutes
+
+if TYPE_CHECKING:
+    from optdog.domain import Show
 
 
 @dataclass(frozen=True)
@@ -40,7 +44,10 @@ class ShowParameters:
     lunch_required_after_minutes: float = 300.0  # assignment exceeding five hours
     lunch_min_minutes: int = 45
     lunch_max_minutes: int = 60
-    lunch_window: tuple[Minutes, Minutes] = (11 * 60 + 30, 12 * 60 + 30)  # E: published lunches start 11:30–12:30 (p10–p90 11:30–12:20)
+    # H6, hard (U): a lunch must START in this window. The window is a show input (Show.lunch_window),
+    # set ahead of time by concessions availability; this is only the default when a show gives none.
+    # E: published lunches start 11:10–12:30 (p10–p90 11:30–12:20)
+    lunch_window: tuple[Minutes, Minutes] = (11 * 60, 12 * 60 + 30)
 
     # --- margins (U)
     exhibitor_travel_minutes: float = 2.0  # m_X between rings (U, adjustable)
@@ -49,6 +56,8 @@ class ShowParameters:
 
     # --- groups (Show Manual §6)
     group_ring_setup_minutes: float = 0.0  # buffer between last breed in group ring(s) and first group
+    groups_complete_before_start: int = 2  # H13, Show Manual §6: "breed judging in at least two groups ... complete before group judging is scheduled to begin"
+    groups_after_all_lunches: bool = True  # H14 (U): first group after every judge's lunch ends. E: true on all 11 parsed days
 
     # --- limits (Rules Ch.7 §13)
     judge_daily_limit: int = 175
@@ -58,3 +67,9 @@ class ShowParameters:
     closing_time: Minutes | None = None  # posted closing time, if known
 
     weights: ObjectiveWeights = field(default_factory=ObjectiveWeights)
+
+    def for_show(self, show: "Show") -> "ShowParameters":
+        """These parameters with the show's own inputs (e.g. its lunch window) taking precedence."""
+        if show.lunch_window is not None and show.lunch_window != self.lunch_window:
+            return replace(self, lunch_window=show.lunch_window)
+        return self

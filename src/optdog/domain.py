@@ -378,6 +378,16 @@ class Show:
     group_rings: tuple[Ring, ...] = ()
     start: Minutes | None = None
     entries: list[Entry] = field(default_factory=list)  # individual dogs, when known (synthetic for now)
+    pinned: list[ScheduledBlock] = field(default_factory=list)  # published commitments a program must keep (SPEC H11)
+    # When judges' lunch breaks may start. Set ahead of time by the club, usually by when
+    # the venue's concessions serve lunch; an input, not a scheduling decision.
+    # None: use ShowParameters.lunch_window.
+    lunch_window: tuple[Minutes, Minutes] | None = None
+
+    def unpinned_events(self) -> list[JudgingEvent]:
+        """Events the scheduler places: every event not inside a pinned block."""
+        fixed = {id(e) for sb in self.pinned for e in sb.block.events}
+        return [e for e in self.events if id(e) not in fixed]
 
     @property
     def exhibitors(self) -> list[Exhibitor]:

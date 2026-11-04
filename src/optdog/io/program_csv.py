@@ -59,6 +59,7 @@ def write_program(program: JudgingProgram, out_dir: str | Path, source: str = ""
         "start": _hhmm(show.start),
         "group_rings": " ".join(str(r.number) for r in show.group_rings),
         "group_start": _hhmm(plan.start if plan else None),
+        "lunch_window": "-".join(_hhmm(t) for t in show.lunch_window) if show.lunch_window else "",
         "bis_judge": show.bis_judge.name if show.bis_judge else "",
     }
     with open(out / "show.csv", "w", newline="") as f:
@@ -176,6 +177,7 @@ def read_program(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Jud
         bis_judge=bis,
         group_rings=group_rings,
         start=_mins(meta["start"]),
+        lunch_window=tuple(_mins(t) for t in meta["lunch_window"].split("-")) if meta.get("lunch_window") else None,
     )
     plan = GroupsPlan(group_rings, _mins(meta["group_start"]), tuple(order), group_judges, bis) if order else None
     return JudgingProgram(show, scheduled, breaks, plan)

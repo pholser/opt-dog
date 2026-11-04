@@ -28,7 +28,7 @@ and a partitioning sub-problem (forming blocks).
 | `T0` | official judging start (e.g. 8:00) — Show Manual §6 says on or before 9:00 |
 | `Tend` | posted show closing time; all judging must finish by then (Show Manual §6) |
 | `Δ` | time grid for published block times. Real programs use 5-min times (9:25, 10:10) (E) — default 5 min |
-| `[L0, L1]` | lunch window (convention; **OPEN**: input or learned from data) |
+| `[L0, L1]` | lunch window: every lunch break must **start** in it (H6). An **input** set ahead of time by the club, usually by when the venue's concessions serve lunch; not a scheduling decision (U). `Show.lunch_window`; when a show gives none (as with all parsed programs), the default `ShowParameters.lunch_window` = 11:00–12:30 (E: published lunches start 11:10–12:30) |
 | `m_X` | exhibitor travel margin between rings, in minutes. Parameter, default **2** (U) |
 | `m_J` | judge travel margin between rings, in minutes. Parameter, default **2** (U) |
 
@@ -109,13 +109,15 @@ start of unit `u` (block start + durations of the units ahead of it in the block
 | H3 | Each ring holds at most one block at a time | — |
 | H4 | A judge is never in two rings at once: their blocks, their group/BIS assignment, and their lunch never overlap. When a judge's consecutive blocks are in different rings, the next starts ≥ `m_J` minutes after the previous ends (travel margin) | U |
 | H5 | Units in a block are judged in the published order; no block starts before `s_b` | Rules Ch.7 §12; REJ999 |
-| H6 | A judge whose assignment exceeds 5 hours gets a break of 45–60 min between two blocks, inside the lunch window (**OPEN**: is the window hard?) | Rules Ch.7 §12 |
+| H6 | A judge whose assignment exceeds 5 hours gets a break of 45–60 min between two blocks. **Every lunch break a judge is assigned starts inside the lunch window `[L0, L1]`** (hard). A break after the judge's last block is free time, not a break in judging, and is exempt here and in H14 | Rules Ch.7 §12 (break); U (window) |
 | H7 | Group `g` starts only after **every block containing a unit of group `g`** has ended | Show Manual §6; U |
 | H8 | Group and BIS judges finish all their breed blocks before their group or BIS starts | Show Manual §6 |
 | H9 | The first group starts only once **every** group ring in `RG` is **free of breed blocks**, even when two rings are used (U). An optional set-up buffer is a parameter | Show Manual §6; U |
 | H10 | Groups run **sequentially** in `RG` (two adjacent rings act as one) in order π; **BIS starts as soon as the last group ends** | U |
-| H11 | Pinned units start at their fixed time; precedences hold | E |
+| H11 | Pinned units start at their fixed time; precedences hold. Instances built from parsed programs pin every concurrent-specialty, Beginner Puppy and FSS open-show block at its published ring and time (`instance.py`): clubs publish those times, and their events chain (puppy breeds → puppy groups → Best Puppy; FSS show #1 → #2 with the same dogs) | E |
 | H12 | Everything ends by `Tend`; nothing starts before `T0` | Show Manual §6 |
+| H13 | The breeds of at least **two** groups (parameter, default 2; fewer if fewer groups are entered) are all done before the first group starts | Show Manual §6: "Breed judging in at least two groups should be scheduled to be complete before group judging is scheduled to begin"; U |
+| H14 | The first group starts only after **every** judge's lunch has ended: a published break counts as published; a judge over five hours with no published break takes lunch in a gap of lunch length, at the minimum length. Parameter `groups_after_all_lunches`, default on | U; E: holds on all 11 parsed days. Not an AKC rule |
 | V1 | (input check, not a decision) Each judge has ≤ 175 entries, juniors and sweeps included; 200 for a specialty-only judge | Rules Ch.7 §13; Show Manual §6 |
 
 ## 5. Soft constraints / costs
@@ -150,7 +152,7 @@ conflict worth?".
    The generation model is still **OPEN**.
 4. **Group ring(s)**: are they an input, or does the program choose them?
 5. ~~Group / BIS durations~~ → proportional to the number of breeds/varieties entered (group) and groups entered (BIS), at the judge's rate (U).
-6. **Block tolerance ε** and **lunch window**: take them from data (E).
+6. ~~Block tolerance ε and lunch window~~ → ε = 15 min (E); lunch window hard, 11:00–12:30 by default (U, E).
 7. **Ring capacity / size classes**: are they needed?
 8. **Solver approach**: decide after the data is in. CP-SAT (interval variables,
    NoOverlap, optional intervals) fits placement well. Block formation could be built
@@ -170,7 +172,9 @@ all-breed show days, 653–2,137 breed entries each. Timings assume 25 dogs/hr.
 - **Final segment (H2) is bent.** 12 final segments of 51–73 mixed-breed dogs on 4 of 11
   days; checked against the source, e.g. a 67-dog, 21-breed terrier afternoon. → made a
   soft cost, S8 (U).
-- **Lunch (H6).** Every published lunch is 45 min (one 60), starting 11:30–12:20 (p10–p90).
+- **Lunch (H6).** Every published lunch is 45 min (one 60), starting 11:30–12:20 (p10–p90), 11:10–12:30 overall.
+  Every lunch within an assignment fits the default 11:00–12:30 window. One 12:45 "break" comes
+  after the judge's last block and is exempt.
   All judges over five hours have one. → `lunch_window = 11:30–12:30`.
 - **Group rings (H9) are bent.** The group ring(s) are usually free 83 min before groups (median),
   but on 2 days breed judging continues in the second group ring after groups begin.
@@ -180,6 +184,15 @@ all-breed show days, 653–2,137 breed entries each. Timings assume 25 dogs/hr.
   Working is never first. Humans order groups by readiness, as the model will.
 - **Groups** start 1:15–2:30 PM; judging starts 8:00 or 8:30.
 - **V1.** One judge at 178 entries (> 175).
+- **H13 holds.** On 10 of 11 days the human programs have ≥ 2 groups' breeds done by the
+  published group start. The exception is 10 minutes short.
+- **Groups start later than the model needs.** Under H1–H13, the greedy baseline can start
+  groups at 11:10 AM–2:55 PM (median about noon); humans publish 1:15–2:30 PM. Best Practices
+  asks for "the earliest possible opportunity". Whatever else holds humans back is not yet modeled.
+  Candidates: exhibitors handling group dogs while breed judging continues, and convention.
+- **H14 holds.** On every parsed day the first group starts after the last published lunch ends
+  (last lunch ends 12:15–1:15 PM). Made a hard rule (U). With it, the greedy's groups start
+  12:40–2:55 PM, still 15–75 min ahead of the humans on most days.
 
 ## 9. Validation plan
 
@@ -188,4 +201,9 @@ all-breed show days, 653–2,137 breed entries each. Timings assume 25 dogs/hr.
 - Run the validator on the human schedules first, to calibrate ε and the lunch window
   and to find which "hard" rules humans actually bend.
 - Use lower bounds on finish time (critical path, ring capacity) and a greedy baseline,
-  so solver results can be judged.
+  so solver results can be judged. Done: `solve/bounds.py`, `solve/greedy.py`, results in
+  `docs/baseline.md`. On the 11 days the greedy schedule satisfies every hard constraint
+  except one input-level V1. It finishes a mean 48 min above the bound, against 109 for the human programs.
+  With the window hard, the bound uses H14: if any judge needs lunch, no group starts before
+  `L0` + the minimum lunch. A judge who needs lunch is free no earlier than `L0` + lunch +
+  their shortest event.
