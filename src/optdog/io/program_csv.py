@@ -1,0 +1,181 @@
+"""Read/write a JudgingProgram as a directory of CSV files.
+
+    show.csv       key,value metadata (name, date, start, group rings/start, BIS judge)
+    judges.csv     name, permit, minutes_per_dog
+    schedule.csv   one row per event, in block order (ring, judge, block_start, position, ...)
+    breaks.csv     judge breaks
+    groups.csv     group order and judges
+
+Times are written as 24-hour HH:MM. CSV is only a serialization of the domain model.
+"""
+
+from __future__ import annotations
+
+import csv
+from pathlib import Path
+
+from optdog.breeds import BreedCatalog, default_catalog
+from optdog.domain import (
+    Block,
+    Break,
+    Competition,
+    EntryCounts,
+    EventKind,
+    Group,
+    GroupsPlan,
+    JudgingEvent,
+    JudgingProgram,
+    Judge,
+    Ring,
+    ScheduledBlock,
+    Show,
+)
+
+SCHEDULE_FIELDS = [
+    "ring", "judge", "block_start", "position", "event", "kind", "competition", "breed", "group",
+    "entries", "class_dogs", "class_bitches", "bob_dogs", "bob_bitches", "nonregular",
+]
+
+
+def _hhmm(t: int | None) -> str:
+    return "" if t is None else f"{t // 60:02d}:{t % 60:02d}"
+
+
+def _mins(s: str) -> int | None:
+    if not s:
+        return None
+    h, m = s.split(":")
+    return int(h) * 60 + int(m)
+
+
+def write_program(program: JudgingProgram, out_dir: str | Path, source: str = "") -> None:
+    out = Path(out_dir)
+    out.mkdir(parents=True, exist_ok=True)
+    show, plan = program.show, program.groups
+    meta = {
+        "name": show.name,
+        "date": show.date,
+        "source": source,
+        "start": _hhmm(show.start),
+        "group_rings": " ".join(str(r.number) for r in show.group_rings),
+        "group_start": _hhmm(plan.start if plan else None),
+        "bis_judge": show.bis_judge.name if show.bis_judge else "",
+    }
+    with open(out / "show.csv", "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["key", "value"])
+        w.writerows(meta.items())
+
+    judges = {j.name: j for j in show.judges}
+    for j in list(show.group_judges.values()) + ([show.bis_judge] if show.bis_judge else []):
+        judges.setdefault(j.name, j)
+    with open(out / "judges.csv", "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["name", "permit", "minutes_per_dog"])
+        for j in judges.values():
+            w.writerow([j.name, int(j.permit), "" if j.minutes_per_dog is None else j.minutes_per_dog])
+
+    with open(out / "schedule.csv", "w", newline="") as f:
+        w = csv.DictWriter(f, SCHEDULE_FIELDS)
+        w.writeheader()
+        for sb in sorted(program.blocks, key=lambda b: (b.ring.number, b.start)):
+            for pos, e in enumerate(sb.block.events):
+                c = e.counts
+                w.writerow({
+                    "ring": sb.ring.number,
+                    "judge": sb.judge.name,
+                    "block_start": _hhmm(sb.start),
+                    "position": pos,
+                    "event": e.name,
+                    "kind": e.kind.value,
+                    "competition": e.competition.value,
+                    "breed": e.breed.name if e.breed else "",
+                    "group": e.breed.group.value if e.breed and e.breed.group else "",
+                    "entries": e.entries,
+                    "class_dogs": c.class_dogs if c else "",
+                    "class_bitches": c.class_bitches if c else "",
+                    "bob_dogs": c.bob_dogs if c else "",
+                    "bob_bitches": c.bob_bitches if c else "",
+                    "nonregular": c.nonregular if c else "",
+                })
+
+    with open(out / "breaks.csv", "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["judge", "ring", "start", "minutes"])
+        for b in sorted(program.breaks, key=lambda b: (b.start, b.judge.name)):
+            w.writerow([b.judge.name, b.ring.number if b.ring else "", _hhmm(b.start), "" if b.minutes is None else b.minutes])
+
+    with open(out / "groups.csv", "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["order", "group", "judge"])
+        if plan:
+            for i, g in enumerate(plan.order, 1):
+                j = plan.judges.get(g)
+                w.writerow([i, g.value, j.name if j else ""])
+
+
+def read_program(in_dir: str | Path, catalog: BreedCatalog | None = None) -> JudgingProgram:
+    d = Path(in_dir)
+    catalog = catalog or default_catalog()
+    with open(d / "show.csv", newline="") as f:
+        meta = {r["key"]: r["value"] for r in csv.DictReader(f)}
+    with open(d / "judges.csv", newline="") as f:
+        judges = {
+            r["name"]: Judge(r["name"], bool(int(r["permit"])), float(r["minutes_per_dog"]) if r["minutes_per_dog"] else None)
+            for r in csv.DictReader(f)
+        }
+    rings: dict[int, Ring] = {}
+
+    def ring(n: int) -> Ring:
+        return rings.setdefault(n, Ring(n))
+
+    events: list[JudgingEvent] = []
+    blocks: dict[tuple[int, str, int], list[JudgingEvent]] = {}
+    with open(d / "schedule.csv", newline="") as f:
+        for r in csv.DictReader(f):
+            counts = None
+            if r["class_dogs"] != "":
+                counts = EntryCounts(*(int(r[k]) for k in ("class_dogs", "class_bitches", "bob_dogs", "bob_bitches", "nonregular")))
+            e = JudgingEvent(
+                name=r["event"],
+                kind=EventKind(r["kind"]),
+                judge=judges[r["judge"]],
+                entries=int(r["entries"]),
+                breed=catalog[r["breed"]] if r["breed"] else None,
+                counts=counts,
+                competition=Competition(r["competition"]),
+            )
+            events.append(e)
+            blocks.setdefault((int(r["ring"]), r["judge"], _mins(r["block_start"])), []).append(e)
+    scheduled = [
+        ScheduledBlock(Block(judges[j], tuple(evs)), ring(rn), start) for (rn, j, start), evs in blocks.items()
+    ]
+    breaks = []
+    with open(d / "breaks.csv", newline="") as f:
+        for r in csv.DictReader(f):
+            breaks.append(Break(judges[r["judge"]], ring(int(r["ring"])) if r["ring"] else None, _mins(r["start"]),
+                                int(r["minutes"]) if r["minutes"] else None))
+    groups_by_value = {g.value: g for g in Group}
+    order, group_judges = [], {}
+    with open(d / "groups.csv", newline="") as f:
+        for r in csv.DictReader(f):
+            g = groups_by_value[r["group"]]
+            order.append(g)
+            if r["judge"]:
+                group_judges[g] = judges[r["judge"]]
+    group_rings = tuple(ring(int(x)) for x in meta["group_rings"].split())
+    bis = judges.get(meta["bis_judge"]) if meta["bis_judge"] else None
+    breed_judges = {e.judge.name for e in events}
+    show = Show(
+        name=meta["name"],
+        date=meta["date"],
+        judges=[j for n, j in judges.items() if n in breed_judges],
+        events=events,
+        rings=sorted(rings.values(), key=lambda r: r.number),
+        group_judges=group_judges,
+        bis_judge=bis,
+        group_rings=group_rings,
+        start=_mins(meta["start"]),
+    )
+    plan = GroupsPlan(group_rings, _mins(meta["group_start"]), tuple(order), group_judges, bis) if order else None
+    return JudgingProgram(show, scheduled, breaks, plan)

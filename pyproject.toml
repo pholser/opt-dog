@@ -1,0 +1,19 @@
+[project]
+name = "optdog"
+version = "0.1.0"
+description = "Judging-program (ring schedule) optimizer for AKC all-breed conformation shows"
+requires-python = ">=3.12"
+dependencies = ["pdfplumber>=0.11"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
