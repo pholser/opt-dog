@@ -347,6 +347,44 @@ class Show:
         """Events that must finish before ``group`` is judged (empty for MISCELLANEOUS)."""
         return [e for e in self.events if e.feeds_group is group]
 
+    # ------------------------------------------------------------ group / BIS sizing
+    #
+    # Model assumption (user decision): at most one winner per breed or variety
+    # (BOB/BOV) competes in its group, so a group's size is the number of its breeds
+    # and varieties entered in the all-breed show. BIS has one competitor per variety
+    # group with at least one breed entered. Each is judged at its judge's (breed)
+    # rate. In reality not every breed winner competes in group, so these are
+    # conservative upper bounds; absolute group/BIS end times are not a calibration
+    # target (on real shows they run hours past actual show close).
+
+    def group_entrants(self, group: Group) -> int:
+        """Breeds/varieties of ``group`` entered in the all-breed show (one BOB/BOV each)."""
+        return len(
+            {
+                e.breed
+                for e in self.feeding(group)
+                if e.competition is Competition.ALL_BREED and e.entries > 0
+            }
+        )
+
+    def group_duration(self, group: Group) -> float:
+        """Planned minutes to judge ``group``: entrants × the group judge's rate."""
+        judge = self.group_judges.get(group)
+        rate = judge.rate if judge else DEFAULT_MINUTES_PER_DOG
+        return self.group_entrants(group) * rate
+
+    def bis_entrants(self) -> int:
+        """One group winner per variety group that has at least one breed entered."""
+        return sum(1 for g in VARIETY_GROUPS if self.group_entrants(g) > 0)
+
+    def bis_duration(self) -> float:
+        rate = self.bis_judge.rate if self.bis_judge else DEFAULT_MINUTES_PER_DOG
+        return self.bis_entrants() * rate
+
+    def groups_and_bis_duration(self) -> float:
+        """Total planned minutes of group + BIS judging if run back to back."""
+        return sum(self.group_duration(g) for g in VARIETY_GROUPS) + self.bis_duration()
+
 
 _COUNTS_TOWARD_LIMIT = {
     Competition.ALL_BREED,

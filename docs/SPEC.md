@@ -67,7 +67,9 @@ sweepstakes, Junior Showmanship, Best in Miscellaneous.
 |---|---|
 | `G` | the 7 groups |
 | `judge(g)`, `judge(BIS)` | group and BIS judges |
-| `D_g`, `D_BIS` | durations. **OPEN**: estimate (e.g. from the number of breeds in the group) or input |
+| `D_g` | group duration = (number of breeds/varieties of group `g` entered in the show) × group judge's rate. Assumes at most one BOB/BOV winner per breed/variety competes in group (U) |
+| `D_BIS` | BIS duration = (number of variety groups with ≥1 breed entered, normally 7) × BIS judge's rate (U) |
+| | Both use the judge's breed rate (U). Not every breed winner competes in group, so `D_g` and `D_BIS` are conservative upper bounds; on the 11 parsed shows they sum to 5–7½ h, so modeled group/BIS end times run well past real show close and are not a calibration target (U) |
 
 ### 2.6 Exhibitors (U)
 | Symbol | Meaning |
@@ -147,7 +149,7 @@ conflict worth?".
 3. ~~Exhibitor vs. handler~~ → synthetic exhibitor/handler data for now (U).
    The generation model is still **OPEN**.
 4. **Group ring(s)**: are they an input, or does the program choose them?
-5. **Group / BIS durations**: input or estimated?
+5. ~~Group / BIS durations~~ → proportional to the number of breeds/varieties entered (group) and groups entered (BIS), at the judge's rate (U).
 6. **Block tolerance ε** and **lunch window**: take them from data (E).
 7. **Ring capacity / size classes**: are they needed?
 8. **Solver approach**: decide after the data is in. CP-SAT (interval variables,
