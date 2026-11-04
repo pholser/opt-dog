@@ -225,6 +225,9 @@ def _subtitle_competition(line: str) -> Competition | None:
 
 
 def _classify_section(title: str) -> Competition:
+    for part in title.split(" / "):
+        if (sub := _subtitle_competition(part)) is not None:
+            return sub
     t = title.lower()
     if "beginner puppy" in t:
         return Competition.BEGINNER_PUPPY

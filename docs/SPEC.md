@@ -29,8 +29,8 @@ and a partitioning sub-problem (forming blocks).
 | `Tend` | posted show closing time; all judging must finish by then (Show Manual §6) |
 | `Δ` | time grid for published block times. Real programs use 5-min times (9:25, 10:10) (E) — default 5 min |
 | `[L0, L1]` | lunch window (convention; **OPEN**: input or learned from data) |
-| `m_X` | exhibitor travel margin between rings, in minutes (parameter, U) |
-| `m_J` | judge travel margin between rings, in minutes (parameter; default = `m_X`) |
+| `m_X` | exhibitor travel margin between rings, in minutes. Parameter, default **2** (U) |
+| `m_J` | judge travel margin between rings, in minutes. Parameter, default **2** (U) |
 
 ### 2.2 Rings
 | Symbol | Meaning |
@@ -106,14 +106,13 @@ start of unit `u` (block start + durations of the units ahead of it in the block
 | # | Constraint | Source |
 |---|---|---|
 | H1 | Each block lasts **about one hour** (`D_b ≤ 60 + ε`, **OPEN** ε, measured from data E). Exception: a single unit with `n_u > 30` is its own block, with no cap | Rules Ch.7 §12 |
-| H2 | A ring's final block may stretch past an hour but must be **≤ 50 dogs** unless it is a single breed/variety | Rules Ch.7 §12 |
 | H3 | Each ring holds at most one block at a time | — |
 | H4 | A judge is never in two rings at once: their blocks, their group/BIS assignment, and their lunch never overlap. When a judge's consecutive blocks are in different rings, the next starts ≥ `m_J` minutes after the previous ends (travel margin) | U |
 | H5 | Units in a block are judged in the published order; no block starts before `s_b` | Rules Ch.7 §12; REJ999 |
 | H6 | A judge whose assignment exceeds 5 hours gets a break of 45–60 min between two blocks, inside the lunch window (**OPEN**: is the window hard?) | Rules Ch.7 §12 |
 | H7 | Group `g` starts only after **every block containing a unit of group `g`** has ended | Show Manual §6; U |
 | H8 | Group and BIS judges finish all their breed blocks before their group or BIS starts | Show Manual §6 |
-| H9 | The first group starts only once the group ring(s) `RG` are **free of breed blocks** (**OPEN**: set-up buffer) | Show Manual §6; U |
+| H9 | The first group starts only once **every** group ring in `RG` is **free of breed blocks**, even when two rings are used (U). An optional set-up buffer is a parameter | Show Manual §6; U |
 | H10 | Groups run **sequentially** in `RG` (two adjacent rings act as one) in order π; **BIS starts as soon as the last group ends** | U |
 | H11 | Pinned units start at their fixed time; precedences hold | E |
 | H12 | Everything ends by `Tend`; nothing starts before `T0` | Show Manual §6 |
@@ -130,6 +129,7 @@ start of unit `u` (block start + durations of the units ahead of it in the block
 | S5 | Idle gaps in a judge's day (other than lunch) | E/convention |
 | S6 | Short-nosed (brachycephalic) breeds in the cooler part of the day (outdoor shows) | Show Manual §6 |
 | S7 | Permit judges at non-conflicting times (for the AKC field rep) | Show Manual §6 |
+| S8 | **Final segment over 50 dogs**: a ring's final segment may stretch past an hour; each dog over 50 (unless it is a single breed/variety) costs `w_final`. AKC states this as a rule, but it is a soft cost here because real programs exceed it (§8) | Rules Ch.7 §12; U; E |
 
 ## 6. Objective
 
@@ -156,7 +156,32 @@ conflict worth?".
    NoOverlap, optional intervals) fits placement well. Block formation could be built
    into the same model or done as a separate first stage; we'll compare both on real instances.
 
-## 8. Validation plan
+## 8. Evidence from real programs (E)
+
+From `docs/calibration.md`: the validator (`src/optdog/validate.py`) run on 11 parsed
+all-breed show days, 653–2,137 breed entries each. Timings assume 25 dogs/hr.
+
+- **Rate.** Superintendents schedule at 25 dogs/hr: the median published gap is exactly
+  2.40 min/dog. Times are rounded to 5-minute marks, so a block is often 1–2 dogs over the hour.
+  → `overlap_tolerance_minutes = 5` (one slot). This leaves 16 overlaps on 11 days,
+  down from 248 at zero tolerance.
+- **Blocks (H1).** Multi-breed blocks: median 24 dogs, p90 27, max 39. Blocks over 75 min
+  that aren't a single breed of more than 30: 7 on 6 of 11 days. → `block_tolerance_minutes = 15` holds.
+- **Final segment (H2) is bent.** 12 final segments of 51–73 mixed-breed dogs on 4 of 11
+  days; checked against the source, e.g. a 67-dog, 21-breed terrier afternoon. → made a
+  soft cost, S8 (U).
+- **Lunch (H6).** Every published lunch is 45 min (one 60), starting 11:30–12:20 (p10–p90).
+  All judges over five hours have one. → `lunch_window = 11:30–12:30`.
+- **Group rings (H9) are bent.** The group ring(s) are usually free 83 min before groups (median),
+  but on 2 days breed judging continues in the second group ring after groups begin.
+  → H9 stays hard: **both** rings must be free before the first group (U), stricter than those 2 days.
+- **Group order.** The first group's breeds always finish ≥ 29 min before groups start.
+  Working breeds finish 26–119 min *after* the published group start on every show, so
+  Working is never first. Humans order groups by readiness, as the model will.
+- **Groups** start 1:15–2:30 PM; judging starts 8:00 or 8:30.
+- **V1.** One judge at 178 entries (> 175).
+
+## 9. Validation plan
 
 - Parse real programs → instances (§2 inputs) + human schedules.
 - An independent **validator** checks any schedule against H1–H12 and scores S1–S7.

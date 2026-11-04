@@ -344,8 +344,12 @@ class Show:
         return [e for e in self.events if e.group is group]
 
     def feeding(self, group: Group) -> list[JudgingEvent]:
-        """Events that must finish before ``group`` is judged (empty for MISCELLANEOUS)."""
-        return [e for e in self.events if e.feeds_group is group]
+        """All-breed show events that must finish before ``group`` is judged.
+
+        Empty for MISCELLANEOUS. Concurrent specialty shows' winners do not go to
+        the all-breed group, so only ALL_BREED events feed a group.
+        """
+        return [e for e in self.events if e.feeds_group is group and e.competition is Competition.ALL_BREED]
 
     # ------------------------------------------------------------ group / BIS sizing
     #
@@ -422,3 +426,70 @@ class JudgingProgram:
         for sb in self.blocks:
             for e, off in sb.block.offsets():
                 yield e, sb, sb.start + off
+
+    def event_end(self, event: JudgingEvent) -> float | None:
+        for e, _, start in self.scheduled_events():
+            if e is event:
+                return start + e.duration
+        return None
+
+    def group_timeline(self, judge_travel_minutes: float = 0.0) -> GroupTimeline | None:
+        """Planned group and BIS times, run sequentially in the group ring(s).
+
+        The first group is published to start at ``groups.start``; each later group
+        follows the previous one. A group cannot start before its breeds are done and
+        its judge has finished their breed blocks — plus ``judge_travel_minutes`` if
+        the judge's last block was outside the group ring(s). BIS follows the last
+        group and cannot start before the BIS judge is free on the same terms.
+        """
+        plan = self.groups
+        if plan is None or plan.start is None:
+            return None
+        ends = {id(e): start + e.duration for e, _, start in self.scheduled_events()}
+        last_block: dict[Judge, ScheduledBlock] = {}
+        for sb in self.blocks:
+            if sb.judge not in last_block or sb.end > last_block[sb.judge].end:
+                last_block[sb.judge] = sb
+        group_rings = set(plan.rings)
+        judge_free: dict[Judge, float] = {
+            j: sb.end + (0.0 if sb.ring in group_rings else judge_travel_minutes) for j, sb in last_block.items()
+        }
+        slots: list[GroupSlot] = []
+        t = float(plan.start)
+        for g in plan.order:
+            breeds_done = max((ends[id(e)] for e in self.show.feeding(g) if id(e) in ends), default=0.0)
+            judge = self.show.group_judges.get(g)
+            ready = max(breeds_done, judge_free.get(judge, 0.0) if judge else 0.0)
+            start = max(t, ready)
+            end = start + self.show.group_duration(g)
+            slots.append(GroupSlot(g, start, end, breeds_done, ready, available=t))
+            t = end
+        bis = self.show.bis_judge
+        bis_start = max(t, judge_free.get(bis, 0.0) if bis else 0.0)
+        return GroupTimeline(tuple(slots), bis_start, bis_start + self.show.bis_duration())
+
+
+@dataclass(frozen=True)
+class GroupSlot:
+    group: Group
+    start: float
+    end: float
+    breeds_done: float  # when the group's last breed finishes
+    ready: float  # max(breeds_done, group judge free)
+    available: float  # when the group ring could have taken this group (previous end / published start)
+
+    @property
+    def wait(self) -> float:
+        """Minutes the group ring sat idle waiting for this group's breeds or judge."""
+        return self.start - self.available
+
+
+@dataclass(frozen=True)
+class GroupTimeline:
+    groups: tuple[GroupSlot, ...]
+    bis_start: float
+    bis_end: float
+
+    @property
+    def finish(self) -> float:
+        return self.bis_end

@@ -41,11 +41,11 @@ Source: `data/raw/bradshaw/603.pdf` (SUNDAY)
 | ring 34 Mrs. Celeste Meade Maurer subtotal | 32 | 32 | ok |
 | ring 35 Mrs. Nancy E. Craig subtotal | 37 | 37 | ok |
 | ring 36 Mr. David Maurer subtotal | 83 | 83 | ok |
-| Total Dog Entries in Show (all-breed section) | 2242 | 2249 | **MISMATCH** |
+| Total Dog Entries in Show (all-breed section) | 2242 | 2239 | **MISMATCH** |
 | breed index rows (breeds) matching listings | 174 | 174 | ok |
 
 ## Notes
 
-- Total Dogs in Show (unique dogs, informational): 2134; breed entries parsed: 2050
+- Total Dogs in Show (unique dogs, informational): 2134; breed entries parsed: 2040
 - group/BIS judge not found among breed judges: 'Mrs. Neely'
 - group/BIS judge not found among breed judges: 'Mrs. Koltes'
