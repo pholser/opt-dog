@@ -227,6 +227,52 @@ class JudgingEvent:
         return f"{self.entries} {self.name}"
 
 
+# --------------------------------------------------------------------------- exhibitors
+
+
+class EntryStatus(Enum):
+    """How a dog competes in its breed, which decides how long its exhibitor is busy (U)."""
+
+    CLASS = "class"  # regular or non-regular class dog: busy for the whole breed event
+    CHAMPION = "champion"  # Best of Breed competition only: busy only for the BOB portion
+
+
+@dataclass(frozen=True)
+class Exhibitor:
+    """Whoever takes a dog into the ring (the exhibitor marked on the entry).
+
+    An owner-handler, or a member of a professional handler's team: the handler or one
+    of their assistants. When a professional needs help, the assistant who takes the dog
+    in is the exhibitor on that dog (user decision), and assistants may register for
+    non-conflict accommodation like anyone else.
+    """
+
+    id: str
+    professional: bool = False
+    registered: bool = False  # registered for non-conflict accommodation (only these count in S1)
+    team: str | None = None  # professional handler team this person belongs to
+
+    def __str__(self) -> str:
+        return self.id
+
+
+@dataclass(frozen=True)
+class Entry:
+    """One dog entered in one breed event, shown by one exhibitor."""
+
+    dog: str
+    event: "JudgingEvent"
+    exhibitor: Exhibitor
+    status: EntryStatus
+
+    @property
+    def busy_offset(self) -> tuple[float, float]:
+        """(from, to) minutes after the event starts during which the exhibitor is busy."""
+        if self.status is EntryStatus.CHAMPION:
+            return self.event.bob_offset, self.event.duration
+        return 0.0, self.event.duration
+
+
 # --------------------------------------------------------------------------- blocks
 
 
@@ -331,6 +377,14 @@ class Show:
     bis_judge: Judge | None = None
     group_rings: tuple[Ring, ...] = ()
     start: Minutes | None = None
+    entries: list[Entry] = field(default_factory=list)  # individual dogs, when known (synthetic for now)
+
+    @property
+    def exhibitors(self) -> list[Exhibitor]:
+        seen: dict[str, Exhibitor] = {}
+        for en in self.entries:
+            seen.setdefault(en.exhibitor.id, en.exhibitor)
+        return list(seen.values())
 
     def events_for(self, judge: Judge) -> list[JudgingEvent]:
         return [e for e in self.events if e.judge == judge]

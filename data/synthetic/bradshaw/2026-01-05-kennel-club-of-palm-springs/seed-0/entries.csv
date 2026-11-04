@@ -1,0 +1,1743 @@
+dog,exhibitor,status,judge,event,competition
+D00001,O0001,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00002,O0002,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00003,O0003,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00004,O0003,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00006,O0003,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00007,O0003,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00009,O0007,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00010,O0007,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00011,O0009,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00012,O0010,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00013,O0011,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00014,O0012,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00016,O0013,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00018,O0013,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00019,O0015,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00021,O0015,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00024,O0017,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00025,O0018,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00029,O0018,champion,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00031,O0020,champion,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00032,O0021,champion,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00035,O0022,champion,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00036,O0023,champion,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00037,O0024,champion,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00039,O0025,champion,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00040,O0026,class,Mrs. Minna-Liisa Koltes,Rottweiler,all-breed
+D00041,O0027,class,Mrs. Minna-Liisa Koltes,Rottweiler,all-breed
+D00045,O0027,champion,Mrs. Minna-Liisa Koltes,Rottweiler,all-breed
+D00046,O0029,class,Mrs. Minna-Liisa Koltes,Siberian Husky,all-breed
+D00047,O0029,class,Mrs. Minna-Liisa Koltes,Siberian Husky,all-breed
+D00050,O0029,champion,Mrs. Minna-Liisa Koltes,Siberian Husky,all-breed
+D00054,O0032,class,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00056,O0032,class,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00057,O0032,class,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00058,O0021,class,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00060,O0021,class,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00061,O0015,class,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00062,O0015,class,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00063,O0039,class,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00066,O0040,class,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00067,O0041,class,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00068,O0042,class,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00069,O0042,class,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00070,O0042,class,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00072,O0045,class,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00077,O0046,champion,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00079,O0047,champion,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00082,O0048,champion,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00085,O0048,champion,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00088,O0050,champion,Mrs. Minna-Liisa Koltes,Welsh Terrier,all-breed
+D00090,O0051,champion,Mrs. Minna-Liisa Koltes,Welsh Terrier,all-breed
+D00091,O0052,class,Mrs. Minna-Liisa Koltes,Norwich Terrier,all-breed
+D00092,O0053,class,Mrs. Minna-Liisa Koltes,Norwich Terrier,all-breed
+D00095,O0054,class,Mrs. Minna-Liisa Koltes,Norwich Terrier,all-breed
+D00096,O0055,class,Mrs. Minna-Liisa Koltes,Norwich Terrier,all-breed
+D00097,O0056,class,Mrs. Minna-Liisa Koltes,Norwich Terrier,all-breed
+D00098,O0057,class,Mrs. Minna-Liisa Koltes,Norwich Terrier,all-breed
+D00099,O0048,class,Mrs. Minna-Liisa Koltes,Norwich Terrier,all-breed
+D00100,O0051,champion,Mrs. Minna-Liisa Koltes,Norwich Terrier,all-breed
+D00101,O0051,champion,Mrs. Minna-Liisa Koltes,Norwich Terrier,all-breed
+D00103,O0051,champion,Mrs. Minna-Liisa Koltes,Norwich Terrier,all-breed
+D00107,O0062,champion,Mrs. Minna-Liisa Koltes,Norwich Terrier,all-breed
+D00110,O0063,champion,Mrs. Minna-Liisa Koltes,Norwich Terrier,all-breed
+D00113,O0064,class,Mrs. Minna-Liisa Koltes,Airedale Terrier,all-breed
+D00115,O0064,class,Mrs. Minna-Liisa Koltes,Airedale Terrier,all-breed
+D00117,O0066,class,Mrs. Minna-Liisa Koltes,Airedale Terrier,all-breed
+D00118,O0067,class,Mrs. Minna-Liisa Koltes,Airedale Terrier,all-breed
+D00119,O0067,champion,Mrs. Minna-Liisa Koltes,Airedale Terrier,all-breed
+D00120,O0069,champion,Mrs. Minna-Liisa Koltes,Airedale Terrier,all-breed
+D00122,O0070,champion,Mrs. Minna-Liisa Koltes,Airedale Terrier,all-breed
+D00124,O0071,class,Mr. Harold Tatro,Standard Schnauzer,all-breed
+D00126,O0071,class,Mr. Harold Tatro,Standard Schnauzer,all-breed
+D00127,O0073,class,Mr. Harold Tatro,Standard Schnauzer,all-breed
+D00128,O0074,class,Mr. Harold Tatro,Standard Schnauzer,all-breed
+D00129,O0075,champion,Mr. Harold Tatro,Standard Schnauzer,all-breed
+D00130,O0076,champion,Mr. Harold Tatro,Standard Schnauzer,all-breed
+D00131,O0077,champion,Mr. Harold Tatro,Standard Schnauzer,all-breed
+D00132,O0078,champion,Mr. Harold Tatro,Standard Schnauzer,all-breed
+D00133,O0079,champion,Mr. Harold Tatro,Standard Schnauzer,all-breed
+D00134,O0079,champion,Mr. Harold Tatro,Standard Schnauzer,all-breed
+D00136,O0067,class,Mr. Harold Tatro,Whippet,all-breed
+D00137,O0082,class,Mr. Harold Tatro,Whippet,all-breed
+D00138,O0083,class,Mr. Harold Tatro,Whippet,all-breed
+D00139,O0084,class,Mr. Harold Tatro,Whippet,all-breed
+D00140,O0085,class,Mr. Harold Tatro,Whippet,all-breed
+D00142,O0086,class,Mr. Harold Tatro,Whippet,all-breed
+D00143,O0087,class,Mr. Harold Tatro,Whippet,all-breed
+D00145,O0087,class,Mr. Harold Tatro,Whippet,all-breed
+D00146,O0018,class,Mr. Harold Tatro,Whippet,all-breed
+D00148,O0018,class,Mr. Harold Tatro,Whippet,all-breed
+D00149,O0091,class,Mr. Harold Tatro,Whippet,all-breed
+D00150,O0092,class,Mr. Harold Tatro,Whippet,all-breed
+D00152,O0092,class,Mr. Harold Tatro,Whippet,all-breed
+D00153,O0094,class,Mr. Harold Tatro,Whippet,all-breed
+D00154,O0094,class,Mr. Harold Tatro,Whippet,all-breed
+D00155,O0094,class,Mr. Harold Tatro,Whippet,all-breed
+D00156,O0097,class,Mr. Harold Tatro,Whippet,all-breed
+D00158,O0098,class,Mr. Harold Tatro,Whippet,all-breed
+D00159,O0099,class,Mr. Harold Tatro,Whippet,all-breed
+D00160,O0100,class,Mr. Harold Tatro,Whippet,all-breed
+D00161,O0100,class,Mr. Harold Tatro,Whippet,all-breed
+D00162,O0102,class,Mr. Harold Tatro,Whippet,all-breed
+D00167,O0103,champion,Mr. Harold Tatro,Whippet,all-breed
+D00171,O0103,champion,Mr. Harold Tatro,Whippet,all-breed
+D00172,O0105,champion,Mr. Harold Tatro,Whippet,all-breed
+D00183,O0106,class,Mr. Harold Tatro,Basenji,all-breed
+D00190,O0107,class,Mr. Harold Tatro,Petit Basset Griffon Vendeens,all-breed
+D00193,O0108,class,Mr. Harold Tatro,Basset Fauve de Bretagne,all-breed
+D00194,O0067,class,Mr. Harold Tatro,Basset Fauve de Bretagne,all-breed
+D00195,O0110,class,Mr. Harold Tatro,Portuguese Podengo Pequeno,all-breed
+D00196,O0111,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00198,O0112,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00199,O0113,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00202,O0114,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00204,O0114,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00205,O0116,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00206,O0117,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00207,O0050,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00209,O0119,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00210,O0119,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00211,O0121,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00212,O0121,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00213,O0123,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00214,O0124,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00215,O0007,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00218,O0126,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00219,O0126,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00220,O0128,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00221,O0128,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00223,O0130,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00224,O0131,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00225,O0132,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00226,O0132,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00227,O0134,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00228,O0029,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00230,O0029,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00231,O0137,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00232,O0138,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00233,O0138,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00234,O0140,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00235,O0141,champion,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00238,O0141,champion,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00239,O0141,champion,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00241,O0144,champion,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00242,O0144,champion,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00243,O0146,champion,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00244,O0146,champion,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00245,O0146,champion,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00250,O0149,champion,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00251,O0149,champion,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00253,O0151,class,Mrs. Kaisa Gold,Afghan Hound,all-breed
+D00254,O0152,class,Mrs. Kaisa Gold,Afghan Hound,all-breed
+D00256,O0152,champion,Mrs. Kaisa Gold,Afghan Hound,all-breed
+D00259,O0154,champion,Mrs. Kaisa Gold,Afghan Hound,all-breed
+D00262,O0155,class,Mrs. Kaisa Gold,Irish Wolfhound,all-breed
+D00264,O0156,class,Mrs. Kaisa Gold,Irish Wolfhound,all-breed
+D00265,O0157,class,Mrs. Kaisa Gold,Irish Wolfhound,all-breed
+D00266,O0158,class,Mrs. Kaisa Gold,Irish Wolfhound,all-breed
+D00267,O0158,class,Mrs. Kaisa Gold,Irish Wolfhound,all-breed
+D00272,O0160,champion,Mrs. Kaisa Gold,Irish Wolfhound,all-breed
+D00275,O0161,champion,Mrs. Kaisa Gold,Irish Wolfhound,all-breed
+D00277,O0162,class,Mrs. Kaisa Gold,Greyhound,all-breed
+D00280,O0163,class,Mrs. Kaisa Gold,Greyhound,all-breed
+D00281,O0164,class,Mrs. Kaisa Gold,Greyhound,all-breed
+D00282,O0105,class,Mrs. Kaisa Gold,Greyhound,all-breed
+D00285,O0166,class,Mrs. Kaisa Gold,Saluki,all-breed
+D00286,O0167,class,Mrs. Kaisa Gold,Saluki,all-breed
+D00288,O0168,class,Mrs. Kaisa Gold,Saluki,all-breed
+D00293,O0169,champion,Mrs. Kaisa Gold,Saluki,all-breed
+D00296,O0170,champion,Mrs. Kaisa Gold,Saluki,all-breed
+D00297,O0171,class,Mrs. Kaisa Gold,Pharaoh Hound,all-breed
+D00298,O0171,champion,Mrs. Kaisa Gold,Pharaoh Hound,all-breed
+D00299,O0173,champion,Mrs. Kaisa Gold,Pharaoh Hound,all-breed
+D00301,O0174,champion,Mrs. Kaisa Gold,Pharaoh Hound,all-breed
+D00302,O0083,class,Mrs. Kaisa Gold,Dachshund (Longhaired),all-breed
+D00303,O0171,class,Mrs. Kaisa Gold,Dachshund (Longhaired),all-breed
+D00304,O0177,class,Mrs. Kaisa Gold,Dachshund (Longhaired),all-breed
+D00305,O0178,class,Mrs. Kaisa Gold,Dachshund (Longhaired),all-breed
+D00307,O0179,class,Mrs. Kaisa Gold,Dachshund (Longhaired),all-breed
+D00308,O0180,class,Mrs. Kaisa Gold,Dachshund (Longhaired),all-breed
+D00309,O0181,class,Mrs. Kaisa Gold,Dachshund (Longhaired),all-breed
+D00310,O0182,class,Mrs. Kaisa Gold,Dachshund (Longhaired),all-breed
+D00311,O0182,class,Mrs. Kaisa Gold,Dachshund (Longhaired),all-breed
+D00313,O0184,class,Mrs. Kaisa Gold,Dachshund (Longhaired),all-breed
+D00314,O0185,class,Mrs. Kaisa Gold,Dachshund (Longhaired),all-breed
+D00315,O0186,class,Mrs. Kaisa Gold,Dachshund (Longhaired),all-breed
+D00316,O0187,champion,Mrs. Kaisa Gold,Dachshund (Longhaired),all-breed
+D00317,O0187,champion,Mrs. Kaisa Gold,Dachshund (Longhaired),all-breed
+D00318,O0168,champion,Mrs. Kaisa Gold,Dachshund (Longhaired),all-breed
+D00319,O0190,champion,Mrs. Kaisa Gold,Dachshund (Longhaired),all-breed
+D00321,O0191,class,Mrs. Kaisa Gold,Dachshund (Smooth),all-breed
+D00322,O0191,class,Mrs. Kaisa Gold,Dachshund (Smooth),all-breed
+D00323,O0193,class,Mrs. Kaisa Gold,Dachshund (Smooth),all-breed
+D00326,O0194,class,Mrs. Kaisa Gold,Dachshund (Smooth),all-breed
+D00328,O0194,class,Mrs. Kaisa Gold,Dachshund (Smooth),all-breed
+D00329,O0196,class,Mrs. Kaisa Gold,Dachshund (Smooth),all-breed
+D00332,O0197,champion,Mrs. Kaisa Gold,Dachshund (Smooth),all-breed
+D00333,O0197,champion,Mrs. Kaisa Gold,Dachshund (Smooth),all-breed
+D00338,O0199,class,Mrs. Kaisa Gold,Dachshund (Wirehaired),all-breed
+D00339,O0200,class,Mrs. Kaisa Gold,Dachshund (Wirehaired),all-breed
+D00340,O0201,class,Mrs. Kaisa Gold,Dachshund (Wirehaired),all-breed
+D00341,O0201,class,Mrs. Kaisa Gold,Dachshund (Wirehaired),all-breed
+D00343,O0203,class,Mrs. Kaisa Gold,Dachshund (Wirehaired),all-breed
+D00344,O0204,class,Mrs. Kaisa Gold,Dachshund (Wirehaired),all-breed
+D00346,O0204,class,Mrs. Kaisa Gold,Dachshund (Wirehaired),all-breed
+D00347,O0179,class,Mrs. Kaisa Gold,Dachshund (Wirehaired),all-breed
+D00348,O0207,class,Mrs. Kaisa Gold,Dachshund (Wirehaired),all-breed
+D00349,O0207,class,Mrs. Kaisa Gold,Dachshund (Wirehaired),all-breed
+D00350,O0207,class,Mrs. Kaisa Gold,Dachshund (Wirehaired),all-breed
+D00352,O0207,champion,Mrs. Kaisa Gold,Dachshund (Wirehaired),all-breed
+D00355,O0211,champion,Mrs. Kaisa Gold,Dachshund (Wirehaired),all-breed
+D00359,O0212,class,Miss Janelle W. Robbins,Mastiff,all-breed
+D00360,O0212,class,Miss Janelle W. Robbins,Mastiff,all-breed
+D00361,O0214,class,Miss Janelle W. Robbins,Mastiff,all-breed
+D00362,O0215,class,Miss Janelle W. Robbins,Mastiff,all-breed
+D00363,O0216,class,Miss Janelle W. Robbins,Mastiff,all-breed
+D00364,O0002,class,Miss Janelle W. Robbins,Mastiff,all-breed
+D00366,O0218,champion,Miss Janelle W. Robbins,Mastiff,all-breed
+D00367,O0219,champion,Miss Janelle W. Robbins,Mastiff,all-breed
+D00369,O0219,champion,Miss Janelle W. Robbins,Mastiff,all-breed
+D00370,O0219,champion,Miss Janelle W. Robbins,Mastiff,all-breed
+D00371,O0222,champion,Miss Janelle W. Robbins,Mastiff,all-breed
+D00373,O0021,champion,Miss Janelle W. Robbins,Mastiff,all-breed
+D00374,O0021,champion,Miss Janelle W. Robbins,Mastiff,all-breed
+D00375,O0225,class,Miss Janelle W. Robbins,Portuguese Water Dog,all-breed
+D00376,O0226,class,Miss Janelle W. Robbins,Portuguese Water Dog,all-breed
+D00377,O0227,class,Miss Janelle W. Robbins,Portuguese Water Dog,all-breed
+D00378,O0228,class,Miss Janelle W. Robbins,Portuguese Water Dog,all-breed
+D00380,O0228,champion,Miss Janelle W. Robbins,Portuguese Water Dog,all-breed
+D00383,O0131,champion,Miss Janelle W. Robbins,Portuguese Water Dog,all-breed
+D00388,O0231,champion,Miss Janelle W. Robbins,Leonberger,all-breed
+D00391,O0063,class,Miss Janelle W. Robbins,Great Dane,all-breed
+D00392,O0063,class,Miss Janelle W. Robbins,Great Dane,all-breed
+D00393,O0234,class,Miss Janelle W. Robbins,Great Dane,all-breed
+D00394,O0235,class,Miss Janelle W. Robbins,Great Dane,all-breed
+D00396,O0235,class,Miss Janelle W. Robbins,Great Dane,all-breed
+D00397,O0237,class,Miss Janelle W. Robbins,Great Dane,all-breed
+D00398,O0238,class,Miss Janelle W. Robbins,Great Dane,all-breed
+D00399,O0239,class,Miss Janelle W. Robbins,Great Dane,all-breed
+D00403,O0239,class,Miss Janelle W. Robbins,Great Dane,all-breed
+D00405,O0241,champion,Miss Janelle W. Robbins,Great Dane,all-breed
+D00406,O0241,champion,Miss Janelle W. Robbins,Great Dane,all-breed
+D00409,O0243,class,Miss Janelle W. Robbins,Dogue De Bordeaux,all-breed
+D00412,O0083,class,Miss Janelle W. Robbins,German Pinscher,all-breed
+D00414,O0083,class,Miss Janelle W. Robbins,German Pinscher,all-breed
+D00417,O0246,champion,Miss Janelle W. Robbins,Greater Swiss Mountain Dog,all-breed
+D00418,O0247,class,Miss Janelle W. Robbins,Bloodhound,all-breed
+D00419,O0248,class,Miss Janelle W. Robbins,Bloodhound,all-breed
+D00420,O0249,class,Miss Janelle W. Robbins,Bloodhound,all-breed
+D00421,O0250,class,Miss Janelle W. Robbins,Bloodhound,all-breed
+D00422,O0251,class,Miss Janelle W. Robbins,Bloodhound,all-breed
+D00424,O0252,champion,Miss Janelle W. Robbins,Bloodhound,all-breed
+D00427,O0253,class,Miss Janelle W. Robbins,Beagle Thirteen Inch,all-breed
+D00428,O0254,class,Miss Janelle W. Robbins,Beagle Thirteen Inch,all-breed
+D00430,O0255,class,Miss Janelle W. Robbins,Beagle Thirteen Inch,all-breed
+D00431,O0255,class,Miss Janelle W. Robbins,Beagle Thirteen Inch,all-breed
+D00434,O0257,champion,Miss Janelle W. Robbins,Beagle Thirteen Inch,all-breed
+D00435,O0257,champion,Miss Janelle W. Robbins,Beagle Thirteen Inch,all-breed
+D00436,O0259,champion,Miss Janelle W. Robbins,Beagle Thirteen Inch,all-breed
+D00437,O0259,champion,Miss Janelle W. Robbins,Beagle Thirteen Inch,all-breed
+D00439,O0261,champion,Miss Janelle W. Robbins,Beagle Thirteen Inch,all-breed
+D00442,O0262,class,Miss Janelle W. Robbins,Beagle Fifteen Inch,all-breed
+D00443,O0263,class,Miss Janelle W. Robbins,Beagle Fifteen Inch,all-breed
+D00444,O0263,class,Miss Janelle W. Robbins,Beagle Fifteen Inch,all-breed
+D00445,O0265,class,Miss Janelle W. Robbins,Beagle Fifteen Inch,all-breed
+D00448,O0265,champion,Miss Janelle W. Robbins,Beagle Fifteen Inch,all-breed
+D00450,O0265,champion,Miss Janelle W. Robbins,Beagle Fifteen Inch,all-breed
+D00453,O0265,champion,Miss Janelle W. Robbins,Beagle Fifteen Inch,all-breed
+D00455,O0269,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00456,O0270,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00457,O0271,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00458,O0272,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00459,O0272,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00460,O0272,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00461,O0275,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00462,O0276,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00463,O0276,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00464,O0278,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00465,O0279,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00467,O0280,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00468,O0281,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00469,O0282,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00470,O0283,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00471,O0284,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00472,O0285,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00473,O0106,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00474,O0106,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00477,O0106,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00478,O0289,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00479,O0290,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00480,O0291,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00481,O0253,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00483,O0293,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00484,O0053,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00485,O0295,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00486,O0296,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00487,O0296,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00489,O0298,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00491,O0299,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00494,O0300,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00498,O0300,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00499,O0302,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00501,O0303,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00503,O0304,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00506,O0305,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00510,O0305,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00511,O0307,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00513,O0307,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00516,O0309,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00517,O0310,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00521,O0311,class,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00522,O0312,class,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00523,O0312,class,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00524,O0314,class,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00525,O0126,class,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00526,O0316,class,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00527,O0317,class,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00528,O0318,class,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00529,O0318,class,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00530,O0146,class,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00531,O0146,class,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00532,O0322,class,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00534,O0323,class,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00537,O0323,class,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00538,O0325,champion,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00540,O0325,champion,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00542,O0327,champion,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00546,O0328,champion,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00547,O0329,champion,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00548,O0330,class,Ms. Michelle T. Shultz,Poodle (Toy),all-breed
+D00549,O0330,class,Ms. Michelle T. Shultz,Poodle (Toy),all-breed
+D00550,O0332,class,Ms. Michelle T. Shultz,Poodle (Toy),all-breed
+D00551,O0332,class,Ms. Michelle T. Shultz,Poodle (Toy),all-breed
+D00552,O0334,class,Ms. Michelle T. Shultz,Miniature Pinscher,all-breed
+D00553,O0334,champion,Ms. Michelle T. Shultz,Miniature Pinscher,all-breed
+D00554,O0336,class,Ms. Michelle T. Shultz,Basset Hound,all-breed
+D00555,O0337,class,Ms. Michelle T. Shultz,Basset Hound,all-breed
+D00556,O0338,class,Ms. Michelle T. Shultz,Basset Hound,all-breed
+D00559,O0338,champion,Ms. Michelle T. Shultz,Basset Hound,all-breed
+D00566,O0340,champion,Ms. Michelle T. Shultz,Black and Tan Coonhound,all-breed
+D00567,O0341,champion,Ms. Michelle T. Shultz,Black and Tan Coonhound,all-breed
+D00569,O0342,class,Ms. Michelle T. Shultz,Ibizan Hound,all-breed
+D00570,O0343,champion,Ms. Michelle T. Shultz,Ibizan Hound,all-breed
+D00571,O0344,class,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00573,O0345,class,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00574,O0346,class,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00575,O0347,class,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00576,O0347,class,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00577,O0349,class,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00579,O0350,class,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00580,O0350,class,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00581,O0352,class,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00582,O0334,class,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00583,O0354,class,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00584,O0355,class,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00586,O0356,class,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00588,O0356,champion,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00590,O0356,champion,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00591,O0359,champion,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00592,O0360,champion,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00594,O0361,champion,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00595,O0361,champion,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00596,O0363,class,Ms. Michelle T. Shultz,Poodle (Miniature),all-breed
+D00598,O0363,class,Ms. Michelle T. Shultz,Poodle (Miniature),all-breed
+D00599,O0365,class,Ms. Michelle T. Shultz,Poodle (Miniature),all-breed
+D00600,O0366,champion,Ms. Michelle T. Shultz,Poodle (Miniature),all-breed
+D00601,O0366,champion,Ms. Michelle T. Shultz,Poodle (Miniature),all-breed
+D00602,O0368,class,Ms. Michelle T. Shultz,Lhasa Apso,all-breed
+D00603,O0369,class,Ms. Michelle T. Shultz,Poodle (Standard),all-breed
+D00605,O0370,class,Ms. Michelle T. Shultz,Poodle (Standard),all-breed
+D00606,O0371,class,Ms. Michelle T. Shultz,Poodle (Standard),all-breed
+D00610,O0371,champion,Ms. Michelle T. Shultz,Poodle (Standard),all-breed
+D00611,O0373,class,Miss Sandra M. Lex,American Staffordshire Terrier,all-breed
+D00612,O0374,class,Miss Sandra M. Lex,American Staffordshire Terrier,all-breed
+D00613,O0374,class,Miss Sandra M. Lex,American Staffordshire Terrier,all-breed
+D00614,O0374,class,Miss Sandra M. Lex,American Staffordshire Terrier,all-breed
+D00615,O0377,class,Miss Sandra M. Lex,American Staffordshire Terrier,all-breed
+D00616,O0053,class,Miss Sandra M. Lex,American Staffordshire Terrier,all-breed
+D00617,O0051,class,Miss Sandra M. Lex,American Staffordshire Terrier,all-breed
+D00618,O0380,class,Miss Sandra M. Lex,American Staffordshire Terrier,all-breed
+D00619,O0381,champion,Miss Sandra M. Lex,American Staffordshire Terrier,all-breed
+D00621,O0381,champion,Miss Sandra M. Lex,American Staffordshire Terrier,all-breed
+D00622,O0381,champion,Miss Sandra M. Lex,American Staffordshire Terrier,all-breed
+D00623,O0384,champion,Miss Sandra M. Lex,American Staffordshire Terrier,all-breed
+D00626,O0385,class,Miss Sandra M. Lex,Irish Terrier,all-breed
+D00627,O0386,class,Miss Sandra M. Lex,Irish Terrier,all-breed
+D00628,O0387,champion,Miss Sandra M. Lex,Irish Terrier,all-breed
+D00630,O0388,champion,Miss Sandra M. Lex,Irish Terrier,all-breed
+D00631,O0389,champion,Miss Sandra M. Lex,Irish Terrier,all-breed
+D00633,O0390,champion,Miss Sandra M. Lex,Irish Terrier,all-breed
+D00634,O0391,class,Miss Sandra M. Lex,Kerry Blue Terrier,all-breed
+D00635,O0392,class,Miss Sandra M. Lex,Kerry Blue Terrier,all-breed
+D00637,O0393,class,Miss Sandra M. Lex,Kerry Blue Terrier,all-breed
+D00638,O0393,class,Miss Sandra M. Lex,Kerry Blue Terrier,all-breed
+D00639,O0393,class,Miss Sandra M. Lex,Kerry Blue Terrier,all-breed
+D00640,O0396,class,Miss Sandra M. Lex,Kerry Blue Terrier,all-breed
+D00647,O0397,champion,Miss Sandra M. Lex,Kerry Blue Terrier,all-breed
+D00650,O0398,class,Miss Sandra M. Lex,Soft Coated Wheaten Terrier,all-breed
+D00651,O0399,class,Miss Sandra M. Lex,Soft Coated Wheaten Terrier,all-breed
+D00652,O0399,class,Miss Sandra M. Lex,Soft Coated Wheaten Terrier,all-breed
+D00653,O0075,class,Miss Sandra M. Lex,Soft Coated Wheaten Terrier,all-breed
+D00654,O0380,class,Miss Sandra M. Lex,Soft Coated Wheaten Terrier,all-breed
+D00658,O0403,class,Miss Sandra M. Lex,West Highland White Terrier,all-breed
+D00664,O0404,champion,Miss Sandra M. Lex,West Highland White Terrier,all-breed
+D00665,O0405,champion,Miss Sandra M. Lex,West Highland White Terrier,all-breed
+D00666,O0406,class,Miss Sandra M. Lex,Russell Terriers,all-breed
+D00667,O0381,class,Miss Sandra M. Lex,Russell Terriers,all-breed
+D00674,O0408,champion,Miss Sandra M. Lex,Russell Terriers,all-breed
+D00675,O0409,class,Miss Sandra M. Lex,Scottish Terrier,all-breed
+D00676,O0410,class,Miss Sandra M. Lex,Scottish Terrier,all-breed
+D00677,O0411,class,Miss Sandra M. Lex,Scottish Terrier,all-breed
+D00678,O0411,class,Miss Sandra M. Lex,Scottish Terrier,all-breed
+D00681,O0413,champion,Miss Sandra M. Lex,Scottish Terrier,all-breed
+D00682,O0414,champion,Miss Sandra M. Lex,Sealyham Terrier,all-breed
+D00683,O0415,class,Miss Sandra M. Lex,Miniature Schnauzer,all-breed
+D00685,O0416,class,Miss Sandra M. Lex,Miniature Schnauzer,all-breed
+D00688,O0416,class,Miss Sandra M. Lex,Miniature Schnauzer,all-breed
+D00689,O0418,class,Miss Sandra M. Lex,Miniature Schnauzer,all-breed
+D00691,O0063,class,Miss Sandra M. Lex,Miniature Schnauzer,all-breed
+D00692,O0063,class,Miss Sandra M. Lex,Miniature Schnauzer,all-breed
+D00694,O0063,class,Miss Sandra M. Lex,Miniature Schnauzer,all-breed
+D00695,O0422,class,Miss Sandra M. Lex,Miniature Schnauzer,all-breed
+D00698,O0423,champion,Miss Sandra M. Lex,Miniature Schnauzer,all-breed
+D00699,O0424,champion,Miss Sandra M. Lex,Miniature Schnauzer,all-breed
+D00703,O0425,champion,Miss Sandra M. Lex,Miniature Schnauzer,all-breed
+D00704,O0426,champion,Miss Sandra M. Lex,Miniature Schnauzer,all-breed
+D00705,O0427,class,Miss Sandra M. Lex,American Hairless Terrier,all-breed
+D00706,O0422,class,Miss Sandra M. Lex,Lakeland Terrier,all-breed
+D00707,O0429,class,Miss Sandra M. Lex,Lakeland Terrier,all-breed
+D00708,O0430,champion,Miss Sandra M. Lex,Lakeland Terrier,all-breed
+D00709,O0431,champion,Miss Sandra M. Lex,Lakeland Terrier,all-breed
+D00713,O0432,champion,Miss Sandra M. Lex,Rat Terrier,all-breed
+D00714,O0433,champion,Miss Sandra M. Lex,Rat Terrier,all-breed
+D00718,O0434,champion,Miss Sandra M. Lex,Rat Terrier,all-breed
+D00720,O0435,champion,Miss Sandra M. Lex,Rat Terrier,all-breed
+D00722,O0436,class,Miss Sandra M. Lex,Australian Terrier,all-breed
+D00723,O0437,class,Miss Sandra M. Lex,Australian Terrier,all-breed
+D00724,O0437,champion,Miss Sandra M. Lex,Australian Terrier,all-breed
+D00726,O0437,champion,Miss Sandra M. Lex,Australian Terrier,all-breed
+D00731,O0440,class,Miss Sandra M. Lex,Cairn Terrier,all-breed
+D00733,O0440,class,Miss Sandra M. Lex,Cairn Terrier,all-breed
+D00734,O0442,class,Miss Sandra M. Lex,Cairn Terrier,all-breed
+D00735,O0443,class,Miss Sandra M. Lex,Cairn Terrier,all-breed
+D00736,O0444,class,Miss Sandra M. Lex,Cairn Terrier,all-breed
+D00739,O0445,champion,Miss Sandra M. Lex,Cairn Terrier,all-breed
+D00745,O0446,class,Miss Sandra M. Lex,Fox Terrier (Smooth),all-breed
+D00746,O0447,class,Miss Sandra M. Lex,Fox Terrier (Smooth),all-breed
+D00747,O0448,class,Miss Sandra M. Lex,Fox Terrier (Smooth),all-breed
+D00748,O0051,class,Miss Sandra M. Lex,Fox Terrier (Smooth),all-breed
+D00749,O0051,class,Miss Sandra M. Lex,Fox Terrier (Smooth),all-breed
+D00753,O0451,champion,Miss Sandra M. Lex,Fox Terrier (Smooth),all-breed
+D00754,O0452,champion,Miss Sandra M. Lex,Fox Terrier (Smooth),all-breed
+D00756,O0453,class,Miss Sandra M. Lex,Fox Terrier (Wire),all-breed
+D00762,O0454,class,Ms. Angela Stevanus,Border Terrier,all-breed
+D00764,O0454,class,Ms. Angela Stevanus,Border Terrier,all-breed
+D00767,O0456,class,Ms. Angela Stevanus,Border Terrier,all-breed
+D00768,O0457,class,Ms. Angela Stevanus,Border Terrier,all-breed
+D00774,O0457,champion,Ms. Angela Stevanus,Border Terrier,all-breed
+D00776,O0459,champion,Ms. Angela Stevanus,Border Terrier,all-breed
+D00778,O0459,champion,Ms. Angela Stevanus,Border Terrier,all-breed
+D00780,O0459,champion,Ms. Angela Stevanus,Border Terrier,all-breed
+D00781,O0459,champion,Ms. Angela Stevanus,Border Terrier,all-breed
+D00782,O0463,class,Mr. John C. Ramirez,ST. Bernard,all-breed
+D00784,O0464,champion,Mr. John C. Ramirez,Bull Terrier (White),all-breed
+D00787,O0465,class,Mr. John C. Ramirez,Bull Terrier (Colored),all-breed
+D00788,O0466,class,Mr. John C. Ramirez,Bull Terrier (Colored),all-breed
+D00790,O0467,class,Mr. John C. Ramirez,Miniature Bull Terrier,all-breed
+D00791,O0468,class,Mr. John C. Ramirez,Miniature Bull Terrier,all-breed
+D00792,O0469,class,Mr. John C. Ramirez,Miniature Bull Terrier,all-breed
+D00793,O0470,class,Mr. John C. Ramirez,Miniature Bull Terrier,all-breed
+D00794,O0470,class,Mr. John C. Ramirez,Miniature Bull Terrier,all-breed
+D00795,O0472,class,Mr. John C. Ramirez,Miniature Bull Terrier,all-breed
+D00796,O0473,class,Mr. John C. Ramirez,Miniature Bull Terrier,all-breed
+D00797,O0473,class,Mr. John C. Ramirez,Miniature Bull Terrier,all-breed
+D00798,O0475,class,Mr. John C. Ramirez,Miniature Bull Terrier,all-breed
+D00805,O0475,champion,Mr. John C. Ramirez,Miniature Bull Terrier,all-breed
+D00807,O0475,champion,Mr. John C. Ramirez,Miniature Bull Terrier,all-breed
+D00810,O0478,class,Mr. Robert Von Mayr,Dalmatian,all-breed
+D00811,O0479,class,Mr. Robert Von Mayr,Dalmatian,all-breed
+D00812,O0480,champion,Mr. Robert Von Mayr,Dalmatian,all-breed
+D00813,O0481,champion,Mr. Robert Von Mayr,Dalmatian,all-breed
+D00816,O0482,champion,Mr. Robert Von Mayr,Dalmatian,all-breed
+D00817,O0482,champion,Mr. Robert Von Mayr,Dalmatian,all-breed
+D00820,O0484,champion,Mr. Robert Von Mayr,Dalmatian,all-breed
+D00821,O0347,class,Mrs. Shalisa D. Neely,Pug,all-breed
+D00822,O0486,class,Mrs. Shalisa D. Neely,Pug,all-breed
+D00823,O0486,class,Mrs. Shalisa D. Neely,Pug,all-breed
+D00824,O0488,class,Mrs. Shalisa D. Neely,Pug,all-breed
+D00825,O0489,class,Mrs. Shalisa D. Neely,Pug,all-breed
+D00826,O0489,champion,Mrs. Shalisa D. Neely,Pug,all-breed
+D00827,O0491,champion,Mrs. Shalisa D. Neely,Pug,all-breed
+D00832,O0492,class,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00833,O0493,class,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00834,O0494,class,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00835,O0494,class,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00836,O0496,class,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00837,O0497,class,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00840,O0497,class,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00841,O0499,class,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00843,O0499,class,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00845,O0499,class,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00846,O0502,class,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00847,O0502,class,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00848,O0504,class,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00849,O0505,class,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00854,O0505,champion,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00855,O0507,champion,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00856,O0508,champion,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00857,O0509,champion,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00858,O0510,champion,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00860,O0511,class,Mrs. Shalisa D. Neely,Pekingese,all-breed
+D00862,O0497,class,Mrs. Shalisa D. Neely,Pekingese,all-breed
+D00865,O0497,champion,Mrs. Shalisa D. Neely,Pekingese,all-breed
+D00866,O0514,class,Mrs. Shalisa D. Neely,Shih Tzu,all-breed
+D00868,O0515,class,Mrs. Shalisa D. Neely,Shih Tzu,all-breed
+D00871,O0516,champion,Mrs. Shalisa D. Neely,Toy Fox Terrier,all-breed
+D00872,O0517,class,Mrs. Shalisa D. Neely,Yorkshire Terrier,all-breed
+D00873,O0510,champion,Mrs. Shalisa D. Neely,Yorkshire Terrier,all-breed
+D00874,O0519,champion,Mrs. Shalisa D. Neely,Anatolian Shepherd,all-breed
+D00877,O0519,class,Mrs. Shalisa D. Neely,Black Russian Terrier,all-breed
+D00879,O0521,champion,Mrs. Shalisa D. Neely,Black Russian Terrier,all-breed
+D00882,O0522,class,Mrs. Shalisa D. Neely,Bullmastiff,all-breed
+D00885,O0523,champion,Mrs. Shalisa D. Neely,Bullmastiff,all-breed
+D00886,O0524,champion,Mrs. Shalisa D. Neely,Bullmastiff,all-breed
+D00888,O0524,champion,Mrs. Shalisa D. Neely,Bullmastiff,all-breed
+D00889,O0524,champion,Mrs. Shalisa D. Neely,Bullmastiff,all-breed
+D00891,O0527,champion,Mrs. Shalisa D. Neely,Bullmastiff,all-breed
+D00893,O0528,champion,Mrs. Shalisa D. Neely,Bullmastiff,all-breed
+D00895,O0529,class,Ms. Ginnette Louise Loft,Brussels Griffon,all-breed
+D00897,O0530,class,Ms. Ginnette Louise Loft,Brussels Griffon,all-breed
+D00898,O0530,class,Ms. Ginnette Louise Loft,Brussels Griffon,all-breed
+D00899,O0530,class,Ms. Ginnette Louise Loft,Brussels Griffon,all-breed
+D00901,O0533,class,Ms. Ginnette Louise Loft,Brussels Griffon,all-breed
+D00902,O0534,class,Ms. Ginnette Louise Loft,Brussels Griffon,all-breed
+D00905,O0534,champion,Ms. Ginnette Louise Loft,Brussels Griffon,all-breed
+D00906,O0536,champion,Ms. Ginnette Louise Loft,Brussels Griffon,all-breed
+D00908,O0537,champion,Ms. Ginnette Louise Loft,Brussels Griffon,all-breed
+D00915,O0538,champion,Ms. Ginnette Louise Loft,Chinese Crested,all-breed
+D00917,O0539,class,Ms. Ginnette Louise Loft,Russian Toy,all-breed
+D00919,O0540,class,Ms. Ginnette Louise Loft,Affenpinscher,all-breed
+D00921,O0540,class,Ms. Ginnette Louise Loft,Affenpinscher,all-breed
+D00922,O0540,class,Ms. Ginnette Louise Loft,Affenpinscher,all-breed
+D00923,O0543,class,Ms. Ginnette Louise Loft,Affenpinscher,all-breed
+D00925,O0543,champion,Ms. Ginnette Louise Loft,Affenpinscher,all-breed
+D00926,O0543,champion,Ms. Ginnette Louise Loft,Affenpinscher,all-breed
+D00931,O0546,class,Ms. Ginnette Louise Loft,Italian Greyhound,all-breed
+D00932,O0546,class,Ms. Ginnette Louise Loft,Italian Greyhound,all-breed
+D00933,O0546,class,Ms. Ginnette Louise Loft,Italian Greyhound,all-breed
+D00934,O0549,champion,Ms. Ginnette Louise Loft,Italian Greyhound,all-breed
+D00935,O0550,champion,Ms. Ginnette Louise Loft,Italian Greyhound,all-breed
+D00937,O0509,class,Ms. Ginnette Louise Loft,Havanese,all-breed
+D00938,O0552,class,Ms. Ginnette Louise Loft,Havanese,all-breed
+D00939,O0553,class,Ms. Ginnette Louise Loft,Havanese,all-breed
+D00940,O0553,class,Ms. Ginnette Louise Loft,Havanese,all-breed
+D00941,O0546,class,Ms. Ginnette Louise Loft,Havanese,all-breed
+D00946,O0556,champion,Ms. Ginnette Louise Loft,English Toy Spaniel (KC&R),all-breed
+D00947,O0557,class,Ms. Ginnette Louise Loft,Biewer Terrier,all-breed
+D00952,O0558,class,Ms. Ginnette Louise Loft,Papillon,all-breed
+D00954,O0350,class,Ms. Ginnette Louise Loft,Papillon,all-breed
+D00955,O0350,class,Ms. Ginnette Louise Loft,Papillon,all-breed
+D00956,O0561,class,Ms. Ginnette Louise Loft,Papillon,all-breed
+D00957,O0562,class,Ms. Ginnette Louise Loft,Papillon,all-breed
+D00958,O0562,class,Ms. Ginnette Louise Loft,Papillon,all-breed
+D00959,O0564,class,Ms. Ginnette Louise Loft,Papillon,all-breed
+D00960,O0565,champion,Ms. Ginnette Louise Loft,Papillon,all-breed
+D00964,O0566,champion,Ms. Ginnette Louise Loft,Papillon,all-breed
+D00969,O0567,class,Ms. Ginnette Louise Loft,Chihuahua (Long Coat),all-breed
+D00972,O0567,class,Ms. Ginnette Louise Loft,Chihuahua (Long Coat),all-breed
+D00973,O0567,class,Ms. Ginnette Louise Loft,Chihuahua (Long Coat),all-breed
+D00974,O0567,class,Ms. Ginnette Louise Loft,Chihuahua (Long Coat),all-breed
+D00975,O0571,class,Ms. Ginnette Louise Loft,Chihuahua (Long Coat),all-breed
+D00977,O0572,class,Ms. Ginnette Louise Loft,Chihuahua (Long Coat),all-breed
+D00979,O0573,champion,Ms. Ginnette Louise Loft,Chihuahua (Long Coat),all-breed
+D00981,O0574,champion,Ms. Ginnette Louise Loft,Chihuahua (Long Coat),all-breed
+D00982,O0574,champion,Ms. Ginnette Louise Loft,Chihuahua (Long Coat),all-breed
+D00984,O0576,champion,Ms. Ginnette Louise Loft,Chihuahua (Long Coat),all-breed
+D00985,O0577,class,Ms. Ginnette Louise Loft,Chihuahua (Smooth Coat),all-breed
+D00986,O0578,class,Ms. Ginnette Louise Loft,Chihuahua (Smooth Coat),all-breed
+D00987,O0578,class,Ms. Ginnette Louise Loft,Chihuahua (Smooth Coat),all-breed
+D00990,O0580,class,Ms. Ginnette Louise Loft,Chihuahua (Smooth Coat),all-breed
+D00992,O0581,champion,Ms. Ginnette Louise Loft,Chihuahua (Smooth Coat),all-breed
+D00994,O0581,champion,Ms. Ginnette Louise Loft,Chihuahua (Smooth Coat),all-breed
+D00995,O0583,champion,Ms. Ginnette Louise Loft,Chihuahua (Smooth Coat),all-breed
+D00996,O0583,champion,Ms. Ginnette Louise Loft,Chihuahua (Smooth Coat),all-breed
+D00997,O0585,class,Ms. Ginnette Louise Loft,Tibetan Spaniel,all-breed
+D00998,O0586,class,Ms. Ginnette Louise Loft,Bichon Frise,all-breed
+D00999,O0587,class,Ms. Ginnette Louise Loft,Bichon Frise,all-breed
+D01000,O0588,class,Ms. Ginnette Louise Loft,Bichon Frise,all-breed
+D01001,O0589,class,Ms. Ginnette Louise Loft,Bichon Frise,all-breed
+D01003,O0590,class,Ms. Ginnette Louise Loft,Bichon Frise,all-breed
+D01004,O0590,class,Ms. Ginnette Louise Loft,Bichon Frise,all-breed
+D01006,O0592,champion,Ms. Ginnette Louise Loft,Bichon Frise,all-breed
+D01007,O0593,champion,Ms. Ginnette Louise Loft,Bichon Frise,all-breed
+D01010,O0594,champion,Ms. Ginnette Louise Loft,Bichon Frise,all-breed
+D01012,O0595,champion,Ms. Ginnette Louise Loft,Bichon Frise,all-breed
+D01013,O0596,class,Mr. David John Bell,Golden Retriever,all-breed
+D01014,O0597,class,Mr. David John Bell,Golden Retriever,all-breed
+D01015,O0598,class,Mr. David John Bell,Golden Retriever,all-breed
+D01016,O0598,class,Mr. David John Bell,Golden Retriever,all-breed
+D01017,O0600,class,Mr. David John Bell,Golden Retriever,all-breed
+D01018,O0601,class,Mr. David John Bell,Golden Retriever,all-breed
+D01019,O0601,class,Mr. David John Bell,Golden Retriever,all-breed
+D01021,O0601,class,Mr. David John Bell,Golden Retriever,all-breed
+D01022,O0601,class,Mr. David John Bell,Golden Retriever,all-breed
+D01023,O0601,class,Mr. David John Bell,Golden Retriever,all-breed
+D01024,O0606,class,Mr. David John Bell,Golden Retriever,all-breed
+D01025,O0606,class,Mr. David John Bell,Golden Retriever,all-breed
+D01026,O0606,class,Mr. David John Bell,Golden Retriever,all-breed
+D01028,O0609,class,Mr. David John Bell,Golden Retriever,all-breed
+D01030,O0609,class,Mr. David John Bell,Golden Retriever,all-breed
+D01031,O0611,class,Mr. David John Bell,Golden Retriever,all-breed
+D01033,O0611,class,Mr. David John Bell,Golden Retriever,all-breed
+D01034,O0613,class,Mr. David John Bell,Golden Retriever,all-breed
+D01035,O0613,class,Mr. David John Bell,Golden Retriever,all-breed
+D01036,O0613,class,Mr. David John Bell,Golden Retriever,all-breed
+D01037,O0613,class,Mr. David John Bell,Golden Retriever,all-breed
+D01038,O0617,class,Mr. David John Bell,Golden Retriever,all-breed
+D01040,O0618,class,Mr. David John Bell,Golden Retriever,all-breed
+D01041,O0619,class,Mr. David John Bell,Golden Retriever,all-breed
+D01042,O0619,class,Mr. David John Bell,Golden Retriever,all-breed
+D01043,O0621,class,Mr. David John Bell,Golden Retriever,all-breed
+D01046,O0622,class,Mr. David John Bell,Golden Retriever,all-breed
+D01047,O0623,class,Mr. David John Bell,Golden Retriever,all-breed
+D01048,O0467,class,Mr. David John Bell,Golden Retriever,all-breed
+D01049,O0467,class,Mr. David John Bell,Golden Retriever,all-breed
+D01050,O0626,class,Mr. David John Bell,Golden Retriever,all-breed
+D01051,O0627,class,Mr. David John Bell,Golden Retriever,all-breed
+D01053,O0627,class,Mr. David John Bell,Golden Retriever,all-breed
+D01054,O0629,class,Mr. David John Bell,Golden Retriever,all-breed
+D01055,O0630,class,Mr. David John Bell,Golden Retriever,all-breed
+D01056,O0630,class,Mr. David John Bell,Golden Retriever,all-breed
+D01057,O0632,class,Mr. David John Bell,Golden Retriever,all-breed
+D01059,O0633,class,Mr. David John Bell,Golden Retriever,all-breed
+D01061,O0634,class,Mr. David John Bell,Golden Retriever,all-breed
+D01062,O0634,class,Mr. David John Bell,Golden Retriever,all-breed
+D01063,O0636,class,Mr. David John Bell,Golden Retriever,all-breed
+D01064,O0637,class,Mr. David John Bell,Golden Retriever,all-breed
+D01065,O0638,class,Mr. David John Bell,Golden Retriever,all-breed
+D01066,O0639,class,Mr. David John Bell,Golden Retriever,all-breed
+D01067,O0639,champion,Mr. David John Bell,Golden Retriever,all-breed
+D01068,O0641,champion,Mr. David John Bell,Golden Retriever,all-breed
+D01070,O0079,champion,Mr. David John Bell,Golden Retriever,all-breed
+D01071,O0643,champion,Mr. David John Bell,Golden Retriever,all-breed
+D01074,O0644,champion,Mr. David John Bell,Golden Retriever,all-breed
+D01082,O0644,champion,Mr. David John Bell,Golden Retriever,all-breed
+D01083,O0646,champion,Mr. David John Bell,Golden Retriever,all-breed
+D01086,O0647,champion,Mr. David John Bell,Golden Retriever,all-breed
+D01091,O0648,class,Mr. David John Bell,Parson Russell Terrier,all-breed
+D01092,O0649,class,Mr. David John Bell,Parson Russell Terrier,all-breed
+D01093,O0649,class,Mr. David John Bell,Parson Russell Terrier,all-breed
+D01095,O0651,class,Mr. David John Bell,Parson Russell Terrier,all-breed
+D01096,O0652,class,Mr. David John Bell,Parson Russell Terrier,all-breed
+D01097,O0653,champion,Mr. David John Bell,Parson Russell Terrier,all-breed
+D01102,O0654,champion,Mr. David John Bell,Manchester Terrier (Toy),all-breed
+D01105,O0655,champion,Mr. David John Bell,Manchester Terrier (Toy),all-breed
+D01106,O0656,champion,Mr. David John Bell,Manchester Terrier (Toy),all-breed
+D01107,O0657,class,Mr. David John Bell,Flat-Coated Retriever,all-breed
+D01108,O0658,class,Mr. David John Bell,Flat-Coated Retriever,all-breed
+D01113,O0659,champion,Mr. David John Bell,Flat-Coated Retriever,all-breed
+D01116,O0659,champion,Mr. David John Bell,Flat-Coated Retriever,all-breed
+D01117,O0661,class,Mr. Raymond E. Yurick,Lagotto Romagnolo,all-breed
+D01119,O0662,class,Mr. Raymond E. Yurick,Lagotto Romagnolo,all-breed
+D01124,O0663,class,Mr. Raymond E. Yurick,Retriever (Nova Scotia Duck Toll),all-breed
+D01125,O0664,class,Mr. Raymond E. Yurick,Retriever (Nova Scotia Duck Toll),all-breed
+D01126,O0665,class,Mr. Raymond E. Yurick,Retriever (Nova Scotia Duck Toll),all-breed
+D01127,O0666,class,Mr. Raymond E. Yurick,Retriever (Nova Scotia Duck Toll),all-breed
+D01128,O0667,class,Mr. Raymond E. Yurick,Retriever (Nova Scotia Duck Toll),all-breed
+D01130,O0668,class,Mr. Raymond E. Yurick,Wirehaired Pointing Griffon,all-breed
+D01131,O0669,class,Mr. Raymond E. Yurick,Wirehaired Pointing Griffon,all-breed
+D01132,O0669,class,Mr. Raymond E. Yurick,Wirehaired Pointing Griffon,all-breed
+D01133,O0671,class,Mr. Raymond E. Yurick,Wirehaired Pointing Griffon,all-breed
+D01134,O0671,class,Mr. Raymond E. Yurick,Wirehaired Pointing Griffon,all-breed
+D01135,O0673,class,Mr. Raymond E. Yurick,Wirehaired Pointing Griffon,all-breed
+D01137,O0674,champion,Mr. Raymond E. Yurick,Wirehaired Pointing Griffon,all-breed
+D01140,O0675,champion,Mr. Raymond E. Yurick,Wirehaired Pointing Griffon,all-breed
+D01142,O0676,class,Mr. Raymond E. Yurick,Brittany,all-breed
+D01146,O0677,champion,Mr. Raymond E. Yurick,Brittany,all-breed
+D01147,O0678,class,Mr. Raymond E. Yurick,Gordon Setter,all-breed
+D01151,O0678,champion,Mr. Raymond E. Yurick,Gordon Setter,all-breed
+D01152,O0680,champion,Mr. Raymond E. Yurick,Gordon Setter,all-breed
+D01153,O0681,class,Mr. Raymond E. Yurick,Irish Setter,all-breed
+D01154,O0681,class,Mr. Raymond E. Yurick,Irish Setter,all-breed
+D01155,O0681,class,Mr. Raymond E. Yurick,Irish Setter,all-breed
+D01157,O0684,class,Mr. Raymond E. Yurick,Irish Setter,all-breed
+D01159,O0685,champion,Mr. Raymond E. Yurick,Irish Setter,all-breed
+D01160,O0686,champion,Mr. Raymond E. Yurick,Irish Setter,all-breed
+D01162,O0687,champion,Mr. Raymond E. Yurick,Irish Setter,all-breed
+D01163,O0688,champion,Mr. Raymond E. Yurick,Irish Setter,all-breed
+D01169,O0689,class,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01170,O0689,class,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01172,O0685,class,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01173,O0685,class,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01174,O0693,class,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01175,O0601,class,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01176,O0695,class,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01177,O0696,class,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01178,O0697,class,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01179,O0697,class,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01183,O0699,champion,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01184,O0700,champion,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01186,O0701,champion,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01187,O0702,champion,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01190,O0703,champion,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01193,O0704,champion,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01194,O0705,champion,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01198,O0705,champion,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01199,O0707,champion,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01200,O0708,class,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01201,O0708,class,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01202,O0710,class,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01204,O0710,class,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01205,O0712,class,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01207,O0618,class,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01208,O0714,class,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01209,O0715,class,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01210,O0715,class,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01211,O0717,class,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01212,O0718,class,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01213,O0719,class,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01214,O0720,class,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01215,O0720,class,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01216,O0722,class,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01217,O0722,class,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01220,O0724,champion,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01228,O0724,champion,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01230,O0726,class,Mr. Raymond E. Yurick,Wirehaired Vizsla,all-breed
+D01231,O0727,class,Mr. Raymond E. Yurick,Nederlandse Kooikerhondjes,all-breed
+D01232,O0727,class,Mr. Raymond E. Yurick,Nederlandse Kooikerhondjes,all-breed
+D01234,O0729,class,Mr. Raymond E. Yurick,Chesapeake Bay Retriever,all-breed
+D01236,O0729,champion,Mr. Raymond E. Yurick,Chesapeake Bay Retriever,all-breed
+D01237,O0731,champion,Mr. Raymond E. Yurick,Irish Red & White Setters,all-breed
+D01239,O0732,class,Mr. Raymond E. Yurick,Spinone Italiano,all-breed
+D01240,O0704,class,Mr. Raymond E. Yurick,Spinone Italiano,all-breed
+D01241,O0704,class,Mr. Raymond E. Yurick,Spinone Italiano,all-breed
+D01243,O0735,champion,Mr. Raymond E. Yurick,Spinone Italiano,all-breed
+D01245,O0736,class,Mr. Raymond E. Yurick,Weimaraner,all-breed
+D01247,O0737,class,Mr. Raymond E. Yurick,Weimaraner,all-breed
+D01249,O0738,champion,Mr. Raymond E. Yurick,Weimaraner,all-breed
+D01253,O0739,class,Mr. Peter Miller,English Springer Spaniel,all-breed
+D01254,O0739,class,Mr. Peter Miller,English Springer Spaniel,all-breed
+D01255,O0739,class,Mr. Peter Miller,English Springer Spaniel,all-breed
+D01256,O0742,class,Mr. Peter Miller,English Springer Spaniel,all-breed
+D01257,O0743,class,Mr. Peter Miller,English Springer Spaniel,all-breed
+D01258,O0744,class,Mr. Peter Miller,English Springer Spaniel,all-breed
+D01260,O0745,class,Mr. Peter Miller,English Springer Spaniel,all-breed
+D01261,O0746,class,Mr. Peter Miller,English Springer Spaniel,all-breed
+D01262,O0747,class,Mr. Peter Miller,English Springer Spaniel,all-breed
+D01265,O0747,champion,Mr. Peter Miller,English Springer Spaniel,all-breed
+D01267,O0749,champion,Mr. Peter Miller,English Springer Spaniel,all-breed
+D01269,O0750,class,Mr. Peter Miller,Field Spaniel,all-breed
+D01271,O0750,class,Mr. Peter Miller,Field Spaniel,all-breed
+D01273,O0752,class,Mr. Peter Miller,Field Spaniel,all-breed
+D01274,O0752,class,Mr. Peter Miller,Field Spaniel,all-breed
+D01276,O0754,class,Mr. Peter Miller,Welsh Springer Spaniel,all-breed
+D01277,O0755,class,Mr. Peter Miller,Welsh Springer Spaniel,all-breed
+D01278,O0755,class,Mr. Peter Miller,Welsh Springer Spaniel,all-breed
+D01279,O0757,class,Mr. Peter Miller,Welsh Springer Spaniel,all-breed
+D01280,O0757,class,Mr. Peter Miller,Welsh Springer Spaniel,all-breed
+D01281,O0759,class,Mr. Peter Miller,Welsh Springer Spaniel,all-breed
+D01282,O0760,champion,Mr. Peter Miller,Welsh Springer Spaniel,all-breed
+D01284,O0761,champion,Mr. Peter Miller,Welsh Springer Spaniel,all-breed
+D01285,O0762,champion,Mr. Peter Miller,Welsh Springer Spaniel,all-breed
+D01286,O0763,class,Mr. Peter Miller,Irish Water Spaniel,all-breed
+D01289,O0763,class,Mr. Peter Miller,Irish Water Spaniel,all-breed
+D01293,O0765,champion,Mr. Peter Miller,Irish Water Spaniel,all-breed
+D01298,O0766,champion,Mr. Peter Miller,Cocker Spaniel (Black),all-breed
+D01301,O0767,class,Mr. Peter Miller,Cocker Spaniel (Ascob),all-breed
+D01302,O0768,class,Mr. Peter Miller,Cocker Spaniel (Ascob),all-breed
+D01303,O0769,class,Mr. Peter Miller,Cocker Spaniel (Ascob),all-breed
+D01305,O0769,class,Mr. Peter Miller,Cocker Spaniel (Ascob),all-breed
+D01306,O0771,champion,Mr. Peter Miller,Cocker Spaniel (Ascob),all-breed
+D01309,O0772,class,Mr. Peter Miller,Cocker Spaniel (Parti-Color),all-breed
+D01314,O0772,champion,Mr. Peter Miller,Cocker Spaniel (Parti-Color),all-breed
+D01315,O0774,champion,Mr. Peter Miller,Cocker Spaniel (Parti-Color),all-breed
+D01316,O0775,champion,Mr. Peter Miller,Cocker Spaniel (Parti-Color),all-breed
+D01318,O0776,class,Mr. Peter Miller,German Shorthaired Pointer,all-breed
+D01320,O0777,class,Mr. Peter Miller,German Shorthaired Pointer,all-breed
+D01321,O0777,class,Mr. Peter Miller,German Shorthaired Pointer,all-breed
+D01322,O0777,class,Mr. Peter Miller,German Shorthaired Pointer,all-breed
+D01323,O0777,class,Mr. Peter Miller,German Shorthaired Pointer,all-breed
+D01325,O0781,class,Mr. Peter Miller,German Shorthaired Pointer,all-breed
+D01328,O0782,class,Mr. Peter Miller,German Shorthaired Pointer,all-breed
+D01330,O0783,champion,Mr. Peter Miller,German Shorthaired Pointer,all-breed
+D01333,O0784,champion,Mr. Peter Miller,German Shorthaired Pointer,all-breed
+D01337,O0785,champion,Mr. Peter Miller,German Shorthaired Pointer,all-breed
+D01338,O0307,champion,Mr. Peter Miller,German Shorthaired Pointer,all-breed
+D01339,O0787,class,Mr. Peter Miller,Pointer,all-breed
+D01340,O0788,class,Mr. Peter Miller,Pointer,all-breed
+D01341,O0788,class,Mr. Peter Miller,Pointer,all-breed
+D01342,O0790,class,Mr. Peter Miller,Pointer,all-breed
+D01343,O0790,class,Mr. Peter Miller,Pointer,all-breed
+D01344,O0792,class,Mr. Peter Miller,Pointer,all-breed
+D01346,O0792,champion,Mr. Peter Miller,Pointer,all-breed
+D01349,O0613,champion,Mr. Peter Miller,Pointer,all-breed
+D01350,O0613,champion,Mr. Peter Miller,Pointer,all-breed
+D01351,O0626,champion,Mr. Peter Miller,Pointer,all-breed
+D01354,O0797,class,Mr. Peter Miller,English Cocker Spaniel,all-breed
+D01355,O0798,class,Mr. Peter Miller,English Cocker Spaniel,all-breed
+D01357,O0799,class,Mr. Peter Miller,English Cocker Spaniel,all-breed
+D01358,O0800,class,Mr. Peter Miller,English Cocker Spaniel,all-breed
+D01359,O0801,class,Mr. Peter Miller,English Cocker Spaniel,all-breed
+D01360,O0801,class,Mr. Peter Miller,English Cocker Spaniel,all-breed
+D01361,O0801,class,Mr. Peter Miller,English Cocker Spaniel,all-breed
+D01362,O0804,class,Mr. Peter Miller,English Cocker Spaniel,all-breed
+D01370,O0805,class,Mr. Peter Miller,Staffordshire Bull Terriers,all-breed
+D01371,O0805,class,Mr. Peter Miller,Staffordshire Bull Terriers,all-breed
+D01372,O0807,class,Mr. Peter Miller,Staffordshire Bull Terriers,all-breed
+D01373,O0678,class,Mr. Peter Miller,Staffordshire Bull Terriers,all-breed
+D01374,O0809,class,Mr. Peter Miller,Staffordshire Bull Terriers,all-breed
+D01375,O0810,champion,Mr. Peter Miller,Staffordshire Bull Terriers,all-breed
+D01376,O0811,champion,Mr. Peter Miller,Staffordshire Bull Terriers,all-breed
+D01377,O0811,champion,Mr. Peter Miller,Staffordshire Bull Terriers,all-breed
+D01382,O0813,champion,Mrs. Shalisa D. Neely,Tibetan Mastiff,all-breed
+D01384,O0027,class,Mrs. Shalisa D. Neely,Newfoundland,all-breed
+D01385,O0815,class,Mrs. Shalisa D. Neely,Newfoundland,all-breed
+D01386,O0815,class,Mrs. Shalisa D. Neely,Newfoundland,all-breed
+D01387,O0817,class,Mrs. Shalisa D. Neely,Newfoundland,all-breed
+D01389,O0818,class,Mrs. Shalisa D. Neely,Newfoundland,all-breed
+D01390,O0819,class,Mrs. Shalisa D. Neely,Newfoundland,all-breed
+D01392,O0820,class,Mrs. Shalisa D. Neely,Newfoundland,all-breed
+D01393,O0820,champion,Mrs. Shalisa D. Neely,Newfoundland,all-breed
+D01396,O0820,champion,Mrs. Shalisa D. Neely,Newfoundland,all-breed
+D01398,O0823,champion,Mrs. Shalisa D. Neely,Newfoundland,all-breed
+D01399,O0522,champion,Mrs. Shalisa D. Neely,Newfoundland,all-breed
+D01400,O0825,champion,Mrs. Shalisa D. Neely,Newfoundland,all-breed
+D01401,O0826,champion,Mrs. Shalisa D. Neely,Newfoundland,all-breed
+D01402,O0827,class,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D01403,O0042,class,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D01404,O0829,class,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D01405,O0064,class,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D01406,O0831,class,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D01407,O0832,class,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D01408,O0833,class,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D01409,O0015,class,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D01411,O0835,class,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D01412,O0836,class,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D01414,O0836,class,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D01415,O0838,class,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D01416,O0839,class,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D01418,O0021,class,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D01419,O0021,champion,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D01423,O0842,champion,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D01424,O0843,champion,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D01425,O0843,champion,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D01427,O0843,champion,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D01430,O0846,class,Mrs. Shalisa D. Neely,Cane Corso,all-breed
+D01431,O0847,class,Mrs. Shalisa D. Neely,Cane Corso,all-breed
+D01432,O0847,class,Mrs. Shalisa D. Neely,Cane Corso,all-breed
+D01433,O0849,class,Mrs. Shalisa D. Neely,Cane Corso,all-breed
+D01434,O0850,class,Mrs. Shalisa D. Neely,Cane Corso,all-breed
+D01437,O0850,class,Mrs. Shalisa D. Neely,Cane Corso,all-breed
+D01438,O0852,class,Mrs. Shalisa D. Neely,Cane Corso,all-breed
+D01439,O0853,champion,Mrs. Shalisa D. Neely,Cane Corso,all-breed
+D01441,O0854,class,Mrs. Shalisa D. Neely,Giant Schnauzer,all-breed
+D01442,O0855,class,Mrs. Shalisa D. Neely,Giant Schnauzer,all-breed
+D01443,O0856,class,Mrs. Shalisa D. Neely,Giant Schnauzer,all-breed
+D01444,O0857,class,Mrs. Shalisa D. Neely,Giant Schnauzer,all-breed
+D01445,O0858,class,Mrs. Shalisa D. Neely,Giant Schnauzer,all-breed
+D01451,O0859,champion,Mr. Stephen Dainard,Belgian Tervuren,all-breed
+D01454,O0860,class,Mr. Stephen Dainard,Berger Picard,all-breed
+D01455,O0861,class,Mr. Stephen Dainard,Berger Picard,all-breed
+D01456,O0862,class,Mr. Stephen Dainard,Berger Picard,all-breed
+D01457,O0863,class,Mr. Stephen Dainard,Berger Picard,all-breed
+D01464,O0864,champion,Mr. Stephen Dainard,Border Collie,all-breed
+D01466,O0861,champion,Mr. Stephen Dainard,Bouvier Des Flandres,all-breed
+D01470,O0866,champion,Mr. Stephen Dainard,Bouvier Des Flandres,all-breed
+D01472,O0867,champion,Mr. Stephen Dainard,Mudi,all-breed
+D01473,O0868,class,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D01474,O0868,class,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D01475,O0868,class,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D01478,O0871,class,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D01480,O0872,class,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D01481,O0873,class,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D01485,O0873,class,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D01488,O0875,champion,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D01490,O0875,champion,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D01496,O0497,class,Mr. Stephen Dainard,Australian Cattle Dog,all-breed
+D01497,O0878,class,Mr. Stephen Dainard,Australian Cattle Dog,all-breed
+D01498,O0878,class,Mr. Stephen Dainard,Australian Cattle Dog,all-breed
+D01499,O0878,class,Mr. Stephen Dainard,Australian Cattle Dog,all-breed
+D01501,O0881,class,Mr. Stephen Dainard,Bearded Collie,all-breed
+D01502,O0882,champion,Mr. Stephen Dainard,Bearded Collie,all-breed
+D01503,O0883,champion,Mr. Stephen Dainard,Bearded Collie,all-breed
+D01504,O0884,champion,Mr. Stephen Dainard,Bearded Collie,all-breed
+D01505,O0885,champion,Mr. Stephen Dainard,Bearded Collie,all-breed
+D01507,O0861,champion,Mr. Stephen Dainard,Bearded Collie,all-breed
+D01509,O0887,class,Mr. Stephen Dainard,Beauceron,all-breed
+D01510,O0888,class,Mr. Stephen Dainard,Beauceron,all-breed
+D01511,O0889,class,Mr. Stephen Dainard,Beauceron,all-breed
+D01513,O0890,champion,Mr. Stephen Dainard,Beauceron,all-breed
+D01514,O0149,champion,Mr. Stephen Dainard,Beauceron,all-breed
+D01515,O0892,class,Mr. Stephen Dainard,Australian Shepherd,all-breed
+D01516,O0892,class,Mr. Stephen Dainard,Australian Shepherd,all-breed
+D01517,O0892,class,Mr. Stephen Dainard,Australian Shepherd,all-breed
+D01518,O0895,class,Mr. Stephen Dainard,Australian Shepherd,all-breed
+D01521,O0896,class,Mr. Stephen Dainard,Australian Shepherd,all-breed
+D01522,O0896,class,Mr. Stephen Dainard,Australian Shepherd,all-breed
+D01523,O0864,class,Mr. Stephen Dainard,Australian Shepherd,all-breed
+D01524,O0899,class,Mr. Stephen Dainard,Australian Shepherd,all-breed
+D01525,O0900,class,Mr. Stephen Dainard,Australian Shepherd,all-breed
+D01527,O0900,class,Mr. Stephen Dainard,Australian Shepherd,all-breed
+D01529,O0900,class,Mr. Stephen Dainard,Australian Shepherd,all-breed
+D01531,O0032,champion,Mr. Stephen Dainard,Australian Shepherd,all-breed
+D01535,O0904,champion,Mr. Stephen Dainard,Belgian Malinois,all-breed
+D01536,O0905,class,Mr. Stephen Dainard,Belgian Sheepdog,all-breed
+D01538,O0900,class,Mr. Stephen Dainard,Old English Sheepdog,all-breed
+D01539,O0907,class,Mr. Stephen Dainard,Old English Sheepdog,all-breed
+D01540,O0907,class,Mr. Stephen Dainard,Old English Sheepdog,all-breed
+D01541,O0907,class,Mr. Stephen Dainard,Old English Sheepdog,all-breed
+D01542,O0910,class,Mr. Stephen Dainard,Old English Sheepdog,all-breed
+D01543,O0910,class,Mr. Stephen Dainard,Old English Sheepdog,all-breed
+D01544,O0910,champion,Mr. Stephen Dainard,Old English Sheepdog,all-breed
+D01546,O0913,champion,Mr. Stephen Dainard,Old English Sheepdog,all-breed
+D01548,O0913,champion,Mr. Stephen Dainard,Old English Sheepdog,all-breed
+D01550,O0915,champion,Miss Janelle W. Robbins,Keeshond,all-breed
+D01551,O0916,champion,Miss Janelle W. Robbins,Keeshond,all-breed
+D01553,O0917,champion,Miss Janelle W. Robbins,Schipperke,all-breed
+D01554,O0918,class,Miss Janelle W. Robbins,Tibetan Terrier,all-breed
+D01558,O0919,class,Miss Janelle W. Robbins,Collie (Rough),all-breed
+D01559,O0920,champion,Miss Janelle W. Robbins,Collie (Rough),all-breed
+D01560,O0921,class,Miss Janelle W. Robbins,Collie (Smooth),all-breed
+D01562,O0922,class,Miss Janelle W. Robbins,Finnish Lapphund,all-breed
+D01563,O0923,class,Miss Janelle W. Robbins,Finnish Lapphund,all-breed
+D01565,O0743,class,Miss Janelle W. Robbins,Norwegian Buhund,all-breed
+D01566,O0925,class,Miss Janelle W. Robbins,Norwegian Buhund,all-breed
+D01567,O0926,class,Miss Janelle W. Robbins,Norwegian Buhund,all-breed
+D01568,O0927,class,Miss Janelle W. Robbins,Norwegian Buhund,all-breed
+D01571,O0928,champion,Miss Janelle W. Robbins,Pumi,all-breed
+D01572,O0929,class,Miss Janelle W. Robbins,Cardigan Welsh Corgi,all-breed
+D01573,O0930,class,Miss Janelle W. Robbins,Cardigan Welsh Corgi,all-breed
+D01574,O0931,class,Miss Janelle W. Robbins,Cardigan Welsh Corgi,all-breed
+D01577,O0932,champion,Miss Janelle W. Robbins,Cardigan Welsh Corgi,all-breed
+D01578,O0933,champion,Miss Janelle W. Robbins,Cardigan Welsh Corgi,all-breed
+D01580,O0934,class,Miss Janelle W. Robbins,Pembroke Welsh Corgi,all-breed
+D01581,O0931,class,Miss Janelle W. Robbins,Pembroke Welsh Corgi,all-breed
+D01583,O0936,class,Miss Janelle W. Robbins,Pembroke Welsh Corgi,all-breed
+D01584,O0936,class,Miss Janelle W. Robbins,Pembroke Welsh Corgi,all-breed
+D01585,O0938,class,Miss Janelle W. Robbins,Pembroke Welsh Corgi,all-breed
+D01586,O0939,class,Miss Janelle W. Robbins,Pembroke Welsh Corgi,all-breed
+D01589,O0940,champion,Miss Janelle W. Robbins,Pembroke Welsh Corgi,all-breed
+D01591,O0940,champion,Miss Janelle W. Robbins,Pembroke Welsh Corgi,all-breed
+D01592,O0940,champion,Miss Janelle W. Robbins,Pembroke Welsh Corgi,all-breed
+D01594,O0943,class,Miss Janelle W. Robbins,Shetland Sheepdog,all-breed
+D01595,O0943,class,Miss Janelle W. Robbins,Shetland Sheepdog,all-breed
+D01596,O0945,class,Miss Janelle W. Robbins,Shetland Sheepdog,all-breed
+D01598,O0946,class,Miss Janelle W. Robbins,Shetland Sheepdog,all-breed
+D01599,O0947,class,Miss Janelle W. Robbins,Shetland Sheepdog,all-breed
+D01600,O0948,class,Ms. Paullet DeLong,Borzoi,all-breed
+D01601,O0948,class,Ms. Paullet DeLong,Borzoi,all-breed
+D01602,O0950,class,Ms. Paullet DeLong,Borzoi,all-breed
+D01603,O0951,class,Ms. Paullet DeLong,Borzoi,all-breed
+D01605,O0952,class,Ms. Paullet DeLong,Borzoi,all-breed
+D01606,O0953,class,Ms. Paullet DeLong,Borzoi,all-breed
+D01607,O0954,class,Ms. Paullet DeLong,Borzoi,all-breed
+D01610,O0954,class,Ms. Paullet DeLong,Borzoi,all-breed
+D01612,O0956,class,Ms. Paullet DeLong,Borzoi,all-breed
+D01613,O0957,class,Ms. Paullet DeLong,Borzoi,all-breed
+D01614,O0002,class,Ms. Paullet DeLong,Borzoi,all-breed
+D01615,O0959,class,Ms. Paullet DeLong,Borzoi,all-breed
+D01617,O0960,class,Ms. Paullet DeLong,Borzoi,all-breed
+D01619,O0960,champion,Ms. Paullet DeLong,Borzoi,all-breed
+D01621,O0962,champion,Ms. Paullet DeLong,Borzoi,all-breed
+D01623,O0963,champion,Ms. Paullet DeLong,Borzoi,all-breed
+D01624,O0963,champion,Ms. Paullet DeLong,Borzoi,all-breed
+D01625,O0965,class,Ms. Paullet DeLong,English Setter,all-breed
+D01626,O0966,class,Ms. Paullet DeLong,English Setter,all-breed
+D01628,O0967,class,Ms. Paullet DeLong,English Setter,all-breed
+D01629,O0968,class,Ms. Paullet DeLong,English Setter,all-breed
+D01630,O0969,class,Ms. Paullet DeLong,English Setter,all-breed
+D01631,O0970,class,Ms. Paullet DeLong,English Setter,all-breed
+D01632,O0971,class,Ms. Paullet DeLong,English Setter,all-breed
+D01634,O0971,champion,Ms. Paullet DeLong,English Setter,all-breed
+D01635,O0971,champion,Ms. Paullet DeLong,English Setter,all-breed
+D01639,O0974,class,Ms. Paullet DeLong,Akita,all-breed
+D01643,O0261,champion,Ms. Paullet DeLong,Alaskan Malamute,all-breed
+D01644,O0976,champion,Ms. Paullet DeLong,Alaskan Malamute,all-breed
+D01645,O0976,champion,Ms. Paullet DeLong,Alaskan Malamute,all-breed
+D01647,O0978,class,Ms. Paullet DeLong,Russian Tsvetnaya Bolonka,all-breed
+D01648,O0979,class,Ms. Paullet DeLong,Russian Tsvetnaya Bolonka,all-breed
+D01650,O0979,class,Ms. Paullet DeLong,Russian Tsvetnaya Bolonka,all-breed
+D01655,O0981,class,Ms. Paullet DeLong,Samoyed,all-breed
+D01656,O0982,class,Ms. Paullet DeLong,Samoyed,all-breed
+D01657,O0983,class,Ms. Paullet DeLong,Samoyed,all-breed
+D01658,O0984,class,Ms. Paullet DeLong,Samoyed,all-breed
+D01659,O0984,class,Ms. Paullet DeLong,Samoyed,all-breed
+D01661,O0986,class,Ms. Paullet DeLong,Samoyed,all-breed
+D01662,O0987,class,Ms. Paullet DeLong,Samoyed,all-breed
+D01665,O0988,class,Ms. Paullet DeLong,Samoyed,all-breed
+D01669,O0989,champion,Ms. Paullet DeLong,Samoyed,all-breed
+D01670,O0990,champion,Ms. Paullet DeLong,Samoyed,all-breed
+D01675,O0990,champion,Ms. Paullet DeLong,Samoyed,all-breed
+D01677,O0992,champion,Ms. Paullet DeLong,Samoyed,all-breed
+D01682,O0993,champion,Ms. Paullet DeLong,Samoyed,all-breed
+D01684,O0993,champion,Ms. Paullet DeLong,Samoyed,all-breed
+D01686,O0995,class,Ms. Paullet DeLong,Boston Terrier,all-breed
+D01687,O0996,class,Ms. Paullet DeLong,Boston Terrier,all-breed
+D01689,O0997,class,Ms. Paullet DeLong,Boston Terrier,all-breed
+D01690,O0998,class,Ms. Paullet DeLong,Boston Terrier,all-breed
+D01695,O0998,champion,Ms. Paullet DeLong,Boston Terrier,all-breed
+D01699,O1000,champion,Ms. Paullet DeLong,Finnish Spitz,all-breed
+D01700,O1001,champion,Ms. Paullet DeLong,Finnish Spitz,all-breed
+D01701,O1002,class,Ms. Paullet DeLong,Shiba-Inu,all-breed
+D01702,O1003,class,Ms. Paullet DeLong,Shiba-Inu,all-breed
+D01703,O1003,class,Ms. Paullet DeLong,Shiba-Inu,all-breed
+D01704,O1003,class,Ms. Paullet DeLong,Shiba-Inu,all-breed
+D01705,O1006,class,Ms. Paullet DeLong,Shiba-Inu,all-breed
+D01706,O1006,class,Ms. Paullet DeLong,Shiba-Inu,all-breed
+D01707,O1008,class,Ms. Paullet DeLong,Shiba-Inu,all-breed
+D01708,O1008,class,Ms. Paullet DeLong,Shiba-Inu,all-breed
+D01711,O1008,champion,Ms. Paullet DeLong,Shiba-Inu,all-breed
+D01716,O1011,champion,Ms. Paullet DeLong,Shiba-Inu,all-breed
+D01719,O1012,class,Ms. Paullet DeLong,Xoloitzcuintli,all-breed
+D01721,O1012,class,Ms. Paullet DeLong,Xoloitzcuintli,all-breed
+D01722,O1014,class,Ms. Paullet DeLong,Xoloitzcuintli,all-breed
+D01723,O1015,class,Ms. Paullet DeLong,Xoloitzcuintli,all-breed
+D01725,O1016,champion,Ms. Paullet DeLong,Xoloitzcuintli,all-breed
+D01726,O1016,champion,Ms. Paullet DeLong,Xoloitzcuintli,all-breed
+D01728,O1018,champion,Ms. Paullet DeLong,Xoloitzcuintli,all-breed
+D01730,O1019,class,Ms. Paullet DeLong,Chinese Shar-Pei,all-breed
+D01731,O1020,class,Ms. Paullet DeLong,Chinese Shar-Pei,all-breed
+D01733,O1020,class,Ms. Paullet DeLong,Chinese Shar-Pei,all-breed
+D01088,P001,champion,Mr. David John Bell,Golden Retriever,all-breed
+D00771,P001,champion,Ms. Angela Stevanus,Border Terrier,all-breed
+D00799,P001,champion,Mr. John C. Ramirez,Miniature Bull Terrier,all-breed
+D00803,P001,champion,Mr. John C. Ramirez,Miniature Bull Terrier,all-breed
+D01094,P001,class,Mr. David John Bell,Parson Russell Terrier,all-breed
+D00609,P001,champion,Ms. Michelle T. Shultz,Poodle (Standard),all-breed
+D01534,P001,champion,Mr. Stephen Dainard,Australian Shepherd,all-breed
+D01461,P001,champion,Mr. Stephen Dainard,Berger Picard,all-breed
+D01482,P001,class,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D01579,P001,class,Miss Janelle W. Robbins,Pembroke Welsh Corgi,all-breed
+D00482,P002,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00114,P002,class,Mrs. Minna-Liisa Koltes,Airedale Terrier,all-breed
+D00770,P002,class,Ms. Angela Stevanus,Border Terrier,all-breed
+D00785,P002,champion,Mr. John C. Ramirez,Bull Terrier (White),all-breed
+D00737,P002,champion,Miss Sandra M. Lex,Cairn Terrier,all-breed
+D00742,P002,champion,Miss Sandra M. Lex,Cairn Terrier,all-breed
+D00758,P002,champion,Miss Sandra M. Lex,Fox Terrier (Wire),all-breed
+D00641,P002,class,Miss Sandra M. Lex,Kerry Blue Terrier,all-breed
+D01369,P002-A1,class,Mr. Peter Miller,Staffordshire Bull Terriers,all-breed
+D01519,P002-A1,class,Mr. Stephen Dainard,Australian Shepherd,all-breed
+D01528,P002-A1,class,Mr. Stephen Dainard,Australian Shepherd,all-breed
+D01462,P002-A1,champion,Mr. Stephen Dainard,Border Collie,all-breed
+D01476,P002-A1,class,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D01486,P002-A1,champion,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D01493,P002-A1,champion,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D01494,P002-A1,champion,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D01627,P003,class,Ms. Paullet DeLong,English Setter,all-breed
+D01633,P003,champion,Ms. Paullet DeLong,English Setter,all-breed
+D01268,P003,champion,Mr. Peter Miller,English Springer Spaniel,all-breed
+D01111,P003,champion,Mr. David John Bell,Flat-Coated Retriever,all-breed
+D01324,P003,class,Mr. Peter Miller,German Shorthaired Pointer,all-breed
+D01149,P003,champion,Mr. Raymond E. Yurick,Gordon Setter,all-breed
+D01165,P003,champion,Mr. Raymond E. Yurick,Irish Setter,all-breed
+D01195,P003,champion,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01283,P003,champion,Mr. Peter Miller,Welsh Springer Spaniel,all-breed
+D00441,P003,class,Miss Janelle W. Robbins,Beagle Fifteen Inch,all-breed
+D00283,P003,class,Mrs. Kaisa Gold,Greyhound,all-breed
+D00518,P003-A1,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00177,P003-A1,champion,Mr. Harold Tatro,Whippet,all-breed
+D00875,P003-A1,class,Mrs. Shalisa D. Neely,Black Russian Terrier,all-breed
+D00408,P003-A1,champion,Miss Janelle W. Robbins,Great Dane,all-breed
+D01395,P003-A1,champion,Mrs. Shalisa D. Neely,Newfoundland,all-breed
+D01652,P003-A1,class,Ms. Paullet DeLong,Samoyed,all-breed
+D01685,P003-A1,champion,Ms. Paullet DeLong,Samoyed,all-breed
+D00104,P003-A1,champion,Mrs. Minna-Liisa Koltes,Norwich Terrier,all-breed
+D00914,P003-A1,champion,Ms. Ginnette Louise Loft,Chinese Crested,all-breed
+D01458,P003-A1,champion,Mr. Stephen Dainard,Berger Picard,all-breed
+D00786,P004,class,Mr. John C. Ramirez,Bull Terrier (Colored),all-breed
+D00625,P004,class,Miss Sandra M. Lex,Irish Terrier,all-breed
+D00632,P004,champion,Miss Sandra M. Lex,Irish Terrier,all-breed
+D00642,P004,class,Miss Sandra M. Lex,Kerry Blue Terrier,all-breed
+D00831,P004,champion,Mrs. Shalisa D. Neely,Pug,all-breed
+D00918,P004,champion,Ms. Ginnette Louise Loft,Russian Toy,all-breed
+D00433,P005,champion,Miss Janelle W. Robbins,Beagle Thirteen Inch,all-breed
+D00878,P005,champion,Mrs. Shalisa D. Neely,Black Russian Terrier,all-breed
+D00880,P005,champion,Mrs. Shalisa D. Neely,Black Russian Terrier,all-breed
+D00008,P005,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00015,P005,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D01436,P005,class,Mrs. Shalisa D. Neely,Cane Corso,all-breed
+D01446,P005,class,Mrs. Shalisa D. Neely,Giant Schnauzer,all-breed
+D01388,P005,class,Mrs. Shalisa D. Neely,Newfoundland,all-breed
+D00620,P005,champion,Miss Sandra M. Lex,American Staffordshire Terrier,all-breed
+D00775,P005,champion,Ms. Angela Stevanus,Border Terrier,all-breed
+D00648,P005-A1,champion,Miss Sandra M. Lex,Kerry Blue Terrier,all-breed
+D00789,P005-A1,class,Mr. John C. Ramirez,Miniature Bull Terrier,all-breed
+D00684,P005-A1,class,Miss Sandra M. Lex,Miniature Schnauzer,all-breed
+D00094,P005-A1,class,Mrs. Minna-Liisa Koltes,Norwich Terrier,all-breed
+D01100,P005-A1,champion,Mr. David John Bell,Parson Russell Terrier,all-breed
+D00710,P005-A1,class,Miss Sandra M. Lex,Rat Terrier,all-breed
+D00719,P005-A1,champion,Miss Sandra M. Lex,Rat Terrier,all-breed
+D00721,P005-A1,champion,Miss Sandra M. Lex,Rat Terrier,all-breed
+D00673,P005-A1,champion,Miss Sandra M. Lex,Russell Terriers,all-breed
+D01378,P005-A1,champion,Mr. Peter Miller,Staffordshire Bull Terriers,all-breed
+D01642,P006,class,Ms. Paullet DeLong,Alaskan Malamute,all-breed
+D01422,P006,champion,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D00876,P006,class,Mrs. Shalisa D. Neely,Black Russian Terrier,all-breed
+D00023,P006,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00894,P006,champion,Mrs. Shalisa D. Neely,Bullmastiff,all-breed
+D00076,P006,champion,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D01668,P006,champion,Ms. Paullet DeLong,Samoyed,all-breed
+D00125,P006,class,Mr. Harold Tatro,Standard Schnauzer,all-breed
+D00116,P006-A1,class,Mrs. Minna-Liisa Koltes,Airedale Terrier,all-breed
+D00763,P006-A1,class,Ms. Angela Stevanus,Border Terrier,all-breed
+D00773,P006-A1,champion,Ms. Angela Stevanus,Border Terrier,all-breed
+D00702,P006-A1,champion,Miss Sandra M. Lex,Miniature Schnauzer,all-breed
+D00105,P006-A1,champion,Mrs. Minna-Liisa Koltes,Norwich Terrier,all-breed
+D00111,P006-A1,champion,Mrs. Minna-Liisa Koltes,Norwich Terrier,all-breed
+D01101,P006-A1,champion,Mr. David John Bell,Parson Russell Terrier,all-breed
+D00662,P006-A1,champion,Miss Sandra M. Lex,West Highland White Terrier,all-breed
+D01317,P007,class,Mr. Peter Miller,German Shorthaired Pointer,all-breed
+D01120,P007,champion,Mr. Raymond E. Yurick,Lagotto Romagnolo,all-breed
+D00449,P007,champion,Miss Janelle W. Robbins,Beagle Fifteen Inch,all-breed
+D01604,P007,class,Ms. Paullet DeLong,Borzoi,all-breed
+D00336,P007,champion,Mrs. Kaisa Gold,Dachshund (Smooth),all-breed
+D00351,P007,class,Mrs. Kaisa Gold,Dachshund (Wirehaired),all-breed
+D00356,P007,champion,Mrs. Kaisa Gold,Dachshund (Wirehaired),all-breed
+D00357,P007,champion,Mrs. Kaisa Gold,Dachshund (Wirehaired),all-breed
+D00475,P007,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00493,P007,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00508,P007,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00291,P007-A1,champion,Mrs. Kaisa Gold,Saluki,all-breed
+D00141,P007-A1,class,Mr. Harold Tatro,Whippet,all-breed
+D00176,P007-A1,champion,Mr. Harold Tatro,Whippet,all-breed
+D00589,P007-A1,champion,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00870,P007-A1,champion,Mrs. Shalisa D. Neely,Toy Fox Terrier,all-breed
+D00541,P007-A1,champion,Ms. Michelle T. Shultz,Bulldog,all-breed
+D01547,P007-A1,champion,Mr. Stephen Dainard,Old English Sheepdog,all-breed
+D01263,P008,champion,Mr. Peter Miller,English Springer Spaniel,all-breed
+D00255,P008,champion,Mrs. Kaisa Gold,Afghan Hound,all-breed
+D00331,P008,champion,Mrs. Kaisa Gold,Dachshund (Smooth),all-breed
+D00466,P008,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00488,P008,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00490,P008,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00147,P008,class,Mr. Harold Tatro,Whippet,all-breed
+D00165,P008,champion,Mr. Harold Tatro,Whippet,all-breed
+D00022,P008-A1,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00910,P008-A1,champion,Ms. Ginnette Louise Loft,Brussels Griffon,all-breed
+D00842,P008-A1,class,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00859,P008-A1,champion,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D01104,P008-A1,champion,Mr. David John Bell,Manchester Terrier (Toy),all-breed
+D00587,P008-A1,champion,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00258,P009,champion,Mrs. Kaisa Gold,Afghan Hound,all-breed
+D00432,P009,champion,Miss Janelle W. Robbins,Beagle Thirteen Inch,all-breed
+D00306,P009,class,Mrs. Kaisa Gold,Dachshund (Longhaired),all-breed
+D00327,P009,class,Mrs. Kaisa Gold,Dachshund (Smooth),all-breed
+D00335,P009,champion,Mrs. Kaisa Gold,Dachshund (Smooth),all-breed
+D00345,P009,class,Mrs. Kaisa Gold,Dachshund (Wirehaired),all-breed
+D00279,P009,class,Mrs. Kaisa Gold,Greyhound,all-breed
+D00284,P009,champion,Mrs. Kaisa Gold,Greyhound,all-breed
+D00271,P009,champion,Mrs. Kaisa Gold,Irish Wolfhound,all-breed
+D00188,P009-A1,champion,Mr. Harold Tatro,Norwegian Elkhound,all-breed
+D00495,P009-A1,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00500,P009-A1,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00166,P009-A1,champion,Mr. Harold Tatro,Whippet,all-breed
+D01428,P009-A1,champion,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D01676,P009-A1,champion,Ms. Paullet DeLong,Samoyed,all-breed
+D00646,P009-A1,champion,Miss Sandra M. Lex,Kerry Blue Terrier,all-breed
+D01492,P009-A1,champion,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D01145,P010,champion,Mr. Raymond E. Yurick,Brittany,all-breed
+D01307,P010,champion,Mr. Peter Miller,Cocker Spaniel (Ascob),all-breed
+D01308,P010,champion,Mr. Peter Miller,Cocker Spaniel (Ascob),all-breed
+D01367,P010,champion,Mr. Peter Miller,English Cocker Spaniel,all-breed
+D01110,P010,champion,Mr. David John Bell,Flat-Coated Retriever,all-breed
+D01027,P010,class,Mr. David John Bell,Golden Retriever,all-breed
+D01077,P010,champion,Mr. David John Bell,Golden Retriever,all-breed
+D01219,P010,champion,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01196,P010-A1,champion,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01252,P010-A1,champion,Mr. Raymond E. Yurick,Weimaraner,all-breed
+D01139,P010-A1,champion,Mr. Raymond E. Yurick,Wirehaired Pointing Griffon,all-breed
+D00660,P010-A1,champion,Miss Sandra M. Lex,West Highland White Terrier,all-breed
+D00976,P010-A1,class,Ms. Ginnette Louise Loft,Chihuahua (Long Coat),all-breed
+D00203,P010-A1,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D01450,P010-A1,champion,Mr. Stephen Dainard,Belgian Tervuren,all-breed
+D01638,P011,champion,Ms. Paullet DeLong,English Setter,all-breed
+D00438,P011,champion,Miss Janelle W. Robbins,Beagle Thirteen Inch,all-breed
+D01417,P011,class,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D00026,P011,champion,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00909,P011,champion,Ms. Ginnette Louise Loft,Brussels Griffon,all-breed
+D00867,P011,class,Mrs. Shalisa D. Neely,Shih Tzu,all-breed
+D00967,P011,champion,Ms. Ginnette Louise Loft,Silky Terrier,all-breed
+D01246,P012,class,Mr. Raymond E. Yurick,Weimaraner,all-breed
+D00278,P012,class,Mrs. Kaisa Gold,Greyhound,all-breed
+D01090,P012,champion,Mr. David John Bell,Manchester Terrier (Standard),all-breed
+D00680,P012,champion,Miss Sandra M. Lex,Scottish Terrier,all-breed
+D00943,P012,champion,Ms. Ginnette Louise Loft,Havanese,all-breed
+D00951,P012,champion,Ms. Ginnette Louise Loft,Japanese Chin,all-breed
+D00953,P012,class,Ms. Ginnette Louise Loft,Papillon,all-breed
+D00963,P012,champion,Ms. Ginnette Louise Loft,Papillon,all-breed
+D00578,P012,class,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D01002,P012,class,Ms. Ginnette Louise Loft,Bichon Frise,all-breed
+D01008,P012,champion,Ms. Ginnette Louise Loft,Bichon Frise,all-breed
+D01009,P012,champion,Ms. Ginnette Louise Loft,Bichon Frise,all-breed
+D01691,P012-A1,champion,Ms. Paullet DeLong,Boston Terrier,all-breed
+D01696,P012-A1,champion,Ms. Paullet DeLong,Boston Terrier,all-breed
+D00539,P012-A1,champion,Ms. Michelle T. Shultz,Bulldog,all-breed
+D01732,P012-A1,class,Ms. Paullet DeLong,Chinese Shar-Pei,all-breed
+D01734,P012-A1,class,Ms. Paullet DeLong,Chinese Shar-Pei,all-breed
+D01737,P012-A1,champion,Ms. Paullet DeLong,Chinese Shar-Pei,all-breed
+D00216,P012-A1,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00240,P012-A1,champion,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00249,P012-A1,champion,Mrs. Kaisa Gold,French Bulldog,all-breed
+D01479,P012-A1,class,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D01122,P013,champion,Mr. Raymond E. Yurick,Clumber Spaniel,all-breed
+D00084,P013,champion,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00927,P013,champion,Ms. Ginnette Louise Loft,Affenpinscher,all-breed
+D00928,P013,champion,Ms. Ginnette Louise Loft,Affenpinscher,all-breed
+D00904,P013,champion,Ms. Ginnette Louise Loft,Brussels Griffon,all-breed
+D00838,P013,class,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00970,P013,class,Ms. Ginnette Louise Loft,Chihuahua (Long Coat),all-breed
+D00912,P013,champion,Ms. Ginnette Louise Loft,Chinese Crested,all-breed
+D00966,P013,champion,Ms. Ginnette Louise Loft,Papillon,all-breed
+D00861,P013,class,Mrs. Shalisa D. Neely,Pekingese,all-breed
+D00863,P013,class,Mrs. Shalisa D. Neely,Pekingese,all-breed
+D00760,P013-A1,class,Ms. Angela Stevanus,Chow Chow,all-breed
+D01500,P013-A1,champion,Mr. Stephen Dainard,Australian Cattle Dog,all-breed
+D01557,P013-A1,class,Miss Janelle W. Robbins,German Shepherd Dog,all-breed
+D01495,P013-A1,champion,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D01545,P013-A1,champion,Mr. Stephen Dainard,Old English Sheepdog,all-breed
+D01582,P013-A1,class,Miss Janelle W. Robbins,Pembroke Welsh Corgi,all-breed
+D01588,P013-A1,champion,Miss Janelle W. Robbins,Pembroke Welsh Corgi,all-breed
+D01593,P013-A1,class,Miss Janelle W. Robbins,Shetland Sheepdog,all-breed
+D01334,P014,champion,Mr. Peter Miller,German Shorthaired Pointer,all-breed
+D00261,P014,champion,Mrs. Kaisa Gold,Afghan Hound,all-breed
+D00185,P014,champion,Mr. Harold Tatro,Basenji,all-breed
+D00447,P014,champion,Miss Janelle W. Robbins,Beagle Fifteen Inch,all-breed
+D00426,P014,class,Miss Janelle W. Robbins,Beagle Thirteen Inch,all-breed
+D00263,P014,class,Mrs. Kaisa Gold,Irish Wolfhound,all-breed
+D00509,P014,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00175,P014,champion,Mr. Harold Tatro,Whippet,all-breed
+D00180,P014,champion,Mr. Harold Tatro,Whippet,all-breed
+D01646,P014,champion,Ms. Paullet DeLong,Alaskan Malamute,all-breed
+D00890,P014-A1,champion,Mrs. Shalisa D. Neely,Bullmastiff,all-breed
+D00071,P014-A1,class,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00081,P014-A1,champion,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00404,P014-A1,champion,Miss Janelle W. Robbins,Great Dane,all-breed
+D01394,P014-A1,champion,Mrs. Shalisa D. Neely,Newfoundland,all-breed
+D00379,P014-A1,class,Miss Janelle W. Robbins,Portuguese Water Dog,all-breed
+D00042,P014-A1,champion,Mrs. Minna-Liisa Koltes,Rottweiler,all-breed
+D01672,P014-A1,champion,Ms. Paullet DeLong,Samoyed,all-breed
+D01683,P014-A1,champion,Ms. Paullet DeLong,Samoyed,all-breed
+D00741,P014-A1,champion,Miss Sandra M. Lex,Cairn Terrier,all-breed
+D01299,P015,champion,Mr. Peter Miller,Cocker Spaniel (Black),all-breed
+D01310,P015,champion,Mr. Peter Miller,Cocker Spaniel (Parti-Color),all-breed
+D01114,P015,champion,Mr. David John Bell,Flat-Coated Retriever,all-breed
+D01329,P015,champion,Mr. Peter Miller,German Shorthaired Pointer,all-breed
+D01238,P015,champion,Mr. Raymond E. Yurick,Irish Red & White Setters,all-breed
+D01203,P015,class,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01167,P015,class,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01185,P015,champion,Mr. Raymond E. Yurick,Vizsla,all-breed
+D00913,P015-A1,champion,Ms. Ginnette Louise Loft,Chinese Crested,all-breed
+D01698,P015-A1,champion,Ms. Paullet DeLong,Boston Terrier,all-breed
+D01742,P015-A1,champion,Ms. Paullet DeLong,Chinese Shar-Pei,all-breed
+D00814,P015-A1,champion,Mr. Robert Von Mayr,Dalmatian,all-breed
+D01713,P015-A1,champion,Ms. Paullet DeLong,Shiba-Inu,all-breed
+D01718,P015-A1,champion,Ms. Paullet DeLong,Shiba-Inu,all-breed
+D01313,P016,champion,Mr. Peter Miller,Cocker Spaniel (Parti-Color),all-breed
+D01109,P016,champion,Mr. David John Bell,Flat-Coated Retriever,all-breed
+D01332,P016,champion,Mr. Peter Miller,German Shorthaired Pointer,all-breed
+D01072,P016,champion,Mr. David John Bell,Golden Retriever,all-breed
+D01078,P016,champion,Mr. David John Bell,Golden Retriever,all-breed
+D01079,P016,champion,Mr. David John Bell,Golden Retriever,all-breed
+D01224,P016,champion,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01227,P016,champion,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01353,P016-A1,champion,Mr. Peter Miller,Pointer,all-breed
+D01244,P016-A1,champion,Mr. Raymond E. Yurick,Spinone Italiano,all-breed
+D01180,P016-A1,class,Mr. Raymond E. Yurick,Vizsla,all-breed
+D00533,P016-A1,class,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00208,P016-A1,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D01709,P016-A1,champion,Ms. Paullet DeLong,Shiba-Inu,all-breed
+D01076,P017,champion,Mr. David John Bell,Golden Retriever,all-breed
+D01156,P017,class,Mr. Raymond E. Yurick,Irish Setter,all-breed
+D00260,P017,champion,Mrs. Kaisa Gold,Afghan Hound,all-breed
+D00294,P017,champion,Mrs. Kaisa Gold,Saluki,all-breed
+D01420,P017,champion,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D00887,P017,champion,Mrs. Shalisa D. Neely,Bullmastiff,all-breed
+D00401,P017,class,Miss Janelle W. Robbins,Great Dane,all-breed
+D00389,P017,champion,Miss Janelle W. Robbins,Leonberger,all-breed
+D00765,P017,class,Ms. Angela Stevanus,Border Terrier,all-breed
+D00732,P017-A1,class,Miss Sandra M. Lex,Cairn Terrier,all-breed
+D00800,P017-A1,champion,Mr. John C. Ramirez,Miniature Bull Terrier,all-breed
+D00801,P017-A1,champion,Mr. John C. Ramirez,Miniature Bull Terrier,all-breed
+D00690,P017-A1,class,Miss Sandra M. Lex,Miniature Schnauzer,all-breed
+D00711,P017-A1,class,Miss Sandra M. Lex,Rat Terrier,all-breed
+D00670,P017-A1,champion,Miss Sandra M. Lex,Russell Terriers,all-breed
+D00671,P017-A1,champion,Miss Sandra M. Lex,Russell Terriers,all-breed
+D00944,P017-A1,champion,Ms. Ginnette Louise Loft,Havanese,all-breed
+D01469,P017-A1,champion,Mr. Stephen Dainard,Bouvier Des Flandres,all-breed
+D01363,P018,class,Mr. Peter Miller,English Cocker Spaniel,all-breed
+D01366,P018,champion,Mr. Peter Miller,English Cocker Spaniel,all-breed
+D01085,P018,champion,Mr. David John Bell,Golden Retriever,all-breed
+D01288,P018,class,Mr. Peter Miller,Irish Water Spaniel,all-breed
+D01292,P018,champion,Mr. Peter Miller,Irish Water Spaniel,all-breed
+D01218,P018,class,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01191,P018,champion,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01391,P018,class,Mrs. Shalisa D. Neely,Newfoundland,all-breed
+D00978,P018,champion,Ms. Ginnette Louise Loft,Chihuahua (Long Coat),all-breed
+D00983,P018,champion,Ms. Ginnette Louise Loft,Chihuahua (Long Coat),all-breed
+D01168,P019,class,Mr. Raymond E. Yurick,Vizsla,all-breed
+D00184,P019,champion,Mr. Harold Tatro,Basenji,all-breed
+D01640,P019,champion,Ms. Paullet DeLong,Akita,all-breed
+D01426,P019,champion,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D00034,P019,champion,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00881,P019,class,Mrs. Shalisa D. Neely,Bullmastiff,all-breed
+D00395,P019,class,Miss Janelle W. Robbins,Great Dane,all-breed
+D00400,P019,class,Miss Janelle W. Robbins,Great Dane,all-breed
+D00402,P019,class,Miss Janelle W. Robbins,Great Dane,all-breed
+D00043,P019,champion,Mrs. Minna-Liisa Koltes,Rottweiler,all-breed
+D01666,P019-A1,champion,Ms. Paullet DeLong,Samoyed,all-breed
+D01674,P019-A1,champion,Ms. Paullet DeLong,Samoyed,all-breed
+D00048,P019-A1,class,Mrs. Minna-Liisa Koltes,Siberian Husky,all-breed
+D00123,P019-A1,champion,Mrs. Minna-Liisa Koltes,Airedale Terrier,all-breed
+D00727,P019-A1,champion,Miss Sandra M. Lex,Australian Terrier,all-breed
+D00740,P019-A1,champion,Miss Sandra M. Lex,Cairn Terrier,all-breed
+D00629,P019-A1,champion,Miss Sandra M. Lex,Irish Terrier,all-breed
+D00643,P019-A1,champion,Miss Sandra M. Lex,Kerry Blue Terrier,all-breed
+D00672,P019-A1,champion,Miss Sandra M. Lex,Russell Terriers,all-breed
+D01717,P019-A1,champion,Ms. Paullet DeLong,Shiba-Inu,all-breed
+D00173,P020,champion,Mr. Harold Tatro,Whippet,all-breed
+D01641,P020,class,Ms. Paullet DeLong,Alaskan Malamute,all-breed
+D00027,P020,champion,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00884,P020,champion,Mrs. Shalisa D. Neely,Bullmastiff,all-breed
+D00074,P020,champion,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00078,P020,champion,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00086,P020,champion,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00415,P020,champion,Miss Janelle W. Robbins,German Pinscher,all-breed
+D01653,P020,class,Ms. Paullet DeLong,Samoyed,all-breed
+D01679,P020,champion,Ms. Paullet DeLong,Samoyed,all-breed
+D00049,P020-A1,champion,Mrs. Minna-Liisa Koltes,Siberian Husky,all-breed
+D00900,P020-A1,class,Ms. Ginnette Louise Loft,Brussels Griffon,all-breed
+D00907,P020-A1,champion,Ms. Ginnette Louise Loft,Brussels Griffon,all-breed
+D00851,P020-A1,champion,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00988,P020-A1,class,Ms. Ginnette Louise Loft,Chihuahua (Smooth Coat),all-breed
+D00945,P020-A1,champion,Ms. Ginnette Louise Loft,English Toy Spaniel (B&PC),all-breed
+D00585,P020-A1,class,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00829,P020-A1,champion,Mrs. Shalisa D. Neely,Pug,all-breed
+D01166,P021,champion,Mr. Raymond E. Yurick,Irish Setter,all-breed
+D00257,P021,champion,Mrs. Kaisa Gold,Afghan Hound,all-breed
+D00557,P021,class,Ms. Michelle T. Shultz,Basset Hound,all-breed
+D00560,P021,champion,Ms. Michelle T. Shultz,Basset Hound,all-breed
+D00561,P021,champion,Ms. Michelle T. Shultz,Basset Hound,all-breed
+D00562,P021,champion,Ms. Michelle T. Shultz,Basset Hound,all-breed
+D00565,P021,champion,Ms. Michelle T. Shultz,Basset Hound,all-breed
+D00324,P021,class,Mrs. Kaisa Gold,Dachshund (Smooth),all-breed
+D00334,P021,champion,Mrs. Kaisa Gold,Dachshund (Smooth),all-breed
+D00342,P021,class,Mrs. Kaisa Gold,Dachshund (Wirehaired),all-breed
+D00358,P021,champion,Mrs. Kaisa Gold,Dachshund (Wirehaired),all-breed
+D00187,P021-A1,champion,Mr. Harold Tatro,Harrier,all-breed
+D00300,P021-A1,champion,Mrs. Kaisa Gold,Pharaoh Hound,all-breed
+D00507,P021-A1,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00515,P021-A1,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00287,P021-A1,class,Mrs. Kaisa Gold,Saluki,all-breed
+D00292,P021-A1,champion,Mrs. Kaisa Gold,Saluki,all-breed
+D00157,P021-A1,class,Mr. Harold Tatro,Whippet,all-breed
+D00163,P021-A1,class,Mr. Harold Tatro,Whippet,all-breed
+D00181,P021-A1,champion,Mr. Harold Tatro,Whippet,all-breed
+D00693,P021-A1,class,Miss Sandra M. Lex,Miniature Schnauzer,all-breed
+D01005,P021-A1,class,Ms. Ginnette Louise Loft,Bichon Frise,all-breed
+D01692,P021-A2,champion,Ms. Paullet DeLong,Boston Terrier,all-breed
+D00544,P021-A2,champion,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00545,P021-A2,champion,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00200,P021-A2,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00217,P021-A2,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00222,P021-A2,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00246,P021-A2,champion,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00608,P021-A2,champion,Ms. Michelle T. Shultz,Poodle (Standard),all-breed
+D01555,P021-A2,champion,Miss Janelle W. Robbins,Tibetan Terrier,all-breed
+D01724,P021-A2,champion,Ms. Paullet DeLong,Xoloitzcuintli,all-breed
+D01727,P021-A2,champion,Ms. Paullet DeLong,Xoloitzcuintli,all-breed
+D01326,P022,class,Mr. Peter Miller,German Shorthaired Pointer,all-breed
+D01060,P022,class,Mr. David John Bell,Golden Retriever,all-breed
+D01148,P022,champion,Mr. Raymond E. Yurick,Gordon Setter,all-breed
+D00750,P022,class,Miss Sandra M. Lex,Fox Terrier (Smooth),all-breed
+D00802,P022,champion,Mr. John C. Ramirez,Miniature Bull Terrier,all-breed
+D00700,P022,champion,Miss Sandra M. Lex,Miniature Schnauzer,all-breed
+D00106,P022,champion,Mrs. Minna-Liisa Koltes,Norwich Terrier,all-breed
+D00112,P022,champion,Mrs. Minna-Liisa Koltes,Norwich Terrier,all-breed
+D01099,P022-A1,champion,Mr. David John Bell,Parson Russell Terrier,all-breed
+D00656,P022-A1,champion,Miss Sandra M. Lex,Soft Coated Wheaten Terrier,all-breed
+D00657,P022-A1,champion,Miss Sandra M. Lex,Soft Coated Wheaten Terrier,all-breed
+D00980,P022-A1,champion,Ms. Ginnette Louise Loft,Chihuahua (Long Coat),all-breed
+D00993,P022-A1,champion,Ms. Ginnette Louise Loft,Chihuahua (Smooth Coat),all-breed
+D00936,P022-A1,champion,Ms. Ginnette Louise Loft,Italian Greyhound,all-breed
+D00869,P022-A1,champion,Mrs. Shalisa D. Neely,Shih Tzu,all-breed
+D01620,P023,champion,Ms. Paullet DeLong,Borzoi,all-breed
+D00738,P023,champion,Miss Sandra M. Lex,Cairn Terrier,all-breed
+D00108,P023,champion,Mrs. Minna-Liisa Koltes,Norwich Terrier,all-breed
+D00669,P023,class,Miss Sandra M. Lex,Russell Terriers,all-breed
+D00655,P023,champion,Miss Sandra M. Lex,Soft Coated Wheaten Terrier,all-breed
+D00659,P023,champion,Miss Sandra M. Lex,West Highland White Terrier,all-breed
+D00896,P023,class,Ms. Ginnette Louise Loft,Brussels Griffon,all-breed
+D00853,P023,champion,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D01651,P023,class,Ms. Paullet DeLong,Russian Tsvetnaya Bolonka,all-breed
+D01121,P024,champion,Mr. Raymond E. Yurick,Clumber Spaniel,all-breed
+D01300,P024,champion,Mr. Peter Miller,Cocker Spaniel (Black),all-breed
+D01335,P024,champion,Mr. Peter Miller,German Shorthaired Pointer,all-breed
+D01029,P024,class,Mr. David John Bell,Golden Retriever,all-breed
+D01150,P024,champion,Mr. Raymond E. Yurick,Gordon Setter,all-breed
+D01161,P024,champion,Mr. Raymond E. Yurick,Irish Setter,all-breed
+D01290,P024,class,Mr. Peter Miller,Irish Water Spaniel,all-breed
+D01118,P024,class,Mr. Raymond E. Yurick,Lagotto Romagnolo,all-breed
+D01250,P024,champion,Mr. Raymond E. Yurick,Weimaraner,all-breed
+D00330,P024-A1,champion,Mrs. Kaisa Gold,Dachshund (Smooth),all-breed
+D00020,P024-A1,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00073,P024-A1,class,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00410,P024-A1,champion,Miss Janelle W. Robbins,Great Pyrenees,all-breed
+D00365,P024-A1,champion,Miss Janelle W. Robbins,Mastiff,all-breed
+D00411,P024-A1,champion,Miss Janelle W. Robbins,Neapolitan Mastiff,all-breed
+D01654,P024-A1,class,Ms. Paullet DeLong,Samoyed,all-breed
+D01681,P024-A1,champion,Ms. Paullet DeLong,Samoyed,all-breed
+D01491,P024-A1,champion,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D00949,P025,champion,Ms. Ginnette Louise Loft,Biewer Terrier,all-breed
+D00839,P025,class,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00991,P025,champion,Ms. Ginnette Louise Loft,Chihuahua (Smooth Coat),all-breed
+D00961,P025,champion,Ms. Ginnette Louise Loft,Papillon,all-breed
+D00965,P025,champion,Ms. Ginnette Louise Loft,Papillon,all-breed
+D00968,P025,champion,Ms. Ginnette Louise Loft,Silky Terrier,all-breed
+D01453,P025,champion,Mr. Stephen Dainard,Belgian Tervuren,all-breed
+D01489,P025,champion,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D00783,P025,champion,Mr. John C. Ramirez,Polish Lowland Sheepdog,all-breed
+D01296,P026,champion,Mr. Peter Miller,BracchI Italiani,all-breed
+D01637,P026,champion,Ms. Paullet DeLong,English Setter,all-breed
+D01270,P026,class,Mr. Peter Miller,Field Spaniel,all-breed
+D01039,P026,class,Mr. David John Bell,Golden Retriever,all-breed
+D01221,P026,champion,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01226,P026,champion,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01345,P026,champion,Mr. Peter Miller,Pointer,all-breed
+D01192,P026-A1,champion,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01136,P026-A1,champion,Mr. Raymond E. Yurick,Wirehaired Pointing Griffon,all-breed
+D01429,P026-A1,champion,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D01471,P026-A1,champion,Mr. Stephen Dainard,Bouvier Des Flandres,all-breed
+D01483,P026-A1,class,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D01549,P026-A1,champion,Mr. Stephen Dainard,Old English Sheepdog,all-breed
+D00423,P027,champion,Miss Janelle W. Robbins,Bloodhound,all-breed
+D01611,P027,class,Ms. Paullet DeLong,Borzoi,all-breed
+D00520,P027,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00055,P027,class,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00052,P027,champion,Mrs. Minna-Liisa Koltes,Siberian Husky,all-breed
+D00725,P027,champion,Miss Sandra M. Lex,Australian Terrier,all-breed
+D00766,P027,class,Ms. Angela Stevanus,Border Terrier,all-breed
+D00769,P027,class,Ms. Angela Stevanus,Border Terrier,all-breed
+D00744,P027,champion,Miss Sandra M. Lex,Cairn Terrier,all-breed
+D00755,P027,class,Miss Sandra M. Lex,Fox Terrier (Wire),all-breed
+D00806,P027,champion,Mr. John C. Ramirez,Miniature Bull Terrier,all-breed
+D00668,P027,class,Miss Sandra M. Lex,Russell Terriers,all-breed
+D00679,P027-A1,class,Miss Sandra M. Lex,Scottish Terrier,all-breed
+D00661,P027-A1,champion,Miss Sandra M. Lex,West Highland White Terrier,all-breed
+D01693,P027-A1,champion,Ms. Paullet DeLong,Boston Terrier,all-breed
+D01694,P027-A1,champion,Ms. Paullet DeLong,Boston Terrier,all-breed
+D01697,P027-A1,champion,Ms. Paullet DeLong,Boston Terrier,all-breed
+D01740,P027-A1,champion,Ms. Paullet DeLong,Chinese Shar-Pei,all-breed
+D01741,P027-A1,champion,Ms. Paullet DeLong,Chinese Shar-Pei,all-breed
+D00815,P027-A1,champion,Mr. Robert Von Mayr,Dalmatian,all-breed
+D00236,P027-A1,champion,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00607,P027-A1,champion,Ms. Michelle T. Shultz,Poodle (Standard),all-breed
+D01714,P027-A1,champion,Ms. Paullet DeLong,Shiba-Inu,all-breed
+D01715,P027-A1,champion,Ms. Paullet DeLong,Shiba-Inu,all-breed
+D01311,P028,champion,Mr. Peter Miller,Cocker Spaniel (Parti-Color),all-breed
+D01336,P028,champion,Mr. Peter Miller,German Shorthaired Pointer,all-breed
+D00883,P028,class,Mrs. Shalisa D. Neely,Bullmastiff,all-breed
+D01011,P028,champion,Ms. Ginnette Louise Loft,Bichon Frise,all-breed
+D01739,P028,champion,Ms. Paullet DeLong,Chinese Shar-Pei,all-breed
+D00818,P028,champion,Mr. Robert Von Mayr,Dalmatian,all-breed
+D00819,P028,champion,Mr. Robert Von Mayr,Dalmatian,all-breed
+D00201,P028,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D01552,P028-A1,champion,Miss Janelle W. Robbins,Keeshond,all-breed
+D01712,P028-A1,champion,Ms. Paullet DeLong,Shiba-Inu,all-breed
+D01508,P028-A1,class,Mr. Stephen Dainard,Beauceron,all-breed
+D01449,P028-A1,class,Mr. Stephen Dainard,Belgian Tervuren,all-breed
+D01556,P028-A1,champion,Miss Janelle W. Robbins,Canaan Dog,all-breed
+D01477,P028-A1,class,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D01570,P028-A1,champion,Miss Janelle W. Robbins,Norwegian Buhund,all-breed
+D01266,P029,champion,Mr. Peter Miller,English Springer Spaniel,all-breed
+D01115,P029,champion,Mr. David John Bell,Flat-Coated Retriever,all-breed
+D01327,P029,class,Mr. Peter Miller,German Shorthaired Pointer,all-breed
+D01032,P029,class,Mr. David John Bell,Golden Retriever,all-breed
+D01058,P029,class,Mr. David John Bell,Golden Retriever,all-breed
+D01206,P029,class,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01223,P029,champion,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01225,P029,champion,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D00270,P029-A1,class,Mrs. Kaisa Gold,Irish Wolfhound,all-breed
+D00989,P029-A1,class,Ms. Ginnette Louise Loft,Chihuahua (Smooth Coat),all-breed
+D00535,P029-A1,class,Ms. Michelle T. Shultz,Bulldog,all-breed
+D01735,P029-A1,champion,Ms. Paullet DeLong,Chinese Shar-Pei,all-breed
+D00229,P029-A1,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D01533,P029-A1,champion,Mr. Stephen Dainard,Australian Shepherd,all-breed
+D01463,P029-A1,champion,Mr. Stephen Dainard,Border Collie,all-breed
+D00728,P030,champion,Miss Sandra M. Lex,Australian Terrier,all-breed
+D00729,P030,champion,Miss Sandra M. Lex,Australian Terrier,all-breed
+D00779,P030,champion,Ms. Angela Stevanus,Border Terrier,all-breed
+D00751,P030,champion,Miss Sandra M. Lex,Fox Terrier (Smooth),all-breed
+D00757,P030,champion,Miss Sandra M. Lex,Fox Terrier (Wire),all-breed
+D00649,P030,champion,Miss Sandra M. Lex,Kerry Blue Terrier,all-breed
+D00686,P030,class,Miss Sandra M. Lex,Miniature Schnauzer,all-breed
+D00109,P030-A1,champion,Mrs. Minna-Liisa Koltes,Norwich Terrier,all-breed
+D01098,P030-A1,champion,Mr. David John Bell,Parson Russell Terrier,all-breed
+D00715,P030-A1,champion,Miss Sandra M. Lex,Rat Terrier,all-breed
+D00663,P030-A1,champion,Miss Sandra M. Lex,West Highland White Terrier,all-breed
+D00593,P030-A1,champion,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00830,P030-A1,champion,Mrs. Shalisa D. Neely,Pug,all-breed
+D01738,P030-A1,champion,Ms. Paullet DeLong,Chinese Shar-Pei,all-breed
+D00337,P031,champion,Mrs. Kaisa Gold,Dachshund (Smooth),all-breed
+D01413,P031,class,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D00005,P031,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00892,P031,champion,Mrs. Shalisa D. Neely,Bullmastiff,all-breed
+D00065,P031,class,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D01447,P031,champion,Mrs. Shalisa D. Neely,Giant Schnauzer,all-breed
+D00407,P031,champion,Miss Janelle W. Robbins,Great Dane,all-breed
+D00390,P031-A1,champion,Miss Janelle W. Robbins,Leonberger,all-breed
+D00701,P031-A1,champion,Miss Sandra M. Lex,Miniature Schnauzer,all-breed
+D01526,P031-A1,class,Mr. Stephen Dainard,Australian Shepherd,all-breed
+D01512,P031-A1,champion,Mr. Stephen Dainard,Beauceron,all-breed
+D01460,P031-A1,champion,Mr. Stephen Dainard,Berger Picard,all-breed
+D01597,P031-A1,class,Miss Janelle W. Robbins,Shetland Sheepdog,all-breed
+D01352,P032,champion,Mr. Peter Miller,Pointer,all-breed
+D01197,P032,champion,Mr. Raymond E. Yurick,Vizsla,all-breed
+D00252,P032,class,Mrs. Kaisa Gold,Afghan Hound,all-breed
+D00440,P032,class,Miss Janelle W. Robbins,Beagle Fifteen Inch,all-breed
+D00454,P032,champion,Miss Janelle W. Robbins,Beagle Fifteen Inch,all-breed
+D00429,P032,class,Miss Janelle W. Robbins,Beagle Thirteen Inch,all-breed
+D00354,P032,champion,Mrs. Kaisa Gold,Dachshund (Wirehaired),all-breed
+D00268,P032,class,Mrs. Kaisa Gold,Irish Wolfhound,all-breed
+D00502,P032,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00290,P032,champion,Mrs. Kaisa Gold,Saluki,all-breed
+D00295,P032,champion,Mrs. Kaisa Gold,Saluki,all-breed
+D00135,P032-A1,class,Mr. Harold Tatro,Whippet,all-breed
+D00144,P032-A1,class,Mr. Harold Tatro,Whippet,all-breed
+D00151,P032-A1,class,Mr. Harold Tatro,Whippet,all-breed
+D00169,P032-A1,champion,Mr. Harold Tatro,Whippet,all-breed
+D00179,P032-A1,champion,Mr. Harold Tatro,Whippet,all-breed
+D01678,P032-A1,champion,Ms. Paullet DeLong,Samoyed,all-breed
+D01688,P032-A1,class,Ms. Paullet DeLong,Boston Terrier,all-breed
+D01729,P032-A1,class,Ms. Paullet DeLong,Chinese Shar-Pei,all-breed
+D01736,P032-A1,champion,Ms. Paullet DeLong,Chinese Shar-Pei,all-breed
+D00597,P032-A1,class,Ms. Michelle T. Shultz,Poodle (Miniature),all-breed
+D01710,P032-A1,champion,Ms. Paullet DeLong,Shiba-Inu,all-breed
+D00028,P033,champion,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00059,P033,class,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00075,P033,champion,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00080,P033,champion,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00413,P033,class,Miss Janelle W. Robbins,German Pinscher,all-breed
+D00382,P033,champion,Miss Janelle W. Robbins,Portuguese Water Dog,all-breed
+D01663,P033,class,Ms. Paullet DeLong,Samoyed,all-breed
+D00743,P033,champion,Miss Sandra M. Lex,Cairn Terrier,all-breed
+D00948,P033,champion,Ms. Ginnette Louise Loft,Biewer Terrier,all-breed
+D00604,P033,class,Ms. Michelle T. Shultz,Poodle (Standard),all-breed
+D01123,P034,champion,Mr. Raymond E. Yurick,Clumber Spaniel,all-breed
+D01304,P034,class,Mr. Peter Miller,Cocker Spaniel (Ascob),all-breed
+D01312,P034,champion,Mr. Peter Miller,Cocker Spaniel (Parti-Color),all-breed
+D01364,P034,class,Mr. Peter Miller,English Cocker Spaniel,all-breed
+D01045,P034,class,Mr. David John Bell,Golden Retriever,all-breed
+D01073,P034,champion,Mr. David John Bell,Golden Retriever,all-breed
+D01081,P034,champion,Mr. David John Bell,Golden Retriever,all-breed
+D01164,P034-A1,champion,Mr. Raymond E. Yurick,Irish Setter,all-breed
+D00497,P034-A1,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D01440,P034-A1,champion,Mrs. Shalisa D. Neely,Cane Corso,all-breed
+D01383,P034-A1,class,Mrs. Shalisa D. Neely,Newfoundland,all-breed
+D01465,P034-A1,class,Mr. Stephen Dainard,Bouvier Des Flandres,all-breed
+D01537,P034-A1,champion,Mr. Stephen Dainard,Lancashire Heeler,all-breed
+D01229,P035,champion,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D00558,P035,class,Ms. Michelle T. Shultz,Basset Hound,all-breed
+D00564,P035,champion,Ms. Michelle T. Shultz,Basset Hound,all-breed
+D00446,P035,class,Miss Janelle W. Robbins,Beagle Fifteen Inch,all-breed
+D00451,P035,champion,Miss Janelle W. Robbins,Beagle Fifteen Inch,all-breed
+D01608,P035,class,Ms. Paullet DeLong,Borzoi,all-breed
+D00312,P035,class,Mrs. Kaisa Gold,Dachshund (Longhaired),all-breed
+D00325,P035,class,Mrs. Kaisa Gold,Dachshund (Smooth),all-breed
+D00269,P035,class,Mrs. Kaisa Gold,Irish Wolfhound,all-breed
+D00273,P035,champion,Mrs. Kaisa Gold,Irish Wolfhound,all-breed
+D00189,P035,class,Mr. Harold Tatro,Petit Basset Griffon Vendeens,all-breed
+D00191,P035,champion,Mr. Harold Tatro,Petit Basset Griffon Vendeens,all-breed
+D00476,P035-A1,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00492,P035-A1,class,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00519,P035-A1,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00178,P035-A1,champion,Mr. Harold Tatro,Whippet,all-breed
+D00644,P035-A1,champion,Miss Sandra M. Lex,Kerry Blue Terrier,all-breed
+D00645,P035-A1,champion,Miss Sandra M. Lex,Kerry Blue Terrier,all-breed
+D00920,P035-A1,class,Ms. Ginnette Louise Loft,Affenpinscher,all-breed
+D00844,P035-A1,class,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00572,P035-A1,class,Ms. Michelle T. Shultz,Pomeranian,all-breed
+D00828,P035-A1,champion,Mrs. Shalisa D. Neely,Pug,all-breed
+D01649,P035-A1,class,Ms. Paullet DeLong,Russian Tsvetnaya Bolonka,all-breed
+D01347,P036,champion,Mr. Peter Miller,Pointer,all-breed
+D00452,P036,champion,Miss Janelle W. Robbins,Beagle Fifteen Inch,all-breed
+D00568,P036,champion,Ms. Michelle T. Shultz,Black and Tan Coonhound,all-breed
+D01616,P036,class,Ms. Paullet DeLong,Borzoi,all-breed
+D00320,P036,class,Mrs. Kaisa Gold,Dachshund (Smooth),all-breed
+D00353,P036,champion,Mrs. Kaisa Gold,Dachshund (Wirehaired),all-breed
+D00274,P036,champion,Mrs. Kaisa Gold,Irish Wolfhound,all-breed
+D00496,P036,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00505,P036,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00512,P036,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00514,P036,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00289,P036,champion,Mrs. Kaisa Gold,Saluki,all-breed
+D00164,P036-A1,champion,Mr. Harold Tatro,Whippet,all-breed
+D00168,P036-A1,champion,Mr. Harold Tatro,Whippet,all-breed
+D00170,P036-A1,champion,Mr. Harold Tatro,Whippet,all-breed
+D00174,P036-A1,champion,Mr. Harold Tatro,Whippet,all-breed
+D00852,P036-A1,champion,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D00248,P036-A1,champion,Mrs. Kaisa Gold,French Bulldog,all-breed
+D01530,P036-A1,champion,Mr. Stephen Dainard,Australian Shepherd,all-breed
+D01452,P036-A1,champion,Mr. Stephen Dainard,Belgian Tervuren,all-breed
+D01487,P036-A1,champion,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D01569,P036-A1,champion,Miss Janelle W. Robbins,Norwegian Buhund,all-breed
+D01590,P036-A1,champion,Miss Janelle W. Robbins,Pembroke Welsh Corgi,all-breed
+D01275,P037,champion,Mr. Peter Miller,Field Spaniel,all-breed
+D01052,P037,class,Mr. David John Bell,Golden Retriever,all-breed
+D00192,P037,class,Mr. Harold Tatro,Basset Fauve de Bretagne,all-breed
+D00563,P037,champion,Ms. Michelle T. Shultz,Basset Hound,all-breed
+D00425,P037,champion,Miss Janelle W. Robbins,Bloodhound,all-breed
+D01609,P037,class,Ms. Paullet DeLong,Borzoi,all-breed
+D01618,P037,champion,Ms. Paullet DeLong,Borzoi,all-breed
+D01622,P037,champion,Ms. Paullet DeLong,Borzoi,all-breed
+D00186,P037,champion,Mr. Harold Tatro,Harrier,all-breed
+D00276,P037,champion,Mrs. Kaisa Gold,Scottish Deerhound,all-breed
+D00182,P037,champion,Mr. Harold Tatro,Whippet,all-breed
+D01410,P037-A1,class,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D00044,P037-A1,champion,Mrs. Minna-Liisa Koltes,Rottweiler,all-breed
+D01089,P037-A1,champion,Mr. David John Bell,Manchester Terrier (Standard),all-breed
+D01520,P037-A1,class,Mr. Stephen Dainard,Australian Shepherd,all-breed
+D01459,P037-A1,champion,Mr. Stephen Dainard,Berger Picard,all-breed
+D01467,P037-A1,champion,Mr. Stephen Dainard,Bouvier Des Flandres,all-breed
+D01576,P037-A1,champion,Miss Janelle W. Robbins,Cardigan Welsh Corgi,all-breed
+D01564,P037-A1,champion,Miss Janelle W. Robbins,Finnish Lapphund,all-breed
+D01484,P037-A1,class,Mr. Stephen Dainard,Miniature American Shepherd,all-breed
+D01587,P037-A1,champion,Miss Janelle W. Robbins,Pembroke Welsh Corgi,all-breed
+D00087,P038,champion,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D01667,P038,champion,Ms. Paullet DeLong,Samoyed,all-breed
+D00089,P038,champion,Mrs. Minna-Liisa Koltes,Welsh Terrier,all-breed
+D00929,P038,champion,Ms. Ginnette Louise Loft,Affenpinscher,all-breed
+D00903,P038,class,Ms. Ginnette Louise Loft,Brussels Griffon,all-breed
+D00850,P038,champion,Mrs. Shalisa D. Neely,Cavalier King Charles Spaniel,all-breed
+D01103,P038,champion,Mr. David John Bell,Manchester Terrier (Toy),all-breed
+D00864,P038,class,Mrs. Shalisa D. Neely,Pekingese,all-breed
+D01506,P038,champion,Mr. Stephen Dainard,Bearded Collie,all-breed
+D01561,P038,class,Miss Janelle W. Robbins,Finnish Lapphund,all-breed
+D01141,P039,champion,Mr. Raymond E. Yurick,Barbet,all-breed
+D01294,P039,class,Mr. Peter Miller,BracchI Italiani,all-breed
+D01297,P039,champion,Mr. Peter Miller,Cocker Spaniel (Black),all-breed
+D01356,P039,class,Mr. Peter Miller,English Cocker Spaniel,all-breed
+D01259,P039,class,Mr. Peter Miller,English Springer Spaniel,all-breed
+D01264,P039,champion,Mr. Peter Miller,English Springer Spaniel,all-breed
+D01272,P039,class,Mr. Peter Miller,Field Spaniel,all-breed
+D01319,P039,class,Mr. Peter Miller,German Shorthaired Pointer,all-breed
+D01331,P039,champion,Mr. Peter Miller,German Shorthaired Pointer,all-breed
+D01069,P039,champion,Mr. David John Bell,Golden Retriever,all-breed
+D01075,P039,champion,Mr. David John Bell,Golden Retriever,all-breed
+D01080,P039,champion,Mr. David John Bell,Golden Retriever,all-breed
+D01084,P039,champion,Mr. David John Bell,Golden Retriever,all-breed
+D01222,P039-A1,champion,Mr. Raymond E. Yurick,Labrador Retriever,all-breed
+D01348,P039-A1,champion,Mr. Peter Miller,Pointer,all-breed
+D01181,P039-A1,champion,Mr. Raymond E. Yurick,Vizsla,all-breed
+D00504,P039-A1,champion,Mr. Harold Tatro,Rhodesian Ridgeback,all-breed
+D00121,P039-A1,champion,Mrs. Minna-Liisa Koltes,Airedale Terrier,all-breed
+D00730,P039-A1,champion,Miss Sandra M. Lex,Australian Terrier,all-breed
+D00752,P039-A1,champion,Miss Sandra M. Lex,Fox Terrier (Smooth),all-breed
+D00759,P039-A1,champion,Miss Sandra M. Lex,Fox Terrier (Wire),all-breed
+D00761,P039-A1,champion,Ms. Angela Stevanus,Glen of Imaal Terrier,all-breed
+D00804,P039-A1,champion,Mr. John C. Ramirez,Miniature Bull Terrier,all-breed
+D00809,P039-A1,champion,Mr. John C. Ramirez,Miniature Bull Terrier,all-breed
+D00696,P039-A2,champion,Miss Sandra M. Lex,Miniature Schnauzer,all-breed
+D00102,P039-A2,champion,Mrs. Minna-Liisa Koltes,Norwich Terrier,all-breed
+D00712,P039-A2,champion,Miss Sandra M. Lex,Rat Terrier,all-breed
+D00716,P039-A2,champion,Miss Sandra M. Lex,Rat Terrier,all-breed
+D01379,P039-A2,champion,Mr. Peter Miller,Staffordshire Bull Terriers,all-breed
+D01380,P039-A2,champion,Mr. Peter Miller,Staffordshire Bull Terriers,all-breed
+D01532,P039-A2,champion,Mr. Stephen Dainard,Australian Shepherd,all-breed
+D01295,P040,champion,Mr. Peter Miller,BracchI Italiani,all-breed
+D01368,P040,champion,Mr. Peter Miller,English Cocker Spaniel,all-breed
+D01112,P040,champion,Mr. David John Bell,Flat-Coated Retriever,all-breed
+D01020,P040,class,Mr. David John Bell,Golden Retriever,all-breed
+D01087,P040,champion,Mr. David John Bell,Golden Retriever,all-breed
+D01171,P040,class,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01248,P040,champion,Mr. Raymond E. Yurick,Weimaraner,all-breed
+D01421,P040,champion,Mrs. Shalisa D. Neely,Bernese Mountain Dog,all-breed
+D00038,P040,champion,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D01448,P040,champion,Mrs. Shalisa D. Neely,Giant Schnauzer,all-breed
+D00385,P040-A1,class,Miss Janelle W. Robbins,Leonberger,all-breed
+D00386,P040-A1,class,Miss Janelle W. Robbins,Leonberger,all-breed
+D00368,P040-A1,champion,Miss Janelle W. Robbins,Mastiff,all-breed
+D01660,P040-A1,class,Ms. Paullet DeLong,Samoyed,all-breed
+D01664,P040-A1,class,Ms. Paullet DeLong,Samoyed,all-breed
+D01680,P040-A1,champion,Ms. Paullet DeLong,Samoyed,all-breed
+D00624,P040-A1,champion,Miss Sandra M. Lex,American Staffordshire Terrier,all-breed
+D00717,P040-A1,champion,Miss Sandra M. Lex,Rat Terrier,all-breed
+D01575,P040-A1,champion,Miss Janelle W. Robbins,Cardigan Welsh Corgi,all-breed
+D01044,P041,class,Mr. David John Bell,Golden Retriever,all-breed
+D00083,P041,champion,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D00372,P041,champion,Miss Janelle W. Robbins,Mastiff,all-breed
+D00053,P041,champion,Mrs. Minna-Liisa Koltes,Siberian Husky,all-breed
+D00772,P041,champion,Ms. Angela Stevanus,Border Terrier,all-breed
+D00636,P041,class,Miss Sandra M. Lex,Kerry Blue Terrier,all-breed
+D00687,P041,class,Miss Sandra M. Lex,Miniature Schnauzer,all-breed
+D00093,P041,class,Mrs. Minna-Liisa Koltes,Norwich Terrier,all-breed
+D01381,P041,champion,Mr. Peter Miller,Staffordshire Bull Terriers,all-breed
+D00916,P041,champion,Ms. Ginnette Louise Loft,Chinese Crested,all-breed
+D00962,P041,champion,Ms. Ginnette Louise Loft,Papillon,all-breed
+D01468,P041,champion,Mr. Stephen Dainard,Bouvier Des Flandres,all-breed
+D01143,P042,champion,Mr. Raymond E. Yurick,Brittany,all-breed
+D01636,P042,champion,Ms. Paullet DeLong,English Setter,all-breed
+D01158,P042,champion,Mr. Raymond E. Yurick,Irish Setter,all-breed
+D01291,P042,champion,Mr. Peter Miller,Irish Water Spaniel,all-breed
+D01233,P042,champion,Mr. Raymond E. Yurick,Nederlandse Kooikerhondjes,all-breed
+D01182,P042,champion,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01188,P042,champion,Mr. Raymond E. Yurick,Vizsla,all-breed
+D01189,P042,champion,Mr. Raymond E. Yurick,Vizsla,all-breed
+D00017,P042,class,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00030,P042,champion,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D01435,P042-A1,class,Mrs. Shalisa D. Neely,Cane Corso,all-breed
+D00064,P042-A1,class,Mrs. Minna-Liisa Koltes,Doberman Pinscher,all-breed
+D01673,P042-A1,champion,Ms. Paullet DeLong,Samoyed,all-breed
+D00051,P042-A1,champion,Mrs. Minna-Liisa Koltes,Siberian Husky,all-breed
+D00777,P042-A1,champion,Ms. Angela Stevanus,Border Terrier,all-breed
+D00808,P042-A1,champion,Mr. John C. Ramirez,Miniature Bull Terrier,all-breed
+D00924,P042-A1,champion,Ms. Ginnette Louise Loft,Affenpinscher,all-breed
+D00033,P043,champion,Mrs. Minna-Liisa Koltes,Boxer,all-breed
+D00416,P043,champion,Miss Janelle W. Robbins,Greater Swiss Mountain Dog,all-breed
+D00384,P043,class,Miss Janelle W. Robbins,Leonberger,all-breed
+D00387,P043,champion,Miss Janelle W. Robbins,Leonberger,all-breed
+D01397,P043,champion,Mrs. Shalisa D. Neely,Newfoundland,all-breed
+D00381,P043,champion,Miss Janelle W. Robbins,Portuguese Water Dog,all-breed
+D00930,P043,champion,Ms. Ginnette Louise Loft,Affenpinscher,all-breed
+D00971,P043,class,Ms. Ginnette Louise Loft,Chihuahua (Long Coat),all-breed
+D00942,P043,champion,Ms. Ginnette Louise Loft,Havanese,all-breed
+D00950,P043,champion,Ms. Ginnette Louise Loft,Japanese Chin,all-breed
+D00197,P043,class,Mrs. Kaisa Gold,French Bulldog,all-breed
+D01144,P044,champion,Mr. Raymond E. Yurick,Brittany,all-breed
+D01235,P044,champion,Mr. Raymond E. Yurick,Chesapeake Bay Retriever,all-breed
+D01365,P044,champion,Mr. Peter Miller,English Cocker Spaniel,all-breed
+D01287,P044,class,Mr. Peter Miller,Irish Water Spaniel,all-breed
+D01129,P044,champion,Mr. Raymond E. Yurick,Retriever (Nova Scotia Duck Toll),all-breed
+D01242,P044,champion,Mr. Raymond E. Yurick,Spinone Italiano,all-breed
+D01251,P044,champion,Mr. Raymond E. Yurick,Weimaraner,all-breed
+D01138,P044,champion,Mr. Raymond E. Yurick,Wirehaired Pointing Griffon,all-breed
+D01671,P044-A1,champion,Ms. Paullet DeLong,Samoyed,all-breed
+D00697,P044-A1,champion,Miss Sandra M. Lex,Miniature Schnauzer,all-breed
+D00911,P044-A1,champion,Ms. Ginnette Louise Loft,Brussels Griffon,all-breed
+D00536,P044-A1,class,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00543,P044-A1,champion,Ms. Michelle T. Shultz,Bulldog,all-breed
+D00237,P044-A1,champion,Mrs. Kaisa Gold,French Bulldog,all-breed
+D00247,P044-A1,champion,Mrs. Kaisa Gold,French Bulldog,all-breed
+D01720,P044-A1,class,Ms. Paullet DeLong,Xoloitzcuintli,all-breed

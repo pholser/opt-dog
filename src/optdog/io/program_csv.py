@@ -179,3 +179,50 @@ def read_program(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Jud
     )
     plan = GroupsPlan(group_rings, _mins(meta["group_start"]), tuple(order), group_judges, bis) if order else None
     return JudgingProgram(show, scheduled, breaks, plan)
+
+
+# --------------------------------------------------------------------------- entries / exhibitors
+#
+#     exhibitors.csv  id, professional, registered, team
+#     entries.csv     dog, exhibitor, status, judge, event, competition
+#
+# An entry refers to its event by (judge, event name, competition), unique within a show.
+
+
+def write_entries(entries, out_dir: str | Path) -> None:
+    from optdog.domain import Entry  # noqa: F401  (type context)
+
+    out = Path(out_dir)
+    out.mkdir(parents=True, exist_ok=True)
+    exhibitors = {}
+    for en in entries:
+        exhibitors.setdefault(en.exhibitor.id, en.exhibitor)
+    with open(out / "exhibitors.csv", "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["id", "professional", "registered", "team"])
+        for x in exhibitors.values():
+            w.writerow([x.id, int(x.professional), int(x.registered), x.team or ""])
+    with open(out / "entries.csv", "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["dog", "exhibitor", "status", "judge", "event", "competition"])
+        for en in entries:
+            w.writerow([en.dog, en.exhibitor.id, en.status.value, en.event.judge.name, en.event.name, en.event.competition.value])
+
+
+def read_entries(in_dir: str | Path, program: JudgingProgram) -> list:
+    """Read entries written by ``write_entries``, attached to ``program``'s event objects."""
+    from optdog.domain import Entry, EntryStatus, Exhibitor
+
+    d = Path(in_dir)
+    with open(d / "exhibitors.csv", newline="") as f:
+        exhibitors = {
+            r["id"]: Exhibitor(r["id"], bool(int(r["professional"])), bool(int(r["registered"])), r.get("team") or None)
+            for r in csv.DictReader(f)
+        }
+    events = {(e.judge.name, e.name, e.competition.value): e for e in program.show.events}
+    out = []
+    with open(d / "entries.csv", newline="") as f:
+        for r in csv.DictReader(f):
+            ev = events[(r["judge"], r["event"], r["competition"])]
+            out.append(Entry(r["dog"], ev, exhibitors[r["exhibitor"]], EntryStatus(r["status"])))
+    return out

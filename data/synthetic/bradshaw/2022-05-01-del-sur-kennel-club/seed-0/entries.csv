@@ -1,0 +1,643 @@
+dog,exhibitor,status,judge,event,competition
+D00001,O0001,class,Mr. Desmond J. Murphy,Vizsla,all-breed
+D00002,O0002,class,Mr. Desmond J. Murphy,Vizsla,all-breed
+D00003,O0003,class,Mr. Desmond J. Murphy,Vizsla,all-breed
+D00004,O0004,class,Mr. Desmond J. Murphy,Vizsla,all-breed
+D00005,O0005,class,Mr. Desmond J. Murphy,Vizsla,all-breed
+D00006,O0006,class,Mr. Desmond J. Murphy,Vizsla,all-breed
+D00011,O0007,class,Mr. Desmond J. Murphy,Labrador Retriever,all-breed
+D00012,O0008,class,Mr. Desmond J. Murphy,Labrador Retriever,all-breed
+D00013,O0009,class,Mr. Desmond J. Murphy,Labrador Retriever,all-breed
+D00015,O0009,class,Mr. Desmond J. Murphy,Labrador Retriever,all-breed
+D00016,O0011,class,Mr. Desmond J. Murphy,Labrador Retriever,all-breed
+D00017,O0012,class,Mr. Desmond J. Murphy,Labrador Retriever,all-breed
+D00018,O0012,class,Mr. Desmond J. Murphy,Labrador Retriever,all-breed
+D00019,O0014,class,Mr. Desmond J. Murphy,Labrador Retriever,all-breed
+D00020,O0015,class,Mr. Desmond J. Murphy,Labrador Retriever,all-breed
+D00021,O0016,champion,Mr. Desmond J. Murphy,Labrador Retriever,all-breed
+D00022,O0017,champion,Mr. Desmond J. Murphy,Labrador Retriever,all-breed
+D00024,O0018,champion,Mr. Desmond J. Murphy,Labrador Retriever,all-breed
+D00028,O0019,class,Mr. Desmond J. Murphy,Wirehaired Pointing Griffon,all-breed
+D00030,O0020,class,Mr. Desmond J. Murphy,Wirehaired Pointing Griffon,all-breed
+D00031,O0021,class,Mr. Desmond J. Murphy,Brittany,all-breed
+D00032,O0021,class,Mr. Desmond J. Murphy,Brittany,all-breed
+D00037,O0023,class,Mr. Desmond J. Murphy,German Shorthaired Pointer,all-breed
+D00038,O0006,class,Mr. Desmond J. Murphy,German Shorthaired Pointer,all-breed
+D00039,O0006,class,Mr. Desmond J. Murphy,German Shorthaired Pointer,all-breed
+D00042,O0026,champion,Mr. Desmond J. Murphy,German Shorthaired Pointer,all-breed
+D00043,O0027,class,Mr. Desmond J. Murphy,Pointer,all-breed
+D00044,O0028,class,Mr. Desmond J. Murphy,Chesapeake Bay Retriever,all-breed
+D00045,O0029,champion,Mr. Desmond J. Murphy,Chesapeake Bay Retriever,all-breed
+D00047,O0030,class,Mr. Desmond J. Murphy,Flat-Coated Retriever,all-breed
+D00048,O0030,champion,Mr. Desmond J. Murphy,Flat-Coated Retriever,all-breed
+D00052,O0032,champion,Mr. Desmond J. Murphy,English Setter,all-breed
+D00054,O0033,class,Mr. Desmond J. Murphy,Irish Setter,all-breed
+D00055,O0034,class,Mr. Desmond J. Murphy,Irish Setter,all-breed
+D00058,O0035,champion,Mr. Desmond J. Murphy,Cocker Spaniel (Black),all-breed
+D00059,O0001,champion,Mr. Desmond J. Murphy,Cocker Spaniel (Black),all-breed
+D00060,O0037,champion,Mr. Desmond J. Murphy,Cocker Spaniel (Black),all-breed
+D00061,O0038,champion,Mr. Desmond J. Murphy,Cocker Spaniel (Ascob),all-breed
+D00062,O0038,champion,Mr. Desmond J. Murphy,Cocker Spaniel (Ascob),all-breed
+D00063,O0040,class,Mr. Desmond J. Murphy,Cocker Spaniel (Parti-Color),all-breed
+D00065,O0040,champion,Mr. Desmond J. Murphy,Cocker Spaniel (Parti-Color),all-breed
+D00069,O0042,class,Mr. Desmond J. Murphy,English Cocker Spaniel,all-breed
+D00070,O0042,class,Mr. Desmond J. Murphy,English Cocker Spaniel,all-breed
+D00071,O0044,champion,Mr. Desmond J. Murphy,English Cocker Spaniel,all-breed
+D00072,O0045,champion,Mr. Desmond J. Murphy,English Cocker Spaniel,all-breed
+D00075,O0046,champion,Mr. Desmond J. Murphy,Clumber Spaniel,all-breed
+D00076,O0046,champion,Mr. Desmond J. Murphy,Clumber Spaniel,all-breed
+D00078,O0048,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00080,O0049,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00081,O0049,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00083,O0051,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00084,O0052,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00085,O0053,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00086,O0054,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00088,O0054,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00089,O0054,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00090,O0057,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00092,O0057,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00094,O0059,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00095,O0059,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00097,O0059,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00098,O0062,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00099,O0063,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00100,O0064,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00101,O0065,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00102,O0021,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00103,O0021,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00105,O0068,champion,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00109,O0069,champion,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00111,O0070,class,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00112,O0071,class,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00114,O0072,class,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00115,O0073,class,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00117,O0074,class,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00118,O0075,class,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00119,O0075,class,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00120,O0077,class,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00122,O0077,class,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00123,O0079,class,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00126,O0079,class,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00127,O0081,class,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00128,O0082,class,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00129,O0083,class,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00130,O0084,class,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00131,O0085,champion,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00132,O0086,champion,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00133,O0087,champion,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00134,O0087,champion,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00136,O0087,class,Mr. Nathaniel Horn,Scottish Deerhound,all-breed
+D00137,O0090,class,Mr. Nathaniel Horn,Borzoi,all-breed
+D00138,O0091,class,Mr. Nathaniel Horn,Borzoi,all-breed
+D00139,O0092,class,Mr. Nathaniel Horn,Borzoi,all-breed
+D00140,O0093,class,Mr. Nathaniel Horn,Borzoi,all-breed
+D00142,O0094,class,Mr. Nathaniel Horn,Borzoi,all-breed
+D00143,O0095,champion,Mr. Nathaniel Horn,Borzoi,all-breed
+D00145,O0046,class,Mr. Nathaniel Horn,Irish Wolfhound,all-breed
+D00148,O0046,champion,Mr. Nathaniel Horn,Irish Wolfhound,all-breed
+D00149,O0098,class,Mr. Nathaniel Horn,Afghan Hound,all-breed
+D00153,O0099,class,Mr. Nathaniel Horn,Basenji,all-breed
+D00154,O0100,class,Mr. Nathaniel Horn,Basenji,all-breed
+D00157,O0101,champion,Mr. Nathaniel Horn,Basenji,all-breed
+D00159,O0102,champion,Mr. Nathaniel Horn,Beagle Thirteen Inches,all-breed
+D00160,O0103,class,Mr. Nathaniel Horn,Beagle Fifteen Inches,all-breed
+D00163,O0104,class,Mr. Nathaniel Horn,Havanese,all-breed
+D00165,O0105,champion,Mr. Nathaniel Horn,Havanese,all-breed
+D00166,O0075,champion,Mr. Nathaniel Horn,Ibizan Hound,all-breed
+D00167,O0107,class,Mr. Nathaniel Horn,Whippet,all-breed
+D00168,O0108,class,Mr. Nathaniel Horn,Whippet,all-breed
+D00169,O0108,class,Mr. Nathaniel Horn,Whippet,all-breed
+D00170,O0110,class,Mr. Nathaniel Horn,Whippet,all-breed
+D00171,O0111,champion,Mr. Nathaniel Horn,Whippet,all-breed
+D00172,O0087,champion,Mr. Nathaniel Horn,Whippet,all-breed
+D00178,O0113,class,Mr. Nathaniel Horn,Pug,all-breed
+D00179,O0114,class,Mr. Nathaniel Horn,Pug,all-breed
+D00182,O0115,champion,Mr. Nathaniel Horn,Pug,all-breed
+D00183,O0116,class,Mr. Nathaniel Horn,Affenpinscher,all-breed
+D00184,O0116,class,Mr. Nathaniel Horn,Affenpinscher,all-breed
+D00186,O0118,champion,Mr. Nathaniel Horn,Affenpinscher,all-breed
+D00188,O0119,class,Mr. Nathaniel Horn,Chihuahua (Long Coat),all-breed
+D00190,O0120,champion,Mr. Nathaniel Horn,Chihuahua (Smooth Coat),all-breed
+D00191,O0121,class,Mr. Nathaniel Horn,Cavalier King Charles Spaniel,all-breed
+D00192,O0122,class,Mr. Nathaniel Horn,Cavalier King Charles Spaniel,all-breed
+D00193,O0122,class,Mr. Nathaniel Horn,Cavalier King Charles Spaniel,all-breed
+D00194,O0124,class,Mr. Nathaniel Horn,Cavalier King Charles Spaniel,all-breed
+D00195,O0119,class,Mr. Nathaniel Horn,Cavalier King Charles Spaniel,all-breed
+D00196,O0119,class,Mr. Nathaniel Horn,Cavalier King Charles Spaniel,all-breed
+D00198,O0127,class,Mr. Nathaniel Horn,Cavalier King Charles Spaniel,all-breed
+D00199,O0127,class,Mr. Nathaniel Horn,Cavalier King Charles Spaniel,all-breed
+D00201,O0129,class,Mr. Nathaniel Horn,Cavalier King Charles Spaniel,all-breed
+D00212,O0130,champion,Mr. Nathaniel Horn,Chinese Crested,all-breed
+D00214,O0131,champion,Mr. Nathaniel Horn,Chinese Crested,all-breed
+D00216,O0132,class,Ms. Victoria M. Jordan,Boxer,all-breed
+D00218,O0132,class,Ms. Victoria M. Jordan,Boxer,all-breed
+D00219,O0134,class,Ms. Victoria M. Jordan,Boxer,all-breed
+D00220,O0135,class,Ms. Victoria M. Jordan,Boxer,all-breed
+D00221,O0136,class,Ms. Victoria M. Jordan,Boxer,all-breed
+D00222,O0136,class,Ms. Victoria M. Jordan,Boxer,all-breed
+D00224,O0138,class,Ms. Victoria M. Jordan,Boxer,all-breed
+D00225,O0139,champion,Ms. Victoria M. Jordan,Boxer,all-breed
+D00230,O0140,class,Ms. Victoria M. Jordan,Cane Corso,all-breed
+D00232,O0140,class,Ms. Victoria M. Jordan,Cane Corso,all-breed
+D00233,O0142,class,Ms. Victoria M. Jordan,Cane Corso,all-breed
+D00234,O0143,class,Ms. Victoria M. Jordan,Cane Corso,all-breed
+D00235,O0143,class,Ms. Victoria M. Jordan,Cane Corso,all-breed
+D00236,O0145,class,Ms. Victoria M. Jordan,Cane Corso,all-breed
+D00237,O0146,class,Ms. Victoria M. Jordan,Cane Corso,all-breed
+D00240,O0147,champion,Ms. Victoria M. Jordan,Cane Corso,all-breed
+D00242,O0148,class,Ms. Victoria M. Jordan,Anatolian Shepherd,all-breed
+D00244,O0149,class,Ms. Victoria M. Jordan,Anatolian Shepherd,all-breed
+D00245,O0149,class,Ms. Victoria M. Jordan,Anatolian Shepherd,all-breed
+D00246,O0142,champion,Ms. Victoria M. Jordan,Anatolian Shepherd,all-breed
+D00248,O0152,class,Ms. Victoria M. Jordan,Bernese Mountain Dog,all-breed
+D00249,O0153,class,Ms. Victoria M. Jordan,Bernese Mountain Dog,all-breed
+D00250,O0153,class,Ms. Victoria M. Jordan,Bernese Mountain Dog,all-breed
+D00252,O0155,class,Ms. Victoria M. Jordan,Bernese Mountain Dog,all-breed
+D00253,O0155,class,Ms. Victoria M. Jordan,Bernese Mountain Dog,all-breed
+D00254,O0157,champion,Ms. Victoria M. Jordan,Bernese Mountain Dog,all-breed
+D00256,O0157,champion,Ms. Victoria M. Jordan,Bernese Mountain Dog,all-breed
+D00257,O0159,class,Ms. Victoria M. Jordan,Bullmastiff,all-breed
+D00258,O0160,class,Ms. Victoria M. Jordan,Bullmastiff,all-breed
+D00259,O0161,class,Ms. Victoria M. Jordan,Bullmastiff,all-breed
+D00261,O0162,champion,Ms. Victoria M. Jordan,Bullmastiff,all-breed
+D00263,O0162,champion,Ms. Victoria M. Jordan,Bullmastiff,all-breed
+D00264,O0164,champion,Ms. Victoria M. Jordan,Black Russian Terrier,all-breed
+D00266,O0165,class,Ms. Victoria M. Jordan,Boerboel,all-breed
+D00267,O0166,class,Ms. Victoria M. Jordan,Giant Schnauzer,all-breed
+D00268,O0166,class,Ms. Victoria M. Jordan,Giant Schnauzer,all-breed
+D00270,O0168,class,Ms. Victoria M. Jordan,Giant Schnauzer,all-breed
+D00272,O0169,class,Ms. Victoria M. Jordan,Great Pyrenees,all-breed
+D00273,O0170,class,Ms. Victoria M. Jordan,Great Pyrenees,all-breed
+D00274,O0170,class,Ms. Victoria M. Jordan,Great Pyrenees,all-breed
+D00275,O0172,class,Ms. Victoria M. Jordan,Great Pyrenees,all-breed
+D00277,O0173,class,Ms. Victoria M. Jordan,Dogo Argentino,all-breed
+D00278,O0174,class,Ms. Victoria M. Jordan,Dogo Argentino,all-breed
+D00281,O0175,class,Ms. Victoria M. Jordan,Dogo Argentino,all-breed
+D00282,O0176,class,Ms. Victoria M. Jordan,Dogo Argentino,all-breed
+D00283,O0155,champion,Ms. Victoria M. Jordan,Dogo Argentino,all-breed
+D00285,O0178,class,Ms. Victoria M. Jordan,Portuguese Water Dog,all-breed
+D00286,O0179,class,Ms. Victoria M. Jordan,Portuguese Water Dog,all-breed
+D00287,O0180,class,Ms. Victoria M. Jordan,Portuguese Water Dog,all-breed
+D00289,O0181,class,Ms. Victoria M. Jordan,Greater Swiss Mountain Dog,all-breed
+D00290,O0182,class,Ms. Victoria M. Jordan,Tibetan Mastiff,all-breed
+D00291,O0183,class,Ms. Victoria M. Jordan,Tibetan Mastiff,all-breed
+D00292,O0183,champion,Ms. Victoria M. Jordan,Tibetan Mastiff,all-breed
+D00293,O0185,champion,Ms. Victoria M. Jordan,Tibetan Terrier,all-breed
+D00295,O0186,class,Ms. Victoria M. Jordan,Shiba-Inu,all-breed
+D00296,O0186,class,Ms. Victoria M. Jordan,Shiba-Inu,all-breed
+D00299,O0188,champion,Ms. Victoria M. Jordan,Tibetan Spaniel,all-breed
+D00301,O0153,class,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00302,O0190,class,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00303,O0134,class,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00304,O0170,class,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00305,O0193,class,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00306,O0194,class,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00308,O0195,class,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00309,O0196,class,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00310,O0197,class,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00311,O0198,class,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00312,O0198,class,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00314,O0200,class,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00316,O0201,class,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00318,O0202,class,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00321,O0203,champion,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00323,O0204,champion,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00324,O0205,class,Mrs. Lee Murphy-East,Cardigan Welsh Corgi,all-breed
+D00325,O0205,class,Mrs. Lee Murphy-East,Cardigan Welsh Corgi,all-breed
+D00328,O0207,champion,Mrs. Lee Murphy-East,Cardigan Welsh Corgi,all-breed
+D00331,O0208,class,Mrs. Lee Murphy-East,Pembroke Welsh Corgi,all-breed
+D00334,O0209,class,Mrs. Lee Murphy-East,Pembroke Welsh Corgi,all-breed
+D00335,O0209,class,Mrs. Lee Murphy-East,Pembroke Welsh Corgi,all-breed
+D00336,O0209,class,Mrs. Lee Murphy-East,Pembroke Welsh Corgi,all-breed
+D00337,O0212,class,Mrs. Lee Murphy-East,Pembroke Welsh Corgi,all-breed
+D00340,O0213,champion,Mrs. Lee Murphy-East,Pembroke Welsh Corgi,all-breed
+D00342,O0214,class,Mrs. Lee Murphy-East,Beauceron,all-breed
+D00345,O0215,class,Mrs. Lee Murphy-East,Bouvier Des Flandres,all-breed
+D00346,O0216,class,Mrs. Lee Murphy-East,Bouvier Des Flandres,all-breed
+D00347,O0216,champion,Mrs. Lee Murphy-East,Bouvier Des Flandres,all-breed
+D00349,O0216,champion,Mrs. Lee Murphy-East,Bouvier Des Flandres,all-breed
+D00350,O0219,class,Mrs. Lee Murphy-East,Bearded Collie,all-breed
+D00352,O0219,champion,Mrs. Lee Murphy-East,Bearded Collie,all-breed
+D00353,O0215,class,Mrs. Lee Murphy-East,Australian Cattle Dog,all-breed
+D00355,O0222,class,Mrs. Lee Murphy-East,Australian Cattle Dog,all-breed
+D00356,O0223,class,Mrs. Lee Murphy-East,Australian Cattle Dog,all-breed
+D00357,O0223,class,Mrs. Lee Murphy-East,Australian Cattle Dog,all-breed
+D00358,O0223,class,Mrs. Lee Murphy-East,Australian Cattle Dog,all-breed
+D00359,O0223,class,Mrs. Lee Murphy-East,Australian Cattle Dog,all-breed
+D00361,O0227,champion,Mrs. Lee Murphy-East,Australian Cattle Dog,all-breed
+D00364,O0228,champion,Mrs. Lee Murphy-East,Australian Cattle Dog,all-breed
+D00366,O0205,class,Mrs. Lee Murphy-East,Old English Sheepdog,all-breed
+D00367,O0205,class,Mrs. Lee Murphy-East,Old English Sheepdog,all-breed
+D00368,O0222,class,Mrs. Lee Murphy-East,Old English Sheepdog,all-breed
+D00369,O0232,champion,Mrs. Lee Murphy-East,Old English Sheepdog,all-breed
+D00370,O0233,class,Mrs. Lee Murphy-East,Collie (Rough),all-breed
+D00371,O0233,class,Mrs. Lee Murphy-East,Collie (Rough),all-breed
+D00372,O0208,class,Mrs. Lee Murphy-East,Collie (Rough),all-breed
+D00373,O0208,class,Mrs. Lee Murphy-East,Collie (Rough),all-breed
+D00374,O0237,class,Mrs. Lee Murphy-East,Collie (Rough),all-breed
+D00375,O0237,class,Mrs. Lee Murphy-East,Collie (Rough),all-breed
+D00376,O0237,class,Mrs. Lee Murphy-East,Collie (Rough),all-breed
+D00378,O0240,champion,Mrs. Lee Murphy-East,Collie (Rough),all-breed
+D00379,O0241,champion,Mrs. Lee Murphy-East,Collie (Smooth),all-breed
+D00383,O0242,class,Mr. Garry K. Newton,Newfoundland,all-breed
+D00385,O0243,class,Mr. Garry K. Newton,Newfoundland,all-breed
+D00388,O0243,class,Mr. Garry K. Newton,Newfoundland,all-breed
+D00394,O0063,class,Mr. Garry K. Newton,Rottweiler,all-breed
+D00395,O0063,class,Mr. Garry K. Newton,Rottweiler,all-breed
+D00396,O0247,class,Mr. Garry K. Newton,Rottweiler,all-breed
+D00397,O0248,class,Mr. Garry K. Newton,Rottweiler,all-breed
+D00399,O0248,class,Mr. Garry K. Newton,Rottweiler,all-breed
+D00400,O0250,class,Mr. Garry K. Newton,Rottweiler,all-breed
+D00401,O0251,class,Mr. Garry K. Newton,Rottweiler,all-breed
+D00402,O0252,champion,Mr. Garry K. Newton,Rottweiler,all-breed
+D00406,O0252,champion,Mr. Garry K. Newton,Rottweiler,all-breed
+D00408,O0254,class,Mr. Garry K. Newton,Doberman Pinscher,all-breed
+D00410,O0255,class,Mr. Garry K. Newton,Mastiff,all-breed
+D00412,O0255,champion,Mr. Garry K. Newton,Mastiff,all-breed
+D00413,O0257,class,Mr. Garry K. Newton,Australian Shepherd,all-breed
+D00414,O0257,class,Mr. Garry K. Newton,Australian Shepherd,all-breed
+D00415,O0040,class,Mr. Garry K. Newton,Australian Shepherd,all-breed
+D00416,O0260,class,Mr. Garry K. Newton,Miniature American Shepherd,all-breed
+D00419,O0261,class,Mr. Garry K. Newton,Miniature American Shepherd,all-breed
+D00420,O0261,class,Mr. Garry K. Newton,Miniature American Shepherd,all-breed
+D00421,O0263,champion,Mr. Garry K. Newton,Miniature American Shepherd,all-breed
+D00422,O0264,champion,Mr. Garry K. Newton,Miniature American Shepherd,all-breed
+D00423,O0265,class,Mr. Jon R. Cole,French Bulldog,all-breed
+D00424,O0266,class,Mr. Jon R. Cole,French Bulldog,all-breed
+D00425,O0267,class,Mr. Jon R. Cole,French Bulldog,all-breed
+D00426,O0268,class,Mr. Jon R. Cole,French Bulldog,all-breed
+D00428,O0269,class,Mr. Jon R. Cole,French Bulldog,all-breed
+D00429,O0270,class,Mr. Jon R. Cole,French Bulldog,all-breed
+D00430,O0271,class,Mr. Jon R. Cole,French Bulldog,all-breed
+D00432,O0272,class,Mr. Jon R. Cole,French Bulldog,all-breed
+D00433,O0272,class,Mr. Jon R. Cole,French Bulldog,all-breed
+D00434,O0274,class,Mr. Jon R. Cole,French Bulldog,all-breed
+D00435,O0274,class,Mr. Jon R. Cole,French Bulldog,all-breed
+D00436,O0276,class,Mr. Jon R. Cole,French Bulldog,all-breed
+D00437,O0277,class,Mr. Jon R. Cole,French Bulldog,all-breed
+D00439,O0278,class,Mr. Jon R. Cole,French Bulldog,all-breed
+D00440,O0278,class,Mr. Jon R. Cole,French Bulldog,all-breed
+D00441,O0280,class,Mr. Jon R. Cole,French Bulldog,all-breed
+D00443,O0280,class,Mr. Jon R. Cole,French Bulldog,all-breed
+D00444,O0282,class,Mr. Jon R. Cole,French Bulldog,all-breed
+D00453,O0283,champion,Mr. Jon R. Cole,French Bulldog,all-breed
+D00454,O0284,class,Mr. Jon R. Cole,Bulldog,all-breed
+D00455,O0268,class,Mr. Jon R. Cole,Bulldog,all-breed
+D00456,O0286,class,Mr. Jon R. Cole,Bulldog,all-breed
+D00457,O0287,class,Mr. Jon R. Cole,Bulldog,all-breed
+D00458,O0288,class,Mr. Jon R. Cole,Bulldog,all-breed
+D00459,O0288,class,Mr. Jon R. Cole,Bulldog,all-breed
+D00460,O0288,class,Mr. Jon R. Cole,Bulldog,all-breed
+D00461,O0291,class,Mr. Jon R. Cole,Bulldog,all-breed
+D00462,O0292,class,Mr. Jon R. Cole,Bulldog,all-breed
+D00463,O0292,class,Mr. Jon R. Cole,Bulldog,all-breed
+D00464,O0294,class,Mr. Jon R. Cole,Bulldog,all-breed
+D00465,O0295,class,Mr. Jon R. Cole,Bulldog,all-breed
+D00467,O0296,class,Mr. Jon R. Cole,Bulldog,all-breed
+D00468,O0297,champion,Mr. Jon R. Cole,Bulldog,all-breed
+D00470,O0297,champion,Mr. Jon R. Cole,Bulldog,all-breed
+D00473,O0299,class,Mr. Jon R. Cole,Boston Terrier,all-breed
+D00474,O0209,class,Mr. Jon R. Cole,Boston Terrier,all-breed
+D00481,O0301,class,Mr. Jon R. Cole,Pekingese,all-breed
+D00482,O0302,class,Mr. Jon R. Cole,Pekingese,all-breed
+D00484,O0303,class,Mr. Jon R. Cole,Maltese,all-breed
+D00485,O0304,class,Mr. Jon R. Cole,Maltese,all-breed
+D00486,O0305,class,Mr. Jon R. Cole,Maltese,all-breed
+D00487,O0306,class,Mr. Jon R. Cole,Maltese,all-breed
+D00488,O0307,class,Mr. Jon R. Cole,Maltese,all-breed
+D00489,O0307,class,Mr. Jon R. Cole,Maltese,all-breed
+D00490,O0309,class,Mr. Jon R. Cole,Pomeranian,all-breed
+D00491,O0309,class,Mr. Jon R. Cole,Pomeranian,all-breed
+D00492,O0311,class,Mr. Jon R. Cole,Pomeranian,all-breed
+D00493,O0312,class,Mr. Jon R. Cole,Pomeranian,all-breed
+D00494,O0312,class,Mr. Jon R. Cole,Pomeranian,all-breed
+D00501,O0314,champion,Mr. Jon R. Cole,Silky Terrier,all-breed
+D00502,O0315,class,Mr. Jon R. Cole,Papillon,all-breed
+D00503,O0315,class,Mr. Jon R. Cole,Papillon,all-breed
+D00505,O0317,class,Mr. Jon R. Cole,Papillon,all-breed
+D00507,O0318,class,Mr. Jon R. Cole,Papillon,all-breed
+D00510,O0319,class,Mr. Jon R. Cole,Papillon,all-breed
+D00512,O0319,class,Mr. Jon R. Cole,Papillon,all-breed
+D00514,O0321,champion,Mr. Jon R. Cole,Papillon,all-breed
+D00515,O0322,champion,Mr. Jon R. Cole,Papillon,all-breed
+D00517,O0323,class,Mr. Jon R. Cole,Yorkshire Terrier,all-breed
+D00518,O0324,class,Mr. Jon R. Cole,Yorkshire Terrier,all-breed
+D00519,O0325,class,Mr. Jon R. Cole,Toy Fox Terrier,all-breed
+D00520,O0326,class,Mr. Jon R. Cole,Toy Fox Terrier,all-breed
+D00521,O0327,class,Mr. Jon R. Cole,Toy Fox Terrier,all-breed
+D00523,O0328,class,Mr. Jon R. Cole,Poodle (Miniature),all-breed
+D00526,O0329,class,Mr. Jon R. Cole,Lhasa Apso,all-breed
+D00527,O0330,class,Mr. Jon R. Cole,Lhasa Apso,all-breed
+D00528,O0276,class,Mr. Jon R. Cole,Lhasa Apso,all-breed
+D00529,O0332,class,Mr. Jon R. Cole,Lhasa Apso,all-breed
+D00531,O0333,class,Mr. Jon R. Cole,American Eskimos,all-breed
+D00533,O0333,champion,Mr. Jon R. Cole,American Eskimos,all-breed
+D00536,O0335,class,Mr. Jon R. Cole,Bichon Frise,all-breed
+D00539,O0336,champion,Mr. Jon R. Cole,Bichon Frise,all-breed
+D00542,O0336,champion,Mr. Jon R. Cole,Bichon Frise,all-breed
+D00543,O0338,class,Mr. Jon R. Cole,Coton de Tulear,all-breed
+D00545,O0339,class,Mr. Jon R. Cole,Xoloitzcuintli,all-breed
+D00547,O0340,class,Mr. Jon R. Cole,Xoloitzcuintli,all-breed
+D00550,O0341,class,Mr. Jon R. Cole,Dalmatian,all-breed
+D00551,O0342,class,Mr. Jon R. Cole,Dalmatian,all-breed
+D00552,O0343,champion,Mr. Jon R. Cole,Dalmatian,all-breed
+D00553,O0344,champion,Mr. Jon R. Cole,Dalmatian,all-breed
+D00557,O0345,champion,Mr. Jon R. Cole,Dalmatian,all-breed
+D00559,O0346,class,Mr. Jon R. Cole,Poodle (Standard),all-breed
+D00560,O0347,class,Mr. Jon R. Cole,Poodle (Standard),all-breed
+D00561,O0347,class,Mr. Jon R. Cole,Poodle (Standard),all-breed
+D00562,O0349,class,Mr. Jon R. Cole,Samoyed,all-breed
+D00565,O0350,class,Mr. Jon R. Cole,Siberian Husky,all-breed
+D00566,O0351,class,Mr. Jon R. Cole,Siberian Husky,all-breed
+D00568,O0351,class,Mr. Jon R. Cole,Siberian Husky,all-breed
+D00571,O0353,champion,Mr. Jon R. Cole,Siberian Husky,all-breed
+D00575,O0354,champion,Mr. Bruce Schwartz,Irish Terrier,all-breed
+D00577,O0355,class,Mr. Bruce Schwartz,Miniature Bull Terrier,all-breed
+D00581,O0355,champion,Mr. Bruce Schwartz,Miniature Bull Terrier,all-breed
+D00582,O0357,class,Mr. Bruce Schwartz,Airedale Terrier,all-breed
+D00583,O0358,class,Mr. Bruce Schwartz,Airedale Terrier,all-breed
+D00585,O0359,class,Mr. Bruce Schwartz,Skye Terrier,all-breed
+D00587,O0360,class,Mr. Bruce Schwartz,Skye Terrier,all-breed
+D00588,O0361,class,Mr. Bruce Schwartz,Skye Terrier,all-breed
+D00591,O0362,class,Mr. Bruce Schwartz,West Highland White Terrier,all-breed
+D00592,O0362,champion,Mr. Bruce Schwartz,West Highland White Terrier,all-breed
+D00593,O0364,class,Mr. Bruce Schwartz,Miniature Schnauzer,all-breed
+D00594,O0365,class,Mr. Bruce Schwartz,Miniature Schnauzer,all-breed
+D00597,O0355,class,Mr. Bruce Schwartz,American Hairless Terrier,all-breed
+D00598,O0367,class,Mr. Bruce Schwartz,American Hairless Terrier,all-breed
+D00600,O0368,class,Mr. Bruce Schwartz,American Hairless Terrier,all-breed
+D00601,O0368,class,Mr. Bruce Schwartz,American Hairless Terrier,all-breed
+D00602,O0368,champion,Mr. Bruce Schwartz,American Hairless Terrier,all-breed
+D00604,O0371,champion,Mr. Bruce Schwartz,American Hairless Terrier,all-breed
+D00605,O0372,champion,Mr. Bruce Schwartz,Cairn Terrier,all-breed
+D00606,O0373,class,Mr. Bruce Schwartz,Border Terrier,all-breed
+D00607,O0374,class,Mr. Bruce Schwartz,Border Terrier,all-breed
+D00608,O0375,class,Mr. Bruce Schwartz,Border Terrier,all-breed
+D00610,O0376,champion,Mr. Bruce Schwartz,Border Terrier,all-breed
+D00612,O0376,champion,Mr. Bruce Schwartz,Border Terrier,all-breed
+D00614,O0378,champion,Mr. Bruce Schwartz,Parson Russell Terrier,all-breed
+D00615,O0378,champion,Mr. Bruce Schwartz,Parson Russell Terrier,all-breed
+D00617,O0380,class,Mr. Bruce Schwartz,Russell Terriers,all-breed
+D00618,O0381,class,Mr. Bruce Schwartz,Russell Terriers,all-breed
+D00619,O0382,class,Mr. Bruce Schwartz,Russell Terriers,all-breed
+D00620,O0382,champion,Mr. Bruce Schwartz,Russell Terriers,all-breed
+D00621,O0384,champion,Mr. Bruce Schwartz,Russell Terriers,all-breed
+D00622,O0385,class,Mr. Bruce Schwartz,Scottish Terrier,all-breed
+D00623,O0385,class,Mr. Bruce Schwartz,Scottish Terrier,all-breed
+D00626,O0387,champion,Mr. Bruce Schwartz,Scottish Terrier,all-breed
+D00627,O0388,class,Mr. Bruce Schwartz,American Staffordshire Terrier,all-breed
+D00628,O0389,class,Mr. Bruce Schwartz,American Staffordshire Terrier,all-breed
+D00632,O0390,champion,Mr. Bruce Schwartz,American Staffordshire Terrier,all-breed
+D00634,O0391,class,Mr. Bruce Schwartz,Staffordshire Bull Terriers,all-breed
+D00635,O0392,class,Mr. Bruce Schwartz,Staffordshire Bull Terriers,all-breed
+D00637,O0393,class,Mr. Bruce Schwartz,Staffordshire Bull Terriers,all-breed
+D00639,O0394,champion,Mr. Bruce Schwartz,Staffordshire Bull Terriers,all-breed
+D00640,O0394,champion,Mr. Bruce Schwartz,Staffordshire Bull Terriers,all-breed
+D00641,O0396,champion,Mr. Bruce Schwartz,Staffordshire Bull Terriers,all-breed
+D00642,O0396,champion,Mr. Bruce Schwartz,Staffordshire Bull Terriers,all-breed
+D00241,P001,class,Ms. Victoria M. Jordan,Anatolian Shepherd,all-breed
+D00300,P001,class,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00384,P001,class,Mr. Garry K. Newton,Newfoundland,all-breed
+D00596,P001,champion,Mr. Bruce Schwartz,Australian Terrier,all-breed
+D00578,P001,champion,Mr. Bruce Schwartz,Miniature Bull Terrier,all-breed
+D00616,P001,champion,Mr. Bruce Schwartz,Parson Russell Terrier,all-breed
+D00574,P001,class,Mr. Bruce Schwartz,Soft Coated Wheaten Terrier,all-breed
+D00354,P001,class,Mrs. Lee Murphy-East,Australian Cattle Dog,all-breed
+D00330,P001,champion,Mrs. Lee Murphy-East,Cardigan Welsh Corgi,all-breed
+D00333,P001,class,Mrs. Lee Murphy-East,Pembroke Welsh Corgi,all-breed
+D00284,P002,champion,Ms. Victoria M. Jordan,Dogo Argentino,all-breed
+D00584,P002,champion,Mr. Bruce Schwartz,Airedale Terrier,all-breed
+D00630,P002,champion,Mr. Bruce Schwartz,American Staffordshire Terrier,all-breed
+D00609,P002,champion,Mr. Bruce Schwartz,Border Terrier,all-breed
+D00595,P002,champion,Mr. Bruce Schwartz,Miniature Schnauzer,all-breed
+D00613,P002,champion,Mr. Bruce Schwartz,Norwich Terrier,all-breed
+D00625,P002,champion,Mr. Bruce Schwartz,Scottish Terrier,all-breed
+D00590,P002,champion,Mr. Bruce Schwartz,Welsh Terrier,all-breed
+D00176,P002-A1,class,Mr. Nathaniel Horn,Pug,all-breed
+D00534,P002-A1,champion,Mr. Jon R. Cole,American Eskimos,all-breed
+D00442,P002-A1,class,Mr. Jon R. Cole,French Bulldog,all-breed
+D00329,P002-A1,champion,Mrs. Lee Murphy-East,Cardigan Welsh Corgi,all-breed
+D00417,P002-A1,class,Mr. Garry K. Newton,Miniature American Shepherd,all-breed
+D00338,P002-A1,class,Mrs. Lee Murphy-East,Pembroke Welsh Corgi,all-breed
+D00381,P002-A1,champion,Mrs. Lee Murphy-East,Polish Lowland Sheepdog,all-breed
+D00034,P003,champion,Mr. Desmond J. Murphy,Brittany,all-breed
+D00073,P003,class,Mr. Desmond J. Murphy,Clumber Spaniel,all-breed
+D00067,P003,champion,Mr. Desmond J. Murphy,Cocker Spaniel (Parti-Color),all-breed
+D00079,P003,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00087,P003,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00093,P003,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00106,P003,champion,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00110,P003,champion,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00023,P003,champion,Mr. Desmond J. Murphy,Labrador Retriever,all-breed
+D00010,P003-A1,champion,Mr. Desmond J. Murphy,Vizsla,all-breed
+D00057,P003-A1,champion,Mr. Desmond J. Murphy,Weimaraner,all-breed
+D00026,P003-A1,class,Mr. Desmond J. Murphy,Wirehaired Pointing Griffon,all-breed
+D00027,P003-A1,class,Mr. Desmond J. Murphy,Wirehaired Pointing Griffon,all-breed
+D00121,P003-A1,class,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00243,P003-A1,class,Ms. Victoria M. Jordan,Anatolian Shepherd,all-breed
+D00255,P003-A1,champion,Ms. Victoria M. Jordan,Bernese Mountain Dog,all-breed
+D00227,P003-A1,champion,Ms. Victoria M. Jordan,Boxer,all-breed
+D00239,P003-A1,champion,Ms. Victoria M. Jordan,Cane Corso,all-breed
+D00411,P003-A2,champion,Mr. Garry K. Newton,Mastiff,all-breed
+D00386,P003-A2,class,Mr. Garry K. Newton,Newfoundland,all-breed
+D00387,P003-A2,class,Mr. Garry K. Newton,Newfoundland,all-breed
+D00389,P003-A2,class,Mr. Garry K. Newton,Newfoundland,all-breed
+D00564,P003-A2,champion,Mr. Jon R. Cole,Samoyed,all-breed
+D00572,P003-A2,champion,Mr. Jon R. Cole,Siberian Husky,all-breed
+D00448,P003-A2,champion,Mr. Jon R. Cole,French Bulldog,all-breed
+D00362,P003-A2,champion,Mrs. Lee Murphy-East,Australian Cattle Dog,all-breed
+D00064,P004,class,Mr. Desmond J. Murphy,Cocker Spaniel (Parti-Color),all-breed
+D00631,P004,champion,Mr. Bruce Schwartz,American Staffordshire Terrier,all-breed
+D00580,P004,champion,Mr. Bruce Schwartz,Miniature Bull Terrier,all-breed
+D00187,P004,champion,Mr. Nathaniel Horn,Affenpinscher,all-breed
+D00480,P004,class,Mr. Jon R. Cole,Pekingese,all-breed
+D00496,P004,class,Mr. Jon R. Cole,Pomeranian,all-breed
+D00466,P004,class,Mr. Jon R. Cole,Bulldog,all-breed
+D00546,P004,class,Mr. Jon R. Cole,Xoloitzcuintli,all-breed
+D00046,P005,champion,Mr. Desmond J. Murphy,Curly-Coated Retriever,all-breed
+D00151,P005,champion,Mr. Nathaniel Horn,Afghan Hound,all-breed
+D00251,P005,class,Ms. Victoria M. Jordan,Bernese Mountain Dog,all-breed
+D00265,P005,class,Ms. Victoria M. Jordan,Boerboel,all-breed
+D00223,P005,class,Ms. Victoria M. Jordan,Boxer,all-breed
+D00279,P005,class,Ms. Victoria M. Jordan,Dogo Argentino,all-breed
+D00280,P005,class,Ms. Victoria M. Jordan,Dogo Argentino,all-breed
+D00307,P005-A1,class,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00391,P005-A1,champion,Mr. Garry K. Newton,Newfoundland,all-breed
+D00589,P005-A1,champion,Mr. Bruce Schwartz,Welsh Terrier,all-breed
+D00202,P005-A1,class,Mr. Nathaniel Horn,Cavalier King Charles Spaniel,all-breed
+D00554,P005-A1,champion,Mr. Jon R. Cole,Dalmatian,all-breed
+D00451,P005-A1,champion,Mr. Jon R. Cole,French Bulldog,all-breed
+D00247,P006,champion,Ms. Victoria M. Jordan,Anatolian Shepherd,all-breed
+D00217,P006,class,Ms. Victoria M. Jordan,Boxer,all-breed
+D00409,P006,champion,Mr. Garry K. Newton,Doberman Pinscher,all-breed
+D00407,P006,champion,Mr. Garry K. Newton,Rottweiler,all-breed
+D00569,P006,champion,Mr. Jon R. Cole,Siberian Husky,all-breed
+D00570,P006,champion,Mr. Jon R. Cole,Siberian Husky,all-breed
+D00599,P006,class,Mr. Bruce Schwartz,American Hairless Terrier,all-breed
+D00629,P006-A1,class,Mr. Bruce Schwartz,American Staffordshire Terrier,all-breed
+D00576,P006-A1,champion,Mr. Bruce Schwartz,Irish Terrier,all-breed
+D00624,P006-A1,class,Mr. Bruce Schwartz,Scottish Terrier,all-breed
+D00636,P006-A1,class,Mr. Bruce Schwartz,Staffordshire Bull Terriers,all-breed
+D00638,P006-A1,champion,Mr. Bruce Schwartz,Staffordshire Bull Terriers,all-breed
+D00504,P006-A1,class,Mr. Jon R. Cole,Papillon,all-breed
+D00558,P006-A1,class,Mr. Jon R. Cole,Poodle (Standard),all-breed
+D00096,P007,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00175,P007,champion,Mr. Nathaniel Horn,Basset Hound,all-breed
+D00158,P007,champion,Mr. Nathaniel Horn,Beagle Thirteen Inches,all-breed
+D00141,P007,class,Mr. Nathaniel Horn,Borzoi,all-breed
+D00146,P007,class,Mr. Nathaniel Horn,Irish Wolfhound,all-breed
+D00147,P007,champion,Mr. Nathaniel Horn,Irish Wolfhound,all-breed
+D00603,P007,champion,Mr. Bruce Schwartz,American Hairless Terrier,all-breed
+D00203,P007,champion,Mr. Nathaniel Horn,Cavalier King Charles Spaniel,all-breed
+D00206,P007,champion,Mr. Nathaniel Horn,Cavalier King Charles Spaniel,all-breed
+D00208,P007,champion,Mr. Nathaniel Horn,Cavalier King Charles Spaniel,all-breed
+D00500,P007-A1,champion,Mr. Jon R. Cole,Miniature Pinscher,all-breed
+D00479,P007-A1,class,Mr. Jon R. Cole,Pekingese,all-breed
+D00483,P007-A1,champion,Mr. Jon R. Cole,Pekingese,all-breed
+D00478,P007-A1,class,Mr. Jon R. Cole,Poodle (Toy),all-breed
+D00365,P007-A1,champion,Mrs. Lee Murphy-East,Australian Cattle Dog,all-breed
+D00007,P008,class,Mr. Desmond J. Murphy,Vizsla,all-breed
+D00155,P008,champion,Mr. Nathaniel Horn,Basenji,all-breed
+D00156,P008,champion,Mr. Nathaniel Horn,Basenji,all-breed
+D00174,P008,champion,Mr. Nathaniel Horn,Basset Hound,all-breed
+D00162,P008,champion,Mr. Nathaniel Horn,Beagle Fifteen Inches,all-breed
+D00124,P008,class,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00125,P008,class,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00226,P008,champion,Ms. Victoria M. Jordan,Boxer,all-breed
+D00315,P008,class,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00197,P008-A1,class,Mr. Nathaniel Horn,Cavalier King Charles Spaniel,all-breed
+D00200,P008-A1,class,Mr. Nathaniel Horn,Cavalier King Charles Spaniel,all-breed
+D00189,P008-A1,champion,Mr. Nathaniel Horn,Chihuahua (Long Coat),all-breed
+D00499,P008-A1,champion,Mr. Jon R. Cole,Miniature Pinscher,all-breed
+D00506,P008-A1,class,Mr. Jon R. Cole,Papillon,all-breed
+D00180,P008-A1,class,Mr. Nathaniel Horn,Pug,all-breed
+D00297,P008-A1,champion,Ms. Victoria M. Jordan,Shiba-Inu,all-breed
+D00377,P008-A1,champion,Mrs. Lee Murphy-East,Collie (Rough),all-breed
+D00152,P009,class,Mr. Nathaniel Horn,Basenji,all-breed
+D00144,P009,class,Mr. Nathaniel Horn,Irish Wolfhound,all-breed
+D00116,P009,class,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00228,P009,champion,Ms. Victoria M. Jordan,Boxer,all-breed
+D00260,P009,champion,Ms. Victoria M. Jordan,Bullmastiff,all-breed
+D00231,P009,class,Ms. Victoria M. Jordan,Cane Corso,all-breed
+D00322,P009,champion,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00392,P009,champion,Mr. Garry K. Newton,Newfoundland,all-breed
+D00288,P009,champion,Ms. Victoria M. Jordan,Portuguese Water Dog,all-breed
+D00398,P009,class,Mr. Garry K. Newton,Rottweiler,all-breed
+D00403,P009,champion,Mr. Garry K. Newton,Rottweiler,all-breed
+D00404,P009,champion,Mr. Garry K. Newton,Rottweiler,all-breed
+D00049,P010,champion,Mr. Desmond J. Murphy,Flat-Coated Retriever,all-breed
+D00040,P010,champion,Mr. Desmond J. Murphy,German Shorthaired Pointer,all-breed
+D00077,P010,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00104,P010,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00025,P010,champion,Mr. Desmond J. Murphy,Labrador Retriever,all-breed
+D00029,P010,class,Mr. Desmond J. Murphy,Wirehaired Pointing Griffon,all-breed
+D00405,P010,champion,Mr. Garry K. Newton,Rottweiler,all-breed
+D00586,P010,class,Mr. Bruce Schwartz,Skye Terrier,all-breed
+D00211,P010,class,Mr. Nathaniel Horn,Chinese Crested,all-breed
+D00556,P010-A1,champion,Mr. Jon R. Cole,Dalmatian,all-breed
+D00360,P010-A1,champion,Mrs. Lee Murphy-East,Australian Cattle Dog,all-breed
+D00363,P010-A1,champion,Mrs. Lee Murphy-East,Australian Cattle Dog,all-breed
+D00351,P010-A1,champion,Mrs. Lee Murphy-East,Bearded Collie,all-breed
+D00343,P010-A1,class,Mrs. Lee Murphy-East,Belgian Tervuren,all-breed
+D00344,P010-A1,class,Mrs. Lee Murphy-East,Border Collie,all-breed
+D00326,P010-A1,class,Mrs. Lee Murphy-East,Cardigan Welsh Corgi,all-breed
+D00380,P010-A1,champion,Mrs. Lee Murphy-East,Norwegian Buhund,all-breed
+D00382,P010-A1,champion,Mrs. Lee Murphy-East,Shetland Sheepdog,all-breed
+D00108,P011,champion,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00633,P011,champion,Mr. Bruce Schwartz,American Staffordshire Terrier,all-breed
+D00204,P011,champion,Mr. Nathaniel Horn,Cavalier King Charles Spaniel,all-breed
+D00207,P011,champion,Mr. Nathaniel Horn,Cavalier King Charles Spaniel,all-breed
+D00164,P011,champion,Mr. Nathaniel Horn,Havanese,all-breed
+D00509,P011,class,Mr. Jon R. Cole,Papillon,all-breed
+D00511,P011,class,Mr. Jon R. Cole,Papillon,all-breed
+D00513,P011,class,Mr. Jon R. Cole,Papillon,all-breed
+D00516,P011,champion,Mr. Jon R. Cole,Papillon,all-breed
+D00495,P011-A1,class,Mr. Jon R. Cole,Pomeranian,all-breed
+D00498,P011-A1,champion,Mr. Jon R. Cole,Pomeranian,all-breed
+D00522,P011-A1,champion,Mr. Jon R. Cole,Toy Fox Terrier,all-breed
+D00348,P011-A1,champion,Mrs. Lee Murphy-East,Bouvier Des Flandres,all-breed
+D00579,P012,champion,Mr. Bruce Schwartz,Miniature Bull Terrier,all-breed
+D00210,P012,class,Mr. Nathaniel Horn,Chinese Crested,all-breed
+D00177,P012,class,Mr. Nathaniel Horn,Pug,all-breed
+D00181,P012,champion,Mr. Nathaniel Horn,Pug,all-breed
+D00537,P012,champion,Mr. Jon R. Cole,Bichon Frise,all-breed
+D00538,P012,champion,Mr. Jon R. Cole,Bichon Frise,all-breed
+D00477,P012,champion,Mr. Jon R. Cole,Boston Terrier,all-breed
+D00549,P012,class,Mr. Jon R. Cole,Dalmatian,all-breed
+D00555,P012,champion,Mr. Jon R. Cole,Dalmatian,all-breed
+D00445,P012,champion,Mr. Jon R. Cole,French Bulldog,all-breed
+D00446,P012,champion,Mr. Jon R. Cole,French Bulldog,all-breed
+D00449,P012,champion,Mr. Jon R. Cole,French Bulldog,all-breed
+D00450,P012,champion,Mr. Jon R. Cole,French Bulldog,all-breed
+D00452,P012,champion,Mr. Jon R. Cole,French Bulldog,all-breed
+D00471,P012-A1,champion,Mr. Jon R. Cole,Keeshond,all-breed
+D00472,P012-A1,champion,Mr. Jon R. Cole,Keeshond,all-breed
+D00530,P012-A1,champion,Mr. Jon R. Cole,Lhasa Apso,all-breed
+D00294,P012-A1,champion,Ms. Victoria M. Jordan,Tibetan Terrier,all-breed
+D00332,P012-A1,class,Mrs. Lee Murphy-East,Pembroke Welsh Corgi,all-breed
+D00573,P013,champion,Mr. Jon R. Cole,Siberian Husky,all-breed
+D00185,P013,champion,Mr. Nathaniel Horn,Affenpinscher,all-breed
+D00205,P013,champion,Mr. Nathaniel Horn,Cavalier King Charles Spaniel,all-breed
+D00213,P013,champion,Mr. Nathaniel Horn,Chinese Crested,all-breed
+D00215,P013,champion,Mr. Nathaniel Horn,Chinese Crested,all-breed
+D00209,P013,champion,Mr. Nathaniel Horn,English Toy Spaniel (B&PC),all-breed
+D00327,P013,champion,Mrs. Lee Murphy-East,Cardigan Welsh Corgi,all-breed
+D00418,P013,class,Mr. Garry K. Newton,Miniature American Shepherd,all-breed
+D00341,P013,champion,Mrs. Lee Murphy-East,Pembroke Welsh Corgi,all-breed
+D00051,P014,champion,Mr. Desmond J. Murphy,Flat-Coated Retriever,all-breed
+D00056,P014,champion,Mr. Desmond J. Murphy,Irish Setter,all-breed
+D00150,P014,champion,Mr. Nathaniel Horn,Afghan Hound,all-breed
+D00161,P014,champion,Mr. Nathaniel Horn,Beagle Fifteen Inches,all-breed
+D00113,P014,class,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00173,P014,champion,Mr. Nathaniel Horn,Whippet,all-breed
+D00262,P014,champion,Ms. Victoria M. Jordan,Bullmastiff,all-breed
+D00238,P014,champion,Ms. Victoria M. Jordan,Cane Corso,all-breed
+D00269,P014,class,Ms. Victoria M. Jordan,Giant Schnauzer,all-breed
+D00313,P014,class,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00317,P014,class,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00319,P014,champion,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00320,P014,champion,Ms. Victoria M. Jordan,Great Dane,all-breed
+D00276,P014-A1,champion,Ms. Victoria M. Jordan,Great Pyrenees,all-breed
+D00390,P014-A1,champion,Mr. Garry K. Newton,Newfoundland,all-breed
+D00393,P014-A1,class,Mr. Garry K. Newton,Rottweiler,all-breed
+D00563,P014-A1,champion,Mr. Jon R. Cole,Samoyed,all-breed
+D00567,P014-A1,class,Mr. Jon R. Cole,Siberian Husky,all-breed
+D00508,P014-A1,class,Mr. Jon R. Cole,Papillon,all-breed
+D00074,P015,class,Mr. Desmond J. Murphy,Clumber Spaniel,all-breed
+D00066,P015,champion,Mr. Desmond J. Murphy,Cocker Spaniel (Parti-Color),all-breed
+D00068,P015,class,Mr. Desmond J. Murphy,English Cocker Spaniel,all-breed
+D00041,P015,champion,Mr. Desmond J. Murphy,German Shorthaired Pointer,all-breed
+D00091,P015,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00107,P015,champion,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00014,P015,class,Mr. Desmond J. Murphy,Labrador Retriever,all-breed
+D00008,P015,champion,Mr. Desmond J. Murphy,Vizsla,all-breed
+D00271,P015-A1,champion,Ms. Victoria M. Jordan,Giant Schnauzer,all-breed
+D00497,P015-A1,champion,Mr. Jon R. Cole,Pomeranian,all-breed
+D00540,P015-A1,champion,Mr. Jon R. Cole,Bichon Frise,all-breed
+D00475,P015-A1,champion,Mr. Jon R. Cole,Boston Terrier,all-breed
+D00544,P015-A1,champion,Mr. Jon R. Cole,Coton de Tulear,all-breed
+D00431,P015-A1,class,Mr. Jon R. Cole,French Bulldog,all-breed
+D00438,P015-A1,class,Mr. Jon R. Cole,French Bulldog,all-breed
+D00525,P015-A1,champion,Mr. Jon R. Cole,Poodle (Miniature),all-breed
+D00033,P016,champion,Mr. Desmond J. Murphy,Brittany,all-breed
+D00050,P016,champion,Mr. Desmond J. Murphy,Flat-Coated Retriever,all-breed
+D00036,P016,class,Mr. Desmond J. Murphy,German Shorthaired Pointer,all-breed
+D00082,P016,class,Mr. Desmond J. Murphy,Golden Retriever,all-breed
+D00053,P016,class,Mr. Desmond J. Murphy,Irish Setter,all-breed
+D00035,P016,champion,Mr. Desmond J. Murphy,Nederlandse Kooikerhondjes,all-breed
+D00009,P016,champion,Mr. Desmond J. Murphy,Vizsla,all-breed
+D00135,P016,champion,Mr. Nathaniel Horn,Rhodesian Ridgeback,all-breed
+D00229,P016,class,Ms. Victoria M. Jordan,Cane Corso,all-breed
+D00611,P016,champion,Mr. Bruce Schwartz,Border Terrier,all-breed
+D00532,P016,class,Mr. Jon R. Cole,American Eskimos,all-breed
+D00535,P016-A1,class,Mr. Jon R. Cole,Bichon Frise,all-breed
+D00541,P016-A1,champion,Mr. Jon R. Cole,Bichon Frise,all-breed
+D00476,P016-A1,champion,Mr. Jon R. Cole,Boston Terrier,all-breed
+D00469,P016-A1,champion,Mr. Jon R. Cole,Bulldog,all-breed
+D00427,P016-A1,class,Mr. Jon R. Cole,French Bulldog,all-breed
+D00447,P016-A1,champion,Mr. Jon R. Cole,French Bulldog,all-breed
+D00524,P016-A1,class,Mr. Jon R. Cole,Poodle (Miniature),all-breed
+D00298,P016-A1,champion,Ms. Victoria M. Jordan,Tibetan Spaniel,all-breed
+D00548,P016-A1,champion,Mr. Jon R. Cole,Xoloitzcuintli,all-breed
+D00339,P016-A1,champion,Mrs. Lee Murphy-East,Pembroke Welsh Corgi,all-breed

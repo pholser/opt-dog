@@ -74,7 +74,7 @@ sweepstakes, Junior Showmanship, Best in Miscellaneous.
 ### 2.6 Exhibitors (U)
 | Symbol | Meaning |
 |---|---|
-| `X` | exhibitors/handlers; each dog entry has one exhibitor/handler |
+| `X` | exhibitors: whoever takes the dog into the ring. Each dog entry has one exhibitor. A professional handler is a *team*: if the handler needs help, the assistant who takes the dog in is the exhibitor on that dog, and assistants may register like anyone else (U) |
 | `X* ⊆ X` | exhibitors registered for non-conflict accommodation |
 | `dogs(x)` | for each exhibitor: the entries they show, each tagged *class dog* or *champion (BOB/specials)* |
 
@@ -122,7 +122,7 @@ start of unit `u` (block start + durations of the units ahead of it in the block
 
 | # | Cost | Source |
 |---|---|---|
-| S1 | **Exhibitor conflict minutes**: for each registered exhibitor `x ∈ X*` and each pair of their entries in *different units*, the **minutes of overlap** of the busy windows (§2.7). If the two units are in **different rings**, one window is first widened by the travel margin `m_X` (so units back to back across rings with less than `m_X` between them still conflict). Units in the same ring never overlap, so they never conflict | U |
+| S1 | **Exhibitor conflict minutes**, counted **by breed** (U): for each registered exhibitor `x ∈ X*`, their dogs in one unit merge into one busy window (any class dog → the whole unit; champions only → just the BOB portion, §2.7). Several dogs in the same unit are never a conflict. For each pair of `x`'s windows in *different units*, the cost is the **minutes of overlap**. If the two units are in **different rings**, one window is first widened by the travel margin `m_X` (so units back to back across rings with less than `m_X` between them still conflict). Units in the same ring never overlap, so they never conflict | U |
 | S2 | **Judge ring changes**: penalty for each change between consecutive blocks; a heavier penalty when the change isn't at lunch | Best Practices; Show Manual §6; U |
 | S3 | **Equipment switches**: within a judge's sequence, table breeds consecutive and ramp breeds consecutive | Show Manual §6; Best Practices |
 | S4 | A judge with breeds in several groups has them ordered by group | Show Manual §6 |

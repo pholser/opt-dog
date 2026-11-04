@@ -16,7 +16,8 @@ Hard constraints checked here:
     V1  judge daily entry limit (input check)
 Not checkable from a program alone: H5 (published order is taken as given),
 H10 (sequencing is built into the group timeline), H11 (pinned events are not
-recorded in parsed programs). S1 (exhibitor conflicts) needs exhibitor data.
+recorded in parsed programs). S1 (exhibitor conflicts) is scored when the show
+has entries (``Show.entries``; synthetic for now).
 
 Soft costs scored: S2 ring changes, S3 equipment switches, S4 group switches,
 S5 judge idle, S8 dogs over the final-segment limit (AKC's 50-dog final-segment
@@ -232,6 +233,17 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
         if p.closing_time is not None and timeline.finish > p.closing_time:
             res.violations.append(Violation("H12", "show", f"finishes {fmt_time(int(timeline.finish))}", timeline.finish - p.closing_time))
 
+    # ---------------------------------------------------------------- S1 exhibitor conflicts
+    conflict_minutes = None
+    if program.show.entries:
+        from optdog.conflicts import exhibitor_conflicts
+
+        cr = exhibitor_conflicts(program, p.exhibitor_travel_minutes)
+        conflict_minutes = cr.minutes
+        res.metrics["conflict_pairs"] = len(cr.conflicts)
+        res.metrics["exhibitors_in_conflict"] = len(cr.by_exhibitor())
+        res.metrics["entries_unscheduled"] = len(cr.unscheduled)
+
     # ---------------------------------------------------------------- V1 daily limit
     show = program.show
     for judge in show.judges:
@@ -252,6 +264,8 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
         "S5_judge_idle_min": round(idle, 1),
         "S8_final_segment_excess_dogs": final_excess,
     }
+    if conflict_minutes is not None:
+        res.soft["S1_conflict_min"] = round(conflict_minutes, 1)
     res.metrics.update(
         {
             "blocks": len(blocks),
@@ -273,5 +287,6 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
             + w.group_switch * extra_group_switches
             + w.judge_idle * idle
             + w.final_segment_excess * final_excess
+            + w.conflict * (conflict_minutes or 0.0)
         )
     return res

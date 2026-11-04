@@ -1,0 +1,789 @@
+dog,exhibitor,status,judge,event,competition
+D00001,O0001,class,Mr. Gregg G. Kantak,Bulldog,all-breed
+D00002,O0002,class,Mr. Gregg G. Kantak,Bulldog,all-breed
+D00003,O0003,class,Mr. Gregg G. Kantak,Bulldog,all-breed
+D00004,O0004,class,Mr. Gregg G. Kantak,Bulldog,all-breed
+D00005,O0005,champion,Mr. Gregg G. Kantak,Bulldog,all-breed
+D00008,O0005,class,Mr. Gregg G. Kantak,Boston Terrier,all-breed
+D00009,O0007,class,Mr. Gregg G. Kantak,Boston Terrier,all-breed
+D00013,O0008,champion,Mr. Gregg G. Kantak,Boston Terrier,all-breed
+D00014,O0008,champion,Mr. Gregg G. Kantak,Boston Terrier,all-breed
+D00015,O0010,class,Mr. Gregg G. Kantak,Basset Hound,all-breed
+D00016,O0010,class,Mr. Gregg G. Kantak,Basset Hound,all-breed
+D00018,O0012,champion,Mr. Gregg G. Kantak,Basset Hound,all-breed
+D00019,O0012,champion,Mr. Gregg G. Kantak,Basset Hound,all-breed
+D00020,O0014,champion,Mr. Gregg G. Kantak,Basset Hound,all-breed
+D00021,O0015,champion,Mr. Gregg G. Kantak,Basset Hound,all-breed
+D00022,O0016,champion,Mr. Gregg G. Kantak,Basset Hound,all-breed
+D00023,O0017,champion,Mr. Gregg G. Kantak,Beagle Thirteen Inch,all-breed
+D00024,O0017,champion,Mr. Gregg G. Kantak,Beagle Thirteen Inch,all-breed
+D00025,O0019,class,Mr. Gregg G. Kantak,Beagle Fifteen Inch,all-breed
+D00026,O0020,champion,Mr. Gregg G. Kantak,Beagle Fifteen Inch,all-breed
+D00028,O0021,class,Mr. Gregg G. Kantak,Poodle (Toy),all-breed
+D00029,O0021,class,Mr. Gregg G. Kantak,Poodle (Toy),all-breed
+D00031,O0023,class,Mr. Gregg G. Kantak,Poodle (Toy),all-breed
+D00033,O0024,class,Mr. Gregg G. Kantak,Lhasa Apso,all-breed
+D00037,O0025,class,Mr. Gregg G. Kantak,Lowchen,all-breed
+D00040,O0026,class,Mr. Gregg G. Kantak,Lowchen,all-breed
+D00044,O0024,champion,Mr. Gregg G. Kantak,Xoloitzcuintli,all-breed
+D00045,O0028,champion,Mr. Gregg G. Kantak,Xoloitzcuintli,all-breed
+D00046,O0029,champion,Mr. Gregg G. Kantak,Tibetan Terrier,all-breed
+D00047,O0017,class,Mr. Gregg G. Kantak,Poodle (Standard),all-breed
+D00048,O0017,class,Mr. Gregg G. Kantak,Poodle (Standard),all-breed
+D00049,O0032,class,Mr. Gregg G. Kantak,Poodle (Standard),all-breed
+D00050,O0033,class,Mr. Gregg G. Kantak,Poodle (Standard),all-breed
+D00051,O0034,class,Mr. Gregg G. Kantak,Poodle (Standard),all-breed
+D00054,O0035,class,Mr. Gregg G. Kantak,Poodle (Standard),all-breed
+D00055,O0036,champion,Mr. Gregg G. Kantak,Poodle (Standard),all-breed
+D00057,O0037,class,Mr. Richard V. Miller,Pug,all-breed
+D00058,O0037,class,Mr. Richard V. Miller,Pug,all-breed
+D00062,O0039,champion,Mr. Richard V. Miller,Petit Basset Griffon Vendeens,all-breed
+D00063,O0010,champion,Mr. Richard V. Miller,Petit Basset Griffon Vendeens,all-breed
+D00064,O0041,class,Mr. Richard V. Miller,Portuguese Podengo Pequeno,all-breed
+D00066,O0041,class,Mr. Richard V. Miller,Portuguese Podengo Pequeno,all-breed
+D00067,O0041,champion,Mr. Richard V. Miller,Portuguese Podengo Pequeno,all-breed
+D00068,O0017,champion,Mr. Richard V. Miller,Portuguese Podengo Pequeno,all-breed
+D00069,O0017,champion,Mr. Richard V. Miller,Portuguese Podengo Pequeno,all-breed
+D00073,O0046,class,Mr. Richard V. Miller,Dalmatian,all-breed
+D00074,O0046,class,Mr. Richard V. Miller,Dalmatian,all-breed
+D00075,O0048,class,Mr. Richard V. Miller,Dalmatian,all-breed
+D00076,O0049,champion,Mr. Richard V. Miller,Dalmatian,all-breed
+D00079,O0050,champion,Mr. Richard V. Miller,Dalmatian,all-breed
+D00081,O0051,class,Mr. Richard V. Miller,Kerry Blue Terrier,all-breed
+D00083,O0052,champion,Mr. Richard V. Miller,Kerry Blue Terrier,all-breed
+D00085,O0017,class,Mr. Richard V. Miller,Cavalier King Charles Spaniel,all-breed
+D00086,O0054,class,Mr. Richard V. Miller,Cavalier King Charles Spaniel,all-breed
+D00088,O0055,class,Mr. Richard V. Miller,Cavalier King Charles Spaniel,all-breed
+D00089,O0056,class,Mr. Richard V. Miller,Cavalier King Charles Spaniel,all-breed
+D00093,O0057,champion,Mr. Richard V. Miller,Cavalier King Charles Spaniel,all-breed
+D00095,O0058,champion,Mr. Richard V. Miller,Cavalier King Charles Spaniel,all-breed
+D00096,O0059,champion,Mr. Richard V. Miller,Cavalier King Charles Spaniel,all-breed
+D00097,O0060,champion,Mr. Richard V. Miller,American Staffordshire Terrier,all-breed
+D00100,O0061,class,Mr. Richard V. Miller,Miniature Bull Terrier,all-breed
+D00103,O0062,class,Mr. Richard V. Miller,Miniature Bull Terrier,all-breed
+D00104,O0063,class,Mr. Richard V. Miller,Miniature Bull Terrier,all-breed
+D00105,O0048,class,Mr. Richard V. Miller,Miniature Bull Terrier,all-breed
+D00106,O0052,champion,Mr. Richard V. Miller,Miniature Bull Terrier,all-breed
+D00107,O0066,class,Mr. Richard V. Miller,Irish Terrier,all-breed
+D00108,O0067,class,Mr. Richard V. Miller,Irish Terrier,all-breed
+D00111,O0068,class,Mr. Richard V. Miller,Miniature Schnauzer,all-breed
+D00112,O0069,champion,Mr. Richard V. Miller,Miniature Schnauzer,all-breed
+D00114,O0070,class,Mr. Richard V. Miller,Border Terrier,all-breed
+D00115,O0071,champion,Mr. Richard V. Miller,Border Terrier,all-breed
+D00118,O0071,champion,Mr. Richard V. Miller,Border Terrier,all-breed
+D00119,O0024,class,Mr. Richard V. Miller,Miniature Pinscher,all-breed
+D00120,O0074,class,Mr. Richard V. Miller,Miniature Pinscher,all-breed
+D00121,O0075,class,Mr. Richard V. Miller,Miniature Pinscher,all-breed
+D00122,O0075,class,Mr. Richard V. Miller,Miniature Pinscher,all-breed
+D00123,O0075,class,Mr. Richard V. Miller,Miniature Pinscher,all-breed
+D00124,O0078,class,Mr. Richard V. Miller,Miniature Pinscher,all-breed
+D00126,O0079,class,Mr. Richard V. Miller,Miniature Pinscher,all-breed
+D00127,O0080,class,Mr. Richard V. Miller,Miniature Pinscher,all-breed
+D00128,O0080,class,Mr. Richard V. Miller,Miniature Pinscher,all-breed
+D00133,O0082,champion,Mr. Richard V. Miller,Miniature Pinscher,all-breed
+D00134,O0082,champion,Mr. Richard V. Miller,Miniature Pinscher,all-breed
+D00135,O0084,champion,Mr. Richard V. Miller,Australian Terrier,all-breed
+D00136,O0085,class,Mr. Richard V. Miller,Cairn Terrier,all-breed
+D00137,O0085,class,Mr. Richard V. Miller,Cairn Terrier,all-breed
+D00138,O0087,champion,Mr. Richard V. Miller,Cesky Terrier,all-breed
+D00141,O0088,champion,Mr. Richard V. Miller,Fox Terrier (Wire),all-breed
+D00142,O0087,class,Mr. Richard V. Miller,Norfolk Terrier,all-breed
+D00144,O0090,champion,Mr. Richard Todd Jackson,French Bulldog,all-breed
+D00147,O0091,class,Mr. Richard Todd Jackson,Tibetan Spaniel,all-breed
+D00149,O0092,class,Mr. Richard Todd Jackson,Bichon Frise,all-breed
+D00150,O0041,class,Mr. Richard Todd Jackson,Bichon Frise,all-breed
+D00151,O0041,class,Mr. Richard Todd Jackson,Bichon Frise,all-breed
+D00153,O0041,class,Mr. Richard Todd Jackson,Bichon Frise,all-breed
+D00154,O0041,champion,Mr. Richard Todd Jackson,Bichon Frise,all-breed
+D00157,O0097,champion,Mr. Richard Todd Jackson,Affenpinscher,all-breed
+D00158,O0098,class,Mr. Richard Todd Jackson,Manchester Terrier (Standard),all-breed
+D00162,O0099,class,Mr. Richard Todd Jackson,Manchester Terrier (Standard),all-breed
+D00164,O0099,champion,Mr. Richard Todd Jackson,Manchester Terrier (Standard),all-breed
+D00166,O0101,class,Mr. Richard Todd Jackson,Biewer Terrier,all-breed
+D00168,O0102,class,Mr. Richard Todd Jackson,Biewer Terrier,all-breed
+D00169,O0103,class,Mr. Richard Todd Jackson,Biewer Terrier,all-breed
+D00170,O0104,class,Mr. Richard Todd Jackson,Biewer Terrier,all-breed
+D00172,O0105,champion,Mr. Richard Todd Jackson,Biewer Terrier,all-breed
+D00173,O0106,champion,Mr. Richard Todd Jackson,Biewer Terrier,all-breed
+D00174,O0106,champion,Mr. Richard Todd Jackson,Biewer Terrier,all-breed
+D00176,O0108,class,Mr. Richard Todd Jackson,Chihuahua (Long Coat),all-breed
+D00177,O0109,class,Mr. Richard Todd Jackson,Chihuahua (Long Coat),all-breed
+D00181,O0110,champion,Mr. Richard Todd Jackson,Chihuahua (Long Coat),all-breed
+D00185,O0111,class,Mr. Richard Todd Jackson,Chihuahua (Smooth Coat),all-breed
+D00190,O0010,class,Mr. Richard Todd Jackson,Brussels Griffon,all-breed
+D00191,O0010,class,Mr. Richard Todd Jackson,Brussels Griffon,all-breed
+D00192,O0114,class,Mr. Richard Todd Jackson,Brussels Griffon,all-breed
+D00193,O0114,champion,Mr. Richard Todd Jackson,Brussels Griffon,all-breed
+D00196,O0116,champion,Mr. Richard Todd Jackson,Manchester Terrier (Toy),all-breed
+D00197,O0117,class,Mr. Richard Todd Jackson,Papillon,all-breed
+D00204,O0118,champion,Mr. Richard Todd Jackson,Russian Toy,all-breed
+D00205,O0119,class,Mr. Richard Todd Jackson,Pomeranian,all-breed
+D00206,O0085,class,Mr. Richard Todd Jackson,Pomeranian,all-breed
+D00208,O0121,champion,Mr. Richard Todd Jackson,Pomeranian,all-breed
+D00209,O0121,champion,Mr. Richard Todd Jackson,Pomeranian,all-breed
+D00210,O0121,champion,Mr. Richard Todd Jackson,Pomeranian,all-breed
+D00212,O0124,class,Mr. Richard Todd Jackson,Yorkshire Terrier,all-breed
+D00213,O0124,class,Mr. Richard Todd Jackson,Yorkshire Terrier,all-breed
+D00214,O0124,class,Mr. Richard Todd Jackson,Yorkshire Terrier,all-breed
+D00215,O0124,class,Mr. Richard Todd Jackson,Yorkshire Terrier,all-breed
+D00217,O0128,class,Mr. Richard Todd Jackson,Yorkshire Terrier,all-breed
+D00218,O0128,class,Mr. Richard Todd Jackson,Yorkshire Terrier,all-breed
+D00219,O0059,class,Mr. Richard Todd Jackson,Yorkshire Terrier,all-breed
+D00220,O0131,class,Mr. Richard Todd Jackson,Yorkshire Terrier,all-breed
+D00221,O0131,class,Mr. Richard Todd Jackson,Yorkshire Terrier,all-breed
+D00222,O0133,class,Mr. Richard Todd Jackson,Yorkshire Terrier,all-breed
+D00223,O0133,class,Mr. Richard Todd Jackson,Yorkshire Terrier,all-breed
+D00224,O0135,class,Mr. Richard Todd Jackson,Yorkshire Terrier,all-breed
+D00225,O0136,class,Mr. Richard Todd Jackson,Yorkshire Terrier,all-breed
+D00229,O0137,champion,Mr. Richard Todd Jackson,Yorkshire Terrier,all-breed
+D00230,O0138,champion,Mr. Richard Todd Jackson,Yorkshire Terrier,all-breed
+D00231,O0139,champion,Mr. Richard Todd Jackson,Yorkshire Terrier,all-breed
+D00232,O0097,class,Mr. Richard Todd Jackson,Chinese Crested,all-breed
+D00243,O0141,class,Mr. Richard Todd Jackson,Shih Tzu,all-breed
+D00244,O0142,class,Mr. Richard Todd Jackson,Shih Tzu,all-breed
+D00246,O0143,class,Mr. Richard Todd Jackson,Shih Tzu,all-breed
+D00247,O0144,class,Mr. Richard Todd Jackson,Shih Tzu,all-breed
+D00248,O0145,class,Mr. Richard Todd Jackson,Shih Tzu,all-breed
+D00252,O0146,champion,Mr. Manuel Queijeiro,Rat Terrier,all-breed
+D00254,O0147,champion,Mr. Manuel Queijeiro,Welsh Terrier,all-breed
+D00255,O0148,class,Mr. Manuel Queijeiro,Norwich Terrier,all-breed
+D00256,O0068,class,Mr. Manuel Queijeiro,Norwich Terrier,all-breed
+D00258,O0068,class,Mr. Manuel Queijeiro,Norwich Terrier,all-breed
+D00260,O0068,class,Mr. Manuel Queijeiro,Norwich Terrier,all-breed
+D00266,O0152,class,Mr. Manuel Queijeiro,West Highland White Terrier,all-breed
+D00267,O0153,class,Mr. Manuel Queijeiro,West Highland White Terrier,all-breed
+D00268,O0154,class,Mr. Manuel Queijeiro,West Highland White Terrier,all-breed
+D00270,O0155,class,Mr. Manuel Queijeiro,Soft Coated Wheaten Terrier,all-breed
+D00274,O0084,class,Mr. Manuel Queijeiro,Staffordshire Bull Terriers,all-breed
+D00275,O0157,class,Mr. Manuel Queijeiro,Staffordshire Bull Terriers,all-breed
+D00278,O0158,class,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00279,O0158,class,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00283,O0160,class,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00284,O0161,class,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00285,O0162,class,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00286,O0162,class,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00287,O0164,class,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00289,O0061,class,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00290,O0166,class,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00291,O0166,class,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00292,O0168,class,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00293,O0169,class,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00299,O0170,champion,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00305,O0170,champion,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00306,O0172,class,Mr. Manuel Queijeiro,Bernese Mountain Dog,all-breed
+D00307,O0173,class,Mr. Manuel Queijeiro,Bernese Mountain Dog,all-breed
+D00308,O0174,class,Mr. Manuel Queijeiro,Bernese Mountain Dog,all-breed
+D00309,O0175,class,Mr. Manuel Queijeiro,Bernese Mountain Dog,all-breed
+D00310,O0176,class,Mr. Manuel Queijeiro,Bernese Mountain Dog,all-breed
+D00311,O0177,champion,Mr. Manuel Queijeiro,Bernese Mountain Dog,all-breed
+D00314,O0178,champion,Mr. Manuel Queijeiro,Bernese Mountain Dog,all-breed
+D00315,O0178,champion,Mr. Manuel Queijeiro,Bernese Mountain Dog,all-breed
+D00318,O0180,champion,Mr. Manuel Queijeiro,Greater Swiss Mountain Dog,all-breed
+D00319,O0181,class,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00320,O0181,class,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00321,O0173,class,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00322,O0184,class,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00323,O0071,class,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00324,O0186,class,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00326,O0187,class,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00327,O0188,class,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00328,O0189,class,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00330,O0189,class,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00335,O0191,champion,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00337,O0192,champion,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00338,O0193,champion,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00341,O0194,champion,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00346,O0172,class,Mr. Manuel Queijeiro,Bullmastiff,all-breed
+D00347,O0172,class,Mr. Manuel Queijeiro,Bullmastiff,all-breed
+D00348,O0197,class,Mr. Manuel Queijeiro,Bullmastiff,all-breed
+D00349,O0198,class,Mr. Manuel Queijeiro,Bullmastiff,all-breed
+D00350,O0199,class,Mr. Manuel Queijeiro,Bullmastiff,all-breed
+D00352,O0200,class,Mr. Manuel Queijeiro,Bullmastiff,all-breed
+D00353,O0201,class,Mr. Manuel Queijeiro,Bullmastiff,all-breed
+D00354,O0202,champion,Mr. Manuel Queijeiro,Bullmastiff,all-breed
+D00355,O0180,class,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00357,O0204,class,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00358,O0205,class,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00360,O0205,class,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00361,O0207,class,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00363,O0208,class,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00364,O0173,class,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00365,O0210,class,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00366,O0211,class,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00368,O0211,champion,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00370,O0213,champion,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00373,O0214,champion,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00375,O0214,champion,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00380,O0216,champion,Mr. Richard Todd Jackson,Spinone Italiano,all-breed
+D00382,O0012,champion,Mr. Richard Todd Jackson,Black and Tan Coonhound,all-breed
+D00384,O0012,champion,Mr. Richard Todd Jackson,Black and Tan Coonhound,all-breed
+D00385,O0219,class,Mr. Richard Todd Jackson,Irish Wolfhound,all-breed
+D00387,O0219,class,Mr. Richard Todd Jackson,Irish Wolfhound,all-breed
+D00388,O0221,champion,Mr. Richard Todd Jackson,Irish Wolfhound,all-breed
+D00389,O0019,champion,Mr. Richard Todd Jackson,Irish Wolfhound,all-breed
+D00394,O0223,class,Ms. Pamela Schroeder,Cane Corso,all-breed
+D00398,O0224,class,Ms. Pamela Schroeder,Danish-Swedish Farmdog,all-breed
+D00399,O0225,class,Ms. Pamela Schroeder,Danish-Swedish Farmdog,all-breed
+D00402,O0226,class,Ms. Pamela Schroeder,Giant Schnauzer,all-breed
+D00405,O0227,class,Ms. Pamela Schroeder,ST. Bernard,all-breed
+D00407,O0228,class,Ms. Pamela Schroeder,Newfoundland,all-breed
+D00408,O0229,class,Ms. Pamela Schroeder,Newfoundland,all-breed
+D00409,O0229,class,Ms. Pamela Schroeder,Newfoundland,all-breed
+D00410,O0231,class,Ms. Pamela Schroeder,Newfoundland,all-breed
+D00412,O0231,champion,Ms. Pamela Schroeder,Newfoundland,all-breed
+D00413,O0233,class,Ms. Pamela Schroeder,Leonberger,all-breed
+D00414,O0233,class,Ms. Pamela Schroeder,Leonberger,all-breed
+D00417,O0235,champion,Ms. Pamela Schroeder,German Pinscher,all-breed
+D00418,O0236,class,Ms. Pamela Schroeder,Boxer,all-breed
+D00419,O0237,class,Ms. Pamela Schroeder,Boxer,all-breed
+D00420,O0237,class,Ms. Pamela Schroeder,Boxer,all-breed
+D00421,O0239,class,Ms. Pamela Schroeder,Boxer,all-breed
+D00423,O0240,class,Ms. Laura Munro,Great Pyrenees,all-breed
+D00427,O0241,class,Ms. Laura Munro,Doberman Pinscher,all-breed
+D00428,O0242,class,Ms. Laura Munro,Doberman Pinscher,all-breed
+D00429,O0243,class,Ms. Laura Munro,Doberman Pinscher,all-breed
+D00430,O0244,class,Ms. Laura Munro,Doberman Pinscher,all-breed
+D00431,O0245,champion,Ms. Laura Munro,Doberman Pinscher,all-breed
+D00432,O0246,champion,Ms. Laura Munro,Doberman Pinscher,all-breed
+D00434,O0247,champion,Ms. Laura Munro,Doberman Pinscher,all-breed
+D00437,O0248,class,Ms. Laura Munro,Great Dane,all-breed
+D00438,O0249,class,Ms. Laura Munro,Great Dane,all-breed
+D00440,O0250,class,Ms. Laura Munro,Great Dane,all-breed
+D00441,O0250,class,Ms. Laura Munro,Great Dane,all-breed
+D00442,O0252,class,Ms. Laura Munro,Great Dane,all-breed
+D00443,O0252,class,Ms. Laura Munro,Great Dane,all-breed
+D00444,O0254,class,Ms. Laura Munro,Great Dane,all-breed
+D00445,O0255,class,Ms. Laura Munro,Great Dane,all-breed
+D00449,O0214,champion,Ms. Laura Munro,Great Dane,all-breed
+D00455,O0257,class,Mr. Israel Garcia,Rhodesian Ridgeback,all-breed
+D00456,O0012,class,Mr. Israel Garcia,Rhodesian Ridgeback,all-breed
+D00457,O0010,class,Mr. Israel Garcia,Rhodesian Ridgeback,all-breed
+D00458,O0010,class,Mr. Israel Garcia,Rhodesian Ridgeback,all-breed
+D00459,O0010,class,Mr. Israel Garcia,Rhodesian Ridgeback,all-breed
+D00460,O0262,class,Mr. Israel Garcia,Rhodesian Ridgeback,all-breed
+D00461,O0263,class,Mr. Israel Garcia,Rhodesian Ridgeback,all-breed
+D00464,O0263,class,Mr. Israel Garcia,Borzoi,all-breed
+D00467,O0265,champion,Mr. Israel Garcia,Borzoi,all-breed
+D00469,O0266,class,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00472,O0267,class,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00473,O0268,class,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00474,O0269,class,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00475,O0270,class,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00476,O0271,class,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00477,O0272,class,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00478,O0273,class,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00479,O0274,class,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00480,O0010,class,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00481,O0010,class,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00484,O0010,class,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00485,O0278,class,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00486,O0279,class,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00489,O0280,champion,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00490,O0280,champion,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00492,O0282,class,Mr. Israel Garcia,Dachshund (Smooth),all-breed
+D00494,O0283,class,Mr. Israel Garcia,Dachshund (Smooth),all-breed
+D00495,O0284,class,Mr. Israel Garcia,Dachshund (Smooth),all-breed
+D00496,O0284,class,Mr. Israel Garcia,Dachshund (Smooth),all-breed
+D00498,O0286,class,Mr. Israel Garcia,Dachshund (Smooth),all-breed
+D00503,O0287,class,Mr. Israel Garcia,Dachshund (Wirehaired),all-breed
+D00505,O0287,class,Mr. Israel Garcia,Dachshund (Wirehaired),all-breed
+D00506,O0289,class,Mr. Israel Garcia,Dachshund (Wirehaired),all-breed
+D00507,O0266,champion,Mr. Israel Garcia,Dachshund (Wirehaired),all-breed
+D00508,O0266,champion,Mr. Israel Garcia,Dachshund (Wirehaired),all-breed
+D00510,O0292,champion,Mr. Israel Garcia,Dachshund (Wirehaired),all-breed
+D00511,O0293,champion,Mr. Israel Garcia,Dachshund (Wirehaired),all-breed
+D00512,O0294,champion,Mr. Israel Garcia,Greyhound,all-breed
+D00513,O0295,class,Mr. Israel Garcia,Whippet,all-breed
+D00514,O0295,class,Mr. Israel Garcia,Whippet,all-breed
+D00515,O0297,class,Mr. Israel Garcia,Whippet,all-breed
+D00516,O0298,class,Mr. Israel Garcia,Whippet,all-breed
+D00518,O0299,class,Mr. Israel Garcia,Whippet,all-breed
+D00520,O0300,class,Mr. Israel Garcia,Whippet,all-breed
+D00521,O0301,class,Mr. Israel Garcia,Whippet,all-breed
+D00522,O0302,champion,Mr. Israel Garcia,Whippet,all-breed
+D00524,O0303,champion,Mr. Israel Garcia,Whippet,all-breed
+D00525,O0303,champion,Mr. Israel Garcia,Whippet,all-breed
+D00527,O0305,champion,Mr. Israel Garcia,Whippet,all-breed
+D00528,O0306,class,Mr. Manuel Queijeiro,Old English Sheepdog,all-breed
+D00531,O0307,class,Mr. Manuel Queijeiro,Alaskan Malamute,all-breed
+D00533,O0308,class,Mr. Manuel Queijeiro,Portuguese Water Dog,all-breed
+D00534,O0225,class,Mr. Manuel Queijeiro,Portuguese Water Dog,all-breed
+D00536,O0310,champion,Mr. Manuel Queijeiro,Portuguese Water Dog,all-breed
+D00537,O0311,class,Mr. Manuel Queijeiro,Rottweiler,all-breed
+D00538,O0312,class,Mr. Manuel Queijeiro,Rottweiler,all-breed
+D00539,O0313,class,Mr. Manuel Queijeiro,Rottweiler,all-breed
+D00540,O0313,class,Mr. Manuel Queijeiro,Rottweiler,all-breed
+D00541,O0315,class,Mr. Manuel Queijeiro,Rottweiler,all-breed
+D00542,O0316,class,Mr. Manuel Queijeiro,Rottweiler,all-breed
+D00544,O0317,champion,Mr. Manuel Queijeiro,Rottweiler,all-breed
+D00547,O0173,champion,Mr. Manuel Queijeiro,Rottweiler,all-breed
+D00549,O0173,champion,Mr. Manuel Queijeiro,Rottweiler,all-breed
+D00551,O0320,champion,Mr. Manuel Queijeiro,Rottweiler,all-breed
+D00555,O0321,champion,Mr. Manuel Queijeiro,Standard Schnauzer,all-breed
+D00557,O0322,class,Mr. Manuel Queijeiro,Mastiff,all-breed
+D00558,O0323,class,Mr. Manuel Queijeiro,Mastiff,all-breed
+D00559,O0324,class,Mr. Manuel Queijeiro,Mastiff,all-breed
+D00560,O0324,champion,Mr. Manuel Queijeiro,Mastiff,all-breed
+D00561,O0326,class,Mr. Manuel Queijeiro,Puli,all-breed
+D00562,O0326,class,Mr. Manuel Queijeiro,Puli,all-breed
+D00563,O0326,champion,Mr. Manuel Queijeiro,Puli,all-breed
+D00565,O0329,class,Mr. Manuel Queijeiro,Cardigan Welsh Corgi,all-breed
+D00566,O0330,class,Mr. Manuel Queijeiro,Cardigan Welsh Corgi,all-breed
+D00567,O0331,class,Mr. Manuel Queijeiro,Cardigan Welsh Corgi,all-breed
+D00571,O0332,class,Mr. Manuel Queijeiro,Norwegian Buhund,all-breed
+D00573,O0332,class,Mr. Manuel Queijeiro,Norwegian Buhund,all-breed
+D00575,O0334,class,Mrs. Nancy D. Simmons,Flat-Coated Retriever,all-breed
+D00580,O0335,champion,Mrs. Nancy D. Simmons,Wirehaired Pointing Griffon,all-breed
+D00582,O0336,class,Mrs. Nancy D. Simmons,German Shorthaired Pointer,all-breed
+D00583,O0337,class,Mrs. Nancy D. Simmons,German Shorthaired Pointer,all-breed
+D00585,O0337,class,Mrs. Nancy D. Simmons,German Shorthaired Pointer,all-breed
+D00589,O0339,champion,Mrs. Nancy D. Simmons,German Shorthaired Pointer,all-breed
+D00591,O0340,champion,Mrs. Nancy D. Simmons,German Shorthaired Pointer,all-breed
+D00592,O0164,champion,Mrs. Nancy D. Simmons,German Shorthaired Pointer,all-breed
+D00594,O0342,class,Mrs. Nancy D. Simmons,Irish Setter,all-breed
+D00598,O0343,champion,Mrs. Nancy D. Simmons,Irish Setter,all-breed
+D00599,O0344,class,Mrs. Nancy D. Simmons,Lagotto Romagnolo,all-breed
+D00600,O0345,champion,Mrs. Nancy D. Simmons,Clumber Spaniel,all-breed
+D00602,O0216,class,Mrs. Nancy D. Simmons,Retriever (Nova Scotia Duck Toll),all-breed
+D00603,O0347,champion,Mrs. Nancy D. Simmons,Retriever (Nova Scotia Duck Toll),all-breed
+D00604,O0348,class,Mrs. Nancy D. Simmons,Labrador Retriever,all-breed
+D00605,O0349,class,Mrs. Nancy D. Simmons,Labrador Retriever,all-breed
+D00606,O0349,class,Mrs. Nancy D. Simmons,Labrador Retriever,all-breed
+D00608,O0351,class,Mrs. Nancy D. Simmons,Labrador Retriever,all-breed
+D00609,O0352,class,Mrs. Nancy D. Simmons,Labrador Retriever,all-breed
+D00610,O0353,class,Mrs. Nancy D. Simmons,Labrador Retriever,all-breed
+D00611,O0353,class,Mrs. Nancy D. Simmons,Labrador Retriever,all-breed
+D00612,O0355,class,Mrs. Nancy D. Simmons,Labrador Retriever,all-breed
+D00613,O0355,class,Mrs. Nancy D. Simmons,Labrador Retriever,all-breed
+D00615,O0357,class,Mrs. Nancy D. Simmons,Labrador Retriever,all-breed
+D00616,O0358,class,Mrs. Nancy D. Simmons,Labrador Retriever,all-breed
+D00620,O0358,champion,Mrs. Nancy D. Simmons,Labrador Retriever,all-breed
+D00621,O0360,champion,Mrs. Nancy D. Simmons,Labrador Retriever,all-breed
+D00622,O0360,champion,Mrs. Nancy D. Simmons,Labrador Retriever,all-breed
+D00623,O0085,champion,Mrs. Nancy D. Simmons,Labrador Retriever,all-breed
+D00624,O0363,class,Mrs. Nancy D. Simmons,Golden Retriever,all-breed
+D00625,O0364,class,Mrs. Nancy D. Simmons,Golden Retriever,all-breed
+D00626,O0365,class,Mrs. Nancy D. Simmons,Golden Retriever,all-breed
+D00628,O0366,class,Mrs. Nancy D. Simmons,Golden Retriever,all-breed
+D00629,O0367,class,Mrs. Nancy D. Simmons,Golden Retriever,all-breed
+D00630,O0368,class,Mrs. Nancy D. Simmons,Golden Retriever,all-breed
+D00634,O0369,champion,Mrs. Nancy D. Simmons,Golden Retriever,all-breed
+D00636,O0370,champion,Mrs. Nancy D. Simmons,English Setter,all-breed
+D00637,O0371,champion,Mrs. Nancy D. Simmons,English Setter,all-breed
+D00639,O0372,class,Mrs. Nancy D. Simmons,Gordon Setter,all-breed
+D00640,O0373,class,Mrs. Nancy D. Simmons,English Cocker Spaniel,all-breed
+D00641,O0374,class,Mrs. Nancy D. Simmons,English Cocker Spaniel,all-breed
+D00642,O0375,class,Mrs. Nancy D. Simmons,English Cocker Spaniel,all-breed
+D00644,O0375,class,Mrs. Nancy D. Simmons,English Cocker Spaniel,all-breed
+D00645,O0375,class,Mrs. Nancy D. Simmons,English Cocker Spaniel,all-breed
+D00646,O0378,class,Mrs. Nancy D. Simmons,English Cocker Spaniel,all-breed
+D00648,O0379,champion,Mrs. Nancy D. Simmons,English Cocker Spaniel,all-breed
+D00649,O0166,champion,Mrs. Nancy D. Simmons,English Cocker Spaniel,all-breed
+D00651,O0381,class,Mrs. Nancy D. Simmons,Brittany,all-breed
+D00652,O0068,class,Mrs. Nancy D. Simmons,Brittany,all-breed
+D00653,O0383,class,Mrs. Nancy D. Simmons,Brittany,all-breed
+D00654,O0278,class,Mrs. Nancy D. Simmons,Brittany,all-breed
+D00656,O0385,champion,Mrs. Nancy D. Simmons,German Wirehaired Pointer,all-breed
+D00659,O0386,champion,Mrs. Nancy D. Simmons,Cocker Spaniel (Parti-Color),all-breed
+D00660,O0387,class,Mrs. Nancy D. Simmons,Shetland Sheepdog,all-breed
+D00662,O0387,champion,Mrs. Nancy D. Simmons,Shetland Sheepdog,all-breed
+D00663,O0389,class,Mrs. Nancy D. Simmons,Miniature American Shepherd,all-breed
+D00666,O0390,class,Mrs. Nancy D. Simmons,German Shepherd Dog,all-breed
+D00668,O0391,class,Mrs. Nancy D. Simmons,German Shepherd Dog,all-breed
+D00669,O0391,class,Mrs. Nancy D. Simmons,German Shepherd Dog,all-breed
+D00670,O0393,class,Mrs. Nancy D. Simmons,German Shepherd Dog,all-breed
+D00672,O0394,class,Mrs. Nancy D. Simmons,German Shepherd Dog,all-breed
+D00673,O0395,champion,Mrs. Nancy D. Simmons,German Shepherd Dog,all-breed
+D00674,O0396,champion,Mrs. Nancy D. Simmons,German Shepherd Dog,all-breed
+D00675,O0389,class,Mrs. Nancy D. Simmons,Pembroke Welsh Corgi,all-breed
+D00676,O0398,class,Mrs. Nancy D. Simmons,Pembroke Welsh Corgi,all-breed
+D00678,O0399,class,Mrs. Nancy D. Simmons,Pembroke Welsh Corgi,all-breed
+D00679,O0400,class,Mrs. Nancy D. Simmons,Pembroke Welsh Corgi,all-breed
+D00680,O0401,class,Mrs. Nancy D. Simmons,Pembroke Welsh Corgi,all-breed
+D00681,O0401,class,Mrs. Nancy D. Simmons,Pembroke Welsh Corgi,all-breed
+D00682,O0403,class,Mrs. Nancy D. Simmons,Pembroke Welsh Corgi,all-breed
+D00683,O0404,class,Mrs. Nancy D. Simmons,Pembroke Welsh Corgi,all-breed
+D00684,O0405,class,Mrs. Nancy D. Simmons,Pembroke Welsh Corgi,all-breed
+D00685,O0405,class,Mrs. Nancy D. Simmons,Pembroke Welsh Corgi,all-breed
+D00686,O0407,class,Mrs. Nancy D. Simmons,Pembroke Welsh Corgi,all-breed
+D00687,O0408,class,Mrs. Nancy D. Simmons,Pembroke Welsh Corgi,all-breed
+D00688,O0409,class,Mrs. Nancy D. Simmons,Pembroke Welsh Corgi,all-breed
+D00689,O0410,champion,Mrs. Nancy D. Simmons,Pembroke Welsh Corgi,all-breed
+D00692,O0411,class,Mrs. Nancy D. Simmons,Bearded Collie,all-breed
+D00693,O0412,class,Mrs. Nancy D. Simmons,Collie (Rough),all-breed
+D00694,O0413,class,Mrs. Nancy D. Simmons,Collie (Rough),all-breed
+D00697,O0414,class,Mrs. Nancy D. Simmons,Australian Shepherd,all-breed
+D00698,O0414,class,Mrs. Nancy D. Simmons,Australian Shepherd,all-breed
+D00699,O0416,class,Mrs. Nancy D. Simmons,Australian Shepherd,all-breed
+D00700,O0310,class,Mrs. Nancy D. Simmons,Beauceron,all-breed
+D00701,O0418,class,Mrs. Nancy D. Simmons,Beauceron,all-breed
+D00703,O0419,champion,Mrs. Nancy D. Simmons,Belgian Malinois,all-breed
+D00704,O0419,champion,Mrs. Nancy D. Simmons,Belgian Malinois,all-breed
+D00705,O0421,champion,Mrs. Nancy D. Simmons,Belgian Malinois,all-breed
+D00707,O0422,class,Mrs. Nancy D. Simmons,Belgian Tervuren,all-breed
+D00708,O0422,class,Mrs. Nancy D. Simmons,Belgian Tervuren,all-breed
+D00709,O0424,champion,Mrs. Nancy D. Simmons,Belgian Tervuren,all-breed
+D00711,O0425,class,Mrs. Nancy D. Simmons,Border Collie,all-breed
+D00712,O0426,champion,Mrs. Nancy D. Simmons,Border Collie,all-breed
+D00715,O0427,class,Mrs. Nancy D. Simmons,Australian Cattle Dog,all-breed
+D00716,O0428,champion,Mrs. Nancy D. Simmons,Australian Cattle Dog,all-breed
+D00718,O0429,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00722,O0429,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00723,O0429,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00724,O0432,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00725,O0433,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00726,O0434,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00728,O0434,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00729,O0436,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00730,O0437,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00731,O0437,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00732,O0437,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00733,O0440,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00734,O0441,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00735,O0442,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00736,O0443,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00737,O0443,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00738,O0445,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00739,O0445,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00740,O0447,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00741,O0448,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00742,O0449,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00745,O0449,champion,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00751,O0451,champion,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00754,O0451,champion,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00756,O0451,champion,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00758,O0451,champion,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00760,O0451,champion,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00763,O0456,class,Mr. Richard V. Miller,Basenji,all-breed
+D00764,O0457,class,Mr. Richard V. Miller,Basenji,all-breed
+D00765,O0429,class,Mr. Richard V. Miller,Basenji,all-breed
+D00767,O0459,class,Mr. Richard V. Miller,Basenji,all-breed
+D00769,O0460,class,Mr. Richard V. Miller,Basenji,all-breed
+D00771,O0460,class,Mr. Richard V. Miller,Basenji,all-breed
+D00773,O0462,champion,Mr. Richard V. Miller,Basenji,all-breed
+D00778,O0463,class,Mr. Richard V. Miller,Afghan Hound,all-breed
+D00779,O0464,class,Mr. Richard V. Miller,Afghan Hound,all-breed
+D00780,O0465,class,Mr. Richard V. Miller,Afghan Hound,all-breed
+D00782,O0466,champion,Mr. Richard V. Miller,Afghan Hound,all-breed
+D00786,O0467,champion,Mr. Richard V. Miller,Afghan Hound,all-breed
+D00619,P001,champion,Mrs. Nancy D. Simmons,Labrador Retriever,all-breed
+D00113,P001,champion,Mr. Richard V. Miller,Airedale Terrier,all-breed
+D00143,P001,champion,Mr. Richard V. Miller,Bull Terrier (White),all-breed
+D00140,P001,champion,Mr. Richard V. Miller,Fox Terrier (Smooth),all-breed
+D00110,P001,class,Mr. Richard V. Miller,Miniature Schnauzer,all-breed
+D00253,P001,class,Mr. Manuel Queijeiro,Skye Terrier,all-breed
+D00271,P001,champion,Mr. Manuel Queijeiro,Soft Coated Wheaten Terrier,all-breed
+D00568,P001,champion,Mr. Manuel Queijeiro,Cardigan Welsh Corgi,all-breed
+D00671,P001,class,Mrs. Nancy D. Simmons,German Shepherd Dog,all-breed
+D00664,P001,class,Mrs. Nancy D. Simmons,Miniature American Shepherd,all-breed
+D00296,P002,champion,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00450,P002,champion,Ms. Laura Munro,Great Dane,all-breed
+D00099,P002,champion,Mr. Richard V. Miller,American Staffordshire Terrier,all-breed
+D00139,P002,champion,Mr. Richard V. Miller,Fox Terrier (Smooth),all-breed
+D00082,P002,champion,Mr. Richard V. Miller,Kerry Blue Terrier,all-breed
+D00165,P002,champion,Mr. Richard Todd Jackson,Manchester Terrier (Standard),all-breed
+D00261,P002,champion,Mr. Manuel Queijeiro,Norwich Terrier,all-breed
+D00264,P002,champion,Mr. Manuel Queijeiro,Scottish Terrier,all-breed
+D00265,P002,class,Mr. Manuel Queijeiro,West Highland White Terrier,all-breed
+D00717,P002-A1,champion,Mrs. Nancy D. Simmons,Australian Cattle Dog,all-breed
+D00572,P002-A1,class,Mr. Manuel Queijeiro,Norwegian Buhund,all-breed
+D00574,P002-A1,champion,Mr. Manuel Queijeiro,Norwegian Buhund,all-breed
+D00530,P002-A1,champion,Mr. Manuel Queijeiro,Old English Sheepdog,all-breed
+D00677,P002-A1,class,Mrs. Nancy D. Simmons,Pembroke Welsh Corgi,all-breed
+D00690,P002-A1,champion,Mrs. Nancy D. Simmons,Pembroke Welsh Corgi,all-breed
+D00564,P002-A1,champion,Mr. Manuel Queijeiro,Puli,all-breed
+D00661,P002-A1,class,Mrs. Nancy D. Simmons,Shetland Sheepdog,all-breed
+D00658,P003,champion,Mrs. Nancy D. Simmons,Cocker Spaniel (Parti-Color),all-breed
+D00647,P003,champion,Mrs. Nancy D. Simmons,English Cocker Spaniel,all-breed
+D00601,P003,class,Mrs. Nancy D. Simmons,English Springer Spaniel,all-breed
+D00576,P003,champion,Mrs. Nancy D. Simmons,Flat-Coated Retriever,all-breed
+D00596,P003,champion,Mrs. Nancy D. Simmons,Irish Setter,all-breed
+D00381,P003,champion,Mr. Richard Todd Jackson,Spinone Italiano,all-breed
+D00277,P003,class,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00302,P003,champion,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00577,P003,champion,Mrs. Nancy D. Simmons,Weimaraner,all-breed
+D00579,P003,champion,Mrs. Nancy D. Simmons,Wirehaired Pointing Griffon,all-breed
+D00061,P003-A1,champion,Mr. Richard V. Miller,Ibizan Hound,all-breed
+D00393,P003-A1,champion,Ms. Pamela Schroeder,Akita,all-breed
+D00448,P003-A1,champion,Ms. Laura Munro,Great Dane,all-breed
+D00548,P003-A1,champion,Mr. Manuel Queijeiro,Rottweiler,all-breed
+D00343,P003-A1,champion,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00371,P003-A1,champion,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00376,P003-A1,champion,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00377,P003-A1,champion,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00109,P003-A1,champion,Mr. Richard V. Miller,Irish Terrier,all-breed
+D00237,P003-A1,class,Mr. Richard Todd Jackson,Havanese,all-breed
+D00493,P004,class,Mr. Israel Garcia,Dachshund (Smooth),all-breed
+D00497,P004,class,Mr. Israel Garcia,Dachshund (Smooth),all-breed
+D00749,P004,champion,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00550,P004,champion,Mr. Manuel Queijeiro,Rottweiler,all-breed
+D00160,P004,class,Mr. Richard Todd Jackson,Manchester Terrier (Standard),all-breed
+D00257,P004,class,Mr. Manuel Queijeiro,Norwich Terrier,all-breed
+D00259,P004,class,Mr. Manuel Queijeiro,Norwich Terrier,all-breed
+D00273,P004,class,Mr. Manuel Queijeiro,Staffordshire Bull Terriers,all-breed
+D00276,P004,champion,Mr. Manuel Queijeiro,Staffordshire Bull Terriers,all-breed
+D00087,P004-A1,class,Mr. Richard V. Miller,Cavalier King Charles Spaniel,all-breed
+D00180,P004-A1,champion,Mr. Richard Todd Jackson,Chihuahua (Long Coat),all-breed
+D00186,P004-A1,class,Mr. Richard Todd Jackson,Chihuahua (Smooth Coat),all-breed
+D00203,P004-A1,champion,Mr. Richard Todd Jackson,Pekingese,all-breed
+D00251,P004-A1,champion,Mr. Richard Todd Jackson,Toy Fox Terrier,all-breed
+D00226,P004-A1,champion,Mr. Richard Todd Jackson,Yorkshire Terrier,all-breed
+D00227,P004-A1,champion,Mr. Richard Todd Jackson,Yorkshire Terrier,all-breed
+D00655,P005,champion,Mrs. Nancy D. Simmons,Brittany,all-breed
+D00454,P005,class,Mr. Israel Garcia,Rhodesian Ridgeback,all-breed
+D00396,P005,champion,Ms. Pamela Schroeder,Cane Corso,all-breed
+D00404,P005,champion,Ms. Pamela Schroeder,Giant Schnauzer,all-breed
+D00336,P005,champion,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00344,P005,champion,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00159,P005,class,Mr. Richard Todd Jackson,Manchester Terrier (Standard),all-breed
+D00101,P005,class,Mr. Richard V. Miller,Miniature Bull Terrier,all-breed
+D00241,P005,champion,Mr. Richard Todd Jackson,Havanese,all-breed
+D00590,P006,champion,Mrs. Nancy D. Simmons,German Shorthaired Pointer,all-breed
+D00638,P006,class,Mrs. Nancy D. Simmons,Gordon Setter,all-breed
+D00425,P006,champion,Ms. Laura Munro,Anatolian Shepherd,all-breed
+D00351,P006,class,Mr. Manuel Queijeiro,Bullmastiff,all-breed
+D00397,P006,champion,Ms. Pamela Schroeder,Cane Corso,all-breed
+D00316,P006,class,Mr. Manuel Queijeiro,Greater Swiss Mountain Dog,all-breed
+D00543,P006,class,Mr. Manuel Queijeiro,Rottweiler,all-breed
+D00325,P006,class,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00342,P006,champion,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00362,P006-A1,class,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00552,P006-A1,champion,Mr. Manuel Queijeiro,Standard Schnauzer,all-breed
+D00116,P006-A1,champion,Mr. Richard V. Miller,Border Terrier,all-breed
+D00080,P006-A1,class,Mr. Richard V. Miller,Kerry Blue Terrier,all-breed
+D00163,P006-A1,champion,Mr. Richard Todd Jackson,Manchester Terrier (Standard),all-breed
+D00032,P006-A1,champion,Mr. Gregg G. Kantak,Poodle (Toy),all-breed
+D00607,P007,class,Mrs. Nancy D. Simmons,Labrador Retriever,all-breed
+D00783,P007,champion,Mr. Richard V. Miller,Afghan Hound,all-breed
+D00761,P007,class,Mr. Richard V. Miller,Basenji,all-breed
+D00774,P007,champion,Mr. Richard V. Miller,Basenji,all-breed
+D00775,P007,champion,Mr. Richard V. Miller,Basenji,all-breed
+D00776,P007,champion,Mr. Richard V. Miller,Basenji,all-breed
+D00017,P007,class,Mr. Gregg G. Kantak,Basset Hound,all-breed
+D00027,P007,champion,Mr. Gregg G. Kantak,Bloodhound,all-breed
+D00465,P007,champion,Mr. Israel Garcia,Borzoi,all-breed
+D00482,P007-A1,class,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00499,P007-A1,class,Mr. Israel Garcia,Dachshund (Smooth),all-breed
+D00502,P007-A1,class,Mr. Israel Garcia,Dachshund (Wirehaired),all-breed
+D00462,P007-A1,champion,Mr. Israel Garcia,Rhodesian Ridgeback,all-breed
+D00727,P007-A1,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00743,P007-A1,champion,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00752,P007-A1,champion,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00753,P007-A1,champion,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00071,P007-A1,class,Mr. Richard V. Miller,Sloughi,all-breed
+D00374,P007-A2,champion,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00175,P007-A2,champion,Mr. Richard Todd Jackson,Biewer Terrier,all-breed
+D00179,P007-A2,champion,Mr. Richard Todd Jackson,Chihuahua (Long Coat),all-breed
+D00240,P007-A2,champion,Mr. Richard Todd Jackson,Havanese,all-breed
+D00207,P007-A2,champion,Mr. Richard Todd Jackson,Pomeranian,all-breed
+D00030,P007-A2,class,Mr. Gregg G. Kantak,Poodle (Toy),all-breed
+D00249,P007-A2,class,Mr. Richard Todd Jackson,Toy Fox Terrier,all-breed
+D00228,P007-A2,champion,Mr. Richard Todd Jackson,Yorkshire Terrier,all-breed
+D00781,P008,champion,Mr. Richard V. Miller,Afghan Hound,all-breed
+D00762,P008,class,Mr. Richard V. Miller,Basenji,all-breed
+D00768,P008,class,Mr. Richard V. Miller,Basenji,all-breed
+D00487,P008,champion,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00500,P008,champion,Mr. Israel Garcia,Dachshund (Smooth),all-breed
+D00386,P008,class,Mr. Richard Todd Jackson,Irish Wolfhound,all-breed
+D00065,P008,class,Mr. Richard V. Miller,Portuguese Podengo Pequeno,all-breed
+D00720,P008,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00755,P008,champion,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00517,P008-A1,class,Mr. Israel Garcia,Whippet,all-breed
+D00519,P008-A1,class,Mr. Israel Garcia,Whippet,all-breed
+D00526,P008-A1,champion,Mr. Israel Garcia,Whippet,all-breed
+D00178,P008-A1,class,Mr. Richard Todd Jackson,Chihuahua (Long Coat),all-breed
+D00236,P008-A1,champion,Mr. Richard Todd Jackson,Chinese Crested,all-breed
+D00006,P008-A1,champion,Mr. Gregg G. Kantak,Bulldog,all-breed
+D00788,P009,champion,Mr. Richard V. Miller,Afghan Hound,all-breed
+D00770,P009,class,Mr. Richard V. Miller,Basenji,all-breed
+D00777,P009,champion,Mr. Richard V. Miller,Basenji,all-breed
+D00383,P009,champion,Mr. Richard Todd Jackson,Black and Tan Coonhound,all-breed
+D00466,P009,champion,Mr. Israel Garcia,Borzoi,all-breed
+D00468,P009,class,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00471,P009,class,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00491,P009,champion,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00509,P009,champion,Mr. Israel Garcia,Dachshund (Wirehaired),all-breed
+D00070,P009,champion,Mr. Richard V. Miller,Portuguese Podengo Pequeno,all-breed
+D00463,P009,champion,Mr. Israel Garcia,Rhodesian Ridgeback,all-breed
+D00719,P009,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00757,P009,champion,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00759,P009,champion,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00523,P009-A1,champion,Mr. Israel Garcia,Whippet,all-breed
+D00436,P009-A1,class,Ms. Laura Munro,Great Dane,all-breed
+D00535,P009-A1,champion,Mr. Manuel Queijeiro,Portuguese Water Dog,all-breed
+D00546,P009-A1,champion,Mr. Manuel Queijeiro,Rottweiler,all-breed
+D00332,P009-A1,class,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00553,P009-A1,champion,Mr. Manuel Queijeiro,Standard Schnauzer,all-breed
+D00554,P009-A1,champion,Mr. Manuel Queijeiro,Standard Schnauzer,all-breed
+D00235,P009-A1,champion,Mr. Richard Todd Jackson,Chinese Crested,all-breed
+D00245,P009-A1,class,Mr. Richard Todd Jackson,Shih Tzu,all-breed
+D00643,P010,class,Mrs. Nancy D. Simmons,English Cocker Spaniel,all-breed
+D00586,P010,class,Mrs. Nancy D. Simmons,German Shorthaired Pointer,all-breed
+D00632,P010,class,Mrs. Nancy D. Simmons,Golden Retriever,all-breed
+D00597,P010,champion,Mrs. Nancy D. Simmons,Irish Setter,all-breed
+D00618,P010,champion,Mrs. Nancy D. Simmons,Labrador Retriever,all-breed
+D00297,P010,champion,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00298,P010,champion,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00532,P010,champion,Mr. Manuel Queijeiro,Alaskan Malamute,all-breed
+D00084,P010-A1,champion,Mr. Richard V. Miller,Kerry Blue Terrier,all-breed
+D00182,P010-A1,champion,Mr. Richard Todd Jackson,Chihuahua (Long Coat),all-breed
+D00696,P010-A1,class,Mrs. Nancy D. Simmons,Australian Shepherd,all-breed
+D00702,P010-A1,champion,Mrs. Nancy D. Simmons,Beauceron,all-breed
+D00713,P010-A1,champion,Mrs. Nancy D. Simmons,Mudi,all-breed
+D00569,P010-A1,class,Mr. Manuel Queijeiro,Norwegian Buhund,all-breed
+D00691,P010-A1,champion,Mrs. Nancy D. Simmons,Pembroke Welsh Corgi,all-breed
+D00635,P011,champion,Mrs. Nancy D. Simmons,Golden Retriever,all-breed
+D00313,P011,champion,Mr. Manuel Queijeiro,Bernese Mountain Dog,all-breed
+D00339,P011,champion,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00356,P011,class,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00369,P011,champion,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00372,P011,champion,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00090,P011,class,Mr. Richard V. Miller,Cavalier King Charles Spaniel,all-breed
+D00184,P011,champion,Mr. Richard Todd Jackson,Chihuahua (Long Coat),all-breed
+D00189,P011,champion,Mr. Richard Todd Jackson,Chihuahua (Smooth Coat),all-breed
+D00194,P011,class,Mr. Richard Todd Jackson,Japanese Chin,all-breed
+D00250,P011,champion,Mr. Richard Todd Jackson,Toy Fox Terrier,all-breed
+D00570,P011,class,Mr. Manuel Queijeiro,Norwegian Buhund,all-breed
+D00390,P012,champion,Mr. Richard Todd Jackson,Irish Wolfhound,all-breed
+D00415,P012,champion,Ms. Pamela Schroeder,Leonberger,all-breed
+D00161,P012,class,Mr. Richard Todd Jackson,Manchester Terrier (Standard),all-breed
+D00167,P012,class,Mr. Richard Todd Jackson,Biewer Terrier,all-breed
+D00233,P012,champion,Mr. Richard Todd Jackson,Chinese Crested,all-breed
+D00234,P012,champion,Mr. Richard Todd Jackson,Chinese Crested,all-breed
+D00199,P012,champion,Mr. Richard Todd Jackson,Papillon,all-breed
+D00152,P012,class,Mr. Richard Todd Jackson,Bichon Frise,all-breed
+D00155,P012,champion,Mr. Richard Todd Jackson,Bichon Frise,all-breed
+D00077,P012,champion,Mr. Richard V. Miller,Dalmatian,all-breed
+D00052,P012,class,Mr. Gregg G. Kantak,Poodle (Standard),all-breed
+D00056,P012,champion,Mr. Gregg G. Kantak,Poodle (Standard),all-breed
+D00578,P013,champion,Mrs. Nancy D. Simmons,Weimaraner,all-breed
+D00117,P013,champion,Mr. Richard V. Miller,Border Terrier,all-breed
+D00171,P013,champion,Mr. Richard Todd Jackson,Biewer Terrier,all-breed
+D00188,P013,champion,Mr. Richard Todd Jackson,Chihuahua (Smooth Coat),all-breed
+D00129,P013,class,Mr. Richard V. Miller,Miniature Pinscher,all-breed
+D00130,P013,champion,Mr. Richard V. Miller,Miniature Pinscher,all-breed
+D00201,P013,champion,Mr. Richard Todd Jackson,Papillon,all-breed
+D00211,P013,champion,Mr. Richard Todd Jackson,Pomeranian,all-breed
+D00714,P013,class,Mrs. Nancy D. Simmons,Australian Cattle Dog,all-breed
+D00706,P013,champion,Mrs. Nancy D. Simmons,Belgian Malinois,all-breed
+D00667,P013,class,Mrs. Nancy D. Simmons,German Shepherd Dog,all-breed
+D00665,P013,class,Mrs. Nancy D. Simmons,Miniature American Shepherd,all-breed
+D00784,P014,champion,Mr. Richard V. Miller,Afghan Hound,all-breed
+D00785,P014,champion,Mr. Richard V. Miller,Afghan Hound,all-breed
+D00787,P014,champion,Mr. Richard V. Miller,Afghan Hound,all-breed
+D00772,P014,champion,Mr. Richard V. Miller,Basenji,all-breed
+D00470,P014,class,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00483,P014,class,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00488,P014,champion,Mr. Israel Garcia,Dachshund (Longhaired),all-breed
+D00501,P014,champion,Mr. Israel Garcia,Dachshund (Smooth),all-breed
+D00504,P014,class,Mr. Israel Garcia,Dachshund (Wirehaired),all-breed
+D00392,P014-A1,champion,Mr. Richard Todd Jackson,Irish Wolfhound,all-breed
+D00721,P014-A1,class,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00744,P014-A1,champion,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00746,P014-A1,champion,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00748,P014-A1,champion,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00750,P014-A1,champion,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00395,P014-A1,champion,Ms. Pamela Schroeder,Cane Corso,all-breed
+D00401,P014-A1,champion,Ms. Pamela Schroeder,Danish-Swedish Farmdog,all-breed
+D00433,P014-A1,champion,Ms. Laura Munro,Doberman Pinscher,all-breed
+D00439,P014-A2,class,Ms. Laura Munro,Great Dane,all-breed
+D00453,P014-A2,champion,Ms. Laura Munro,Great Dane,all-breed
+D00333,P014-A2,champion,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00345,P014-A2,champion,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00359,P014-A2,class,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00367,P014-A2,champion,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00060,P014-A2,champion,Mr. Richard V. Miller,Pug,all-breed
+D00657,P015,champion,Mrs. Nancy D. Simmons,Chesapeake Bay Retriever,all-breed
+D00627,P015,class,Mrs. Nancy D. Simmons,Golden Retriever,all-breed
+D00633,P015,champion,Mrs. Nancy D. Simmons,Golden Retriever,all-breed
+D00617,P015,class,Mrs. Nancy D. Simmons,Labrador Retriever,all-breed
+D00280,P015,class,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00282,P015,class,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00294,P015,champion,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00300,P015,champion,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00304,P015,champion,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00391,P015,champion,Mr. Richard Todd Jackson,Irish Wolfhound,all-breed
+D00242,P015-A1,champion,Mr. Richard Todd Jackson,Havanese,all-breed
+D00202,P015-A1,champion,Mr. Richard Todd Jackson,Papillon,all-breed
+D00072,P015-A1,class,Mr. Richard V. Miller,Dalmatian,all-breed
+D00078,P015-A1,champion,Mr. Richard V. Miller,Dalmatian,all-breed
+D00146,P015-A1,champion,Mr. Richard Todd Jackson,Keeshond,all-breed
+D00036,P015-A1,class,Mr. Gregg G. Kantak,Lowchen,all-breed
+D00038,P015-A1,class,Mr. Gregg G. Kantak,Lowchen,all-breed
+D00035,P015-A1,champion,Mr. Gregg G. Kantak,Poodle (Miniature),all-breed
+D00148,P015-A1,champion,Mr. Richard Todd Jackson,Tibetan Spaniel,all-breed
+D00043,P015-A1,champion,Mr. Gregg G. Kantak,Xoloitzcuintli,all-breed
+D00588,P016,champion,Mrs. Nancy D. Simmons,German Shorthaired Pointer,all-breed
+D00281,P016,class,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00295,P016,champion,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00303,P016,champion,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00263,P016,class,Mr. Manuel Queijeiro,Scottish Terrier,all-breed
+D00239,P016,class,Mr. Richard Todd Jackson,Havanese,all-breed
+D00156,P016,champion,Mr. Richard Todd Jackson,Bichon Frise,all-breed
+D00010,P016,class,Mr. Gregg G. Kantak,Boston Terrier,all-breed
+D00011,P016,class,Mr. Gregg G. Kantak,Boston Terrier,all-breed
+D00012,P016,champion,Mr. Gregg G. Kantak,Boston Terrier,all-breed
+D00145,P016-A1,champion,Mr. Richard Todd Jackson,Keeshond,all-breed
+D00039,P016-A1,class,Mr. Gregg G. Kantak,Lowchen,all-breed
+D00041,P016-A1,champion,Mr. Gregg G. Kantak,Lowchen,all-breed
+D00042,P016-A1,champion,Mr. Gregg G. Kantak,Lowchen,all-breed
+D00053,P016-A1,class,Mr. Gregg G. Kantak,Poodle (Standard),all-breed
+D00034,P016-A1,champion,Mr. Gregg G. Kantak,Schipperke,all-breed
+D00695,P016-A1,champion,Mrs. Nancy D. Simmons,Collie (Rough),all-breed
+D00584,P017,class,Mrs. Nancy D. Simmons,German Shorthaired Pointer,all-breed
+D00288,P017,class,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00766,P017,class,Mr. Richard V. Miller,Basenji,all-breed
+D00422,P017,champion,Ms. Pamela Schroeder,Boxer,all-breed
+D00403,P017,champion,Ms. Pamela Schroeder,Giant Schnauzer,all-breed
+D00446,P017,class,Ms. Laura Munro,Great Dane,all-breed
+D00447,P017,champion,Ms. Laura Munro,Great Dane,all-breed
+D00545,P017,champion,Mr. Manuel Queijeiro,Rottweiler,all-breed
+D00340,P017,champion,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00102,P017,class,Mr. Richard V. Miller,Miniature Bull Terrier,all-breed
+D00269,P017,class,Mr. Manuel Queijeiro,Soft Coated Wheaten Terrier,all-breed
+D00272,P017,champion,Mr. Manuel Queijeiro,Soft Coated Wheaten Terrier,all-breed
+D00581,P018,class,Mrs. Nancy D. Simmons,German Shorthaired Pointer,all-breed
+D00587,P018,class,Mrs. Nancy D. Simmons,German Shorthaired Pointer,all-breed
+D00631,P018,class,Mrs. Nancy D. Simmons,Golden Retriever,all-breed
+D00593,P018,class,Mrs. Nancy D. Simmons,Irish Setter,all-breed
+D00595,P018,class,Mrs. Nancy D. Simmons,Irish Setter,all-breed
+D00614,P018,class,Mrs. Nancy D. Simmons,Labrador Retriever,all-breed
+D00650,P018,champion,Mrs. Nancy D. Simmons,Nederlandse Kooikerhondjes,all-breed
+D00301,P018,champion,Mr. Manuel Queijeiro,Vizsla,all-breed
+D00747,P018,champion,Ms. Jacqueline Ann Harrington,Saluki,all-breed
+D00379,P018-A1,champion,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00091,P018-A1,champion,Mr. Richard V. Miller,Cavalier King Charles Spaniel,all-breed
+D00187,P018-A1,class,Mr. Richard Todd Jackson,Chihuahua (Smooth Coat),all-breed
+D00195,P018-A1,champion,Mr. Richard Todd Jackson,Manchester Terrier (Toy),all-breed
+D00198,P018-A1,class,Mr. Richard Todd Jackson,Papillon,all-breed
+D00200,P018-A1,champion,Mr. Richard Todd Jackson,Papillon,all-breed
+D00216,P018-A1,class,Mr. Richard Todd Jackson,Yorkshire Terrier,all-breed
+D00007,P018-A1,champion,Mr. Gregg G. Kantak,Chinese Shar-Pei,all-breed
+D00426,P019,champion,Ms. Laura Munro,Anatolian Shepherd,all-breed
+D00312,P019,champion,Mr. Manuel Queijeiro,Bernese Mountain Dog,all-breed
+D00452,P019,champion,Ms. Laura Munro,Great Dane,all-breed
+D00317,P019,champion,Mr. Manuel Queijeiro,Greater Swiss Mountain Dog,all-breed
+D00416,P019,champion,Ms. Pamela Schroeder,Leonberger,all-breed
+D00411,P019,champion,Ms. Pamela Schroeder,Newfoundland,all-breed
+D00406,P019,champion,Ms. Pamela Schroeder,ST. Bernard,all-breed
+D00331,P019,class,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00334,P019,champion,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00378,P019-A1,champion,Mr. Manuel Queijeiro,Siberian Husky,all-breed
+D00556,P019-A1,champion,Mr. Manuel Queijeiro,Standard Schnauzer,all-breed
+D00098,P019-A1,champion,Mr. Richard V. Miller,American Staffordshire Terrier,all-breed
+D00262,P019-A1,champion,Mr. Manuel Queijeiro,Norwich Terrier,all-breed
+D00094,P019-A1,champion,Mr. Richard V. Miller,Cavalier King Charles Spaniel,all-breed
+D00710,P019-A1,class,Mrs. Nancy D. Simmons,Border Collie,all-breed
+D00529,P019-A1,class,Mr. Manuel Queijeiro,Old English Sheepdog,all-breed
+D00424,P020,class,Ms. Laura Munro,Anatolian Shepherd,all-breed
+D00400,P020,champion,Ms. Pamela Schroeder,Danish-Swedish Farmdog,all-breed
+D00435,P020,champion,Ms. Laura Munro,Doberman Pinscher,all-breed
+D00451,P020,champion,Ms. Laura Munro,Great Dane,all-breed
+D00329,P020,class,Mr. Manuel Queijeiro,Samoyed,all-breed
+D00092,P020,champion,Mr. Richard V. Miller,Cavalier King Charles Spaniel,all-breed
+D00183,P020,champion,Mr. Richard Todd Jackson,Chihuahua (Long Coat),all-breed
+D00238,P020,class,Mr. Richard Todd Jackson,Havanese,all-breed
+D00125,P020,class,Mr. Richard V. Miller,Miniature Pinscher,all-breed
+D00131,P020,champion,Mr. Richard V. Miller,Miniature Pinscher,all-breed
+D00132,P020,champion,Mr. Richard V. Miller,Miniature Pinscher,all-breed
+D00059,P020,champion,Mr. Richard V. Miller,Pug,all-breed
