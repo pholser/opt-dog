@@ -29,6 +29,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("show_dir", type=Path, help="a parsed program directory (data/parsed/<source>/<show>)")
     ap.add_argument("--greedy", action="store_true", help="also render the greedy schedule for the same show")
     ap.add_argument("--greedy-only", action="store_true", help="render only the greedy schedule")
+    ap.add_argument("--cp", action="store_true", help="also render the CP-SAT placement (step 1)")
+    ap.add_argument("--time-limit", type=float, default=30.0, help="CP-SAT seconds per phase")
     ap.add_argument("--html", type=Path, help="write an HTML chart to this file")
     ap.add_argument("--text", action="store_true", help="print the text program (default without --html)")
     ap.add_argument("--seed", type=int, default=0, help="synthetic-exhibitor seed for conflict scoring")
@@ -44,6 +46,15 @@ def main(argv: list[str] | None = None) -> int:
         programs.append(("Published program", human))
     if a.greedy or a.greedy_only:
         programs.append(("Greedy baseline", greedy_program(instance_from_program(human), params)))
+    if a.cp:
+        from optdog.solve.cpsat import PlacementOptions, solve_placement
+
+        res = solve_placement(instance_from_program(human), params, options=PlacementOptions(time_limit=a.time_limit))
+        if res.program is None:
+            print(f"CP-SAT found no schedule: {res.phases}", file=sys.stderr)
+        else:
+            status = "optimal" if res.optimal else res.phases[0].status.lower()
+            programs.append((f"CP-SAT placement ({status})", res.program))
 
     if a.html:
         a.html.write_text(render_html(programs, params, title=f"{human.show.name} — {human.show.date}"))

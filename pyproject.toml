@@ -3,7 +3,7 @@ name = "optdog"
 version = "0.1.0"
 description = "Judging-program (ring schedule) optimizer for AKC all-breed conformation shows"
 requires-python = ">=3.12"
-dependencies = ["pdfplumber>=0.11"]
+dependencies = ["pdfplumber>=0.11", "ortools>=9.15"]
 
 [project.optional-dependencies]
 dev = ["pytest>=8"]

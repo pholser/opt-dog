@@ -1,0 +1,67 @@
+"""CP-SAT placement (step 1): valid, never worse than the greedy, never better than the bound."""
+
+from pathlib import Path
+
+import pytest
+
+from optdog.breeds import default_catalog
+from optdog.domain import (
+    VARIETY_GROUPS, Block, Competition, EventKind, JudgingEvent, Judge, Ring, ScheduledBlock, Show,
+)
+from optdog.instance import instance_from_program
+from optdog.io.program_csv import read_program
+from optdog.params import ShowParameters
+from optdog.solve.bounds import finish_lower_bound
+from optdog.solve.cpsat import PlacementOptions, solve_placement
+from optdog.solve.greedy import greedy_program
+from optdog.validate import validate
+
+CAT = default_catalog()
+P0 = ShowParameters(overlap_tolerance_minutes=0)
+FAST = PlacementOptions(time_limit=20, tidy=False)
+PARSED = sorted((Path(__file__).resolve().parents[1] / "data" / "parsed" / "bradshaw").iterdir())
+A, B, C, G = Judge("Ms. A"), Judge("Mr. B"), Judge("Dr. C"), Judge("Dr. G")
+
+
+def ev(breed, judge, n, competition=Competition.ALL_BREED):
+    return JudgingEvent(breed, EventKind.BREED, judge, n, CAT[breed], competition=competition)
+
+
+def show_of(events, judges, rings=3):
+    return Show("T", "2026-01-01", list(judges), events, [Ring(i + 1) for i in range(rings)],
+                group_judges={g: G for g in VARIETY_GROUPS}, bis_judge=G, group_rings=(Ring(1),), start=480)
+
+
+def test_small_show_is_valid_and_matches_the_validator():
+    show = show_of([ev("Pug", A, 25), ev("Boxer", A, 25), ev("Beagle (13 Inch)", B, 25), ev("Maltese", B, 10),
+                    ev("Golden Retriever", C, 20)], (A, B, C))
+    res = solve_placement(show, P0)
+    assert res.optimal
+    v = validate(res.program, P0)
+    assert v.violations == []
+    assert v.timeline.finish == pytest.approx(res.finish, abs=0.1)
+    assert res.finish >= finish_lower_bound(show, P0).value - 1e-6
+
+
+def test_back_to_back_pinned_blocks_for_one_judge():
+    # two pinned blocks 4 minutes apart: padding each by the travel margin must not make them clash
+    p1, p2 = ev("Pug", C, 5, Competition.BEGINNER_PUPPY), ev("Maltese", C, 5, Competition.BEGINNER_PUPPY)
+    pins = [ScheduledBlock(Block(C, (p1,)), Ring(3), 13 * 60), ScheduledBlock(Block(C, (p2,)), Ring(3), 13 * 60 + 16)]
+    show = show_of([ev("Boxer", A, 25), ev("Beagle (13 Inch)", B, 25), p1, p2], (A, B, C))
+    show.pinned = pins
+    res = solve_placement(show, P0)
+    assert res.program is not None
+    assert validate(res.program, P0).violations == []
+    assert all(sb in res.program.blocks for sb in pins)
+
+
+@pytest.mark.parametrize("d", PARSED, ids=lambda d: d.name)
+def test_placement_on_parsed_shows(d):
+    show = instance_from_program(read_program(d))
+    res = solve_placement(show, options=FAST)
+    assert res.program is not None, res.phases
+    v = validate(res.program)
+    assert {x.code for x in v.violations} <= {"V1"}
+    assert v.timeline.finish == pytest.approx(res.finish, abs=0.1)
+    assert res.finish <= validate(greedy_program(show)).timeline.finish + 1e-6
+    assert res.finish >= finish_lower_bound(show).value - 1e-6

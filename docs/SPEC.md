@@ -207,3 +207,9 @@ all-breed show days, 653–2,137 breed entries each. Timings assume 25 dogs/hr.
   With the window hard, the bound uses H14: if any judge needs lunch, no group starts before
   `L0` + the minimum lunch. A judge who needs lunch is free no earlier than `L0` + lunch +
   their shortest event.
+- **CP-SAT step 1** (`solve/cpsat.py`): with the greedy's blocks fixed, place them (ring, start,
+  lunches, group order) under H1–H14, minimizing finish, then tidy (fewest ring changes, earliest
+  blocks) at that finish. All 11 days solve to proven optimal in ≤ 1 s and pass the validator.
+  It beats the greedy on 4 days (5–35 min) and matches it on the rest. What holds up the first group:
+  H14 (last lunch) on 5 days, H13 on 4, H9 on 2. The remaining gap to the bound is in **block
+  formation and order**, i.e. step 3.
