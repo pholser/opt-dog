@@ -27,6 +27,9 @@ class ObjectiveWeights:
     group_switch: float = 2.0  # per extra group switch in a judge's breed order (S4)
     judge_idle: float = 0.5  # per idle minute in a judge's day, excluding lunch (S5)
     final_segment_excess: float = 2.0  # per dog over the final-segment limit (S8)
+    short_block: float = 2.0  # per dog a block falls short of `short_block_dogs` (S9, U: discourage short blocks)
+    lunch_split: float = 2.0  # per lunch that splits a judge's run of one group (S10)
+    block_count: float = 0.5  # per published block: tie-break toward fewer, fuller blocks (convention)
 
 
 @dataclass(frozen=True)
@@ -38,6 +41,7 @@ class ShowParameters:
     block_target_minutes: float = 60.0  # "periods of about one hour"
     block_tolerance_minutes: float = 15.0  # E: multi-breed blocks p90 27 dogs; 7 blocks > 75 min on 11 days
     single_breed_exception_entries: int = 30  # a breed with > 30 entries may be its own longer block
+    short_block_dogs: int = 15  # S9: blocks under this many dogs cost per missing dog (E: human p10 is 13 dogs)
     final_segment_max_dogs: int = 50  # Rules: final segment ≤ 50 unless single breed; a SOFT cost here (U; humans exceed it)
 
     # --- judge breaks (Rules Ch.7 §12)

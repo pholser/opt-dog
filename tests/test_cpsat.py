@@ -12,7 +12,7 @@ from optdog.instance import instance_from_program
 from optdog.io.program_csv import read_program
 from optdog.params import ShowParameters
 from optdog.solve.bounds import finish_lower_bound
-from optdog.solve.cpsat import PlacementOptions, solve_placement
+from optdog.solve.cpsat import PlacementOptions, solve_formation, solve_placement
 from optdog.solve.greedy import greedy_program
 from optdog.validate import validate
 
@@ -61,7 +61,34 @@ def test_placement_on_parsed_shows(d):
     res = solve_placement(show, options=FAST)
     assert res.program is not None, res.phases
     v = validate(res.program)
-    assert {x.code for x in v.violations} <= {"V1"}
+    assert {x.code for x in v.violations} <= {"V1"}, [str(x) for x in v.violations]
     assert v.timeline.finish == pytest.approx(res.finish, abs=0.1)
     assert res.finish <= validate(greedy_program(show)).timeline.finish + 1e-6
     assert res.finish >= finish_lower_bound(show).value - 1e-6
+
+
+@pytest.mark.parametrize("d", PARSED, ids=lambda d: d.name)
+def test_formation_on_parsed_shows(d):
+    """Step 3a: choosing the block breaks never does worse than placing the greedy's blocks."""
+    show = instance_from_program(read_program(d))
+    placed = solve_placement(show, options=FAST)
+    res = solve_formation(show, options=FAST)
+    assert res.program is not None, res.phases
+    v = validate(res.program)
+    assert {x.code for x in v.violations} <= {"V1"}, [str(x) for x in v.violations]
+    assert v.timeline.finish == pytest.approx(res.finish, abs=0.1)
+    assert res.finish <= placed.finish + 1e-6
+    assert res.finish >= finish_lower_bound(show).value - 1e-6
+
+
+def test_formation_keeps_sweepstakes_with_their_breed_and_caps_blocks():
+    sw = JudgingEvent("Pug Sweepstakes", EventKind.SWEEPSTAKES, A, 6, CAT["Pug"])
+    events = [ev("Boxer", A, 20), sw, ev("Pug", A, 20), ev("Maltese", A, 20), ev("Beagle (13 Inch)", B, 25)]
+    res = solve_formation(show_of(events, (A, B)), P0)
+    assert res.program is not None
+    for sb in res.program.blocks:
+        assert sb.block.duration <= 65 + 1e-6
+        names = [e.name for e in sb.block.events]
+        if "Pug Sweepstakes" in names:
+            assert names[names.index("Pug Sweepstakes") + 1] == "Pug"
+    assert validate(res.program, P0).violations == []

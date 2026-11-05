@@ -118,6 +118,7 @@ start of unit `u` (block start + durations of the units ahead of it in the block
 | H12 | Everything ends by `Tend`; nothing starts before `T0` | Show Manual §6 |
 | H13 | The breeds of at least **two** groups (parameter, default 2; fewer if fewer groups are entered) are all done before the first group starts | Show Manual §6: "Breed judging in at least two groups should be scheduled to be complete before group judging is scheduled to begin"; U |
 | H14 | The first group starts only after **every** judge's lunch has ended: a published break counts as published; a judge over five hours with no published break takes lunch in a gap of lunch length, at the minimum length. Parameter `groups_after_all_lunches`, default on | U; E: holds on all 11 parsed days. Not an AKC rule |
+| H15 | Multi-entry classes (Stud Dog, Brood Bitch) come after the judge's regular classes in that breed. Sweepstakes immediately precede their breed (convention, E) | Show Manual §6 "Scheduling Breed Judging"; E |
 | V1 | (input check, not a decision) Each judge has ≤ 175 entries, juniors and sweeps included; 200 for a specialty-only judge | Rules Ch.7 §13; Show Manual §6 |
 
 ## 5. Soft constraints / costs
@@ -126,12 +127,14 @@ start of unit `u` (block start + durations of the units ahead of it in the block
 |---|---|---|
 | S1 | **Exhibitor conflict minutes**, counted **by breed** (U): for each registered exhibitor `x ∈ X*`, their dogs in one unit merge into one busy window (any class dog → the whole unit; champions only → just the BOB portion, §2.7). Several dogs in the same unit are never a conflict. For each pair of `x`'s windows in *different units*, the cost is the **minutes of overlap**. If the two units are in **different rings**, one window is first widened by the travel margin `m_X` (so units back to back across rings with less than `m_X` between them still conflict). Units in the same ring never overlap, so they never conflict | U |
 | S2 | **Judge ring changes**: penalty for each change between consecutive blocks; a heavier penalty when the change isn't at lunch | Best Practices; Show Manual §6; U |
-| S3 | **Equipment switches**: within a judge's sequence, table breeds consecutive and ramp breeds consecutive | Show Manual §6; Best Practices |
-| S4 | A judge with breeds in several groups has them ordered by group | Show Manual §6 |
+| S3 | **Equipment switches**: within a judge's sequence, table breeds consecutive and ramp breeds consecutive. Cost per extra run of table (ramp) breeds. Applied within each group run, since S4 takes precedence (§8: humans keep table breeds together within a group 69% of the time, across a whole assignment only 37%) | Show Manual §6 "Scheduling Rings": "Within a judging assignment, all breeds judged on a table should be scheduled consecutively, and all breeds judged on a ramp should be scheduled consecutively"; Best Practices: "schedule table breeds and ramp breeds being judged in the same ring together to decrease the movement of equipment which causes delays" |
+| S4 | **Group split**: a judge with breeds in several groups judges each group's breeds in one consecutive run. Cost per extra run of a group in a judge's sequence (soft, U: humans split a group on 37 of 129 judge-days, 83 extra runs) | Show Manual §6 "Scheduling Breed Judging": "If judges are assigned breeds in more than one group, organize their breed-judging schedule by group"; U |
 | S5 | Idle gaps in a judge's day (other than lunch) | E/convention |
 | S6 | Short-nosed (brachycephalic) breeds in the cooler part of the day (outdoor shows) | Show Manual §6 |
 | S7 | Permit judges at non-conflicting times (for the AKC field rep) | Show Manual §6 |
 | S8 | **Final segment over 50 dogs**: a ring's final segment may stretch past an hour; each dog over 50 (unless it is a single breed/variety) costs `w_final`. AKC states this as a rule, but it is a soft cost here because real programs exceed it (§8) | Rules Ch.7 §12; U; E |
+| S9 | **Short blocks**: each block of fewer than `short_block_dogs` dogs (default 15) costs `w_short` per missing dog. A judge's only block is exempt: it cannot be made larger (U: "absolutely discourage short blocks"). Humans have 64 of 517 blocks under 15 dogs, mostly a judge's whole small assignment or the remainder before lunch or at day's end (§8) | U; E |
+| S10 | **Lunch at a logical stopping point**: a cost when a judge's lunch splits a group run (soft, small) | Show Manual §6 "Scheduling Lunch and Breaks": "Try to schedule the lunch or rest break at a logical stopping point" |
 
 ## 6. Objective
 
@@ -182,6 +185,14 @@ all-breed show days, 653–2,137 breed entries each. Timings assume 25 dogs/hr.
 - **Group order.** The first group's breeds always finish ≥ 29 min before groups start.
   Working breeds finish 26–119 min *after* the published group start on every show, so
   Working is never first. Humans order groups by readiness, as the model will.
+- **Running order (S3, S4).** Of 129 judge-days, 73 judges have breeds in more than one group;
+  92 judge-days keep every group in one run (37 split a group, 83 extra runs). Table breeds are
+  consecutive across a whole assignment for 34 of 93 judges with table breeds, ramp breeds for
+  14 of 26. Within each group run, table/ramp breeds are contiguous 69% of the time. Varieties of
+  one breed are consecutive 82% of the time. Humans resolve the S3/S4 tension group-first.
+- **Short blocks (S9).** 517 all-breed blocks: p5 9 dogs, p10 13, median 24; 64 under 15 dogs,
+  42 under 12. Of those 42: 10 are the judge's only block, 14 the judge's last, 12 mid-day
+  (mostly the block just before lunch), 6 the first.
 - **Groups** start 1:15–2:30 PM; judging starts 8:00 or 8:30.
 - **V1.** One judge at 178 entries (> 175).
 - **H13 holds.** On 10 of 11 days the human programs have ≥ 2 groups' breeds done by the
@@ -213,3 +224,21 @@ all-breed show days, 653–2,137 breed entries each. Timings assume 25 dogs/hr.
   It beats the greedy on 4 days (5–35 min) and matches it on the rest. What holds up the first group:
   H14 (last lunch) on 5 days, H13 on 4, H9 on 2. The remaining gap to the bound is in **block
   formation and order**, i.e. step 3.
+- **CP-SAT step 3a** (`solve_formation`): the same model at event level. Each judge's events
+  form a chain in the greedy's running order; a cut `c_u` between consecutive events either
+  starts a block (on the grid, any ring, travel margin if the ring changes) or continues it
+  (`s_u = s_u⁻ + d_u⁻`, same ring). Step 1 is the special case with every cut fixed. H1 caps a
+  formed block at 65 min (an event longer than that is its own block); a sweepstakes stays in
+  its breed's block (H15). After the finish, a second phase minimizes S2 (ring changes, cheaper
+  at lunch), S9 (short blocks), S10 (lunch splitting a group run) and a small per-block
+  tie-break; a third starts blocks as early as possible.
+  Results: optimal on all 11 days, all valid. Choosing the block breaks gains little:
+  4 days improve by 1–7 min; mean gap 42 → 40 min.
+  **What holds up groups** (3a re-solved with one rule relaxed at a time, gap in minutes):
+  H9 accounts for all 80 on Greater Sierra Vista 11/16; H13 for 44, 20 and 65 on the three
+  Palm Springs days; H14 for 14–45 on Del Sur 5/1, Tucson 11/14–15 and GSV 11/17; Sir Francis
+  Drake 9/12 (48) is explained by none of the three. H14 binds because of a trade-off the
+  bound ignores: a heavily loaded judge who lunches early finishes their breeds later (H7),
+  one who lunches late delays the first group (H14). Next: 3b (reorder each judge's group
+  runs, which targets H13) and a lower bound that couples lunch with breed completion and
+  H9 with ring capacity, to tell solver gap from bound weakness.
