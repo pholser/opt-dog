@@ -13,7 +13,9 @@ from optdog.instance import instance_from_program
 from optdog.io.program_csv import read_program
 from optdog.params import ShowParameters
 from optdog.solve.bounds import finish_lower_bound
+from optdog.solve.cpsat import solve_placement
 from optdog.solve.greedy import greedy_program, pack_blocks, running_order
+from optdog.solve.relaxation import relaxed_lower_bound
 from optdog.validate import validate
 
 CAT = default_catalog()
@@ -172,3 +174,19 @@ def test_show_lunch_window_is_an_input_that_overrides_the_default(tmp_path):
                                              P0).violations}
     write_program(prog, tmp_path)
     assert read_program(tmp_path).show.lunch_window == (12 * 60 + 30, 13 * 60)
+
+
+@pytest.mark.parametrize("d", PARSED, ids=lambda d: d.name)
+def test_relaxed_bound_between_combinatorial_bound_and_greedy(d):
+    show = instance_from_program(read_program(d))
+    rb = relaxed_lower_bound(show, time_limit=30)
+    assert rb.value >= finish_lower_bound(show).value - 1e-6
+    assert rb.value <= validate(greedy_program(show)).timeline.finish + 1e-6
+
+
+def test_relaxed_bound_on_small_show_is_below_the_optimum():
+    show = small_show([ev("Pug", A, 25), ev("Boxer", A, 25), ev("Beagle (13 Inch)", B, 25)])
+    rb = relaxed_lower_bound(show, P0)
+    assert rb.optimal
+    assert rb.value >= finish_lower_bound(show, P0).value - 1e-6
+    assert rb.value <= solve_placement(show, P0).finish + 1e-6

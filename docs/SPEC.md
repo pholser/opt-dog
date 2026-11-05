@@ -261,3 +261,14 @@ all-breed show days, 653–2,137 breed entries each. Timings assume 25 dogs/hr.
   41 → 24 min; better than 3a on 8 days, e.g. Palm Springs 1/5 by 65 min, Palm Springs 1/3
   by 38, Sir Francis Drake 9/12 by 34; Greater Sierra Vista 11/17 reaches the bound. Running
   order was the main lever on the days H13 held up. Runtime about 1 min per day.
+- **Relaxation bound** (`solve/relaxation.py`): CP-SAT on a relaxation that keeps judges
+  (one event at a time, lunch in the window with judging on both sides), rings as a pool of
+  |R| (|R| − |RG| from the first group on, H9), pinned blocks, and H7, H8, H10, H13, H14 exactly;
+  it drops blocks (H1, H5), the grid for blocks and lunches, travel, ring identity, running
+  order and equipment. Durations rounded down. Its proven optimum is a lower bound on every
+  valid schedule; the combinatorial bound is added as a cut and the larger is reported.
+  It couples what the combinatorial bound treats separately: a judge's lunch with when their
+  breeds finish, and H9 with ring capacity. Proven optimal on all 11 days in seconds (up to
+  ~50 s on SFD 9/13). It raises the bound by 0–80 min (GSV 11/16: 1079 → 1159.4, which 3b
+  meets, so 3b is optimal there and the earlier "80 min gap" was all bound weakness).
+  Against it, 3b's best runs are within 0–10 min on every day (mean about 5).

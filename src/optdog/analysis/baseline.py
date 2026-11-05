@@ -13,9 +13,9 @@ from optdog.domain import fmt_time
 from optdog.instance import instance_from_program
 from optdog.io.program_csv import read_entries, read_program
 from optdog.params import ShowParameters
-from optdog.solve.bounds import finish_lower_bound
 from optdog.solve.cpsat import PlacementOptions, solve_formation, solve_ordering, solve_placement
 from optdog.solve.greedy import greedy_program
+from optdog.solve.relaxation import relaxed_lower_bound
 from optdog.validate import validate
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -37,7 +37,7 @@ def rows(params: ShowParameters):
         if synth.exists():
             human.show.entries = read_entries(synth, human)
         show = instance_from_program(human)
-        bound = finish_lower_bound(show, params)
+        bound = relaxed_lower_bound(show, params, time_limit=60)
         greedy = greedy_program(show, params)
         cp = solve_placement(show, params, options=PlacementOptions(time_limit=30, tidy=False))
         fm = solve_formation(show, params, options=PlacementOptions(time_limit=30))
@@ -58,7 +58,9 @@ def render(params: ShowParameters | None = None) -> str:
         "group and BIS durations are the conservative upper bounds of SPEC §2.5, so absolute finish",
         "times run late. Compare the columns with each other, not with real show close.",
         "",
-        "- **LB**: `max(judge-chain, ring-capacity)` lower bound on BIS end (`solve/bounds.py`).",
+        "- **LB**: lower bound on BIS end: CP-SAT's proven bound on a relaxation that drops blocks, travel,",
+        "  ring identity and running order (`solve/relaxation.py`), or the combinatorial bound if higher.",
+        "- **Comb. LB**: the combinatorial `max(judge-chain, ring-capacity)` bound (`solve/bounds.py`).",
         "- **Human**: the published program, re-timed by the validator (groups start at the published time).",
         "- **Greedy**: `solve/greedy.py` on the instance derived from the same program",
         "  (special-attraction blocks pinned, all-breed events re-planned).",
@@ -72,7 +74,7 @@ def render(params: ShowParameters | None = None) -> str:
         "- **S1**: exhibitor-conflict minutes, synthetic exhibitors, seed 0.",
         "- **S3**: equipment switches in a ring, free across a break (3a and 3b tidy them at their finish).",
         "",
-        "| Show | LB | Human groups | Human finish | gap | Greedy groups | Greedy finish | gap | CP groups | CP finish | gap | 3a groups | 3a finish | gap | 3b groups | 3b finish | gap | Human hard | Greedy hard | CP hard | 3a hard | 3b hard | S1 human | S1 greedy | S1 CP | S3 human | S3 greedy | S3 3a | S3 3b |",
+        "| Show | LB | Comb. LB | Human groups | Human finish | gap | Greedy groups | Greedy finish | gap | CP groups | CP finish | gap | 3a groups | 3a finish | gap | 3b groups | 3b finish | gap | Human hard | Greedy hard | CP hard | 3a hard | 3b hard | S1 human | S1 greedy | S1 CP | S3 human | S3 greedy | S3 3a | S3 3b |",
     ]
     lines.append("|" + "---|" * (lines[-1].count("|") - 1))
     gaps_h, gaps_g, gaps_c, gaps_f, gaps_o = [], [], [], [], []
@@ -93,11 +95,11 @@ def render(params: ShowParameters | None = None) -> str:
         gaps_o.append(fo - lb)
         hard_o = ", ".join(sorted({v.code for v in ro.violations})) or "–"
         lines.append(
-            f"| {name} | {_t(lb)} | {rh.metrics['groups_start']} | {_t(fh)} | {fh - lb:.0f} | "
-            f"{rg.metrics['groups_start']} | {_t(fg)} | {fg - lb:.0f} | "
-            f"{rc.metrics['groups_start']} | {_t(fc)}{' opt' if cp.optimal else ''} | {fc - lb:.0f} | "
-            f"{rf.metrics['groups_start']} | {_t(ff)}{' opt' if fm.optimal else ''} | {ff - lb:.0f} | "
-            f"{ro.metrics['groups_start']} | {_t(fo)}{' opt' if ob.optimal else ''} | {fo - lb:.0f} | "
+            f"| {name} | {_t(lb)}{' opt' if bound.optimal else ''} | {_t(bound.combinatorial)} | {rh.metrics['groups_start']} | {_t(fh)} | {max(fh - lb, 0):.0f} | "
+            f"{rg.metrics['groups_start']} | {_t(fg)} | {max(fg - lb, 0):.0f} | "
+            f"{rc.metrics['groups_start']} | {_t(fc)}{' opt' if cp.optimal else ''} | {max(fc - lb, 0):.0f} | "
+            f"{rf.metrics['groups_start']} | {_t(ff)}{' opt' if fm.optimal else ''} | {max(ff - lb, 0):.0f} | "
+            f"{ro.metrics['groups_start']} | {_t(fo)}{' opt' if ob.optimal else ''} | {max(fo - lb, 0):.0f} | "
             f"{hard_h} | {hard_g} | {hard_c} | {hard_f} | {hard_o} | "
             f"{rh.soft.get('S1_conflict_min', 0):.0f} | {rg.soft.get('S1_conflict_min', 0):.0f} | "
             f"{rc.soft.get('S1_conflict_min', 0):.0f} | "

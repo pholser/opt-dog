@@ -13,6 +13,7 @@ from optdog.instance import instance_from_program
 from optdog.io.program_csv import read_program
 from optdog.params import ShowParameters
 from optdog.solve.bounds import finish_lower_bound
+from optdog.solve.relaxation import relaxed_lower_bound
 from optdog.solve.cpsat import PlacementOptions, solve_formation, solve_ordering, solve_placement
 from optdog.solve.greedy import greedy_program
 from optdog.validate import validate
@@ -79,7 +80,7 @@ def test_formation_on_parsed_shows(d):
     assert {x.code for x in v.violations} <= {"V1"}, [str(x) for x in v.violations]
     assert v.timeline.finish == pytest.approx(res.finish, abs=0.1)
     assert res.finish <= placed.finish + 1e-6
-    assert res.finish >= finish_lower_bound(show).value - 1e-6
+    assert res.finish >= relaxed_lower_bound(show, time_limit=20).value - 1e-6
 
 
 def test_formation_keeps_sweepstakes_with_their_breed_and_caps_blocks():
@@ -106,7 +107,7 @@ def test_ordering_on_parsed_shows(d):
     assert {x.code for x in v.violations} <= {"V1"}, [str(x) for x in v.violations]
     assert v.timeline.finish == pytest.approx(res.finish, abs=0.1)
     assert res.finish <= placed.finish + 1e-6
-    assert res.finish >= finish_lower_bound(show).value - 1e-6
+    assert res.finish >= relaxed_lower_bound(show, time_limit=20).value - 1e-6
 
 
 def test_ordering_keeps_groups_together_and_meets_table_runs():

@@ -22,6 +22,8 @@ ring(s) are taken (H9), so only |R| − |RG| can. Each group takes ``D_g`` regar
 order, so the groups need at least Σ D_g between the first group's start and the end of
 the last group.
 
+See also `relaxation.py`, a CP-SAT relaxation that couples these and is much tighter.
+
 What the bounds ignore: the lunch window's closing time, the time grid, travel margins, pinned blocks (except as a judge's
 commitments), equipment and every soft cost. They are loose wherever those bind.
 """
