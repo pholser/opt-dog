@@ -40,8 +40,8 @@ def rows(params: ShowParameters):
         bound = relaxed_lower_bound(show, params, time_limit=60)
         greedy = greedy_program(show, params)
         cp = solve_placement(show, params, options=PlacementOptions(time_limit=30, tidy=False))
-        fm = solve_formation(show, params, options=PlacementOptions(time_limit=30))
-        ob = solve_ordering(show, params, options=PlacementOptions(time_limit=30))
+        fm = solve_formation(show, params, options=PlacementOptions(time_limit=60))
+        ob = solve_ordering(show, params, options=PlacementOptions(time_limit=60))
         rh, rg = validate(human, params), validate(greedy, params)
         rc = validate(cp.program, params) if cp.program else None
         rf = validate(fm.program, params) if fm.program else None
