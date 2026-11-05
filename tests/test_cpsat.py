@@ -1,5 +1,6 @@
 """CP-SAT placement (step 1): valid, never worse than the greedy, never better than the bound."""
 
+from dataclasses import replace
 from pathlib import Path
 
 import pytest
@@ -12,7 +13,7 @@ from optdog.instance import instance_from_program
 from optdog.io.program_csv import read_program
 from optdog.params import ShowParameters
 from optdog.solve.bounds import finish_lower_bound
-from optdog.solve.cpsat import PlacementOptions, solve_formation, solve_placement
+from optdog.solve.cpsat import PlacementOptions, solve_formation, solve_ordering, solve_placement
 from optdog.solve.greedy import greedy_program
 from optdog.validate import validate
 
@@ -92,3 +93,35 @@ def test_formation_keeps_sweepstakes_with_their_breed_and_caps_blocks():
         if "Pug Sweepstakes" in names:
             assert names[names.index("Pug Sweepstakes") + 1] == "Pug"
     assert validate(res.program, P0).violations == []
+
+
+@pytest.mark.parametrize("d", PARSED, ids=lambda d: d.name)
+def test_ordering_on_parsed_shows(d):
+    """Step 3b: choosing each judge's group order never does worse than the greedy's order."""
+    show = instance_from_program(read_program(d))
+    placed = solve_placement(show, options=FAST)
+    res = solve_ordering(show, options=FAST)
+    assert res.program is not None, res.phases
+    v = validate(res.program)
+    assert {x.code for x in v.violations} <= {"V1"}, [str(x) for x in v.violations]
+    assert v.timeline.finish == pytest.approx(res.finish, abs=0.1)
+    assert res.finish <= placed.finish + 1e-6
+    assert res.finish >= finish_lower_bound(show).value - 1e-6
+
+
+def test_ordering_keeps_groups_together_and_meets_table_runs():
+    # greedy order: Golden (ground), ECS (table) | Greyhound (ground), Beagle (table): 3 switches.
+    # Flipping one group's equipment order makes like meet like at the group boundary: 2.
+    events = [ev("Golden Retriever", A, 10), ev("English Cocker Spaniel", A, 10),
+              ev("Greyhound", A, 10), ev("Beagle (13 Inch)", A, 10), ev("Boxer", B, 25)]
+    p = replace(P0, equipment_free_gap_minutes=10_000)  # no idle time makes a switch free
+    res = solve_ordering(show_of(events, (A, B)), p)
+    assert res.program is not None
+    v = validate(res.program, p)
+    assert v.violations == []
+    order = [e for sb in sorted(res.program.blocks, key=lambda b: b.start) if sb.judge == A for e in sb.block.events]
+    groups = [e.group for e in order]
+    assert groups[:2] == [groups[0]] * 2 and groups[2:] == [groups[2]] * 2  # each group contiguous
+    kinds = [e.equipment for e in order]
+    assert kinds[1] == kinds[2]
+    assert v.soft["S3_equipment_switches"] == 2

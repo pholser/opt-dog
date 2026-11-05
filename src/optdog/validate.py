@@ -243,7 +243,7 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
 
     # ---------------------------------------------------------------- S3 equipment switches per ring
     # consecutive breeds in a ring with different equipment; free across a break, i.e. when the
-    # ring is idle at least `equipment_gap` minutes between them (U)
+    # ring is idle at least `equipment_free_gap_minutes` minutes between them (U)
     equipment_switches = 0
     for ring, seq in by_ring.items():
         last_kind, idle, t = None, 0.0, None
@@ -256,7 +256,7 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
                 k = e.equipment
                 if k is None:
                     continue
-                if last_kind is not None and k != last_kind and idle < p.equipment_gap:
+                if last_kind is not None and k != last_kind and idle < p.equipment_free_gap_minutes:
                     equipment_switches += 1
                 last_kind, idle = k, 0.0
 

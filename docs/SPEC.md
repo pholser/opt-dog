@@ -239,7 +239,7 @@ all-breed show days, 653–2,137 breed entries each. Timings assume 25 dogs/hr.
   Palm Springs days; H14 for 14–45 on Del Sur 5/1, Tucson 11/14–15 and GSV 11/17; Sir Francis
   Drake 9/12 (48) is explained by none of the three. H14 binds because of a trade-off the
   bound ignores: a heavily loaded judge who lunches early finishes their breeds later (H7),
-  one who lunches late delays the first group (H14). Next: 3b (reorder each judge's group
+  one who lunches late delays the first group (H14). Then: 3b (reorder each judge's group
   runs, which targets H13) and a lower bound that couples lunch with breed completion and
   H9 with ring capacity, to tell solver gap from bound weakness.
   S3 is in the tidy phase: exact within each judge's chain, and between judges at each
@@ -248,3 +248,16 @@ all-breed show days, 653–2,137 breed entries each. Timings assume 25 dogs/hr.
   Equipment switches (validator) on the 11 days: human 33–50, greedy 14–41, 3a 9–32.
   The validator skips H1 for pinned blocks (H11 commitments): a published 84-min Beginner
   Puppy block was flagged only when the solver put another block after it in its ring.
+- **CP-SAT step 3b** (`solve_ordering`): each judge's events split into segments, one per
+  (group, equipment) in the greedy's order; the solver orders the segments (a circuit per judge,
+  each group entered once, so a judge's group stays contiguous, S4) and so chooses the judge's
+  group order and, within a group, whether e.g. table breeds come before or after ground breeds
+  (table and ramp breeds stay consecutive within a group, S3). Cuts, H1 and the soft costs work
+  as in 3a across the arcs between segments. S3 also counts the switch where one segment meets
+  the next. The published group start is now *equal* to the earliest group start (before, it
+  was only a lower bound on every group, and the earliest-blocks phase could publish it before
+  any group was ready, which the validator flagged as H7).
+  Results (`docs/baseline.md`): all 11 days valid, 10 proven optimal; mean gap to the bound
+  41 → 24 min; better than 3a on 8 days, e.g. Palm Springs 1/5 by 65 min, Palm Springs 1/3
+  by 38, Sir Francis Drake 9/12 by 34; Greater Sierra Vista 11/17 reaches the bound. Running
+  order was the main lever on the days H13 held up. Runtime about 1 min per day.

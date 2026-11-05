@@ -12,24 +12,26 @@ times run late. Compare the columns with each other, not with real show close.
   lunches and group order re-optimized; *opt* = proven optimal for those blocks.
 - **3a**: CP-SAT block formation (`solve_formation`): the greedy's running order per judge,
   with block breaks, lunch position, rings and times chosen by the solver.
+- **3b**: CP-SAT running order (`solve_ordering`): as 3a, and each judge's group order and,
+  within each group, the order of its ground / ramp / table runs chosen by the solver.
 - **Gap**: minutes of finish above the lower bound.
 - **S1**: exhibitor-conflict minutes, synthetic exhibitors, seed 0.
-- **S3**: equipment switches in a ring, free across a break (3a tidies them at its finish).
+- **S3**: equipment switches in a ring, free across a break (3a and 3b tidy them at their finish).
 
-| Show | LB | Human groups | Human finish | gap | Greedy groups | Greedy finish | gap | CP groups | CP finish | gap | 3a groups | 3a finish | gap | Human hard | Greedy hard | CP hard | 3a hard | S1 human | S1 greedy | S1 CP | S3 human | S3 greedy | S3 3a |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 2022-04-30-del-sur-kennel-club | 5:47 PM | 2:30 PM | 7:30 PM | 103 | 12:20 PM | 5:50 PM | 2 | 12:20 PM | 5:50 PM opt | 2 | 12:25 PM | 5:49 PM opt | 2 | H3, H4 | – | – | – | 274 | 317 | 317 | 40 | 27 | 20 |
-| 2022-05-01-del-sur-kennel-club | 4:41 PM | 1:30 PM | 6:25 PM | 104 | 12:30 PM | 5:25 PM | 44 | 12:25 PM | 5:20 PM opt | 39 | 12:15 PM | 5:13 PM opt | 32 | – | – | – | – | 145 | 125 | 84 | 20 | 14 | 10 |
-| 2025-11-14-tucson-kennel-club | 5:59 PM | 2:00 PM | 8:14 PM | 135 | 12:35 PM | 6:49 PM | 50 | 12:35 PM | 6:49 PM opt | 50 | 12:35 PM | 6:49 PM opt | 50 | H1 | – | – | – | 765 | 608 | 608 | 46 | 30 | 25 |
-| 2025-11-15-tucson-kennel-club | 6:12 PM | 2:15 PM | 8:37 PM | 145 | 12:35 PM | 6:57 PM | 45 | 12:35 PM | 6:57 PM opt | 45 | 12:35 PM | 6:57 PM opt | 45 | H1, H4, V1 | V1 | V1 | V1 | 1338 | 1433 | 1433 | 37 | 21 | 14 |
-| 2025-11-16-greater-sierra-vista-kennel-club | 5:59 PM | 2:30 PM | 8:44 PM | 165 | 1:05 PM | 7:19 PM | 80 | 1:05 PM | 7:19 PM opt | 80 | 1:05 PM | 7:19 PM opt | 80 | H1 | – | – | – | 774 | 822 | 822 | 33 | 18 | 9 |
-| 2025-11-17-greater-sierra-vista-kennel-club | 5:45 PM | 1:15 PM | 7:15 PM | 90 | 12:35 PM | 6:35 PM | 50 | 12:00 PM | 6:00 PM opt | 15 | 11:55 AM | 5:55 PM opt | 10 | – | – | – | – | 418 | 308 | 310 | 41 | 20 | 12 |
-| 2026-01-03-kennel-club-of-palm-springs | 7:37 PM | 2:00 PM | 9:20 PM | 103 | 12:30 PM | 8:22 PM | 45 | 12:25 PM | 8:22 PM opt | 45 | 12:45 PM | 8:22 PM opt | 45 | H1, H3, H4 | – | – | – | 5730 | 5088 | 5107 | 39 | 27 | 16 |
-| 2026-01-04-kennel-club-of-palm-springs | 7:30 PM | 1:30 PM | 8:44 PM | 74 | 1:10 PM | 8:24 PM | 54 | 12:50 PM | 8:04 PM opt | 34 | 12:50 PM | 8:04 PM opt | 34 | H1, H3, H4, H9 | – | – | – | 4536 | 3897 | 3623 | 50 | 41 | 32 |
-| 2026-01-05-kennel-club-of-palm-springs | 8:37 PM | 2:30 PM | 10:04 PM | 88 | 2:55 PM | 10:09 PM | 93 | 2:55 PM | 10:09 PM opt | 93 | 2:50 PM | 10:04 PM opt | 88 | H1, H13, H3, H4, H8 | – | – | – | 2347 | 2342 | 2530 | 40 | 25 | 11 |
-| 2026-09-12-sir-francis-drake-kennel-club | 5:36 PM | 2:00 PM | 7:50 PM | 134 | 12:45 PM | 6:35 PM | 59 | 12:25 PM | 6:24 PM opt | 48 | 12:25 PM | 6:24 PM opt | 48 | – | – | – | – | 295 | 349 | 361 | 38 | 29 | 24 |
-| 2026-09-13-sir-francis-drake-kennel-club | 7:23 PM | 2:30 PM | 8:18 PM | 55 | 12:40 PM | 7:34 PM | 11 | 12:40 PM | 7:34 PM opt | 11 | 12:40 PM | 7:34 PM opt | 10 | H3, H4, H9 | – | – | – | 202 | 353 | 353 | 33 | 32 | 25 |
+| Show | LB | Human groups | Human finish | gap | Greedy groups | Greedy finish | gap | CP groups | CP finish | gap | 3a groups | 3a finish | gap | 3b groups | 3b finish | gap | Human hard | Greedy hard | CP hard | 3a hard | 3b hard | S1 human | S1 greedy | S1 CP | S3 human | S3 greedy | S3 3a | S3 3b |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 2022-04-30-del-sur-kennel-club | 5:47 PM | 2:30 PM | 7:30 PM | 103 | 12:20 PM | 5:50 PM | 2 | 12:20 PM | 5:50 PM opt | 2 | 12:25 PM | 5:49 PM opt | 2 | 12:25 PM | 5:49 PM opt | 2 | H3, H4 | – | – | – | – | 274 | 317 | 317 | 40 | 27 | 20 | 19 |
+| 2022-05-01-del-sur-kennel-club | 4:41 PM | 1:30 PM | 6:25 PM | 104 | 12:30 PM | 5:25 PM | 44 | 12:25 PM | 5:20 PM opt | 39 | 12:20 PM | 5:15 PM opt | 34 | 12:15 PM | 5:10 PM opt | 29 | – | – | – | – | – | 145 | 125 | 125 | 20 | 14 | 10 | 6 |
+| 2025-11-14-tucson-kennel-club | 5:59 PM | 2:00 PM | 8:14 PM | 135 | 12:35 PM | 6:49 PM | 50 | 12:35 PM | 6:49 PM opt | 50 | 12:35 PM | 6:49 PM opt | 50 | 12:20 PM | 6:34 PM opt | 35 | H1 | – | – | – | – | 765 | 608 | 608 | 46 | 30 | 25 | 29 |
+| 2025-11-15-tucson-kennel-club | 6:12 PM | 2:15 PM | 8:37 PM | 145 | 12:35 PM | 6:57 PM | 45 | 12:35 PM | 6:57 PM opt | 45 | 12:35 PM | 6:57 PM opt | 45 | 12:35 PM | 6:57 PM opt | 45 | H1, H4, V1 | V1 | V1 | V1 | V1 | 1338 | 1433 | 1433 | 37 | 21 | 14 | 12 |
+| 2025-11-16-greater-sierra-vista-kennel-club | 5:59 PM | 2:30 PM | 8:44 PM | 165 | 1:05 PM | 7:19 PM | 80 | 1:05 PM | 7:19 PM opt | 80 | 1:05 PM | 7:19 PM opt | 80 | 1:05 PM | 7:19 PM opt | 80 | H1 | – | – | – | – | 774 | 822 | 944 | 33 | 18 | 9 | 6 |
+| 2025-11-17-greater-sierra-vista-kennel-club | 5:45 PM | 1:15 PM | 7:15 PM | 90 | 12:35 PM | 6:35 PM | 50 | 12:00 PM | 6:00 PM opt | 15 | 11:55 AM | 5:55 PM opt | 10 | 11:45 AM | 5:45 PM opt | 0 | – | – | – | – | – | 418 | 308 | 310 | 41 | 20 | 12 | 13 |
+| 2026-01-03-kennel-club-of-palm-springs | 7:37 PM | 2:00 PM | 9:20 PM | 103 | 12:30 PM | 8:22 PM | 45 | 12:25 PM | 8:22 PM opt | 45 | 12:45 PM | 8:22 PM opt | 45 | 12:25 PM | 7:44 PM opt | 7 | H1, H3, H4 | – | – | – | – | 5730 | 5088 | 5144 | 39 | 27 | 15 | 16 |
+| 2026-01-04-kennel-club-of-palm-springs | 7:30 PM | 1:30 PM | 8:44 PM | 74 | 1:10 PM | 8:24 PM | 54 | 12:50 PM | 8:04 PM opt | 34 | 12:50 PM | 8:04 PM opt | 34 | 12:40 PM | 7:54 PM opt | 24 | H1, H3, H4, H9 | – | – | – | – | 4536 | 3897 | 3629 | 50 | 41 | 32 | 26 |
+| 2026-01-05-kennel-club-of-palm-springs | 8:37 PM | 2:30 PM | 10:04 PM | 88 | 2:55 PM | 10:09 PM | 93 | 2:55 PM | 10:09 PM opt | 93 | 2:50 PM | 10:04 PM opt | 88 | 1:30 PM | 8:59 PM opt | 23 | H1, H13, H3, H4, H8 | – | – | – | – | 2347 | 2342 | 2342 | 40 | 25 | 11 | 13 |
+| 2026-09-12-sir-francis-drake-kennel-club | 5:36 PM | 2:00 PM | 7:50 PM | 134 | 12:45 PM | 6:35 PM | 59 | 12:25 PM | 6:24 PM opt | 48 | 12:25 PM | 6:24 PM opt | 48 | 11:55 AM | 5:50 PM opt | 14 | – | – | – | – | – | 295 | 349 | 361 | 38 | 29 | 24 | 22 |
+| 2026-09-13-sir-francis-drake-kennel-club | 7:23 PM | 2:30 PM | 8:18 PM | 55 | 12:40 PM | 7:34 PM | 11 | 1:05 PM | 7:34 PM opt | 11 | 12:40 PM | 7:34 PM opt | 10 | 1:00 PM | 7:29 PM | 5 | H3, H4, H9 | – | – | – | – | 202 | 353 | 353 | 33 | 32 | 25 | 24 |
 
-Mean gap to the lower bound: human 109 min, greedy 48 min, CP 42 min, 3a 40 min (greedy finishes earlier than the human program on 10 of 11 days; CP improves on the greedy on 4; 3a improves on CP on 4).
+Mean gap to the lower bound: human 109 min, greedy 48 min, CP 42 min, 3a 41 min, 3b 24 min (greedy finishes earlier than the human program on 10 of 11 days; CP improves on the greedy on 4; 3a improves on CP on 4; 3b improves on 3a on 8).
 
 Hard-constraint codes: V1 is a judge over 175 entries, an input problem that no schedule can fix.

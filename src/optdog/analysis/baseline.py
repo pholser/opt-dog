@@ -14,7 +14,7 @@ from optdog.instance import instance_from_program
 from optdog.io.program_csv import read_entries, read_program
 from optdog.params import ShowParameters
 from optdog.solve.bounds import finish_lower_bound
-from optdog.solve.cpsat import PlacementOptions, solve_formation, solve_placement
+from optdog.solve.cpsat import PlacementOptions, solve_formation, solve_ordering, solve_placement
 from optdog.solve.greedy import greedy_program
 from optdog.validate import validate
 
@@ -41,10 +41,12 @@ def rows(params: ShowParameters):
         greedy = greedy_program(show, params)
         cp = solve_placement(show, params, options=PlacementOptions(time_limit=30, tidy=False))
         fm = solve_formation(show, params, options=PlacementOptions(time_limit=30))
+        ob = solve_ordering(show, params, options=PlacementOptions(time_limit=30))
         rh, rg = validate(human, params), validate(greedy, params)
         rc = validate(cp.program, params) if cp.program else None
         rf = validate(fm.program, params) if fm.program else None
-        yield d.name, bound, human, rh, greedy, rg, cp, rc, fm, rf
+        ro = validate(ob.program, params) if ob.program else None
+        yield d.name, bound, human, rh, greedy, rg, cp, rc, fm, rf, ob, ro
 
 
 def render(params: ShowParameters | None = None) -> str:
@@ -64,15 +66,17 @@ def render(params: ShowParameters | None = None) -> str:
         "  lunches and group order re-optimized; *opt* = proven optimal for those blocks.",
         "- **3a**: CP-SAT block formation (`solve_formation`): the greedy's running order per judge,",
         "  with block breaks, lunch position, rings and times chosen by the solver.",
+        "- **3b**: CP-SAT running order (`solve_ordering`): as 3a, and each judge's group order and,",
+        "  within each group, the order of its ground / ramp / table runs chosen by the solver.",
         "- **Gap**: minutes of finish above the lower bound.",
         "- **S1**: exhibitor-conflict minutes, synthetic exhibitors, seed 0.",
-        "- **S3**: equipment switches in a ring, free across a break (3a tidies them at its finish).",
+        "- **S3**: equipment switches in a ring, free across a break (3a and 3b tidy them at their finish).",
         "",
-        "| Show | LB | Human groups | Human finish | gap | Greedy groups | Greedy finish | gap | CP groups | CP finish | gap | 3a groups | 3a finish | gap | Human hard | Greedy hard | CP hard | 3a hard | S1 human | S1 greedy | S1 CP | S3 human | S3 greedy | S3 3a |",
+        "| Show | LB | Human groups | Human finish | gap | Greedy groups | Greedy finish | gap | CP groups | CP finish | gap | 3a groups | 3a finish | gap | 3b groups | 3b finish | gap | Human hard | Greedy hard | CP hard | 3a hard | 3b hard | S1 human | S1 greedy | S1 CP | S3 human | S3 greedy | S3 3a | S3 3b |",
     ]
     lines.append("|" + "---|" * (lines[-1].count("|") - 1))
-    gaps_h, gaps_g, gaps_c, gaps_f = [], [], [], []
-    for name, bound, human, rh, greedy, rg, cp, rc, fm, rf in rows(p):
+    gaps_h, gaps_g, gaps_c, gaps_f, gaps_o = [], [], [], [], []
+    for name, bound, human, rh, greedy, rg, cp, rc, fm, rf, ob, ro in rows(p):
         lb = bound.value
         fh, fg = rh.timeline.finish, rg.timeline.finish
         gaps_h.append(fh - lb)
@@ -85,24 +89,29 @@ def render(params: ShowParameters | None = None) -> str:
         ff = rf.timeline.finish
         gaps_f.append(ff - lb)
         hard_f = ", ".join(sorted({v.code for v in rf.violations})) or "–"
+        fo = ro.timeline.finish
+        gaps_o.append(fo - lb)
+        hard_o = ", ".join(sorted({v.code for v in ro.violations})) or "–"
         lines.append(
             f"| {name} | {_t(lb)} | {rh.metrics['groups_start']} | {_t(fh)} | {fh - lb:.0f} | "
             f"{rg.metrics['groups_start']} | {_t(fg)} | {fg - lb:.0f} | "
             f"{rc.metrics['groups_start']} | {_t(fc)}{' opt' if cp.optimal else ''} | {fc - lb:.0f} | "
             f"{rf.metrics['groups_start']} | {_t(ff)}{' opt' if fm.optimal else ''} | {ff - lb:.0f} | "
-            f"{hard_h} | {hard_g} | {hard_c} | {hard_f} | "
+            f"{ro.metrics['groups_start']} | {_t(fo)}{' opt' if ob.optimal else ''} | {fo - lb:.0f} | "
+            f"{hard_h} | {hard_g} | {hard_c} | {hard_f} | {hard_o} | "
             f"{rh.soft.get('S1_conflict_min', 0):.0f} | {rg.soft.get('S1_conflict_min', 0):.0f} | "
             f"{rc.soft.get('S1_conflict_min', 0):.0f} | "
-            f"{rh.soft['S3_equipment_switches']} | {rg.soft['S3_equipment_switches']} | {rf.soft['S3_equipment_switches']} |"
+            f"{rh.soft['S3_equipment_switches']} | {rg.soft['S3_equipment_switches']} | {rf.soft['S3_equipment_switches']} | {ro.soft['S3_equipment_switches']} |"
         )
     n = len(gaps_h)
     lines += [
         "",
         f"Mean gap to the lower bound: human {sum(gaps_h) / n:.0f} min, greedy {sum(gaps_g) / n:.0f} min, "
-        f"CP {sum(gaps_c) / n:.0f} min, 3a {sum(gaps_f) / n:.0f} min (greedy finishes earlier than the human program on "
+        f"CP {sum(gaps_c) / n:.0f} min, 3a {sum(gaps_f) / n:.0f} min, 3b {sum(gaps_o) / n:.0f} min (greedy finishes earlier than the human program on "
         f"{sum(1 for a, b in zip(gaps_h, gaps_g) if b < a)} of {n} days; CP improves on the greedy on "
         f"{sum(1 for a, b in zip(gaps_g, gaps_c) if b < a - 0.5)}; 3a improves on CP on "
-        f"{sum(1 for a, b in zip(gaps_c, gaps_f) if b < a - 0.5)}).",
+        f"{sum(1 for a, b in zip(gaps_c, gaps_f) if b < a - 0.5)}; 3b improves on 3a on "
+        f"{sum(1 for a, b in zip(gaps_f, gaps_o) if b < a - 0.5)}).",
         "",
         "Hard-constraint codes: V1 is a judge over 175 entries, an input problem that no schedule can fix.",
         "",

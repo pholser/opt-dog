@@ -1,39 +1,48 @@
-"""CP-SAT scheduling model: placement of given blocks (step 1) and block formation (step 3a).
+"""CP-SAT scheduling model: placement of given blocks (step 1), block formation (step 3a) and
+running order (step 3b).
 
-Each judge's events form a **chain** in a fixed running order. Between two consecutive
-events a **cut** either starts a new block or continues the current one. In step 1
-(``solve_placement``) every cut is fixed by the given blocks; in step 3a
-(``solve_formation``) the solver chooses them. Either way it decides:
+Each judge's events are split into **segments** with a fixed internal running order. Within
+a segment, between two consecutive events a **cut** either starts a new block or continues
+the current one. Segments are linked into one chain per judge by **arcs** (a circuit).
 
-- where each judge's blocks begin (3a only), each block's **ring** and **start**,
-- each lunch's **start**, for judges who need one,
-- the **published group start** and the **group order**,
+- Step 1 (``solve_placement``): one segment per judge, every cut fixed by the given blocks.
+- Step 3a (``solve_formation``): one segment per judge (the greedy's running order); the
+  solver chooses the cuts.
+- Step 3b (``solve_ordering``): one segment per (group, equipment) of a judge, in the greedy's
+  order inside each; the solver chooses the segments' order, so it orders the judge's groups
+  and, within each group, whether e.g. table breeds come before or after ground breeds. A
+  judge's group stays contiguous (S4, Show Manual §6 "organize their breed-judging schedule
+  by group"); table breeds and ramp breeds stay consecutive within a group (S3).
 
-subject to every hard constraint of SPEC §4, minimizing **show finish** (BIS end).
+It decides each block's **ring** and **start**, each lunch's **start**, the **published group
+start** and the **group order**, subject to every hard constraint of SPEC §4, minimizing
+**show finish** (BIS end).
 
-Model (time in tenths of a minute, so 2.4 min/dog is exact; u⁻ is the event before u):
+Model (time in tenths of a minute, so 2.4 min/dog is exact; u⁻ is the event before u, fixed
+inside a segment, chosen by an arc a_{PQ} at a segment's first event):
 
-    c_u ∈ {0,1}: u starts a block (1 for the first event of a chain)
+    circuit over each judge's segments; each group entered once                  (3b)
+    c_u ∈ {0,1}: u starts a block (1 for a judge's first event)
     c_u = 0 ⇒ s_u = s_u⁻ + d_u⁻, ring(u) = ring(u⁻)           blocks are contiguous (H5)
     c_u = 1 ⇒ s_u = Δ·k_u                                      published "not before" grid
     s_u ≥ e_u⁻ + m_J·[ring(u) ≠ ring(u⁻)]                      travel margin (H4)
-    b_u = s_u if c_u else b_u⁻;  e_u − b_u ≤ cap               about an hour (H1; 3a only)
+    b_u = s_u if c_u else b_u⁻;  e_u − b_u ≤ cap               about an hour (H1; 3a, 3b)
     ring r:  NoOverlap(optional intervals of events in r, pinned blocks in r)            (H3)
     judge j: NoOverlap(events, pinned ± travel, lunch)                                   (H4)
     lunch:   L0 ≤ ℓ_j ≤ L1, length = lunch min; judging before and after it              (H6)
     group g: τ_g ≥ end of every event feeding g                                          (H7)
              τ_g ≥ end of group judge's last event + m_J if it is outside the group rings (H8)
-    first group start F (on the grid) ≤ τ_g for all g
+    first group start F (on the grid) = min_g τ_g
              F ≥ end of every event placed in a group ring (+ set-up)                    (H9)
              F ≥ every event of ≥ 2 groups (chosen by the solver)                         (H13)
              F ≥ every judge's lunch end                                                 (H14)
     groups:  NoOverlap(group intervals); BIS starts after every group                    (H10)
 
 H11 holds by the pinned blocks; H12 and V1 are input checks. Three lexicographic phases:
-(1) minimize the BIS end; (2) at that finish, minimize the soft costs the block structure
-controls (S2 ring changes, S9 short blocks, S10 lunch splitting a group, block count);
-(3) at both, start blocks as early as possible. Each phase starts from the previous one's
-solution; phase 1 starts from the greedy schedule (step 1) or the step-1 schedule (3a).
+(1) minimize the BIS end; (2) at that finish, minimize the soft costs the structure controls
+(S2 ring changes, S3 equipment switches, S9 short blocks, S10 lunch splitting a group, block
+count); (3) at both, start blocks as early as possible. Each phase starts from the previous
+one's solution; phase 1 starts from the greedy schedule (step 1) or the step-1 schedule.
 """
 
 from __future__ import annotations
@@ -69,6 +78,16 @@ Chain = list[JudgingEvent]
 Cut = bool | None  # event starts a block (True), continues the block (False), or the solver chooses (None)
 
 
+@dataclass(frozen=True)
+class Segment:
+    """Events judged consecutively in this order; ``cls`` names the group they belong to
+    (3b: a judge's segments of one class are contiguous)."""
+
+    events: tuple[JudgingEvent, ...]
+    cuts: tuple[Cut, ...]
+    cls: object = None
+
+
 def _u(minutes: float) -> int:
     """Minutes → model units, rounding durations up (never shorter than planned)."""
     return int(math.ceil(minutes * SCALE - 1e-6))
@@ -81,7 +100,7 @@ class PlacementOptions:
     hint: bool = True  # start from a known schedule (greedy, or step 1 for formation)
     tidy: bool = True  # phases 2-3: same finish, lower soft costs, earlier blocks
     log: bool = False
-    max_block_minutes: float = 65.0  # 3a: H1 cap on a formed block; same as the greedy (E: human p90 27 dogs)
+    max_block_minutes: float = 65.0  # 3a/3b: H1 cap on a formed block; same as the greedy (E: human p90 27 dogs)
 
 
 @dataclass
@@ -119,35 +138,74 @@ def blocks_from_program(program: JudgingProgram) -> dict[Judge, list[Block]]:
     return dict(out)
 
 
-def chains_from_blocks(blocks: dict[Judge, list[Block]]) -> dict[Judge, tuple[Chain, list[Cut]]]:
-    """The judges' chains with every cut fixed by ``blocks`` (step 1)."""
+def chains_from_blocks(blocks: dict[Judge, list[Block]]) -> dict[Judge, list[Segment]]:
+    """One segment per judge with every cut fixed by ``blocks`` (step 1)."""
     out = {}
     for j, bl in blocks.items():
-        chain = [e for b in bl for e in b.events]
-        cuts: list[Cut] = [n == 0 for b in bl for n in range(len(b.events))]
-        out[j] = (chain, cuts)
+        chain = tuple(e for b in bl for e in b.events)
+        cuts = tuple(n == 0 for b in bl for n in range(len(b.events)))
+        out[j] = [Segment(chain, cuts)]
     return out
 
 
-def free_cuts(chains: dict[Judge, Chain], cap_minutes: float) -> dict[Judge, tuple[Chain, list[Cut]]]:
-    """The judges' chains with cuts for the solver to choose (step 3a), except that
+def _free_cuts_of(chain: Chain, cap_minutes: float) -> list[Cut]:
+    cuts: list[Cut] = [None] * len(chain)
+    alone = [e.duration > cap_minutes for e in chain]
+    for i in range(1, len(chain)):
+        a, b = chain[i - 1], chain[i]
+        if alone[i - 1] or alone[i]:
+            cuts[i] = True
+        elif a.kind is EventKind.SWEEPSTAKES and b.kind is EventKind.BREED and a.breed == b.breed:
+            cuts[i] = False
+    if chain and alone[0]:
+        cuts[0] = True
+    return cuts
+
+
+def free_cuts(chains: dict[Judge, Chain], cap_minutes: float) -> dict[Judge, list[Segment]]:
+    """One segment per judge with cuts for the solver to choose (step 3a), except that
 
     - an event longer than the block cap is a block of its own (H1 exception), and
-    - a sweepstakes stays in the same block as the breed it precedes (H15), unless that
-      breed must be alone.
+    - a sweepstakes stays in the same block as the breed it precedes (H15), unless
+      that breed must be alone.
     """
     out = {}
     for j, chain in chains.items():
-        cuts: list[Cut] = [None] * len(chain)
+        cuts = _free_cuts_of(chain, cap_minutes)
         cuts[0] = True
-        alone = [e.duration > cap_minutes for e in chain]
-        for i in range(1, len(chain)):
-            a, b = chain[i - 1], chain[i]
-            if alone[i - 1] or alone[i]:
-                cuts[i] = True
-            elif a.kind is EventKind.SWEEPSTAKES and b.kind is EventKind.BREED and a.breed == b.breed:
-                cuts[i] = False
-        out[j] = (chain, cuts)
+        out[j] = [Segment(tuple(chain), tuple(cuts))]
+    return out
+
+
+def _exam(e: JudgingEvent) -> str:
+    if e.breed is None:
+        return "ground"
+    ex = e.breed.examination
+    return "table" if ex.needs_table else "ramp" if ex.needs_ramp else "ground"
+
+
+def segment_class(e: JudgingEvent) -> object:
+    """The group an event's segment belongs to: its variety group (sweepstakes by their
+    breed's), "junior" for Junior Showmanship, "other" for the rest (Miscellaneous, FSS,
+    obedience...) — the same classes as the greedy's running order."""
+    if e.kind is EventKind.JUNIOR_SHOWMANSHIP:
+        return "junior"
+    g = e.breed.group if e.breed else None
+    return g if g is not None and g.is_variety_group else "other"
+
+
+def ordering_segments(chains: dict[Judge, Chain], cap_minutes: float) -> dict[Judge, list[Segment]]:
+    """Step 3b: each judge's events split by (group class, equipment), each keeping its order
+    in ``chains``; cuts free as in step 3a."""
+    out = {}
+    for j, chain in chains.items():
+        parts: dict[tuple, list[JudgingEvent]] = {}
+        for e in chain:
+            parts.setdefault((segment_class(e), _exam(e)), []).append(e)
+        out[j] = [Segment(tuple(evs), tuple(_free_cuts_of(evs, cap_minutes)), key[0]) for key, evs in parts.items()]
+        if len(out[j]) == 1:
+            only = out[j][0]
+            out[j] = [replace(only, cuts=(True,) + only.cuts[1:])]
     return out
 
 
@@ -168,18 +226,34 @@ def solve_placement(show: Show, params: ShowParameters | None = None,
     return _solve(m, o, hint_prog)
 
 
+def _greedy_start(show: Show, p: ShowParameters, o: PlacementOptions):
+    greedy = greedy_program(show, p)
+    blocks = blocks_from_program(greedy)
+    start = solve_placement(show, p, blocks, replace(o, tidy=False))
+    chains = {j: [e for b in bl for e in b.events] for j, bl in blocks.items()}
+    return chains, start.program or greedy
+
+
 def solve_formation(show: Show, params: ShowParameters | None = None,
                     options: PlacementOptions | None = None) -> PlacementResult:
     """Step 3a: keep each judge's running order (the greedy's), let the solver choose where
     blocks break, where lunch falls, and each block's ring and start."""
     p = (params or ShowParameters()).for_show(show)
     o = options or PlacementOptions()
-    greedy = greedy_program(show, p)
-    blocks = blocks_from_program(greedy)
-    start = solve_placement(show, p, blocks, replace(o, tidy=False))
-    chains = {j: [e for b in bl for e in b.events] for j, bl in blocks.items()}
+    chains, hint = _greedy_start(show, p, o)
     m = _Model(show, p, free_cuts(chains, o.max_block_minutes), cap=o.max_block_minutes)
-    return _solve(m, o, start.program or greedy)
+    return _solve(m, o, hint)
+
+
+def solve_ordering(show: Show, params: ShowParameters | None = None,
+                   options: PlacementOptions | None = None) -> PlacementResult:
+    """Step 3b: as 3a, and the solver also orders each judge's groups and, within a group,
+    its ground / table / ramp runs."""
+    p = (params or ShowParameters()).for_show(show)
+    o = options or PlacementOptions()
+    chains, hint = _greedy_start(show, p, o)
+    m = _Model(show, p, ordering_segments(chains, o.max_block_minutes), cap=o.max_block_minutes)
+    return _solve(m, o, hint)
 
 
 def _solve(m: "_Model", o: PlacementOptions, hint_prog: JudgingProgram | None) -> PlacementResult:
@@ -214,7 +288,7 @@ def _solve(m: "_Model", o: PlacementOptions, hint_prog: JudgingProgram | None) -
     m.model.Add(m.finish <= best_finish)
 
     if o.tidy:
-        # phase 2: soft costs of the block structure, at that finish
+        # phase 2: soft costs of the structure, at that finish
         if run("structure", m.structure, WSCALE):
             m.model.Add(m.structure <= solver.Value(m.structure))
             # phase 3: earliest blocks
@@ -231,17 +305,37 @@ def _solve(m: "_Model", o: PlacementOptions, hint_prog: JudgingProgram | None) -
 
 
 class _Model:
-    def __init__(self, show: Show, p: ShowParameters, chains: dict[Judge, tuple[Chain, list[Cut]]],
-                 cap: float | None):
+    def __init__(self, show: Show, p: ShowParameters, chains: dict[Judge, list[Segment]], cap: float | None):
         self.show, self.p, self.chains = show, p, chains
         md = self.model = cp_model.CpModel()
         slot = self.slot = p.slot_minutes * SCALE
-        t0 = show.start * SCALE
-        H = t0 + 18 * 60 * SCALE
+        t0 = self.t0 = show.start * SCALE
+        H = self.H = t0 + 18 * 60 * SCALE
         travel = _u(p.judge_travel_minutes)
         rings = self.rings = list(show.rings)
         group_rings = set(show.group_rings)
         w = p.weights
+
+        # ------------------------------------------------------------------ order of segments (3b)
+        # arcs[j][(p, q)]: segment q follows segment p (1-based; 0 is the start/end of the day)
+        self.arcs: dict[Judge, dict[tuple[int, int], object]] = {}
+        self.preds: dict[int, list[tuple[int | None, object]]] = {}  # segment-first event id → (pred event id, arc)
+        for j, segs in chains.items():
+            n = len(segs)
+            if n == 1:
+                arcs = {(0, 1): True, (1, 0): True}
+            else:
+                arcs = {(a, b): md.NewBoolVar(f"arc_{j.name}_{a}_{b}")
+                        for a in range(n + 1) for b in range(n + 1) if a != b}
+                md.AddCircuit([(a, b, lit) for (a, b), lit in arcs.items()])
+                # each group class is entered once: its segments are contiguous
+                for cls in {s.cls for s in segs}:
+                    inside = {q for q in range(1, n + 1) if segs[q - 1].cls == cls}
+                    md.Add(sum(lit for (a, b), lit in arcs.items() if b in inside and a not in inside) == 1)
+            self.arcs[j] = arcs
+            for q, seg in enumerate(segs, 1):
+                self.preds[id(seg.events[0])] = [(None if a == 0 else id(segs[a - 1].events[-1]), lit)
+                                                 for (a, b), lit in arcs.items() if b == q]
 
         # ------------------------------------------------------------------ events
         # per event id: start s (var or var + const), cut c (bool or literal), ring literals x
@@ -251,81 +345,134 @@ class _Model:
         self.k: dict[int, cp_model.IntVar] = {}
         self.x: dict[int, dict[Ring, cp_model.IntVar]] = {}
         self.same: dict[int, cp_model.IntVar] = {}  # event id → literal "same ring as the event before"
-        self.bs: dict[int, cp_model.IntVar] = {}  # block start (3a)
-        self.acc: dict[int, cp_model.IntVar] = {}  # dogs so far in the block (3a)
+        self.bs: dict[int, cp_model.IntVar] = {}  # block start (3a, 3b)
+        self.acc: dict[int, cp_model.IntVar] = {}  # dogs so far in the block (3a, 3b)
+        self.prev: dict[int, int] = {}  # event id → fixed predecessor's id (inside a segment)
         self.run_starts: list = []
         ring_iv: dict[Ring, list] = defaultdict(list)
         judge_iv: dict[Judge, list] = defaultdict(list)
-        self.runs: list[tuple[list[int], object]] = []  # (event ids, ...) of each fixed-contiguous run
-        changes, short_terms = [], []
+        self.runs: list[tuple[list[int], object]] = []  # (event ids, judge) of each fixed-contiguous run
+        changes: list[tuple[Judge, int, object]] = []  # (judge, event id, "ring changed before it")
+        short_terms = []
         n_blocks = []
+        free_of: dict[Judge, bool] = {}
 
-        for j, (chain, cuts) in chains.items():
-            free = any(c is None for c in cuts)
-            total_dogs = sum(e.entries for e in chain)
-            run: list[int] = []
-            for i, (e, cut) in enumerate(zip(chain, cuts)):
-                u = id(e)
-                d = self.d[u] = _u(e.duration)
-                prev = id(chain[i - 1]) if i else None
-                if cut is False:
-                    c = self.c[u] = False
-                    self.s[u] = self.s[prev] + self.d[prev]
-                    self.x[u] = self.x[prev]
-                else:
-                    c = self.c[u] = True if cut else md.NewBoolVar(f"c_{u}")
-                    s = self.s[u] = md.NewIntVar(t0, H - d, f"s_{u}")
-                    k = self.k[u] = md.NewIntVar(t0 // slot, (H - d) // slot, f"k_{u}")
-                    if c is True:
-                        md.Add(s == slot * k)
-                    else:
-                        md.Add(s == slot * k).OnlyEnforceIf(c)
-                        md.Add(s == self.s[prev] + self.d[prev]).OnlyEnforceIf(c.Not())
-                    xs = self.x[u] = {r: md.NewBoolVar(f"x_{u}_{r.number}") for r in rings}
-                    md.AddExactlyOne(xs.values())
+        for j, segs in chains.items():
+            free = free_of[j] = any(c is None for s in segs for c in s.cuts)
+            total_dogs = sum(e.entries for s in segs for e in s.events)
+            for seg in segs:
+                run: list[int] = []
+                for i, (e, cut) in enumerate(zip(seg.events, seg.cuts)):
+                    u = id(e)
+                    d = self.d[u] = _u(e.duration)
+                    prev = id(seg.events[i - 1]) if i else None
                     if prev is not None:
-                        same = self.same[u] = md.NewBoolVar(f"same_{u}")
-                        for r in rings:
-                            md.Add(xs[r] == self.x[prev][r]).OnlyEnforceIf(same)
-                        md.Add(s >= self.s[prev] + self.d[prev] + travel).OnlyEnforceIf(same.Not())
-                        md.Add(s >= self.s[prev] + self.d[prev])
-                        if c is not True:
-                            md.AddImplication(c.Not(), same)
-                        changes.append((j, i, same.Not()))
-                    # a new fixed-contiguous run starts here
-                    if run:
-                        self.runs.append((run, j))
-                    run = []
-                    self.run_starts.append(s)
-                run.append(u)
-                n_blocks.append(c)
-                judge_iv[j].append(md.NewFixedSizeIntervalVar(self.s[u], d, f"jv_{u}"))
+                        self.prev[u] = prev
+                    if cut is False:
+                        c = self.c[u] = False
+                        self.s[u] = self.s[prev] + self.d[prev]
+                        self.x[u] = self.x[prev]
+                    else:
+                        c = self.c[u] = True if cut else md.NewBoolVar(f"c_{u}")
+                        s = self.s[u] = md.NewIntVar(t0, H - d, f"s_{u}")
+                        k = self.k[u] = md.NewIntVar(t0 // slot, (H - d) // slot, f"k_{u}")
+                        if c is True:
+                            md.Add(s == slot * k)
+                        else:
+                            md.Add(s == slot * k).OnlyEnforceIf(c)
+                            if prev is not None:
+                                md.Add(s == self.s[prev] + self.d[prev]).OnlyEnforceIf(c.Not())
+                        xs = self.x[u] = {r: md.NewBoolVar(f"x_{u}_{r.number}") for r in rings}
+                        md.AddExactlyOne(xs.values())
+                        if prev is not None:
+                            same = self.same[u] = md.NewBoolVar(f"same_{u}")
+                            for r in rings:
+                                md.Add(xs[r] == self.x[prev][r]).OnlyEnforceIf(same)
+                            md.Add(s >= self.s[prev] + self.d[prev] + travel).OnlyEnforceIf(same.Not())
+                            md.Add(s >= self.s[prev] + self.d[prev])
+                            if c is not True:
+                                md.AddImplication(c.Not(), same)
+                            changes.append((j, u, same.Not()))
+                        if run:
+                            self.runs.append((run, j))
+                        run = []
+                        self.run_starts.append(s)
+                    run.append(u)
+                    n_blocks.append(c)
+                    judge_iv[j].append(md.NewFixedSizeIntervalVar(self.s[u], d, f"jv_{u}"))
 
-                if free:  # block start and dogs so far, for H1 and S9
-                    bs = self.bs[u] = md.NewIntVar(t0, H, f"bs_{u}")
-                    acc = self.acc[u] = md.NewIntVar(0, total_dogs, f"acc_{u}")
-                    starts_here = [] if c is False else ([] if c is True else [c])
-                    if c is not False:
-                        md.Add(bs == self.s[u]).OnlyEnforceIf(starts_here)
-                        md.Add(acc == e.entries).OnlyEnforceIf(starts_here)
+                    if free:  # block start and dogs so far, for H1 and S9
+                        bs = self.bs[u] = md.NewIntVar(t0, H, f"bs_{u}")
+                        acc = self.acc[u] = md.NewIntVar(0, total_dogs, f"acc_{u}")
+                        if c is not False:
+                            starts_here = [] if c is True else [c]
+                            md.Add(bs == self.s[u]).OnlyEnforceIf(starts_here)
+                            md.Add(acc == e.entries).OnlyEnforceIf(starts_here)
+                        if c is not True and prev is not None:
+                            cont = [] if c is False else [c.Not()]
+                            md.Add(bs == self.bs[prev]).OnlyEnforceIf(cont)
+                            md.Add(acc == self.acc[prev] + e.entries).OnlyEnforceIf(cont)
+                        if cap is not None and e.duration <= cap:
+                            md.Add(self.s[u] + d - bs <= _u(cap))
+                if run:
+                    self.runs.append((run, j))
+
+        # links between segments: a segment's first event follows the segment its arc names
+        for j, segs in chains.items():
+            for seg in segs:
+                u = id(seg.events[0])
+                real = [(pu, a) for pu, a in self.preds[u] if pu is not None]
+                starts = [a for pu, a in self.preds[u] if pu is None]
+                c, s, xs = self.c[u], self.s[u], self.x[u]
+                for a in starts:  # the judge's first event starts a block
                     if c is not True:
-                        cont = [] if c is False else [c.Not()]
-                        md.Add(bs == self.bs[prev]).OnlyEnforceIf(cont)
-                        md.Add(acc == self.acc[prev] + e.entries).OnlyEnforceIf(cont)
-                    if cap is not None and e.duration <= cap:
-                        md.Add(self.s[u] + d - bs <= _u(cap))
-            if run:
-                self.runs.append((run, j))
+                        md.AddBoolOr([c]) if a is True else md.AddImplication(a, c)
+                if not real:
+                    continue
+                same = self.same[u] = md.NewBoolVar(f"same_{u}")
+                if c is not True:
+                    md.AddImplication(c.Not(), same)
+                for a in starts:
+                    md.AddImplication(a, same)  # no ring change before a judge's first event
+                for pu, a in real:
+                    end = self.s[pu] + self.d[pu]
+                    md.Add(s >= end).OnlyEnforceIf(a)
+                    md.Add(s >= end + travel).OnlyEnforceIf([a, same.Not()])
+                    for r in rings:
+                        md.Add(xs[r] == self.x[pu][r]).OnlyEnforceIf([a, same])
+                    if cap is not None and self.d[pu] > _u(cap) and c is not True:
+                        md.AddImplication(a, c)  # an event too long for a block is alone
+                    if c is not True:
+                        md.Add(s == end).OnlyEnforceIf([a, c.Not()])
+                        if free_of[j]:
+                            md.Add(self.bs[u] == self.bs[pu]).OnlyEnforceIf([a, c.Not()])
+                            md.Add(self.acc[u] == self.acc[pu] + seg.events[0].entries).OnlyEnforceIf([a, c.Not()])
+                changes.append((j, u, same.Not()))
 
-            # S9: a block that closes with too few dogs (a judge whose whole chain is small is exempt)
-            T = p.short_block_dogs
-            if free and total_dogs >= T:
-                for i, e in enumerate(chain):
-                    closes = True if i == len(chain) - 1 else self.c[id(chain[i + 1])]
+        # S9: a block that closes with too few dogs (a judge whose whole chain is small is exempt)
+        T = p.short_block_dogs
+        for j, segs in chains.items():
+            if not free_of[j] or sum(e.entries for s in segs for e in s.events) < T:
+                continue
+            for q, seg in enumerate(segs, 1):
+                for i, e in enumerate(seg.events):
+                    if i < len(seg.events) - 1:
+                        closes = self.c[id(seg.events[i + 1])]
+                        conds = [] if closes is True else [closes]
+                    elif len(segs) == 1:
+                        closes, conds = True, []
+                    else:
+                        # closes when it is the judge's last event or the next segment starts a block
+                        closes = md.NewBoolVar(f"closes_{id(e)}")
+                        for (a, b), lit in self.arcs[j].items():
+                            if a == q:
+                                nc = True if b == 0 else self.c[id(segs[b - 1].events[0])]
+                                md.AddImplication(lit, closes) if nc is True else md.AddBoolOr([lit.Not(), nc.Not(), closes])
+                        conds = [closes]
                     if closes is False:
                         continue
                     sh = md.NewIntVar(0, T, f"short_{id(e)}")
-                    md.Add(sh >= T - self.acc[id(e)]).OnlyEnforceIf([] if closes is True else [closes])
+                    md.Add(sh >= T - self.acc[id(e)]).OnlyEnforceIf(conds)
                     short_terms.append(sh)
 
         # ring intervals: one per fixed-contiguous run of events (blocks in step 1)
@@ -359,38 +506,55 @@ class _Model:
         lunch_len = p.lunch_min_minutes * SCALE
         self.lunch: dict[Judge, cp_model.IntVar] = {}
         self.before: dict[int, cp_model.IntVar] = {}  # event id → "judged before this judge's lunch"
-        at_lunch: dict[tuple[Judge, int], cp_model.LinearExprT] = {}
+        at_lunch: dict[int, cp_model.LinearExprT] = {}  # event id → "lunch comes just before it"
         for j in show.judges:
             work = sum(e.duration for e in show.events_for(j))
             if work <= p.lunch_required_after_minutes:
                 continue
-            chain = chains.get(j, ([], []))[0]
+            segs = chains.get(j, [])
+            events = [e for s in segs for e in s.events]
             pins = [sb for sb in show.pinned if sb.judge == j]
             lk = md.NewIntVar(-(-l0 // slot), l1 // slot, f"lunch_k_{j.name}")
             ls = md.NewIntVar(l0, l1, f"ls_{j.name}")
             md.Add(ls == slot * lk)
             judge_iv[j].append(md.NewFixedSizeIntervalVar(ls, lunch_len, f"lv_{j.name}"))
             self.lunch[j] = ls
-            bef = []
-            for e in chain:
+            for e in events:
                 u = id(e)
                 b = self.before[u] = md.NewBoolVar(f"before_{u}")
                 md.Add(self.s[u] + self.d[u] <= ls).OnlyEnforceIf(b)
                 md.Add(self.s[u] >= ls + lunch_len).OnlyEnforceIf(b.Not())
-                bef.append(b)
-            for a, b in zip(bef, bef[1:]):
-                md.AddImplication(b, a)
-            for i in range(1, len(chain)):
-                at_lunch[j, i] = bef[i - 1] - bef[i]
+            bef = self.before
+            for e in events:
+                u = id(e)
+                if u in self.prev:
+                    md.AddImplication(bef[u], bef[self.prev[u]])
+                    at_lunch[u] = bef[self.prev[u]] - bef[u]
+                    continue
+                real = [(pu, a) for pu, a in self.preds[u] if pu is not None]
+                if not real:
+                    continue
+                for pu, a in real:
+                    md.AddBoolOr([a.Not(), bef[u].Not(), bef[pu]])
+                bp = md.NewBoolVar(f"bp_{u}")  # the event before it is before lunch
+                for pu, a in self.preds[u]:
+                    md.Add(bp == (bef[u] if pu is None else bef[pu])).OnlyEnforceIf(a)
+                at_lunch[u] = bp - bef[u]
             # judging both before and after the lunch (a break *in* the assignment)
             if not any(sb.end * SCALE <= l0 for sb in pins):
-                if not chain:
+                if not events:
                     raise ValueError(f"{j.name} needs lunch but has no movable events before it")
-                md.Add(bef[0] == 1)
+                if len(segs) == 1:
+                    md.Add(bef[id(events[0])] == 1)
+                else:
+                    md.AddBoolOr([bef[id(e)] for e in events])
             if not any(sb.start * SCALE >= l1 + lunch_len for sb in pins):
-                if not chain:
+                if not events:
                     raise ValueError(f"{j.name} needs lunch but has no movable events after it")
-                md.Add(bef[-1] == 0)
+                if len(segs) == 1:
+                    md.Add(bef[id(events[-1])] == 0)
+                else:
+                    md.AddBoolOr([bef[id(e)].Not() for e in events])
 
         for r, ivs in ring_iv.items():
             md.AddNoOverlap(ivs)
@@ -419,11 +583,12 @@ class _Model:
         def judge_free_terms(j: Judge):
             """Lower bounds on when ``j`` can be in the group ring (H8)."""
             terms = []
-            chain = chains.get(j, ([], []))[0]
-            if chain:
-                last = id(chain[-1])
+            segs = chains.get(j, [])
+            for q, seg in enumerate(segs, 1):
+                last = id(seg.events[-1])
+                is_last = self.arcs[j][q, 0]
                 in_gr = sum(self.x[last][r] for r in group_rings) if group_rings else 0
-                terms.append(event_end(chain[-1]) + travel - travel * in_gr)
+                terms.append(event_end(seg.events[-1]) + travel - travel * in_gr - travel * (1 - is_last))
             for sb in show.pinned:
                 if sb.judge == j:
                     terms.append(_u(sb.end) + (0 if sb.ring in group_rings else travel))
@@ -441,6 +606,8 @@ class _Model:
                 for term in judge_free_terms(gj):
                     md.Add(tau >= term)
         md.AddNoOverlap(group_iv)  # H10
+        if groups:  # the first group starts at the published group start
+            md.AddMinEquality(self.first, [self.tau[g] for g in groups])
         bis_d = _u(show.bis_duration())
         self.bis = md.NewIntVar(t0, H, "bis")
         for g in groups:
@@ -480,23 +647,32 @@ class _Model:
         # ------------------------------------------------------------------ soft costs of the structure
         # S2: a ring change costs `ring_change`, or `ring_change_at_lunch` when it happens at lunch
         chg_all, chg_off = [], []
-        for j, i, chg in changes:
+        for j, u, chg in changes:
             chg_all.append(chg)
-            if (j, i) in at_lunch:
-                off = md.NewBoolVar(f"chg_off_{j.name}_{i}")
-                md.Add(off >= chg - at_lunch[j, i])
+            if u in at_lunch:
+                off = md.NewBoolVar(f"chg_off_{u}")
+                md.Add(off >= chg - at_lunch[u])
                 chg_off.append(off)
             else:
                 chg_off.append(chg)
         # S10: lunch between two events of the same group
         splits = []
-        for (j, i), al in at_lunch.items():
-            chain = chains[j][0]
-            g0, g1 = chain[i - 1].group, chain[i].group
-            if g0 is not None and g0 == g1:
-                splits.append(al)
+        event_of = {id(e): e for segs in chains.values() for s in segs for e in s.events}
+        for u, al in at_lunch.items():
+            g = event_of[u].group
+            if g is None:
+                continue
+            if u in self.prev:
+                if event_of[self.prev[u]].group == g:
+                    splits.append(al)
+                continue
+            match = [a for pu, a in self.preds[u] if pu is not None and event_of[pu].group == g]
+            if match:
+                sp = md.NewBoolVar(f"split_{u}")
+                md.Add(sp >= al + sum(match) - 1)
+                splits.append(sp)
         blocks_expr = sum(1 if c is True else c for c in n_blocks if c is not False)
-        equipment = self._equipment_switches(changes, H)
+        equipment = self._equipment_switches(changes)
 
         def iw(x: float) -> int:
             return int(round(x * WSCALE))
@@ -519,91 +695,156 @@ class _Model:
                           + iw(w.block_count) * blocks_expr)
 
     # ---------------------------------------------------------------------- S3 equipment
-    def _equipment_switches(self, changes, H: int):
+    def _equipment_switches(self, changes):
         """S3: table/ramp/ground switches between consecutive breeds in a ring, free across a break
-        (the ring idle at least ``equipment_gap``). Counted exactly within each judge's chain, and
-        between judges at each judge's first and last breed (a judge who changes rings mid-day
-        is not counted at that change: an approximation; the validator counts exactly)."""
-        md, p = self.model, self.p
-        G = _u(p.equipment_gap)
-        chg = {(j, i): lit for j, i, lit in changes}
+        (the ring idle at least ``equipment_free_gap_minutes``). Counted within each segment
+        and across the arcs between a judge's segments, and between judges at each judge's
+        first and last breed (a judge who changes rings mid-day is not counted at that change,
+        nor is a switch across a segment without breeds: approximations; the validator counts
+        exactly)."""
+        md, p, H, t0 = self.model, self.p, self.H, self.t0
+        G = _u(p.equipment_free_gap_minutes)
+        chg = {u: lit for _, u, lit in changes}
         terms: list = []
 
-        # within a judge's chain
-        for j, (chain, cuts) in self.chains.items():
-            idx = [i for i, e in enumerate(chain) if e.equipment is not None]
-            for a, b in zip(idx, idx[1:]):
-                if chain[a].equipment == chain[b].equipment:
+        def switch(ea: JudgingEvent, eb: JudgingEvent, path: list[JudgingEvent], arc=None):
+            """Breed ``ea`` then breed ``eb`` with ``path`` judged between them (by the same judge)."""
+            ua, ub = id(ea), id(eb)
+            if arc is None and all(self.c[id(e)] is False for e in path + [eb]):
+                terms.append(1)  # contiguous in one block: always a switch
+                return
+            between = sum(self.d[id(e)] for e in path)
+            brk = md.NewBoolVar(f"eqbrk_{ua}_{ub}")
+            md.Add(self.s[ub] - self.s[ua] - self.d[ua] - between >= G).OnlyEnforceIf(brk)
+            moved = [chg[id(e)] for e in path + [eb] if id(e) in chg]
+            sw = md.NewBoolVar(f"eqsw_{ua}_{ub}")
+            md.Add(sw >= (1 if arc is None else arc) - brk - sum(moved))
+            terms.append(sw)
+
+        def ends(events):
+            idx = [i for i, e in enumerate(events) if e.equipment is not None]
+            return (idx[0], idx[-1]) if idx else (None, None)
+
+        # within a judge: inside each segment, and across each arc between segments
+        for j, segs in self.chains.items():
+            for seg in segs:
+                ev = list(seg.events)
+                idx = [i for i, e in enumerate(ev) if e.equipment is not None]
+                for a, b in zip(idx, idx[1:]):
+                    if ev[a].equipment != ev[b].equipment:
+                        switch(ev[a], ev[b], ev[a + 1:b])
+            for (a, b), lit in self.arcs[j].items():
+                if a == 0 or b == 0:
                     continue
-                between = sum(self.d[id(chain[t])] for t in range(a + 1, b))
-                if all(cuts[t] is False for t in range(a + 1, b + 1)):
-                    terms.append(1)  # contiguous in one block: always a switch
+                pa, pb = list(segs[a - 1].events), list(segs[b - 1].events)
+                ia, ib = ends(pa)[1], ends(pb)[0]
+                if ia is None or ib is None or pa[ia].equipment == pb[ib].equipment:
                     continue
-                ua, ub = id(chain[a]), id(chain[b])
-                brk = md.NewBoolVar(f"eqbrk_{ub}")
-                md.Add(self.s[ub] - self.s[ua] - self.d[ua] - between >= G).OnlyEnforceIf(brk)
-                moved = [chg[j, t] for t in range(a + 1, b + 1) if (j, t) in chg]
-                sw = md.NewBoolVar(f"eqsw_{ub}")
-                md.Add(sw >= 1 - brk - sum(moved))
-                terms.append(sw)
+                switch(pa[ia], pb[ib], pa[ia + 1:] + pb[:ib], arc=lit)
 
         # between judges: departures (a judge's last breed, a pinned block's last breed)
         # and arrivals (a judge's first breed, a pinned block's first breed)
-        def ends(chain):
-            es = [e for e in chain if e.equipment is not None]
-            return (es[0], es[-1]) if es else (None, None)
+        n = 0
 
-        deps, arrs = [], []  # (owner, kind, ring literals {Ring: lit or 1}, start, end)
-        for j, (chain, _) in self.chains.items():
-            first, last = ends(chain)
-            if first is None:
-                continue
-            uf, ul = id(first), id(last)
-            arrs.append((j, first.equipment, self.x[uf], self.s[uf], self.s[uf] + self.d[uf]))
-            deps.append((j, last.equipment, self.x[ul], self.s[ul], self.s[ul] + self.d[ul]))
+        def merge(cands, name):
+            """One (kinds, ring literals, start, end) from candidates (literal, kind, x, s, e)."""
+            nonlocal n
+            if len(cands) == 1 and cands[0][0] is True:
+                _, kind, x, s, e = cands[0]
+                return {kind: 1}, x, s, e
+            n += 1
+            kinds: dict[str, object] = defaultdict(int)
+            sv = md.NewIntVar(t0, H, f"eq{name}s_{n}")
+            evr = md.NewIntVar(t0, H, f"eq{name}e_{n}")
+            xv = {r: md.NewBoolVar(f"eq{name}x_{n}_{r.number}") for r in self.rings}
+            for lit, kind, x, s, e in cands:
+                kinds[kind] = kinds[kind] + lit
+                md.Add(sv == s).OnlyEnforceIf(lit)
+                md.Add(evr == e).OnlyEnforceIf(lit)
+                for r in self.rings:
+                    md.Add(xv[r] == x[r]).OnlyEnforceIf(lit)
+            return dict(kinds), xv, sv, evr
+
+        deps, arrs = [], []  # (owner, kinds, ring literals {Ring: lit or 1}, start, end)
+        for j, segs in self.chains.items():
+            ac, dc = [], []
+            for q, seg in enumerate(segs, 1):
+                ev = list(seg.events)
+                i0, i1 = ends(ev)
+                if i0 is None:
+                    continue
+                f, l = ev[i0], ev[i1]
+                uf, ul = id(f), id(l)
+                ac.append((self.arcs[j][0, q], f.equipment, self.x[uf], self.s[uf], self.s[uf] + self.d[uf]))
+                dc.append((self.arcs[j][q, 0], l.equipment, self.x[ul], self.s[ul], self.s[ul] + self.d[ul]))
+            if ac:
+                arrs.append((j, *merge(ac, "a")))
+                deps.append((j, *merge(dc, "d")))
         for sb in self.show.pinned:
-            first, last = ends(list(sb.block.events))
-            if first is None:
+            ev = list(sb.block.events)
+            i0, i1 = ends(ev)
+            if i0 is None:
                 continue
+            first, last = ev[i0], ev[i1]
             offs = dict((id(e), o) for e, o in sb.block.offsets())
             ring = {sb.ring: 1}
             sf = _u(sb.start + offs[id(first)])
             sl = _u(sb.start + offs[id(last)])
-            arrs.append((sb, first.equipment, ring, sf, sf + _u(first.duration)))
-            deps.append((sb, last.equipment, ring, sl, sl + _u(last.duration)))
-        n = 0
+            arrs.append((sb, {first.equipment: 1}, ring, sf, sf + _u(first.duration)))
+            deps.append((sb, {last.equipment: 1}, ring, sl, sl + _u(last.duration)))
         for (od, kd, xd, sd, ed) in deps:
             for (oa, ka, xa, sa, ea) in arrs:
-                if kd == ka or od is oa:
+                if od is oa:
                     continue
                 if isinstance(od, ScheduledBlock) and isinstance(oa, ScheduledBlock):
                     continue  # both pinned: fixed, not a decision
+                fixed = all(isinstance(v, int) for v in list(kd.values()) + list(ka.values()))
+                if fixed and len(kd) == 1 and kd.keys() == ka.keys():
+                    continue
                 common = [r for r in xd if r in xa]
                 if not common:
                     continue
                 n += 1
+                if fixed and len(kd) == 1 and len(ka) == 1:
+                    diff = 1
+                else:
+                    diff = md.NewBoolVar(f"eqdiff_{n}")  # the two breeds' equipment differ
+                    for kind in set(kd) | set(ka):
+                        md.Add(diff >= kd.get(kind, 0) - ka.get(kind, 0))
                 far = md.NewBoolVar(f"eqfar_{n}")  # arrival a break or more after the departure
                 md.Add(sa >= ed + G).OnlyEnforceIf(far)
                 earlier = md.NewBoolVar(f"eqearly_{n}")  # arrival before the departing breed
                 md.Add(sa + 1 <= sd).OnlyEnforceIf(earlier)
                 h = md.NewBoolVar(f"eqh_{n}")
                 for r in common:
-                    md.Add(h >= xd[r] + xa[r] - 1 - far - earlier)
+                    md.Add(h >= xd[r] + xa[r] + diff - 2 - far - earlier)
                 terms.append(h)
         return sum(terms) if terms else 0
 
     # ---------------------------------------------------------------------- hints
     def hint(self, prog: JudgingProgram) -> None:
-        """Hint from a program whose blocks split the same chains, in the same order."""
+        """Hint from a program judging the same events, each judge's in an order this model allows."""
         md, slot = self.model, self.slot
         where: dict[int, tuple[ScheduledBlock, float, bool]] = {}
         for sb in prog.blocks:
             for n, (e, off) in enumerate(sb.block.offsets()):
                 where[id(e)] = (sb, off, n == 0)
         lunch = {br.judge: br.start * SCALE for br in prog.breaks if br.judge in self.lunch}
-        for j, (chain, _) in self.chains.items():
+        for j, segs in self.chains.items():
+            seg_of = {id(e): q for q, s in enumerate(segs, 1) for e in s.events}
+            order = sorted((e for s in segs for e in s.events), key=lambda e: (where[id(e)][0].start, where[id(e)][1]))
+            # arcs: the order in which the program visits the segments
+            visits = [0]
+            for e in order:
+                if seg_of[id(e)] != visits[-1]:
+                    visits.append(seg_of[id(e)])
+            visits.append(0)
+            used = set(zip(visits, visits[1:]))
+            for key, lit in self.arcs[j].items():
+                if lit is not True:
+                    md.AddHint(lit, int(key in used))
             acc, bs, pos, prev_sb = 0, 0, 0, None
-            for e in chain:
+            for e in order:
                 u = id(e)
                 sb, off, first = where[u]
                 s = pos = sb.start * SCALE if first else pos  # the model adds rounded durations
@@ -616,7 +857,7 @@ class _Model:
                 if not isinstance(self.c[u], bool):
                     md.AddHint(self.c[u], int(first))
                 if u in self.same:
-                    md.AddHint(self.same[u], int(prev_sb is not None and prev_sb.ring == sb.ring))
+                    md.AddHint(self.same[u], int(prev_sb is None or prev_sb.ring == sb.ring))
                 if first:
                     acc, bs = 0, sb.start * SCALE
                 acc += e.entries
@@ -638,10 +879,22 @@ class _Model:
             md.add_hint(var, solver.value(var))
 
     # ---------------------------------------------------------------------- solution
+    def order(self, j: Judge, solver: cp_model.CpSolver) -> Chain:
+        """Judge ``j``'s events in the solution's running order."""
+        segs = self.chains[j]
+        nxt = {a: b for (a, b), lit in self.arcs[j].items() if lit is True or solver.Value(lit)}
+        out: Chain = []
+        q = nxt[0]
+        while q != 0:
+            out.extend(segs[q - 1].events)
+            q = nxt[q]
+        return out
+
     def extract(self, solver: cp_model.CpSolver) -> JudgingProgram:
         show = self.show
         out: list[ScheduledBlock] = list(show.pinned)
-        for j, (chain, _) in self.chains.items():
+        for j in self.chains:
+            chain = self.order(j, solver)
             current: list[JudgingEvent] = []
             head = None
             for e in chain + [None]:
