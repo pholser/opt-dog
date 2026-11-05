@@ -24,14 +24,15 @@ def _counts(c: EntryCounts | None) -> str:
     return s + (f"-{c.nonregular}" if c.nonregular else "")
 
 
-def _event_line(e: JudgingEvent, start: float) -> str:
+def event_line(e: JudgingEvent, start: float, counts: bool = True) -> str:
     tags = []
     if e.breed is not None and e.breed.examination.needs_table:
         tags.append("table")
     elif e.breed is not None and e.breed.examination.needs_ramp:
         tags.append("ramp")
     tag = f"  [{', '.join(tags)}]" if tags else ""
-    return f"      {fmt_time(int(round(start))):>8}  {e.entries:>3}  {e.name:<38} {_counts(e.counts):<14}{tag}".rstrip()
+    c = f"{_counts(e.counts):<14}" if counts else ""
+    return f"      {fmt_time(int(round(start))):>8}  {e.entries:>3}  {e.name:<38} {c}{tag}".rstrip()
 
 
 def render_text(program: JudgingProgram, params: ShowParameters | None = None,
@@ -69,7 +70,7 @@ def render_text(program: JudgingProgram, params: ShowParameters | None = None,
             out.append(f"    {fmt_time(sb.start)} – {fmt_time(int(round(sb.end)))}   "
                        f"{sb.block.entries} dogs, {sb.block.duration:.0f} min{mark}")
             for e, off in sb.block.offsets():
-                out.append(_event_line(e, sb.start + off))
+                out.append(event_line(e, sb.start + off))
             for br in after.get(id(sb), []):
                 length = f"{br.minutes} min" if br.minutes else "length not stated"
                 out.append(f"    {fmt_time(br.start)}   LUNCH ({length})")
