@@ -140,9 +140,12 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
 
     # ---------------------------------------------------------------- H1 block size; S8 final segment
     final_excess = 0
+    pinned = {id(sb) for sb in program.show.pinned}
     for ring, seq in by_ring.items():
         for i, sb in enumerate(seq):
             b = sb.block
+            if id(sb) in pinned:
+                continue  # a published commitment of the instance (H11), not a decision being checked
             breed_events = [e for e in b.events if e.kind is EventKind.BREED]
             single = len(b.events) == 1
             if single and b.entries > p.single_breed_exception_entries:
@@ -239,15 +242,23 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
             )
 
     # ---------------------------------------------------------------- S3 equipment switches per ring
+    # consecutive breeds in a ring with different equipment; free across a break, i.e. when the
+    # ring is idle at least `equipment_gap` minutes between them (U)
     equipment_switches = 0
     for ring, seq in by_ring.items():
-        kinds = []
+        last_kind, idle, t = None, 0.0, None
         for sb in seq:
-            for e in sb.block.events:
-                if e.kind is EventKind.BREED and e.breed is not None:
-                    ex = e.breed.examination
-                    kinds.append("table" if ex.needs_table else "ramp" if ex.needs_ramp else "ground")
-        equipment_switches += sum(1 for x, y in zip(kinds, kinds[1:]) if x != y)
+            for e, off in sb.block.offsets():
+                s = sb.start + off
+                if t is not None:
+                    idle += max(0.0, s - t)
+                t = max(t or s, s + e.duration)
+                k = e.equipment
+                if k is None:
+                    continue
+                if last_kind is not None and k != last_kind and idle < p.equipment_gap:
+                    equipment_switches += 1
+                last_kind, idle = k, 0.0
 
     # ---------------------------------------------------------------- S4 group switches per judge
     extra_group_switches = 0

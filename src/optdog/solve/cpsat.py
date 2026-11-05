@@ -496,6 +496,7 @@ class _Model:
             if g0 is not None and g0 == g1:
                 splits.append(al)
         blocks_expr = sum(1 if c is True else c for c in n_blocks if c is not False)
+        equipment = self._equipment_switches(changes, H)
 
         def iw(x: float) -> int:
             return int(round(x * WSCALE))
@@ -506,6 +507,7 @@ class _Model:
             "short_block_dogs": sum(short_terms),
             "lunch_splits": sum(splits),
             "blocks": blocks_expr,
+            "equipment_switches": equipment,
         }
         self.cost_terms = {k: (v if not isinstance(v, int) else md.NewConstant(v)) for k, v in self.cost_terms.items()}
         self.structure = md.NewIntVar(0, 10**9, "structure")
@@ -513,7 +515,82 @@ class _Model:
                           + iw(w.ring_change - w.ring_change_at_lunch) * sum(chg_off)
                           + iw(w.short_block) * sum(short_terms)
                           + iw(w.lunch_split) * sum(splits)
+                          + iw(w.equipment_switch) * equipment
                           + iw(w.block_count) * blocks_expr)
+
+    # ---------------------------------------------------------------------- S3 equipment
+    def _equipment_switches(self, changes, H: int):
+        """S3: table/ramp/ground switches between consecutive breeds in a ring, free across a break
+        (the ring idle at least ``equipment_gap``). Counted exactly within each judge's chain, and
+        between judges at each judge's first and last breed (a judge who changes rings mid-day
+        is not counted at that change: an approximation; the validator counts exactly)."""
+        md, p = self.model, self.p
+        G = _u(p.equipment_gap)
+        chg = {(j, i): lit for j, i, lit in changes}
+        terms: list = []
+
+        # within a judge's chain
+        for j, (chain, cuts) in self.chains.items():
+            idx = [i for i, e in enumerate(chain) if e.equipment is not None]
+            for a, b in zip(idx, idx[1:]):
+                if chain[a].equipment == chain[b].equipment:
+                    continue
+                between = sum(self.d[id(chain[t])] for t in range(a + 1, b))
+                if all(cuts[t] is False for t in range(a + 1, b + 1)):
+                    terms.append(1)  # contiguous in one block: always a switch
+                    continue
+                ua, ub = id(chain[a]), id(chain[b])
+                brk = md.NewBoolVar(f"eqbrk_{ub}")
+                md.Add(self.s[ub] - self.s[ua] - self.d[ua] - between >= G).OnlyEnforceIf(brk)
+                moved = [chg[j, t] for t in range(a + 1, b + 1) if (j, t) in chg]
+                sw = md.NewBoolVar(f"eqsw_{ub}")
+                md.Add(sw >= 1 - brk - sum(moved))
+                terms.append(sw)
+
+        # between judges: departures (a judge's last breed, a pinned block's last breed)
+        # and arrivals (a judge's first breed, a pinned block's first breed)
+        def ends(chain):
+            es = [e for e in chain if e.equipment is not None]
+            return (es[0], es[-1]) if es else (None, None)
+
+        deps, arrs = [], []  # (owner, kind, ring literals {Ring: lit or 1}, start, end)
+        for j, (chain, _) in self.chains.items():
+            first, last = ends(chain)
+            if first is None:
+                continue
+            uf, ul = id(first), id(last)
+            arrs.append((j, first.equipment, self.x[uf], self.s[uf], self.s[uf] + self.d[uf]))
+            deps.append((j, last.equipment, self.x[ul], self.s[ul], self.s[ul] + self.d[ul]))
+        for sb in self.show.pinned:
+            first, last = ends(list(sb.block.events))
+            if first is None:
+                continue
+            offs = dict((id(e), o) for e, o in sb.block.offsets())
+            ring = {sb.ring: 1}
+            sf = _u(sb.start + offs[id(first)])
+            sl = _u(sb.start + offs[id(last)])
+            arrs.append((sb, first.equipment, ring, sf, sf + _u(first.duration)))
+            deps.append((sb, last.equipment, ring, sl, sl + _u(last.duration)))
+        n = 0
+        for (od, kd, xd, sd, ed) in deps:
+            for (oa, ka, xa, sa, ea) in arrs:
+                if kd == ka or od is oa:
+                    continue
+                if isinstance(od, ScheduledBlock) and isinstance(oa, ScheduledBlock):
+                    continue  # both pinned: fixed, not a decision
+                common = [r for r in xd if r in xa]
+                if not common:
+                    continue
+                n += 1
+                far = md.NewBoolVar(f"eqfar_{n}")  # arrival a break or more after the departure
+                md.Add(sa >= ed + G).OnlyEnforceIf(far)
+                earlier = md.NewBoolVar(f"eqearly_{n}")  # arrival before the departing breed
+                md.Add(sa + 1 <= sd).OnlyEnforceIf(earlier)
+                h = md.NewBoolVar(f"eqh_{n}")
+                for r in common:
+                    md.Add(h >= xd[r] + xa[r] - 1 - far - earlier)
+                terms.append(h)
+        return sum(terms) if terms else 0
 
     # ---------------------------------------------------------------------- hints
     def hint(self, prog: JudgingProgram) -> None:

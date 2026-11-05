@@ -218,6 +218,14 @@ class JudgingEvent:
         return self.breed.group if self.breed and self.kind is EventKind.BREED else None
 
     @property
+    def equipment(self) -> str | None:
+        """'table', 'ramp' or 'ground' for a breed event (S3); None for anything else."""
+        if self.kind is not EventKind.BREED or self.breed is None:
+            return None
+        ex = self.breed.examination
+        return "table" if ex.needs_table else "ramp" if ex.needs_ramp else "ground"
+
+    @property
     def feeds_group(self) -> Group | None:
         """The variety group this event must finish before, or None (Rules: breeds before their group)."""
         g = self.group

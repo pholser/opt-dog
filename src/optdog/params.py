@@ -53,6 +53,11 @@ class ShowParameters:
     # E: published lunches start 11:10–12:30 (p10–p90 11:30–12:20)
     lunch_window: tuple[Minutes, Minutes] = (11 * 60, 12 * 60 + 30)
 
+    # --- equipment (S3)
+    # A table/ramp switch across a break is free (U): the ring is idle at least this long between
+    # the two breeds. None means a lunch's length (lunch_min_minutes).
+    equipment_free_gap_minutes: float | None = None
+
     # --- margins (U)
     exhibitor_travel_minutes: float = 2.0  # m_X between rings (U, adjustable)
     judge_travel_minutes: float = 2.0  # m_J between rings (U, adjustable)
@@ -71,6 +76,10 @@ class ShowParameters:
     closing_time: Minutes | None = None  # posted closing time, if known
 
     weights: ObjectiveWeights = field(default_factory=ObjectiveWeights)
+
+    @property
+    def equipment_gap(self) -> float:
+        return self.lunch_min_minutes if self.equipment_free_gap_minutes is None else self.equipment_free_gap_minutes
 
     def for_show(self, show: "Show") -> "ShowParameters":
         """These parameters with the show's own inputs (e.g. its lunch window) taking precedence."""

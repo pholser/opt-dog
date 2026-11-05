@@ -128,3 +128,24 @@ def test_group_judge_needs_travel_margin_from_another_ring():
     pugs_in_group_ring = sb(g, 1, 480, ev("Pug", g, 25))
     prog2 = program([pugs_in_group_ring], [g], plan=plan, group_judges={Group.TOY: g}, bis=g)
     assert prog2.group_timeline(judge_travel_minutes=2).groups[0].ready == 9 * 60
+
+
+def test_h1_does_not_judge_pinned_blocks():
+    # a published block of the instance (H11) is a commitment, not a decision: no H1 even when not last
+    long_block = sb(A, 1, 480, ev("Pug", A, 20), ev("Maltese", A, 15))  # 84 min
+    tail = sb(A, 1, 570, ev("Boxer", A, 5))
+    prog = program([long_block, tail], [A])
+    assert codes(prog) == ["H1"]
+    prog.show.pinned = [long_block]
+    assert codes(prog) == []
+
+
+def test_s3_equipment_switch_is_free_across_a_break():
+    # Pug (table) then Boxer (ground) in one ring: a switch when judged on, free across a lunch-length gap
+    on = program([sb(A, 1, 480, ev("Pug", A, 10)), sb(A, 1, 505, ev("Boxer", A, 10))], [A])
+    assert validate(on, P0).soft["S3_equipment_switches"] == 1
+    gap = program([sb(A, 1, 480, ev("Pug", A, 10)), sb(A, 1, 550, ev("Boxer", A, 10))], [A])
+    assert validate(gap, P0).soft["S3_equipment_switches"] == 0
+    # across judges too: B's table breed right after A's ground breed in the same ring
+    both = program([sb(A, 1, 480, ev("Boxer", A, 10)), sb(B, 1, 505, ev("Pug", B, 10))], [A, B])
+    assert validate(both, P0).soft["S3_equipment_switches"] == 1

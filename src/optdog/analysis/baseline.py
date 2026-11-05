@@ -40,7 +40,7 @@ def rows(params: ShowParameters):
         bound = finish_lower_bound(show, params)
         greedy = greedy_program(show, params)
         cp = solve_placement(show, params, options=PlacementOptions(time_limit=30, tidy=False))
-        fm = solve_formation(show, params, options=PlacementOptions(time_limit=30, tidy=False))
+        fm = solve_formation(show, params, options=PlacementOptions(time_limit=30))
         rh, rg = validate(human, params), validate(greedy, params)
         rc = validate(cp.program, params) if cp.program else None
         rf = validate(fm.program, params) if fm.program else None
@@ -66,8 +66,9 @@ def render(params: ShowParameters | None = None) -> str:
         "  with block breaks, lunch position, rings and times chosen by the solver.",
         "- **Gap**: minutes of finish above the lower bound.",
         "- **S1**: exhibitor-conflict minutes, synthetic exhibitors, seed 0.",
+        "- **S3**: equipment switches in a ring, free across a break (3a tidies them at its finish).",
         "",
-        "| Show | LB | Human groups | Human finish | gap | Greedy groups | Greedy finish | gap | CP groups | CP finish | gap | 3a groups | 3a finish | gap | Human hard | Greedy hard | CP hard | 3a hard | S1 human | S1 greedy | S1 CP |",
+        "| Show | LB | Human groups | Human finish | gap | Greedy groups | Greedy finish | gap | CP groups | CP finish | gap | 3a groups | 3a finish | gap | Human hard | Greedy hard | CP hard | 3a hard | S1 human | S1 greedy | S1 CP | S3 human | S3 greedy | S3 3a |",
     ]
     lines.append("|" + "---|" * (lines[-1].count("|") - 1))
     gaps_h, gaps_g, gaps_c, gaps_f = [], [], [], []
@@ -91,7 +92,8 @@ def render(params: ShowParameters | None = None) -> str:
             f"{rf.metrics['groups_start']} | {_t(ff)}{' opt' if fm.optimal else ''} | {ff - lb:.0f} | "
             f"{hard_h} | {hard_g} | {hard_c} | {hard_f} | "
             f"{rh.soft.get('S1_conflict_min', 0):.0f} | {rg.soft.get('S1_conflict_min', 0):.0f} | "
-            f"{rc.soft.get('S1_conflict_min', 0):.0f} |"
+            f"{rc.soft.get('S1_conflict_min', 0):.0f} | "
+            f"{rh.soft['S3_equipment_switches']} | {rg.soft['S3_equipment_switches']} | {rf.soft['S3_equipment_switches']} |"
         )
     n = len(gaps_h)
     lines += [
