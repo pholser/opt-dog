@@ -15,47 +15,55 @@ ring,judge,block_start,position,event,kind,competition,breed,group,entries,class
 1,Mr. Nathaniel Horn,12:20,3,Tibetan Spaniel,breed,all-breed,Tibetan Spaniel,Non-Sporting,2,0,0,0,2,0
 1,Mr. Nathaniel Horn,12:20,4,Tibetan Terrier,breed,all-breed,Tibetan Terrier,Non-Sporting,2,0,0,0,2,0
 1,Mr. Nathaniel Horn,12:20,5,Xoloitzcuintli,breed,all-breed,Xoloitzcuintli,Non-Sporting,3,0,2,1,0,0
-2,Ms. Victoria M. Jordan,08:00,0,Australian Cattle Dog,breed,all-breed,Australian Cattle Dog,Herding,13,4,3,3,3,0
-2,Ms. Victoria M. Jordan,08:00,1,Australian Shepherd,breed,all-breed,Australian Shepherd,Herding,3,2,1,0,0,0
-2,Ms. Victoria M. Jordan,08:00,2,Bearded Collie,breed,all-breed,Bearded Collie,Herding,3,0,0,1,1,1
-2,Ms. Victoria M. Jordan,08:00,3,Beauceron,breed,all-breed,Beauceron,Herding,1,1,0,0,0,0
-2,Ms. Victoria M. Jordan,08:50,0,Belgian Tervuren,breed,all-breed,Belgian Tervuren,Herding,2,1,0,1,0,0
-2,Ms. Victoria M. Jordan,08:50,1,Border Collie,breed,all-breed,Border Collie,Herding,1,1,0,0,0,0
-2,Ms. Victoria M. Jordan,08:50,2,Bouvier Des Flandres,breed,all-breed,Bouvier des Flandres,Herding,6,1,1,3,1,0
-2,Ms. Victoria M. Jordan,08:50,3,Collie (Rough),breed,all-breed,Collie (Rough),Herding,9,1,6,2,0,0
-2,Ms. Victoria M. Jordan,08:50,4,Collie (Smooth),breed,all-breed,Collie (Smooth),Herding,1,0,0,0,1,0
-2,Ms. Victoria M. Jordan,08:50,5,Norwegian Buhund,breed,all-breed,Norwegian Buhund,Herding,1,0,0,0,1,0
-2,Ms. Victoria M. Jordan,08:50,6,Old English Sheepdog,breed,all-breed,Old English Sheepdog,Herding,4,2,1,1,0,0
-2,Ms. Victoria M. Jordan,08:50,7,Polish Lowland Sheepdog,breed,all-breed,Polish Lowland Sheepdog,Herding,1,0,0,1,0,0
-2,Ms. Victoria M. Jordan,09:50,0,Cardigan Welsh Corgi,breed,all-breed,Cardigan Welsh Corgi,Herding,7,1,2,0,4,0
-2,Ms. Victoria M. Jordan,09:50,1,Miniature American Shepherd,breed,all-breed,Miniature American Shepherd,Herding,6,1,3,2,0,0
-2,Ms. Victoria M. Jordan,09:50,2,Pembroke Welsh Corgi,breed,all-breed,Pembroke Welsh Corgi,Herding,12,6,3,2,1,0
-2,Ms. Victoria M. Jordan,10:50,0,Shetland Sheepdog,breed,all-breed,Shetland Sheepdog,Herding,1,0,0,1,0,0
-2,Ms. Victoria M. Jordan,10:50,1,Pomeranian,breed,all-breed,Pomeranian,Toy,9,3,4,2,0,0
-2,Ms. Victoria M. Jordan,10:50,2,Poodle (Toy),breed,all-breed,Poodle (Toy),Toy,1,0,1,0,0,0
-2,Ms. Victoria M. Jordan,10:50,3,Mastiff,breed,all-breed,Mastiff,Working,1,0,1,0,0,0
-2,Ms. Victoria M. Jordan,10:50,4,Rottweiler,breed,all-breed,Rottweiler,Working,15,4,5,2,4,0
-2,Ms. Victoria M. Jordan,11:55,0,Junior Showmanship,junior-showmanship,all-breed,,,10,,,,,
-3,Mrs. Lee Murphy-East,08:00,0,German Shorthaired Pointer,breed,all-breed,German Shorthaired Pointer,Sporting,7,2,2,0,3,0
-3,Mrs. Lee Murphy-East,08:00,1,Irish Setter,breed,all-breed,Irish Setter,Sporting,4,2,0,1,0,1
-3,Mrs. Lee Murphy-East,08:00,2,Vizsla,breed,all-breed,Vizsla,Sporting,10,1,6,1,2,0
-3,Mrs. Lee Murphy-East,08:00,3,Clumber Spaniel,breed,all-breed,Clumber Spaniel,Sporting,3,0,2,0,1,0
-3,Mrs. Lee Murphy-East,08:00,4,Cocker Spaniel (Ascob),breed,all-breed,Cocker Spaniel (ASCOB),Sporting,2,0,0,1,1,0
-3,Mrs. Lee Murphy-East,09:05,0,Cocker Spaniel (Black),breed,all-breed,Cocker Spaniel (Black),Sporting,3,0,0,1,2,0
-3,Mrs. Lee Murphy-East,09:05,1,Cocker Spaniel (Parti-Color),breed,all-breed,Cocker Spaniel (Parti-Color),Sporting,5,2,0,1,2,0
-3,Mrs. Lee Murphy-East,09:05,2,English Cocker Spaniel,breed,all-breed,English Cocker Spaniel,Sporting,4,2,0,2,0,0
-3,Mrs. Lee Murphy-East,09:05,3,Italian Greyhound,breed,all-breed,Italian Greyhound,Toy,1,1,0,0,0,0
-3,Mrs. Lee Murphy-East,09:05,4,Japanese Chin,breed,all-breed,Japanese Chin,Toy,1,0,0,1,0,0
-3,Mrs. Lee Murphy-East,09:05,5,Maltese,breed,all-breed,Maltese,Toy,6,2,4,0,0,0
-3,Mrs. Lee Murphy-East,09:05,6,Miniature Pinscher,breed,all-breed,Miniature Pinscher,Toy,2,0,0,1,1,0
-3,Mrs. Lee Murphy-East,10:00,0,Papillon,breed,all-breed,Papillon,Toy,22,6,11,3,2,0
-3,Mrs. Lee Murphy-East,10:00,1,Pekingese,breed,all-breed,Pekingese,Toy,5,2,2,1,0,0
-3,Mrs. Lee Murphy-East,11:05,0,Pug,breed,all-breed,Pug,Toy,7,2,3,1,1,0
-3,Mrs. Lee Murphy-East,11:05,1,Silky Terrier,breed,all-breed,Silky Terrier,Toy,1,0,0,0,1,0
-3,Mrs. Lee Murphy-East,11:05,2,Toy Fox Terrier,breed,all-breed,Toy Fox Terrier,Toy,4,3,0,0,1,0
-3,Mrs. Lee Murphy-East,11:05,3,Yorkshire Terrier,breed,all-breed,Yorkshire Terrier,Toy,2,0,2,0,0,0
-3,Mrs. Lee Murphy-East,11:05,4,Samoyed,breed,all-breed,Samoyed,Working,4,1,0,3,0,0
-3,Mrs. Lee Murphy-East,11:05,5,Siberian Husky,breed,all-breed,Siberian Husky,Working,9,3,0,4,2,0
+2,Mrs. Lee Murphy-East,08:00,0,German Shorthaired Pointer,breed,all-breed,German Shorthaired Pointer,Sporting,7,2,2,0,3,0
+2,Mrs. Lee Murphy-East,08:00,1,Irish Setter,breed,all-breed,Irish Setter,Sporting,4,2,0,1,0,1
+2,Mrs. Lee Murphy-East,08:00,2,Vizsla,breed,all-breed,Vizsla,Sporting,10,1,6,1,2,0
+2,Mrs. Lee Murphy-East,08:00,3,Clumber Spaniel,breed,all-breed,Clumber Spaniel,Sporting,3,0,2,0,1,0
+2,Mrs. Lee Murphy-East,08:00,4,Cocker Spaniel (Ascob),breed,all-breed,Cocker Spaniel (ASCOB),Sporting,2,0,0,1,1,0
+2,Mrs. Lee Murphy-East,09:05,0,Cocker Spaniel (Black),breed,all-breed,Cocker Spaniel (Black),Sporting,3,0,0,1,2,0
+2,Mrs. Lee Murphy-East,09:05,1,Cocker Spaniel (Parti-Color),breed,all-breed,Cocker Spaniel (Parti-Color),Sporting,5,2,0,1,2,0
+2,Mrs. Lee Murphy-East,09:05,2,English Cocker Spaniel,breed,all-breed,English Cocker Spaniel,Sporting,4,2,0,2,0,0
+2,Mrs. Lee Murphy-East,09:05,3,Italian Greyhound,breed,all-breed,Italian Greyhound,Toy,1,1,0,0,0,0
+2,Mrs. Lee Murphy-East,09:05,4,Japanese Chin,breed,all-breed,Japanese Chin,Toy,1,0,0,1,0,0
+2,Mrs. Lee Murphy-East,09:05,5,Maltese,breed,all-breed,Maltese,Toy,6,2,4,0,0,0
+2,Mrs. Lee Murphy-East,09:05,6,Miniature Pinscher,breed,all-breed,Miniature Pinscher,Toy,2,0,0,1,1,0
+2,Mrs. Lee Murphy-East,10:00,0,Papillon,breed,all-breed,Papillon,Toy,22,6,11,3,2,0
+2,Mrs. Lee Murphy-East,10:00,1,Pekingese,breed,all-breed,Pekingese,Toy,5,2,2,1,0,0
+2,Mrs. Lee Murphy-East,11:05,0,Pug,breed,all-breed,Pug,Toy,7,2,3,1,1,0
+2,Mrs. Lee Murphy-East,11:05,1,Silky Terrier,breed,all-breed,Silky Terrier,Toy,1,0,0,0,1,0
+2,Mrs. Lee Murphy-East,11:05,2,Toy Fox Terrier,breed,all-breed,Toy Fox Terrier,Toy,4,3,0,0,1,0
+2,Mrs. Lee Murphy-East,11:05,3,Yorkshire Terrier,breed,all-breed,Yorkshire Terrier,Toy,2,0,2,0,0,0
+2,Mrs. Lee Murphy-East,11:05,4,Samoyed,breed,all-breed,Samoyed,Working,4,1,0,3,0,0
+2,Mrs. Lee Murphy-East,11:05,5,Siberian Husky,breed,all-breed,Siberian Husky,Working,9,3,0,4,2,0
+3,Mr. Jon R. Cole,08:00,0,Brittany,breed,all-breed,Brittany,Sporting,3,1,1,0,1,0
+3,Mr. Jon R. Cole,08:00,1,Chesapeake Bay Retriever,breed,all-breed,Chesapeake Bay Retriever,Sporting,2,1,0,0,1,0
+3,Mr. Jon R. Cole,08:00,2,Curly-Coated Retriever,breed,all-breed,Curly-Coated Retriever,Sporting,1,0,0,1,0,0
+3,Mr. Jon R. Cole,08:00,3,English Setter,breed,all-breed,English Setter,Sporting,1,0,0,1,0,0
+3,Mr. Jon R. Cole,08:00,4,Flat-Coated Retriever,breed,all-breed,Flat-Coated Retriever,Sporting,6,2,0,2,2,0
+3,Mr. Jon R. Cole,08:35,0,Golden Retriever,breed,all-breed,Golden Retriever,Sporting,37,16,15,4,2,0
+3,Mr. Jon R. Cole,10:05,0,Labrador Retriever,breed,all-breed,Labrador Retriever,Sporting,15,3,7,3,2,0
+3,Mr. Jon R. Cole,10:05,1,Pointer,breed,all-breed,Pointer,Sporting,1,0,1,0,0,0
+3,Mr. Jon R. Cole,10:45,0,Weimaraner,breed,all-breed,Weimaraner,Sporting,1,0,0,0,1,0
+3,Mr. Jon R. Cole,10:45,1,Wirehaired Pointing Griffon,breed,all-breed,Wirehaired Pointing Griffon,Sporting,5,1,4,0,0,0
+3,Mr. Jon R. Cole,10:45,2,Nederlandse Kooikerhondjes,breed,all-breed,Nederlandse Kooikerhondje,Sporting,1,0,0,1,0,0
+3,Mr. Jon R. Cole,10:45,3,Chinese Crested,breed,all-breed,Chinese Crested,Toy,6,1,1,3,1,0
+3,Mr. Jon R. Cole,10:45,4,English Toy Spaniel (B&PC),breed,all-breed,English Toy Spaniel (B&PC),Toy,1,0,0,1,0,0
+3,Mr. Jon R. Cole,10:45,5,Havanese,breed,all-breed,Havanese,Toy,3,0,1,2,0,0
+3,Mr. Jon R. Cole,12:15,0,Anatolian Shepherd,breed,all-breed,Anatolian Shepherd Dog,Working,7,3,2,2,0,0
+3,Mr. Jon R. Cole,12:15,1,Bernese Mountain Dog,breed,all-breed,Bernese Mountain Dog,Working,8,3,2,2,1,0
+3,Mr. Jon R. Cole,12:15,2,Black Russian Terrier,breed,all-breed,Black Russian Terrier,Working,1,0,0,1,0,0
+3,Mr. Jon R. Cole,12:15,3,Boerboel,breed,all-breed,Boerboel,Working,2,1,1,0,0,0
+3,Mr. Jon R. Cole,13:00,0,Boxer,breed,all-breed,Boxer,Working,13,4,5,2,2,0
+3,Mr. Jon R. Cole,13:00,1,Bullmastiff,breed,all-breed,Bullmastiff,Working,7,2,1,2,2,0
+3,Mr. Jon R. Cole,13:50,0,Cane Corso,breed,all-breed,Cane Corso,Working,12,5,4,2,1,0
+3,Mr. Jon R. Cole,13:50,1,Doberman Pinscher,breed,all-breed,Doberman Pinscher,Working,4,1,2,0,1,0
+3,Mr. Jon R. Cole,14:30,0,Dogo Argentino,breed,all-breed,Dogo Argentino,Working,8,4,2,1,1,0
+3,Mr. Jon R. Cole,14:30,1,Giant Schnauzer,breed,all-breed,Giant Schnauzer,Working,5,2,2,0,1,0
+3,Mr. Jon R. Cole,14:30,2,Great Pyrenees,breed,all-breed,Great Pyrenees,Working,5,1,3,1,0,0
+3,Mr. Jon R. Cole,15:15,0,Greater Swiss Mountain Dog,breed,all-breed,Greater Swiss Mountain Dog,Working,1,0,1,0,0,0
+3,Mr. Jon R. Cole,15:15,1,Newfoundland,breed,all-breed,Newfoundland,Working,10,3,4,2,1,0
+3,Mr. Jon R. Cole,15:15,2,Portuguese Water Dog,breed,all-breed,Portuguese Water Dog,Working,5,2,1,2,0,0
+3,Mr. Jon R. Cole,15:15,3,Tibetan Mastiff,breed,all-breed,Tibetan Mastiff,Working,3,2,0,1,0,0
 4,Mr. Garry K. Newton,08:00,0,Afghan Hound,breed,all-breed,Afghan Hound,Hound,3,1,0,1,1,0
 4,Mr. Garry K. Newton,08:00,1,Basenji,breed,all-breed,Basenji,Hound,6,0,3,2,1,0
 4,Mr. Garry K. Newton,08:00,2,Borzoi,breed,all-breed,Borzoi,Hound,7,4,2,1,0,0
@@ -123,32 +131,24 @@ ring,judge,block_start,position,event,kind,competition,breed,group,entries,class
 6,Mr. Nathaniel Horn,14:45,1,Japanese Terrier,breed,beginner-puppy,Japanese Terrier,,1,,,,,
 6,Mr. Nathaniel Horn,14:45,2,FSS Group,group,beginner-puppy,,,0,,,,,
 6,Mr. Nathaniel Horn,14:45,3,Best Puppy In Show,group,beginner-puppy,,,0,,,,,
-7,Mr. Jon R. Cole,08:00,0,Brittany,breed,all-breed,Brittany,Sporting,3,1,1,0,1,0
-7,Mr. Jon R. Cole,08:00,1,Chesapeake Bay Retriever,breed,all-breed,Chesapeake Bay Retriever,Sporting,2,1,0,0,1,0
-7,Mr. Jon R. Cole,08:00,2,Curly-Coated Retriever,breed,all-breed,Curly-Coated Retriever,Sporting,1,0,0,1,0,0
-7,Mr. Jon R. Cole,08:00,3,English Setter,breed,all-breed,English Setter,Sporting,1,0,0,1,0,0
-7,Mr. Jon R. Cole,08:00,4,Flat-Coated Retriever,breed,all-breed,Flat-Coated Retriever,Sporting,6,2,0,2,2,0
-7,Mr. Jon R. Cole,08:35,0,Golden Retriever,breed,all-breed,Golden Retriever,Sporting,37,16,15,4,2,0
-7,Mr. Jon R. Cole,10:05,0,Labrador Retriever,breed,all-breed,Labrador Retriever,Sporting,15,3,7,3,2,0
-7,Mr. Jon R. Cole,10:05,1,Pointer,breed,all-breed,Pointer,Sporting,1,0,1,0,0,0
-7,Mr. Jon R. Cole,10:45,0,Weimaraner,breed,all-breed,Weimaraner,Sporting,1,0,0,0,1,0
-7,Mr. Jon R. Cole,10:45,1,Wirehaired Pointing Griffon,breed,all-breed,Wirehaired Pointing Griffon,Sporting,5,1,4,0,0,0
-7,Mr. Jon R. Cole,10:45,2,Nederlandse Kooikerhondjes,breed,all-breed,Nederlandse Kooikerhondje,Sporting,1,0,0,1,0,0
-7,Mr. Jon R. Cole,10:45,3,Chinese Crested,breed,all-breed,Chinese Crested,Toy,6,1,1,3,1,0
-7,Mr. Jon R. Cole,10:45,4,English Toy Spaniel (B&PC),breed,all-breed,English Toy Spaniel (B&PC),Toy,1,0,0,1,0,0
-7,Mr. Jon R. Cole,10:45,5,Havanese,breed,all-breed,Havanese,Toy,3,0,1,2,0,0
-7,Mr. Jon R. Cole,12:15,0,Anatolian Shepherd,breed,all-breed,Anatolian Shepherd Dog,Working,7,3,2,2,0,0
-7,Mr. Jon R. Cole,12:15,1,Bernese Mountain Dog,breed,all-breed,Bernese Mountain Dog,Working,8,3,2,2,1,0
-7,Mr. Jon R. Cole,12:15,2,Black Russian Terrier,breed,all-breed,Black Russian Terrier,Working,1,0,0,1,0,0
-7,Mr. Jon R. Cole,12:15,3,Boerboel,breed,all-breed,Boerboel,Working,2,1,1,0,0,0
-7,Mr. Jon R. Cole,13:00,0,Boxer,breed,all-breed,Boxer,Working,13,4,5,2,2,0
-7,Mr. Jon R. Cole,13:00,1,Bullmastiff,breed,all-breed,Bullmastiff,Working,7,2,1,2,2,0
-7,Mr. Jon R. Cole,13:50,0,Cane Corso,breed,all-breed,Cane Corso,Working,12,5,4,2,1,0
-7,Mr. Jon R. Cole,13:50,1,Doberman Pinscher,breed,all-breed,Doberman Pinscher,Working,4,1,2,0,1,0
-7,Mr. Jon R. Cole,14:30,0,Dogo Argentino,breed,all-breed,Dogo Argentino,Working,8,4,2,1,1,0
-7,Mr. Jon R. Cole,14:30,1,Giant Schnauzer,breed,all-breed,Giant Schnauzer,Working,5,2,2,0,1,0
-7,Mr. Jon R. Cole,14:30,2,Great Pyrenees,breed,all-breed,Great Pyrenees,Working,5,1,3,1,0,0
-7,Mr. Jon R. Cole,15:15,0,Greater Swiss Mountain Dog,breed,all-breed,Greater Swiss Mountain Dog,Working,1,0,1,0,0,0
-7,Mr. Jon R. Cole,15:15,1,Newfoundland,breed,all-breed,Newfoundland,Working,10,3,4,2,1,0
-7,Mr. Jon R. Cole,15:15,2,Portuguese Water Dog,breed,all-breed,Portuguese Water Dog,Working,5,2,1,2,0,0
-7,Mr. Jon R. Cole,15:15,3,Tibetan Mastiff,breed,all-breed,Tibetan Mastiff,Working,3,2,0,1,0,0
+7,Ms. Victoria M. Jordan,08:00,0,Australian Cattle Dog,breed,all-breed,Australian Cattle Dog,Herding,13,4,3,3,3,0
+7,Ms. Victoria M. Jordan,08:00,1,Australian Shepherd,breed,all-breed,Australian Shepherd,Herding,3,2,1,0,0,0
+7,Ms. Victoria M. Jordan,08:00,2,Bearded Collie,breed,all-breed,Bearded Collie,Herding,3,0,0,1,1,1
+7,Ms. Victoria M. Jordan,08:00,3,Beauceron,breed,all-breed,Beauceron,Herding,1,1,0,0,0,0
+7,Ms. Victoria M. Jordan,08:50,0,Belgian Tervuren,breed,all-breed,Belgian Tervuren,Herding,2,1,0,1,0,0
+7,Ms. Victoria M. Jordan,08:50,1,Border Collie,breed,all-breed,Border Collie,Herding,1,1,0,0,0,0
+7,Ms. Victoria M. Jordan,08:50,2,Bouvier Des Flandres,breed,all-breed,Bouvier des Flandres,Herding,6,1,1,3,1,0
+7,Ms. Victoria M. Jordan,08:50,3,Collie (Rough),breed,all-breed,Collie (Rough),Herding,9,1,6,2,0,0
+7,Ms. Victoria M. Jordan,08:50,4,Collie (Smooth),breed,all-breed,Collie (Smooth),Herding,1,0,0,0,1,0
+7,Ms. Victoria M. Jordan,08:50,5,Norwegian Buhund,breed,all-breed,Norwegian Buhund,Herding,1,0,0,0,1,0
+7,Ms. Victoria M. Jordan,08:50,6,Old English Sheepdog,breed,all-breed,Old English Sheepdog,Herding,4,2,1,1,0,0
+7,Ms. Victoria M. Jordan,08:50,7,Polish Lowland Sheepdog,breed,all-breed,Polish Lowland Sheepdog,Herding,1,0,0,1,0,0
+7,Ms. Victoria M. Jordan,09:50,0,Cardigan Welsh Corgi,breed,all-breed,Cardigan Welsh Corgi,Herding,7,1,2,0,4,0
+7,Ms. Victoria M. Jordan,09:50,1,Miniature American Shepherd,breed,all-breed,Miniature American Shepherd,Herding,6,1,3,2,0,0
+7,Ms. Victoria M. Jordan,09:50,2,Pembroke Welsh Corgi,breed,all-breed,Pembroke Welsh Corgi,Herding,12,6,3,2,1,0
+7,Ms. Victoria M. Jordan,10:50,0,Shetland Sheepdog,breed,all-breed,Shetland Sheepdog,Herding,1,0,0,1,0,0
+7,Ms. Victoria M. Jordan,10:50,1,Pomeranian,breed,all-breed,Pomeranian,Toy,9,3,4,2,0,0
+7,Ms. Victoria M. Jordan,10:50,2,Poodle (Toy),breed,all-breed,Poodle (Toy),Toy,1,0,1,0,0,0
+7,Ms. Victoria M. Jordan,10:50,3,Mastiff,breed,all-breed,Mastiff,Working,1,0,1,0,0,0
+7,Ms. Victoria M. Jordan,10:50,4,Rottweiler,breed,all-breed,Rottweiler,Working,15,4,5,2,4,0
+7,Ms. Victoria M. Jordan,11:55,0,Junior Showmanship,junior-showmanship,all-breed,,,10,,,,,

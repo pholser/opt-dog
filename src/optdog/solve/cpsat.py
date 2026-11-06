@@ -38,11 +38,14 @@ inside a segment, chosen by an arc a_{PQ} at a segment's first event):
              F ≥ every judge's lunch end                                                 (H14)
     groups:  NoOverlap(group intervals); BIS starts after every group                    (H10)
 
-H11 holds by the pinned blocks; H12 and V1 are input checks. Three lexicographic phases:
-(1) minimize the BIS end; (2) at that finish, minimize the soft costs the structure controls
+H11 holds by the pinned blocks; H12 and V1 are input checks. Four lexicographic phases:
+(1) minimize the BIS end; (2) minimize BIS end + `short_block_finish_minutes` × short blocks,
+giving up finish for fewer short blocks (skipped if nothing can change the count, or the
+parameter is 0); (3) at that finish and count, minimize the soft costs the structure controls
 (S2 ring changes, S3 equipment switches, S9 short blocks, S10 lunch splitting a group, block
-count); (3) at both, minimize judge idle (S5), then start blocks as early as possible. Each phase starts from the previous
-one's solution; phase 1 starts from the greedy schedule (step 1) or the step-1 schedule.
+count); (4) at those, minimize judge idle (S5), then start blocks as early as possible. Each
+phase starts from the previous one's solution; phase 1 starts from the greedy schedule
+(step 1) or the step-1 schedule.
 """
 
 from __future__ import annotations
@@ -116,14 +119,20 @@ class PhaseStats:
 @dataclass
 class PlacementResult:
     program: JudgingProgram | None
-    finish: float | None  # BIS end, minutes after midnight (model value)
-    bound: float | None  # CP-SAT's proven lower bound on the finish for this model
+    finish: float | None  # BIS end of the returned schedule, minutes after midnight (model value)
+    bound: float | None  # CP-SAT's proven lower bound on the finish for this model (from phase 1)
     phases: list[PhaseStats] = field(default_factory=list)
     costs: dict[str, float] = field(default_factory=dict)  # structure costs of the returned schedule
 
     @property
+    def status(self) -> str:
+        """How far the main objective was proven: the weakest of the finish and trade phases."""
+        statuses = [ph.status for ph in self.phases if ph.name in ("finish", "trade")]
+        return next((s for s in statuses if s != "OPTIMAL"), "OPTIMAL") if statuses else "UNKNOWN"
+
+    @property
     def optimal(self) -> bool:
-        return bool(self.phases) and self.phases[0].status == "OPTIMAL"
+        return self.status == "OPTIMAL"
 
 
 # --------------------------------------------------------------------------- chains
@@ -284,19 +293,30 @@ def _solve(m: "_Model", o: PlacementOptions, hint_prog: JudgingProgram | None) -
     if not run("finish", m.finish, SCALE):
         return res
     best_finish = solver.Value(m.finish)
-    res.finish = best_finish / SCALE
     res.bound = solver.BestObjectiveBound() / SCALE
+    floor = math.ceil(solver.BestObjectiveBound() - 1e-6)
+
+    # phase 2: give up finish for fewer short blocks
+    trade = _u(m.p.short_block_finish_minutes)
+    if trade > 0 and m.short_flags:
+        short = solver.Value(m.short_blocks)
+        m.model.Add(m.finish >= floor)  # valid cuts: no better trade lies outside these
+        m.model.Add(m.finish <= best_finish + trade * short)
+        if run("trade", m.finish + trade * m.short_blocks, SCALE):
+            best_finish = solver.Value(m.finish)
+            m.model.Add(m.short_blocks <= solver.Value(m.short_blocks))
+    res.finish = best_finish / SCALE
     m.model.Add(m.finish <= best_finish)
 
     if o.tidy:
-        # phase 2: soft costs of the structure, at that finish
+        # phase 3: soft costs of the structure, at that finish
         if run("structure", m.structure, WSCALE):
             m.model.Add(m.structure <= solver.Value(m.structure))
-            # phase 3: least judge idle, then earliest blocks
+            # phase 4: least judge idle, then earliest blocks
             run("times", IDLE_OVER_STARTS * m.idle + sum(m.run_starts) + m.first, SCALE)
-        if res.phases[-1].status not in ("OPTIMAL", "FEASIBLE"):
-            m.model.Minimize(m.finish)  # fall back to the last good solution (kept as the hint)
-            solver.Solve(m.model)
+    if res.phases[-1].status not in ("OPTIMAL", "FEASIBLE"):
+        m.model.Minimize(m.finish)  # fall back to the last good solution (kept as the hint)
+        solver.Solve(m.model)
     res.program = m.extract(solver)
     res.costs = {k: float(solver.Value(v)) for k, v in m.cost_terms.items()}
     return res
@@ -355,6 +375,7 @@ class _Model:
         self.runs: list[tuple[list[int], object]] = []  # (event ids, judge) of each fixed-contiguous run
         changes: list[tuple[Judge, int, object]] = []  # (judge, event id, "ring changed before it")
         short_terms = []
+        self.short_flags: list = []  # one per block that closes short, for the phase 2 trade
         n_blocks = []
         free_of: dict[Judge, bool] = {}
 
@@ -475,6 +496,9 @@ class _Model:
                     sh = md.NewIntVar(0, T, f"short_{id(e)}")
                     md.Add(sh >= T - self.acc[id(e)]).OnlyEnforceIf(conds)
                     short_terms.append(sh)
+                    flag = md.NewBoolVar(f"is_short_{id(e)}")
+                    md.Add(sh <= T * flag)
+                    self.short_flags.append(flag)
 
         # ring intervals: one per fixed-contiguous run of events (blocks in step 1)
         self.run_end: dict[int, cp_model.LinearExprT] = {}
@@ -691,6 +715,7 @@ class _Model:
             busy = sum(self.d[id(e)] for seg in segs for e in seg.events) + sum(_u(sb.block.duration) for sb in pins)
             idle_terms.append(last_j - first_j - busy - (lunch_len if j in self.lunch else 0))
         idle_units = self.idle = sum(idle_terms)
+        self.short_blocks = sum(self.short_flags)
 
         def iw(x: float) -> int:
             return int(round(x * WSCALE))
@@ -699,6 +724,7 @@ class _Model:
             "ring_changes": sum(chg_all),
             "ring_changes_off_lunch": sum(chg_off),
             "short_block_dogs": sum(short_terms),
+            "short_blocks": self.short_blocks,
             "lunch_splits": sum(splits),
             "blocks": blocks_expr,
             "equipment_switches": equipment,

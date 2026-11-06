@@ -42,6 +42,8 @@ class ShowParameters:
     block_tolerance_minutes: float = 15.0  # E: multi-breed blocks p90 27 dogs; 7 blocks > 75 min on 11 days
     single_breed_exception_entries: int = 30  # a breed with > 30 entries may be its own longer block
     short_block_dogs: int = 15  # S9: blocks under this many dogs cost per missing dog (E: human p10 is 13 dogs)
+    # S9: minutes of show finish worth giving up to avoid one short block (U, 2026-11-06). 0 puts finish first.
+    short_block_finish_minutes: float = 10.0
     final_segment_max_dogs: int = 50  # Rules: final segment ≤ 50 unless single breed; a SOFT cost here (U; humans exceed it)
 
     # --- judge breaks (Rules Ch.7 §12)

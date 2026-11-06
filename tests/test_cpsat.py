@@ -80,7 +80,7 @@ def test_formation_on_parsed_shows(d):
     v = validate(res.program)
     assert {x.code for x in v.violations} <= {"V1"}, [str(x) for x in v.violations]
     assert v.timeline.finish == pytest.approx(res.finish, abs=0.1)
-    assert res.finish <= placed.finish + 1e-6
+    assert res.phases[0].objective <= placed.finish + 1e-6  # the fastest, before any trade
     assert res.finish >= relaxed_lower_bound(show, time_limit=20).value - 1e-6
 
 
@@ -107,7 +107,7 @@ def test_ordering_on_parsed_shows(d):
     v = validate(res.program)
     assert {x.code for x in v.violations} <= {"V1"}, [str(x) for x in v.violations]
     assert v.timeline.finish == pytest.approx(res.finish, abs=0.1)
-    assert res.finish <= placed.finish + 1e-6
+    assert res.phases[0].objective <= placed.finish + 1e-6  # the fastest, before any trade
     assert res.finish >= relaxed_lower_bound(show, time_limit=20).value - 1e-6
 
 
@@ -161,3 +161,34 @@ def test_obedience_is_a_fixed_commitment_for_a_judge_who_also_judges_conformatio
     assert all(a.end <= b.start for a, b in zip(seq, seq[1:]))
     # the commitment holds the judge, not one of the conformation rings
     assert relaxed_lower_bound(show, P0).value <= res.finish + 1e-6
+
+
+def test_short_blocks_are_traded_for_finish_up_to_the_parameter():
+    # A's commitment at 8:30 splits the morning: judge one breed before it and one after, for two
+    # short blocks and the fastest finish, or both after it, as one full block, about 24 min later.
+    obed = JudgingEvent("Obedience-Novice A", EventKind.OTHER, A, 20, competition=Competition.OBEDIENCE)
+    boxer, rott = ev("Boxer", A, 10), ev("Rottweiler", A, 10)
+    blocks = [ScheduledBlock(Block(A, (boxer,)), Ring(2), 480), ScheduledBlock(Block(A, (obed,)), Ring(9), 510),
+              ScheduledBlock(Block(A, (rott,)), Ring(2), 570)]
+    base = show_of([boxer, rott, obed], (A,))
+    plan = GroupsPlan((Ring(1),), 780, tuple(VARIETY_GROUPS), dict(base.group_judges), G)
+    show = instance_from_program(JudgingProgram(base, blocks, [], plan))
+
+    def solve(minutes):
+        return solve_formation(show, replace(P0, short_block_finish_minutes=minutes))
+
+    first, cheap, dear = solve(0), solve(5), solve(60)
+    assert [ph.name for ph in first.phases][:2] == ["finish", "structure"]
+    assert first.costs["short_blocks"] == cheap.costs["short_blocks"] == 2
+    assert cheap.finish == first.finish
+    assert dear.costs["short_blocks"] == 0
+    assert 0 < dear.finish - first.finish <= 2 * 60
+    assert dear.phases[0].objective == first.finish == dear.bound  # the fastest is still reported
+    assert dear.phases[1].name == "trade" and dear.optimal
+    assert validate(dear.program, P0).violations == []
+    assert sum(sb.block.entries < P0.short_block_dogs for sb in dear.program.blocks if sb.block.events != (obed,)) == 0
+
+
+def test_price_of_short_blocks_is_skipped_when_blocks_are_fixed():
+    res = solve_placement(show_of([ev("Boxer", A, 20), ev("Pug", B, 20)], (A, B)), P0)
+    assert "trade" not in [ph.name for ph in res.phases]

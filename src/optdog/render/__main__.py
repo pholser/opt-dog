@@ -63,7 +63,7 @@ def main(argv: list[str] | None = None) -> int:
         from optdog.solutions import load_result, solved_dir
 
         res = load_result(solved_dir(a.show_dir) / a.saved, instance_from_program(human))
-        status = "optimal" if res.optimal else res.phases[0].status.lower()
+        status = res.status.lower()
         programs.append((f"CP-SAT {a.saved} ({status})", res.program))
     step = "placement" if a.cp and not a.solve else a.solve
     if step:
@@ -77,7 +77,7 @@ def main(argv: list[str] | None = None) -> int:
         if res.program is None:
             print(f"CP-SAT found no schedule: {res.phases}", file=sys.stderr)
         else:
-            status = "optimal" if res.optimal else res.phases[0].status.lower()
+            status = res.status.lower()
             programs.append((f"{name} ({status})", res.program))
 
     if a.html:

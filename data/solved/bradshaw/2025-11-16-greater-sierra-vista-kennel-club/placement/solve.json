@@ -5,6 +5,7 @@
   "ring_changes": 21.0,
   "ring_changes_off_lunch": 25.0,
   "short_block_dogs": 0.0,
+  "short_blocks": 0.0,
   "lunch_splits": 3.0,
   "blocks": 53.0,
   "equipment_switches": 104.0,
@@ -16,7 +17,7 @@
    "status": "OPTIMAL",
    "objective": 1159.4,
    "bound": 1159.4,
-   "seconds": 0.22412878300019656
+   "seconds": 0.16121311299866647
   }
  ]
 }

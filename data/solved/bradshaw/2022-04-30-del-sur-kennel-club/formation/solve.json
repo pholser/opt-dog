@@ -5,6 +5,7 @@
   "ring_changes": 0.0,
   "ring_changes_off_lunch": 0.0,
   "short_block_dogs": 7.0,
+  "short_blocks": 2.0,
   "lunch_splits": 1.0,
   "blocks": 31.0,
   "equipment_switches": 14.0,
@@ -16,21 +17,28 @@
    "status": "OPTIMAL",
    "objective": 1069.4,
    "bound": 1069.4,
-   "seconds": 0.6116915829989011
+   "seconds": 0.5279729350004345
+  },
+  {
+   "name": "trade",
+   "status": "OPTIMAL",
+   "objective": 1089.4,
+   "bound": 1089.4,
+   "seconds": 0.550007852998533
   },
   {
    "name": "structure",
    "status": "OPTIMAL",
    "objective": 101.5,
    "bound": 101.5,
-   "seconds": 2.1573305300007632
+   "seconds": 1.465272311001172
   },
   {
    "name": "times",
    "status": "OPTIMAL",
    "objective": 76230.0,
    "bound": 76230.0,
-   "seconds": 2.8143494179985282
+   "seconds": 1.3279831289983122
   }
  ]
 }

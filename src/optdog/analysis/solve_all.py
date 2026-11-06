@@ -52,7 +52,7 @@ def main(argv: list[str] | None = None) -> int:
                 bad += 1
                 continue
             save_result(res, out / step)
-            line.append(f"{step} {res.finish:.1f} ({res.phases[0].status.lower()})")
+            line.append(f"{step} {res.finish:.1f} ({res.status.lower()})")
         print(f"{'; '.join(line)}  [{time.perf_counter() - t:.0f} s]", flush=True)
     return 1 if bad else 0
 

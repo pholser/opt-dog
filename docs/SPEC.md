@@ -133,7 +133,7 @@ start of unit `u` (block start + durations of the units ahead of it in the block
 | S6 | Short-nosed (brachycephalic) breeds in the cooler part of the day (outdoor shows) | Show Manual §6 |
 | S7 | Permit judges at non-conflicting times (for the AKC field rep) | Show Manual §6 |
 | S8 | **Final segment over 50 dogs**: a ring's final segment may stretch past an hour; each dog over 50 (unless it is a single breed/variety) costs `w_final`. AKC states this as a rule, but it is a soft cost here because real programs exceed it (§8) | Rules Ch.7 §12; U; E |
-| S9 | **Short blocks**: each block of fewer than `short_block_dogs` dogs (default 15) costs `w_short` per missing dog. A judge's only block is exempt: it cannot be made larger (U: "absolutely discourage short blocks"). Humans have 64 of 517 blocks under 15 dogs, mostly a judge's whole small assignment or the remainder before lunch or at day's end (§8) | U; E |
+| S9 | **Short blocks**: each block of fewer than `short_block_dogs` dogs (default 15) costs `w_short` per missing dog. A judge's only block is exempt: it cannot be made larger (U: "absolutely discourage short blocks"). Humans have 64 of 517 blocks under 15 dogs, mostly a judge's whole small assignment or the remainder before lunch or at day's end (§8). Avoiding one short block is worth up to `short_block_finish_minutes` of show finish (default 10, U): the solver finds the fastest finish, then minimizes finish + that × short blocks | U; E |
 | S10 | **Lunch at a logical stopping point**: a cost when a judge's lunch splits a group run (soft, small) | Show Manual §6 "Scheduling Lunch and Breaks": "Try to schedule the lunch or rest break at a logical stopping point" |
 
 ## 6. Objective

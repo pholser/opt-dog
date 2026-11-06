@@ -2,9 +2,10 @@
  "finish": 1174.2,
  "bound": 1174.2,
  "costs": {
-  "ring_changes": 10.0,
-  "ring_changes_off_lunch": 13.0,
+  "ring_changes": 16.0,
+  "ring_changes_off_lunch": 17.0,
   "short_block_dogs": 0.0,
+  "short_blocks": 0.0,
   "lunch_splits": 3.0,
   "blocks": 35.0,
   "equipment_switches": 56.0,
@@ -16,7 +17,7 @@
    "status": "OPTIMAL",
    "objective": 1174.2,
    "bound": 1174.2,
-   "seconds": 0.12016622100054519
+   "seconds": 0.11600701000133995
   }
  ]
 }
