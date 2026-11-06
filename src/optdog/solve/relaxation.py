@@ -90,8 +90,9 @@ def relaxed_lower_bound(show: Show, params: ShowParameters | None = None,
             end[id(e)] = _f(sb.start + off) + _f(e.duration)
         iv = md.NewFixedSizeIntervalVar(s0, _f(sb.block.duration), f"pin_{id(sb)}")
         judge_iv[sb.judge].append(iv)
-        pool.append(iv)
-        demand.append(1)
+        if sb.ring in show.rings:  # an obedience commitment's ring is not one of the pool's
+            pool.append(iv)
+            demand.append(1)
 
     # first group start F, on the grid
     fk = md.NewIntVar(t0 // slot, H // slot, "first_k")

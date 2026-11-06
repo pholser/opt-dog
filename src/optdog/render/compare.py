@@ -2,10 +2,13 @@
 program on the left and the optimizer's on the right.
 
 1. A summary: finish, group start, hard-constraint violations and soft costs, in two columns
-   with the difference.
+   with the difference, for conformation only, so that both sides count the same things.
 2. The programs aligned **by judge** (default) or **by ring**. By judge is the useful view for
    a solver's program: its ring numbers are arbitrary labels, while each judge is in both.
 3. Groups and Best in Show, and the validator's findings, side by side.
+
+Obedience and rally are outside the optimizer, so their blocks are carried across unchanged
+and marked, and each column is a complete program.
 """
 
 from __future__ import annotations
@@ -13,25 +16,27 @@ from __future__ import annotations
 import textwrap
 
 from optdog.domain import Judge, JudgingProgram, Ring, fmt_time
+from optdog.instance import conformation_only, is_conformation
 from optdog.params import ShowParameters
 from optdog.render.text import event_line, pinned_ids
 from optdog.validate import ValidationResult, validate
 
 Section = tuple[str, list[str]]
+NOT_SCHEDULED = "  obedience/rally: not scheduled by the optimizer"
 
 
 def _short_block(sb, p: ShowParameters) -> bool:
     return sb.block.entries < p.short_block_dogs
 
 
-def _block_head(sb, pinned: set[int], ring: bool) -> str:
+def _block_head(sb, pinned: set[int], ring: bool, carried: set[int]) -> str:
     where = f"{sb.ring}  " if ring else ""
-    mark = "  pinned" if id(sb) in pinned else ""
+    mark = "  as published" if id(sb) in carried else "  pinned" if id(sb) in pinned else ""
     return (f"  {where}{fmt_time(sb.start)} – {fmt_time(int(round(sb.end)))}   "
             f"{sb.block.entries} dogs, {sb.block.duration:.0f} min{mark}")
 
 
-def _judge_sections(program: JudgingProgram) -> dict[Judge, list[str]]:
+def _judge_sections(program: JudgingProgram, carried: set[int] = frozenset()) -> dict[Judge, list[str]]:
     pinned = pinned_ids(program)
     out: dict[Judge, list[str]] = {}
     for judge, seq in program.by_judge().items():
@@ -41,6 +46,8 @@ def _judge_sections(program: JudgingProgram) -> dict[Judge, list[str]]:
                 rings.append(sb.ring)
         lines = [f"{judge.name}  ({', '.join(str(r) for r in rings)}; {len(seq)} blocks; "
                  f"done {fmt_time(int(round(seq[-1].end)))})"]
+        if all(id(sb) in carried for sb in seq):
+            lines.append(NOT_SCHEDULED)
         items = [(sb.start, 1, sb) for sb in seq]
         items += [(br.start, 0, br) for br in program.breaks if br.judge == judge]
         for _, kind, x in sorted(items, key=lambda t: (t[0], t[1])):
@@ -48,24 +55,26 @@ def _judge_sections(program: JudgingProgram) -> dict[Judge, list[str]]:
                 length = f"{x.minutes} min" if x.minutes else "length not stated"
                 lines.append(f"  {fmt_time(x.start)}   LUNCH ({length})")
                 continue
-            lines.append(_block_head(x, pinned, ring=True))
+            lines.append(_block_head(x, pinned, ring=True, carried=carried))
             for e, off in x.block.offsets():
                 lines.append(event_line(e, x.start + off, counts=False))
         out[judge] = lines
     return out
 
 
-def _ring_sections(program: JudgingProgram) -> dict[Ring, list[str]]:
+def _ring_sections(program: JudgingProgram, carried: set[int] = frozenset()) -> dict[Ring, list[str]]:
     pinned = pinned_ids(program)
     out: dict[Ring, list[str]] = {}
     for ring in sorted({sb.ring for sb in program.blocks}, key=lambda r: r.number):
         lines = [str(ring).upper()]
+        if all(id(sb) in carried for sb in program.ring_schedule(ring)):
+            lines.append(NOT_SCHEDULED)
         judge = None
         for sb in program.ring_schedule(ring):
             if sb.judge != judge:
                 judge = sb.judge
                 lines.append(f"  {judge.name}")
-            lines.append(_block_head(sb, pinned, ring=False))
+            lines.append(_block_head(sb, pinned, ring=False, carried=carried))
             for e, off in sb.block.offsets():
                 lines.append(event_line(e, sb.start + off, counts=False))
         out[ring] = lines
@@ -168,24 +177,35 @@ def _columns(a: list[str], b: list[str], width: int, gap: str = " │ ") -> list
     return [f"{x:<{width}}{gap}{y}".rstrip() for x, y in zip(a, b)]
 
 
+def _carry_across(left: JudgingProgram, right: JudgingProgram) -> tuple[JudgingProgram, set[int]]:
+    """``right`` with ``left``'s obedience and rally blocks, and the ids of the blocks added."""
+    have = {id(sb) for sb in right.blocks}
+    extra = [sb for sb in left.blocks if not is_conformation(sb) and id(sb) not in have]
+    judges = {sb.judge for sb in extra} - {br.judge for br in right.breaks}
+    breaks = [br for br in left.breaks if br.judge in judges]
+    return JudgingProgram(right.show, right.blocks + extra, right.breaks + breaks, right.groups), {id(sb) for sb in extra}
+
+
 def render_compare(left: tuple[str, JudgingProgram], right: tuple[str, JudgingProgram],
                    params: ShowParameters | None = None, by: str = "judge", width: int = 76,
                    title: str | None = None) -> str:
     """``left`` and ``right`` are (label, program) for the same show."""
     p = params or ShowParameters()
     (la, pa), (lb, pb) = left, right
-    ra, rb = validate(pa, p), validate(pb, p)
+    ca, cb = conformation_only(pa), conformation_only(pb)
+    ra, rb = validate(ca, p), validate(cb, p)
     show = pa.show
     head = title or f"{show.name} — {show.date}"
-    out = [head, "=" * len(head), "", "SUMMARY"]
-    out += _summary((la, pa, ra), (lb, pb, rb), p)
+    out = [head, "=" * len(head), "", "SUMMARY (conformation only, on both sides)"]
+    out += _summary((la, ca, ra), (lb, cb, rb), p)
     out += ["", "", *_columns([la, "-" * len(la)], [lb, "-" * len(lb)], width), ""]
 
+    pb, carried = _carry_across(pa, pb)
     if by == "ring":
-        sa, sb_ = _ring_sections(pa), _ring_sections(pb)
+        sa, sb_ = _ring_sections(pa), _ring_sections(pb, carried)
         keys = sorted(set(sa) | set(sb_), key=lambda r: r.number)
     else:
-        sa, sb_ = _judge_sections(pa), _judge_sections(pb)
+        sa, sb_ = _judge_sections(pa), _judge_sections(pb, carried)
         first_seen = {j: min(s.start for s in seq) for j, seq in pa.by_judge().items()}
         first_seen.update({j: min(s.start for s in seq) for j, seq in pb.by_judge().items() if j not in first_seen})
         keys = sorted(set(sa) | set(sb_), key=lambda j: (first_seen[j], j.name))

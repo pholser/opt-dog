@@ -7,7 +7,8 @@ import pytest
 
 from optdog.breeds import default_catalog
 from optdog.domain import (
-    VARIETY_GROUPS, Block, Competition, EventKind, JudgingEvent, Judge, Ring, ScheduledBlock, Show,
+    VARIETY_GROUPS, Block, Competition, EventKind, GroupsPlan, JudgingEvent, JudgingProgram, Judge, Ring,
+    ScheduledBlock, Show,
 )
 from optdog.instance import instance_from_program
 from optdog.io.program_csv import read_program
@@ -126,3 +127,37 @@ def test_ordering_keeps_groups_together_and_meets_table_runs():
     kinds = [e.equipment for e in order]
     assert kinds[1] == kinds[2]
     assert v.soft["S3_equipment_switches"] == 2
+
+
+def test_ordering_leaves_no_idle_time_in_a_judges_day_when_nothing_forces_it():
+    # 75 dogs take three hours: more than one block, with nothing to wait for between them
+    events = [ev("Boxer", A, 25), ev("Rottweiler", A, 25), ev("Great Dane", A, 25), ev("Pug", B, 10)]
+    res = solve_ordering(show_of(events, (A, B)), P0)
+    assert res.program is not None
+    seq = res.program.judge_schedule(A)
+    assert len(seq) >= 2
+    assert sum(b.start - a.end for a, b in zip(seq, seq[1:])) < 5  # the grid may round a start up
+
+
+def test_obedience_is_a_fixed_commitment_for_a_judge_who_also_judges_conformation():
+    d = Judge("Mrs. D")  # obedience only: not part of the problem
+    obed = JudgingEvent("Obedience-Novice A", EventKind.OTHER, A, 20, competition=Competition.OBEDIENCE)
+    only = JudgingEvent("Obedience-Open A", EventKind.OTHER, d, 20, competition=Competition.OBEDIENCE)
+    boxer, rott, pug = ev("Boxer", A, 25), ev("Rottweiler", A, 25), ev("Pug", B, 10)
+    blocks = [ScheduledBlock(Block(A, (boxer,)), Ring(2), 480), ScheduledBlock(Block(A, (rott,)), Ring(2), 660),
+              ScheduledBlock(Block(B, (pug,)), Ring(3), 480),
+              ScheduledBlock(Block(A, (obed,)), Ring(9), 545), ScheduledBlock(Block(d, (only,)), Ring(8), 480)]
+    base = show_of([boxer, rott, pug, obed, only], (A, B, d))
+    plan = GroupsPlan((Ring(1),), 780, tuple(VARIETY_GROUPS), dict(base.group_judges), G)
+    show = instance_from_program(JudgingProgram(base, blocks, [], plan))
+    assert d not in show.judges and only not in show.events
+    assert Ring(9) not in show.rings and any(sb.block.events == (obed,) for sb in show.pinned)
+    res = solve_ordering(show, P0)
+    assert res.program is not None
+    assert validate(res.program, P0).violations == []
+    assert not any(sb.ring == Ring(9) for sb in res.program.blocks if sb.block.events != (obed,))
+    seq = res.program.judge_schedule(A)
+    assert any(sb.block.events == (obed,) for sb in seq)
+    assert all(a.end <= b.start for a, b in zip(seq, seq[1:]))
+    # the commitment holds the judge, not one of the conformation rings
+    assert relaxed_lower_bound(show, P0).value <= res.finish + 1e-6

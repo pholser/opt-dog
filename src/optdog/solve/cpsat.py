@@ -41,7 +41,7 @@ inside a segment, chosen by an arc a_{PQ} at a segment's first event):
 H11 holds by the pinned blocks; H12 and V1 are input checks. Three lexicographic phases:
 (1) minimize the BIS end; (2) at that finish, minimize the soft costs the structure controls
 (S2 ring changes, S3 equipment switches, S9 short blocks, S10 lunch splitting a group, block
-count); (3) at both, start blocks as early as possible. Each phase starts from the previous
+count); (3) at both, minimize judge idle (S5), then start blocks as early as possible. Each phase starts from the previous
 one's solution; phase 1 starts from the greedy schedule (step 1) or the step-1 schedule.
 """
 
@@ -73,6 +73,7 @@ from optdog.solve.greedy import greedy_program
 
 SCALE = 10  # model time unit = 1/10 minute
 WSCALE = 10  # soft-cost weights → integer coefficients
+IDLE_OVER_STARTS = 10  # phase 3: one unit of judge idle outweighs ten units of later starts
 
 Chain = list[JudgingEvent]
 Cut = bool | None  # event starts a block (True), continues the block (False), or the solver chooses (None)
@@ -291,8 +292,8 @@ def _solve(m: "_Model", o: PlacementOptions, hint_prog: JudgingProgram | None) -
         # phase 2: soft costs of the structure, at that finish
         if run("structure", m.structure, WSCALE):
             m.model.Add(m.structure <= solver.Value(m.structure))
-            # phase 3: earliest blocks
-            run("times", sum(m.run_starts) + m.first, SCALE)
+            # phase 3: least judge idle, then earliest blocks
+            run("times", IDLE_OVER_STARTS * m.idle + sum(m.run_starts) + m.first, SCALE)
         if res.phases[-1].status not in ("OPTIMAL", "FEASIBLE"):
             m.model.Minimize(m.finish)  # fall back to the last good solution (kept as the hint)
             solver.Solve(m.model)
@@ -674,6 +675,23 @@ class _Model:
         blocks_expr = sum(1 if c is True else c for c in n_blocks if c is not False)
         equipment = self._equipment_switches(changes)
 
+        # S5: a judge's day from first to last event, less their judging and lunch
+        idle_terms = []
+        for j, segs in chains.items():
+            pins = [sb for sb in show.pinned if sb.judge == j]
+            starts = [self.s[id(seg.events[0])] for seg in segs] + [sb.start * SCALE for sb in pins]
+            ends = [self.s[id(seg.events[-1])] + self.d[id(seg.events[-1])] for seg in segs]
+            ends += [sb.start * SCALE + _u(sb.block.duration) for sb in pins]
+            if len(segs) == 1 and len(segs[0].events) == 1 and not pins:
+                continue
+            first_j = md.NewIntVar(t0, H, f"day_start_{j.name}")
+            last_j = md.NewIntVar(t0, H, f"day_end_{j.name}")
+            md.AddMinEquality(first_j, starts)
+            md.AddMaxEquality(last_j, ends)
+            busy = sum(self.d[id(e)] for seg in segs for e in seg.events) + sum(_u(sb.block.duration) for sb in pins)
+            idle_terms.append(last_j - first_j - busy - (lunch_len if j in self.lunch else 0))
+        idle_units = self.idle = sum(idle_terms)
+
         def iw(x: float) -> int:
             return int(round(x * WSCALE))
 
@@ -684,6 +702,7 @@ class _Model:
             "lunch_splits": sum(splits),
             "blocks": blocks_expr,
             "equipment_switches": equipment,
+            "judge_idle_units": idle_units,
         }
         self.cost_terms = {k: (v if not isinstance(v, int) else md.NewConstant(v)) for k, v in self.cost_terms.items()}
         self.structure = md.NewIntVar(0, 10**9, "structure")

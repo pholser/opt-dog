@@ -2,7 +2,7 @@
 
 from pathlib import Path
 
-from optdog.instance import instance_from_program
+from optdog.instance import instance_from_program, is_conformation
 from optdog.io.program_csv import read_program
 from optdog.render import render_html, render_text
 from optdog.render.compare import render_compare
@@ -10,6 +10,7 @@ from optdog.render.__main__ import main
 from optdog.solve.greedy import greedy_program
 
 SHOW = Path(__file__).resolve().parents[1] / "data" / "parsed" / "bradshaw" / "2026-09-12-sir-francis-drake-kennel-club"
+OBEDIENCE_SHOW = SHOW.parent / "2022-04-30-del-sur-kennel-club"
 
 
 def test_text_lists_every_event_and_the_groups():
@@ -56,3 +57,15 @@ def test_cli_compare_by_ring(tmp_path):
     assert main([str(SHOW), "--greedy", "--compare", "ring", "--out", str(out)]) == 0
     text = out.read_text()
     assert "RING 1" in text and " │ " in text
+
+
+def test_compare_summarizes_conformation_and_carries_obedience_across():
+    human = read_program(OBEDIENCE_SHOW)
+    show = instance_from_program(human)
+    text = render_compare(("Published", human), ("Greedy", greedy_program(show)))
+    assert "(none)" not in text and "obedience/rally: not scheduled by the optimizer" in text
+    assert "as published" in text
+    obedience = [sb for sb in human.blocks if not is_conformation(sb)]
+    assert obedience and all(e.name in text for sb in obedience for e in sb.block.events)
+    row = next(l for l in text.splitlines() if l.lstrip().startswith("blocks  "))
+    assert int(row.split()[1]) == len(human.blocks) - len(obedience)
