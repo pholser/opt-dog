@@ -1,5 +1,7 @@
 """Validator rules on small hand-built programs."""
 
+import pytest
+
 from optdog.breeds import default_catalog
 from optdog.domain import (
     Block, Break, EventKind, Group, GroupsPlan, JudgingEvent, JudgingProgram, Judge, Ring, ScheduledBlock, Show,
@@ -140,12 +142,24 @@ def test_h1_does_not_judge_pinned_blocks():
     assert codes(prog) == []
 
 
-def test_s3_equipment_switch_is_free_across_a_break():
-    # Pug (table) then Boxer (ground) in one ring: a switch when judged on, free across a lunch-length gap
+def test_s3_equipment_switch_is_free_across_a_lunch_only():
+    # Pug (table) then Boxer (ground) in one ring: a switch when judged on
     on = program([sb(A, 1, 480, ev("Pug", A, 10)), sb(A, 1, 505, ev("Boxer", A, 10))], [A])
     assert validate(on, P0).soft["S3_equipment_switches"] == 1
+    # a long idle gap is not a break: still a switch, and the gap is idle time (S5)
     gap = program([sb(A, 1, 480, ev("Pug", A, 10)), sb(A, 1, 550, ev("Boxer", A, 10))], [A])
-    assert validate(gap, P0).soft["S3_equipment_switches"] == 0
+    r = validate(gap, P0)
+    assert r.soft["S3_equipment_switches"] == 1
+    assert r.soft["S5_judge_idle_min"] == pytest.approx(550 - 480 - ev("Pug", A, 10).duration, abs=0.1)
+    # free across the judge's lunch
+    lunch = program([sb(A, 1, 660, ev("Pug", A, 10)), sb(A, 1, 730, ev("Boxer", A, 10))], [A],
+                    breaks=[Break(A, Ring(1), 685, 45)])
+    assert validate(lunch, P0).soft["S3_equipment_switches"] == 0
+    # across judges: free when the leaving judge's lunch falls in the ring's idle time
+    handover = program([sb(A, 1, 660, ev("Boxer", A, 10)), sb(B, 1, 735, ev("Pug", B, 10)),
+                        sb(A, 2, 735, ev("Golden Retriever", A, 10))], [A, B],
+                       breaks=[Break(A, Ring(1), 685, 45)])
+    assert validate(handover, P0).soft["S3_equipment_switches"] == 0
     # across judges too: B's table breed right after A's ground breed in the same ring
     both = program([sb(A, 1, 480, ev("Boxer", A, 10)), sb(B, 1, 505, ev("Pug", B, 10))], [A, B])
     assert validate(both, P0).soft["S3_equipment_switches"] == 1

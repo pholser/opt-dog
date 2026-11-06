@@ -696,14 +696,16 @@ class _Model:
 
     # ---------------------------------------------------------------------- S3 equipment
     def _equipment_switches(self, changes):
-        """S3: table/ramp/ground switches between consecutive breeds in a ring, free across a break
-        (the ring idle at least ``equipment_free_gap_minutes``). Counted within each segment
+        """S3: table/ramp/ground switches between consecutive breeds in a ring, free across a lunch
+        (of the judge who leaves or arrives, in the ring's idle time, itself at least
+        ``equipment_free_gap_minutes``). Counted within each segment
         and across the arcs between a judge's segments, and between judges at each judge's
         first and last breed (a judge who changes rings mid-day is not counted at that change,
         nor is a switch across a segment without breeds: approximations; the validator counts
         exactly)."""
         md, p, H, t0 = self.model, self.p, self.H, self.t0
         G = _u(p.equipment_free_gap_minutes)
+        lunch_len = p.lunch_min_minutes * SCALE
         chg = {u: lit for _, u, lit in changes}
         terms: list = []
 
@@ -714,8 +716,13 @@ class _Model:
                 terms.append(1)  # contiguous in one block: always a switch
                 return
             between = sum(self.d[id(e)] for e in path)
-            brk = md.NewBoolVar(f"eqbrk_{ua}_{ub}")
-            md.Add(self.s[ub] - self.s[ua] - self.d[ua] - between >= G).OnlyEnforceIf(brk)
+            if ua in self.before and ub in self.before:  # free across the judge's lunch
+                brk = md.NewBoolVar(f"eqbrk_{ua}_{ub}")
+                md.Add(self.s[ub] - self.s[ua] - self.d[ua] - between >= G).OnlyEnforceIf(brk)
+                md.AddImplication(brk, self.before[ua])
+                md.AddImplication(brk, self.before[ub].Not())
+            else:
+                brk = 0
             moved = [chg[id(e)] for e in path + [eb] if id(e) in chg]
             sw = md.NewBoolVar(f"eqsw_{ua}_{ub}")
             md.Add(sw >= (1 if arc is None else arc) - brk - sum(moved))
@@ -811,8 +818,23 @@ class _Model:
                     diff = md.NewBoolVar(f"eqdiff_{n}")  # the two breeds' equipment differ
                     for kind in set(kd) | set(ka):
                         md.Add(diff >= kd.get(kind, 0) - ka.get(kind, 0))
-                far = md.NewBoolVar(f"eqfar_{n}")  # arrival a break or more after the departure
-                md.Add(sa >= ed + G).OnlyEnforceIf(far)
+                # free across a lunch: the leaving or the arriving judge lunches in the ring's idle time
+                lunches = []
+                for owner in (od, oa):
+                    jj = owner.judge if isinstance(owner, ScheduledBlock) else owner
+                    ls = self.lunch.get(jj)
+                    if ls is None:
+                        continue
+                    f = md.NewBoolVar(f"eqlunch_{n}_{len(lunches)}")
+                    md.Add(ls >= ed).OnlyEnforceIf(f)
+                    md.Add(ls + lunch_len <= sa).OnlyEnforceIf(f)
+                    lunches.append(f)
+                if lunches:
+                    far = md.NewBoolVar(f"eqfar_{n}")
+                    md.Add(sa >= ed + G).OnlyEnforceIf(far)
+                    md.AddBoolOr(lunches).OnlyEnforceIf(far)
+                else:
+                    far = 0
                 earlier = md.NewBoolVar(f"eqearly_{n}")  # arrival before the departing breed
                 md.Add(sa + 1 <= sd).OnlyEnforceIf(earlier)
                 h = md.NewBoolVar(f"eqh_{n}")

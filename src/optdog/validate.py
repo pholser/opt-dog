@@ -206,7 +206,9 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
             for a, b in zip(seq, seq[1:])
             if a.start <= br.start < b.start
         ]
-        long_gaps = published or [g for g in gaps if g[1] >= p.lunch_min_minutes]
+        # a judge who needs no lunch takes none unless the program publishes one: their long gaps are idle (S5)
+        needs = work > p.lunch_required_after_minutes
+        long_gaps = published or ([g for g in gaps if g[1] >= p.lunch_min_minutes] if needs else [])
         in_window = [g for g in long_gaps if lunch_fits_window(g[0], g[1], p, published=bool(published))]
         lunch = max(in_window or long_gaps, key=lambda g: g[1], default=None)
         lunch_gaps[judge] = (lunch[0], lunch[1]) if lunch else None
@@ -242,23 +244,34 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
             )
 
     # ---------------------------------------------------------------- S3 equipment switches per ring
-    # consecutive breeds in a ring with different equipment; free across a break, i.e. when the
-    # ring is idle at least `equipment_free_gap_minutes` minutes between them (U)
+    # consecutive breeds in a ring with different equipment; free across a lunch (U): a lunch of
+    # the judge who leaves or the judge who arrives falls in the ring's idle time between the two
+    # breeds, which is at least `equipment_free_gap_minutes`
+    tol = p.overlap_tolerance_minutes
+
+    def across_lunch(judges, gap_start: float, gap_end: float) -> bool:
+        for j in judges:
+            lg = lunch_gaps.get(j)
+            if lg is not None and lg[0] >= gap_start - tol and lg[0] + min(lg[1], p.lunch_min_minutes) <= gap_end + tol:
+                return True
+        return False
+
     equipment_switches = 0
     for ring, seq in by_ring.items():
-        last_kind, idle, t = None, 0.0, None
+        last_kind, last_judge, last_end, ring_idle, t = None, None, 0.0, 0.0, None
         for sb in seq:
             for e, off in sb.block.offsets():
                 s = sb.start + off
                 if t is not None:
-                    idle += max(0.0, s - t)
+                    ring_idle += max(0.0, s - t)
                 t = max(t or s, s + e.duration)
                 k = e.equipment
                 if k is None:
                     continue
-                if last_kind is not None and k != last_kind and idle < p.equipment_free_gap_minutes:
-                    equipment_switches += 1
-                last_kind, idle = k, 0.0
+                if last_kind is not None and k != last_kind:
+                    free = ring_idle >= p.equipment_free_gap_minutes and across_lunch({last_judge, sb.judge}, last_end, s)
+                    equipment_switches += not free
+                last_kind, last_judge, last_end, ring_idle = k, sb.judge, s + e.duration, 0.0
 
     # ---------------------------------------------------------------- S4 group switches per judge
     extra_group_switches = 0

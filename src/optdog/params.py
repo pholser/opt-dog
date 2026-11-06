@@ -54,8 +54,9 @@ class ShowParameters:
     lunch_window: tuple[Minutes, Minutes] = (11 * 60, 12 * 60 + 30)
 
     # --- equipment (S3)
-    # A table/ramp switch across a break is free (U): the ring is idle at least this long between
-    # the two breeds (default: a lunch's length).
+    # A table/ramp switch across a lunch is free (U): a lunch of the judge who leaves or arrives
+    # falls in the ring's idle time between the two breeds, which is at least this long. A long
+    # idle gap without a lunch is not a break (U, 2026-11-05).
     equipment_free_gap_minutes: float = 45.0
 
     # --- margins (U)
