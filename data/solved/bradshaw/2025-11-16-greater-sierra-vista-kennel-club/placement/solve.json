@@ -1,0 +1,22 @@
+{
+ "finish": 1159.4,
+ "bound": 1159.4,
+ "costs": {
+  "ring_changes": 21.0,
+  "ring_changes_off_lunch": 25.0,
+  "short_block_dogs": 0.0,
+  "lunch_splits": 3.0,
+  "blocks": 53.0,
+  "equipment_switches": 104.0,
+  "judge_idle_units": 1896.0
+ },
+ "phases": [
+  {
+   "name": "finish",
+   "status": "OPTIMAL",
+   "objective": 1159.4,
+   "bound": 1159.4,
+   "seconds": 0.22412878300019656
+  }
+ ]
+}

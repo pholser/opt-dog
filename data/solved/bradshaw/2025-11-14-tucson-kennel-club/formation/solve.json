@@ -1,0 +1,36 @@
+{
+ "finish": 1129.4,
+ "bound": 1129.4,
+ "costs": {
+  "ring_changes": 0.0,
+  "ring_changes_off_lunch": 0.0,
+  "short_block_dogs": 32.0,
+  "lunch_splits": 3.0,
+  "blocks": 49.0,
+  "equipment_switches": 19.0,
+  "judge_idle_units": 1308.0
+ },
+ "phases": [
+  {
+   "name": "finish",
+   "status": "OPTIMAL",
+   "objective": 1129.4,
+   "bound": 1129.4,
+   "seconds": 1.2683981070003938
+  },
+  {
+   "name": "structure",
+   "status": "OPTIMAL",
+   "objective": 189.5,
+   "bound": 189.5,
+   "seconds": 5.105150372000935
+  },
+  {
+   "name": "times",
+   "status": "OPTIMAL",
+   "objective": 96493.2,
+   "bound": 96493.2,
+   "seconds": 27.816103741000916
+  }
+ ]
+}

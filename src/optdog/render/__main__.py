@@ -5,6 +5,7 @@
     python -m optdog.render <show dir> --greedy-only --text
     python -m optdog.render <show dir> --solve --compare          # published vs 3b, side by side
     python -m optdog.render <show dir> --solve formation --compare ring --out cmp.txt
+    python -m optdog.render <show dir> --saved --compare          # the same, from data/solved
 
 With --html, writes the chart; with --compare, prints the first and last program side by
 side (aligned by judge, or by ring); otherwise (or with --text too) prints the text program.
@@ -36,6 +37,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--cp", action="store_true", help="also render the CP-SAT placement (same as --solve placement)")
     ap.add_argument("--solve", nargs="?", const="ordering", choices=["placement", "formation", "ordering"],
                     help="also render a CP-SAT schedule: step 1 placement, 3a formation, or 3b ordering (default)")
+    ap.add_argument("--saved", nargs="?", const="ordering", choices=["placement", "formation", "ordering"],
+                    help="also render a saved schedule from data/solved instead of solving")
     ap.add_argument("--compare", nargs="?", const="judge", choices=["judge", "ring"],
                     help="print the first and last program side by side, aligned by judge (default) or ring")
     ap.add_argument("--width", type=int, default=76, help="column width for --compare")
@@ -56,6 +59,12 @@ def main(argv: list[str] | None = None) -> int:
         programs.append(("Published program", human))
     if a.greedy or a.greedy_only:
         programs.append(("Greedy baseline", greedy_program(instance_from_program(human), params)))
+    if a.saved:
+        from optdog.solutions import load_result, solved_dir
+
+        res = load_result(solved_dir(a.show_dir) / a.saved, instance_from_program(human))
+        status = "optimal" if res.optimal else res.phases[0].status.lower()
+        programs.append((f"CP-SAT {a.saved} ({status})", res.program))
     step = "placement" if a.cp and not a.solve else a.solve
     if step:
         from optdog.solve.cpsat import PlacementOptions, solve_formation, solve_ordering, solve_placement

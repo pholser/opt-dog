@@ -1,5 +1,6 @@
 """Compare human programs, the greedy baseline and the finish lower bound on every parsed show.
 
+    python -m optdog.analysis.solve_all       # first, once: solves and saves every day
     python -m optdog.analysis.baseline        # writes docs/baseline.md
 
 Exhibitor conflicts (S1) use the synthetic entries in data/synthetic (seed 0).
@@ -10,17 +11,12 @@ from __future__ import annotations
 from pathlib import Path
 
 from optdog.domain import fmt_time
-from optdog.instance import instance_from_program
-from optdog.io.program_csv import read_entries, read_program
 from optdog.params import ShowParameters
-from optdog.solve.cpsat import PlacementOptions, solve_formation, solve_ordering, solve_placement
+from optdog.solutions import load_day, parsed_days
 from optdog.solve.greedy import greedy_program
-from optdog.solve.relaxation import relaxed_lower_bound
 from optdog.validate import validate
 
 ROOT = Path(__file__).resolve().parents[3]
-PARSED = ROOT / "data" / "parsed"
-SYNTH = ROOT / "data" / "synthetic"
 OUT = ROOT / "docs" / "baseline.md"
 
 
@@ -29,24 +25,14 @@ def _t(x: float) -> str:
 
 
 def rows(params: ShowParameters):
-    for d in sorted(PARSED.glob("*/*")):
-        if not (d / "schedule.csv").exists():
-            continue
-        human = read_program(d)
-        synth = SYNTH / d.parent.name / d.name / "seed-0"
-        if synth.exists():
-            human.show.entries = read_entries(synth, human)
-        show = instance_from_program(human)
-        bound = relaxed_lower_bound(show, params, time_limit=60)
+    for day in parsed_days():
+        d = load_day(day)
+        human, show, bound = d.human, d.show, d.bound
         greedy = greedy_program(show, params)
-        cp = solve_placement(show, params, options=PlacementOptions(time_limit=30, tidy=False))
-        fm = solve_formation(show, params, options=PlacementOptions(time_limit=60))
-        ob = solve_ordering(show, params, options=PlacementOptions(time_limit=60))
+        cp, fm, ob = d.results["placement"], d.results["formation"], d.results["ordering"]
         rh, rg = validate(human, params), validate(greedy, params)
-        rc = validate(cp.program, params) if cp.program else None
-        rf = validate(fm.program, params) if fm.program else None
-        ro = validate(ob.program, params) if ob.program else None
-        yield d.name, bound, human, rh, greedy, rg, cp, rc, fm, rf, ob, ro
+        yield (d.name, bound, human, rh, greedy, rg, cp, validate(cp.program, params), fm,
+               validate(fm.program, params), ob, validate(ob.program, params))
 
 
 def render(params: ShowParameters | None = None) -> str:
