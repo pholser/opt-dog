@@ -26,13 +26,13 @@ from optdog.validate import ValidationResult, lunch_ends, validate
 
 ROOT = Path(__file__).resolve().parents[3]
 OUT = ROOT / "docs" / "figures.html"
-STEP = "ordering"
+STEP = "packing"
 GRID = 5  # a rule binds when it leaves less than one time slot of slack
 RULES = ("H7, H8", "H9", "H13", "H14")
 RULE_NAMES = {
     "H7, H8": "First group ready", "H9": "Group rings clear", "H13": "Two groups' breeds done", "H14": "Every lunch over",
 }
-PROGRAMS = {"published": ("Published", "--s-published"), "greedy": ("Greedy", "--s-greedy"), "solver": ("3b", "--s-solver")}
+PROGRAMS = {"published": ("Published", "--s-published"), "greedy": ("Greedy", "--s-greedy"), "solver": ("3c", "--s-solver")}
 
 
 def _e(x: object) -> str:
@@ -69,6 +69,7 @@ class Day:
     published: Scored
     greedy: Scored
     formation: Scored
+    ordering: Scored
     solver: Scored
 
 
@@ -123,7 +124,8 @@ def collect(p: ShowParameters) -> list[Day]:
         days.append(Day(
             label, short, d.bound.value, d.bound.optimal, d.results[STEP].optimal,
             score(d.human, pinned, p), score(greedy_program(d.show, p), pinned, p),
-            score(d.results["formation"].program, pinned, p), score(d.results[STEP].program, pinned, p),
+            score(d.results["formation"].program, pinned, p), score(d.results["ordering"].program, pinned, p),
+            score(d.results[STEP].program, pinned, p),
         ))
     return days
 
@@ -285,7 +287,7 @@ def render(params: ShowParameters | None = None) -> str:
         (f"{earlier:.0f} min", "earlier finish than published, on average"),
         (f"{gap_sol:.0f} min", f"above the lower bound, on average (published {gap_pub:.0f})"),
         (f"{clean_sol} of {n}", f"days with no hard-rule violations (published {clean_pub})"),
-        (f"{proven} of {n}", "days proven optimal for 3b's rules"),
+        (f"{proven} of {n}", "days proven optimal for 3c's rules"),
     ]
 
     # 1. finish against the bound
@@ -293,9 +295,9 @@ def render(params: ShowParameters | None = None) -> str:
                        "solver": d.solver.finish - d.bound}) for d in days]
     top = max(max(v.values()) for _, v in rows)
     fig1 = dot_chart(rows, PROGRAMS, lambda v: f"{max(v, 0):.0f}", _ticks(0, top), "Minutes above the lower bound on show finish")
-    t1 = table(["Day", "Lower bound", "Published", "Greedy", "3a", "3b", "3b above bound"],
+    t1 = table(["Day", "Lower bound", "Published", "Greedy", "3a", "3b", "3c", "3c above bound"],
                [[d.label, _clock(d.bound), _clock(d.published.finish), _clock(d.greedy.finish), _clock(d.formation.finish),
-                 _clock(d.solver.finish), f"{max(d.solver.finish - d.bound, 0):.0f}"] for d in days])
+                 _clock(d.ordering.finish), _clock(d.solver.finish), f"{max(d.solver.finish - d.bound, 0):.0f}"] for d in days])
 
     # 2. group start
     rows = [(d.label, {"published": float(d.published.group_start), "solver": float(d.solver.group_start)}) for d in days]
@@ -303,7 +305,7 @@ def render(params: ShowParameters | None = None) -> str:
     hi = max(max(v.values()) for _, v in rows)
     two = {k: PROGRAMS[k] for k in ("published", "solver")}
     fig2 = dot_chart(rows, two, _clock, [t * 60 for t in range(int(lo // 60), int(-(-hi // 60)) + 1)], "First group's start time")
-    t2 = table(["Day", "Published", "3b", "Earlier by (min)"],
+    t2 = table(["Day", "Published", "3c", "Earlier by (min)"],
                [[d.label, _clock(d.published.group_start), _clock(d.solver.group_start),
                  d.published.group_start - d.solver.group_start] for d in days])
 
@@ -316,7 +318,7 @@ def render(params: ShowParameters | None = None) -> str:
         hi = max(max(v.values()) for _, v in rows)
         svg = dot_chart(rows, two, lambda v: f"{v:g}", _ticks(0, hi), name, width=380, label_w=116, row_h=24)
         panels.append(f"<div><h3>{_e(name)}</h3>{svg}</div>")
-    t3 = table(["Day"] + [f"{m[0]}: {who}" for m in metrics for who in ("published", "3b")],
+    t3 = table(["Day"] + [f"{m[0]}: {who}" for m in metrics for who in ("published", "3c")],
                [[d.label] + [f"{getattr(s, m[1]):g}" for m in metrics for s in (d.published, d.solver)] for d in days])
     totals = {attr: (sum(getattr(d.published, attr) for d in days), sum(getattr(d.solver, attr) for d in days)) for _, attr in metrics}
     worse = {attr: sum(getattr(d.solver, attr) > getattr(d.published, attr) for d in days) for _, attr in metrics}
@@ -328,10 +330,10 @@ def render(params: ShowParameters | None = None) -> str:
     ymax = max(_bins(sp) + _bins(ss))
     ymax = int(-(-ymax // 10) * 10)
     fig4 = (f'<h3 class="sub">Published: {len(sp)} blocks</h3>' + histogram(sp, ymax, "--s-published", "Published", p.short_block_dogs)
-            + f'<h3 class="sub">3b: {len(ss)} blocks</h3>' + histogram(ss, ymax, "--s-solver", "3b", p.short_block_dogs))
+            + f'<h3 class="sub">3c: {len(ss)} blocks</h3>' + histogram(ss, ymax, "--s-solver", "3c", p.short_block_dogs))
     median = lambda xs: sorted(xs)[len(xs) // 2]
     short_pub, short_sol = sum(x < p.short_block_dogs for x in sp), sum(x < p.short_block_dogs for x in ss)
-    t4 = table(["Dogs per block", "Published", "3b"],
+    t4 = table(["Dogs per block", "Published", "3c"],
                [[f"{i * 5}–{i * 5 + 4}" if i < len(_bins(sp)) - 1 else f"{i * 5}+", a, b]
                 for i, (a, b) in enumerate(zip(_bins(sp), _bins(ss)))])
 
@@ -351,7 +353,7 @@ def render(params: ShowParameters | None = None) -> str:
             else:
                 cells.append(f"<td>{v:.0f}</td>")
         body.append(f"<tr><td>{_e(d.label)}</td><td>{_clock(d.solver.group_start)}</td>{''.join(cells)}</tr>")
-    fig5 = (f'<div class="scroll"><table><thead><tr><th>Day</th><th>3b group start</th>{head}</tr></thead>'
+    fig5 = (f'<div class="scroll"><table><thead><tr><th>Day</th><th>3c group start</th>{head}</tr></thead>'
             f'<tbody>{"".join(body)}</tbody></table></div>')
     tally = "; ".join(f"{RULE_NAMES[r]} ({r}) on {counts[r]}" for r in sorted(RULES, key=lambda r: -counts[r]) if counts[r])
     free = sum(all(d.solver.slack.get(r, GRID) >= GRID for r in RULES) for d in days)
@@ -361,31 +363,31 @@ def render(params: ShowParameters | None = None) -> str:
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Schedule Metrics</title><style>{CSS}</style></head><body><main>
 <h1>Schedule metrics: published programs against the optimizer</h1>
-<p class="lede">{n} real show days. Published is each club's program, 3b is the optimizer's schedule for the same entries, judges and rings, and Greedy is a simple rule-based baseline.</p>
+<p class="lede">{n} real show days. Published is each club's program, 3c is the optimizer's schedule for the same entries, judges and rings, and Greedy is a simple rule-based baseline.</p>
 <div class="tiles">{''.join(f'<div class="tile"><b>{_e(a)}</b><span>{_e(b)}</span></div>' for a, b in tiles)}</div>
 
 <section><h2>Show finish against the lower bound</h2>
-<p>Minutes above the lower bound on show finish. No valid schedule can finish below 0. On average: published {gap_pub:.0f}, greedy {gap_gre:.0f}, 3b {gap_sol:.0f}.</p>
+<p>Minutes above the lower bound on show finish. No valid schedule can finish below 0. On average: published {gap_pub:.0f}, greedy {gap_gre:.0f}, 3c {gap_sol:.0f}.</p>
 {legend(['published', 'greedy', 'solver'])}<div class="wide">{fig1}</div>{t1}</section>
 
 <section><h2>First group's start</h2>
-<p>When the first group starts, published against 3b: {start_gain:.0f} minutes earlier in 3b on average.</p>
+<p>When the first group starts, published against 3c: {start_gain:.0f} minutes earlier in 3c on average.</p>
 {legend(['published', 'solver'])}<div class="wide">{fig2}</div>{t2}</section>
 
 <section><h2>Schedule quality</h2>
-<p>Lower is better on all four. Totals over the {n} days, published → 3b: {totals['switches'][0]:g} → {totals['switches'][1]:g} equipment switches,
+<p>Lower is better on all four. Totals over the {n} days, published → 3c: {totals['switches'][0]:g} → {totals['switches'][1]:g} equipment switches,
 {totals['short'][0]:g} → {totals['short'][1]:g} short blocks, {totals['ring_changes'][0]:g} → {totals['ring_changes'][1]:g} judge ring changes,
 {totals['idle'][0]:.0f} → {totals['idle'][1]:.0f} judge idle minutes.
-Days on which 3b is worse than published: {worse['switches']} for switches, {worse['short']} for short blocks, {worse['ring_changes']} for ring changes, {worse['idle']} for idle.</p>
+Days on which 3c is worse than published: {worse['switches']} for switches, {worse['short']} for short blocks, {worse['ring_changes']} for ring changes, {worse['idle']} for idle.</p>
 {legend(['published', 'solver'])}<div class="panels">{''.join(panels)}</div>{t3}</section>
 
 <section><h2>Block sizes</h2>
-<p>Dogs per block, all {n} days pooled, same scale on both, pinned blocks left out. Median {median(sp)} dogs published, {median(ss)} in 3b.
-Short blocks: {short_pub} of {len(sp)} published ({100 * short_pub / len(sp):.0f}%), {short_sol} of {len(ss)} in 3b ({100 * short_sol / len(ss):.0f}%).</p>
+<p>Dogs per block, all {n} days pooled, same scale on both, pinned blocks left out. Median {median(sp)} dogs published, {median(ss)} in 3c.
+Short blocks: {short_pub} of {len(sp)} published ({100 * short_pub / len(sp):.0f}%), {short_sol} of {len(ss)} in 3c ({100 * short_sol / len(ss):.0f}%).</p>
 <div class="wide">{fig4}</div>{t4}</section>
 
-<section><h2>What holds up the first group in 3b</h2>
-<p>Minutes of slack each rule leaves before 3b's group start. A rule binds when it leaves under {GRID} minutes, one time slot.
+<section><h2>What holds up the first group in 3c</h2>
+<p>Minutes of slack each rule leaves before 3c's group start. A rule binds when it leaves under {GRID} minutes, one time slot.
 Days binding: {_e(tally)}. {unbound}This describes these schedules: it doesn't show how much relaxing a rule would gain.</p>
 {fig5}</section>
 
@@ -395,7 +397,8 @@ Days binding: {_e(tally)}. {unbound}This describes these schedules: it doesn't s
 <li>Scores cover conformation only on both sides. Obedience and rally run in their own rings, outside the optimizer.</li>
 <li>Hard-rule counts leave out V1, a judge over the daily entry limit, which is an input problem no schedule can fix.</li>
 <li>Exhibitor conflicts are left out because they rest on synthetic entries.</li>
-<li>"Proven optimal" means no better finish exists under 3b's own rules: the block cap, the time grid, and each judge keeping their groups together.</li>
+<li>The optimizer gives up to {p.short_block_finish_minutes:g} minutes of finish to avoid a short block. 3a and 3b are the earlier steps: 3b chooses each judge's group order, and 3c also packs the breeds inside each run into full blocks.</li>
+<li>"Proven optimal" means nothing better exists, counting {p.short_block_finish_minutes:g} minutes per short block, under 3c's own rules: the block cap, the time grid, each judge keeping their groups together, and the packed breed order. A schedule with a freer order could still beat it.</li>
 </ul></section>
 </main><div id="tip"></div><script>{JS}</script></body></html>
 """

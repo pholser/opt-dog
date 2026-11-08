@@ -266,6 +266,23 @@ all-breed show days, 653–2,137 breed entries each. Timings assume 25 dogs/hr.
   judging and lunch: 2072 → 1188. Equipment switches 222 → 220, short blocks 82 → 82, finishes
   unchanged. Putting idle in phase 2 instead at its 0.5/min weight gave 1078 idle minutes, but
   raised short blocks to 96 and switches to 244, and phase 2 no longer proved optimal on any day.
+- **Short blocks traded for finish (S9).** A phase after the fastest finish minimizes
+  finish + `short_block_finish_minutes` (default 10, U) × short blocks; later phases hold both.
+  On 3b: short blocks 64 → 52 over the 11 days for 6 min of finish in total. Raising the price
+  did not help: on Palm Springs 1/3 even an unlimited price left 10 avoidable short blocks
+  (published: 6), because a small breed sits beside one too long to share a block and 3b cannot
+  move breeds inside a run.
+- **CP-SAT step 3c** (`solve_packing`): as 3b, with the breeds inside each (group, equipment)
+  run ordered first, by a small bin-packing solve per run (`solve/packing.py`): fewest short
+  bins under the block cap, then fewest bins. A breed stays with its sweepstakes (H15) and the
+  varieties of one breed stay together (§8: 82% in published programs). Giving each breed its
+  own node in the circuit would cost 2,000–4,800 arcs per day, each with a constraint per ring,
+  so the order is fixed before the model runs, and 3c is optimal only for that order.
+  Results: short blocks 64 published → 52 (3b) → 23 (3c), 11 of them the whole assignment of a
+  judge with under 15 dogs; fewer than published on every day; at least as good as 3b at the
+  price on all 11 days, all valid. Finish +22 min in total against 3b, mostly Palm Springs 1/3
+  (+35 min for 7 fewer short blocks). Equipment switches 224 → 218, judge idle 993 → 923.
+  Also fixed: S9 was not counted for a judge whose cuts are all forced.
 - **Relaxation bound** (`solve/relaxation.py`): CP-SAT on a relaxation that keeps judges
   (one event at a time, lunch in the window with judging on both sides), rings as a pool of
   |R| (|R| − |RG| from the first group on, H9), pinned blocks, and H7, H8, H10, H13, H14 exactly;

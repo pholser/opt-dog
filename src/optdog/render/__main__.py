@@ -3,7 +3,7 @@
     python -m optdog.render data/parsed/bradshaw/2026-09-12-sir-francis-drake-kennel-club
     python -m optdog.render <show dir> --greedy --html schedule.html
     python -m optdog.render <show dir> --greedy-only --text
-    python -m optdog.render <show dir> --solve --compare          # published vs 3b, side by side
+    python -m optdog.render <show dir> --solve --compare          # published vs 3c, side by side
     python -m optdog.render <show dir> --solve formation --compare ring --out cmp.txt
     python -m optdog.render <show dir> --saved --compare          # the same, from data/solved
 
@@ -35,9 +35,9 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--greedy", action="store_true", help="also render the greedy schedule for the same show")
     ap.add_argument("--greedy-only", action="store_true", help="render only the greedy schedule")
     ap.add_argument("--cp", action="store_true", help="also render the CP-SAT placement (same as --solve placement)")
-    ap.add_argument("--solve", nargs="?", const="ordering", choices=["placement", "formation", "ordering"],
+    ap.add_argument("--solve", nargs="?", const="packing", choices=["placement", "formation", "ordering", "packing"],
                     help="also render a CP-SAT schedule: step 1 placement, 3a formation, or 3b ordering (default)")
-    ap.add_argument("--saved", nargs="?", const="ordering", choices=["placement", "formation", "ordering"],
+    ap.add_argument("--saved", nargs="?", const="packing", choices=["placement", "formation", "ordering", "packing"],
                     help="also render a saved schedule from data/solved instead of solving")
     ap.add_argument("--compare", nargs="?", const="judge", choices=["judge", "ring"],
                     help="print the first and last program side by side, aligned by judge (default) or ring")
@@ -67,11 +67,12 @@ def main(argv: list[str] | None = None) -> int:
         programs.append((f"CP-SAT {a.saved} ({status})", res.program))
     step = "placement" if a.cp and not a.solve else a.solve
     if step:
-        from optdog.solve.cpsat import PlacementOptions, solve_formation, solve_ordering, solve_placement
+        from optdog.solve.cpsat import PlacementOptions, solve_formation, solve_ordering, solve_packing, solve_placement
 
         solve, name = {"placement": (solve_placement, "CP-SAT placement"),
                        "formation": (solve_formation, "CP-SAT 3a"),
-                       "ordering": (solve_ordering, "CP-SAT 3b")}[step]
+                       "ordering": (solve_ordering, "CP-SAT 3b"),
+                       "packing": (solve_packing, "CP-SAT 3c")}[step]
         print(f"solving ({name}, up to {a.time_limit:.0f} s per phase)...", file=sys.stderr)
         res = solve(instance_from_program(human), params, options=PlacementOptions(time_limit=a.time_limit))
         if res.program is None:

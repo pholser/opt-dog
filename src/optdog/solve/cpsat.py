@@ -45,7 +45,8 @@ parameter is 0); (3) at that finish and count, minimize the soft costs the struc
 (S2 ring changes, S3 equipment switches, S9 short blocks, S10 lunch splitting a group, block
 count); (4) at those, minimize judge idle (S5), then start blocks as early as possible. Each
 phase starts from the previous one's solution; phase 1 starts from the greedy schedule
-(step 1) or the step-1 schedule.
+(step 1) or the step-1 schedule. Step 3c runs the same model with the breeds inside each run
+packed into full blocks first (packing.py).
 """
 
 from __future__ import annotations
@@ -73,6 +74,7 @@ from optdog.domain import (
 )
 from optdog.params import ShowParameters
 from optdog.solve.greedy import greedy_program
+from optdog.solve.packing import pack_run
 
 SCALE = 10  # model time unit = 1/10 minute
 WSCALE = 10  # soft-cost weights → integer coefficients
@@ -219,6 +221,17 @@ def ordering_segments(chains: dict[Judge, Chain], cap_minutes: float) -> dict[Ju
     return out
 
 
+def packed_blocks(chains: dict[Judge, Chain], cap_minutes: float, short_dogs: int) -> dict[Judge, list[Block]]:
+    """Step 3c: each judge's runs, as in 3b, with their breeds packed into full blocks."""
+    out = {}
+    for j, chain in chains.items():
+        parts: dict[tuple, list[JudgingEvent]] = {}
+        for e in chain:
+            parts.setdefault((segment_class(e), _exam(e)), []).append(e)
+        out[j] = [Block(j, tuple(b)) for run in parts.values() for b in pack_run(run, cap_minutes, short_dogs)]
+    return out
+
+
 # --------------------------------------------------------------------------- solving
 
 
@@ -322,6 +335,19 @@ def _solve(m: "_Model", o: PlacementOptions, hint_prog: JudgingProgram | None) -
     return res
 
 
+def solve_packing(show: Show, params: ShowParameters | None = None,
+                  options: PlacementOptions | None = None) -> PlacementResult:
+    """Step 3c: as 3b, with the breeds inside each run ordered to pack into full blocks."""
+    p = (params or ShowParameters()).for_show(show)
+    o = options or PlacementOptions()
+    chains, _ = _greedy_start(show, p, o)
+    blocks = packed_blocks(chains, o.max_block_minutes, p.short_block_dogs)
+    hint = solve_placement(show, p, blocks, replace(o, tidy=False)).program
+    packed = {j: [e for b in bl for e in b.events] for j, bl in blocks.items()}
+    m = _Model(show, p, ordering_segments(packed, o.max_block_minutes), cap=o.max_block_minutes)
+    return _solve(m, o, hint)
+
+
 # --------------------------------------------------------------------------- model
 
 
@@ -380,7 +406,8 @@ class _Model:
         free_of: dict[Judge, bool] = {}
 
         for j, segs in chains.items():
-            free = free_of[j] = any(c is None for s in segs for c in s.cuts)
+            # blocks formed by the model (3a-3c), even if every cut of this judge is forced
+            free = free_of[j] = cap is not None or any(c is None for s in segs for c in s.cuts)
             total_dogs = sum(e.entries for s in segs for e in s.events)
             for seg in segs:
                 run: list[int] = []

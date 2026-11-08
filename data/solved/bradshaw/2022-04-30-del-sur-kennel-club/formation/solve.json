@@ -17,28 +17,28 @@
    "status": "OPTIMAL",
    "objective": 1069.4,
    "bound": 1069.4,
-   "seconds": 0.5279729350004345
+   "seconds": 0.5297593920004147
   },
   {
    "name": "trade",
    "status": "OPTIMAL",
    "objective": 1089.4,
    "bound": 1089.4,
-   "seconds": 0.550007852998533
+   "seconds": 0.5603583410011197
   },
   {
    "name": "structure",
    "status": "OPTIMAL",
    "objective": 101.5,
    "bound": 101.5,
-   "seconds": 1.465272311001172
+   "seconds": 1.424780670000473
   },
   {
    "name": "times",
    "status": "OPTIMAL",
    "objective": 76230.0,
    "bound": 76230.0,
-   "seconds": 1.3279831289983122
+   "seconds": 0.9849243530006788
   }
  ]
 }

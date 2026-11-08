@@ -1,0 +1,44 @@
+{
+ "finish": 1259.4,
+ "bound": 1259.4,
+ "costs": {
+  "ring_changes": 0.0,
+  "ring_changes_off_lunch": 0.0,
+  "short_block_dogs": 16.0,
+  "short_blocks": 3.0,
+  "lunch_splits": 7.0,
+  "blocks": 72.0,
+  "equipment_switches": 18.0,
+  "judge_idle_units": 1992.0
+ },
+ "phases": [
+  {
+   "name": "finish",
+   "status": "OPTIMAL",
+   "objective": 1259.4,
+   "bound": 1259.4,
+   "seconds": 30.079906688999472
+  },
+  {
+   "name": "trade",
+   "status": "FEASIBLE",
+   "objective": 1289.4,
+   "bound": 1279.4,
+   "seconds": 60.10131808699953
+  },
+  {
+   "name": "structure",
+   "status": "FEASIBLE",
+   "objective": 172.0,
+   "bound": 91.0,
+   "seconds": 60.14068301700172
+  },
+  {
+   "name": "times",
+   "status": "FEASIBLE",
+   "objective": 124858.6,
+   "bound": 103908.2,
+   "seconds": 60.111107799999445
+  }
+ ]
+}

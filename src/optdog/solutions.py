@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parents[2]
 PARSED = ROOT / "data" / "parsed"
 SYNTH = ROOT / "data" / "synthetic"
 SOLVED = ROOT / "data" / "solved"
-STEPS = ("placement", "formation", "ordering")
+STEPS = ("placement", "formation", "ordering", "packing")
 
 
 def _event_key(e: JudgingEvent) -> tuple[str, str, str]:

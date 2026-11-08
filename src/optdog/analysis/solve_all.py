@@ -2,6 +2,7 @@
 
     python -m optdog.analysis.solve_all                  # all days, all steps
     python -m optdog.analysis.solve_all --only 2026-01   # days whose name contains this
+    python -m optdog.analysis.solve_all --step packing   # this step only, keeping the rest
 
 Writes data/solved (see solutions.py). Every saved schedule is checked for hard-constraint
 violations first; V1 (a judge over the entry limit) is an input problem and is allowed.
@@ -14,8 +15,8 @@ import sys
 import time
 
 from optdog.params import ShowParameters
-from optdog.solutions import parsed_days, read_day, save_bound, save_result, solved_dir
-from optdog.solve.cpsat import PlacementOptions, solve_formation, solve_ordering, solve_placement
+from optdog.solutions import STEPS, parsed_days, read_day, save_bound, save_result, solved_dir
+from optdog.solve.cpsat import PlacementOptions, solve_formation, solve_ordering, solve_packing, solve_placement
 from optdog.solve.relaxation import relaxed_lower_bound
 from optdog.validate import validate
 
@@ -23,6 +24,7 @@ from optdog.validate import validate
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="python -m optdog.analysis.solve_all", description=__doc__.split("\n")[0])
     ap.add_argument("--only", help="only days whose directory name contains this")
+    ap.add_argument("--step", choices=STEPS, help="solve only this step and keep the saved bound and other steps")
     ap.add_argument("--time-limit", type=float, default=60.0, help="CP-SAT seconds per phase")
     a = ap.parse_args(argv)
     params = ShowParameters()
@@ -33,14 +35,19 @@ def main(argv: list[str] | None = None) -> int:
         _, show = read_day(day)
         out = solved_dir(day)
         t = time.perf_counter()
-        bound = relaxed_lower_bound(show, params, time_limit=a.time_limit)
-        save_bound(bound, out)
-        line = [f"{day.name}: bound {bound.value:.1f} ({bound.status.lower()})"]
+        line = [day.name + ":"]
+        if not a.step:
+            bound = relaxed_lower_bound(show, params, time_limit=a.time_limit)
+            save_bound(bound, out)
+            line.append(f"bound {bound.value:.1f} ({bound.status.lower()})")
         for step, solve, options in (
             ("placement", solve_placement, PlacementOptions(time_limit=30, tidy=False)),
             ("formation", solve_formation, PlacementOptions(time_limit=a.time_limit)),
             ("ordering", solve_ordering, PlacementOptions(time_limit=a.time_limit)),
+            ("packing", solve_packing, PlacementOptions(time_limit=a.time_limit)),
         ):
+            if a.step and step != a.step:
+                continue
             res = solve(show, params, options=options)
             if res.program is None:
                 line.append(f"{step} found no schedule")

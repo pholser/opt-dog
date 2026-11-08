@@ -18,7 +18,7 @@ def test_figures_page_covers_every_day_and_states_the_data():
     assert len(days) == len(parsed_days())
     assert all(d.label in page for d in days)
     short = sum(x < p.short_block_dogs for d in days for x in d.solver.sizes)
-    assert "Short blocks: " in page and f"{short} of {sum(len(d.solver.sizes) for d in days)} in 3b" in page
+    assert "Short blocks: " in page and f"{short} of {sum(len(d.solver.sizes) for d in days)} in 3c" in page
     assert all(page.count(f'var(--s-{k})') >= len(days) for k in ("published", "greedy", "solver"))
 
 

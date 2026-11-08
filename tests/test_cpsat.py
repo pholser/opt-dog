@@ -15,7 +15,7 @@ from optdog.io.program_csv import read_program
 from optdog.params import ShowParameters
 from optdog.solve.bounds import finish_lower_bound
 from optdog.solve.relaxation import relaxed_lower_bound
-from optdog.solve.cpsat import PlacementOptions, solve_formation, solve_ordering, solve_placement
+from optdog.solve.cpsat import PlacementOptions, solve_formation, solve_ordering, solve_packing, solve_placement
 from optdog.solve.greedy import greedy_program
 from optdog.validate import validate
 
@@ -192,3 +192,13 @@ def test_short_blocks_are_traded_for_finish_up_to_the_parameter():
 def test_price_of_short_blocks_is_skipped_when_blocks_are_fixed():
     res = solve_placement(show_of([ev("Boxer", A, 20), ev("Pug", B, 20)], (A, B)), P0)
     assert "trade" not in [ph.name for ph in res.phases]
+
+
+def test_packing_lets_two_small_breeds_share_a_block():
+    # the running order puts a breed too long to share a block between the two small ones
+    events = [ev("Akita", A, 8), ev("Boxer", A, 40), ev("Mastiff", A, 8)]
+    show = show_of(events, (A,))
+    assert solve_ordering(show, P0).costs["short_blocks"] == 2
+    res = solve_packing(show, P0)
+    assert res.costs["short_blocks"] == 0
+    assert validate(res.program, P0).violations == []
