@@ -14,7 +14,7 @@ kept
 
 dropped
     - blocks (H1, H5): events need not be contiguous or about an hour
-    - the time grid for blocks and lunches, travel margins (H4), ring identity
+    - the time grid for blocks and lunches, travel margins (H4), ring identity and size (H16)
     - running order, equipment and every soft cost
 
 Durations are rounded *down* to tenths of a minute, so the bound is never above the

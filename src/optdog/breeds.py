@@ -7,7 +7,7 @@ import re
 from functools import lru_cache
 from pathlib import Path
 
-from optdog.domain import Breed, Examination, Group
+from optdog.domain import Breed, Examination, Group, RingSize
 
 CATALOG_PATH = Path(__file__).resolve().parents[2] / "data" / "reference" / "akc_breeds.csv"
 
@@ -62,6 +62,7 @@ class BreedCatalog:
                     group=_GROUPS[row["group"]] if row["group"] else None,
                     examination=Examination(row["examination"]),
                     variety_of=row["variety_of"] or None,
+                    ring_override=RingSize[row["min_ring"]] if row.get("min_ring") else None,
                 )
                 breeds.append(b)
                 for a in filter(None, (row["aliases"] or "").split("|")):

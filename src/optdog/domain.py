@@ -19,7 +19,7 @@ from __future__ import annotations
 
 from collections import defaultdict
 from dataclasses import dataclass, field
-from enum import Enum
+from enum import Enum, IntEnum
 from typing import Iterable, Iterator
 
 Minutes = int  # minutes after midnight
@@ -81,6 +81,28 @@ class Examination(Enum):
         return self is Examination.RAMP
 
 
+class RingSize(IntEnum):
+    """Breed ring size classes, from the Show Manual's suggested ring sizes (§3, "Breed Rings",
+    width × unobstructed length in feet). A larger class can host anything a smaller one can."""
+
+    S = 1  # 24 × 32: all Toy breeds
+    M = 2  # 32 × 40: Terrier, Hound and Non-Sporting breeds
+    L = 3  # 40 × 48: Sporting, Working and Herding breeds; "larger breeds" of the others (32 × 50)
+    XL = 4  # 48 × 64: specialty shows; here, group rings ("enlarged or combined", §3 "Group Rings")
+
+
+def default_min_ring(group: "Group | None", examination: Examination) -> RingSize:
+    """The smallest ring a breed needs, by rule: Toy breeds S; otherwise breeds examined on a table
+    or ramp M and breeds examined on the ground L (U, 2026-11-08). The Show Manual sizes rings by
+    group and gives Terrier, Hound and Non-Sporting "larger breeds" more length without saying which
+    breeds; AKC's table/ramp list stands in for size."""
+    if group is Group.TOY:
+        return RingSize.S
+    if examination in (Examination.TABLE, Examination.RAMP, Examination.TABLE_OR_RAMP):
+        return RingSize.M
+    return RingSize.L
+
+
 @dataclass(frozen=True)
 class Breed:
     """An AKC breed or variety (the unit that is judged for Best of Breed/Variety).
@@ -94,6 +116,11 @@ class Breed:
     group: Group | None
     examination: Examination = Examination.GROUND
     variety_of: str | None = None
+    ring_override: RingSize | None = None  # the catalog's min_ring column, where it departs from the rule
+
+    @property
+    def min_ring(self) -> RingSize:
+        return self.ring_override or default_min_ring(self.group, self.examination)
 
     def __str__(self) -> str:
         return self.name
@@ -201,6 +228,12 @@ class JudgingEvent:
         return self.judge.rate
 
     @property
+    def min_ring(self) -> RingSize:
+        """The smallest ring this event can be judged in (H16). Events without a breed (juniors,
+        puppy groups, obedience) need M."""
+        return self.breed.min_ring if self.breed is not None else RingSize.M
+
+    @property
     def duration(self) -> float:
         """Planned minutes to judge this event."""
         return self.entries * self.rate
@@ -306,6 +339,10 @@ class Block:
     def duration(self) -> float:
         return sum(e.duration for e in self.events)
 
+    @property
+    def min_ring(self) -> RingSize:
+        return max(e.min_ring for e in self.events)
+
     def offsets(self) -> Iterator[tuple[JudgingEvent, float]]:
         """Each event with its planned start offset (minutes) from the block start."""
         t = 0.0
@@ -317,6 +354,7 @@ class Block:
 @dataclass(frozen=True)
 class Ring:
     number: int
+    size: RingSize = field(default=RingSize.XL, compare=False)  # a show input; unknown means adequate for anything
 
     def __str__(self) -> str:
         return f"Ring {self.number}"

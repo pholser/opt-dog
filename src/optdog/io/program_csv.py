@@ -1,6 +1,7 @@
 """Read/write a JudgingProgram as a directory of CSV files.
 
-    show.csv       key,value metadata (name, date, start, group rings/start, BIS judge)
+    show.csv       key,value metadata (name, date, start, group rings/start, BIS judge,
+                   ring_sizes such as "3=M 4=S": rings not listed are XL)
     judges.csv     name, permit, minutes_per_dog
     schedule.csv   one row per event, in block order (ring, judge, block_start, position, ...)
     breaks.csv     judge breaks
@@ -27,6 +28,7 @@ from optdog.domain import (
     JudgingProgram,
     Judge,
     Ring,
+    RingSize,
     ScheduledBlock,
     Show,
 )
@@ -58,6 +60,7 @@ def write_program(program: JudgingProgram, out_dir: str | Path, source: str = ""
         "source": source,
         "start": _hhmm(show.start),
         "group_rings": " ".join(str(r.number) for r in show.group_rings),
+        "ring_sizes": " ".join(f"{r.number}={r.size.name}" for r in show.rings if r.size is not RingSize.XL),
         "group_start": _hhmm(plan.start if plan else None),
         "lunch_window": "-".join(_hhmm(t) for t in show.lunch_window) if show.lunch_window else "",
         "bis_judge": show.bis_judge.name if show.bis_judge else "",
@@ -126,9 +129,10 @@ def read_program(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Jud
             for r in csv.DictReader(f)
         }
     rings: dict[int, Ring] = {}
+    sizes = {int(n): RingSize[s] for n, s in (x.split("=") for x in (meta.get("ring_sizes") or "").split())}
 
     def ring(n: int) -> Ring:
-        return rings.setdefault(n, Ring(n))
+        return rings.setdefault(n, Ring(n, sizes.get(n, RingSize.XL)))
 
     events: list[JudgingEvent] = []
     blocks: dict[tuple[int, str, int], list[JudgingEvent]] = {}

@@ -57,6 +57,7 @@ def load_program(in_dir: Path, show: Show) -> JudgingProgram:
         events[_event_key(e)].append(e)
     pinned = {_pin_key(sb): sb for sb in show.pinned}
     judges = {j.name: j for j in show.judges}
+    rings = {r.number: r for r in show.rings}
     blocks = []
     for sb in saved.blocks:
         pin = pinned.get(_pin_key(sb))
@@ -64,7 +65,7 @@ def load_program(in_dir: Path, show: Show) -> JudgingProgram:
             blocks.append(pin)
             continue
         evs = tuple(events[_event_key(e)].pop(0) for e in sb.block.events)
-        blocks.append(ScheduledBlock(Block(evs[0].judge, evs), sb.ring, sb.start))
+        blocks.append(ScheduledBlock(Block(evs[0].judge, evs), rings.get(sb.ring.number, sb.ring), sb.start))
     breaks = [Break(judges[br.judge.name], br.ring, br.start, br.minutes) for br in saved.breaks]
     plan = saved.groups
     groups = GroupsPlan(show.group_rings, plan.start, plan.order, dict(show.group_judges), show.bis_judge)

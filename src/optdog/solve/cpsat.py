@@ -28,6 +28,7 @@ inside a segment, chosen by an arc a_{PQ} at a segment's first event):
     s_u ≥ e_u⁻ + m_J·[ring(u) ≠ ring(u⁻)]                      travel margin (H4)
     b_u = s_u if c_u else b_u⁻;  e_u − b_u ≤ cap               about an hour (H1; 3a, 3b)
     ring r:  NoOverlap(optional intervals of events in r, pinned blocks in r)            (H3)
+             an event is never in a ring smaller than its breed needs                    (H16)
     judge j: NoOverlap(events, pinned ± travel, lunch)                                   (H4)
     lunch:   L0 ≤ ℓ_j ≤ L1, length = lunch min; judging before and after it              (H6)
     group g: τ_g ≥ end of every event feeding g                                          (H7)
@@ -465,6 +466,13 @@ class _Model:
                             md.Add(self.s[u] + d - bs <= _u(cap))
                 if run:
                     self.runs.append((run, j))
+
+        # H16: no event in a ring smaller than its breed needs
+        need = {id(e): e.min_ring for segs in chains.values() for seg in segs for e in seg.events}
+        for u, xs in self.x.items():
+            for r, lit in xs.items():
+                if r.size < need[u]:
+                    md.Add(lit == 0)
 
         # links between segments: a segment's first event follows the segment its arc names
         for j, segs in chains.items():

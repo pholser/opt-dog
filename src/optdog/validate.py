@@ -347,6 +347,19 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
         res.metrics["exhibitors_in_conflict"] = len(cr.by_exhibitor())
         res.metrics["entries_unscheduled"] = len(cr.unscheduled)
 
+    # ---------------------------------------------------------------- H16 ring size; H17 group ring size
+    for sb in program.blocks:
+        if id(sb) in pinned or sb.ring.size >= sb.block.min_ring:
+            continue
+        big = max(sb.block.events, key=lambda e: e.min_ring)
+        res.violations.append(Violation("H16", _label(sb), f"{big.name} needs a {sb.block.min_ring.name} ring; "
+                                        f"{sb.ring} is {sb.ring.size.name}", sb.block.min_ring - sb.ring.size))
+    if program.groups is not None:
+        for r in program.groups.rings:
+            if r.size < p.group_ring_min:
+                res.violations.append(Violation("H17", str(r), f"group ring is {r.size.name}; needs {p.group_ring_min.name}",
+                                                p.group_ring_min - r.size))
+
     # ---------------------------------------------------------------- V1 daily limit
     show = program.show
     for judge in show.judges:

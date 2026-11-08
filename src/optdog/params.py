@@ -9,7 +9,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field, replace
 from typing import TYPE_CHECKING
 
-from optdog.domain import Minutes
+from optdog.domain import Minutes, RingSize
 
 if TYPE_CHECKING:
     from optdog.domain import Show
@@ -77,6 +77,8 @@ class ShowParameters:
 
     # --- show hours
     closing_time: Minutes | None = None  # posted closing time, if known
+    # H17: group rings are "enlarged or combined" breed rings, large enough for the largest group (Show Manual §3)
+    group_ring_min: RingSize = RingSize.XL
 
     weights: ObjectiveWeights = field(default_factory=ObjectiveWeights)
 

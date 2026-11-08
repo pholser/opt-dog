@@ -13,7 +13,8 @@ make schedules hard. Steps:
 3. **Blocks.** Pack the running order into consecutive blocks of at most
    ``max_block_minutes`` (about an hour, Rules Ch.7 §12). An event too big for a block
    is a block of its own.
-4. **Rings and times.** Each judge works in one ring all day, so there are no ring changes
+4. **Rings and times.** Each judge works in one ring all day, large enough for all of their
+   breeds (H16) if any ring is, so there are no ring changes
    (S2). Judges are placed most urgent first, where urgency is how soon their work is
    needed by the target group schedule. Each judge takes the ring where they would finish
    earliest. A group ring is used only by a judge who will be done before the target
@@ -263,7 +264,9 @@ def greedy_program(show: Show, params: ShowParameters | None = None, options: Gr
     blocks: list[ScheduledBlock] = list(show.pinned)
     breaks: list[Break] = []
     for _, _, _, judge, jblocks in plans:
-        options_ = [_place_judge(judge, jblocks, r, ring_cal[r], judge_cal[judge], show, p) for r in show.rings]
+        need = max(b.min_ring for b in jblocks)  # H16: one ring all day, so it must fit every block
+        fits = [r for r in show.rings if r.size >= need] or [r for r in show.rings if r.size == max(x.size for x in show.rings)]
+        options_ = [_place_judge(judge, jblocks, r, ring_cal[r], judge_cal[judge], show, p) for r in fits]
         best = min(options_, key=lambda pl: (pl.ring in group_rings and pl.end > groups_target, pl.end, pl.ring.number))
         for sb in best.blocks:
             ring_cal[best.ring].add(sb.start, sb.end)
