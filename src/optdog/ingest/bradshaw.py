@@ -654,7 +654,7 @@ _TITLE_GENDER = {"mr": "m", "mrs": "f", "ms": "f", "miss": "f"}
 
 def _resolve_judge(raw: str, judges: list[Judge], report: ParseReport) -> Judge | None:
     """Match an abbreviated name like 'Mr. Murphy' or 'Mr.Horn' to a full judge name."""
-    m = re.match(r"^(Mr|Mrs|Ms|Miss|Dr)\.?\s*(.+)$", raw.strip().rstrip("*").strip(), re.I)
+    m = re.match(r"^(Mrs|Mr|Ms|Miss|Dr)\.?\s*(.+)$", raw.strip().rstrip("*").strip(), re.I)
     title, surname = (m.group(1).lower(), m.group(2).strip()) if m else (None, raw.strip())
     surname_l = surname.lower()
 

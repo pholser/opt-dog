@@ -129,3 +129,17 @@ def test_csv_round_trip(parsed, tmp_path):
     assert p0.groups.start == p1.groups.start
     assert [r.number for r in p0.groups.rings] == [r.number for r in p1.groups.rings]
     assert {(b.judge.name, b.start, b.minutes) for b in p0.breaks} == {(b.judge.name, b.start, b.minutes) for b in p1.breaks}
+
+
+def test_group_judge_abbreviations_resolve_to_the_breed_judge():
+    from optdog.domain import Judge
+    from optdog.ingest.bradshaw import ParseReport, _resolve_judge
+
+    panel = [Judge("Mr. Larry C. Abbott"), Judge("Mrs. Vicki L. Abbott"), Judge("Mrs. Shalisa D. Neely"), Judge("Dr. Eric Liebes"),
+             Judge("Mrs. Joan Luna Liebes")]
+    report = ParseReport(source="x", day="d")
+    assert _resolve_judge("Mrs. Neely", panel, report).name == "Mrs. Shalisa D. Neely"
+    assert _resolve_judge("Mrs. Abbott", panel, report).name == "Mrs. Vicki L. Abbott"
+    assert _resolve_judge("Mr. Abbott", panel, report).name == "Mr. Larry C. Abbott"
+    assert _resolve_judge("Mrs. Liebes", panel, report).name == "Mrs. Joan Luna Liebes"
+    assert _resolve_judge("Mrs. Steeves", panel, report).name == "Mrs. Steeves"  # genuinely not on the breed panel

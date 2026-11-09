@@ -38,7 +38,4 @@ Source: `data/raw/bradshaw/843.pdf` (SUNDAY)
 ## Notes
 
 - Total Dogs in Show (unique dogs, informational): 1152; breed entries parsed: 1095
-- group/BIS judge not found among breed judges: 'Mrs. Liebes'
-- group/BIS judge not found among breed judges: 'Mrs. Abbott'
-- group/BIS judge not found among breed judges: 'Mrs. Melgreen'
 - manifest: source subtotals for Mr. Larry C. Abbott rings 6/12 are inconsistent (8 vs 4 Keeshond listed; ring 12 short by 4)

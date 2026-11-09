@@ -39,5 +39,4 @@ Source: `data/raw/bradshaw/603.pdf` (MONDAY)
 ## Notes
 
 - Total Dogs in Show (unique dogs, informational): 1805; breed entries parsed: 1742
-- group/BIS judge not found among breed judges: 'Mrs. Neely'
 - manifest: cover misprints Monday as "Sunday

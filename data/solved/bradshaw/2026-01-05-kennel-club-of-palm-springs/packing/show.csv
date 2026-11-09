@@ -4,6 +4,7 @@ date,2026-01-05
 source,optdog
 start,08:30
 group_rings,5 7
-group_start,13:30
+ring_sizes,
+group_start,14:50
 lunch_window,
 bis_judge,Mr. Harold Tatro

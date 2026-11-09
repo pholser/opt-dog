@@ -15,18 +15,35 @@ ring,judge,block_start,position,event,kind,competition,breed,group,entries,class
 1,Mr. Nathaniel Horn,10:55,5,Xoloitzcuintli,breed,all-breed,Xoloitzcuintli,Non-Sporting,3,0,2,1,0,0
 1,Mr. Nathaniel Horn,12:25,0,Dalmatian,breed,all-breed,Dalmatian,Non-Sporting,9,1,1,3,4,0
 1,Mr. Nathaniel Horn,12:25,1,Poodle (Standard),breed,all-breed,Poodle (Standard),Non-Sporting,7,1,6,0,0,0
-2,Mr. Garry K. Newton,08:00,0,Great Dane,breed,all-breed,Great Dane,Working,24,5,14,3,2,0
-2,Mr. Garry K. Newton,08:00,1,Afghan Hound,breed,all-breed,Afghan Hound,Hound,3,1,0,1,1,0
-2,Mr. Garry K. Newton,09:05,0,Basenji,breed,all-breed,Basenji,Hound,6,0,3,2,1,0
-2,Mr. Garry K. Newton,09:05,1,Borzoi,breed,all-breed,Borzoi,Hound,7,4,2,1,0,0
-2,Mr. Garry K. Newton,09:05,2,Ibizan Hound,breed,all-breed,Ibizan Hound,Hound,1,0,0,0,1,0
-2,Mr. Garry K. Newton,09:05,3,Irish Wolfhound,breed,all-breed,Irish Wolfhound,Hound,5,1,2,1,1,0
-2,Mr. Garry K. Newton,09:55,0,Rhodesian Ridgeback,breed,all-breed,Rhodesian Ridgeback,Hound,26,10,11,4,1,0
-2,Mr. Garry K. Newton,09:55,1,Scottish Deerhound,breed,all-breed,Scottish Deerhound,Hound,1,0,1,0,0,0
-2,Mr. Garry K. Newton,11:00,0,Whippet,breed,all-breed,Whippet,Hound,8,1,4,1,2,0
-2,Mr. Garry K. Newton,11:00,1,Basset Hound,breed,all-breed,Basset Hound,Hound,2,0,0,1,1,0
-2,Mr. Garry K. Newton,11:00,2,Beagle Thirteen Inches,breed,all-breed,Beagle (13 Inch),Hound,2,0,0,1,1,0
-2,Mr. Garry K. Newton,11:00,3,Beagle Fifteen Inches,breed,all-breed,Beagle (15 Inch),Hound,3,1,0,2,0,0
+2,Mr. Jon R. Cole,08:00,0,Chinese Crested,breed,all-breed,Chinese Crested,Toy,6,1,1,3,1,0
+2,Mr. Jon R. Cole,08:00,1,English Toy Spaniel (B&PC),breed,all-breed,English Toy Spaniel (B&PC),Toy,1,0,0,1,0,0
+2,Mr. Jon R. Cole,08:00,2,Havanese,breed,all-breed,Havanese,Toy,3,0,1,2,0,0
+2,Mr. Jon R. Cole,08:00,3,Nederlandse Kooikerhondjes,breed,all-breed,Nederlandse Kooikerhondje,Sporting,1,0,0,1,0,0
+2,Mr. Jon R. Cole,08:00,4,Brittany,breed,all-breed,Brittany,Sporting,3,1,1,0,1,0
+2,Mr. Jon R. Cole,08:00,5,Chesapeake Bay Retriever,breed,all-breed,Chesapeake Bay Retriever,Sporting,2,1,0,0,1,0
+2,Mr. Jon R. Cole,08:00,6,Curly-Coated Retriever,breed,all-breed,Curly-Coated Retriever,Sporting,1,0,0,1,0,0
+2,Mr. Jon R. Cole,08:00,7,English Setter,breed,all-breed,English Setter,Sporting,1,0,0,1,0,0
+2,Mr. Jon R. Cole,08:00,8,Flat-Coated Retriever,breed,all-breed,Flat-Coated Retriever,Sporting,6,2,0,2,2,0
+2,Mr. Jon R. Cole,09:00,0,Golden Retriever,breed,all-breed,Golden Retriever,Sporting,37,16,15,4,2,0
+2,Mr. Jon R. Cole,10:30,0,Labrador Retriever,breed,all-breed,Labrador Retriever,Sporting,15,3,7,3,2,0
+2,Mr. Jon R. Cole,10:30,1,Pointer,breed,all-breed,Pointer,Sporting,1,0,1,0,0,0
+2,Mr. Jon R. Cole,10:30,2,Weimaraner,breed,all-breed,Weimaraner,Sporting,1,0,0,0,1,0
+2,Mr. Jon R. Cole,10:30,3,Wirehaired Pointing Griffon,breed,all-breed,Wirehaired Pointing Griffon,Sporting,5,1,4,0,0,0
+2,Mr. Jon R. Cole,12:10,0,Anatolian Shepherd,breed,all-breed,Anatolian Shepherd Dog,Working,7,3,2,2,0,0
+2,Mr. Jon R. Cole,12:10,1,Bernese Mountain Dog,breed,all-breed,Bernese Mountain Dog,Working,8,3,2,2,1,0
+2,Mr. Jon R. Cole,12:10,2,Black Russian Terrier,breed,all-breed,Black Russian Terrier,Working,1,0,0,1,0,0
+2,Mr. Jon R. Cole,12:10,3,Boerboel,breed,all-breed,Boerboel,Working,2,1,1,0,0,0
+2,Mr. Jon R. Cole,12:55,0,Boxer,breed,all-breed,Boxer,Working,13,4,5,2,2,0
+2,Mr. Jon R. Cole,12:55,1,Bullmastiff,breed,all-breed,Bullmastiff,Working,7,2,1,2,2,0
+2,Mr. Jon R. Cole,13:45,0,Cane Corso,breed,all-breed,Cane Corso,Working,12,5,4,2,1,0
+2,Mr. Jon R. Cole,13:45,1,Doberman Pinscher,breed,all-breed,Doberman Pinscher,Working,4,1,2,0,1,0
+2,Mr. Jon R. Cole,14:25,0,Dogo Argentino,breed,all-breed,Dogo Argentino,Working,8,4,2,1,1,0
+2,Mr. Jon R. Cole,14:25,1,Giant Schnauzer,breed,all-breed,Giant Schnauzer,Working,5,2,2,0,1,0
+2,Mr. Jon R. Cole,14:25,2,Great Pyrenees,breed,all-breed,Great Pyrenees,Working,5,1,3,1,0,0
+2,Mr. Jon R. Cole,15:10,0,Greater Swiss Mountain Dog,breed,all-breed,Greater Swiss Mountain Dog,Working,1,0,1,0,0,0
+2,Mr. Jon R. Cole,15:10,1,Newfoundland,breed,all-breed,Newfoundland,Working,10,3,4,2,1,0
+2,Mr. Jon R. Cole,15:10,2,Portuguese Water Dog,breed,all-breed,Portuguese Water Dog,Working,5,2,1,2,0,0
+2,Mr. Jon R. Cole,15:10,3,Tibetan Mastiff,breed,all-breed,Tibetan Mastiff,Working,3,2,0,1,0,0
 3,Ms. Victoria M. Jordan,08:00,0,Australian Cattle Dog,breed,all-breed,Australian Cattle Dog,Herding,13,4,3,3,3,0
 3,Ms. Victoria M. Jordan,08:00,1,Australian Shepherd,breed,all-breed,Australian Shepherd,Herding,3,2,1,0,0,0
 3,Ms. Victoria M. Jordan,08:00,2,Bearded Collie,breed,all-breed,Bearded Collie,Herding,3,0,0,1,1,1
@@ -123,32 +140,15 @@ ring,judge,block_start,position,event,kind,competition,breed,group,entries,class
 6,Mr. Nathaniel Horn,14:45,1,Japanese Terrier,breed,beginner-puppy,Japanese Terrier,,1,,,,,
 6,Mr. Nathaniel Horn,14:45,2,FSS Group,group,beginner-puppy,,,0,,,,,
 6,Mr. Nathaniel Horn,14:45,3,Best Puppy In Show,group,beginner-puppy,,,0,,,,,
-7,Mr. Jon R. Cole,08:00,0,Chinese Crested,breed,all-breed,Chinese Crested,Toy,6,1,1,3,1,0
-7,Mr. Jon R. Cole,08:00,1,English Toy Spaniel (B&PC),breed,all-breed,English Toy Spaniel (B&PC),Toy,1,0,0,1,0,0
-7,Mr. Jon R. Cole,08:00,2,Havanese,breed,all-breed,Havanese,Toy,3,0,1,2,0,0
-7,Mr. Jon R. Cole,08:00,3,Nederlandse Kooikerhondjes,breed,all-breed,Nederlandse Kooikerhondje,Sporting,1,0,0,1,0,0
-7,Mr. Jon R. Cole,08:00,4,Brittany,breed,all-breed,Brittany,Sporting,3,1,1,0,1,0
-7,Mr. Jon R. Cole,08:00,5,Chesapeake Bay Retriever,breed,all-breed,Chesapeake Bay Retriever,Sporting,2,1,0,0,1,0
-7,Mr. Jon R. Cole,08:00,6,Curly-Coated Retriever,breed,all-breed,Curly-Coated Retriever,Sporting,1,0,0,1,0,0
-7,Mr. Jon R. Cole,08:00,7,English Setter,breed,all-breed,English Setter,Sporting,1,0,0,1,0,0
-7,Mr. Jon R. Cole,08:00,8,Flat-Coated Retriever,breed,all-breed,Flat-Coated Retriever,Sporting,6,2,0,2,2,0
-7,Mr. Jon R. Cole,09:00,0,Golden Retriever,breed,all-breed,Golden Retriever,Sporting,37,16,15,4,2,0
-7,Mr. Jon R. Cole,10:30,0,Labrador Retriever,breed,all-breed,Labrador Retriever,Sporting,15,3,7,3,2,0
-7,Mr. Jon R. Cole,10:30,1,Pointer,breed,all-breed,Pointer,Sporting,1,0,1,0,0,0
-7,Mr. Jon R. Cole,10:30,2,Weimaraner,breed,all-breed,Weimaraner,Sporting,1,0,0,0,1,0
-7,Mr. Jon R. Cole,10:30,3,Wirehaired Pointing Griffon,breed,all-breed,Wirehaired Pointing Griffon,Sporting,5,1,4,0,0,0
-7,Mr. Jon R. Cole,12:10,0,Anatolian Shepherd,breed,all-breed,Anatolian Shepherd Dog,Working,7,3,2,2,0,0
-7,Mr. Jon R. Cole,12:10,1,Bernese Mountain Dog,breed,all-breed,Bernese Mountain Dog,Working,8,3,2,2,1,0
-7,Mr. Jon R. Cole,12:10,2,Black Russian Terrier,breed,all-breed,Black Russian Terrier,Working,1,0,0,1,0,0
-7,Mr. Jon R. Cole,12:10,3,Boerboel,breed,all-breed,Boerboel,Working,2,1,1,0,0,0
-7,Mr. Jon R. Cole,12:55,0,Boxer,breed,all-breed,Boxer,Working,13,4,5,2,2,0
-7,Mr. Jon R. Cole,12:55,1,Bullmastiff,breed,all-breed,Bullmastiff,Working,7,2,1,2,2,0
-7,Mr. Jon R. Cole,13:45,0,Cane Corso,breed,all-breed,Cane Corso,Working,12,5,4,2,1,0
-7,Mr. Jon R. Cole,13:45,1,Doberman Pinscher,breed,all-breed,Doberman Pinscher,Working,4,1,2,0,1,0
-7,Mr. Jon R. Cole,14:25,0,Dogo Argentino,breed,all-breed,Dogo Argentino,Working,8,4,2,1,1,0
-7,Mr. Jon R. Cole,14:25,1,Giant Schnauzer,breed,all-breed,Giant Schnauzer,Working,5,2,2,0,1,0
-7,Mr. Jon R. Cole,14:25,2,Great Pyrenees,breed,all-breed,Great Pyrenees,Working,5,1,3,1,0,0
-7,Mr. Jon R. Cole,15:10,0,Greater Swiss Mountain Dog,breed,all-breed,Greater Swiss Mountain Dog,Working,1,0,1,0,0,0
-7,Mr. Jon R. Cole,15:10,1,Newfoundland,breed,all-breed,Newfoundland,Working,10,3,4,2,1,0
-7,Mr. Jon R. Cole,15:10,2,Portuguese Water Dog,breed,all-breed,Portuguese Water Dog,Working,5,2,1,2,0,0
-7,Mr. Jon R. Cole,15:10,3,Tibetan Mastiff,breed,all-breed,Tibetan Mastiff,Working,3,2,0,1,0,0
+7,Mr. Garry K. Newton,08:00,0,Great Dane,breed,all-breed,Great Dane,Working,24,5,14,3,2,0
+7,Mr. Garry K. Newton,08:00,1,Afghan Hound,breed,all-breed,Afghan Hound,Hound,3,1,0,1,1,0
+7,Mr. Garry K. Newton,09:05,0,Basenji,breed,all-breed,Basenji,Hound,6,0,3,2,1,0
+7,Mr. Garry K. Newton,09:05,1,Borzoi,breed,all-breed,Borzoi,Hound,7,4,2,1,0,0
+7,Mr. Garry K. Newton,09:05,2,Ibizan Hound,breed,all-breed,Ibizan Hound,Hound,1,0,0,0,1,0
+7,Mr. Garry K. Newton,09:05,3,Irish Wolfhound,breed,all-breed,Irish Wolfhound,Hound,5,1,2,1,1,0
+7,Mr. Garry K. Newton,09:55,0,Rhodesian Ridgeback,breed,all-breed,Rhodesian Ridgeback,Hound,26,10,11,4,1,0
+7,Mr. Garry K. Newton,09:55,1,Scottish Deerhound,breed,all-breed,Scottish Deerhound,Hound,1,0,1,0,0,0
+7,Mr. Garry K. Newton,11:00,0,Whippet,breed,all-breed,Whippet,Hound,8,1,4,1,2,0
+7,Mr. Garry K. Newton,11:00,1,Basset Hound,breed,all-breed,Basset Hound,Hound,2,0,0,1,1,0
+7,Mr. Garry K. Newton,11:00,2,Beagle Thirteen Inches,breed,all-breed,Beagle (13 Inch),Hound,2,0,0,1,1,0
+7,Mr. Garry K. Newton,11:00,3,Beagle Fifteen Inches,breed,all-breed,Beagle (15 Inch),Hound,3,1,0,2,0,0

@@ -280,11 +280,22 @@ all-breed show days, 653–2,137 breed entries each. Timings assume 25 dogs/hr.
   varieties of one breed stay together (§8: 82% in published programs). Giving each breed its
   own node in the circuit would cost 2,000–4,800 arcs per day, each with a constraint per ring,
   so the order is fixed before the model runs, and 3c is optimal only for that order.
-  Results: short blocks 64 published → 52 (3b) → 23 (3c), 11 of them the whole assignment of a
-  judge with under 15 dogs; fewer than published on every day; at least as good as 3b at the
-  price on all 11 days, all valid. Finish +22 min in total against 3b, mostly Palm Springs 1/3
-  (+35 min for 7 fewer short blocks). Equipment switches 224 → 218, judge idle 993 → 923.
-  Also fixed: S9 was not counted for a judge whose cuts are all forced.
+  Results: short blocks 64 published → 50 (3b) → 22 (3c), 11 of them the whole assignment of a
+  judge with under 15 dogs; fewer than published on every day, all valid. Finish 26 min earlier
+  in total than 3b (earlier on 5 days, later on 2: Tucson 11/14 +3.6, Palm Springs 1/3 +2.2).
+  Equipment switches 229 → 221, judge idle 1019 → 894. Proven optimal on 9 of 11 days, for the
+  packed order. Also fixed: S9 was not counted for a judge whose cuts are all forced.
+- **Group judges in the parsed data.** The Bradshaw parser read "Mrs. X" as title "Mr" and
+  surname "s. X", so 20 of 88 group and Best in Show assignments loaded as separate judges with
+  no breeds, and H8 and the wait for the BIS judge did not apply to them. Results before that
+  fix understate these constraints. Fixing it raised the lower bound by up to 66 min (Palm
+  Springs 1/5), with published finishes unchanged.
+- **Planning without a published program** (`python -m optdog.plan`, `io/problem_csv.py`). A
+  problem directory holds only inputs: `show.csv`, `rings.csv`, `judges.csv`, `events.csv`
+  (entries, plus an optional pinned ring and start) and `groups.csv`. `check` reports input
+  errors and warnings, `solve` runs 3c and writes a program and optional HTML, and `extract`
+  strips a published program down to a problem. Del Sur 5/1 extracted and planned this way
+  reaches the same finish as the saved 3c (5:00 PM, proven optimal, equal to the bound).
 - **Relaxation bound** (`solve/relaxation.py`): CP-SAT on a relaxation that keeps judges
   (one event at a time, lunch in the window with judging on both sides), rings as a pool of
   |R| (|R| − |RG| from the first group on, H9), pinned blocks, and H7, H8, H10, H13, H14 exactly;
@@ -295,4 +306,4 @@ all-breed show days, 653–2,137 breed entries each. Timings assume 25 dogs/hr.
   breeds finish, and H9 with ring capacity. Proven optimal on all 11 days in seconds (up to
   ~50 s on SFD 9/13). It raises the bound by 0–80 min (GSV 11/16: 1079 → 1159.4, which 3b
   meets, so 3b is optimal there and the earlier "80 min gap" was all bound weakness).
-  Against it, 3b's best runs are within 0–10 min on every day (mean about 5).
+  Against it, 3b's best runs are within 0–10 min on every day (mean 7), and 3c's mean is 4.

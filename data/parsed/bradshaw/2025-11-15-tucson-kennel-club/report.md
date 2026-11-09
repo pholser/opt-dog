@@ -4,7 +4,7 @@ Source: `data/raw/bradshaw/843.pdf` (SATURDAY)
 
 - judges: 19, rings: 14, blocks: 65, events: 187
 - judging starts: 8:00 AM
-- groups: 2:15 PM in rings 5, 6; order: Toy, Terrier, Non-Sporting, Sporting, Hound, Working, Herding; BIS: Mrs. Melgreen
+- groups: 2:15 PM in rings 5, 6; order: Toy, Terrier, Non-Sporting, Sporting, Hound, Working, Herding; BIS: Mrs. Debbie L. Melgreen
 
 ## Checks
 
@@ -41,6 +41,3 @@ Source: `data/raw/bradshaw/843.pdf` (SATURDAY)
 ## Notes
 
 - Total Dogs in Show (unique dogs, informational): 1183; breed entries parsed: 1119
-- group/BIS judge not found among breed judges: 'Mrs. Nykiel'
-- group/BIS judge not found among breed judges: 'Mrs. Liebes'
-- group/BIS judge not found among breed judges: 'Mrs. Melgreen'

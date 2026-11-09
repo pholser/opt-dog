@@ -47,5 +47,3 @@ Source: `data/raw/bradshaw/603.pdf` (SUNDAY)
 ## Notes
 
 - Total Dogs in Show (unique dogs, informational): 2134; breed entries parsed: 2040
-- group/BIS judge not found among breed judges: 'Mrs. Neely'
-- group/BIS judge not found among breed judges: 'Mrs. Koltes'

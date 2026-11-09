@@ -1,8 +1,8 @@
 {
  "value": 1159.4,
  "relaxation": 1159.4,
- "combinatorial": 1079.3999999999996,
+ "combinatorial": 1094.3999999999996,
  "relaxed_finish": 1159.4,
  "status": "OPTIMAL",
- "seconds": 0.054539982997084735
+ "seconds": 0.05567294800130185
 }

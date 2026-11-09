@@ -8,8 +8,8 @@
   "short_blocks": 0.0,
   "lunch_splits": 4.0,
   "blocks": 55.0,
-  "equipment_switches": 138.0,
-  "judge_idle_units": 1378.0
+  "equipment_switches": 139.0,
+  "judge_idle_units": 1528.0
  },
  "phases": [
   {
@@ -17,7 +17,7 @@
    "status": "OPTIMAL",
    "objective": 1136.6,
    "bound": 1136.6,
-   "seconds": 0.24006246499993722
+   "seconds": 0.23000615900673438
   }
  ]
 }

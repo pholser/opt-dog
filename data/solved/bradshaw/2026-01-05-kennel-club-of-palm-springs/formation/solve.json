@@ -4,12 +4,12 @@
  "costs": {
   "ring_changes": 0.0,
   "ring_changes_off_lunch": 0.0,
-  "short_block_dogs": 83.0,
-  "short_blocks": 17.0,
-  "lunch_splits": 6.0,
+  "short_block_dogs": 78.0,
+  "short_blocks": 16.0,
+  "lunch_splits": 5.0,
   "blocks": 82.0,
-  "equipment_switches": 21.0,
-  "judge_idle_units": 1552.0
+  "equipment_switches": 23.0,
+  "judge_idle_units": 1592.0
  },
  "phases": [
   {
@@ -17,28 +17,28 @@
    "status": "OPTIMAL",
    "objective": 1324.4,
    "bound": 1324.4,
-   "seconds": 4.586771022000903
+   "seconds": 3.930317001999356
   },
   {
    "name": "trade",
    "status": "OPTIMAL",
-   "objective": 1499.4,
-   "bound": 1499.4,
-   "seconds": 25.559504564000235
+   "objective": 1489.4,
+   "bound": 1489.4,
+   "seconds": 14.767501806003565
   },
   {
    "name": "structure",
    "status": "OPTIMAL",
-   "objective": 324.0,
-   "bound": 324.0,
-   "seconds": 18.046897583000828
+   "objective": 322.0,
+   "bound": 322.0,
+   "seconds": 10.5180417340016
   },
   {
    "name": "times",
    "status": "OPTIMAL",
-   "objective": 123122.4,
-   "bound": 123122.4,
-   "seconds": 29.66371608600093
+   "objective": 125543.0,
+   "bound": 125543.0,
+   "seconds": 32.6978657169966
   }
  ]
 }

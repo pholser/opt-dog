@@ -4,7 +4,7 @@ Source: `data/raw/bradshaw/50.pdf` (SUNDAY)
 
 - judges: 7, rings: 8, blocks: 33, events: 163
 - judging starts: 8:00 AM
-- groups: 2:30 PM in rings 5, 6; order: Non-Sporting, Toy, Terrier, Hound, Sporting, Working, Herding; BIS: Mrs. Simmons
+- groups: 2:30 PM in rings 5, 6; order: Non-Sporting, Toy, Terrier, Hound, Sporting, Working, Herding; BIS: Mrs. Nancy D. Simmons
 
 ## Checks
 
@@ -30,4 +30,3 @@ Source: `data/raw/bradshaw/50.pdf` (SUNDAY)
 ## Notes
 
 - Total Dogs in Show (unique dogs, informational): 743; breed entries parsed: 737
-- group/BIS judge not found among breed judges: 'Mrs. Simmons'

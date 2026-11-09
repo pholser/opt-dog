@@ -290,6 +290,15 @@ def _solve(m: "_Model", o: PlacementOptions, hint_prog: JudgingProgram | None) -
     solver.parameters.log_search_progress = o.log
     ok = (cp_model.OPTIMAL, cp_model.FEASIBLE)
 
+    if o.hint and hint_prog is not None:
+        # The hint leaves auxiliary variables open, and on a large model CP-SAT can lose it
+        # within a short limit. Completing it first makes every phase start from a full solution.
+        m.model.Minimize(m.finish)
+        solver.parameters.fix_variables_to_their_hinted_value = True
+        if solver.Solve(m.model) in ok:
+            m.keep_solution_as_hint(solver)
+        solver.parameters.fix_variables_to_their_hinted_value = False
+
     def run(name: str, objective, scale: float) -> bool:
         m.model.Minimize(objective)
         t = time.perf_counter()

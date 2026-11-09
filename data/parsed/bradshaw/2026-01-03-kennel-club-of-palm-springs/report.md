@@ -59,4 +59,3 @@ Source: `data/raw/bradshaw/603.pdf` (SATURDAY)
 
 - Total Dogs in Show (unique dogs, informational): 2247; breed entries parsed: 2137
 - judge 'Mr. Robbins' matched Miss Janelle W. Robbins despite title mismatch
-- group/BIS judge not found among breed judges: 'Mrs. Gold'

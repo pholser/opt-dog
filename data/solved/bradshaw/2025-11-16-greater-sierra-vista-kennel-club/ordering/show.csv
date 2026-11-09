@@ -4,6 +4,7 @@ date,2025-11-16
 source,optdog
 start,08:00
 group_rings,5 6
+ring_sizes,
 group_start,13:05
 lunch_window,
 bis_judge,Dr. John V. Ioia

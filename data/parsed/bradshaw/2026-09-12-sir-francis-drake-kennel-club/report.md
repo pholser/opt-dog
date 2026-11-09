@@ -36,6 +36,3 @@ Source: `data/raw/bradshaw/50.pdf` (SATURDAY)
 ## Notes
 
 - Total Dogs in Show (unique dogs, informational): 796; breed entries parsed: 788
-- group/BIS judge not found among breed judges: 'Mrs. Simmons'
-- group/BIS judge not found among breed judges: 'Mrs. Simmons'
-- group/BIS judge not found among breed judges: 'Mrs. Simmons'
