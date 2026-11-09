@@ -1,8 +1,8 @@
-# Judging-program scheduler — model specification (DRAFT)
+# Judging-program scheduler — model specification
 
-Status: draft for review. Every constraint cites its source: an AKC document
-(`docs/akc/`), a user decision (U), or evidence from parsed real programs (E, to be
-filled in once `data/` is parsed). Items marked **OPEN** need a decision.
+Every constraint cites its source: an AKC document (`docs/akc/`), a user decision (U), or
+evidence from parsed real programs (E). Items marked **OPEN** need a decision. What is built
+and what remains open is summarized in [`SOLUTION.md`](SOLUTION.md).
 
 ## 1. Problem
 
@@ -14,7 +14,7 @@ the entries, and the available rings, produce a judging program:
 - choose the **order of the seven groups**, which run in the group ring(s) followed by BIS,
 
 so that all hard constraints hold, the show **finishes as early as possible**, and
-soft costs (chiefly exhibitor conflicts) are low.
+soft costs are low.
 
 This is a constraint-programming / optimization problem: a scheduling problem with
 parallel machines (rings), a resource per judge, precedence (breeds before their group),
@@ -36,9 +36,9 @@ and a partitioning sub-problem (forming blocks).
 | Symbol | Meaning |
 |---|---|
 | `R` | conformation rings available for the day |
-| `adj ⊆ R×R` | ring adjacency / distance (used for group ring pairs and judge moves) |
-| `RG ⊆ R` | group ring(s): 1 ring, or 2 **adjacent** rings that act as **one** ring for groups/BIS (U). They also host breed blocks before groups. **OPEN**: input, or chosen by the program? |
-| `ring size` | **OPEN**: some breeds need a large ring (Show Manual §6: "rings must be large enough for the largest breed"). Needed? |
+| `adj ⊆ R×R` | ring adjacency / distance. **Not implemented**: no ring layouts are available, so neither group ring pairs nor judge moves use it |
+| `RG ⊆ R` | group ring(s): 1 ring, or 2 **adjacent** rings that act as **one** ring for groups/BIS (U). They also host breed blocks before groups. An input today (`rings.csv`; `extract` copies the published rings). **OPEN**: should the program choose them? |
+| `ring size` | S, M, L or XL per ring (`Ring.size`), a show input; unlisted rings are XL. See H16, H17 |
 
 ### 2.3 Judges
 | Symbol | Meaning |
@@ -105,7 +105,7 @@ start of unit `u` (block start + durations of the units ahead of it in the block
 
 | # | Constraint | Source |
 |---|---|---|
-| H1 | Each block lasts **about one hour** (`D_b ≤ 60 + ε`, **OPEN** ε, measured from data E). Exception: a single unit with `n_u > 30` is its own block, with no cap | Rules Ch.7 §12 |
+| H1 | Each block lasts **about one hour** (`D_b ≤ 60 + ε`; ε = 15 min in the validator, E; blocks the solver forms are capped at 65 min, `max_block_minutes`). Exception: a single unit with `n_u > 30` is its own block, with no cap | Rules Ch.7 §12 |
 | H3 | Each ring holds at most one block at a time | — |
 | H4 | A judge is never in two rings at once: their blocks, their group/BIS assignment, and their lunch never overlap. When a judge's consecutive blocks are in different rings, the next starts ≥ `m_J` minutes after the previous ends (travel margin) | U |
 | H5 | Units in a block are judged in the published order; no block starts before `s_b` | Rules Ch.7 §12; REJ999 |
@@ -115,7 +115,7 @@ start of unit `u` (block start + durations of the units ahead of it in the block
 | H9 | The first group starts only once **every** group ring in `RG` is **free of breed blocks**, even when two rings are used (U). An optional set-up buffer is a parameter | Show Manual §6; U |
 | H10 | Groups run **sequentially** in `RG` (two adjacent rings act as one) in order π; **BIS starts as soon as the last group ends** | U |
 | H11 | Pinned units start at their fixed time; precedences hold. Instances built from parsed programs pin every concurrent-specialty, Beginner Puppy and FSS open-show block at its published ring and time (`instance.py`): clubs publish those times, and their events chain (puppy breeds → puppy groups → Best Puppy; FSS show #1 → #2 with the same dogs). Obedience and rally are out of scope: they run in their own rings (E: no shared ring on the 11 days) and no judge did both on those days. If a judge does both, their obedience and rally blocks are pinned as commitments of that judge, in rings conformation cannot use (U). Exhibitors in both are not modeled | E |
-| H12 | Everything ends by `Tend`; nothing starts before `T0` | Show Manual §6 |
+| H12 | Everything ends by `Tend`; nothing starts before `T0`. The solver enforces `T0` only: `Tend` (`closing_time`) is checked by the validator when known, and the problem format has no field for it | Show Manual §6 |
 | H13 | The breeds of at least **two** groups (parameter, default 2; fewer if fewer groups are entered) are all done before the first group starts | Show Manual §6: "Breed judging in at least two groups should be scheduled to be complete before group judging is scheduled to begin"; U |
 | H14 | The first group starts only after **every** judge's lunch has ended: a published break counts as published; a judge over five hours with no published break takes lunch in a gap of lunch length, at the minimum length. Parameter `groups_after_all_lunches`, default on | U; E: holds on all 11 parsed days. Not an AKC rule |
 | H15 | Multi-entry classes (Stud Dog, Brood Bitch) come after the judge's regular classes in that breed. Sweepstakes immediately precede their breed (convention, E) | Show Manual §6 "Scheduling Breed Judging"; E |
@@ -127,41 +127,47 @@ start of unit `u` (block start + durations of the units ahead of it in the block
 
 | # | Cost | Source |
 |---|---|---|
-| S1 | **Exhibitor conflict minutes**, counted **by breed** (U): for each registered exhibitor `x ∈ X*`, their dogs in one unit merge into one busy window (any class dog → the whole unit; champions only → just the BOB portion, §2.7). Several dogs in the same unit are never a conflict. For each pair of `x`'s windows in *different units*, the cost is the **minutes of overlap**. If the two units are in **different rings**, one window is first widened by the travel margin `m_X` (so units back to back across rings with less than `m_X` between them still conflict). Units in the same ring never overlap, so they never conflict | U |
+| S1 | **Exhibitor conflict minutes**, counted **by breed** (U), only for exhibitors signed up for the conflict-resolution program; not every exhibitor opts in (U). In the solver it ranks after the structure costs (U). For each registered exhibitor `x ∈ X*`, their dogs in one unit merge into one busy window (any class dog → the whole unit; champions only → just the BOB portion, §2.7). Several dogs in the same unit are never a conflict. For each pair of `x`'s windows in *different units*, the cost is the **minutes of overlap**. If the two units are in **different rings**, one window is first widened by the travel margin `m_X` (so units back to back across rings with less than `m_X` between them still conflict). Units in the same ring never overlap, so they never conflict | U |
 | S2 | **Judge ring changes**: penalty for each change between consecutive blocks; a heavier penalty when the change isn't at lunch | Best Practices; Show Manual §6; U |
 | S3 | **Equipment switches**: cost per change of equipment (ground / table / ramp) between consecutive breeds **in a ring**, across judges sharing the ring. A switch **across a lunch** is free: a lunch of the judge who leaves or the judge who arrives falls in the ring's idle time between the two breeds, itself at least `equipment_free_gap_minutes` (default 45) (U). A long idle gap with no lunch is not a break: otherwise the solver inserts idle time to make switches free (seen in 3b, SFD 9/12) (U). Within a judge's sequence, table breeds consecutive and ramp breeds consecutive, applied within each group run since S4 takes precedence (§8: humans keep table breeds together within a group 69% of the time, across a whole assignment only 37%) | Show Manual §6 "Scheduling Rings": "Within a judging assignment, all breeds judged on a table should be scheduled consecutively, and all breeds judged on a ramp should be scheduled consecutively"; Best Practices: "schedule table breeds and ramp breeds being judged in the same ring together to decrease the movement of equipment which causes delays" |
-| S4 | **Group split**: a judge with breeds in several groups judges each group's breeds in one consecutive run. Cost per extra run of a group in a judge's sequence (soft, U: humans split a group on 37 of 129 judge-days, 83 extra runs) | Show Manual §6 "Scheduling Breed Judging": "If judges are assigned breeds in more than one group, organize their breed-judging schedule by group"; U |
-| S5 | Idle gaps in a judge's day (other than lunch). A judge who needs no lunch has none unless the program publishes one, so their long gaps are idle (U). The solver minimizes it after S2, S3, S9 and S10 are fixed, so it never trades against them | E/convention |
-| S6 | Short-nosed (brachycephalic) breeds in the cooler part of the day (outdoor shows) | Show Manual §6 |
-| S7 | Permit judges at non-conflicting times (for the AKC field rep) | Show Manual §6 |
-| S8 | **Final segment over 50 dogs**: a ring's final segment may stretch past an hour; each dog over 50 (unless it is a single breed/variety) costs `w_final`. AKC states this as a rule, but it is a soft cost here because real programs exceed it (§8) | Rules Ch.7 §12; U; E |
+| S4 | **Group split**: a judge with breeds in several groups judges each group's breeds in one consecutive run. Cost per extra run of a group in a judge's sequence, scored by the validator; steps 3b and 3c keep each group in one run by construction (soft, U: humans split a group on 37 of 129 judge-days, 83 extra runs) | Show Manual §6 "Scheduling Breed Judging": "If judges are assigned breeds in more than one group, organize their breed-judging schedule by group"; U |
+| S5 | Idle gaps in a judge's day, from first to last event. A lunch counts only for its own length (a published break's stated length, otherwise the 45-minute minimum); any wait beyond it is idle. A judge who needs no lunch has none unless the program publishes one, so their long gaps are idle (U). The solver minimizes it after S2, S3, S9, S10 and then S1 are fixed, so it never trades against them | E/convention |
+| S6 | **Not modeled.** Short-nosed (brachycephalic) breeds in the cooler part of the day (outdoor shows) | Show Manual §6 |
+| S7 | **Not modeled.** Permit judges at non-conflicting times (for the AKC field rep) | Show Manual §6 |
+| S8 | **Final segment over 50 dogs**: a ring's final segment may stretch past an hour; each dog over 50 (unless it is a single breed/variety) costs `w_final`. AKC states this as a rule, but it is a soft cost here because real programs exceed it (§8). Scored by the validator; not in the solver | Rules Ch.7 §12; U; E |
 | S9 | **Short blocks**: each block of fewer than `short_block_dogs` dogs (default 15) costs `w_short` per missing dog. A judge's only block is exempt: it cannot be made larger (U: "absolutely discourage short blocks"). Humans have 64 of 517 blocks under 15 dogs, mostly a judge's whole small assignment or the remainder before lunch or at day's end (§8). Avoiding one short block is worth up to `short_block_finish_minutes` of show finish (default 10, U): the solver finds the fastest finish, then minimizes finish + that × short blocks | U; E |
 | S10 | **Lunch at a logical stopping point**: a cost when a judge's lunch splits a group run (soft, small) | Show Manual §6 "Scheduling Lunch and Breaks": "Try to schedule the lunch or rest break at a logical stopping point" |
 
 ## 6. Objective
 
-**Weighted sum** (U):
+The original decision was a **weighted sum** (U), and the validator still reports one as
+`ValidationResult.objective`, using `ObjectiveWeights`:
 
     minimize  w_F · (τ_BIS + D_BIS − T0)  +  Σ_k w_k · S_k
 
-The weights are configurable per show. Defaults are **OPEN**; we'll calibrate them on
-real instances, e.g. by asking "how many minutes of finish time is one exhibitor
-conflict worth?".
+The **solver is lexicographic**. Each phase holds the results of the ones before it:
+
+1. Finish: the earliest BIS end.
+2. Trade: finish + `short_block_finish_minutes` × short blocks.
+3. Structure: a weighted sum of S2, S3, S9, S10 and block count.
+4. Conflicts: S1, for exhibitors signed up for the conflict-resolution program.
+5. Times: S5 judge idle, then earliest block starts.
+
+Only the structure weights affect the solver. **OPEN**: whether to keep the phases or return
+to a weighted sum, and what the default weights should be.
 
 ## 7. Open questions
 
-1. ~~Objective form~~ → weighted sum (U). Default weights still **OPEN**.
+1. Objective form: weighted sum decided (U), but the solver is lexicographic (§6). **OPEN**: which stays, and the default weights.
 2. ~~Conflict definition~~ → busy windows by class vs. champion (§2.7), cost =
    overlap minutes, with a parameterized travel margin `m_X` between rings (U).
 3. ~~Exhibitor vs. handler~~ → synthetic exhibitor/handler data for now (U).
    The generation model is still **OPEN**.
-4. **Group ring(s)**: are they an input, or does the program choose them?
+4. **Group ring(s)**: an input today. **OPEN**: should the program choose them?
 5. ~~Group / BIS durations~~ → proportional to the number of breeds/varieties entered (group) and groups entered (BIS), at the judge's rate (U).
 6. ~~Block tolerance ε and lunch window~~ → ε = 15 min (E); lunch window hard, 11:00–12:30 by default (U, E).
-7. **Ring capacity / size classes**: are they needed?
-8. **Solver approach**: decide after the data is in. CP-SAT (interval variables,
-   NoOverlap, optional intervals) fits placement well. Block formation could be built
-   into the same model or done as a separate first stage; we'll compare both on real instances.
+7. ~~Ring capacity / size classes~~ → S, M, L and XL (H16, H17, U). The Show Manual's size rule for the class with the most entries is **OPEN**.
+8. ~~Solver approach~~ → CP-SAT, with block formation inside the same model; breeds within a run are packed first (step 3c, §9).
 
 ## 8. Evidence from real programs (E)
 
@@ -174,13 +180,13 @@ all-breed show days, 653–2,137 breed entries each. Timings assume 25 dogs/hr.
   down from 248 at zero tolerance.
 - **Blocks (H1).** Multi-breed blocks: median 24 dogs, p90 27, max 39. Blocks over 75 min
   that aren't a single breed of more than 30: 7 on 6 of 11 days. → `block_tolerance_minutes = 15` holds.
-- **Final segment (H2) is bent.** 12 final segments of 51–73 mixed-breed dogs on 4 of 11
+- **Final segment (S8) is bent.** 12 final segments of 51–73 mixed-breed dogs on 4 of 11
   days; checked against the source, e.g. a 67-dog, 21-breed terrier afternoon. → made a
   soft cost, S8 (U).
 - **Lunch (H6).** Every published lunch is 45 min (one 60), starting 11:30–12:20 (p10–p90), 11:10–12:30 overall.
   Every lunch within an assignment fits the default 11:00–12:30 window. One 12:45 "break" comes
   after the judge's last block and is exempt.
-  All judges over five hours have one. → `lunch_window = 11:30–12:30`.
+  All judges over five hours have one. → default `lunch_window` = 11:00–12:30 (hard, H6).
 - **Group rings (H9) are bent.** The group ring(s) are usually free 83 min before groups (median),
   but on 2 days breed judging continues in the second group ring after groups begin.
   → H9 stays hard: **both** rings must be free before the first group (U), stricter than those 2 days.
@@ -207,10 +213,16 @@ all-breed show days, 653–2,137 breed entries each. Timings assume 25 dogs/hr.
   (last lunch ends 12:15–1:15 PM). Made a hard rule (U). With it, the greedy's groups start
   12:40–2:55 PM, still 15–75 min ahead of the humans on most days.
 
-## 9. Validation plan
+## 9. Validation plan and results
+
+Entries below are in the order the work was done, and each gives the figures at that time.
+Those before the "Group judges" entry predate the parser fix, and judge idle figures before the
+"Exhibitor conflicts" entry exclude a whole lunch gap. Current per-day results are in
+`baseline.md` and `figures.html`.
 
 - Parse real programs → instances (§2 inputs) + human schedules.
-- An independent **validator** checks any schedule against H1–H12 and scores S1–S7.
+- An independent **validator** checks any schedule against the hard constraints and scores S1–S5 and S8.
+  H5, H10, H11 and H15 are not checked independently: they hold by construction in the solver.
 - Run the validator on the human schedules first, to calibrate ε and the lunch window
   and to find which "hard" rules humans actually bend.
 - Use lower bounds on finish time (critical path, ring capacity) and a greedy baseline,
@@ -283,7 +295,7 @@ all-breed show days, 653–2,137 breed entries each. Timings assume 25 dogs/hr.
   Results: short blocks 64 published → 50 (3b) → 22 (3c), 11 of them the whole assignment of a
   judge with under 15 dogs; fewer than published on every day, all valid. Finish 26 min earlier
   in total than 3b (earlier on 5 days, later on 2: Tucson 11/14 +3.6, Palm Springs 1/3 +2.2).
-  Equipment switches 229 → 221, judge idle 1019 → 894. Proven optimal on 9 of 11 days, for the
+  Equipment switches 229 → 221, judge idle 1205 → 1138. Proven optimal on 9 of 11 days, for the
   packed order. Also fixed: S9 was not counted for a judge whose cuts are all forced.
 - **Group judges in the parsed data.** The Bradshaw parser read "Mrs. X" as title "Mr" and
   surname "s. X", so 20 of 88 group and Best in Show assignments loaded as separate judges with
@@ -296,6 +308,14 @@ all-breed show days, 653–2,137 breed entries each. Timings assume 25 dogs/hr.
   errors and warnings, `solve` runs 3c and writes a program and optional HTML, and `extract`
   strips a published program down to a problem. Del Sur 5/1 extracted and planned this way
   reaches the same finish as the saved 3c (5:00 PM, proven optimal, equal to the bound).
+- **Exhibitor conflicts (S1)** are a solver phase after structure and before judge idle, for
+  exhibitors signed up for the conflict-resolution program. The variables are added only when
+  that phase runs. One pair of windows per pair of events sharing a registered exhibitor (a
+  judge's own events and pairs of pinned events are left out): 160–826 pairs per day. On a
+  three-day trial of 3c (Del Sur 5/1, Palm Springs 1/4, Sir Francis Drake 9/12), conflicts fell
+  56–99% at the same finish and structure cost. Judge idle rose on two of the days, 45 → 361 and
+  131 → 1243 minutes; a 300-second idle phase brought those to 225 and 717. A lunch now counts
+  as idle only beyond its own length, in the validator as in the solver.
 - **Relaxation bound** (`solve/relaxation.py`): CP-SAT on a relaxation that keeps judges
   (one event at a time, lunch in the window with judging on both sides), rings as a pool of
   |R| (|R| − |RG| from the first group on, H9), pinned blocks, and H7, H8, H10, H13, H14 exactly;

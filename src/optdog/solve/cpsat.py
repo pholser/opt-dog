@@ -39,12 +39,13 @@ inside a segment, chosen by an arc a_{PQ} at a segment's first event):
              F ≥ every judge's lunch end                                                 (H14)
     groups:  NoOverlap(group intervals); BIS starts after every group                    (H10)
 
-H11 holds by the pinned blocks; H12 and V1 are input checks. Four lexicographic phases:
+H11 holds by the pinned blocks; H12 and V1 are input checks. Five lexicographic phases:
 (1) minimize the BIS end; (2) minimize BIS end + `short_block_finish_minutes` × short blocks,
 giving up finish for fewer short blocks (skipped if nothing can change the count, or the
 parameter is 0); (3) at that finish and count, minimize the soft costs the structure controls
 (S2 ring changes, S3 equipment switches, S9 short blocks, S10 lunch splitting a group, block
-count); (4) at those, minimize judge idle (S5), then start blocks as early as possible. Each
+count); (4) at those, minimize conflicts of exhibitors signed up for the accommodation (S1);
+(5) at those, minimize judge idle (S5), then start blocks as early as possible. Each
 phase starts from the previous one's solution; phase 1 starts from the greedy schedule
 (step 1) or the step-1 schedule. Step 3c runs the same model with the breeds inside each run
 packed into full blocks first (packing.py).
@@ -59,6 +60,7 @@ from dataclasses import dataclass, field, replace
 
 from ortools.sat.python import cp_model
 
+from optdog.conflicts import registered_window_pairs
 from optdog.domain import (
     VARIETY_GROUPS,
     Block,
@@ -79,7 +81,7 @@ from optdog.solve.packing import pack_run
 
 SCALE = 10  # model time unit = 1/10 minute
 WSCALE = 10  # soft-cost weights → integer coefficients
-IDLE_OVER_STARTS = 10  # phase 3: one unit of judge idle outweighs ten units of later starts
+IDLE_OVER_STARTS = 10  # phase 5: one unit of judge idle outweighs ten units of later starts
 
 Chain = list[JudgingEvent]
 Cut = bool | None  # event starts a block (True), continues the block (False), or the solver chooses (None)
@@ -105,9 +107,9 @@ class PlacementOptions:
     time_limit: float = 60.0  # seconds per phase
     workers: int = 8
     hint: bool = True  # start from a known schedule (greedy, or step 1 for formation)
-    tidy: bool = True  # phases 2-3: same finish, lower soft costs, earlier blocks
+    tidy: bool = True  # phases 3-5: at that finish, lower soft costs, then earlier blocks
     log: bool = False
-    max_block_minutes: float = 65.0  # 3a/3b: H1 cap on a formed block; same as the greedy (E: human p90 27 dogs)
+    max_block_minutes: float = 65.0  # 3a-3c: H1 cap on a formed block; same as the greedy (E: human p90 27 dogs)
 
 
 @dataclass
@@ -335,7 +337,11 @@ def _solve(m: "_Model", o: PlacementOptions, hint_prog: JudgingProgram | None) -
         # phase 3: soft costs of the structure, at that finish
         if run("structure", m.structure, WSCALE):
             m.model.Add(m.structure <= solver.Value(m.structure))
-            # phase 4: least judge idle, then earliest blocks
+            # phase 4: exhibitor conflicts, for those signed up for the accommodation
+            conflicts = m.conflict_cost()
+            if conflicts is not None and run("conflicts", conflicts, SCALE):
+                m.model.Add(conflicts <= solver.Value(conflicts))
+            # phase 5: least judge idle, then earliest blocks
             run("times", IDLE_OVER_STARTS * m.idle + sum(m.run_starts) + m.first, SCALE)
     if res.phases[-1].status not in ("OPTIMAL", "FEASIBLE"):
         m.model.Minimize(m.finish)  # fall back to the last good solution (kept as the hint)
@@ -782,6 +788,53 @@ class _Model:
                           + iw(w.lunch_split) * sum(splits)
                           + iw(w.equipment_switch) * equipment
                           + iw(w.block_count) * blocks_expr)
+
+    # ---------------------------------------------------------------------- S1 exhibitor conflicts
+    def conflict_cost(self) -> cp_model.LinearExprT | None:
+        """S1: tenths of a minute that registered exhibitors are needed in two rings at once.
+
+        Built only when its phase runs, so the earlier phases do not carry these variables.
+        ``None`` if no pair of events can conflict. A judge's own events cannot overlap, so
+        those pairs are left out, and so are pairs of pinned events, which no decision can change.
+        """
+        md, H = self.model, self.H
+        margin = _u(self.p.exhibitor_travel_minutes)
+        index = {r: i for i, r in enumerate(dict.fromkeys(list(self.rings) + [sb.ring for sb in self.show.pinned]), 1)}
+        pinned = {id(e): (round((sb.start + off) * SCALE), index[sb.ring])
+                  for sb in self.show.pinned for e, off in sb.block.offsets()}
+
+        def place(e: JudgingEvent):
+            u = id(e)
+            if u in self.s:
+                return self.s[u], sum(index[r] * x for r, x in self.x[u].items())
+            return pinned.get(u)
+
+        terms = []
+        for ea, eb, oa, ob, n in registered_window_pairs(self.show.entries):
+            a, b = place(ea), place(eb)
+            if a is None or b is None or ea.judge == eb.judge or (id(ea) in pinned and id(eb) in pinned):
+                continue
+            (sa, ra), (sb_, rb) = a, b
+            la, ha = round(oa[0] * SCALE), round(oa[1] * SCALE)
+            lb, hb = round(ob[0] * SCALE), round(ob[1] * SCALE)
+            lo = md.NewIntVar(-margin, 2 * H, "conflict_lo")
+            hi = md.NewIntVar(-margin, 2 * H, "conflict_hi")
+            md.AddMaxEquality(lo, [sa + la - margin, sb_ + lb])
+            md.AddMinEquality(hi, [sa + ha + margin, sb_ + hb])
+            over = md.NewIntVar(0, min(ha - la + 2 * margin, hb - lb), "conflict_over")
+            if margin:  # the travel margin applies between rings; one ring never overlaps itself
+                same = md.NewBoolVar("conflict_same_ring")
+                md.Add(ra == rb).OnlyEnforceIf(same)
+                md.Add(over >= hi - lo).OnlyEnforceIf(same.Not())
+            else:
+                md.Add(over >= hi - lo)
+            terms.append(n * over)
+        if not terms:
+            return None
+        total = md.NewIntVar(0, 10**9, "conflict_total")
+        md.Add(total == sum(terms))
+        self.cost_terms["conflict_units"] = total
+        return total
 
     # ---------------------------------------------------------------------- S3 equipment
     def _equipment_switches(self, changes):

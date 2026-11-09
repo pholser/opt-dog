@@ -229,7 +229,9 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
                     ring_changes_at_lunch += 1
                 else:
                     ring_changes += 1
-        idle += sum(g[1] for g in gaps if lunch is None or g[2] is not lunch[2])
+        # the lunch itself is not idle, but any wait beyond its length is (S5, as in the solver)
+        lunch_len = lunch[1] if published and lunch else p.lunch_min_minutes
+        idle += sum(g[1] - (min(g[1], lunch_len) if lunch is not None and g[2] is lunch[2] else 0) for g in gaps)
 
     # every lunch break within a judge's assignment starts inside the window (H6, U); a break
     # after the judge's last block is free time, not a break in judging

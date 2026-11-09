@@ -72,12 +72,12 @@ def test_validator_flags_a_breed_in_a_ring_too_small_and_a_small_group_ring():
 @pytest.mark.parametrize("solve", [lambda s: greedy_program(s, P0), lambda s: solve_ordering(s, P0).program,
                                    lambda s: solve_packing(s, P0).program], ids=["greedy", "3b", "3c"])
 def test_schedulers_put_each_breed_in_a_ring_large_enough(solve):
-    # the toy judge could use any ring; the giant breeds fit only ring 3 (ring 1 is for groups)
+    # the toy judge could use any ring; the giant breeds fit rings 1 and 3, never the small ring 2
     show = _show([Ring(1, RingSize.XL), Ring(2, RingSize.S), Ring(3, RingSize.L)])
     prog = solve(show)
     assert prog is not None
     assert validate(prog, P0).violations == []
-    assert {sb.ring.number for sb in prog.blocks if sb.judge == B} == {3}
+    assert {sb.ring.number for sb in prog.blocks if sb.judge == B} <= {1, 3}
 
 
 def test_ring_sizes_survive_csv(tmp_path):

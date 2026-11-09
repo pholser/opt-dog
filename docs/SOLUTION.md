@@ -52,7 +52,9 @@ The 3c solve runs in phases, and each phase holds the results of the ones before
 1. **Finish:** the earliest possible show finish.
 2. **Trade:** give up to 10 minutes of finish per short block avoided (`short_block_finish_minutes`).
 3. **Structure:** ring changes, short blocks, lunch placement, equipment switches and block count.
-4. **Times:** least judge idle, then earliest block starts.
+4. **Conflicts:** minutes that exhibitors signed up for the conflict-resolution program are needed
+   in two rings at once. Exhibitors who did not opt in are ignored.
+5. **Times:** least judge idle, then earliest block starts.
 
 Each run starts from a complete valid solution found by the placement step. Each phase has a time
 limit, 60 seconds by default.
@@ -67,10 +69,11 @@ limit, 60 seconds by default.
 | H16 ring big enough for the breed, H17 group ring size | Enforced. A ring of unknown size counts as XL |
 | H12 closing time | **Validator only** (see section 5) |
 | V1 judge's daily entry limit | Input check. The panel is given, so the solver cannot fix it |
+| S1 exhibitor conflicts, opted-in exhibitors only | In the objective, after structure. Runs when the show has exhibitor entries |
 | S2 ring changes, S5 idle, S9 short blocks, S10 lunch at a stopping point | In the objective |
 | S3 equipment switches | In the objective, with one approximation (see section 5) |
 | S4 groups kept together | Built into 3b and 3c: each judge's group is one run |
-| S1 exhibitor conflicts, S6, S7, S8 | **Not in the solver** (see section 5) |
+| S6, S7, S8 | **Not in the solver** (see section 5) |
 
 ### Ring sizes
 
@@ -137,7 +140,7 @@ These cover 11 published all-breed days from one superintendent (Bradshaw), 2022
 |---|---|---|---|
 | Short blocks (under 15 dogs) | 64 | 50 | 22 |
 | Equipment switches in a ring | 421 | 229 | 221 |
-| Judge idle minutes | 1321 | 1019 | 894 |
+| Judge idle minutes | 1413 | 1205 | 1138 |
 | Mean minutes above the lower bound | 74 | 7 | 4 |
 
 - 11 of the 22 short blocks in 3c are a judge's whole assignment of under 15 dogs, so they cannot
@@ -155,7 +158,7 @@ are not predictions.
 packing step fixed, at the trade price of 10 minutes per short block.
 
 **Runtime.** A full batch of bound and all four steps took about 57 minutes for 11 days, or 2–9
-minutes per day. A 3c solve alone took about 2 minutes on Del Sur 5/1.
+minutes per day, before the conflict phase. That phase adds up to 60 seconds per step per day.
 
 **Ring-size experiment.** Three days, with invented layouts, because no published program states
 ring sizes. Each cell lists Del Sur 5/1, Palm Springs 1/4 and Sir Francis Drake 9/12.
@@ -167,10 +170,11 @@ ring sizes. Each cell lists Del Sur 5/1, Palm Springs 1/4 and Sir Francis Drake 
 | Half the L rings become M | 0 / 0 / +2.4 | 3 / 8 / 10 | 178 / 561 / 389 |
 
 Limiting ring sizes barely moved the finish, but cost ring changes and idle time. The idle figures
-are rough, because the last phase runs out of time on these runs.
+are rough, because the last phase runs out of time on these runs, and they predate the change that
+counts any wait beyond a lunch's length as idle, so they understate it.
 
-**Tests.** All 272 pass. The solver tests take about 11 minutes and use short time limits, so
-they should run with nothing else competing for CPU.
+**Tests.** All 278 pass, in about 7–11 minutes. The solver tests use short time limits, so they
+should run with nothing else competing for CPU.
 
 ## 5. Unresolved and unaddressed
 
@@ -178,7 +182,7 @@ they should run with nothing else competing for CPU.
 
 | Item | Detail |
 |---|---|
-| **Exhibitor conflicts (S1)** | The largest gap. The spec names this as the chief soft cost, but the solver ignores it. The validator scores it on synthetic data, and `baseline.md` reports it only through step 1 (CP), not 3a–3c. The problem format has no exhibitor file |
+| Exhibitor input for planning | The conflict phase runs only when a show has entries, and the problem format has no exhibitor file, so `python -m optdog.plan` cannot use it yet. `baseline.md` reports conflicts only through step 1 (CP), not 3a–3c |
 | Ring size by entries | Show Manual §6 also requires rings large enough for "the class with the largest number of entries". Only breed size is modeled. Entry thresholds are undecided |
 | Similar-size dogs in a block | Show Manual §6. Not modeled. It would interact with 3c packing |
 | Ring proximity | Show Manual §6. Needs venue layouts, and `adj` from SPEC §2.2 is not implemented |
@@ -192,13 +196,14 @@ they should run with nothing else competing for CPU.
 
 | Item | Detail |
 |---|---|
-| Objective form | SPEC §6 specifies a weighted sum, but the solver is lexicographic. Several `ObjectiveWeights` values (finish, conflict, group switch, judge idle, final segment) have no effect on it. Either adopt the phases in the spec or change the solver |
+| Objective form | The original decision was a weighted sum, but the solver is lexicographic (SPEC §6). Several `ObjectiveWeights` values (finish, conflict, group switch, judge idle, final segment) affect only the validator's score |
 | Soft-cost weights | Default weights have not been calibrated |
 | Group ring | An input today, and `extract` copies it from the published program. SPEC §7 still asks whether the program should choose it |
 | "Larger breeds" | The ground / table / ramp rule is a proxy. Individual breeds may need overrides |
 | Group and BIS durations | Conservative by decision, so absolute finish times are not calibrated against real shows |
 | Why humans start groups later | The model can start groups earlier than published programs. SPEC §8 lists possible causes that are not modeled |
 | Exhibitor data model | Synthetic only. How realistic it needs to be is undecided |
+| Conflicts against judge idle | The conflict phase runs before idle. On a 3-day trial it cut conflicts 56–99% at the same finish, but judge idle went 45 → 361 and 131 → 1243 minutes on two days and did not rise on the third. A 300-second idle phase brought those two to 225 and 717. Options not yet tried: a per-judge idle cap, or letting conflicts rise slightly during the idle phase |
 
 ### Solver limits
 
@@ -206,11 +211,11 @@ they should run with nothing else competing for CPU.
 |---|---|
 | 3c is not globally optimal | Packing fixes the breed order before the main model runs. A full per-breed circuit was rejected as too large (2,000–4,800 arcs per day, each with a constraint per ring) |
 | Two days unproven | Sir Francis Drake 9/12 and 9/13 end the finish and trade phases at the time limit |
-| Last phase always times out | The "times" phase hit 60 seconds on every day, so judge idle is not proven minimal |
+| Last phases time out | The idle phase hit its limit on every day, and the conflict phase on every trial day, so neither is proven minimal |
 | No ring symmetry breaking | The model has none. With mixed ring sizes it would need to respect size classes. It may also reduce the idle cost seen in the ring experiment |
 | Lower bound ignores ring size | Still valid, but weaker when ring sizes bind |
 | One unexplained solver failure | A test once ended with no solution after 3.5 seconds, under a 20-second limit. It did not recur, but the cause was never found |
-| Saved results predate the hint fix | `data/solved/` was produced before the starting-solution change. The schedules are valid, but a re-solve could differ slightly |
+| Saved results predate the conflict phase | `data/solved/` was produced before the starting-solution change and the conflict phase, so saved schedules do not reduce conflicts. Section 4's totals describe them |
 
 ### Evidence gaps
 
@@ -231,10 +236,6 @@ they should run with nothing else competing for CPU.
 
 ### Documentation debt
 
-`SPEC.md` is still marked draft, and these parts lag the code:
-
-- §6 (objective form)
-- §7 question 7, on ring sizes, which H16 and H17 now answer
-- §8 lunch-window note, which says 11:30–12:30 while the default is 11:00–12:30
-- Figures in the earlier §9 entries, which predate the "Mrs." parser fix
-- There is no README
+- There is no README.
+- The running entries in SPEC §9 give the figures at the time of each entry, so the earlier ones
+  are historical. Current results are in section 4 and in `baseline.md`.

@@ -22,7 +22,7 @@ from collections import defaultdict
 from dataclasses import dataclass, field
 from itertools import combinations
 
-from optdog.domain import Entry, Exhibitor, JudgingProgram, Ring
+from optdog.domain import Entry, Exhibitor, JudgingEvent, JudgingProgram, Ring
 
 
 @dataclass(frozen=True)
@@ -81,6 +81,28 @@ def busy_windows(program: JudgingProgram) -> tuple[list[BusyWindow], list[Entry]
         hi = max(en.busy_offset[1] for en in ens)
         windows.append(BusyWindow(ens[0].exhibitor, tuple(ens), start + lo, start + hi, ring))
     return windows, missing
+
+
+def registered_window_pairs(entries: list[Entry]) -> list[tuple[JudgingEvent, JudgingEvent, tuple[float, float], tuple[float, float], int]]:
+    """The window pairs S1 can charge, before any schedule exists.
+
+    Each item is (event a, event b, a's busy offsets, b's busy offsets, how many registered
+    exhibitors have this pair). Pairs keep the order ``exhibitor_conflicts`` compares them in.
+    """
+    windows: dict[str, dict[int, list[Entry]]] = defaultdict(dict)
+    for en in entries:
+        if en.exhibitor.registered:
+            windows[en.exhibitor.id].setdefault(id(en.event), []).append(en)
+    pairs: dict[tuple, int] = defaultdict(int)
+    events: dict[int, JudgingEvent] = {}
+    for by_event in windows.values():
+        spans = {}
+        for u, ens in by_event.items():
+            events[u] = ens[0].event
+            spans[u] = (min(en.busy_offset[0] for en in ens), max(en.busy_offset[1] for en in ens))
+        for a, b in combinations(by_event, 2):
+            pairs[a, b, spans[a], spans[b]] += 1
+    return [(events[a], events[b], oa, ob, n) for (a, b, oa, ob), n in pairs.items()]
 
 
 def overlap_minutes(a: BusyWindow, b: BusyWindow, travel_minutes: float) -> float:

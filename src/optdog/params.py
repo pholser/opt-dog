@@ -17,7 +17,11 @@ if TYPE_CHECKING:
 
 @dataclass(frozen=True)
 class ObjectiveWeights:
-    """Weights for the weighted-sum objective (SPEC §6). All per unit stated."""
+    """Weights for the validator's weighted-sum score (SPEC §6). All per unit stated.
+
+    The solver is lexicographic and uses only the ring-change, equipment, short-block,
+    lunch-split and block-count weights, inside its structure phase.
+    """
 
     finish: float = 1.0  # per minute of show finish (BIS end) after judging start
     conflict: float = 1.0  # per exhibitor-conflict minute (S1)

@@ -163,3 +163,11 @@ def test_s3_equipment_switch_is_free_across_a_lunch_only():
     # across judges too: B's table breed right after A's ground breed in the same ring
     both = program([sb(A, 1, 480, ev("Boxer", A, 10)), sb(B, 1, 505, ev("Pug", B, 10))], [A, B])
     assert validate(both, P0).soft["S3_equipment_switches"] == 1
+
+
+def test_s5_a_lunch_counts_only_for_its_own_length():
+    first, second = ev("Pug", A, 70), ev("Boxer", A, 70)  # 168 min each: over five hours, so lunch is due
+    blocks = [sb(A, 1, 480, first), sb(A, 1, 480 + 168 + 90, second)]  # a 90-minute gap
+    assert validate(program(blocks, [A]), P0).soft["S5_judge_idle_min"] == pytest.approx(90 - 45, abs=0.1)
+    published = program(blocks, [A], breaks=[Break(A, Ring(1), 480 + 168, 60)])  # a stated 60-minute break
+    assert validate(published, P0).soft["S5_judge_idle_min"] == pytest.approx(90 - 60, abs=0.1)
