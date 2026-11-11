@@ -61,8 +61,6 @@ ring,judge,block_start,position,event,kind,competition,breed,group,entries,class
 2,Mrs. Nancy D. Simmons,12:45,4,German Shepherd Dog,breed,all-breed,German Shepherd Dog,Herding,9,3,4,2,0,0
 2,Mrs. Nancy D. Simmons,12:45,5,Mudi,breed,all-breed,Mudi,Herding,1,0,0,0,1,0
 2,Mrs. Nancy D. Simmons,12:45,6,Miniature American Shepherd,breed,all-breed,Miniature American Shepherd,Herding,3,1,2,0,0,0
-2,Mrs. Nancy D. Simmons,13:50,0,Pembroke Welsh Corgi,breed,all-breed,Pembroke Welsh Corgi,Herding,17,6,8,1,2,0
-2,Mrs. Nancy D. Simmons,13:50,1,Shetland Sheepdog,breed,all-breed,Shetland Sheepdog,Herding,3,1,1,1,0,0
 4,Ms. Laura Munro,08:00,0,Anatolian Shepherd,breed,all-breed,Anatolian Shepherd Dog,Working,3,0,1,1,1,0
 4,Ms. Laura Munro,08:00,1,Doberman Pinscher,breed,all-breed,Doberman Pinscher,Working,9,1,3,2,3,0
 4,Ms. Laura Munro,08:30,0,Great Dane,breed,all-breed,Great Dane,Working,18,4,7,3,4,0
@@ -145,6 +143,8 @@ ring,judge,block_start,position,event,kind,competition,breed,group,entries,class
 8,Mr. Richard V. Miller,11:40,0,Miniature Pinscher,breed,all-breed,Miniature Pinscher,Toy,16,3,8,3,2,0
 8,Mr. Richard V. Miller,11:40,1,Pug,breed,all-breed,Pug,Toy,4,1,1,1,1,0
 8,Mr. Richard V. Miller,12:30,0,Dalmatian,breed,all-breed,Dalmatian,Non-Sporting,8,1,3,1,3,0
+8,Mrs. Nancy D. Simmons,13:50,0,Pembroke Welsh Corgi,breed,all-breed,Pembroke Welsh Corgi,Herding,17,6,8,1,2,0
+8,Mrs. Nancy D. Simmons,13:50,1,Shetland Sheepdog,breed,all-breed,Shetland Sheepdog,Herding,3,1,1,1,0,0
 11,Mr. Richard Todd Jackson,08:00,0,Black and Tan Coonhound,breed,all-breed,Black and Tan Coonhound,Hound,3,0,0,1,2,0
 11,Mr. Richard Todd Jackson,08:00,1,Irish Wolfhound,breed,all-breed,Irish Wolfhound,Hound,8,1,2,2,3,0
 11,Mr. Richard Todd Jackson,08:00,2,Manchester Terrier (Standard),breed,all-breed,Manchester Terrier (Standard),Terrier,8,2,3,1,2,0

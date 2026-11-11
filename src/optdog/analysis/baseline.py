@@ -60,13 +60,15 @@ def render(params: ShowParameters | None = None) -> str:
         "  to pack into full blocks; *opt* = proven optimal for that order.",
         f"- 3a, 3b and 3c give up to {p.short_block_finish_minutes:g} min of finish per short block avoided.",
         "- **Gap**: minutes of finish above the lower bound.",
-        "- **S1**: exhibitor-conflict minutes, synthetic exhibitors, seed 0.",
+        "- **S1**: conflict minutes of exhibitors signed up for the accommodation, synthetic exhibitors,",
+        f"  seed 0. 3a–3c minimize it after the structure costs, letting judge idle grow to {p.conflict_idle_budget:g} × its minimum.",
         "- **S3**: equipment switches in a ring, free across a break (3a and 3b tidy them at their finish).",
         "",
-        "| Show | LB | Comb. LB | Human groups | Human finish | gap | Greedy groups | Greedy finish | gap | CP groups | CP finish | gap | 3a groups | 3a finish | gap | 3b groups | 3b finish | gap | 3c groups | 3c finish | gap | Human hard | Greedy hard | CP hard | 3a hard | 3b hard | 3c hard | S1 human | S1 greedy | S1 CP | S3 human | S3 greedy | S3 3a | S3 3b | S3 3c |",
+        "| Show | LB | Comb. LB | Human groups | Human finish | gap | Greedy groups | Greedy finish | gap | CP groups | CP finish | gap | 3a groups | 3a finish | gap | 3b groups | 3b finish | gap | 3c groups | 3c finish | gap | Human hard | Greedy hard | CP hard | 3a hard | 3b hard | 3c hard | S1 human | S1 greedy | S1 CP | S1 3a | S1 3b | S1 3c | S3 human | S3 greedy | S3 3a | S3 3b | S3 3c |",
     ]
     lines.append("|" + "---|" * (lines[-1].count("|") - 1))
     gaps_h, gaps_g, gaps_c, gaps_f, gaps_o, gaps_k = [], [], [], [], [], []
+    s1 = {k: 0.0 for k in ("human", "greedy", "CP", "3a", "3b", "3c")}
     for name, bound, human, rh, greedy, rg, cp, rc, fm, rf, ob, ro, pk, rk in rows(p):
         lb = bound.value
         fh, fg = rh.timeline.finish, rg.timeline.finish
@@ -86,6 +88,8 @@ def render(params: ShowParameters | None = None) -> str:
         fk = rk.timeline.finish
         gaps_k.append(fk - lb)
         hard_k = ", ".join(sorted({v.code for v in rk.violations})) or "–"
+        for k, r in zip(s1, (rh, rg, rc, rf, ro, rk)):
+            s1[k] += r.soft.get("S1_conflict_min", 0)
         lines.append(
             f"| {name} | {_t(lb)}{' opt' if bound.optimal else ''} | {_t(bound.combinatorial)} | {rh.metrics['groups_start']} | {_t(fh)} | {max(fh - lb, 0):.0f} | "
             f"{rg.metrics['groups_start']} | {_t(fg)} | {max(fg - lb, 0):.0f} | "
@@ -95,7 +99,8 @@ def render(params: ShowParameters | None = None) -> str:
             f"{rk.metrics['groups_start']} | {_t(fk)}{' opt' if pk.optimal else ''} | {max(fk - lb, 0):.0f} | "
             f"{hard_h} | {hard_g} | {hard_c} | {hard_f} | {hard_o} | {hard_k} | "
             f"{rh.soft.get('S1_conflict_min', 0):.0f} | {rg.soft.get('S1_conflict_min', 0):.0f} | "
-            f"{rc.soft.get('S1_conflict_min', 0):.0f} | "
+            f"{rc.soft.get('S1_conflict_min', 0):.0f} | {rf.soft.get('S1_conflict_min', 0):.0f} | "
+            f"{ro.soft.get('S1_conflict_min', 0):.0f} | {rk.soft.get('S1_conflict_min', 0):.0f} | "
             f"{rh.soft['S3_equipment_switches']} | {rg.soft['S3_equipment_switches']} | {rf.soft['S3_equipment_switches']} | {ro.soft['S3_equipment_switches']} | {rk.soft['S3_equipment_switches']} |"
         )
     n = len(gaps_h)
@@ -107,6 +112,8 @@ def render(params: ShowParameters | None = None) -> str:
         f"{sum(1 for a, b in zip(gaps_g, gaps_c) if b < a - 0.5)}; 3a improves on CP on "
         f"{sum(1 for a, b in zip(gaps_c, gaps_f) if b < a - 0.5)}; 3b improves on 3a on "
         f"{sum(1 for a, b in zip(gaps_f, gaps_o) if b < a - 0.5)}).",
+        "",
+        "Total S1 minutes: " + ", ".join(f"{k} {v:,.0f}" for k, v in s1.items()) + ".",
         "",
         "Hard-constraint codes: V1 is a judge over 175 entries, an input problem that no schedule can fix.",
         "",

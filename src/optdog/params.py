@@ -48,6 +48,10 @@ class ShowParameters:
     short_block_dogs: int = 15  # S9: blocks under this many dogs cost per missing dog (E: human p10 is 13 dogs)
     # S9: minutes of show finish worth giving up to avoid one short block (U, 2026-11-06). 0 puts finish first.
     short_block_finish_minutes: float = 10.0
+    # S1/S5: after judge idle is minimized, idle may grow to this multiple of that minimum to cut
+    # conflicts of registered exhibitors (U, 2026-11-09; trial: ×2 kept most of the gain on
+    # Del Sur 5/1 and cut Palm Springs 1/4 by a quarter). 1 puts idle first; larger favors exhibitors.
+    conflict_idle_budget: float = 2.0
     final_segment_max_dogs: int = 50  # Rules: final segment ≤ 50 unless single breed; a SOFT cost here (U; humans exceed it)
 
     # --- judge breaks (Rules Ch.7 §12)

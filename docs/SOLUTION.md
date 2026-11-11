@@ -52,9 +52,13 @@ The 3c solve runs in phases, and each phase holds the results of the ones before
 1. **Finish:** the earliest possible show finish.
 2. **Trade:** give up to 10 minutes of finish per short block avoided (`short_block_finish_minutes`).
 3. **Structure:** ring changes, short blocks, lunch placement, equipment switches and block count.
-4. **Conflicts:** minutes that exhibitors signed up for the conflict-resolution program are needed
-   in two rings at once. Exhibitors who did not opt in are ignored.
-5. **Times:** least judge idle, then earliest block starts.
+4. **Idle:** least judge idle. Idle may then grow to `conflict_idle_budget` times this minimum
+   (default 2) to make room for the next phase.
+5. **Conflicts:** minutes that exhibitors signed up for the conflict-resolution program are needed
+   in two rings at once, within that idle budget. Exhibitors who did not opt in are ignored.
+6. **Times:** least judge idle again, then earliest block starts.
+
+Phases 4 and 5 run only when some opted-in exhibitor has two events that can clash.
 
 Each run starts from a complete valid solution found by the placement step. Each phase has a time
 limit, 60 seconds by default.
@@ -69,7 +73,7 @@ limit, 60 seconds by default.
 | H16 ring big enough for the breed, H17 group ring size | Enforced. A ring of unknown size counts as XL |
 | H12 closing time | **Validator only** (see section 5) |
 | V1 judge's daily entry limit | Input check. The panel is given, so the solver cannot fix it |
-| S1 exhibitor conflicts, opted-in exhibitors only | In the objective, after structure. Runs when the show has exhibitor entries |
+| S1 exhibitor conflicts, opted-in exhibitors only | In the objective, after structure, within a judge-idle budget. Runs when the show has exhibitor entries |
 | S2 ring changes, S5 idle, S9 short blocks, S10 lunch at a stopping point | In the objective |
 | S3 equipment switches | In the objective, with one approximation (see section 5) |
 | S4 groups kept together | Built into 3b and 3c: each judge's group is one run |
@@ -132,16 +136,27 @@ These cover 11 published all-breed days from one superintendent (Bradshaw), 2022
 | Greater Sierra Vista 2025-11-17 | 6:10 PM | 7:15 PM | 6:10 PM | Optimal |
 | Palm Springs 2026-01-03 | 8:15 PM | 9:20 PM | 8:24 PM | Optimal |
 | Palm Springs 2026-01-04 | 7:44 PM | 8:44 PM | 7:54 PM | Optimal |
-| Palm Springs 2026-01-05 | 9:59 PM | 10:04 PM | 10:04 PM | Optimal |
+| Palm Springs 2026-01-05 | 9:59 PM | 10:04 PM | 10:04 PM | Feasible, not proven |
 | Sir Francis Drake 2026-09-12 | 6:30 PM | 7:50 PM | 6:33 PM | Feasible, not proven |
 | Sir Francis Drake 2026-09-13 | 7:23 PM | 8:18 PM | 7:27 PM | Feasible, not proven |
 
 | Total over the 11 days | Published | 3b | 3c |
 |---|---|---|---|
 | Short blocks (under 15 dogs) | 64 | 50 | 22 |
-| Equipment switches in a ring | 421 | 229 | 221 |
-| Judge idle minutes | 1413 | 1205 | 1138 |
-| Mean minutes above the lower bound | 74 | 7 | 4 |
+| Equipment switches in a ring | 421 | 228 | 223 |
+| Judge ring changes | 27 | 13 | 12 |
+| Exhibitor conflict minutes (opted-in, synthetic seed 0) | 16,823 | 8,857 | 10,361 |
+| Judge idle minutes | 1,413 | 2,593 | 2,183 |
+| Mean minutes above the lower bound | 74 | 6 | 4 |
+
+- Conflicts in 3c are lower than published on every day: 38% lower in total, 46–94% lower on
+  the eight smaller days, and 22–37% lower on the three Palm Springs days, where most
+  conflict minutes are.
+- Judge idle is the price. Before the conflict phases, 3c had 1,138 idle minutes. The budget
+  allows up to twice the least idle found, and 3c now uses 2,183, which is more than the
+  published programs. The budget is measured against what the idle phase finds in 60 seconds,
+  not a proven minimum. On Palm Springs 1/5 that phase found a worse schedule than the earlier
+  run (idle 168), so the cap came out at 511 minutes and 3c used all of it.
 
 - 11 of the 22 short blocks in 3c are a judge's whole assignment of under 15 dogs, so they cannot
   be made larger.
@@ -158,7 +173,8 @@ are not predictions.
 packing step fixed, at the trade price of 10 minutes per short block.
 
 **Runtime.** A full batch of bound and all four steps took about 57 minutes for 11 days, or 2–9
-minutes per day, before the conflict phase. That phase adds up to 60 seconds per step per day.
+minutes per day, before the conflict phases. With them, the batch took about 2 hours, or
+7–16 minutes per day.
 
 **Ring-size experiment.** Three days, with invented layouts, because no published program states
 ring sizes. Each cell lists Del Sur 5/1, Palm Springs 1/4 and Sir Francis Drake 9/12.
@@ -182,7 +198,7 @@ should run with nothing else competing for CPU.
 
 | Item | Detail |
 |---|---|
-| Exhibitor input for planning | The conflict phase runs only when a show has entries, and the problem format has no exhibitor file, so `python -m optdog.plan` cannot use it yet. `baseline.md` reports conflicts only through step 1 (CP), not 3a–3c |
+| Exhibitor input for planning | The conflict phase runs only when a show has entries, and the problem format has no exhibitor file, so `python -m optdog.plan` cannot use it yet. `baseline.md` reports them for every step |
 | Ring size by entries | Show Manual §6 also requires rings large enough for "the class with the largest number of entries". Only breed size is modeled. Entry thresholds are undecided |
 | Similar-size dogs in a block | Show Manual §6. Not modeled. It would interact with 3c packing |
 | Ring proximity | Show Manual §6. Needs venue layouts, and `adj` from SPEC §2.2 is not implemented |
@@ -203,19 +219,19 @@ should run with nothing else competing for CPU.
 | Group and BIS durations | Conservative by decision, so absolute finish times are not calibrated against real shows |
 | Why humans start groups later | The model can start groups earlier than published programs. SPEC §8 lists possible causes that are not modeled |
 | Exhibitor data model | Synthetic only. How realistic it needs to be is undecided |
-| Conflicts against judge idle | The conflict phase runs before idle. On a 3-day trial it cut conflicts 56–99% at the same finish, but judge idle went 45 → 361 and 131 → 1243 minutes on two days and did not rise on the third. A 300-second idle phase brought those two to 225 and 717. Options not yet tried: a per-judge idle cap, or letting conflicts rise slightly during the idle phase |
+| Conflicts against judge idle | Settled for now with an idle budget (default 2 × least idle). Conflicts first had cut conflicts more but let idle grow to 361 and 1,243 minutes on two trial days. With the budget, Del Sur 5/1 went from 138 to 9 conflict minutes (idle 45 → 88), and Palm Springs 1/4 from 3,524 to 2,695 (idle 131 → 238). On big days the budget limits how many conflicts are removed. The budget is a multiple, so a day whose least idle is 0 cannot spend idle on conflicts. A per-judge cap is not tried |
 
 ### Solver limits
 
 | Item | Detail |
 |---|---|
 | 3c is not globally optimal | Packing fixes the breed order before the main model runs. A full per-breed circuit was rejected as too large (2,000–4,800 arcs per day, each with a constraint per ring) |
-| Two days unproven | Sir Francis Drake 9/12 and 9/13 end the finish and trade phases at the time limit |
-| Last phases time out | The idle phase hit its limit on every day, and the conflict phase on every trial day, so neither is proven minimal |
+| Three days unproven | Sir Francis Drake 9/12 and 9/13, and in this run Palm Springs 1/5, end the finish and trade phases at the time limit. Palm Springs 1/5 was proven in an earlier run with the same finish, so its result depends on the run |
+| Last phases time out | The idle and conflict phases hit their limits on every day, and the structure phase on five days (the three Palm Springs days and both Sir Francis Drake days), so none of them is proven minimal |
 | No ring symmetry breaking | The model has none. With mixed ring sizes it would need to respect size classes. It may also reduce the idle cost seen in the ring experiment |
 | Lower bound ignores ring size | Still valid, but weaker when ring sizes bind |
 | One unexplained solver failure | A test once ended with no solution after 3.5 seconds, under a 20-second limit. It did not recur, but the cause was never found |
-| Saved results predate the conflict phase | `data/solved/` was produced before the starting-solution change and the conflict phase, so saved schedules do not reduce conflicts. Section 4's totals describe them |
+| Idle budget rests on an unproven minimum | The idle phase times out, so the budget can be wider than 2 × the true least idle (Palm Springs 1/5, section 4). A longer idle phase, or a cap in minutes, would tighten it |
 
 ### Evidence gaps
 

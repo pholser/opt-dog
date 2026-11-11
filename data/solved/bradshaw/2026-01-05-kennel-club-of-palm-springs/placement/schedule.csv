@@ -14,11 +14,6 @@ ring,judge,block_start,position,event,kind,competition,breed,group,entries,class
 3,Mr. Stephen Dainard,11:15,0,Old English Sheepdog,breed,all-breed,Old English Sheepdog,Herding,12,2,4,4,2,0
 3,Mr. Stephen Dainard,11:15,1,Lancashire Heeler,breed,all-breed,Lancashire Heeler,Herding,1,0,0,1,0,0
 3,Mr. Stephen Dainard,11:50,0,Miniature American Shepherd,breed,all-breed,Miniature American Shepherd,Herding,23,6,7,4,6,0
-3,Miss Janelle W. Robbins,13:55,0,Norwegian Buhund,breed,all-breed,Norwegian Buhund,Herding,6,1,3,1,1,0
-3,Miss Janelle W. Robbins,13:55,1,Cardigan Welsh Corgi,breed,all-breed,Cardigan Welsh Corgi,Herding,7,0,3,0,4,0
-3,Miss Janelle W. Robbins,13:55,2,Pembroke Welsh Corgi,breed,all-breed,Pembroke Welsh Corgi,Herding,14,5,3,5,1,0
-3,Miss Janelle W. Robbins,15:05,0,Pumi,breed,all-breed,Pumi,Herding,1,0,0,1,0,0
-3,Miss Janelle W. Robbins,15:05,1,Shetland Sheepdog,breed,all-breed,Shetland Sheepdog,Herding,7,2,5,0,0,0
 4,Mrs. Shalisa D. Neely,08:30,0,Anatolian Shepherd,breed,all-breed,Anatolian Shepherd Dog,Working,1,0,0,1,0,0
 4,Mrs. Shalisa D. Neely,08:35,0,Bernese Mountain Dog,breed,all-breed,Bernese Mountain Dog,Working,28,8,9,7,4,0
 4,Mrs. Shalisa D. Neely,09:45,0,Black Russian Terrier,breed,all-breed,Black Russian Terrier,Working,6,2,1,0,3,0
@@ -102,9 +97,9 @@ ring,judge,block_start,position,event,kind,competition,breed,group,entries,class
 16,Miss Janelle W. Robbins,10:15,0,Great Dane,breed,all-breed,Great Dane,Working,18,4,9,4,1,0
 16,Miss Janelle W. Robbins,10:15,1,Great Pyrenees,breed,all-breed,Great Pyrenees,Working,1,0,0,1,0,0
 16,Miss Janelle W. Robbins,10:15,2,Greater Swiss Mountain Dog,breed,all-breed,Greater Swiss Mountain Dog,Working,2,0,0,2,0,0
-16,Miss Janelle W. Robbins,11:10,0,Leonberger,breed,all-breed,Leonberger,Working,7,2,1,3,1,0
-16,Miss Janelle W. Robbins,11:10,1,Mastiff,breed,all-breed,Mastiff,Working,16,2,4,6,4,0
-16,Miss Janelle W. Robbins,11:10,2,Neapolitan Mastiff,breed,all-breed,Neapolitan Mastiff,Working,1,0,0,1,0,0
+16,Miss Janelle W. Robbins,11:55,0,Leonberger,breed,all-breed,Leonberger,Working,7,2,1,3,1,0
+16,Miss Janelle W. Robbins,11:55,1,Mastiff,breed,all-breed,Mastiff,Working,16,2,4,6,4,0
+16,Miss Janelle W. Robbins,11:55,2,Neapolitan Mastiff,breed,all-breed,Neapolitan Mastiff,Working,1,0,0,1,0,0
 16,Miss Janelle W. Robbins,12:55,0,Portuguese Water Dog,breed,all-breed,Portuguese Water Dog,Working,9,1,4,2,2,0
 16,Miss Janelle W. Robbins,12:55,1,Keeshond,breed,all-breed,Keeshond,Non-Sporting,3,0,0,1,2,0
 16,Miss Janelle W. Robbins,12:55,2,Schipperke,breed,all-breed,Schipperke,Non-Sporting,1,0,0,1,0,0
@@ -114,6 +109,11 @@ ring,judge,block_start,position,event,kind,competition,breed,group,entries,class
 16,Miss Janelle W. Robbins,12:55,6,Collie (Smooth),breed,all-breed,Collie (Smooth),Herding,1,1,0,0,0,0
 16,Miss Janelle W. Robbins,12:55,7,Finnish Lapphund,breed,all-breed,Finnish Lapphund,Herding,4,2,1,1,0,0
 16,Miss Janelle W. Robbins,12:55,8,German Shepherd Dog,breed,all-breed,German Shepherd Dog,Herding,1,0,1,0,0,0
+16,Miss Janelle W. Robbins,13:55,0,Norwegian Buhund,breed,all-breed,Norwegian Buhund,Herding,6,1,3,1,1,0
+16,Miss Janelle W. Robbins,13:55,1,Cardigan Welsh Corgi,breed,all-breed,Cardigan Welsh Corgi,Herding,7,0,3,0,4,0
+16,Miss Janelle W. Robbins,13:55,2,Pembroke Welsh Corgi,breed,all-breed,Pembroke Welsh Corgi,Herding,14,5,3,5,1,0
+16,Miss Janelle W. Robbins,15:00,0,Pumi,breed,all-breed,Pumi,Herding,1,0,0,1,0,0
+16,Miss Janelle W. Robbins,15:00,1,Shetland Sheepdog,breed,all-breed,Shetland Sheepdog,Herding,7,2,5,0,0,0
 18,Ms. Michelle T. Shultz,08:30,0,Black and Tan Coonhound,breed,all-breed,Black and Tan Coonhound,Hound,3,0,0,2,1,0
 18,Ms. Michelle T. Shultz,08:30,1,Ibizan Hound,breed,all-breed,Ibizan Hound,Hound,2,0,1,1,0,0
 18,Ms. Michelle T. Shultz,08:30,2,Basset Hound,breed,all-breed,Basset Hound,Hound,12,2,3,5,2,0
@@ -157,8 +157,8 @@ ring,judge,block_start,position,event,kind,competition,breed,group,entries,class
 29,Mr. Raymond E. Yurick,08:30,4,Irish Red & White Setters,breed,all-breed,Irish Red and White Setter,Sporting,2,0,0,1,1,0
 29,Mr. Raymond E. Yurick,09:15,0,Irish Setter,breed,all-breed,Irish Setter,Sporting,14,2,3,4,5,0
 29,Mr. Raymond E. Yurick,09:50,0,Labrador Retriever,breed,all-breed,Labrador Retriever,Sporting,30,8,11,8,3,0
-29,Mr. Raymond E. Yurick,11:05,0,Retriever (Nova Scotia Duck Toll),breed,all-breed,Nova Scotia Duck Tolling Retriever,Sporting,6,5,0,0,1,0
-29,Mr. Raymond E. Yurick,11:05,1,Spinone Italiano,breed,all-breed,Spinone Italiano,Sporting,6,1,2,3,0,0
+29,Mr. Raymond E. Yurick,11:50,0,Retriever (Nova Scotia Duck Toll),breed,all-breed,Nova Scotia Duck Tolling Retriever,Sporting,6,5,0,0,1,0
+29,Mr. Raymond E. Yurick,11:50,1,Spinone Italiano,breed,all-breed,Spinone Italiano,Sporting,6,1,2,3,0,0
 29,Mr. Raymond E. Yurick,12:20,0,Vizsla,breed,all-breed,Vizsla,Sporting,33,9,4,7,12,1
 29,Mr. Raymond E. Yurick,13:40,0,Weimaraner,breed,all-breed,Weimaraner,Sporting,8,0,3,1,4,0
 29,Mr. Raymond E. Yurick,13:40,1,Wirehaired Pointing Griffon,breed,all-breed,Wirehaired Pointing Griffon,Sporting,11,1,5,1,4,0

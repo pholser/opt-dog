@@ -39,13 +39,15 @@ inside a segment, chosen by an arc a_{PQ} at a segment's first event):
              F ≥ every judge's lunch end                                                 (H14)
     groups:  NoOverlap(group intervals); BIS starts after every group                    (H10)
 
-H11 holds by the pinned blocks; H12 and V1 are input checks. Five lexicographic phases:
+H11 holds by the pinned blocks; H12 and V1 are input checks. Six lexicographic phases:
 (1) minimize the BIS end; (2) minimize BIS end + `short_block_finish_minutes` × short blocks,
 giving up finish for fewer short blocks (skipped if nothing can change the count, or the
 parameter is 0); (3) at that finish and count, minimize the soft costs the structure controls
 (S2 ring changes, S3 equipment switches, S9 short blocks, S10 lunch splitting a group, block
-count); (4) at those, minimize conflicts of exhibitors signed up for the accommodation (S1);
-(5) at those, minimize judge idle (S5), then start blocks as early as possible. Each
+count); (4) at those, minimize judge idle (S5), then cap idle at `conflict_idle_budget` × that
+minimum; (5) within the cap, minimize conflicts of exhibitors signed up for the accommodation
+(S1); (6) at those, minimize judge idle again, then start blocks as early as possible. Phases
+4 and 5 run only when some registered exhibitor has a pair that can clash. Each
 phase starts from the previous one's solution; phase 1 starts from the greedy schedule
 (step 1) or the step-1 schedule. Step 3c runs the same model with the breeds inside each run
 packed into full blocks first (packing.py).
@@ -107,7 +109,7 @@ class PlacementOptions:
     time_limit: float = 60.0  # seconds per phase
     workers: int = 8
     hint: bool = True  # start from a known schedule (greedy, or step 1 for formation)
-    tidy: bool = True  # phases 3-5: at that finish, lower soft costs, then earlier blocks
+    tidy: bool = True  # phases 3-6: at that finish, lower soft costs, then earlier blocks
     log: bool = False
     max_block_minutes: float = 65.0  # 3a-3c: H1 cap on a formed block; same as the greedy (E: human p90 27 dogs)
 
@@ -128,6 +130,8 @@ class PlacementResult:
     bound: float | None  # CP-SAT's proven lower bound on the finish for this model (from phase 1)
     phases: list[PhaseStats] = field(default_factory=list)
     costs: dict[str, float] = field(default_factory=dict)  # structure costs of the returned schedule
+    idle: float | None = None  # judge idle of the returned schedule, minutes (model value, S5)
+    idle_min: float | None = None  # least idle at that structure (phase 4), before the conflict budget
 
     @property
     def status(self) -> str:
@@ -337,17 +341,25 @@ def _solve(m: "_Model", o: PlacementOptions, hint_prog: JudgingProgram | None) -
         # phase 3: soft costs of the structure, at that finish
         if run("structure", m.structure, WSCALE):
             m.model.Add(m.structure <= solver.Value(m.structure))
-            # phase 4: exhibitor conflicts, for those signed up for the accommodation
+            times = IDLE_OVER_STARTS * m.idle + sum(m.run_starts) + m.first
             conflicts = m.conflict_cost()
-            if conflicts is not None and run("conflicts", conflicts, SCALE):
-                m.model.Add(conflicts <= solver.Value(conflicts))
-            # phase 5: least judge idle, then earliest blocks
-            run("times", IDLE_OVER_STARTS * m.idle + sum(m.run_starts) + m.first, SCALE)
+            if conflicts is not None:
+                # phase 4: least judge idle, which then may grow by the budget
+                if run("idle", times, SCALE):
+                    res.idle_min = solver.Value(m.idle) / SCALE
+                    budget = max(1.0, m.p.conflict_idle_budget)
+                    m.model.Add(m.idle <= math.floor(solver.Value(m.idle) * budget + 1e-6))
+                # phase 5: exhibitor conflicts, for those signed up for the accommodation
+                if run("conflicts", conflicts, SCALE):
+                    m.model.Add(conflicts <= solver.Value(conflicts))
+            # phase 6: least judge idle, then earliest blocks
+            run("times", times, SCALE)
     if res.phases[-1].status not in ("OPTIMAL", "FEASIBLE"):
         m.model.Minimize(m.finish)  # fall back to the last good solution (kept as the hint)
         solver.Solve(m.model)
     res.program = m.extract(solver)
     res.costs = {k: float(solver.Value(v)) for k, v in m.cost_terms.items()}
+    res.idle = solver.Value(m.idle) / SCALE
     return res
 
 

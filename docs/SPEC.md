@@ -127,11 +127,11 @@ start of unit `u` (block start + durations of the units ahead of it in the block
 
 | # | Cost | Source |
 |---|---|---|
-| S1 | **Exhibitor conflict minutes**, counted **by breed** (U), only for exhibitors signed up for the conflict-resolution program; not every exhibitor opts in (U). In the solver it ranks after the structure costs (U). For each registered exhibitor `x ∈ X*`, their dogs in one unit merge into one busy window (any class dog → the whole unit; champions only → just the BOB portion, §2.7). Several dogs in the same unit are never a conflict. For each pair of `x`'s windows in *different units*, the cost is the **minutes of overlap**. If the two units are in **different rings**, one window is first widened by the travel margin `m_X` (so units back to back across rings with less than `m_X` between them still conflict). Units in the same ring never overlap, so they never conflict | U |
+| S1 | **Exhibitor conflict minutes**, counted **by breed** (U), only for exhibitors signed up for the conflict-resolution program; not every exhibitor opts in (U). In the solver it ranks after the structure costs (U), within a judge-idle budget (`conflict_idle_budget`, default 2 × least idle, U). For each registered exhibitor `x ∈ X*`, their dogs in one unit merge into one busy window (any class dog → the whole unit; champions only → just the BOB portion, §2.7). Several dogs in the same unit are never a conflict. For each pair of `x`'s windows in *different units*, the cost is the **minutes of overlap**. If the two units are in **different rings**, one window is first widened by the travel margin `m_X` (so units back to back across rings with less than `m_X` between them still conflict). Units in the same ring never overlap, so they never conflict | U |
 | S2 | **Judge ring changes**: penalty for each change between consecutive blocks; a heavier penalty when the change isn't at lunch | Best Practices; Show Manual §6; U |
 | S3 | **Equipment switches**: cost per change of equipment (ground / table / ramp) between consecutive breeds **in a ring**, across judges sharing the ring. A switch **across a lunch** is free: a lunch of the judge who leaves or the judge who arrives falls in the ring's idle time between the two breeds, itself at least `equipment_free_gap_minutes` (default 45) (U). A long idle gap with no lunch is not a break: otherwise the solver inserts idle time to make switches free (seen in 3b, SFD 9/12) (U). Within a judge's sequence, table breeds consecutive and ramp breeds consecutive, applied within each group run since S4 takes precedence (§8: humans keep table breeds together within a group 69% of the time, across a whole assignment only 37%) | Show Manual §6 "Scheduling Rings": "Within a judging assignment, all breeds judged on a table should be scheduled consecutively, and all breeds judged on a ramp should be scheduled consecutively"; Best Practices: "schedule table breeds and ramp breeds being judged in the same ring together to decrease the movement of equipment which causes delays" |
 | S4 | **Group split**: a judge with breeds in several groups judges each group's breeds in one consecutive run. Cost per extra run of a group in a judge's sequence, scored by the validator; steps 3b and 3c keep each group in one run by construction (soft, U: humans split a group on 37 of 129 judge-days, 83 extra runs) | Show Manual §6 "Scheduling Breed Judging": "If judges are assigned breeds in more than one group, organize their breed-judging schedule by group"; U |
-| S5 | Idle gaps in a judge's day, from first to last event. A lunch counts only for its own length (a published break's stated length, otherwise the 45-minute minimum); any wait beyond it is idle. A judge who needs no lunch has none unless the program publishes one, so their long gaps are idle (U). The solver minimizes it after S2, S3, S9, S10 and then S1 are fixed, so it never trades against them | E/convention |
+| S5 | Idle gaps in a judge's day, from first to last event. A lunch counts only for its own length (a published break's stated length, otherwise the 45-minute minimum); any wait beyond it is idle. A judge who needs no lunch has none unless the program publishes one, so their long gaps are idle (U). The solver minimizes it after S2, S3, S9 and S10 are fixed; S1 may then raise it up to `conflict_idle_budget` × that minimum, and the last phase minimizes it again with S1 fixed | E/convention |
 | S6 | **Not modeled.** Short-nosed (brachycephalic) breeds in the cooler part of the day (outdoor shows) | Show Manual §6 |
 | S7 | **Not modeled.** Permit judges at non-conflicting times (for the AKC field rep) | Show Manual §6 |
 | S8 | **Final segment over 50 dogs**: a ring's final segment may stretch past an hour; each dog over 50 (unless it is a single breed/variety) costs `w_final`. AKC states this as a rule, but it is a soft cost here because real programs exceed it (§8). Scored by the validator; not in the solver | Rules Ch.7 §12; U; E |
@@ -150,8 +150,12 @@ The **solver is lexicographic**. Each phase holds the results of the ones before
 1. Finish: the earliest BIS end.
 2. Trade: finish + `short_block_finish_minutes` × short blocks.
 3. Structure: a weighted sum of S2, S3, S9, S10 and block count.
-4. Conflicts: S1, for exhibitors signed up for the conflict-resolution program.
-5. Times: S5 judge idle, then earliest block starts.
+4. Idle: S5 judge idle (with earliest starts as a tie-break). Idle is then capped at
+   `conflict_idle_budget` × this minimum (default 2).
+5. Conflicts: S1, for exhibitors signed up for the conflict-resolution program, within that cap.
+6. Times: S5 judge idle, then earliest block starts.
+
+Phases 4 and 5 run only when some registered exhibitor has two events that can clash.
 
 Only the structure weights affect the solver. **OPEN**: whether to keep the phases or return
 to a weighted sum, and what the default weights should be.
@@ -316,6 +320,12 @@ Those before the "Group judges" entry predate the parser fix, and judge idle fig
   56–99% at the same finish and structure cost. Judge idle rose on two of the days, 45 → 361 and
   131 → 1243 minutes; a 300-second idle phase brought those to 225 and 717. A lunch now counts
   as idle only beyond its own length, in the validator as in the solver.
+  Idle first, then a budget: a phase minimizes idle, idle is capped at `conflict_idle_budget` ×
+  that minimum, and conflicts are minimized within the cap. Trial at 60 s per phase (finish,
+  structure and hard rules unchanged): Del Sur 5/1 conflicts 138 → 36 at ×1.25 (idle 40) and
+  → 9 at ×2 (idle 88); Palm Springs 1/4 3,524 → 3,112 (idle 151) and → 2,695 (idle 238).
+  Conflicts first had reached 7 and 1,606, with idle 225 and 717 even at 300 s. Default ×2 (U).
+  The budget is a multiple, so a day whose least idle is 0 gets no idle for conflicts.
 - **Relaxation bound** (`solve/relaxation.py`): CP-SAT on a relaxation that keeps judges
   (one event at a time, lunch in the window with judging on both sides), rings as a pool of
   |R| (|R| − |RG| from the first group on, H9), pinned blocks, and H7, H8, H10, H13, H14 exactly;

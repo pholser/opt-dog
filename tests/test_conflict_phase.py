@@ -1,5 +1,7 @@
 """S1 in the solver: a phase after structure, for exhibitors signed up for the accommodation."""
 
+from dataclasses import replace
+
 import pytest
 
 from optdog.breeds import default_catalog
@@ -85,3 +87,24 @@ def test_pairs_merge_an_exhibitors_dogs_and_count_exhibitors():
     assert (a, b, n) == (pug, boxer, 2)
     assert oa == (0.0, pug.duration)  # a class dog in the breed: busy for all of it
     assert ob == (boxer.bob_offset, boxer.duration)  # champions only: Best of Breed portion
+
+
+def budget_case(budget):
+    # Long events: each breed is its own block, and the 5-minute grid forces some idle.
+    pug, mal, box, bas = ev("Pug", A, 23), ev("Maltese", A, 23), ev("Boxer", B, 23), ev("Basenji", B, 23)
+    show = show_of([pug, mal, box, bas, ev("Golden Retriever", C, 50)], (A, B, C))
+    enter(show, Exhibitor("X", registered=True), pug, box)
+    enter(show, Exhibitor("V", registered=True), pug, bas)
+    enter(show, Exhibitor("W", registered=True), mal, bas)
+    res = solve_ordering(show, replace(P, conflict_idle_budget=budget))
+    return res, minutes(res, show)
+
+
+def test_idle_comes_first_and_the_budget_buys_fewer_conflicts():
+    tight, tight_conflicts = budget_case(1.0)
+    loose, loose_conflicts = budget_case(3.0)
+    assert names(tight)[-3:] == ["idle", "conflicts", "times"]
+    assert tight.finish == loose.finish and tight.idle_min == loose.idle_min > 0
+    assert tight.idle == pytest.approx(tight.idle_min)  # budget 1: no idle spent on conflicts
+    assert tight.idle_min < loose.idle <= 3 * loose.idle_min + 0.1
+    assert loose_conflicts < tight_conflicts

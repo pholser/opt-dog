@@ -120,12 +120,12 @@ ring,judge,block_start,position,event,kind,competition,breed,group,entries,class
 24,Mr. Robert E. Schwalbe,08:30,4,Norwegian Elkhound,breed,all-breed,Norwegian Elkhound,Hound,1,0,0,0,1,0
 24,Mr. Robert E. Schwalbe,09:20,0,Basset Hound,breed,all-breed,Basset Hound,Hound,15,4,3,5,3,0
 24,Mr. Robert E. Schwalbe,10:00,0,Beagle Thirteen Inch,breed,all-breed,Beagle (13 Inch),Hound,15,0,6,4,5,0
-24,Mr. Robert E. Schwalbe,11:45,0,Beagle Fifteen Inch,breed,all-breed,Beagle (15 Inch),Hound,24,5,5,5,9,0
-24,Mr. Robert E. Schwalbe,12:45,0,Dachshund (Longhaired),breed,all-breed,Dachshund (Longhaired),Hound,20,8,7,4,1,0
-24,Mr. Robert E. Schwalbe,13:35,0,Dachshund (Smooth),breed,all-breed,Dachshund (Smooth),Hound,19,3,7,5,4,0
-24,Mr. Robert E. Schwalbe,14:25,0,Dachshund (Wirehaired),breed,all-breed,Dachshund (Wirehaired),Hound,23,7,8,4,4,0
-24,Mr. Robert E. Schwalbe,14:25,1,Portuguese Podengo Pequeno,breed,all-breed,Portuguese Podengo Pequeno,Hound,1,0,1,0,0,0
-24,Mr. Robert E. Schwalbe,15:25,0,Kerry Blue Terrier,breed,all-breed,Kerry Blue Terrier,Terrier,16,4,4,4,3,1
+24,Mr. Robert E. Schwalbe,10:40,0,Beagle Fifteen Inch,breed,all-breed,Beagle (15 Inch),Hound,24,5,5,5,9,0
+24,Mr. Robert E. Schwalbe,12:25,0,Dachshund (Longhaired),breed,all-breed,Dachshund (Longhaired),Hound,20,8,7,4,1,0
+24,Mr. Robert E. Schwalbe,13:15,0,Dachshund (Smooth),breed,all-breed,Dachshund (Smooth),Hound,19,3,7,5,4,0
+24,Mr. Robert E. Schwalbe,14:05,0,Dachshund (Wirehaired),breed,all-breed,Dachshund (Wirehaired),Hound,23,7,8,4,4,0
+24,Mr. Robert E. Schwalbe,14:05,1,Portuguese Podengo Pequeno,breed,all-breed,Portuguese Podengo Pequeno,Hound,1,0,1,0,0,0
+24,Mr. Robert E. Schwalbe,15:05,0,Kerry Blue Terrier,breed,all-breed,Kerry Blue Terrier,Terrier,16,4,4,4,3,1
 26,Mr. Peter Miller,08:30,0,Afghan Hound,breed,all-breed,Afghan Hound,Hound,15,2,3,4,6,0
 26,Mr. Peter Miller,09:10,0,Great Dane,breed,all-breed,Great Dane,Working,23,5,10,5,3,0
 27,Mr. Kevin E. Lind,08:30,0,Standard Schnauzer,breed,all-breed,Standard Schnauzer,Working,13,5,1,2,5,0
@@ -158,33 +158,33 @@ ring,judge,block_start,position,event,kind,competition,breed,group,entries,class
 29,Ms. Gina Wieser,08:30,0,Biewer Terrier,breed,all-breed,Biewer Terrier,Toy,3,0,1,2,0,0
 29,Ms. Gina Wieser,08:30,1,Brussels Griffon,breed,all-breed,Brussels Griffon,Toy,19,1,10,4,4,0
 29,Ms. Gina Wieser,09:25,0,Cavalier King Charles Spaniel,breed,all-breed,Cavalier King Charles Spaniel,Toy,34,6,15,8,5,0
-29,Ms. Gina Wieser,11:45,0,English Toy Spaniel (B&PC),breed,all-breed,English Toy Spaniel (B&PC),Toy,1,0,0,1,0,0
-29,Ms. Gina Wieser,11:45,1,English Toy Spaniel (KC&R),breed,all-breed,English Toy Spaniel (KC&R),Toy,1,0,0,1,0,0
-29,Ms. Gina Wieser,11:45,2,Havanese,breed,all-breed,Havanese,Toy,10,4,3,1,2,0
-29,Ms. Gina Wieser,11:45,3,Italian Greyhound,breed,all-breed,Italian Greyhound,Toy,9,0,4,2,3,0
-29,Ms. Gina Wieser,12:40,0,Japanese Chin,breed,all-breed,Japanese Chin,Toy,7,2,1,2,2,0
-29,Ms. Gina Wieser,12:40,1,Manchester Terrier (Toy),breed,all-breed,Manchester Terrier (Toy),Toy,6,0,1,4,1,0
-29,Ms. Gina Wieser,12:40,2,Miniature Pinscher,breed,all-breed,Miniature Pinscher,Toy,6,2,2,1,1,0
-29,Ms. Gina Wieser,13:30,0,Pomeranian,breed,all-breed,Pomeranian,Toy,30,5,13,7,5,0
-29,Ms. Gina Wieser,14:50,0,Poodle (Toy),breed,all-breed,Poodle (Toy),Toy,5,3,2,0,0,0
-29,Ms. Gina Wieser,14:50,1,Russian Tsvetnaya Bolonka,breed,all-breed,Russian Tsvetnaya Bolonka,Toy,5,4,1,0,0,0
-29,Ms. Gina Wieser,14:50,2,Shih Tzu,breed,all-breed,Shih Tzu,Toy,4,1,2,0,1,0
-29,Ms. Gina Wieser,14:50,3,Toy Fox Terrier,breed,all-breed,Toy Fox Terrier,Toy,5,2,2,1,0,0
-29,Ms. Gina Wieser,14:50,4,Yorkshire Terrier,breed,all-breed,Yorkshire Terrier,Toy,6,3,1,2,0,0
+29,Ms. Gina Wieser,10:50,0,English Toy Spaniel (B&PC),breed,all-breed,English Toy Spaniel (B&PC),Toy,1,0,0,1,0,0
+29,Ms. Gina Wieser,10:50,1,English Toy Spaniel (KC&R),breed,all-breed,English Toy Spaniel (KC&R),Toy,1,0,0,1,0,0
+29,Ms. Gina Wieser,10:50,2,Havanese,breed,all-breed,Havanese,Toy,10,4,3,1,2,0
+29,Ms. Gina Wieser,10:50,3,Italian Greyhound,breed,all-breed,Italian Greyhound,Toy,9,0,4,2,3,0
+29,Ms. Gina Wieser,12:30,0,Japanese Chin,breed,all-breed,Japanese Chin,Toy,7,2,1,2,2,0
+29,Ms. Gina Wieser,12:30,1,Manchester Terrier (Toy),breed,all-breed,Manchester Terrier (Toy),Toy,6,0,1,4,1,0
+29,Ms. Gina Wieser,12:30,2,Miniature Pinscher,breed,all-breed,Miniature Pinscher,Toy,6,2,2,1,1,0
+29,Ms. Gina Wieser,13:20,0,Pomeranian,breed,all-breed,Pomeranian,Toy,30,5,13,7,5,0
+29,Ms. Gina Wieser,14:35,0,Poodle (Toy),breed,all-breed,Poodle (Toy),Toy,5,3,2,0,0,0
+29,Ms. Gina Wieser,14:35,1,Russian Tsvetnaya Bolonka,breed,all-breed,Russian Tsvetnaya Bolonka,Toy,5,4,1,0,0,0
+29,Ms. Gina Wieser,14:35,2,Shih Tzu,breed,all-breed,Shih Tzu,Toy,4,1,2,0,1,0
+29,Ms. Gina Wieser,14:35,3,Toy Fox Terrier,breed,all-breed,Toy Fox Terrier,Toy,5,2,2,1,0,0
+29,Ms. Gina Wieser,14:35,4,Yorkshire Terrier,breed,all-breed,Yorkshire Terrier,Toy,6,3,1,2,0,0
 31,Mr. Stephen Dainard,08:30,0,Brittany,breed,all-breed,Brittany,Sporting,5,1,0,1,3,0
 31,Mr. Stephen Dainard,08:30,1,Irish Setter,breed,all-breed,Irish Setter,Sporting,19,3,6,5,5,0
 31,Mr. Stephen Dainard,09:30,0,Irish Water Spaniel,breed,all-breed,Irish Water Spaniel,Sporting,8,1,4,1,2,0
 31,Mr. Stephen Dainard,09:30,1,Spinone Italiano,breed,all-breed,Spinone Italiano,Sporting,6,1,2,3,0,0
-31,Mr. Stephen Dainard,11:45,0,Vizsla,breed,all-breed,Vizsla,Sporting,40,13,6,7,12,2
-31,Mr. Stephen Dainard,13:25,0,Wirehaired Pointing Griffon,breed,all-breed,Wirehaired Pointing Griffon,Sporting,11,1,5,1,4,0
-31,Mr. Stephen Dainard,13:25,1,Wirehaired Vizsla,breed,all-breed,Wirehaired Vizsla,Sporting,6,2,0,1,3,0
-31,Mr. Stephen Dainard,13:25,2,Clumber Spaniel,breed,all-breed,Clumber Spaniel,Sporting,4,0,1,3,0,0
-31,Mr. Stephen Dainard,13:25,3,Lagotto Romagnolo,breed,all-breed,Lagotto Romagnolo,Sporting,4,0,3,1,0,0
-31,Mr. Stephen Dainard,14:25,0,Cocker Spaniel (Ascob),breed,all-breed,Cocker Spaniel (ASCOB),Sporting,9,1,4,1,3,0
-31,Mr. Stephen Dainard,14:25,1,Cocker Spaniel (Black),breed,all-breed,Cocker Spaniel (Black),Sporting,4,0,0,2,2,0
-31,Mr. Stephen Dainard,14:25,2,Cocker Spaniel (Parti-Color),breed,all-breed,Cocker Spaniel (Parti-Color),Sporting,9,0,1,4,4,0
-31,Mr. Stephen Dainard,15:20,0,English Cocker Spaniel,breed,all-breed,English Cocker Spaniel,Sporting,16,2,7,2,3,2
-31,Mr. Stephen Dainard,15:20,1,Nederlandse Kooikerhondjes,breed,all-breed,Nederlandse Kooikerhondje,Sporting,4,1,1,1,1,0
+31,Mr. Stephen Dainard,10:05,0,Vizsla,breed,all-breed,Vizsla,Sporting,40,13,6,7,12,2
+31,Mr. Stephen Dainard,12:30,0,Wirehaired Pointing Griffon,breed,all-breed,Wirehaired Pointing Griffon,Sporting,11,1,5,1,4,0
+31,Mr. Stephen Dainard,12:30,1,Wirehaired Vizsla,breed,all-breed,Wirehaired Vizsla,Sporting,6,2,0,1,3,0
+31,Mr. Stephen Dainard,12:30,2,Clumber Spaniel,breed,all-breed,Clumber Spaniel,Sporting,4,0,1,3,0,0
+31,Mr. Stephen Dainard,12:30,3,Lagotto Romagnolo,breed,all-breed,Lagotto Romagnolo,Sporting,4,0,3,1,0,0
+31,Mr. Stephen Dainard,13:30,0,Cocker Spaniel (Ascob),breed,all-breed,Cocker Spaniel (ASCOB),Sporting,9,1,4,1,3,0
+31,Mr. Stephen Dainard,13:30,1,Cocker Spaniel (Black),breed,all-breed,Cocker Spaniel (Black),Sporting,4,0,0,2,2,0
+31,Mr. Stephen Dainard,13:30,2,Cocker Spaniel (Parti-Color),breed,all-breed,Cocker Spaniel (Parti-Color),Sporting,9,0,1,4,4,0
+31,Mr. Stephen Dainard,14:25,0,English Cocker Spaniel,breed,all-breed,English Cocker Spaniel,Sporting,16,2,7,2,3,2
+31,Mr. Stephen Dainard,14:25,1,Nederlandse Kooikerhondjes,breed,all-breed,Nederlandse Kooikerhondje,Sporting,4,1,1,1,1,0
 32,Mr. Colin Graham Bohler,08:30,0,Airedale Terrier,breed,all-breed,Airedale Terrier,Terrier,13,3,4,4,2,0
 32,Mr. Colin Graham Bohler,09:05,0,American Staffordshire Terrier,breed,all-breed,American Staffordshire Terrier,Terrier,20,1,10,6,3,0
 32,Mr. Colin Graham Bohler,09:05,1,Bull Terrier (Colored),breed,all-breed,Bull Terrier (Colored),Terrier,5,1,2,1,1,0
