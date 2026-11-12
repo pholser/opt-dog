@@ -110,6 +110,9 @@ class PlacementOptions:
     # phase 4 sets the idle budget, so a weak minimum widens it (Palm Springs 1/5 at 60 s: cap 511 min).
     # None: 3 × time_limit.
     idle_time_limit: float | None = None
+    # phase 5 never proves a minimum (bound 0); at 60 s Greater Sierra Vista 11/17 left 245 min, at 180 s 81-102.
+    # None: 3 × time_limit.
+    conflict_time_limit: float | None = None
     workers: int = 8
     hint: bool = True  # start from a known schedule (greedy, or step 1 for formation)
     tidy: bool = True  # phases 3-6: at that finish, lower soft costs, then earlier blocks
@@ -354,7 +357,7 @@ def _solve(m: "_Model", o: PlacementOptions, hint_prog: JudgingProgram | None) -
                     budget = max(1.0, m.p.conflict_idle_budget)
                     m.model.Add(m.idle <= math.floor(solver.Value(m.idle) * budget + 1e-6))
                 # phase 5: exhibitor conflicts, for those signed up for the accommodation
-                if run("conflicts", conflicts, SCALE):
+                if run("conflicts", conflicts, SCALE, o.conflict_time_limit or 3 * o.time_limit):
                     m.model.Add(conflicts <= solver.Value(conflicts))
             # phase 6: least judge idle, then earliest blocks
             run("times", times, SCALE)

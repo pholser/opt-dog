@@ -155,6 +155,9 @@ The **solver is lexicographic**. Each phase holds the results of the ones before
    (180 s by default): on Palm Springs 1/5 it found least idle ≈ 255 min at 60 s, 168.8 at
    180 s and 167.8 at 300 s.
 5. Conflicts: S1, for exhibitors signed up for the conflict-resolution program, within that cap.
+   This phase also runs 3 × the phase limit. Its bound stays at 0, so it never proves a minimum;
+   two runs each on Greater Sierra Vista 11/17 left 245 and 246 min at 60 s, 81 and 102 at 180 s
+   (Tucson 11/14: 227, 251 against 202, 242).
 6. Times: S5 judge idle, then earliest block starts.
 
 Phases 4 and 5 run only when some registered exhibitor has two events that can clash.

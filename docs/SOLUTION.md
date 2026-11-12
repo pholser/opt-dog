@@ -56,7 +56,8 @@ The 3c solve runs in phases, and each phase holds the results of the ones before
    (default 2) to make room for the next phase. This phase gets three times the usual limit
    (`idle_time_limit`, 180 seconds by default), because a weak minimum widens the budget.
 5. **Conflicts:** minutes that exhibitors signed up for the conflict-resolution program are needed
-   in two rings at once, within that idle budget. Exhibitors who did not opt in are ignored.
+   in two rings at once, within that idle budget. Exhibitors who did not opt in are ignored. This
+   phase also gets three times the usual limit (`conflict_time_limit`).
 6. **Times:** least judge idle again, then earliest block starts.
 
 Phases 4 and 5 run only when some opted-in exhibitor has two events that can clash.
@@ -144,23 +145,25 @@ These cover 11 published all-breed days from one superintendent (Bradshaw), 2022
 | Total over the 11 days | Published | 3b | 3c |
 |---|---|---|---|
 | Short blocks (under 15 dogs) | 64 | 50 | 22 |
-| Equipment switches in a ring | 421 | 227 | 220 |
-| Judge ring changes | 27 | 13 | 15 |
-| Exhibitor conflict minutes (opted-in, synthetic seed 0) | 16,823 | 9,566 | 10,194 |
-| Judge idle minutes | 1,413 | 2,013 | 1,703 |
+| Equipment switches in a ring | 421 | 231 | 216 |
+| Judge ring changes | 27 | 11 | 15 |
+| Exhibitor conflict minutes (opted-in, synthetic seed 0) | 16,823 | 8,062 | 7,408 |
+| Judge idle minutes | 1,413 | 2,169 | 1,913 |
 | Mean minutes above the lower bound | 74 | 6 | 4 |
 
-- Conflicts in 3c are lower than published on every day: 39% lower in total, 29–92% lower on
-  the eight smaller days, and 16–37% lower on the three Palm Springs days, where most
+- Conflicts in 3c are lower than published on every day: 56% lower in total, 51–96% lower on
+  the eight smaller days, and 46–60% lower on the three Palm Springs days, where most
   conflict minutes are.
 - Judge idle is the price. Before the conflict phases, 3c had 1,138 idle minutes; it now has
-  1,703, more than the published programs. The budget allows up to twice the least idle the
-  idle phase finds. With that phase at 60 seconds, Palm Springs 1/5 found a weak minimum,
-  the cap came out at 511 minutes, and 3c used all of it. At 180 seconds the same day reaches
-  239, and the total over 11 days fell from 2,183 to 1,703 with conflicts about the same.
-- Conflict totals per day move by up to a factor of three between runs (Greater Sierra Vista
-  11/17: 102 and 301), because the 60-second conflict phase is not proven minimal. Treat
-  per-day conflict figures as one sample.
+  1,913, more than the published programs. The budget allows up to twice the least idle the
+  idle phase finds.
+- Phase limits mattered. With 60-second idle and conflict phases, 3c had 10,361 conflict
+  minutes and 2,183 idle. A 180-second idle phase tightened the budget (Palm Springs 1/5:
+  cap 511 → about 338, idle used 511 → 239), giving 10,194 and 1,703. A 180-second conflict
+  phase then gave 7,408 and 1,913.
+- Per-day figures are one sample. The conflict phase never proves a minimum, and between runs
+  a day's conflicts can move by a factor of three (Greater Sierra Vista 11/17: 102, 301 and 81)
+  and its idle by a factor of two (Tucson 11/14: 157 and 308).
 
 - 11 of the 22 short blocks in 3c are a judge's whole assignment of under 15 dogs, so they cannot
   be made larger.
@@ -177,8 +180,8 @@ are not predictions.
 packing step fixed, at the trade price of 10 minutes per short block.
 
 **Runtime.** A full batch of bound and all four steps took about 57 minutes for 11 days, or 2–9
-minutes per day, before the conflict phases. With them and a 180-second idle phase, the batch
-took about 2.8 hours, or 11–20 minutes per day.
+minutes per day, before the conflict phases. With them, at 180 seconds each, the batch took
+about 3.8 hours, or 14–27 minutes per day.
 
 **Ring-size experiment.** Three days, with invented layouts, because no published program states
 ring sizes. Each cell lists Del Sur 5/1, Palm Springs 1/4 and Sir Francis Drake 9/12.
@@ -236,7 +239,7 @@ should run with nothing else competing for CPU.
 | Lower bound ignores ring size | Still valid, but weaker when ring sizes bind |
 | One unexplained solver failure | A test once ended with no solution after 3.5 seconds, under a 20-second limit. It did not recur, but the cause was never found |
 | Idle budget rests on an unproven minimum | The idle phase still times out, so the budget can be wider than 2 × the true least idle. At 180 seconds, the phase was within 1 minute of what 300 seconds found on Palm Springs 1/5. A cap in minutes would remove the dependence |
-| Conflict phase is noisy | At 60 seconds, per-day conflict minutes vary by up to a factor of three between runs. The 11-day total varied less (10,361 and 10,194) |
+| Conflict phase is noisy | Its lower bound stays at 0, so it is never proven. Per-day conflict minutes vary by up to a factor of three between runs, even at 180 seconds |
 
 ### Evidence gaps
 

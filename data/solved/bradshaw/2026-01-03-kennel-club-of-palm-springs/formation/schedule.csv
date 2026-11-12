@@ -1,140 +1,161 @@
 ring,judge,block_start,position,event,kind,competition,breed,group,entries,class_dogs,class_bitches,bob_dogs,bob_bitches,nonregular
-1,Mr. Kevin E. Lind,08:30,0,Standard Schnauzer,breed,all-breed,Standard Schnauzer,Working,13,5,1,2,5,0
-1,Mrs. Mary Ellen Hardin,09:25,0,Flat-Coated Retriever,breed,all-breed,Flat-Coated Retriever,Sporting,16,4,2,5,4,1
-1,Mrs. Mary Ellen Hardin,10:05,0,German Shorthaired Pointer,breed,all-breed,German Shorthaired Pointer,Sporting,22,5,7,4,6,0
-1,Mrs. Mary Ellen Hardin,11:45,0,Golden Retriever,breed,all-breed,Golden Retriever,Sporting,92,29,39,11,13,0
-1,Mrs. Mary Ellen Hardin,15:30,0,Retriever (Nova Scotia Duck Toll),breed,all-breed,Nova Scotia Duck Tolling Retriever,Sporting,6,5,0,0,1,0
-1,Mrs. Mary Ellen Hardin,15:30,1,Weimaraner,breed,all-breed,Weimaraner,Sporting,9,1,3,1,4,0
-2,Mrs. Janet M Schwalbe,10:05,0,Cardigan Welsh Corgi,breed,all-breed,Cardigan Welsh Corgi,Herding,7,0,3,0,4,0
-2,Mrs. Janet M Schwalbe,10:05,1,Irish Wolfhound,breed,all-breed,Irish Wolfhound,Hound,15,3,5,4,2,1
-2,Mrs. Janet M Schwalbe,11:45,0,Rhodesian Ridgeback,breed,all-breed,Rhodesian Ridgeback,Hound,80,19,25,14,18,4
-2,Mrs. Janet M Schwalbe,15:00,0,Petit Basset Griffon Vendeens,breed,all-breed,Petit Basset Griffon Vendeen,Hound,3,0,2,1,0,0
-2,Mrs. Janet M Schwalbe,15:10,0,Norwich Terrier,breed,all-breed,Norwich Terrier,Terrier,25,4,6,11,4,0
-2,Mrs. Janet M Schwalbe,16:10,0,Scottish Terrier,breed,all-breed,Scottish Terrier,Terrier,9,3,3,2,1,0
-2,Mrs. Janet M Schwalbe,16:10,1,Sealyham Terrier,breed,all-breed,Sealyham Terrier,Terrier,1,0,0,0,1,0
-3,Mr. Colin Graham Bohler,08:30,0,Airedale Terrier,breed,all-breed,Airedale Terrier,Terrier,13,3,4,4,2,0
-3,Mr. Colin Graham Bohler,09:05,0,American Staffordshire Terrier,breed,all-breed,American Staffordshire Terrier,Terrier,20,1,10,6,3,0
-3,Mr. Colin Graham Bohler,09:55,0,Bull Terrier (Colored),breed,all-breed,Bull Terrier (Colored),Terrier,5,1,2,1,1,0
-3,Mr. Colin Graham Bohler,09:55,1,Bull Terrier (White),breed,all-breed,Bull Terrier (White),Terrier,3,1,0,1,1,0
-3,Mr. Colin Graham Bohler,09:55,2,Irish Terrier,breed,all-breed,Irish Terrier,Terrier,9,1,2,4,2,0
-3,Mr. Colin Graham Bohler,10:40,0,Miniature Bull Terrier,breed,all-breed,Miniature Bull Terrier,Terrier,25,7,4,7,7,0
-3,Mr. Colin Graham Bohler,11:40,0,Cairn Terrier,breed,all-breed,Cairn Terrier,Terrier,15,1,6,5,3,0
-3,Mr. Colin Graham Bohler,12:20,0,Lakeland Terrier,breed,all-breed,Lakeland Terrier,Terrier,4,1,1,1,1,0
-3,Mr. Colin Graham Bohler,12:20,1,Parson Russell Terrier,breed,all-breed,Parson Russell Terrier,Terrier,11,1,5,4,1,0
-3,Mr. Colin Graham Bohler,13:00,0,Russell Terriers,breed,all-breed,Russell Terrier,Terrier,10,4,0,4,2,0
-3,Mr. Colin Graham Bohler,13:00,1,West Highland White Terrier,breed,all-breed,West Highland White Terrier,Terrier,8,0,1,4,3,0
-4,Mrs. Kaisa Gold,08:30,0,Anatolian Shepherd,breed,all-breed,Anatolian Shepherd Dog,Working,4,1,2,1,0,0
-4,Mrs. Kaisa Gold,08:40,0,Bernese Mountain Dog,breed,all-breed,Bernese Mountain Dog,Working,37,12,11,9,5,0
-4,Mrs. Kaisa Gold,10:10,0,Bullmastiff,breed,all-breed,Bullmastiff,Working,18,3,2,5,7,1
-4,Mrs. Kaisa Gold,10:10,1,German Pinscher,breed,all-breed,German Pinscher,Working,5,2,2,1,0,0
-4,Mrs. Kaisa Gold,10:10,2,Great Pyrenees,breed,all-breed,Great Pyrenees,Working,1,0,0,1,0,0
-4,Mrs. Kaisa Gold,10:10,3,Greater Swiss Mountain Dog,breed,all-breed,Greater Swiss Mountain Dog,Working,3,0,1,2,0,0
-4,Mrs. Kaisa Gold,11:15,0,Mastiff,breed,all-breed,Mastiff,Working,17,2,4,6,5,0
-4,Mrs. Kaisa Gold,11:15,1,Neapolitan Mastiff,breed,all-breed,Neapolitan Mastiff,Working,1,0,0,1,0,0
-4,Mrs. Kaisa Gold,12:45,0,Newfoundland,breed,all-breed,Newfoundland,Working,32,9,6,9,7,1
-4,Mrs. Kaisa Gold,14:05,0,Rottweiler,breed,all-breed,Rottweiler,Working,12,5,1,5,1,0
-4,Mrs. Kaisa Gold,14:05,1,ST. Bernard,breed,all-breed,Saint Bernard,Working,3,0,3,0,0,0
-4,Mrs. Kaisa Gold,14:05,2,Tibetan Mastiff,breed,all-breed,Tibetan Mastiff,Working,1,0,0,1,0,0
-5,Mr. Bill Anderson,08:30,0,Boxer,breed,all-breed,Boxer,Working,65,16,25,12,8,4
-6,Mrs. Susan E. Huntzinger,08:30,0,Labrador Retriever,breed,all-breed,Labrador Retriever,Sporting,38,12,13,9,4,0
-7,Ms. Ginnette Louise Loft,08:30,0,Pug,breed,all-breed,Pug,Toy,16,2,4,6,4,0
-8,Mr. Peter Miller,08:30,0,Afghan Hound,breed,all-breed,Afghan Hound,Hound,15,2,3,4,6,0
-8,Mr. Peter Miller,09:10,0,Great Dane,breed,all-breed,Great Dane,Working,23,5,10,5,3,0
-9,Mr. Raymond E. Yurick,08:30,0,Belgian Malinois,breed,all-breed,Belgian Malinois,Herding,1,0,0,0,1,0
-9,Mr. Raymond E. Yurick,08:30,1,Belgian Sheepdog,breed,all-breed,Belgian Sheepdog,Herding,1,1,0,0,0,0
-9,Mr. Raymond E. Yurick,08:30,2,Belgian Tervuren,breed,all-breed,Belgian Tervuren,Herding,6,1,0,3,2,0
-9,Mr. Raymond E. Yurick,08:30,3,Berger Picard,breed,all-breed,Berger Picard,Herding,8,1,3,2,2,0
-9,Mr. Raymond E. Yurick,08:30,4,Border Collie,breed,all-breed,Border Collie,Herding,3,0,0,3,0,0
-9,Mr. Raymond E. Yurick,08:30,5,Bouvier Des Flandres,breed,all-breed,Bouvier des Flandres,Herding,8,1,0,4,3,0
-9,Mr. Raymond E. Yurick,09:35,0,Canaan Dog,breed,all-breed,Canaan Dog,Herding,1,0,0,0,1,0
-9,Mr. Raymond E. Yurick,09:35,1,Finnish Lapphund,breed,all-breed,Finnish Lapphund,Herding,4,2,1,1,0,0
-9,Mr. Raymond E. Yurick,09:35,2,Lancashire Heeler,breed,all-breed,Lancashire Heeler,Herding,1,0,0,1,0,0
-9,Mr. Raymond E. Yurick,09:35,3,Pumi,breed,all-breed,Pumi,Herding,1,0,0,1,0,0
-9,Mr. Raymond E. Yurick,09:35,4,Swedish Vallhund,breed,all-breed,Swedish Vallhund,Herding,1,0,1,0,0,0
-9,Mr. Raymond E. Yurick,09:35,5,Black Russian Terrier,breed,all-breed,Black Russian Terrier,Working,8,3,1,1,3,0
-9,Mr. Raymond E. Yurick,09:35,6,Cane Corso,breed,all-breed,Cane Corso,Working,11,5,3,3,0,0
-9,Mr. Raymond E. Yurick,10:40,0,Dogue De Bordeaux,breed,all-breed,Dogue de Bordeaux,Working,2,1,1,0,0,0
-9,Mr. Raymond E. Yurick,10:40,1,Leonberger,breed,all-breed,Leonberger,Working,7,2,1,3,1,0
-9,Mr. Raymond E. Yurick,10:40,2,Portuguese Water Dog,breed,all-breed,Portuguese Water Dog,Working,7,1,2,2,2,0
-9,Mr. Raymond E. Yurick,10:40,3,Siberian Husky,breed,all-breed,Siberian Husky,Working,9,2,2,4,1,0
-10,Mr. Jonathan C. Cortez,08:30,0,Junior Showmanship,junior-showmanship,all-breed,,,45,,,,,
-10,Mr. David John Bell,13:05,0,Barbet,breed,all-breed,Barbet,Sporting,1,0,0,0,1,0
-10,Mr. David John Bell,13:05,1,BracchI Italiani,breed,all-breed,Bracco Italiano,Sporting,4,0,1,1,2,0
-10,Mr. David John Bell,13:05,2,Chesapeake Bay Retriever,breed,all-breed,Chesapeake Bay Retriever,Sporting,4,1,1,1,1,0
-10,Mr. David John Bell,13:05,3,English Setter,breed,all-breed,English Setter,Sporting,16,5,5,2,4,0
-10,Mr. David John Bell,14:05,0,Field Spaniel,breed,all-breed,Field Spaniel,Sporting,7,3,3,1,0,0
-10,Mr. David John Bell,14:05,1,Gordon Setter,breed,all-breed,Gordon Setter,Sporting,6,0,1,3,2,0
-10,Mr. David John Bell,14:05,2,Irish Red & White Setters,breed,all-breed,Irish Red and White Setter,Sporting,2,0,0,1,1,0
-10,Mr. David John Bell,14:45,0,Welsh Springer Spaniel,breed,all-breed,Welsh Springer Spaniel,Sporting,13,3,5,3,2,0
-10,Mr. David John Bell,15:20,0,English Springer Spaniel,breed,all-breed,English Springer Spaniel,Sporting,20,4,5,5,3,3
-11,Miss Sandra M. Lex,08:30,0,French Bulldog,breed,all-breed,French Bulldog,Non-Sporting,71,16,34,12,9,0
-11,Miss Kirsty Sanders,12:50,0,Miniature Schnauzer,breed,all-breed,Miniature Schnauzer,Terrier,26,7,9,5,5,0
-12,Mrs. Cynthia Neet,08:30,0,Vizsla Sweepstakes,sweepstakes,all-breed,Vizsla,Sporting,7,4,3,0,0,0
-12,Mrs. Cynthia Neet,08:30,1,Vizsla Vet Sweepstakes,sweepstakes,all-breed,Vizsla,Sporting,2,1,1,0,0,0
-16,Mr. Dale Martenson,08:30,0,Poodle (Standard),breed,all-breed,Poodle (Standard),Non-Sporting,8,2,2,1,3,0
-16,Mr. Dale Martenson,08:30,1,Chow Chow,breed,all-breed,Chow Chow,Non-Sporting,1,0,1,0,0,0
-16,Mr. Dale Martenson,08:30,2,Lhasa Apso,breed,all-breed,Lhasa Apso,Non-Sporting,2,0,1,1,0,0
-16,Mr. Dale Martenson,08:30,3,Poodle (Miniature),breed,all-breed,Poodle (Miniature),Non-Sporting,7,2,3,1,1,0
-16,Mr. Dale Martenson,09:15,0,English Setter Sweepstakes,sweepstakes,all-breed,English Setter,Sporting,2,1,1,0,0,0
-16,Mr. Dale Martenson,09:15,1,Pointer,breed,all-breed,Pointer,Sporting,15,5,1,4,4,1
-16,Mr. Dale Martenson,09:15,2,Manchester Terrier (Standard),breed,all-breed,Manchester Terrier (Standard),Terrier,3,0,0,2,1,0
-17,Ms. Gina Wieser,08:30,0,Biewer Terrier,breed,all-breed,Biewer Terrier,Toy,3,0,1,2,0,0
-17,Ms. Gina Wieser,08:30,1,Brussels Griffon,breed,all-breed,Brussels Griffon,Toy,19,1,10,4,4,0
-17,Ms. Gina Wieser,09:25,0,Cavalier King Charles Spaniel,breed,all-breed,Cavalier King Charles Spaniel,Toy,34,6,15,8,5,0
-17,Ms. Gina Wieser,10:50,0,English Toy Spaniel (B&PC),breed,all-breed,English Toy Spaniel (B&PC),Toy,1,0,0,1,0,0
-17,Ms. Gina Wieser,10:50,1,English Toy Spaniel (KC&R),breed,all-breed,English Toy Spaniel (KC&R),Toy,1,0,0,1,0,0
-17,Ms. Gina Wieser,10:50,2,Havanese,breed,all-breed,Havanese,Toy,10,4,3,1,2,0
-17,Ms. Gina Wieser,10:50,3,Italian Greyhound,breed,all-breed,Italian Greyhound,Toy,9,0,4,2,3,0
-17,Ms. Gina Wieser,12:30,0,Japanese Chin,breed,all-breed,Japanese Chin,Toy,7,2,1,2,2,0
-17,Ms. Gina Wieser,12:30,1,Manchester Terrier (Toy),breed,all-breed,Manchester Terrier (Toy),Toy,6,0,1,4,1,0
-17,Ms. Gina Wieser,12:30,2,Miniature Pinscher,breed,all-breed,Miniature Pinscher,Toy,6,2,2,1,1,0
-17,Ms. Gina Wieser,13:20,0,Pomeranian,breed,all-breed,Pomeranian,Toy,30,5,13,7,5,0
-17,Ms. Gina Wieser,14:35,0,Poodle (Toy),breed,all-breed,Poodle (Toy),Toy,5,3,2,0,0,0
-17,Ms. Gina Wieser,14:35,1,Russian Tsvetnaya Bolonka,breed,all-breed,Russian Tsvetnaya Bolonka,Toy,5,4,1,0,0,0
-17,Ms. Gina Wieser,14:35,2,Shih Tzu,breed,all-breed,Shih Tzu,Toy,4,1,2,0,1,0
-17,Ms. Gina Wieser,14:35,3,Toy Fox Terrier,breed,all-breed,Toy Fox Terrier,Toy,5,2,2,1,0,0
-17,Ms. Gina Wieser,14:35,4,Yorkshire Terrier,breed,all-breed,Yorkshire Terrier,Toy,6,3,1,2,0,0
+1,Mrs. Junko Guichon,08:30,0,Affenpinscher,breed,all-breed,Affenpinscher,Toy,12,2,3,4,3,0
+1,Mrs. Junko Guichon,09:00,0,Chihuahua (Long Coat),breed,all-breed,Chihuahua (Long Coat),Toy,19,4,7,5,3,0
+1,Mrs. Junko Guichon,09:50,0,Chihuahua (Smooth Coat),breed,all-breed,Chihuahua (Smooth Coat),Toy,19,3,6,5,5,0
+1,Mrs. Junko Guichon,09:50,1,Chinese Crested,breed,all-breed,Chinese Crested,Toy,6,0,0,3,3,0
+1,Mrs. Junko Guichon,10:50,0,Papillon,breed,all-breed,Papillon,Toy,18,5,6,5,2,0
+1,Mrs. Junko Guichon,11:35,0,Pekingese,breed,all-breed,Pekingese,Toy,6,4,1,1,0,0
+1,Mrs. Junko Guichon,11:35,1,Russian Toy,breed,all-breed,Russian Toy,Toy,2,0,1,1,0,0
+1,Mrs. Junko Guichon,11:35,2,Silky Terrier,breed,all-breed,Silky Terrier,Toy,4,0,1,1,2,0
+2,Mr. Colin Graham Bohler,10:25,0,Airedale Terrier,breed,all-breed,Airedale Terrier,Terrier,13,3,4,4,2,0
+2,Mr. Colin Graham Bohler,11:00,0,American Staffordshire Terrier,breed,all-breed,American Staffordshire Terrier,Terrier,20,1,10,6,3,0
+2,Mr. Colin Graham Bohler,11:50,0,Bull Terrier (Colored),breed,all-breed,Bull Terrier (Colored),Terrier,5,1,2,1,1,0
+2,Mr. Colin Graham Bohler,11:50,1,Bull Terrier (White),breed,all-breed,Bull Terrier (White),Terrier,3,1,0,1,1,0
+2,Mr. Colin Graham Bohler,11:50,2,Irish Terrier,breed,all-breed,Irish Terrier,Terrier,9,1,2,4,2,0
+2,Mr. Colin Graham Bohler,12:35,0,Miniature Bull Terrier,breed,all-breed,Miniature Bull Terrier,Terrier,25,7,4,7,7,0
+2,Mr. Colin Graham Bohler,13:35,0,Cairn Terrier,breed,all-breed,Cairn Terrier,Terrier,15,1,6,5,3,0
+2,Mr. Colin Graham Bohler,14:15,0,Lakeland Terrier,breed,all-breed,Lakeland Terrier,Terrier,4,1,1,1,1,0
+2,Mr. Colin Graham Bohler,14:15,1,Parson Russell Terrier,breed,all-breed,Parson Russell Terrier,Terrier,11,1,5,4,1,0
+2,Mr. Colin Graham Bohler,15:25,0,Russell Terriers,breed,all-breed,Russell Terrier,Terrier,10,4,0,4,2,0
+2,Mr. Colin Graham Bohler,15:25,1,West Highland White Terrier,breed,all-breed,West Highland White Terrier,Terrier,8,0,1,4,3,0
+3,Ms. Liane Paulson,08:30,0,Fox Terriers (Smooth) Sweepstakes,sweepstakes,all-breed,Smooth Fox Terrier,Terrier,2,2,0,0,0,0
+3,Miss Sandra M. Lex,10:05,0,French Bulldog,breed,all-breed,French Bulldog,Non-Sporting,71,16,34,12,9,0
+7,Mr. John C. Ramirez,08:30,0,Old English Sheepdog,breed,all-breed,Old English Sheepdog,Herding,11,2,3,4,2,0
+7,Mr. John C. Ramirez,08:30,1,Pembroke Welsh Corgi,breed,all-breed,Pembroke Welsh Corgi,Herding,16,5,4,6,1,0
+7,Mr. John C. Ramirez,09:40,0,Shetland Sheepdog,breed,all-breed,Shetland Sheepdog,Herding,21,6,12,2,1,0
+8,Ms. Michelle T. Shultz,08:35,0,Finnish Spitz,breed,all-breed,Finnish Spitz,Non-Sporting,2,0,0,2,0,0
+8,Ms. Michelle T. Shultz,08:35,1,Chinese Shar-Pei,breed,all-breed,Chinese Shar-Pei,Non-Sporting,17,3,4,3,6,1
+8,Ms. Michelle T. Shultz,08:35,2,Keeshond,breed,all-breed,Keeshond,Non-Sporting,3,0,0,1,2,0
+8,Ms. Michelle T. Shultz,09:30,0,Bichon Frise,breed,all-breed,Bichon Frise,Non-Sporting,18,4,5,5,4,0
+8,Ms. Michelle T. Shultz,10:15,0,Boston Terrier,breed,all-breed,Boston Terrier,Non-Sporting,17,1,7,4,5,0
+8,Ms. Michelle T. Shultz,10:15,1,Schipperke,breed,all-breed,Schipperke,Non-Sporting,1,0,0,1,0,0
+8,Ms. Michelle T. Shultz,11:00,0,Shiba-Inu,breed,all-breed,Shiba Inu,Non-Sporting,25,6,7,7,5,0
+8,Ms. Michelle T. Shultz,12:00,0,Tibetan Terrier,breed,all-breed,Tibetan Terrier,Non-Sporting,3,0,1,1,1,0
+8,Ms. Michelle T. Shultz,12:00,1,Xoloitzcuintli,breed,all-breed,Xoloitzcuintli,Non-Sporting,9,2,2,1,4,0
+9,Mrs. Minna-Liisa Koltes,09:10,0,Australian Cattle Dog,breed,all-breed,Australian Cattle Dog,Herding,7,0,4,1,2,0
+9,Mrs. Minna-Liisa Koltes,09:30,0,Australian Shepherd,breed,all-breed,Australian Shepherd,Herding,25,8,11,3,3,0
+9,Mrs. Minna-Liisa Koltes,10:30,0,Bearded Collie,breed,all-breed,Bearded Collie,Herding,7,0,1,2,4,0
+9,Mrs. Minna-Liisa Koltes,10:30,1,Beauceron,breed,all-breed,Beauceron,Herding,10,3,3,1,3,0
+9,Mrs. Minna-Liisa Koltes,11:15,0,Collie (Rough),breed,all-breed,Collie (Rough),Herding,2,0,1,1,0,0
+9,Mrs. Minna-Liisa Koltes,11:15,1,Collie (Smooth),breed,all-breed,Collie (Smooth),Herding,2,1,0,1,0,0
+9,Mrs. Minna-Liisa Koltes,11:15,2,German Shepherd Dog,breed,all-breed,German Shepherd Dog,Herding,1,0,1,0,0,0
+9,Mrs. Minna-Liisa Koltes,11:15,3,Mudi,breed,all-breed,Mudi,Herding,1,0,0,0,1,0
+9,Mrs. Minna-Liisa Koltes,11:15,4,Norwegian Buhund,breed,all-breed,Norwegian Buhund,Herding,6,1,3,1,1,0
+9,Mrs. Minna-Liisa Koltes,11:45,0,Miniature American Shepherd,breed,all-breed,Miniature American Shepherd,Herding,31,7,11,5,8,0
+10,Mr. Stephen Dainard,08:30,0,Brittany,breed,all-breed,Brittany,Sporting,5,1,0,1,3,0
+10,Mr. Stephen Dainard,08:30,1,Irish Setter,breed,all-breed,Irish Setter,Sporting,19,3,6,5,5,0
+10,Mr. Stephen Dainard,09:30,0,Irish Water Spaniel,breed,all-breed,Irish Water Spaniel,Sporting,8,1,4,1,2,0
+10,Mr. Stephen Dainard,09:30,1,Spinone Italiano,breed,all-breed,Spinone Italiano,Sporting,6,1,2,3,0,0
+10,Mr. Stephen Dainard,10:05,0,Vizsla,breed,all-breed,Vizsla,Sporting,40,13,6,7,12,2
+10,Mr. Stephen Dainard,12:30,0,Wirehaired Pointing Griffon,breed,all-breed,Wirehaired Pointing Griffon,Sporting,11,1,5,1,4,0
+10,Mr. Stephen Dainard,12:30,1,Wirehaired Vizsla,breed,all-breed,Wirehaired Vizsla,Sporting,6,2,0,1,3,0
+10,Mr. Stephen Dainard,12:30,2,Clumber Spaniel,breed,all-breed,Clumber Spaniel,Sporting,4,0,1,3,0,0
+10,Mr. Stephen Dainard,12:30,3,Lagotto Romagnolo,breed,all-breed,Lagotto Romagnolo,Sporting,4,0,3,1,0,0
+10,Mr. Stephen Dainard,13:30,0,Cocker Spaniel (Ascob),breed,all-breed,Cocker Spaniel (ASCOB),Sporting,9,1,4,1,3,0
+10,Mr. Stephen Dainard,13:30,1,Cocker Spaniel (Black),breed,all-breed,Cocker Spaniel (Black),Sporting,4,0,0,2,2,0
+10,Mr. Stephen Dainard,13:30,2,Cocker Spaniel (Parti-Color),breed,all-breed,Cocker Spaniel (Parti-Color),Sporting,9,0,1,4,4,0
+10,Mr. Stephen Dainard,14:25,0,English Cocker Spaniel,breed,all-breed,English Cocker Spaniel,Sporting,16,2,7,2,3,2
+10,Mr. Stephen Dainard,14:25,1,Nederlandse Kooikerhondjes,breed,all-breed,Nederlandse Kooikerhondje,Sporting,4,1,1,1,1,0
+12,Mr. Raymond E. Yurick,08:30,0,Belgian Malinois,breed,all-breed,Belgian Malinois,Herding,1,0,0,0,1,0
+12,Mr. Raymond E. Yurick,08:30,1,Belgian Sheepdog,breed,all-breed,Belgian Sheepdog,Herding,1,1,0,0,0,0
+12,Mr. Raymond E. Yurick,08:30,2,Belgian Tervuren,breed,all-breed,Belgian Tervuren,Herding,6,1,0,3,2,0
+12,Mr. Raymond E. Yurick,08:30,3,Berger Picard,breed,all-breed,Berger Picard,Herding,8,1,3,2,2,0
+12,Mr. Raymond E. Yurick,08:30,4,Border Collie,breed,all-breed,Border Collie,Herding,3,0,0,3,0,0
+12,Mr. Raymond E. Yurick,08:30,5,Bouvier Des Flandres,breed,all-breed,Bouvier des Flandres,Herding,8,1,0,4,3,0
+12,Mr. Raymond E. Yurick,09:35,0,Canaan Dog,breed,all-breed,Canaan Dog,Herding,1,0,0,0,1,0
+12,Mr. Raymond E. Yurick,09:35,1,Finnish Lapphund,breed,all-breed,Finnish Lapphund,Herding,4,2,1,1,0,0
+12,Mr. Raymond E. Yurick,09:35,2,Lancashire Heeler,breed,all-breed,Lancashire Heeler,Herding,1,0,0,1,0,0
+12,Mr. Raymond E. Yurick,09:35,3,Pumi,breed,all-breed,Pumi,Herding,1,0,0,1,0,0
+12,Mr. Raymond E. Yurick,09:35,4,Swedish Vallhund,breed,all-breed,Swedish Vallhund,Herding,1,0,1,0,0,0
+12,Mr. Raymond E. Yurick,09:35,5,Black Russian Terrier,breed,all-breed,Black Russian Terrier,Working,8,3,1,1,3,0
+12,Mr. Raymond E. Yurick,09:35,6,Cane Corso,breed,all-breed,Cane Corso,Working,11,5,3,3,0,0
+12,Mr. Raymond E. Yurick,10:40,0,Dogue De Bordeaux,breed,all-breed,Dogue de Bordeaux,Working,2,1,1,0,0,0
+12,Mr. Raymond E. Yurick,10:40,1,Leonberger,breed,all-breed,Leonberger,Working,7,2,1,3,1,0
+12,Mr. Raymond E. Yurick,10:40,2,Portuguese Water Dog,breed,all-breed,Portuguese Water Dog,Working,7,1,2,2,2,0
+12,Mr. Raymond E. Yurick,10:40,3,Siberian Husky,breed,all-breed,Siberian Husky,Working,9,2,2,4,1,0
+16,Mr. Harold Tatro,08:30,0,Staffordshire Bull Terriers,breed,all-breed,Staffordshire Bull Terrier,Terrier,14,2,5,5,2,0
+16,Mr. Harold Tatro,09:05,0,Soft Coated Wheaten Terrier,breed,all-breed,Soft Coated Wheaten Terrier,Terrier,12,1,4,4,3,0
+16,Mr. Harold Tatro,09:05,1,American Hairless Terrier,breed,all-breed,American Hairless Terrier,Terrier,1,1,0,0,0,0
+16,Mr. Harold Tatro,09:05,2,Australian Terrier,breed,all-breed,Australian Terrier,Terrier,9,1,1,3,4,0
+16,Mr. Harold Tatro,10:00,0,Border Terrier,breed,all-breed,Border Terrier,Terrier,24,6,5,9,4,0
+16,Mr. Harold Tatro,10:00,1,Cesky Terrier,breed,all-breed,Cesky Terrier,Terrier,1,0,0,0,1,0
+16,Mr. Harold Tatro,11:00,0,Glen of Imaal Terrier,breed,all-breed,Glen of Imaal Terrier,Terrier,1,0,0,1,0,0
+16,Mr. Harold Tatro,11:00,1,Rat Terrier,breed,all-breed,Rat Terrier,Terrier,12,1,1,5,5,0
+16,Mr. Harold Tatro,11:00,2,Skye Terrier,breed,all-breed,Skye Terrier,Terrier,3,0,1,0,2,0
+16,Mr. Harold Tatro,11:40,0,Fox Terrier (Smooth),breed,all-breed,Smooth Fox Terrier,Terrier,10,3,3,3,1,0
+16,Mr. Harold Tatro,11:40,1,Welsh Terrier,breed,all-breed,Welsh Terrier,Terrier,4,0,1,1,2,0
+16,Mr. Harold Tatro,11:40,2,Fox Terrier (Wire),breed,all-breed,Wire Fox Terrier,Terrier,5,1,1,2,1,0
+16,Ms. Ginnette Louise Loft,14:35,0,Pug,breed,all-breed,Pug,Toy,16,2,4,6,4,0
+17,Mrs. Cynthia Neet,08:30,0,Vizsla Sweepstakes,sweepstakes,all-breed,Vizsla,Sporting,7,4,3,0,0,0
+17,Mrs. Cynthia Neet,08:30,1,Vizsla Vet Sweepstakes,sweepstakes,all-breed,Vizsla,Sporting,2,1,1,0,0,0
+17,Mr. Robert E. Schwalbe,10:05,0,Basset Fauve de Bretagne,breed,all-breed,Basset Fauve de Bretagne,Hound,3,1,2,0,0,0
+17,Mr. Robert E. Schwalbe,10:05,1,Black and Tan Coonhound,breed,all-breed,Black and Tan Coonhound,Hound,3,0,0,2,1,0
+17,Mr. Robert E. Schwalbe,10:05,2,Bloodhound,breed,all-breed,Bloodhound,Hound,8,4,1,2,1,0
+17,Mr. Robert E. Schwalbe,10:05,3,Harrier,breed,all-breed,Harrier,Hound,4,0,2,1,1,0
+17,Mr. Robert E. Schwalbe,10:50,0,Norwegian Elkhound,breed,all-breed,Norwegian Elkhound,Hound,1,0,0,0,1,0
+17,Mr. Robert E. Schwalbe,10:50,1,Basset Hound,breed,all-breed,Basset Hound,Hound,15,4,3,5,3,0
+17,Mr. Robert E. Schwalbe,12:30,0,Beagle Thirteen Inch,breed,all-breed,Beagle (13 Inch),Hound,15,0,6,4,5,0
+17,Mr. Robert E. Schwalbe,13:10,0,Beagle Fifteen Inch,breed,all-breed,Beagle (15 Inch),Hound,24,5,5,5,9,0
+17,Mr. Robert E. Schwalbe,14:55,0,Dachshund (Longhaired),breed,all-breed,Dachshund (Longhaired),Hound,20,8,7,4,1,0
+17,Mr. Robert E. Schwalbe,15:45,0,Dachshund (Smooth),breed,all-breed,Dachshund (Smooth),Hound,19,3,7,5,4,0
+17,Mr. Robert E. Schwalbe,16:35,0,Dachshund (Wirehaired),breed,all-breed,Dachshund (Wirehaired),Hound,23,7,8,4,4,0
+17,Mr. Robert E. Schwalbe,16:35,1,Portuguese Podengo Pequeno,breed,all-breed,Portuguese Podengo Pequeno,Hound,1,0,1,0,0,0
+17,Mr. Robert E. Schwalbe,17:35,0,Kerry Blue Terrier,breed,all-breed,Kerry Blue Terrier,Terrier,16,4,4,4,3,1
 18,Mr. Thomas L. Kirstein,08:30,0,Basenji,breed,all-breed,Basenji,Hound,5,1,1,2,1,0
 18,Mr. Thomas L. Kirstein,08:45,0,Borzoi,breed,all-breed,Borzoi,Hound,27,8,10,4,5,0
 18,Mr. Thomas L. Kirstein,09:50,0,Greyhound,breed,all-breed,Greyhound,Hound,10,5,2,2,1,0
 18,Mr. Thomas L. Kirstein,09:50,1,Ibizan Hound,breed,all-breed,Ibizan Hound,Hound,1,0,1,0,0,0
 18,Mr. Thomas L. Kirstein,09:50,2,Pharaoh Hound,breed,all-breed,Pharaoh Hound,Hound,6,0,2,2,2,0
-18,Mr. Thomas L. Kirstein,11:00,0,Saluki,breed,all-breed,Saluki,Hound,13,4,1,5,3,0
-18,Mr. Thomas L. Kirstein,11:00,1,Scottish Deerhound,breed,all-breed,Scottish Deerhound,Hound,4,1,0,0,3,0
-18,Mr. Thomas L. Kirstein,12:30,0,Whippet,breed,all-breed,Whippet,Hound,63,12,26,9,14,2
-19,"Dr. Kristy Utt, DVM",08:30,0,Bull Terriers (Colored) Sweepstakes,sweepstakes,all-breed,Bull Terrier (Colored),Terrier,2,1,1,0,0,0
-19,"Dr. Kristy Utt, DVM",08:30,1,Miniature Bull Terrier Sweepstakes,sweepstakes,all-breed,Miniature Bull Terrier,Terrier,4,3,1,0,0,0
-19,Mrs. Shalisa D. Neely,09:30,0,Bulldog,breed,all-breed,Bulldog,Non-Sporting,40,11,15,7,7,0
-19,Mrs. Shalisa D. Neely,11:10,0,American Eskimos,breed,all-breed,American Eskimo Dog,Non-Sporting,2,0,0,0,2,0
-19,Mrs. Shalisa D. Neely,11:15,0,Samoyed,breed,all-breed,Samoyed,Working,35,4,9,12,10,0
-22,Mr. Harold Tatro,08:30,0,Staffordshire Bull Terriers,breed,all-breed,Staffordshire Bull Terrier,Terrier,14,2,5,5,2,0
-22,Mr. Harold Tatro,09:05,0,Soft Coated Wheaten Terrier,breed,all-breed,Soft Coated Wheaten Terrier,Terrier,12,1,4,4,3,0
-22,Mr. Harold Tatro,09:05,1,American Hairless Terrier,breed,all-breed,American Hairless Terrier,Terrier,1,1,0,0,0,0
-22,Mr. Harold Tatro,09:05,2,Australian Terrier,breed,all-breed,Australian Terrier,Terrier,9,1,1,3,4,0
-22,Mr. Harold Tatro,10:00,0,Border Terrier,breed,all-breed,Border Terrier,Terrier,24,6,5,9,4,0
-22,Mr. Harold Tatro,10:00,1,Cesky Terrier,breed,all-breed,Cesky Terrier,Terrier,1,0,0,0,1,0
-22,Mr. Harold Tatro,11:00,0,Glen of Imaal Terrier,breed,all-breed,Glen of Imaal Terrier,Terrier,1,0,0,1,0,0
-22,Mr. Harold Tatro,11:00,1,Rat Terrier,breed,all-breed,Rat Terrier,Terrier,12,1,1,5,5,0
-22,Mr. Harold Tatro,11:00,2,Skye Terrier,breed,all-breed,Skye Terrier,Terrier,3,0,1,0,2,0
-22,Mr. Harold Tatro,11:40,0,Fox Terrier (Smooth),breed,all-breed,Smooth Fox Terrier,Terrier,10,3,3,3,1,0
-22,Mr. Harold Tatro,11:40,1,Welsh Terrier,breed,all-breed,Welsh Terrier,Terrier,4,0,1,1,2,0
-22,Mr. Harold Tatro,11:40,2,Fox Terrier (Wire),breed,all-breed,Wire Fox Terrier,Terrier,5,1,1,2,1,0
-23,Mr. John C. Ramirez,08:30,0,Old English Sheepdog,breed,all-breed,Old English Sheepdog,Herding,11,2,3,4,2,0
-23,Mr. John C. Ramirez,08:30,1,Pembroke Welsh Corgi,breed,all-breed,Pembroke Welsh Corgi,Herding,16,5,4,6,1,0
-23,Mr. John C. Ramirez,09:35,0,Shetland Sheepdog,breed,all-breed,Shetland Sheepdog,Herding,21,6,12,2,1,0
-24,Miss Janelle W. Robbins,08:30,0,Dalmatian,breed,all-breed,Dalmatian,Non-Sporting,14,2,1,8,3,0
-24,Miss Janelle W. Robbins,08:30,1,Akita,breed,all-breed,Akita,Working,4,0,2,1,1,0
-24,Miss Janelle W. Robbins,08:30,2,Alaskan Malamute,breed,all-breed,Alaskan Malamute,Working,6,1,1,2,2,0
-24,Miss Janelle W. Robbins,09:30,0,Doberman Pinscher,breed,all-breed,Doberman Pinscher,Working,37,8,14,6,9,0
-24,Miss Janelle W. Robbins,11:00,0,Giant Schnauzer,breed,all-breed,Giant Schnauzer,Working,8,1,5,2,0,0
-26,Mrs. Junko Guichon,08:30,0,Affenpinscher,breed,all-breed,Affenpinscher,Toy,12,2,3,4,3,0
-26,Mrs. Junko Guichon,09:00,0,Chihuahua (Long Coat),breed,all-breed,Chihuahua (Long Coat),Toy,19,4,7,5,3,0
-26,Mrs. Junko Guichon,09:50,0,Chihuahua (Smooth Coat),breed,all-breed,Chihuahua (Smooth Coat),Toy,19,3,6,5,5,0
-26,Mrs. Junko Guichon,09:50,1,Chinese Crested,breed,all-breed,Chinese Crested,Toy,6,0,0,3,3,0
-26,Mrs. Junko Guichon,10:50,0,Papillon,breed,all-breed,Papillon,Toy,18,5,6,5,2,0
-26,Mrs. Junko Guichon,11:35,0,Pekingese,breed,all-breed,Pekingese,Toy,6,4,1,1,0,0
-26,Mrs. Junko Guichon,11:35,1,Russian Toy,breed,all-breed,Russian Toy,Toy,2,0,1,1,0,0
-26,Mrs. Junko Guichon,11:35,2,Silky Terrier,breed,all-breed,Silky Terrier,Toy,4,0,1,1,2,0
+18,Mr. Thomas L. Kirstein,10:35,0,Saluki,breed,all-breed,Saluki,Hound,13,4,1,5,3,0
+18,Mr. Thomas L. Kirstein,10:35,1,Scottish Deerhound,breed,all-breed,Scottish Deerhound,Hound,4,1,0,0,3,0
+18,Mr. Thomas L. Kirstein,12:10,0,Whippet,breed,all-breed,Whippet,Hound,63,12,26,9,14,2
+19,Ms. Shirley Fry,08:30,0,Miniature Schnauzer Veteran Sweeps,sweepstakes,all-breed,Miniature Schnauzer,Terrier,1,0,1,0,0,0
+19,Ms. Shirley Fry,08:30,1,Miniature Schnauzers Sweepstakes,sweepstakes,all-breed,Miniature Schnauzer,Terrier,1,0,1,0,0,0
+19,Mrs. Mary Ellen Hardin,09:25,0,Flat-Coated Retriever,breed,all-breed,Flat-Coated Retriever,Sporting,16,4,2,5,4,1
+19,Mrs. Mary Ellen Hardin,10:05,0,German Shorthaired Pointer,breed,all-breed,German Shorthaired Pointer,Sporting,22,5,7,4,6,0
+19,Mrs. Mary Ellen Hardin,11:45,0,Golden Retriever,breed,all-breed,Golden Retriever,Sporting,92,29,39,11,13,0
+19,Mrs. Mary Ellen Hardin,15:30,0,Retriever (Nova Scotia Duck Toll),breed,all-breed,Nova Scotia Duck Tolling Retriever,Sporting,6,5,0,0,1,0
+19,Mrs. Mary Ellen Hardin,15:30,1,Weimaraner,breed,all-breed,Weimaraner,Sporting,9,1,3,1,4,0
+22,Mrs. Shalisa D. Neely,08:30,0,Bulldog,breed,all-breed,Bulldog,Non-Sporting,40,11,15,7,7,0
+22,Mrs. Shalisa D. Neely,10:10,0,American Eskimos,breed,all-breed,American Eskimo Dog,Non-Sporting,2,0,0,0,2,0
+22,Mrs. Shalisa D. Neely,10:50,0,Samoyed,breed,all-breed,Samoyed,Working,35,4,9,12,10,0
+23,Miss Janelle W. Robbins,08:30,0,Dalmatian,breed,all-breed,Dalmatian,Non-Sporting,14,2,1,8,3,0
+23,Miss Janelle W. Robbins,08:30,1,Akita,breed,all-breed,Akita,Working,4,0,2,1,1,0
+23,Miss Janelle W. Robbins,08:30,2,Alaskan Malamute,breed,all-breed,Alaskan Malamute,Working,6,1,1,2,2,0
+23,Miss Janelle W. Robbins,09:30,0,Doberman Pinscher,breed,all-breed,Doberman Pinscher,Working,37,8,14,6,9,0
+23,Miss Janelle W. Robbins,11:00,0,Giant Schnauzer,breed,all-breed,Giant Schnauzer,Working,8,1,5,2,0,0
+23,Mr. Bill Anderson,11:20,0,Boxer,breed,all-breed,Boxer,Working,65,16,25,12,8,4
+24,Ms. Gina Wieser,08:30,0,Biewer Terrier,breed,all-breed,Biewer Terrier,Toy,3,0,1,2,0,0
+24,Ms. Gina Wieser,08:30,1,Brussels Griffon,breed,all-breed,Brussels Griffon,Toy,19,1,10,4,4,0
+24,Ms. Gina Wieser,09:25,0,Cavalier King Charles Spaniel,breed,all-breed,Cavalier King Charles Spaniel,Toy,34,6,15,8,5,0
+24,Ms. Gina Wieser,10:50,0,English Toy Spaniel (B&PC),breed,all-breed,English Toy Spaniel (B&PC),Toy,1,0,0,1,0,0
+24,Ms. Gina Wieser,10:50,1,English Toy Spaniel (KC&R),breed,all-breed,English Toy Spaniel (KC&R),Toy,1,0,0,1,0,0
+24,Ms. Gina Wieser,10:50,2,Havanese,breed,all-breed,Havanese,Toy,10,4,3,1,2,0
+24,Ms. Gina Wieser,10:50,3,Italian Greyhound,breed,all-breed,Italian Greyhound,Toy,9,0,4,2,3,0
+24,Ms. Gina Wieser,12:30,0,Japanese Chin,breed,all-breed,Japanese Chin,Toy,7,2,1,2,2,0
+24,Ms. Gina Wieser,12:30,1,Manchester Terrier (Toy),breed,all-breed,Manchester Terrier (Toy),Toy,6,0,1,4,1,0
+24,Ms. Gina Wieser,12:30,2,Miniature Pinscher,breed,all-breed,Miniature Pinscher,Toy,6,2,2,1,1,0
+24,Ms. Gina Wieser,13:20,0,Pomeranian,breed,all-breed,Pomeranian,Toy,30,5,13,7,5,0
+24,Ms. Gina Wieser,14:35,0,Poodle (Toy),breed,all-breed,Poodle (Toy),Toy,5,3,2,0,0,0
+24,Ms. Gina Wieser,14:35,1,Russian Tsvetnaya Bolonka,breed,all-breed,Russian Tsvetnaya Bolonka,Toy,5,4,1,0,0,0
+24,Ms. Gina Wieser,14:35,2,Shih Tzu,breed,all-breed,Shih Tzu,Toy,4,1,2,0,1,0
+24,Ms. Gina Wieser,14:35,3,Toy Fox Terrier,breed,all-breed,Toy Fox Terrier,Toy,5,2,2,1,0,0
+24,Ms. Gina Wieser,14:35,4,Yorkshire Terrier,breed,all-breed,Yorkshire Terrier,Toy,6,3,1,2,0,0
+26,Mr. Dale Martenson,08:30,0,Poodle (Standard),breed,all-breed,Poodle (Standard),Non-Sporting,8,2,2,1,3,0
+26,Mr. Dale Martenson,08:30,1,Chow Chow,breed,all-breed,Chow Chow,Non-Sporting,1,0,1,0,0,0
+26,Mr. Dale Martenson,08:30,2,Lhasa Apso,breed,all-breed,Lhasa Apso,Non-Sporting,2,0,1,1,0,0
+26,Mr. Dale Martenson,08:30,3,Poodle (Miniature),breed,all-breed,Poodle (Miniature),Non-Sporting,7,2,3,1,1,0
+26,Mr. Dale Martenson,09:15,0,English Setter Sweepstakes,sweepstakes,all-breed,English Setter,Sporting,2,1,1,0,0,0
+26,Mr. Dale Martenson,09:15,1,Pointer,breed,all-breed,Pointer,Sporting,15,5,1,4,4,1
+26,Mr. Dale Martenson,09:15,2,Manchester Terrier (Standard),breed,all-breed,Manchester Terrier (Standard),Terrier,3,0,0,2,1,0
+26,Mrs. Janet M Schwalbe,10:40,0,Cardigan Welsh Corgi,breed,all-breed,Cardigan Welsh Corgi,Herding,7,0,3,0,4,0
+26,Mrs. Janet M Schwalbe,10:40,1,Irish Wolfhound,breed,all-breed,Irish Wolfhound,Hound,15,3,5,4,2,1
+26,Mrs. Janet M Schwalbe,12:20,0,Rhodesian Ridgeback,breed,all-breed,Rhodesian Ridgeback,Hound,80,19,25,14,18,4
+26,Mrs. Janet M Schwalbe,15:35,0,Petit Basset Griffon Vendeens,breed,all-breed,Petit Basset Griffon Vendeen,Hound,3,0,2,1,0,0
+26,Mrs. Janet M Schwalbe,15:45,0,Norwich Terrier,breed,all-breed,Norwich Terrier,Terrier,25,4,6,11,4,0
+26,Mrs. Janet M Schwalbe,16:45,0,Scottish Terrier,breed,all-breed,Scottish Terrier,Terrier,9,3,3,2,1,0
+26,Mrs. Janet M Schwalbe,16:45,1,Sealyham Terrier,breed,all-breed,Sealyham Terrier,Terrier,1,0,0,0,1,0
+26,Miss Kirsty Sanders,17:10,0,Miniature Schnauzer,breed,all-breed,Miniature Schnauzer,Terrier,26,7,9,5,5,0
 27,Mrs. Gayle M. Denman,10:00,0,Drentsche Patrijshond,breed,fss-open,Drentsche Patrijshond,,2,1,1,0,0,0
 27,Mrs. Gayle M. Denman,10:00,1,Kishu Ken,breed,fss-open,Kishu Ken,,1,0,1,0,0,0
 27,Mrs. Gayle M. Denman,10:00,2,Japanese Terrier,breed,fss-open,Japanese Terrier,,2,0,2,0,0,0
@@ -147,52 +168,31 @@ ring,judge,block_start,position,event,kind,competition,breed,group,entries,class
 27,Ms. Paullet DeLong,12:00,3,Peruvian Inca Orchid,breed,fss-open,Peruvian Inca Orchid,Miscellaneous,2,,,,,
 27,Ms. Paullet DeLong,12:00,4,Dutch Shepherd,breed,fss-open,Dutch Shepherd,Miscellaneous,2,,,,,
 27,Ms. Paullet DeLong,12:00,5,Czechoslovakian Vlciak,breed,fss-open,Czechoslovakian Vlciak,Miscellaneous,2,,,,,
-28,Mr. Stephen Dainard,08:30,0,Brittany,breed,all-breed,Brittany,Sporting,5,1,0,1,3,0
-28,Mr. Stephen Dainard,08:30,1,Irish Setter,breed,all-breed,Irish Setter,Sporting,19,3,6,5,5,0
-28,Mr. Stephen Dainard,09:30,0,Irish Water Spaniel,breed,all-breed,Irish Water Spaniel,Sporting,8,1,4,1,2,0
-28,Mr. Stephen Dainard,09:30,1,Spinone Italiano,breed,all-breed,Spinone Italiano,Sporting,6,1,2,3,0,0
-28,Mr. Stephen Dainard,10:05,0,Vizsla,breed,all-breed,Vizsla,Sporting,40,13,6,7,12,2
-28,Mr. Stephen Dainard,12:30,0,Wirehaired Pointing Griffon,breed,all-breed,Wirehaired Pointing Griffon,Sporting,11,1,5,1,4,0
-28,Mr. Stephen Dainard,12:30,1,Wirehaired Vizsla,breed,all-breed,Wirehaired Vizsla,Sporting,6,2,0,1,3,0
-28,Mr. Stephen Dainard,12:30,2,Clumber Spaniel,breed,all-breed,Clumber Spaniel,Sporting,4,0,1,3,0,0
-28,Mr. Stephen Dainard,12:30,3,Lagotto Romagnolo,breed,all-breed,Lagotto Romagnolo,Sporting,4,0,3,1,0,0
-28,Mr. Stephen Dainard,13:30,0,Cocker Spaniel (Ascob),breed,all-breed,Cocker Spaniel (ASCOB),Sporting,9,1,4,1,3,0
-28,Mr. Stephen Dainard,13:30,1,Cocker Spaniel (Black),breed,all-breed,Cocker Spaniel (Black),Sporting,4,0,0,2,2,0
-28,Mr. Stephen Dainard,13:30,2,Cocker Spaniel (Parti-Color),breed,all-breed,Cocker Spaniel (Parti-Color),Sporting,9,0,1,4,4,0
-28,Mr. Stephen Dainard,14:25,0,English Cocker Spaniel,breed,all-breed,English Cocker Spaniel,Sporting,16,2,7,2,3,2
-28,Mr. Stephen Dainard,14:25,1,Nederlandse Kooikerhondjes,breed,all-breed,Nederlandse Kooikerhondje,Sporting,4,1,1,1,1,0
-29,Ms. Shirley Fry,08:30,0,Miniature Schnauzer Veteran Sweeps,sweepstakes,all-breed,Miniature Schnauzer,Terrier,1,0,1,0,0,0
-29,Ms. Shirley Fry,08:30,1,Miniature Schnauzers Sweepstakes,sweepstakes,all-breed,Miniature Schnauzer,Terrier,1,0,1,0,0,0
-29,Mrs. Minna-Liisa Koltes,08:45,0,Australian Cattle Dog,breed,all-breed,Australian Cattle Dog,Herding,7,0,4,1,2,0
-29,Mrs. Minna-Liisa Koltes,09:05,0,Australian Shepherd,breed,all-breed,Australian Shepherd,Herding,25,8,11,3,3,0
-29,Mrs. Minna-Liisa Koltes,10:05,0,Bearded Collie,breed,all-breed,Bearded Collie,Herding,7,0,1,2,4,0
-29,Mrs. Minna-Liisa Koltes,10:05,1,Beauceron,breed,all-breed,Beauceron,Herding,10,3,3,1,3,0
-29,Mrs. Minna-Liisa Koltes,10:50,0,Collie (Rough),breed,all-breed,Collie (Rough),Herding,2,0,1,1,0,0
-29,Mrs. Minna-Liisa Koltes,10:50,1,Collie (Smooth),breed,all-breed,Collie (Smooth),Herding,2,1,0,1,0,0
-29,Mrs. Minna-Liisa Koltes,10:50,2,German Shepherd Dog,breed,all-breed,German Shepherd Dog,Herding,1,0,1,0,0,0
-29,Mrs. Minna-Liisa Koltes,10:50,3,Mudi,breed,all-breed,Mudi,Herding,1,0,0,0,1,0
-29,Mrs. Minna-Liisa Koltes,10:50,4,Norwegian Buhund,breed,all-breed,Norwegian Buhund,Herding,6,1,3,1,1,0
-29,Mrs. Minna-Liisa Koltes,11:20,0,Miniature American Shepherd,breed,all-breed,Miniature American Shepherd,Herding,31,7,11,5,8,0
-31,Mr. Robert E. Schwalbe,08:40,0,Basset Fauve de Bretagne,breed,all-breed,Basset Fauve de Bretagne,Hound,3,1,2,0,0,0
-31,Mr. Robert E. Schwalbe,08:40,1,Black and Tan Coonhound,breed,all-breed,Black and Tan Coonhound,Hound,3,0,0,2,1,0
-31,Mr. Robert E. Schwalbe,08:40,2,Bloodhound,breed,all-breed,Bloodhound,Hound,8,4,1,2,1,0
-31,Mr. Robert E. Schwalbe,08:40,3,Harrier,breed,all-breed,Harrier,Hound,4,0,2,1,1,0
-31,Mr. Robert E. Schwalbe,09:25,0,Norwegian Elkhound,breed,all-breed,Norwegian Elkhound,Hound,1,0,0,0,1,0
-31,Mr. Robert E. Schwalbe,09:25,1,Basset Hound,breed,all-breed,Basset Hound,Hound,15,4,3,5,3,0
-31,Mr. Robert E. Schwalbe,11:45,0,Beagle Thirteen Inch,breed,all-breed,Beagle (13 Inch),Hound,15,0,6,4,5,0
-31,Mr. Robert E. Schwalbe,12:25,0,Beagle Fifteen Inch,breed,all-breed,Beagle (15 Inch),Hound,24,5,5,5,9,0
-31,Mr. Robert E. Schwalbe,14:25,0,Dachshund (Longhaired),breed,all-breed,Dachshund (Longhaired),Hound,20,8,7,4,1,0
-31,Mr. Robert E. Schwalbe,15:15,0,Dachshund (Smooth),breed,all-breed,Dachshund (Smooth),Hound,19,3,7,5,4,0
-31,Mr. Robert E. Schwalbe,16:05,0,Dachshund (Wirehaired),breed,all-breed,Dachshund (Wirehaired),Hound,23,7,8,4,4,0
-31,Mr. Robert E. Schwalbe,16:05,1,Portuguese Podengo Pequeno,breed,all-breed,Portuguese Podengo Pequeno,Hound,1,0,1,0,0,0
-31,Mr. Robert E. Schwalbe,17:05,0,Kerry Blue Terrier,breed,all-breed,Kerry Blue Terrier,Terrier,16,4,4,4,3,1
-32,Ms. Liane Paulson,08:30,0,Fox Terriers (Smooth) Sweepstakes,sweepstakes,all-breed,Smooth Fox Terrier,Terrier,2,2,0,0,0,0
-32,Ms. Michelle T. Shultz,08:45,0,Finnish Spitz,breed,all-breed,Finnish Spitz,Non-Sporting,2,0,0,2,0,0
-32,Ms. Michelle T. Shultz,08:45,1,Chinese Shar-Pei,breed,all-breed,Chinese Shar-Pei,Non-Sporting,17,3,4,3,6,1
-32,Ms. Michelle T. Shultz,09:35,0,Keeshond,breed,all-breed,Keeshond,Non-Sporting,3,0,0,1,2,0
-32,Ms. Michelle T. Shultz,09:35,1,Bichon Frise,breed,all-breed,Bichon Frise,Non-Sporting,18,4,5,5,4,0
-32,Ms. Michelle T. Shultz,10:30,0,Boston Terrier,breed,all-breed,Boston Terrier,Non-Sporting,17,1,7,4,5,0
-32,Ms. Michelle T. Shultz,10:30,1,Schipperke,breed,all-breed,Schipperke,Non-Sporting,1,0,0,1,0,0
-32,Ms. Michelle T. Shultz,11:15,0,Shiba-Inu,breed,all-breed,Shiba Inu,Non-Sporting,25,6,7,7,5,0
-32,Ms. Michelle T. Shultz,12:15,0,Tibetan Terrier,breed,all-breed,Tibetan Terrier,Non-Sporting,3,0,1,1,1,0
-32,Ms. Michelle T. Shultz,12:15,1,Xoloitzcuintli,breed,all-breed,Xoloitzcuintli,Non-Sporting,9,2,2,1,4,0
+27,Mr. Kevin E. Lind,13:55,0,Standard Schnauzer,breed,all-breed,Standard Schnauzer,Working,13,5,1,2,5,0
+28,Mr. Peter Miller,11:35,0,Afghan Hound,breed,all-breed,Afghan Hound,Hound,15,2,3,4,6,0
+28,Mr. Peter Miller,12:15,0,Great Dane,breed,all-breed,Great Dane,Working,23,5,10,5,3,0
+29,"Dr. Kristy Utt, DVM",08:30,0,Bull Terriers (Colored) Sweepstakes,sweepstakes,all-breed,Bull Terrier (Colored),Terrier,2,1,1,0,0,0
+29,"Dr. Kristy Utt, DVM",08:30,1,Miniature Bull Terrier Sweepstakes,sweepstakes,all-breed,Miniature Bull Terrier,Terrier,4,3,1,0,0,0
+29,Mr. David John Bell,13:10,0,Barbet,breed,all-breed,Barbet,Sporting,1,0,0,0,1,0
+29,Mr. David John Bell,13:10,1,BracchI Italiani,breed,all-breed,Bracco Italiano,Sporting,4,0,1,1,2,0
+29,Mr. David John Bell,13:10,2,Chesapeake Bay Retriever,breed,all-breed,Chesapeake Bay Retriever,Sporting,4,1,1,1,1,0
+29,Mr. David John Bell,13:10,3,English Setter,breed,all-breed,English Setter,Sporting,16,5,5,2,4,0
+29,Mr. David John Bell,14:10,0,Field Spaniel,breed,all-breed,Field Spaniel,Sporting,7,3,3,1,0,0
+29,Mr. David John Bell,14:10,1,Gordon Setter,breed,all-breed,Gordon Setter,Sporting,6,0,1,3,2,0
+29,Mr. David John Bell,14:45,0,Irish Red & White Setters,breed,all-breed,Irish Red and White Setter,Sporting,2,0,0,1,1,0
+29,Mr. David John Bell,14:45,1,Welsh Springer Spaniel,breed,all-breed,Welsh Springer Spaniel,Sporting,13,3,5,3,2,0
+29,Mr. David John Bell,15:30,0,English Springer Spaniel,breed,all-breed,English Springer Spaniel,Sporting,20,4,5,5,3,3
+31,Mrs. Kaisa Gold,08:30,0,Anatolian Shepherd,breed,all-breed,Anatolian Shepherd Dog,Working,4,1,2,1,0,0
+31,Mrs. Kaisa Gold,08:40,0,Bernese Mountain Dog,breed,all-breed,Bernese Mountain Dog,Working,37,12,11,9,5,0
+31,Mrs. Kaisa Gold,10:10,0,Bullmastiff,breed,all-breed,Bullmastiff,Working,18,3,2,5,7,1
+31,Mrs. Kaisa Gold,10:10,1,German Pinscher,breed,all-breed,German Pinscher,Working,5,2,2,1,0,0
+31,Mrs. Kaisa Gold,10:10,2,Great Pyrenees,breed,all-breed,Great Pyrenees,Working,1,0,0,1,0,0
+31,Mrs. Kaisa Gold,10:10,3,Greater Swiss Mountain Dog,breed,all-breed,Greater Swiss Mountain Dog,Working,3,0,1,2,0,0
+31,Mrs. Kaisa Gold,12:00,0,Mastiff,breed,all-breed,Mastiff,Working,17,2,4,6,5,0
+31,Mrs. Kaisa Gold,12:00,1,Neapolitan Mastiff,breed,all-breed,Neapolitan Mastiff,Working,1,0,0,1,0,0
+31,Mrs. Kaisa Gold,12:45,0,Newfoundland,breed,all-breed,Newfoundland,Working,32,9,6,9,7,1
+31,Mrs. Kaisa Gold,14:05,0,Rottweiler,breed,all-breed,Rottweiler,Working,12,5,1,5,1,0
+31,Mrs. Kaisa Gold,14:05,1,ST. Bernard,breed,all-breed,Saint Bernard,Working,3,0,3,0,0,0
+31,Mrs. Kaisa Gold,14:05,2,Tibetan Mastiff,breed,all-breed,Tibetan Mastiff,Working,1,0,0,1,0,0
+32,Mr. Jonathan C. Cortez,08:30,0,Junior Showmanship,junior-showmanship,all-breed,,,45,,,,,
+32,Mrs. Susan E. Huntzinger,15:10,0,Labrador Retriever,breed,all-breed,Labrador Retriever,Sporting,38,12,13,9,4,0

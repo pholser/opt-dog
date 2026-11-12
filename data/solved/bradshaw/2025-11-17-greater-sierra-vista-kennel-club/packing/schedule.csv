@@ -1,58 +1,51 @@
 ring,judge,block_start,position,event,kind,competition,breed,group,entries,class_dogs,class_bitches,bob_dogs,bob_bitches,nonregular
-2,Mr. Larry C. Abbott,08:00,0,Finnish Lapphund,breed,all-breed,Finnish Lapphund,Herding,1,0,1,0,0,0
-2,Mr. Larry C. Abbott,08:00,1,Dalmatian,breed,all-breed,Dalmatian,Non-Sporting,8,1,1,2,4,0
-2,Mr. Larry C. Abbott,08:00,2,Poodle (Standard),breed,all-breed,Poodle (Standard),Non-Sporting,9,3,3,0,3,0
-2,Mr. Larry C. Abbott,08:00,3,Bulldog,breed,all-breed,Bulldog,Non-Sporting,3,2,0,0,1,0
-2,Mr. Larry C. Abbott,08:00,4,Chinese Shar-Pei,breed,all-breed,Chinese Shar-Pei,Non-Sporting,5,2,1,0,2,0
-2,Mr. Larry C. Abbott,09:05,0,French Bulldog,breed,all-breed,French Bulldog,Non-Sporting,21,6,7,5,3,0
-2,Mr. Larry C. Abbott,09:05,1,Xoloitzcuintli,breed,all-breed,Xoloitzcuintli,Non-Sporting,3,1,1,1,0,0
-2,Mr. Larry C. Abbott,10:05,0,American Eskimos,breed,all-breed,American Eskimo Dog,Non-Sporting,6,0,3,1,2,0
-2,Mr. Larry C. Abbott,10:05,1,Schipperke,breed,all-breed,Schipperke,Non-Sporting,13,2,3,5,3,0
-2,Mr. Larry C. Abbott,10:05,2,Shiba-Inu,breed,all-breed,Shiba Inu,Non-Sporting,2,0,1,1,0,0
-2,Mr. Larry C. Abbott,11:05,0,Bichon Frise,breed,all-breed,Bichon Frise,Non-Sporting,3,0,1,2,0,0
-2,Mr. Larry C. Abbott,11:05,1,Coton de Tulear,breed,all-breed,Coton de Tulear,Non-Sporting,5,1,3,0,1,0
-2,Mr. Larry C. Abbott,11:05,2,Lhasa Apso,breed,all-breed,Lhasa Apso,Non-Sporting,3,0,1,2,0,0
-2,Mr. Larry C. Abbott,11:05,3,Poodle (Miniature),breed,all-breed,Poodle (Miniature),Non-Sporting,5,4,1,0,0,0
-2,Mr. Larry C. Abbott,11:45,0,Tibetan Terrier,breed,all-breed,Tibetan Terrier,Non-Sporting,1,0,0,1,0,0
-2,Mr. Larry C. Abbott,11:45,1,Chihuahua (Long Coat),breed,all-breed,Chihuahua (Long Coat),Toy,14,4,5,3,2,0
-2,Mr. Larry C. Abbott,12:25,0,Chihuahua (Smooth Coat),breed,all-breed,Chihuahua (Smooth Coat),Toy,8,4,2,1,1,0
-2,Mr. Larry C. Abbott,12:25,1,Miniature Pinscher,breed,all-breed,Miniature Pinscher,Toy,7,4,2,1,0,0
-3,Mrs. Vicki L. Abbott,08:05,0,Havanese,breed,all-breed,Havanese,Toy,5,1,1,1,2,0
-3,Mrs. Vicki L. Abbott,08:05,1,Papillon,breed,all-breed,Papillon,Toy,22,6,6,8,2,0
-3,Mrs. Vicki L. Abbott,09:10,0,Japanese Chin,breed,all-breed,Japanese Chin,Toy,6,2,2,1,1,0
-3,Mrs. Vicki L. Abbott,09:10,1,Pomeranian,breed,all-breed,Pomeranian,Toy,7,1,2,3,1,0
-3,Mrs. Vicki L. Abbott,09:10,2,Russian Toy,breed,all-breed,Russian Toy,Toy,8,2,3,3,0,0
-3,Mrs. Vicki L. Abbott,09:10,3,Shih Tzu,breed,all-breed,Shih Tzu,Toy,6,1,2,0,3,0
-3,Mrs. Vicki L. Abbott,10:15,0,Biewer Terrier,breed,all-breed,Biewer Terrier,Toy,6,2,4,0,0,0
-3,Mrs. Vicki L. Abbott,10:15,1,Poodle (Toy),breed,all-breed,Poodle (Toy),Toy,3,1,1,0,1,0
-3,Mrs. Vicki L. Abbott,10:15,2,Pug,breed,all-breed,Pug,Toy,3,0,0,2,1,0
-3,Mrs. Vicki L. Abbott,10:15,3,Yorkshire Terrier,breed,all-breed,Yorkshire Terrier,Toy,5,1,2,2,0,0
-3,Mrs. Vicki L. Abbott,11:45,0,Italian Greyhound,breed,all-breed,Italian Greyhound,Toy,16,2,6,6,2,0
-3,Mrs. Vicki L. Abbott,11:45,1,Australian Terrier,breed,all-breed,Australian Terrier,Terrier,4,0,0,2,2,0
-3,Mrs. Vicki L. Abbott,11:45,2,Bedlington Terrier,breed,all-breed,Bedlington Terrier,Terrier,7,1,1,4,1,0
-3,Mrs. Vicki L. Abbott,12:50,0,Norfolk Terrier,breed,all-breed,Norfolk Terrier,Terrier,2,0,2,0,0,0
-3,Mrs. Vicki L. Abbott,12:50,1,Rat Terrier,breed,all-breed,Rat Terrier,Terrier,8,0,4,2,2,0
-3,Mrs. Vicki L. Abbott,12:50,2,West Highland White Terrier,breed,all-breed,West Highland White Terrier,Terrier,4,0,1,3,0,0
-3,Mrs. Vicki L. Abbott,12:50,3,Fox Terrier (Wire),breed,all-breed,Wire Fox Terrier,Terrier,1,0,0,1,0,0
-3,Mrs. Vicki L. Abbott,12:50,4,Border Terrier,breed,all-breed,Border Terrier,Terrier,7,1,3,2,1,0
-3,Mrs. Vicki L. Abbott,13:45,0,Miniature Schnauzer,breed,all-breed,Miniature Schnauzer,Terrier,4,1,0,3,0,0
-3,Mrs. Vicki L. Abbott,13:45,1,Parson Russell Terrier,breed,all-breed,Parson Russell Terrier,Terrier,5,0,2,1,2,0
-3,Mrs. Vicki L. Abbott,13:45,2,Fox Terrier (Smooth),breed,all-breed,Smooth Fox Terrier,Terrier,5,1,1,2,1,0
-3,Mrs. Vicki L. Abbott,13:45,3,Lakeland Terrier,breed,all-breed,Lakeland Terrier,Terrier,1,0,0,0,1,0
-3,Mrs. Vicki L. Abbott,13:45,4,Manchester Terrier (Standard),breed,all-breed,Manchester Terrier (Standard),Terrier,2,0,0,1,1,0
-3,Mrs. Vicki L. Abbott,13:45,5,Norwich Terrier,breed,all-breed,Norwich Terrier,Terrier,3,1,0,2,0,0
-3,Mrs. Vicki L. Abbott,13:45,6,Russell Terriers,breed,all-breed,Russell Terrier,Terrier,3,0,2,1,0,0
-3,Mrs. Vicki L. Abbott,13:45,7,Scottish Terrier,breed,all-breed,Scottish Terrier,Terrier,4,0,0,2,2,0
-3,Mrs. Vicki L. Abbott,14:50,0,Welsh Terrier,breed,all-breed,Welsh Terrier,Terrier,2,0,0,1,1,0
-3,Mrs. Vicki L. Abbott,14:50,1,Airedale Terrier,breed,all-breed,Airedale Terrier,Terrier,3,0,2,1,0,0
-3,Mrs. Vicki L. Abbott,14:50,2,American Staffordshire Terrier,breed,all-breed,American Staffordshire Terrier,Terrier,2,1,0,1,0,0
-3,Mrs. Vicki L. Abbott,14:50,3,Bull Terrier (Colored),breed,all-breed,Bull Terrier (Colored),Terrier,2,0,1,0,1,0
-3,Mrs. Vicki L. Abbott,14:50,4,Irish Terrier,breed,all-breed,Irish Terrier,Terrier,1,0,0,1,0,0
-3,Mrs. Vicki L. Abbott,14:50,5,Miniature Bull Terrier,breed,all-breed,Miniature Bull Terrier,Terrier,1,0,0,1,0,0
-3,Mrs. Vicki L. Abbott,14:50,6,Staffordshire Bull Terriers,breed,all-breed,Staffordshire Bull Terrier,Terrier,1,0,0,1,0,0
-3,Mrs. Vicki L. Abbott,14:50,7,Kerry Blue Terrier,breed,all-breed,Kerry Blue Terrier,Terrier,3,0,2,1,0,0
-3,Mrs. Vicki L. Abbott,14:50,8,Soft Coated Wheaten Terrier,breed,all-breed,Soft Coated Wheaten Terrier,Terrier,2,0,1,0,1,0
-3,Mrs. Vicki L. Abbott,14:50,9,Keeshond,breed,all-breed,Keeshond,Non-Sporting,4,0,0,3,1,0
+1,Mrs. Joan Luna Liebes,08:00,0,Doberman Pinscher,breed,all-breed,Doberman Pinscher,Working,49,7,26,8,8,0
+1,Mrs. Joan Luna Liebes,10:00,0,Great Dane,breed,all-breed,Great Dane,Working,17,5,5,4,3,0
+1,Mrs. Joan Luna Liebes,10:00,1,Great Pyrenees,breed,all-breed,Great Pyrenees,Working,1,0,0,1,0,0
+1,Mrs. Joan Luna Liebes,10:45,0,Mastiff,breed,all-breed,Mastiff,Working,16,5,6,3,2,0
+1,Mrs. Joan Luna Liebes,12:10,0,Manchester Terrier (Toy),breed,all-breed,Manchester Terrier (Toy),Toy,1,1,0,0,0,0
+1,Mrs. Joan Luna Liebes,12:10,1,Cardigan Welsh Corgi,breed,all-breed,Cardigan Welsh Corgi,Herding,6,1,4,1,0,0
+1,Mrs. Joan Luna Liebes,12:10,2,Australian Cattle Dog,breed,all-breed,Australian Cattle Dog,Herding,8,2,3,1,2,0
+1,Mrs. Joan Luna Liebes,12:10,3,Bearded Collie,breed,all-breed,Bearded Collie,Herding,2,0,0,0,2,0
+1,Mrs. Joan Luna Liebes,12:10,4,Beauceron,breed,all-breed,Beauceron,Herding,7,2,2,2,1,0
+1,Mrs. Joan Luna Liebes,13:10,0,Belgian Sheepdog,breed,all-breed,Belgian Sheepdog,Herding,2,1,0,0,1,0
+1,Mrs. Joan Luna Liebes,13:10,1,Collie (Rough),breed,all-breed,Collie (Rough),Herding,5,0,3,2,0,0
+1,Mrs. Joan Luna Liebes,13:10,2,German Shepherd Dog,breed,all-breed,German Shepherd Dog,Herding,1,0,1,0,0,0
+1,Mrs. Joan Luna Liebes,13:10,3,Mudi,breed,all-breed,Mudi,Herding,2,0,0,2,0,0
+1,Mrs. Joan Luna Liebes,13:10,4,Belgian Malinois,breed,all-breed,Belgian Malinois,Herding,1,0,0,1,0,0
+1,Mrs. Joan Luna Liebes,13:10,5,Belgian Tervuren,breed,all-breed,Belgian Tervuren,Herding,2,0,1,0,1,0
+1,Mrs. Joan Luna Liebes,13:10,6,Border Collie,breed,all-breed,Border Collie,Herding,9,2,3,2,2,0
+1,Mrs. Joan Luna Liebes,13:10,7,Bouvier Des Flandres,breed,all-breed,Bouvier des Flandres,Herding,5,1,0,2,2,0
+1,Mrs. Joan Luna Liebes,14:15,0,Briard,breed,all-breed,Briard,Herding,1,0,0,0,1,0
+1,Mrs. Joan Luna Liebes,14:15,1,Junior Showmanship,junior-showmanship,all-breed,,,14,,,,,
+2,Dr. Eric Liebes,08:00,0,Beagle Thirteen Inch,breed,all-breed,Beagle (13 Inch),Hound,1,0,0,1,0,0
+2,Dr. Eric Liebes,08:00,1,Beagle Fifteen Inch,breed,all-breed,Beagle (15 Inch),Hound,3,1,1,1,0,0
+2,Dr. Eric Liebes,08:00,2,Petit Basset Griffon Vendeens,breed,all-breed,Petit Basset Griffon Vendeen,Hound,7,3,1,1,2,0
+2,Dr. Eric Liebes,08:00,3,Basenji,breed,all-breed,Basenji,Hound,14,1,5,3,5,0
+2,Dr. Eric Liebes,08:00,4,Ibizan Hound,breed,all-breed,Ibizan Hound,Hound,2,0,0,1,1,0
+2,Dr. Eric Liebes,09:25,0,Saluki,breed,all-breed,Saluki,Hound,4,0,0,1,3,0
+2,Dr. Eric Liebes,09:25,1,Treeing Walker Coonhound,breed,all-breed,Treeing Walker Coonhound,Hound,1,0,0,1,0,0
+2,Dr. Eric Liebes,09:25,2,Bloodhound,breed,all-breed,Bloodhound,Hound,1,0,0,0,1,0
+2,Dr. Eric Liebes,09:25,3,Irish Wolfhound,breed,all-breed,Irish Wolfhound,Hound,13,4,2,5,2,0
+2,Dr. Eric Liebes,09:25,4,Scottish Deerhound,breed,all-breed,Scottish Deerhound,Hound,7,2,2,1,2,0
+2,Dr. Eric Liebes,10:30,0,Whippet,breed,all-breed,Whippet,Hound,21,8,8,3,2,0
+2,Dr. Eric Liebes,10:30,1,Basset Hound,breed,all-breed,Basset Hound,Hound,1,0,0,0,1,0
+2,Dr. Eric Liebes,12:10,0,Akita,breed,all-breed,Akita,Working,6,0,3,1,2,0
+2,Dr. Eric Liebes,12:10,1,Anatolian Shepherd,breed,all-breed,Anatolian Shepherd Dog,Working,2,0,1,1,0,0
+2,Dr. Eric Liebes,12:10,2,Bernese Mountain Dog,breed,all-breed,Bernese Mountain Dog,Working,4,0,3,1,0,0
+2,Dr. Eric Liebes,12:10,3,Cane Corso,breed,all-breed,Cane Corso,Working,4,1,1,2,0,0
+2,Dr. Eric Liebes,12:10,4,Giant Schnauzer,breed,all-breed,Giant Schnauzer,Working,3,2,0,1,0,0
+2,Dr. Eric Liebes,12:10,5,Standard Schnauzer,breed,all-breed,Standard Schnauzer,Working,8,2,2,1,3,0
+2,Dr. Eric Liebes,13:15,0,Alaskan Malamute,breed,all-breed,Alaskan Malamute,Working,2,0,0,1,0,1
+2,Dr. Eric Liebes,13:15,1,Boerboel,breed,all-breed,Boerboel,Working,2,0,1,1,0,0
+2,Dr. Eric Liebes,13:15,2,Boxer,breed,all-breed,Boxer,Working,18,2,10,4,2,0
+2,Dr. Eric Liebes,13:15,3,Bullmastiff,breed,all-breed,Bullmastiff,Working,3,0,0,1,2,0
+2,Dr. Eric Liebes,13:15,4,German Pinscher,breed,all-breed,German Pinscher,Working,1,0,0,1,0,0
+2,Dr. Eric Liebes,14:20,0,Rottweiler,breed,all-breed,Rottweiler,Working,7,2,0,3,2,0
+2,Dr. Eric Liebes,14:20,1,ST. Bernard,breed,all-breed,Saint Bernard,Working,2,0,1,1,0,0
+2,Dr. Eric Liebes,14:20,2,Samoyed,breed,all-breed,Samoyed,Working,13,0,4,3,6,0
+2,Dr. Eric Liebes,14:20,3,Siberian Husky,breed,all-breed,Siberian Husky,Working,4,1,1,1,1,0
+2,Dr. Eric Liebes,14:20,4,Danish-Swedish Farmdog,breed,all-breed,Danish-Swedish Farmdog,Working,1,0,1,0,0,0
 6,Ms. Peggy Beisel-McIlwaine,08:00,0,Labrador Retriever,breed,all-breed,Labrador Retriever,Sporting,27,5,13,6,3,0
 6,Ms. Peggy Beisel-McIlwaine,09:05,0,Barbet,breed,all-breed,Barbet,Sporting,2,0,0,0,2,0
 6,Ms. Peggy Beisel-McIlwaine,09:05,1,BracchI Italiani,breed,all-breed,Bracco Italiano,Sporting,1,0,0,1,0,0
@@ -72,40 +65,65 @@ ring,judge,block_start,position,event,kind,competition,breed,group,entries,class
 6,Ms. Peggy Beisel-McIlwaine,11:10,5,English Cocker Spaniel,breed,all-breed,English Cocker Spaniel,Sporting,2,0,0,1,1,0
 6,Ms. Peggy Beisel-McIlwaine,11:10,6,Nederlandse Kooikerhondjes,breed,all-breed,Nederlandse Kooikerhondje,Sporting,1,0,0,1,0,0
 6,Ms. Peggy Beisel-McIlwaine,11:10,7,Chinese Crested,breed,all-breed,Chinese Crested,Toy,8,2,4,1,1,0
-7,Mrs. Joan Luna Liebes,08:00,0,Manchester Terrier (Toy),breed,all-breed,Manchester Terrier (Toy),Toy,1,1,0,0,0,0
-7,Mrs. Joan Luna Liebes,08:00,1,Cardigan Welsh Corgi,breed,all-breed,Cardigan Welsh Corgi,Herding,6,1,4,1,0,0
-7,Mrs. Joan Luna Liebes,08:00,2,Australian Cattle Dog,breed,all-breed,Australian Cattle Dog,Herding,8,2,3,1,2,0
-7,Mrs. Joan Luna Liebes,08:00,3,Bearded Collie,breed,all-breed,Bearded Collie,Herding,2,0,0,0,2,0
-7,Mrs. Joan Luna Liebes,08:00,4,Beauceron,breed,all-breed,Beauceron,Herding,7,2,2,2,1,0
-7,Mrs. Joan Luna Liebes,08:00,5,Belgian Sheepdog,breed,all-breed,Belgian Sheepdog,Herding,2,1,0,0,1,0
-7,Mrs. Joan Luna Liebes,09:05,0,Collie (Rough),breed,all-breed,Collie (Rough),Herding,5,0,3,2,0,0
-7,Mrs. Joan Luna Liebes,09:05,1,German Shepherd Dog,breed,all-breed,German Shepherd Dog,Herding,1,0,1,0,0,0
-7,Mrs. Joan Luna Liebes,09:05,2,Mudi,breed,all-breed,Mudi,Herding,2,0,0,2,0,0
-7,Mrs. Joan Luna Liebes,09:05,3,Belgian Malinois,breed,all-breed,Belgian Malinois,Herding,1,0,0,1,0,0
-7,Mrs. Joan Luna Liebes,09:05,4,Belgian Tervuren,breed,all-breed,Belgian Tervuren,Herding,2,0,1,0,1,0
-7,Mrs. Joan Luna Liebes,09:05,5,Border Collie,breed,all-breed,Border Collie,Herding,9,2,3,2,2,0
-7,Mrs. Joan Luna Liebes,09:05,6,Bouvier Des Flandres,breed,all-breed,Bouvier des Flandres,Herding,5,1,0,2,2,0
-7,Mrs. Joan Luna Liebes,10:05,0,Briard,breed,all-breed,Briard,Herding,1,0,0,0,1,0
-7,Mrs. Joan Luna Liebes,10:05,1,Junior Showmanship,junior-showmanship,all-breed,,,14,,,,,
-7,Mrs. Joan Luna Liebes,11:45,0,Doberman Pinscher,breed,all-breed,Doberman Pinscher,Working,49,7,26,8,8,0
-7,Mrs. Joan Luna Liebes,13:50,0,Great Dane,breed,all-breed,Great Dane,Working,17,5,5,4,3,0
-7,Mrs. Joan Luna Liebes,13:50,1,Great Pyrenees,breed,all-breed,Great Pyrenees,Working,1,0,0,1,0,0
-7,Mrs. Joan Luna Liebes,14:35,0,Mastiff,breed,all-breed,Mastiff,Working,16,5,6,3,2,0
-9,Mr. Joe C. Walton,08:00,0,Rhodesian Ridgeback,breed,all-breed,Rhodesian Ridgeback,Hound,33,7,11,7,8,0
-9,Mr. Joe C. Walton,09:20,0,Dachshund (Longhaired),breed,all-breed,Dachshund (Longhaired),Hound,13,1,6,4,2,0
-9,Mr. Joe C. Walton,09:20,1,Dachshund (Smooth),breed,all-breed,Dachshund (Smooth),Hound,8,1,2,3,2,0
-9,Mr. Joe C. Walton,10:15,0,Dachshund (Wirehaired),breed,all-breed,Dachshund (Wirehaired),Hound,7,0,3,2,2,0
-9,Mr. Joe C. Walton,10:15,1,Boston Terrier,breed,all-breed,Boston Terrier,Non-Sporting,12,1,5,3,3,0
-9,Mr. Joe C. Walton,10:15,2,Affenpinscher,breed,all-breed,Affenpinscher,Toy,5,1,2,1,1,0
-9,Mr. Joe C. Walton,10:15,3,Brussels Griffon,breed,all-breed,Brussels Griffon,Toy,3,1,2,0,0,0
-9,Mr. Joe C. Walton,11:20,0,Cavalier King Charles Spaniel,breed,all-breed,Cavalier King Charles Spaniel,Toy,16,1,5,7,3,0
-9,Mr. Joe C. Walton,11:20,1,Russian Tsvetnaya Bolonka,breed,all-breed,Russian Tsvetnaya Bolonka,Toy,2,,,,,
-9,Mr. Joe C. Walton,11:20,2,Portuguese Water Dog,breed,all-breed,Portuguese Water Dog,Working,5,1,2,0,2,0
-10,Mrs. Debbie L. Melgreen,09:00,0,Afghan Hound,breed,all-breed,Afghan Hound,Hound,7,1,1,4,1,0
-10,Mrs. Debbie L. Melgreen,09:00,1,Borzoi,breed,all-breed,Borzoi,Hound,3,0,1,2,0,0
-10,Mrs. Debbie L. Melgreen,09:00,2,Clumber Spaniel,breed,all-breed,Clumber Spaniel,Sporting,2,0,1,1,0,0
-10,Mrs. Debbie L. Melgreen,09:00,3,American Water Spaniel,breed,all-breed,American Water Spaniel,Sporting,1,0,0,1,0,0
-10,Mrs. Debbie L. Melgreen,09:00,4,Irish Setter,breed,all-breed,Irish Setter,Sporting,6,0,2,3,1,0
+7,Mr. Larry C. Abbott,08:00,0,Finnish Lapphund,breed,all-breed,Finnish Lapphund,Herding,1,0,1,0,0,0
+7,Mr. Larry C. Abbott,08:00,1,Dalmatian,breed,all-breed,Dalmatian,Non-Sporting,8,1,1,2,4,0
+7,Mr. Larry C. Abbott,08:00,2,Poodle (Standard),breed,all-breed,Poodle (Standard),Non-Sporting,9,3,3,0,3,0
+7,Mr. Larry C. Abbott,08:00,3,Bulldog,breed,all-breed,Bulldog,Non-Sporting,3,2,0,0,1,0
+7,Mr. Larry C. Abbott,08:00,4,Chinese Shar-Pei,breed,all-breed,Chinese Shar-Pei,Non-Sporting,5,2,1,0,2,0
+7,Mr. Larry C. Abbott,09:05,0,French Bulldog,breed,all-breed,French Bulldog,Non-Sporting,21,6,7,5,3,0
+7,Mr. Larry C. Abbott,10:00,0,Xoloitzcuintli,breed,all-breed,Xoloitzcuintli,Non-Sporting,3,1,1,1,0,0
+7,Mr. Larry C. Abbott,10:00,1,American Eskimos,breed,all-breed,American Eskimo Dog,Non-Sporting,6,0,3,1,2,0
+7,Mr. Larry C. Abbott,10:00,2,Schipperke,breed,all-breed,Schipperke,Non-Sporting,13,2,3,5,3,0
+7,Mr. Larry C. Abbott,10:00,3,Shiba-Inu,breed,all-breed,Shiba Inu,Non-Sporting,2,0,1,1,0,0
+7,Mr. Larry C. Abbott,11:00,0,Bichon Frise,breed,all-breed,Bichon Frise,Non-Sporting,3,0,1,2,0,0
+7,Mr. Larry C. Abbott,11:00,1,Coton de Tulear,breed,all-breed,Coton de Tulear,Non-Sporting,5,1,3,0,1,0
+7,Mr. Larry C. Abbott,11:00,2,Lhasa Apso,breed,all-breed,Lhasa Apso,Non-Sporting,3,0,1,2,0,0
+7,Mr. Larry C. Abbott,11:00,3,Poodle (Miniature),breed,all-breed,Poodle (Miniature),Non-Sporting,5,4,1,0,0,0
+7,Mr. Larry C. Abbott,11:40,0,Tibetan Terrier,breed,all-breed,Tibetan Terrier,Non-Sporting,1,0,0,1,0,0
+7,Mr. Larry C. Abbott,11:40,1,Chihuahua (Long Coat),breed,all-breed,Chihuahua (Long Coat),Toy,14,4,5,3,2,0
+7,Mr. Larry C. Abbott,12:25,0,Chihuahua (Smooth Coat),breed,all-breed,Chihuahua (Smooth Coat),Toy,8,4,2,1,1,0
+7,Mr. Larry C. Abbott,12:25,1,Miniature Pinscher,breed,all-breed,Miniature Pinscher,Toy,7,4,2,1,0,0
+9,Mrs. Vicki L. Abbott,08:10,0,Havanese,breed,all-breed,Havanese,Toy,5,1,1,1,2,0
+9,Mrs. Vicki L. Abbott,08:10,1,Papillon,breed,all-breed,Papillon,Toy,22,6,6,8,2,0
+9,Mrs. Vicki L. Abbott,09:15,0,Japanese Chin,breed,all-breed,Japanese Chin,Toy,6,2,2,1,1,0
+9,Mrs. Vicki L. Abbott,09:15,1,Pomeranian,breed,all-breed,Pomeranian,Toy,7,1,2,3,1,0
+9,Mrs. Vicki L. Abbott,09:15,2,Russian Toy,breed,all-breed,Russian Toy,Toy,8,2,3,3,0,0
+9,Mrs. Vicki L. Abbott,09:15,3,Shih Tzu,breed,all-breed,Shih Tzu,Toy,6,1,2,0,3,0
+9,Mrs. Vicki L. Abbott,10:20,0,Biewer Terrier,breed,all-breed,Biewer Terrier,Toy,6,2,4,0,0,0
+9,Mrs. Vicki L. Abbott,10:20,1,Poodle (Toy),breed,all-breed,Poodle (Toy),Toy,3,1,1,0,1,0
+9,Mrs. Vicki L. Abbott,10:20,2,Pug,breed,all-breed,Pug,Toy,3,0,0,2,1,0
+9,Mrs. Vicki L. Abbott,10:20,3,Yorkshire Terrier,breed,all-breed,Yorkshire Terrier,Toy,5,1,2,2,0,0
+9,Mrs. Vicki L. Abbott,11:50,0,Italian Greyhound,breed,all-breed,Italian Greyhound,Toy,16,2,6,6,2,0
+9,Mrs. Vicki L. Abbott,11:50,1,Australian Terrier,breed,all-breed,Australian Terrier,Terrier,4,0,0,2,2,0
+9,Mrs. Vicki L. Abbott,11:50,2,Bedlington Terrier,breed,all-breed,Bedlington Terrier,Terrier,7,1,1,4,1,0
+9,Mrs. Vicki L. Abbott,12:55,0,Norfolk Terrier,breed,all-breed,Norfolk Terrier,Terrier,2,0,2,0,0,0
+9,Mrs. Vicki L. Abbott,12:55,1,Rat Terrier,breed,all-breed,Rat Terrier,Terrier,8,0,4,2,2,0
+9,Mrs. Vicki L. Abbott,12:55,2,West Highland White Terrier,breed,all-breed,West Highland White Terrier,Terrier,4,0,1,3,0,0
+9,Mrs. Vicki L. Abbott,12:55,3,Fox Terrier (Wire),breed,all-breed,Wire Fox Terrier,Terrier,1,0,0,1,0,0
+9,Mrs. Vicki L. Abbott,12:55,4,Border Terrier,breed,all-breed,Border Terrier,Terrier,7,1,3,2,1,0
+9,Mrs. Vicki L. Abbott,12:55,5,Miniature Schnauzer,breed,all-breed,Miniature Schnauzer,Terrier,4,1,0,3,0,0
+9,Mrs. Vicki L. Abbott,14:00,0,Parson Russell Terrier,breed,all-breed,Parson Russell Terrier,Terrier,5,0,2,1,2,0
+9,Mrs. Vicki L. Abbott,14:00,1,Fox Terrier (Smooth),breed,all-breed,Smooth Fox Terrier,Terrier,5,1,1,2,1,0
+9,Mrs. Vicki L. Abbott,14:00,2,Lakeland Terrier,breed,all-breed,Lakeland Terrier,Terrier,1,0,0,0,1,0
+9,Mrs. Vicki L. Abbott,14:00,3,Manchester Terrier (Standard),breed,all-breed,Manchester Terrier (Standard),Terrier,2,0,0,1,1,0
+9,Mrs. Vicki L. Abbott,14:00,4,Norwich Terrier,breed,all-breed,Norwich Terrier,Terrier,3,1,0,2,0,0
+9,Mrs. Vicki L. Abbott,14:00,5,Russell Terriers,breed,all-breed,Russell Terrier,Terrier,3,0,2,1,0,0
+9,Mrs. Vicki L. Abbott,14:00,6,Scottish Terrier,breed,all-breed,Scottish Terrier,Terrier,4,0,0,2,2,0
+9,Mrs. Vicki L. Abbott,14:00,7,Welsh Terrier,breed,all-breed,Welsh Terrier,Terrier,2,0,0,1,1,0
+9,Mrs. Vicki L. Abbott,15:00,0,Airedale Terrier,breed,all-breed,Airedale Terrier,Terrier,3,0,2,1,0,0
+9,Mrs. Vicki L. Abbott,15:00,1,American Staffordshire Terrier,breed,all-breed,American Staffordshire Terrier,Terrier,2,1,0,1,0,0
+9,Mrs. Vicki L. Abbott,15:00,2,Bull Terrier (Colored),breed,all-breed,Bull Terrier (Colored),Terrier,2,0,1,0,1,0
+9,Mrs. Vicki L. Abbott,15:00,3,Irish Terrier,breed,all-breed,Irish Terrier,Terrier,1,0,0,1,0,0
+9,Mrs. Vicki L. Abbott,15:00,4,Miniature Bull Terrier,breed,all-breed,Miniature Bull Terrier,Terrier,1,0,0,1,0,0
+9,Mrs. Vicki L. Abbott,15:00,5,Staffordshire Bull Terriers,breed,all-breed,Staffordshire Bull Terrier,Terrier,1,0,0,1,0,0
+9,Mrs. Vicki L. Abbott,15:00,6,Kerry Blue Terrier,breed,all-breed,Kerry Blue Terrier,Terrier,3,0,2,1,0,0
+9,Mrs. Vicki L. Abbott,15:00,7,Soft Coated Wheaten Terrier,breed,all-breed,Soft Coated Wheaten Terrier,Terrier,2,0,1,0,1,0
+9,Mrs. Vicki L. Abbott,15:00,8,Keeshond,breed,all-breed,Keeshond,Non-Sporting,4,0,0,3,1,0
+10,Mrs. Debbie L. Melgreen,08:10,0,Afghan Hound,breed,all-breed,Afghan Hound,Hound,7,1,1,4,1,0
+10,Mrs. Debbie L. Melgreen,08:10,1,Borzoi,breed,all-breed,Borzoi,Hound,3,0,1,2,0,0
+10,Mrs. Debbie L. Melgreen,08:10,2,Clumber Spaniel,breed,all-breed,Clumber Spaniel,Sporting,2,0,1,1,0,0
+10,Mrs. Debbie L. Melgreen,08:10,3,American Water Spaniel,breed,all-breed,American Water Spaniel,Sporting,1,0,0,1,0,0
+10,Mrs. Debbie L. Melgreen,08:10,4,Irish Setter,breed,all-breed,Irish Setter,Sporting,6,0,2,3,1,0
 10,Mrs. Debbie L. Melgreen,09:50,0,Vizsla,breed,all-breed,Vizsla,Sporting,17,2,6,4,5,0
 10,Mrs. Debbie L. Melgreen,10:35,0,Australian Shepherd,breed,all-breed,Australian Shepherd,Herding,20,6,11,2,1,0
 10,Mrs. Debbie L. Melgreen,10:35,1,Old English Sheepdog,breed,all-breed,Old English Sheepdog,Herding,3,2,0,1,0,0
@@ -115,31 +133,13 @@ ring,judge,block_start,position,event,kind,competition,breed,group,entries,class
 10,Mrs. Debbie L. Melgreen,12:25,0,Miniature American Shepherd,breed,all-breed,Miniature American Shepherd,Herding,18,2,11,3,2,0
 10,Mrs. Debbie L. Melgreen,13:10,0,Shetland Sheepdog,breed,all-breed,Shetland Sheepdog,Herding,12,4,5,2,1,0
 10,Mrs. Debbie L. Melgreen,13:10,1,Swedish Vallhund,breed,all-breed,Swedish Vallhund,Herding,4,2,0,1,1,0
-11,Dr. Eric Liebes,08:00,0,Beagle Thirteen Inch,breed,all-breed,Beagle (13 Inch),Hound,1,0,0,1,0,0
-11,Dr. Eric Liebes,08:00,1,Beagle Fifteen Inch,breed,all-breed,Beagle (15 Inch),Hound,3,1,1,1,0,0
-11,Dr. Eric Liebes,08:00,2,Petit Basset Griffon Vendeens,breed,all-breed,Petit Basset Griffon Vendeen,Hound,7,3,1,1,2,0
-11,Dr. Eric Liebes,08:00,3,Basenji,breed,all-breed,Basenji,Hound,14,1,5,3,5,0
-11,Dr. Eric Liebes,08:00,4,Ibizan Hound,breed,all-breed,Ibizan Hound,Hound,2,0,0,1,1,0
-11,Dr. Eric Liebes,09:05,0,Saluki,breed,all-breed,Saluki,Hound,4,0,0,1,3,0
-11,Dr. Eric Liebes,09:05,1,Treeing Walker Coonhound,breed,all-breed,Treeing Walker Coonhound,Hound,1,0,0,1,0,0
-11,Dr. Eric Liebes,09:05,2,Bloodhound,breed,all-breed,Bloodhound,Hound,1,0,0,0,1,0
-11,Dr. Eric Liebes,09:05,3,Irish Wolfhound,breed,all-breed,Irish Wolfhound,Hound,13,4,2,5,2,0
-11,Dr. Eric Liebes,09:05,4,Scottish Deerhound,breed,all-breed,Scottish Deerhound,Hound,7,2,2,1,2,0
-11,Dr. Eric Liebes,10:10,0,Whippet,breed,all-breed,Whippet,Hound,21,8,8,3,2,0
-11,Dr. Eric Liebes,10:10,1,Basset Hound,breed,all-breed,Basset Hound,Hound,1,0,0,0,1,0
-11,Dr. Eric Liebes,11:50,0,Akita,breed,all-breed,Akita,Working,6,0,3,1,2,0
-11,Dr. Eric Liebes,11:50,1,Anatolian Shepherd,breed,all-breed,Anatolian Shepherd Dog,Working,2,0,1,1,0,0
-11,Dr. Eric Liebes,11:50,2,Bernese Mountain Dog,breed,all-breed,Bernese Mountain Dog,Working,4,0,3,1,0,0
-11,Dr. Eric Liebes,11:50,3,Cane Corso,breed,all-breed,Cane Corso,Working,4,1,1,2,0,0
-11,Dr. Eric Liebes,11:50,4,Giant Schnauzer,breed,all-breed,Giant Schnauzer,Working,3,2,0,1,0,0
-11,Dr. Eric Liebes,11:50,5,Standard Schnauzer,breed,all-breed,Standard Schnauzer,Working,8,2,2,1,3,0
-11,Dr. Eric Liebes,12:55,0,Alaskan Malamute,breed,all-breed,Alaskan Malamute,Working,2,0,0,1,0,1
-11,Dr. Eric Liebes,12:55,1,Boerboel,breed,all-breed,Boerboel,Working,2,0,1,1,0,0
-11,Dr. Eric Liebes,12:55,2,Boxer,breed,all-breed,Boxer,Working,18,2,10,4,2,0
-11,Dr. Eric Liebes,12:55,3,Bullmastiff,breed,all-breed,Bullmastiff,Working,3,0,0,1,2,0
-11,Dr. Eric Liebes,12:55,4,German Pinscher,breed,all-breed,German Pinscher,Working,1,0,0,1,0,0
-11,Dr. Eric Liebes,14:00,0,Rottweiler,breed,all-breed,Rottweiler,Working,7,2,0,3,2,0
-11,Dr. Eric Liebes,14:00,1,ST. Bernard,breed,all-breed,Saint Bernard,Working,2,0,1,1,0,0
-11,Dr. Eric Liebes,14:00,2,Samoyed,breed,all-breed,Samoyed,Working,13,0,4,3,6,0
-11,Dr. Eric Liebes,14:00,3,Siberian Husky,breed,all-breed,Siberian Husky,Working,4,1,1,1,1,0
-11,Dr. Eric Liebes,14:00,4,Danish-Swedish Farmdog,breed,all-breed,Danish-Swedish Farmdog,Working,1,0,1,0,0,0
+11,Mr. Joe C. Walton,08:30,0,Rhodesian Ridgeback,breed,all-breed,Rhodesian Ridgeback,Hound,33,7,11,7,8,0
+11,Mr. Joe C. Walton,09:50,0,Dachshund (Longhaired),breed,all-breed,Dachshund (Longhaired),Hound,13,1,6,4,2,0
+11,Mr. Joe C. Walton,09:50,1,Dachshund (Smooth),breed,all-breed,Dachshund (Smooth),Hound,8,1,2,3,2,0
+11,Mr. Joe C. Walton,10:50,0,Dachshund (Wirehaired),breed,all-breed,Dachshund (Wirehaired),Hound,7,0,3,2,2,0
+11,Mr. Joe C. Walton,10:50,1,Boston Terrier,breed,all-breed,Boston Terrier,Non-Sporting,12,1,5,3,3,0
+11,Mr. Joe C. Walton,10:50,2,Affenpinscher,breed,all-breed,Affenpinscher,Toy,5,1,2,1,1,0
+11,Mr. Joe C. Walton,10:50,3,Brussels Griffon,breed,all-breed,Brussels Griffon,Toy,3,1,2,0,0,0
+11,Mr. Joe C. Walton,11:55,0,Cavalier King Charles Spaniel,breed,all-breed,Cavalier King Charles Spaniel,Toy,16,1,5,7,3,0
+11,Mr. Joe C. Walton,11:55,1,Russian Tsvetnaya Bolonka,breed,all-breed,Russian Tsvetnaya Bolonka,Toy,2,,,,,
+11,Mr. Joe C. Walton,11:55,2,Portuguese Water Dog,breed,all-breed,Portuguese Water Dog,Working,5,1,2,0,2,0

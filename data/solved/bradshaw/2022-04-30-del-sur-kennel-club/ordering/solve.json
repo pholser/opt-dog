@@ -18,42 +18,42 @@
    "status": "OPTIMAL",
    "objective": 1069.4,
    "bound": 1069.4,
-   "seconds": 0.7466904770117253
+   "seconds": 0.854643536004005
   },
   {
    "name": "trade",
    "status": "OPTIMAL",
    "objective": 1069.4,
    "bound": 1069.4,
-   "seconds": 0.7566397170012351
+   "seconds": 0.8056660429865588
   },
   {
    "name": "structure",
    "status": "OPTIMAL",
    "objective": 62.5,
    "bound": 62.5,
-   "seconds": 4.8919014769780915
+   "seconds": 5.190367885981686
   },
   {
    "name": "idle",
    "status": "FEASIBLE",
    "objective": 75381.4,
-   "bound": 72281.2,
-   "seconds": 180.0737955700024
+   "bound": 72033.0,
+   "seconds": 180.05690419999883
   },
   {
    "name": "conflicts",
    "status": "OPTIMAL",
    "objective": 0.0,
    "bound": 0.0,
-   "seconds": 15.175822561985115
+   "seconds": 11.762399685016135
   },
   {
    "name": "times",
    "status": "FEASIBLE",
    "objective": 82517.4,
-   "bound": 70094.4,
-   "seconds": 60.04495841698372
+   "bound": 70103.3,
+   "seconds": 60.04612401200575
   }
  ]
 }

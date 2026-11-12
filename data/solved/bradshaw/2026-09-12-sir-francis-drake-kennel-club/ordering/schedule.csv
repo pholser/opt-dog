@@ -1,19 +1,16 @@
 ring,judge,block_start,position,event,kind,competition,breed,group,entries,class_dogs,class_bitches,bob_dogs,bob_bitches,nonregular
-1,Mr. Gregg G. Kantak,08:00,0,Poodle (Toy),breed,all-breed,Poodle (Toy),Toy,5,1,3,0,1,0
-1,Mr. Gregg G. Kantak,08:00,1,Beagle Thirteen Inch,breed,all-breed,Beagle (13 Inch),Hound,2,0,0,0,2,0
-1,Mr. Gregg G. Kantak,08:00,2,Beagle Fifteen Inch,breed,all-breed,Beagle (15 Inch),Hound,2,0,1,0,1,0
-1,Mr. Gregg G. Kantak,08:00,3,Bloodhound,breed,all-breed,Bloodhound,Hound,1,0,0,1,0,0
-1,Mr. Gregg G. Kantak,08:00,4,Basset Hound,breed,all-breed,Basset Hound,Hound,8,2,1,2,3,0
-1,Mr. Gregg G. Kantak,08:00,5,Bulldog,breed,all-breed,Bulldog,Non-Sporting,6,3,1,2,0,0
-1,Mr. Gregg G. Kantak,08:00,6,Chinese Shar-Pei,breed,all-breed,Chinese Shar-Pei,Non-Sporting,1,0,0,1,0,0
-1,Mr. Gregg G. Kantak,09:00,0,Boston Terrier,breed,all-breed,Boston Terrier,Non-Sporting,7,2,2,1,2,0
-1,Mr. Gregg G. Kantak,09:00,1,Lhasa Apso,breed,all-breed,Lhasa Apso,Non-Sporting,1,0,1,0,0,0
-1,Mr. Gregg G. Kantak,09:00,2,Lowchen,breed,all-breed,Lowchen,Non-Sporting,7,4,1,1,1,0
-1,Mr. Gregg G. Kantak,09:00,3,Poodle (Miniature),breed,all-breed,Poodle (Miniature),Non-Sporting,1,0,0,1,0,0
-1,Mr. Gregg G. Kantak,09:40,0,Schipperke,breed,all-breed,Schipperke,Non-Sporting,1,0,0,1,0,0
-1,Mr. Gregg G. Kantak,09:40,1,Tibetan Terrier,breed,all-breed,Tibetan Terrier,Non-Sporting,1,0,0,1,0,0
-1,Mr. Gregg G. Kantak,09:40,2,Xoloitzcuintli,breed,all-breed,Xoloitzcuintli,Non-Sporting,3,0,0,1,2,0
-1,Mr. Gregg G. Kantak,09:40,3,Poodle (Standard),breed,all-breed,Poodle (Standard),Non-Sporting,10,3,5,0,2,0
+1,Mr. Gregg G. Kantak,08:20,0,Bloodhound,breed,all-breed,Bloodhound,Hound,1,0,0,1,0,0
+1,Mr. Gregg G. Kantak,08:20,1,Basset Hound,breed,all-breed,Basset Hound,Hound,8,2,1,2,3,0
+1,Mr. Gregg G. Kantak,08:20,2,Beagle Thirteen Inch,breed,all-breed,Beagle (13 Inch),Hound,2,0,0,0,2,0
+1,Mr. Gregg G. Kantak,08:20,3,Beagle Fifteen Inch,breed,all-breed,Beagle (15 Inch),Hound,2,0,1,0,1,0
+1,Mr. Gregg G. Kantak,08:20,4,Poodle (Toy),breed,all-breed,Poodle (Toy),Toy,5,1,3,0,1,0
+1,Mr. Gregg G. Kantak,09:05,0,Boston Terrier,breed,all-breed,Boston Terrier,Non-Sporting,7,2,2,1,2,0
+1,Mr. Gregg G. Kantak,09:05,1,Lhasa Apso,breed,all-breed,Lhasa Apso,Non-Sporting,1,0,1,0,0,0
+1,Mr. Gregg G. Kantak,09:05,2,Lowchen,breed,all-breed,Lowchen,Non-Sporting,7,4,1,1,1,0
+1,Mr. Gregg G. Kantak,09:05,3,Poodle (Miniature),breed,all-breed,Poodle (Miniature),Non-Sporting,1,0,0,1,0,0
+1,Mr. Gregg G. Kantak,09:05,4,Schipperke,breed,all-breed,Schipperke,Non-Sporting,1,0,0,1,0,0
+1,Mr. Gregg G. Kantak,09:05,5,Tibetan Terrier,breed,all-breed,Tibetan Terrier,Non-Sporting,1,0,0,1,0,0
+1,Mr. Gregg G. Kantak,09:05,6,Xoloitzcuintli,breed,all-breed,Xoloitzcuintli,Non-Sporting,3,0,0,1,2,0
 1,Mr. Gregg G. Kantak,10:45,0,Labrador Retriever,breed,beginner-puppy,Labrador Retriever,Sporting,1,1,0,0,0,0
 1,Mr. Gregg G. Kantak,10:45,1,Vizsla,breed,beginner-puppy,Vizsla,Sporting,5,3,2,0,0,0
 1,Mr. Gregg G. Kantak,10:45,2,Sporting Group,group,beginner-puppy,,,0,,,,,
@@ -42,131 +39,134 @@ ring,judge,block_start,position,event,kind,competition,breed,group,entries,class
 1,Mr. Gregg G. Kantak,10:45,25,Australian Shepherd,breed,beginner-puppy,Australian Shepherd,Herding,1,1,0,0,0,0
 1,Mr. Gregg G. Kantak,10:45,26,Cardigan Welsh Corgi,breed,beginner-puppy,Cardigan Welsh Corgi,Herding,2,1,1,0,0,0
 1,Mr. Gregg G. Kantak,10:45,27,"Herding Group, Best Puppy In Show",group,beginner-puppy,,,0,,,,,
-2,Ms. Jacqueline Siotto,08:00,0,Vizsla Sweepstakes,sweepstakes,all-breed,Vizsla,Sporting,5,2,3,0,0,0
-2,Mr. Manuel Queijeiro,08:25,0,Norwich Terrier,breed,all-breed,Norwich Terrier,Terrier,8,3,3,2,0,0
-2,Mr. Manuel Queijeiro,08:25,1,Rat Terrier,breed,all-breed,Rat Terrier,Terrier,1,0,0,1,0,0
-2,Mr. Manuel Queijeiro,08:25,2,Scottish Terrier,breed,all-breed,Scottish Terrier,Terrier,2,0,1,1,0,0
-2,Mr. Manuel Queijeiro,08:25,3,Skye Terrier,breed,all-breed,Skye Terrier,Terrier,1,0,1,0,0,0
-2,Mr. Manuel Queijeiro,08:25,4,Welsh Terrier,breed,all-breed,Welsh Terrier,Terrier,1,0,0,0,1,0
-2,Mr. Manuel Queijeiro,08:25,5,West Highland White Terrier,breed,all-breed,West Highland White Terrier,Terrier,4,4,0,0,0,0
-2,Mr. Manuel Queijeiro,08:25,6,Soft Coated Wheaten Terrier,breed,all-breed,Soft Coated Wheaten Terrier,Terrier,4,1,1,1,1,0
-2,Mr. Manuel Queijeiro,08:25,7,Staffordshire Bull Terriers,breed,all-breed,Staffordshire Bull Terrier,Terrier,4,1,2,1,0,0
-2,Mr. Manuel Queijeiro,09:45,0,Vizsla,breed,all-breed,Vizsla,Sporting,29,6,8,5,7,3
+1,Mr. Gregg G. Kantak,12:00,0,Bulldog,breed,all-breed,Bulldog,Non-Sporting,6,3,1,2,0,0
+1,Mr. Gregg G. Kantak,12:00,1,Chinese Shar-Pei,breed,all-breed,Chinese Shar-Pei,Non-Sporting,1,0,0,1,0,0
+1,Mr. Gregg G. Kantak,12:00,2,Poodle (Standard),breed,all-breed,Poodle (Standard),Non-Sporting,10,3,5,0,2,0
+2,Mr. Manuel Queijeiro,08:00,0,Vizsla,breed,all-breed,Vizsla,Sporting,29,6,8,5,7,3
+2,Mr. Manuel Queijeiro,09:10,0,Staffordshire Bull Terriers,breed,all-breed,Staffordshire Bull Terrier,Terrier,4,1,2,1,0,0
+2,Mr. Manuel Queijeiro,09:10,1,Norwich Terrier,breed,all-breed,Norwich Terrier,Terrier,8,3,3,2,0,0
+2,Mr. Manuel Queijeiro,09:10,2,Rat Terrier,breed,all-breed,Rat Terrier,Terrier,1,0,0,1,0,0
+2,Mr. Manuel Queijeiro,09:10,3,Scottish Terrier,breed,all-breed,Scottish Terrier,Terrier,2,0,1,1,0,0
+2,Mr. Manuel Queijeiro,09:10,4,Skye Terrier,breed,all-breed,Skye Terrier,Terrier,1,0,1,0,0,0
+2,Mr. Manuel Queijeiro,09:10,5,Welsh Terrier,breed,all-breed,Welsh Terrier,Terrier,1,0,0,0,1,0
+2,Mr. Manuel Queijeiro,09:10,6,West Highland White Terrier,breed,all-breed,West Highland White Terrier,Terrier,4,4,0,0,0,0
+2,Mr. Manuel Queijeiro,09:10,7,Soft Coated Wheaten Terrier,breed,all-breed,Soft Coated Wheaten Terrier,Terrier,4,1,1,1,1,0
 2,Mr. Manuel Queijeiro,11:45,0,Alaskan Malamute,breed,all-breed,Alaskan Malamute,Working,2,0,1,1,0,0
 2,Mr. Manuel Queijeiro,11:45,1,Bernese Mountain Dog,breed,all-breed,Bernese Mountain Dog,Working,10,4,1,5,0,0
 2,Mr. Manuel Queijeiro,11:45,2,Bullmastiff,breed,all-breed,Bullmastiff,Working,9,4,4,1,0,0
 2,Mr. Manuel Queijeiro,11:45,3,Greater Swiss Mountain Dog,breed,all-breed,Greater Swiss Mountain Dog,Working,3,1,0,1,1,0
-2,Mr. Manuel Queijeiro,12:55,0,Mastiff,breed,all-breed,Mastiff,Working,4,1,2,0,1,0
-2,Mr. Manuel Queijeiro,12:55,1,Portuguese Water Dog,breed,all-breed,Portuguese Water Dog,Working,4,0,2,1,1,0
-2,Mr. Manuel Queijeiro,12:55,2,Rottweiler,breed,all-breed,Rottweiler,Working,15,2,5,5,3,0
-2,Mr. Manuel Queijeiro,14:05,0,Samoyed,breed,all-breed,Samoyed,Working,27,4,10,6,7,0
-2,Mr. Manuel Queijeiro,15:10,0,Siberian Husky,breed,all-breed,Siberian Husky,Working,25,2,10,4,9,0
-2,Mr. Manuel Queijeiro,16:10,0,Standard Schnauzer,breed,all-breed,Standard Schnauzer,Working,5,0,0,4,1,0
-2,Mr. Manuel Queijeiro,16:10,1,Norwegian Buhund,breed,all-breed,Norwegian Buhund,Herding,6,2,3,1,0,0
-2,Mr. Manuel Queijeiro,16:10,2,Old English Sheepdog,breed,all-breed,Old English Sheepdog,Herding,3,1,1,1,0,0
-2,Mr. Manuel Queijeiro,16:10,3,Puli,breed,all-breed,Puli,Herding,4,2,0,2,0,0
-2,Mr. Manuel Queijeiro,16:10,4,Cardigan Welsh Corgi,breed,all-breed,Cardigan Welsh Corgi,Herding,4,2,1,0,1,0
-4,Ms. Laura Munro,08:15,0,Anatolian Shepherd,breed,all-breed,Anatolian Shepherd Dog,Working,3,0,1,1,1,0
-4,Ms. Laura Munro,08:15,1,Doberman Pinscher,breed,all-breed,Doberman Pinscher,Working,9,1,3,2,3,0
-4,Ms. Laura Munro,08:45,0,Great Dane,breed,all-breed,Great Dane,Working,18,4,7,3,4,0
-4,Ms. Laura Munro,08:45,1,Great Pyrenees,breed,all-breed,Great Pyrenees,Working,1,1,0,0,0,0
-4,Ms. Jacqueline Ann Harrington,11:00,0,Saluki,breed,all-breed,Saluki,Hound,43,11,10,7,11,4
-5,Ms. Ann Martin,08:00,0,Basenji Sweepstakes,sweepstakes,all-breed,Basenji,Hound,6,2,4,0,0,0
-5,Ms. Ann Martin,08:00,1,Basenji Veteran Sweepstakes,sweepstakes,all-breed,Basenji,Hound,3,1,2,0,0,0
-5,Mr. Israel Garcia,09:35,0,Dachshund (Longhaired),breed,all-breed,Dachshund (Longhaired),Hound,24,5,14,2,3,0
-5,Mr. Israel Garcia,10:35,0,Dachshund (Smooth),breed,all-breed,Dachshund (Smooth),Hound,10,2,6,1,1,0
-5,Mr. Israel Garcia,10:35,1,Dachshund (Wirehaired),breed,all-breed,Dachshund (Wirehaired),Hound,10,0,5,3,2,0
-5,Mr. Israel Garcia,10:35,2,Borzoi,breed,all-breed,Borzoi,Hound,4,0,1,1,2,0
-5,Mr. Israel Garcia,10:35,3,Greyhound,breed,all-breed,Greyhound,Hound,1,0,0,0,1,0
-5,Mr. Israel Garcia,11:35,0,Rhodesian Ridgeback,breed,all-breed,Rhodesian Ridgeback,Hound,10,5,3,0,2,0
-5,Mr. Israel Garcia,11:35,1,Whippet,breed,all-breed,Whippet,Hound,15,4,5,1,5,0
-6,Ms. Pamela Schroeder,08:05,0,Danish-Swedish Farmdog,breed,all-breed,Danish-Swedish Farmdog,Working,4,0,2,2,0,0
-6,Ms. Pamela Schroeder,08:05,1,Akita,breed,all-breed,Akita,Working,1,0,0,0,1,0
-6,Ms. Pamela Schroeder,08:05,2,Boxer,breed,all-breed,Boxer,Working,5,1,3,1,0,0
-6,Ms. Pamela Schroeder,08:05,3,Cane Corso,breed,all-breed,Cane Corso,Working,4,1,0,1,2,0
-6,Ms. Pamela Schroeder,08:05,4,German Pinscher,breed,all-breed,German Pinscher,Working,1,0,0,0,1,0
-6,Ms. Pamela Schroeder,08:45,0,Giant Schnauzer,breed,all-breed,Giant Schnauzer,Working,3,0,1,0,2,0
-6,Ms. Pamela Schroeder,08:45,1,Leonberger,breed,all-breed,Leonberger,Working,4,1,1,2,0,0
-6,Ms. Pamela Schroeder,08:45,2,Newfoundland,breed,all-breed,Newfoundland,Working,6,1,3,2,0,0
-6,Ms. Pamela Schroeder,08:45,3,ST. Bernard,breed,all-breed,Saint Bernard,Working,2,0,1,1,0,0
-7,Mrs. Nancy D. Simmons,08:15,0,Australian Cattle Dog,breed,all-breed,Australian Cattle Dog,Herding,4,1,1,0,2,0
-7,Mrs. Nancy D. Simmons,08:15,1,Australian Shepherd,breed,all-breed,Australian Shepherd,Herding,4,1,3,0,0,0
-7,Mrs. Nancy D. Simmons,08:15,2,Bearded Collie,breed,all-breed,Bearded Collie,Herding,1,1,0,0,0,0
-7,Mrs. Nancy D. Simmons,08:15,3,Beauceron,breed,all-breed,Beauceron,Herding,3,1,1,0,1,0
-7,Mrs. Nancy D. Simmons,08:15,4,Belgian Malinois,breed,all-breed,Belgian Malinois,Herding,4,0,0,2,2,0
-7,Mrs. Nancy D. Simmons,08:15,5,Belgian Tervuren,breed,all-breed,Belgian Tervuren,Herding,3,1,1,1,0,0
-7,Mrs. Nancy D. Simmons,08:15,6,Border Collie,breed,all-breed,Border Collie,Herding,3,1,1,0,1,0
-7,Mrs. Nancy D. Simmons,09:10,0,Collie (Rough),breed,all-breed,Collie (Rough),Herding,3,0,2,0,1,0
-7,Mrs. Nancy D. Simmons,09:10,1,German Shepherd Dog,breed,all-breed,German Shepherd Dog,Herding,9,3,4,2,0,0
-7,Mrs. Nancy D. Simmons,09:10,2,Mudi,breed,all-breed,Mudi,Herding,1,0,0,0,1,0
-7,Mrs. Nancy D. Simmons,09:10,3,Miniature American Shepherd,breed,all-breed,Miniature American Shepherd,Herding,3,1,2,0,0,0
-7,Mrs. Nancy D. Simmons,09:50,0,Pembroke Welsh Corgi,breed,all-breed,Pembroke Welsh Corgi,Herding,17,6,8,1,2,0
-7,Mrs. Nancy D. Simmons,10:45,0,Shetland Sheepdog,breed,all-breed,Shetland Sheepdog,Herding,3,1,1,1,0,0
-7,Mrs. Nancy D. Simmons,10:45,1,Cocker Spaniel (Parti-Color),breed,all-breed,Cocker Spaniel (Parti-Color),Sporting,2,0,0,2,0,0
-7,Mrs. Nancy D. Simmons,10:45,2,English Cocker Spaniel,breed,all-breed,English Cocker Spaniel,Sporting,10,2,5,2,1,0
-7,Mrs. Nancy D. Simmons,10:45,3,Nederlandse Kooikerhondjes,breed,all-breed,Nederlandse Kooikerhondje,Sporting,1,0,0,1,0,0
-7,Mrs. Nancy D. Simmons,10:45,4,Clumber Spaniel,breed,all-breed,Clumber Spaniel,Sporting,1,0,0,1,0,0
-7,Mrs. Nancy D. Simmons,10:45,5,English Springer Spaniel,breed,all-breed,English Springer Spaniel,Sporting,1,0,0,0,0,1
-7,Mrs. Nancy D. Simmons,10:45,6,Lagotto Romagnolo,breed,all-breed,Lagotto Romagnolo,Sporting,1,0,1,0,0,0
-7,Mrs. Nancy D. Simmons,12:20,0,Brittany,breed,all-breed,Brittany,Sporting,5,2,2,1,0,0
-7,Mrs. Nancy D. Simmons,12:20,1,Chesapeake Bay Retriever,breed,all-breed,Chesapeake Bay Retriever,Sporting,1,0,0,0,1,0
-7,Mrs. Nancy D. Simmons,12:20,2,English Setter,breed,all-breed,English Setter,Sporting,2,0,0,1,1,0
-7,Mrs. Nancy D. Simmons,12:20,3,Flat-Coated Retriever,breed,all-breed,Flat-Coated Retriever,Sporting,2,0,1,1,0,0
-7,Mrs. Nancy D. Simmons,12:20,4,German Shorthaired Pointer,breed,all-breed,German Shorthaired Pointer,Sporting,12,3,4,4,1,0
-7,Mrs. Nancy D. Simmons,12:20,5,German Wirehaired Pointer,breed,all-breed,German Wirehaired Pointer,Sporting,1,0,0,1,0,0
-7,Mrs. Nancy D. Simmons,13:25,0,Golden Retriever,breed,all-breed,Golden Retriever,Sporting,12,3,6,3,0,0
-7,Mrs. Nancy D. Simmons,13:25,1,Gordon Setter,breed,all-breed,Gordon Setter,Sporting,2,0,2,0,0,0
-7,Mrs. Nancy D. Simmons,13:25,2,Irish Setter,breed,all-breed,Irish Setter,Sporting,6,3,0,1,2,0
-7,Mrs. Nancy D. Simmons,14:15,0,Labrador Retriever,breed,all-breed,Labrador Retriever,Sporting,20,4,9,3,3,1
-7,Mrs. Nancy D. Simmons,14:15,1,Retriever (Nova Scotia Duck Toll),breed,all-breed,Nova Scotia Duck Tolling Retriever,Sporting,2,1,0,1,0,0
-7,Mrs. Nancy D. Simmons,14:15,2,Weimaraner,breed,all-breed,Weimaraner,Sporting,2,0,0,1,1,0
-7,Mrs. Nancy D. Simmons,14:15,3,Wirehaired Pointing Griffon,breed,all-breed,Wirehaired Pointing Griffon,Sporting,2,0,0,0,2,0
-8,Mr. Richard Todd Jackson,08:00,0,Spinone Italiano,breed,all-breed,Spinone Italiano,Sporting,2,0,0,2,0,0
-8,Mr. Richard Todd Jackson,08:00,1,Manchester Terrier (Standard),breed,all-breed,Manchester Terrier (Standard),Terrier,8,2,3,1,2,0
-8,Mr. Richard Todd Jackson,08:00,2,Affenpinscher,breed,all-breed,Affenpinscher,Toy,1,0,0,1,0,0
-8,Mr. Richard Todd Jackson,08:00,3,Biewer Terrier,breed,all-breed,Biewer Terrier,Toy,10,0,5,2,3,0
-8,Mr. Richard Todd Jackson,08:00,4,Brussels Griffon,breed,all-breed,Brussels Griffon,Toy,4,2,1,1,0,0
-8,Mr. Richard Todd Jackson,09:00,0,Chihuahua (Long Coat),breed,all-breed,Chihuahua (Long Coat),Toy,9,0,3,3,3,0
-8,Mr. Richard Todd Jackson,09:00,1,Chihuahua (Smooth Coat),breed,all-breed,Chihuahua (Smooth Coat),Toy,5,2,1,1,1,0
-8,Mr. Richard Todd Jackson,09:00,2,Chinese Crested,breed,all-breed,Chinese Crested,Toy,5,1,0,3,1,0
-8,Mr. Richard Todd Jackson,09:00,3,Havanese,breed,all-breed,Havanese,Toy,6,0,3,2,1,0
-8,Mr. Richard Todd Jackson,10:00,0,Japanese Chin,breed,all-breed,Japanese Chin,Toy,1,0,1,0,0,0
-8,Mr. Richard Todd Jackson,10:00,1,Manchester Terrier (Toy),breed,all-breed,Manchester Terrier (Toy),Toy,2,0,0,1,1,0
-8,Mr. Richard Todd Jackson,10:00,2,Papillon,breed,all-breed,Papillon,Toy,6,0,2,2,2,0
-8,Mr. Richard Todd Jackson,10:00,3,Pekingese,breed,all-breed,Pekingese,Toy,1,0,0,1,0,0
-8,Mr. Richard Todd Jackson,10:00,4,Pomeranian,breed,all-breed,Pomeranian,Toy,7,2,0,3,2,0
-8,Mr. Richard Todd Jackson,10:00,5,Russian Toy,breed,all-breed,Russian Toy,Toy,1,0,0,1,0,0
-8,Mr. Richard Todd Jackson,10:00,6,Shih Tzu,breed,all-breed,Shih Tzu,Toy,6,2,4,0,0,0
-8,Mr. Richard Todd Jackson,10:00,7,Toy Fox Terrier,breed,all-breed,Toy Fox Terrier,Toy,3,0,1,1,1,0
-8,Mr. Richard Todd Jackson,11:05,0,Yorkshire Terrier,breed,all-breed,Yorkshire Terrier,Toy,20,6,8,5,1,0
-8,Mr. Richard Todd Jackson,12:40,0,Black and Tan Coonhound,breed,all-breed,Black and Tan Coonhound,Hound,3,0,0,1,2,0
-8,Mr. Richard Todd Jackson,12:40,1,Irish Wolfhound,breed,all-breed,Irish Wolfhound,Hound,8,1,2,2,3,0
-8,Mr. Richard Todd Jackson,12:40,2,Bichon Frise,breed,all-breed,Bichon Frise,Non-Sporting,8,3,2,1,2,0
-8,Mr. Richard Todd Jackson,12:40,3,French Bulldog,breed,all-breed,French Bulldog,Non-Sporting,1,0,0,1,0,0
-8,Mr. Richard Todd Jackson,13:30,0,Tibetan Spaniel,breed,all-breed,Tibetan Spaniel,Non-Sporting,2,1,0,1,0,0
-8,Mr. Richard Todd Jackson,13:30,1,Keeshond,breed,all-breed,Keeshond,Non-Sporting,2,0,0,2,0,0
-8,Mr. Richard Todd Jackson,13:30,2,Junior Showmanship,junior-showmanship,all-breed,,,14,,,,,
-11,Mr. Richard V. Miller,08:00,0,Petit Basset Griffon Vendeens,breed,all-breed,Petit Basset Griffon Vendeen,Hound,2,0,0,2,0,0
-11,Mr. Richard V. Miller,08:00,1,Portuguese Podengo Pequeno,breed,all-breed,Portuguese Podengo Pequeno,Hound,7,1,2,0,4,0
-11,Mr. Richard V. Miller,08:00,2,Afghan Hound,breed,all-breed,Afghan Hound,Hound,11,3,0,6,2,0
-11,Mr. Richard V. Miller,08:50,0,Basenji,breed,all-breed,Basenji,Hound,17,3,7,3,3,1
-11,Mr. Richard V. Miller,08:50,1,Ibizan Hound,breed,all-breed,Ibizan Hound,Hound,1,0,0,1,0,0
-11,Mr. Richard V. Miller,08:50,2,Sloughi,breed,all-breed,Sloughi,Hound,1,1,0,0,0,0
-11,Mr. Richard V. Miller,08:50,3,Australian Terrier,breed,all-breed,Australian Terrier,Terrier,1,0,0,0,1,0
-11,Mr. Richard V. Miller,08:50,4,Border Terrier,breed,all-breed,Border Terrier,Terrier,5,1,0,2,2,0
-11,Mr. Richard V. Miller,09:50,0,Cairn Terrier,breed,all-breed,Cairn Terrier,Terrier,2,0,2,0,0,0
-11,Mr. Richard V. Miller,09:50,1,Cesky Terrier,breed,all-breed,Cesky Terrier,Terrier,1,0,0,0,1,0
-11,Mr. Richard V. Miller,09:50,2,Miniature Schnauzer,breed,all-breed,Miniature Schnauzer,Terrier,3,1,1,1,0,0
-11,Mr. Richard V. Miller,09:50,3,Norfolk Terrier,breed,all-breed,Norfolk Terrier,Terrier,1,0,1,0,0,0
-11,Mr. Richard V. Miller,09:50,4,Fox Terrier (Smooth),breed,all-breed,Smooth Fox Terrier,Terrier,2,0,0,2,0,0
-11,Mr. Richard V. Miller,09:50,5,Fox Terrier (Wire),breed,all-breed,Wire Fox Terrier,Terrier,1,0,0,1,0,0
-11,Mr. Richard V. Miller,09:50,6,Airedale Terrier,breed,all-breed,Airedale Terrier,Terrier,1,0,0,1,0,0
-11,Mr. Richard V. Miller,09:50,7,American Staffordshire Terrier,breed,all-breed,American Staffordshire Terrier,Terrier,3,0,0,3,0,0
-11,Mr. Richard V. Miller,09:50,8,Bull Terrier (White),breed,all-breed,Bull Terrier (White),Terrier,1,0,0,0,1,0
-11,Mr. Richard V. Miller,09:50,9,Irish Terrier,breed,all-breed,Irish Terrier,Terrier,3,1,1,0,1,0
-11,Mr. Richard V. Miller,09:50,10,Miniature Bull Terrier,breed,all-breed,Miniature Bull Terrier,Terrier,7,4,2,0,1,0
-11,Mr. Richard V. Miller,10:50,0,Kerry Blue Terrier,breed,all-breed,Kerry Blue Terrier,Terrier,5,2,0,1,2,0
-11,Mr. Richard V. Miller,10:50,1,Dalmatian,breed,all-breed,Dalmatian,Non-Sporting,8,1,3,1,3,0
-11,Mr. Richard V. Miller,10:50,2,Cavalier King Charles Spaniel,breed,all-breed,Cavalier King Charles Spaniel,Toy,12,3,3,4,2,0
-11,Mr. Richard V. Miller,11:50,0,Miniature Pinscher,breed,all-breed,Miniature Pinscher,Toy,16,3,8,3,2,0
-11,Mr. Richard V. Miller,11:50,1,Pug,breed,all-breed,Pug,Toy,4,1,1,1,1,0
+2,Mr. Manuel Queijeiro,12:45,0,Mastiff,breed,all-breed,Mastiff,Working,4,1,2,0,1,0
+2,Mr. Manuel Queijeiro,12:45,1,Portuguese Water Dog,breed,all-breed,Portuguese Water Dog,Working,4,0,2,1,1,0
+2,Mr. Manuel Queijeiro,12:45,2,Rottweiler,breed,all-breed,Rottweiler,Working,15,2,5,5,3,0
+2,Mr. Manuel Queijeiro,13:45,0,Samoyed,breed,all-breed,Samoyed,Working,27,4,10,6,7,0
+2,Mr. Manuel Queijeiro,14:50,0,Siberian Husky,breed,all-breed,Siberian Husky,Working,25,2,10,4,9,0
+2,Mr. Manuel Queijeiro,15:50,0,Standard Schnauzer,breed,all-breed,Standard Schnauzer,Working,5,0,0,4,1,0
+2,Mr. Manuel Queijeiro,15:50,1,Norwegian Buhund,breed,all-breed,Norwegian Buhund,Herding,6,2,3,1,0,0
+2,Mr. Manuel Queijeiro,15:50,2,Old English Sheepdog,breed,all-breed,Old English Sheepdog,Herding,3,1,1,1,0,0
+2,Mr. Manuel Queijeiro,15:50,3,Puli,breed,all-breed,Puli,Herding,4,2,0,2,0,0
+2,Mr. Manuel Queijeiro,15:50,4,Cardigan Welsh Corgi,breed,all-breed,Cardigan Welsh Corgi,Herding,4,2,1,0,1,0
+4,Mr. Richard Todd Jackson,08:00,0,Spinone Italiano,breed,all-breed,Spinone Italiano,Sporting,2,0,0,2,0,0
+4,Mr. Richard Todd Jackson,08:00,1,Manchester Terrier (Standard),breed,all-breed,Manchester Terrier (Standard),Terrier,8,2,3,1,2,0
+4,Mr. Richard Todd Jackson,08:00,2,Affenpinscher,breed,all-breed,Affenpinscher,Toy,1,0,0,1,0,0
+4,Mr. Richard Todd Jackson,08:00,3,Biewer Terrier,breed,all-breed,Biewer Terrier,Toy,10,0,5,2,3,0
+4,Mr. Richard Todd Jackson,08:00,4,Brussels Griffon,breed,all-breed,Brussels Griffon,Toy,4,2,1,1,0,0
+4,Mr. Richard Todd Jackson,09:00,0,Chihuahua (Long Coat),breed,all-breed,Chihuahua (Long Coat),Toy,9,0,3,3,3,0
+4,Mr. Richard Todd Jackson,09:00,1,Chihuahua (Smooth Coat),breed,all-breed,Chihuahua (Smooth Coat),Toy,5,2,1,1,1,0
+4,Mr. Richard Todd Jackson,09:00,2,Chinese Crested,breed,all-breed,Chinese Crested,Toy,5,1,0,3,1,0
+4,Mr. Richard Todd Jackson,09:00,3,Havanese,breed,all-breed,Havanese,Toy,6,0,3,2,1,0
+4,Mr. Richard Todd Jackson,10:00,0,Japanese Chin,breed,all-breed,Japanese Chin,Toy,1,0,1,0,0,0
+4,Mr. Richard Todd Jackson,10:00,1,Manchester Terrier (Toy),breed,all-breed,Manchester Terrier (Toy),Toy,2,0,0,1,1,0
+4,Mr. Richard Todd Jackson,10:00,2,Papillon,breed,all-breed,Papillon,Toy,6,0,2,2,2,0
+4,Mr. Richard Todd Jackson,10:00,3,Pekingese,breed,all-breed,Pekingese,Toy,1,0,0,1,0,0
+4,Mr. Richard Todd Jackson,10:00,4,Pomeranian,breed,all-breed,Pomeranian,Toy,7,2,0,3,2,0
+4,Mr. Richard Todd Jackson,10:00,5,Russian Toy,breed,all-breed,Russian Toy,Toy,1,0,0,1,0,0
+4,Mr. Richard Todd Jackson,10:00,6,Shih Tzu,breed,all-breed,Shih Tzu,Toy,6,2,4,0,0,0
+4,Mr. Richard Todd Jackson,10:00,7,Toy Fox Terrier,breed,all-breed,Toy Fox Terrier,Toy,3,0,1,1,1,0
+4,Mr. Richard Todd Jackson,11:05,0,Yorkshire Terrier,breed,all-breed,Yorkshire Terrier,Toy,20,6,8,5,1,0
+4,Mr. Richard Todd Jackson,12:40,0,Black and Tan Coonhound,breed,all-breed,Black and Tan Coonhound,Hound,3,0,0,1,2,0
+4,Mr. Richard Todd Jackson,12:40,1,Irish Wolfhound,breed,all-breed,Irish Wolfhound,Hound,8,1,2,2,3,0
+4,Mr. Richard Todd Jackson,12:40,2,Bichon Frise,breed,all-breed,Bichon Frise,Non-Sporting,8,3,2,1,2,0
+4,Mr. Richard Todd Jackson,12:40,3,French Bulldog,breed,all-breed,French Bulldog,Non-Sporting,1,0,0,1,0,0
+4,Mr. Richard Todd Jackson,13:30,0,Tibetan Spaniel,breed,all-breed,Tibetan Spaniel,Non-Sporting,2,1,0,1,0,0
+4,Mr. Richard Todd Jackson,13:30,1,Keeshond,breed,all-breed,Keeshond,Non-Sporting,2,0,0,2,0,0
+4,Mr. Richard Todd Jackson,13:30,2,Junior Showmanship,junior-showmanship,all-breed,,,14,,,,,
+5,Ms. Pamela Schroeder,08:05,0,Danish-Swedish Farmdog,breed,all-breed,Danish-Swedish Farmdog,Working,4,0,2,2,0,0
+5,Ms. Pamela Schroeder,08:05,1,Akita,breed,all-breed,Akita,Working,1,0,0,0,1,0
+5,Ms. Pamela Schroeder,08:05,2,Boxer,breed,all-breed,Boxer,Working,5,1,3,1,0,0
+5,Ms. Pamela Schroeder,08:05,3,Cane Corso,breed,all-breed,Cane Corso,Working,4,1,0,1,2,0
+5,Ms. Pamela Schroeder,08:05,4,German Pinscher,breed,all-breed,German Pinscher,Working,1,0,0,0,1,0
+5,Ms. Pamela Schroeder,08:45,0,Giant Schnauzer,breed,all-breed,Giant Schnauzer,Working,3,0,1,0,2,0
+5,Ms. Pamela Schroeder,08:45,1,Leonberger,breed,all-breed,Leonberger,Working,4,1,1,2,0,0
+5,Ms. Pamela Schroeder,08:45,2,Newfoundland,breed,all-breed,Newfoundland,Working,6,1,3,2,0,0
+5,Ms. Pamela Schroeder,08:45,3,ST. Bernard,breed,all-breed,Saint Bernard,Working,2,0,1,1,0,0
+5,Ms. Laura Munro,10:35,0,Anatolian Shepherd,breed,all-breed,Anatolian Shepherd Dog,Working,3,0,1,1,1,0
+5,Ms. Laura Munro,10:35,1,Doberman Pinscher,breed,all-breed,Doberman Pinscher,Working,9,1,3,2,3,0
+5,Ms. Laura Munro,11:05,0,Great Dane,breed,all-breed,Great Dane,Working,18,4,7,3,4,0
+5,Ms. Laura Munro,11:05,1,Great Pyrenees,breed,all-breed,Great Pyrenees,Working,1,1,0,0,0,0
+6,Ms. Jacqueline Siotto,08:00,0,Vizsla Sweepstakes,sweepstakes,all-breed,Vizsla,Sporting,5,2,3,0,0,0
+6,Mr. Israel Garcia,09:35,0,Dachshund (Longhaired),breed,all-breed,Dachshund (Longhaired),Hound,24,5,14,2,3,0
+6,Mr. Israel Garcia,10:35,0,Dachshund (Smooth),breed,all-breed,Dachshund (Smooth),Hound,10,2,6,1,1,0
+6,Mr. Israel Garcia,10:35,1,Dachshund (Wirehaired),breed,all-breed,Dachshund (Wirehaired),Hound,10,0,5,3,2,0
+6,Mr. Israel Garcia,10:35,2,Borzoi,breed,all-breed,Borzoi,Hound,4,0,1,1,2,0
+6,Mr. Israel Garcia,10:35,3,Greyhound,breed,all-breed,Greyhound,Hound,1,0,0,0,1,0
+6,Mr. Israel Garcia,11:35,0,Rhodesian Ridgeback,breed,all-breed,Rhodesian Ridgeback,Hound,10,5,3,0,2,0
+6,Mr. Israel Garcia,11:35,1,Whippet,breed,all-breed,Whippet,Hound,15,4,5,1,5,0
+7,Mr. Richard V. Miller,08:00,0,Petit Basset Griffon Vendeens,breed,all-breed,Petit Basset Griffon Vendeen,Hound,2,0,0,2,0,0
+7,Mr. Richard V. Miller,08:00,1,Portuguese Podengo Pequeno,breed,all-breed,Portuguese Podengo Pequeno,Hound,7,1,2,0,4,0
+7,Mr. Richard V. Miller,08:00,2,Afghan Hound,breed,all-breed,Afghan Hound,Hound,11,3,0,6,2,0
+7,Mr. Richard V. Miller,08:50,0,Basenji,breed,all-breed,Basenji,Hound,17,3,7,3,3,1
+7,Mr. Richard V. Miller,08:50,1,Ibizan Hound,breed,all-breed,Ibizan Hound,Hound,1,0,0,1,0,0
+7,Mr. Richard V. Miller,08:50,2,Sloughi,breed,all-breed,Sloughi,Hound,1,1,0,0,0,0
+7,Mr. Richard V. Miller,08:50,3,Australian Terrier,breed,all-breed,Australian Terrier,Terrier,1,0,0,0,1,0
+7,Mr. Richard V. Miller,08:50,4,Border Terrier,breed,all-breed,Border Terrier,Terrier,5,1,0,2,2,0
+7,Mr. Richard V. Miller,09:50,0,Cairn Terrier,breed,all-breed,Cairn Terrier,Terrier,2,0,2,0,0,0
+7,Mr. Richard V. Miller,09:50,1,Cesky Terrier,breed,all-breed,Cesky Terrier,Terrier,1,0,0,0,1,0
+7,Mr. Richard V. Miller,09:50,2,Miniature Schnauzer,breed,all-breed,Miniature Schnauzer,Terrier,3,1,1,1,0,0
+7,Mr. Richard V. Miller,09:50,3,Norfolk Terrier,breed,all-breed,Norfolk Terrier,Terrier,1,0,1,0,0,0
+7,Mr. Richard V. Miller,09:50,4,Fox Terrier (Smooth),breed,all-breed,Smooth Fox Terrier,Terrier,2,0,0,2,0,0
+7,Mr. Richard V. Miller,09:50,5,Fox Terrier (Wire),breed,all-breed,Wire Fox Terrier,Terrier,1,0,0,1,0,0
+7,Mr. Richard V. Miller,09:50,6,Airedale Terrier,breed,all-breed,Airedale Terrier,Terrier,1,0,0,1,0,0
+7,Mr. Richard V. Miller,09:50,7,American Staffordshire Terrier,breed,all-breed,American Staffordshire Terrier,Terrier,3,0,0,3,0,0
+7,Mr. Richard V. Miller,09:50,8,Bull Terrier (White),breed,all-breed,Bull Terrier (White),Terrier,1,0,0,0,1,0
+7,Mr. Richard V. Miller,09:50,9,Irish Terrier,breed,all-breed,Irish Terrier,Terrier,3,1,1,0,1,0
+7,Mr. Richard V. Miller,09:50,10,Miniature Bull Terrier,breed,all-breed,Miniature Bull Terrier,Terrier,7,4,2,0,1,0
+7,Mr. Richard V. Miller,10:50,0,Kerry Blue Terrier,breed,all-breed,Kerry Blue Terrier,Terrier,5,2,0,1,2,0
+7,Mr. Richard V. Miller,10:50,1,Dalmatian,breed,all-breed,Dalmatian,Non-Sporting,8,1,3,1,3,0
+7,Mr. Richard V. Miller,10:50,2,Cavalier King Charles Spaniel,breed,all-breed,Cavalier King Charles Spaniel,Toy,12,3,3,4,2,0
+7,Mr. Richard V. Miller,11:50,0,Miniature Pinscher,breed,all-breed,Miniature Pinscher,Toy,16,3,8,3,2,0
+7,Mr. Richard V. Miller,11:50,1,Pug,breed,all-breed,Pug,Toy,4,1,1,1,1,0
+8,Mrs. Nancy D. Simmons,09:00,0,Brittany,breed,all-breed,Brittany,Sporting,5,2,2,1,0,0
+8,Mrs. Nancy D. Simmons,09:00,1,Chesapeake Bay Retriever,breed,all-breed,Chesapeake Bay Retriever,Sporting,1,0,0,0,1,0
+8,Mrs. Nancy D. Simmons,09:00,2,English Setter,breed,all-breed,English Setter,Sporting,2,0,0,1,1,0
+8,Mrs. Nancy D. Simmons,09:00,3,Flat-Coated Retriever,breed,all-breed,Flat-Coated Retriever,Sporting,2,0,1,1,0,0
+8,Mrs. Nancy D. Simmons,09:00,4,German Shorthaired Pointer,breed,all-breed,German Shorthaired Pointer,Sporting,12,3,4,4,1,0
+8,Mrs. Nancy D. Simmons,09:55,0,German Wirehaired Pointer,breed,all-breed,German Wirehaired Pointer,Sporting,1,0,0,1,0,0
+8,Mrs. Nancy D. Simmons,09:55,1,Golden Retriever,breed,all-breed,Golden Retriever,Sporting,12,3,6,3,0,0
+8,Mrs. Nancy D. Simmons,09:55,2,Gordon Setter,breed,all-breed,Gordon Setter,Sporting,2,0,2,0,0,0
+8,Mrs. Nancy D. Simmons,09:55,3,Irish Setter,breed,all-breed,Irish Setter,Sporting,6,3,0,1,2,0
+8,Mrs. Nancy D. Simmons,10:50,0,Labrador Retriever,breed,all-breed,Labrador Retriever,Sporting,20,4,9,3,3,1
+8,Mrs. Nancy D. Simmons,10:50,1,Retriever (Nova Scotia Duck Toll),breed,all-breed,Nova Scotia Duck Tolling Retriever,Sporting,2,1,0,1,0,0
+8,Mrs. Nancy D. Simmons,10:50,2,Weimaraner,breed,all-breed,Weimaraner,Sporting,2,0,0,1,1,0
+8,Mrs. Nancy D. Simmons,10:50,3,Wirehaired Pointing Griffon,breed,all-breed,Wirehaired Pointing Griffon,Sporting,2,0,0,0,2,0
+8,Mrs. Nancy D. Simmons,12:40,0,Clumber Spaniel,breed,all-breed,Clumber Spaniel,Sporting,1,0,0,1,0,0
+8,Mrs. Nancy D. Simmons,12:40,1,English Springer Spaniel,breed,all-breed,English Springer Spaniel,Sporting,1,0,0,0,0,1
+8,Mrs. Nancy D. Simmons,12:40,2,Lagotto Romagnolo,breed,all-breed,Lagotto Romagnolo,Sporting,1,0,1,0,0,0
+8,Mrs. Nancy D. Simmons,12:40,3,Cocker Spaniel (Parti-Color),breed,all-breed,Cocker Spaniel (Parti-Color),Sporting,2,0,0,2,0,0
+8,Mrs. Nancy D. Simmons,12:40,4,English Cocker Spaniel,breed,all-breed,English Cocker Spaniel,Sporting,10,2,5,2,1,0
+8,Mrs. Nancy D. Simmons,12:40,5,Nederlandse Kooikerhondjes,breed,all-breed,Nederlandse Kooikerhondje,Sporting,1,0,0,1,0,0
+8,Mrs. Nancy D. Simmons,13:20,0,Miniature American Shepherd,breed,all-breed,Miniature American Shepherd,Herding,3,1,2,0,0,0
+8,Mrs. Nancy D. Simmons,13:20,1,Pembroke Welsh Corgi,breed,all-breed,Pembroke Welsh Corgi,Herding,17,6,8,1,2,0
+8,Mrs. Nancy D. Simmons,13:20,2,Shetland Sheepdog,breed,all-breed,Shetland Sheepdog,Herding,3,1,1,1,0,0
+8,Mrs. Nancy D. Simmons,13:20,3,Australian Cattle Dog,breed,all-breed,Australian Cattle Dog,Herding,4,1,1,0,2,0
+8,Mrs. Nancy D. Simmons,14:25,0,Australian Shepherd,breed,all-breed,Australian Shepherd,Herding,4,1,3,0,0,0
+8,Mrs. Nancy D. Simmons,14:25,1,Bearded Collie,breed,all-breed,Bearded Collie,Herding,1,1,0,0,0,0
+8,Mrs. Nancy D. Simmons,14:25,2,Beauceron,breed,all-breed,Beauceron,Herding,3,1,1,0,1,0
+8,Mrs. Nancy D. Simmons,14:25,3,Belgian Malinois,breed,all-breed,Belgian Malinois,Herding,4,0,0,2,2,0
+8,Mrs. Nancy D. Simmons,14:25,4,Belgian Tervuren,breed,all-breed,Belgian Tervuren,Herding,3,1,1,1,0,0
+8,Mrs. Nancy D. Simmons,15:05,0,Border Collie,breed,all-breed,Border Collie,Herding,3,1,1,0,1,0
+8,Mrs. Nancy D. Simmons,15:05,1,Collie (Rough),breed,all-breed,Collie (Rough),Herding,3,0,2,0,1,0
+8,Mrs. Nancy D. Simmons,15:05,2,German Shepherd Dog,breed,all-breed,German Shepherd Dog,Herding,9,3,4,2,0,0
+8,Mrs. Nancy D. Simmons,15:05,3,Mudi,breed,all-breed,Mudi,Herding,1,0,0,0,1,0
+11,Ms. Ann Martin,08:00,0,Basenji Sweepstakes,sweepstakes,all-breed,Basenji,Hound,6,2,4,0,0,0
+11,Ms. Ann Martin,08:00,1,Basenji Veteran Sweepstakes,sweepstakes,all-breed,Basenji,Hound,3,1,2,0,0,0
+11,Ms. Jacqueline Ann Harrington,11:00,0,Saluki,breed,all-breed,Saluki,Hound,43,11,10,7,11,4
