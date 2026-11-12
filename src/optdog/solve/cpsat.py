@@ -107,6 +107,9 @@ def _u(minutes: float) -> int:
 @dataclass(frozen=True)
 class PlacementOptions:
     time_limit: float = 60.0  # seconds per phase
+    # phase 4 sets the idle budget, so a weak minimum widens it (Palm Springs 1/5 at 60 s: cap 511 min).
+    # None: 3 × time_limit.
+    idle_time_limit: float | None = None
     workers: int = 8
     hint: bool = True  # start from a known schedule (greedy, or step 1 for formation)
     tidy: bool = True  # phases 3-6: at that finish, lower soft costs, then earlier blocks
@@ -305,8 +308,9 @@ def _solve(m: "_Model", o: PlacementOptions, hint_prog: JudgingProgram | None) -
             m.keep_solution_as_hint(solver)
         solver.parameters.fix_variables_to_their_hinted_value = False
 
-    def run(name: str, objective, scale: float) -> bool:
+    def run(name: str, objective, scale: float, limit: float | None = None) -> bool:
         m.model.Minimize(objective)
+        solver.parameters.max_time_in_seconds = o.time_limit if limit is None else limit
         t = time.perf_counter()
         status = solver.Solve(m.model)
         good = status in ok
@@ -345,7 +349,7 @@ def _solve(m: "_Model", o: PlacementOptions, hint_prog: JudgingProgram | None) -
             conflicts = m.conflict_cost()
             if conflicts is not None:
                 # phase 4: least judge idle, which then may grow by the budget
-                if run("idle", times, SCALE):
+                if run("idle", times, SCALE, o.idle_time_limit or 3 * o.time_limit):
                     res.idle_min = solver.Value(m.idle) / SCALE
                     budget = max(1.0, m.p.conflict_idle_budget)
                     m.model.Add(m.idle <= math.floor(solver.Value(m.idle) * budget + 1e-6))

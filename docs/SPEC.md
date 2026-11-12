@@ -151,7 +151,9 @@ The **solver is lexicographic**. Each phase holds the results of the ones before
 2. Trade: finish + `short_block_finish_minutes` × short blocks.
 3. Structure: a weighted sum of S2, S3, S9, S10 and block count.
 4. Idle: S5 judge idle (with earliest starts as a tie-break). Idle is then capped at
-   `conflict_idle_budget` × this minimum (default 2).
+   `conflict_idle_budget` × this minimum (default 2). This phase runs 3 × the phase limit
+   (180 s by default): on Palm Springs 1/5 it found least idle ≈ 255 min at 60 s, 168.8 at
+   180 s and 167.8 at 300 s.
 5. Conflicts: S1, for exhibitors signed up for the conflict-resolution program, within that cap.
 6. Times: S5 judge idle, then earliest block starts.
 

@@ -9,8 +9,8 @@
   "lunch_splits": 4.0,
   "blocks": 44.0,
   "equipment_switches": 15.0,
-  "judge_idle_units": 2976.0,
-  "conflict_units": 2572.0
+  "judge_idle_units": 1574.0,
+  "conflict_units": 3518.0
  },
  "phases": [
   {
@@ -18,42 +18,42 @@
    "status": "OPTIMAL",
    "objective": 1119.4,
    "bound": 1119.4,
-   "seconds": 8.931219726990093
+   "seconds": 8.65162412301288
   },
   {
    "name": "trade",
    "status": "OPTIMAL",
    "objective": 1129.4,
    "bound": 1129.4,
-   "seconds": 8.695787899996503
+   "seconds": 7.142861267988337
   },
   {
    "name": "structure",
    "status": "OPTIMAL",
    "objective": 109.0,
    "bound": 109.0,
-   "seconds": 38.80470874000457
+   "seconds": 48.80546317601693
   },
   {
    "name": "idle",
    "status": "FEASIBLE",
-   "objective": 96012.4,
-   "bound": 88200.5,
-   "seconds": 60.09123247800744
+   "objective": 99527.8,
+   "bound": 90525.0,
+   "seconds": 180.10659417198622
   },
   {
    "name": "conflicts",
    "status": "FEASIBLE",
-   "objective": 257.2,
+   "objective": 351.8,
    "bound": 0.0,
-   "seconds": 60.09284402799676
+   "seconds": 60.100612618000014
   },
   {
    "name": "times",
    "status": "FEASIBLE",
-   "objective": 98669.8,
-   "bound": 86885.6,
-   "seconds": 60.0972325210023
+   "objective": 102754.2,
+   "bound": 86484.0,
+   "seconds": 60.0922862579755
   }
  ]
 }
