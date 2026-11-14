@@ -108,8 +108,11 @@ def test_cli_plans_a_show_from_files_and_writes_a_valid_program(tmp_path, capsys
     prob, out = tmp_path / "problem", tmp_path / "out"
     show = small(group_judges={g: G for g in VARIETY_GROUPS})
     write_problem(show, prob)
+    assert not (prob / "exhibitors.csv").exists()  # no exhibitor information: conflicts play no part
     assert main(["check", str(prob)]) == 0
     assert main(["solve", str(prob), "--out", str(out), "--html", str(tmp_path / "c.html"), "--time-limit", "10"]) == 0
+    err = capsys.readouterr().err
+    assert "warning" not in err and "exhibitor" not in err
     program = read_program(out)
     assert validate(program, ShowParameters()).violations == []
     assert (tmp_path / "c.html").stat().st_size > 0

@@ -315,7 +315,8 @@ Those before the "Group judges" entry predate the parser fix, and judge idle fig
   problem directory holds only inputs: `show.csv`, `rings.csv`, `judges.csv`, `events.csv`
   (entries, plus an optional pinned ring and start) and `groups.csv`, and optionally
   `exhibitors.csv` and `entries.csv` for S1 (one exhibitor per person: each member of a
-  handler's team separately, U). `check` reports input
+  handler's team separately, U). Without them, or with no one registered, conflicts
+  play no part (U 2026-11-13). `check` reports input
   errors and warnings, `solve` runs 3c and writes a program and optional HTML, and `extract`
   strips a published program down to a problem. Del Sur 5/1 extracted and planned this way
   reaches the same finish as the saved 3c (5:00 PM, proven optimal, equal to the bound).

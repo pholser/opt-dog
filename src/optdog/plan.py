@@ -7,6 +7,9 @@
 ``extract`` writes a published show's inputs; ``--entries`` adds exhibitors and entries from a
 directory with ``exhibitors.csv`` and ``entries.csv`` (e.g. data/synthetic/<source>/<show>/seed-0).
 
+Exhibitor information is optional: without it, or with no one signed up for conflict
+resolution, the program is planned with no regard to exhibitor conflicts.
+
 The problem format is described in io/problem_csv.py. ``check`` reports anything that would
 stop a valid program before any solving; ``solve`` runs step 3c, validates the result and
 writes the program in the same CSV format as a parsed one.

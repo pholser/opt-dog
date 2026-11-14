@@ -123,7 +123,8 @@ A problem directory holds:
 | `exhibitors.csv` (optional) | Exhibitor id, professional, signed up for conflict resolution, team |
 | `entries.csv` (optional) | Dog, exhibitor, class or champion, judge, event, competition |
 
-The two exhibitor files go together. One exhibitor is one person who takes dogs into the ring:
+Without them, or with no one signed up, the show is planned with no regard to exhibitor
+conflicts: the conflict phases are skipped and the solver goes from structure to times. The two exhibitor files go together. One exhibitor is one person who takes dogs into the ring:
 each member of a professional handler's team is an exhibitor of their own and signs up on
 their own, and `team` is only a label. Events without entry rows are allowed. With registered
 exhibitors present, `solve` runs the conflict phases and reports conflict minutes. `check`
