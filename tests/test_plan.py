@@ -11,7 +11,8 @@ from optdog.domain import VARIETY_GROUPS, Block, Competition, EventKind, Group, 
 from optdog.instance import instance_from_program
 from optdog.io.problem_csv import ProblemFormatError, read_problem, write_problem
 from optdog.conflicts import registered_window_pairs
-from optdog.io.program_csv import read_entries, read_program
+from optdog.io.entries_csv import read_entries
+from optdog.io.program_csv import read_program
 from optdog.params import ShowParameters
 from optdog.plan import Issue, check_problem, main
 from optdog.solve.greedy import greedy_program
@@ -148,7 +149,7 @@ def test_extract_carries_exhibitors_and_entries_into_the_problem(tmp_path):
     assert main(["extract", str(day), str(prob), "--entries", str(SYNTH / day.name / "seed-0")]) == 0
     back = read_problem(prob)
     program = read_program(day)
-    program.show.entries = read_entries(SYNTH / day.name / "seed-0", program)
+    program.show.entries = read_entries(SYNTH / day.name / "seed-0", program.show.events)
     want = instance_from_program(program).entries
 
     def key(entries):
@@ -172,10 +173,12 @@ def test_team_members_are_separate_exhibitors(tmp_path):
 
 
 @pytest.mark.parametrize("edit, expect", [
-    (lambda d: (d / "exhibitors.csv").unlink(), "entries.csv needs exhibitors.csv"),
+    (lambda d: (d / "exhibitors.csv").unlink(), "entries.csv, line 2: exhibitor 'X' is not in exhibitors.csv"),
     (lambda d: _sub(d / "entries.csv", ",X,", ",Nobody,"), "exhibitor 'Nobody' is not in exhibitors.csv"),
     (lambda d: _sub(d / "entries.csv", "champion", "special"), "status 'special'"),
+    (lambda d: _sub(d / "entries.csv", "d1,,", "d1,M,"), "sex 'M' is not D or B"),
     (lambda d: _sub(d / "entries.csv", "Pug", "Poodle"), "no event 'Poodle'"),
+    (lambda d: _drop_rows(d / "entries.csv", "Akita"), "events.csv, line 3: 'Akita' judged by 'Ms. A' has no dogs"),
     (lambda d: _sub(d / "exhibitors.csv", "X,0,1", "X,0,yes"), "expected 0 or 1"),
 ])
 def test_bad_entry_files_name_the_file_and_line(tmp_path, edit, expect):
@@ -193,7 +196,43 @@ def _sub(path: Path, old: str, new: str) -> None:
     path.write_text(text.replace(old, new, 1))
 
 
-def test_entry_checks_warn_about_counts_duplicates_and_no_one_signed_up():
+def _drop_rows(path: Path, word: str) -> None:
+    path.write_text("".join(line for line in path.read_text().splitlines(keepends=True) if word not in line))
+
+
+def test_entry_counts_come_from_the_dogs(tmp_path):
+    from optdog.domain import Entry, EntryCounts, EntryStatus, Sex
+
+    pug = JudgingEvent("Pug", EventKind.BREED, B, 0, CAT["Pug"])
+    dogs = [("c1", EntryStatus.CLASS, Sex.DOG), ("c2", EntryStatus.CLASS, Sex.BITCH), ("c3", EntryStatus.CLASS, Sex.BITCH),
+            ("v1", EntryStatus.NONREGULAR, None), ("ch1", EntryStatus.CHAMPION, Sex.BITCH)]
+    show = small(events=[pug], entries=[Entry(d, pug, None, st, sex) for d, st, sex in dogs])
+    write_problem(show, tmp_path)
+    assert not (tmp_path / "exhibitors.csv").exists()  # no one on record
+    assert "entries" not in (tmp_path / "events.csv").read_text().splitlines()[0]
+    back = read_problem(tmp_path)
+    assert (back.events[0].entries, back.events[0].counts) == (5, EntryCounts(1, 2, 0, 1, 1))
+    assert {en.dog: (en.status, en.sex, en.exhibitor) for en in back.entries} == {d: (st, sex, None) for d, st, sex in dogs}
+
+
+def test_without_dogs_on_record_they_are_generated_from_the_counts(tmp_path):
+    from optdog.domain import EntryCounts
+
+    pug = JudgingEvent("Pug", EventKind.BREED, B, 9, CAT["Pug"], EntryCounts(2, 3, 1, 2, 1))
+    write_problem(small(events=[pug]), tmp_path)
+    back = read_problem(tmp_path)
+    assert (back.events[0].entries, back.events[0].counts) == (9, EntryCounts(2, 3, 1, 2, 1))
+    assert all(en.exhibitor is None for en in back.entries)
+    assert check_problem(back) == []  # no exhibitors: no conflict resolution, and nothing to warn about
+
+
+def test_only_regular_breed_events_are_written(tmp_path):
+    sweeps = JudgingEvent("Pug Sweepstakes", EventKind.SWEEPSTAKES, B, 4, CAT["Pug"])
+    with pytest.raises(ValueError, match="not a regular breed event"):
+        write_problem(small(events=[sweeps]), tmp_path)
+
+
+def test_entry_checks_warn_about_duplicates_and_no_one_signed_up():
     from optdog.domain import Entry, EntryStatus, Exhibitor
 
     show = entered(small())
@@ -203,7 +242,6 @@ def test_entry_checks_warn_about_counts_duplicates_and_no_one_signed_up():
     pug = next(e for e in show.events if e.name == "Pug")
     extra = replace(show, entries=show.entries + [Entry("Pug-0", pug, x, EntryStatus.CLASS)])
     issues = [i.what for i in check_problem(extra)]
-    assert "21 rows in entries.csv for 20 entries" in issues
     assert "dog Pug-0 is entered 2 times" in issues
     assert not any(i.error for i in check_problem(extra))
 

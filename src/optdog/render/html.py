@@ -51,7 +51,7 @@ def _surname(j: Judge) -> str:
 
 
 def _block_conflicts(program: JudgingProgram, p: ShowParameters) -> dict[int, float]:
-    if not program.show.entries:
+    if not program.show.exhibitors:
         return {}
     from optdog.conflicts import exhibitor_conflicts
 

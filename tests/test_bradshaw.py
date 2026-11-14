@@ -5,6 +5,7 @@ import pytest
 
 from optdog.domain import VARIETY_GROUPS, EntryCounts, EventKind
 from optdog.ingest.bradshaw import BradshawParser, _split_group_pairs, parse_counts, parse_time
+from optdog.ingest.build_dataset import regular_breed_only
 from optdog.io.program_csv import read_program, write_program
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -114,9 +115,11 @@ def test_all_breeds_resolved(parsed, row):
 
 def test_csv_round_trip(parsed, tmp_path):
     pd = parsed[("603.pdf", "SATURDAY")]
-    write_program(pd.program, tmp_path)
-    back = read_program(tmp_path)
-    p0, p1 = pd.program, back
+    p0, dropped = regular_breed_only(pd.program)
+    assert dropped and all(e.kind is EventKind.BREED and e.competition.value == "all-breed" for e in p0.show.events)
+    write_program(p0, tmp_path)
+    p1 = read_program(tmp_path)
+    assert not (tmp_path / "exhibitors.csv").exists()  # the dogs have no exhibitors on record
 
     def sig(p):
         return sorted(

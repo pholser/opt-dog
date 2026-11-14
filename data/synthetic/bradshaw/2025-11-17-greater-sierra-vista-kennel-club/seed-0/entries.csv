@@ -1,898 +1,898 @@
-dog,exhibitor,status,judge,event,competition
-D00001,O0001,class,Mrs. Debbie L. Melgreen,Borzoi,all-breed
-D00004,O0002,class,Mrs. Debbie L. Melgreen,Afghan Hound,all-breed
-D00005,O0003,class,Mrs. Debbie L. Melgreen,Afghan Hound,all-breed
-D00006,O0003,champion,Mrs. Debbie L. Melgreen,Afghan Hound,all-breed
-D00007,O0003,champion,Mrs. Debbie L. Melgreen,Afghan Hound,all-breed
-D00009,O0006,champion,Mrs. Debbie L. Melgreen,Afghan Hound,all-breed
-D00011,O0007,class,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00012,O0008,class,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00013,O0009,class,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00015,O0009,class,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00016,O0011,class,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00017,O0012,class,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00018,O0012,class,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00019,O0014,class,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00020,O0015,class,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00021,O0016,class,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00022,O0017,class,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00024,O0018,class,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00027,O0018,class,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00031,O0020,champion,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00032,O0021,champion,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00037,O0022,champion,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00038,O0022,champion,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00039,O0024,champion,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00042,O0025,champion,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00043,O0025,champion,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00044,O0027,champion,Mrs. Vicki L. Abbott,Keeshond,all-breed
-D00045,O0028,champion,Mrs. Vicki L. Abbott,Keeshond,all-breed
-D00049,O0020,champion,Mrs. Vicki L. Abbott,Soft Coated Wheaten Terrier,all-breed
-D00055,O0030,class,Mrs. Vicki L. Abbott,Bedlington Terrier,all-breed
-D00056,O0030,champion,Mrs. Vicki L. Abbott,Bedlington Terrier,all-breed
-D00060,O0032,champion,Mrs. Vicki L. Abbott,Bedlington Terrier,all-breed
-D00061,O0033,class,Mrs. Vicki L. Abbott,American Staffordshire Terrier,all-breed
-D00064,O0034,champion,Mrs. Vicki L. Abbott,Miniature Schnauzer,all-breed
-D00066,O0034,champion,Mrs. Vicki L. Abbott,Miniature Schnauzer,all-breed
-D00067,O0036,champion,Mrs. Vicki L. Abbott,Manchester Terrier (Standard),all-breed
-D00071,O0037,class,Mrs. Vicki L. Abbott,Airedale Terrier,all-breed
-D00072,O0037,champion,Mrs. Vicki L. Abbott,Airedale Terrier,all-breed
-D00073,O0039,champion,Mrs. Vicki L. Abbott,Scottish Terrier,all-breed
-D00074,O0040,champion,Mrs. Vicki L. Abbott,Scottish Terrier,all-breed
-D00077,O0041,class,Mrs. Vicki L. Abbott,Rat Terrier,all-breed
-D00078,O0041,class,Mrs. Vicki L. Abbott,Rat Terrier,all-breed
-D00079,O0041,class,Mrs. Vicki L. Abbott,Rat Terrier,all-breed
-D00080,O0044,class,Mrs. Vicki L. Abbott,Rat Terrier,all-breed
-D00085,O0045,class,Mrs. Vicki L. Abbott,Norwich Terrier,all-breed
-D00088,O0046,class,Mrs. Vicki L. Abbott,Norfolk Terrier,all-breed
-D00089,O0036,class,Mrs. Vicki L. Abbott,Norfolk Terrier,all-breed
-D00092,O0048,champion,Mrs. Vicki L. Abbott,Fox Terrier (Wire),all-breed
-D00094,O0049,class,Mrs. Vicki L. Abbott,Fox Terrier (Smooth),all-breed
-D00096,O0050,champion,Mrs. Vicki L. Abbott,Fox Terrier (Smooth),all-breed
-D00098,O0051,class,Mrs. Vicki L. Abbott,Border Terrier,all-breed
-D00100,O0051,class,Mrs. Vicki L. Abbott,Border Terrier,all-breed
-D00101,O0053,class,Mrs. Vicki L. Abbott,Border Terrier,all-breed
-D00102,O0054,champion,Mrs. Vicki L. Abbott,Border Terrier,all-breed
-D00104,O0055,champion,Mrs. Vicki L. Abbott,Border Terrier,all-breed
-D00106,O0037,champion,Mrs. Vicki L. Abbott,Australian Terrier,all-breed
-D00107,O0037,champion,Mrs. Vicki L. Abbott,Australian Terrier,all-breed
-D00112,O0058,champion,Dr. Eric Liebes,Saluki,all-breed
-D00114,O0059,champion,Dr. Eric Liebes,Saluki,all-breed
-D00115,O0060,champion,Dr. Eric Liebes,Bloodhound,all-breed
-D00116,O0061,class,Dr. Eric Liebes,Scottish Deerhound,all-breed
-D00117,O0062,class,Dr. Eric Liebes,Scottish Deerhound,all-breed
-D00118,O0063,class,Dr. Eric Liebes,Scottish Deerhound,all-breed
-D00119,O0017,class,Dr. Eric Liebes,Scottish Deerhound,all-breed
-D00121,O0065,champion,Dr. Eric Liebes,Scottish Deerhound,all-breed
-D00122,O0065,champion,Dr. Eric Liebes,Scottish Deerhound,all-breed
-D00123,O0067,champion,Dr. Eric Liebes,Ibizan Hound,all-breed
-D00124,O0067,champion,Dr. Eric Liebes,Ibizan Hound,all-breed
-D00126,O0069,class,Dr. Eric Liebes,Petit Basset Griffon Vendeens,all-breed
-D00127,O0070,class,Dr. Eric Liebes,Petit Basset Griffon Vendeens,all-breed
-D00128,O0071,class,Dr. Eric Liebes,Petit Basset Griffon Vendeens,all-breed
-D00130,O0071,champion,Dr. Eric Liebes,Petit Basset Griffon Vendeens,all-breed
-D00132,O0073,champion,Dr. Eric Liebes,Petit Basset Griffon Vendeens,all-breed
-D00133,O0074,class,Dr. Eric Liebes,Basenji,all-breed
-D00134,O0075,class,Dr. Eric Liebes,Basenji,all-breed
-D00135,O0076,class,Dr. Eric Liebes,Basenji,all-breed
-D00136,O0077,class,Dr. Eric Liebes,Basenji,all-breed
-D00137,O0024,class,Dr. Eric Liebes,Basenji,all-breed
-D00138,O0079,class,Dr. Eric Liebes,Basenji,all-breed
-D00141,O0080,champion,Dr. Eric Liebes,Basenji,all-breed
-D00142,O0081,champion,Dr. Eric Liebes,Basenji,all-breed
-D00145,O0082,champion,Dr. Eric Liebes,Basenji,all-breed
-D00146,O0058,champion,Dr. Eric Liebes,Basenji,all-breed
-D00148,O0022,class,Dr. Eric Liebes,Beagle Fifteen Inch,all-breed
-D00149,O0085,class,Dr. Eric Liebes,Beagle Fifteen Inch,all-breed
-D00151,O0086,class,Dr. Eric Liebes,Irish Wolfhound,all-breed
-D00152,O0087,class,Dr. Eric Liebes,Irish Wolfhound,all-breed
-D00153,O0087,class,Dr. Eric Liebes,Irish Wolfhound,all-breed
-D00154,O0089,class,Dr. Eric Liebes,Irish Wolfhound,all-breed
-D00155,O0090,class,Dr. Eric Liebes,Irish Wolfhound,all-breed
-D00156,O0091,class,Dr. Eric Liebes,Irish Wolfhound,all-breed
-D00157,O0092,champion,Dr. Eric Liebes,Irish Wolfhound,all-breed
-D00160,O0093,champion,Dr. Eric Liebes,Irish Wolfhound,all-breed
-D00162,O0094,champion,Dr. Eric Liebes,Irish Wolfhound,all-breed
-D00164,O0095,class,Dr. Eric Liebes,Whippet,all-breed
-D00165,O0095,class,Dr. Eric Liebes,Whippet,all-breed
-D00166,O0097,class,Dr. Eric Liebes,Whippet,all-breed
-D00167,O0098,class,Dr. Eric Liebes,Whippet,all-breed
-D00170,O0099,class,Dr. Eric Liebes,Whippet,all-breed
-D00171,O0100,class,Dr. Eric Liebes,Whippet,all-breed
-D00174,O0100,class,Dr. Eric Liebes,Whippet,all-breed
-D00176,O0100,class,Dr. Eric Liebes,Whippet,all-breed
-D00178,O0100,class,Dr. Eric Liebes,Whippet,all-breed
-D00179,O0104,class,Dr. Eric Liebes,Whippet,all-breed
-D00181,O0104,champion,Dr. Eric Liebes,Whippet,all-breed
-D00184,O0106,champion,Dr. Eric Liebes,Whippet,all-breed
-D00185,O0107,champion,Dr. Eric Liebes,Basset Hound,all-breed
-D00187,O0108,class,Ms. Peggy Beisel-McIlwaine,Chinese Crested,all-breed
-D00190,O0109,class,Ms. Peggy Beisel-McIlwaine,Chinese Crested,all-breed
-D00191,O0110,class,Ms. Peggy Beisel-McIlwaine,Chinese Crested,all-breed
-D00192,O0110,champion,Ms. Peggy Beisel-McIlwaine,Chinese Crested,all-breed
-D00195,O0112,class,Mr. Joe C. Walton,Boston Terrier,all-breed
-D00196,O0113,class,Mr. Joe C. Walton,Boston Terrier,all-breed
-D00197,O0114,class,Mr. Joe C. Walton,Boston Terrier,all-breed
-D00198,O0027,class,Mr. Joe C. Walton,Boston Terrier,all-breed
-D00199,O0116,class,Mr. Joe C. Walton,Boston Terrier,all-breed
-D00200,O0086,champion,Mr. Joe C. Walton,Boston Terrier,all-breed
-D00202,O0118,champion,Mr. Joe C. Walton,Boston Terrier,all-breed
-D00203,O0118,champion,Mr. Joe C. Walton,Boston Terrier,all-breed
-D00204,O0118,champion,Mr. Joe C. Walton,Boston Terrier,all-breed
-D00206,O0121,class,Mr. Joe C. Walton,Cavalier King Charles Spaniel,all-breed
-D00207,O0121,class,Mr. Joe C. Walton,Cavalier King Charles Spaniel,all-breed
-D00208,O0121,class,Mr. Joe C. Walton,Cavalier King Charles Spaniel,all-breed
-D00209,O0121,class,Mr. Joe C. Walton,Cavalier King Charles Spaniel,all-breed
-D00211,O0125,class,Mr. Joe C. Walton,Cavalier King Charles Spaniel,all-breed
-D00213,O0125,champion,Mr. Joe C. Walton,Cavalier King Charles Spaniel,all-breed
-D00214,O0127,champion,Mr. Joe C. Walton,Cavalier King Charles Spaniel,all-breed
-D00215,O0127,champion,Mr. Joe C. Walton,Cavalier King Charles Spaniel,all-breed
-D00217,O0129,champion,Mr. Joe C. Walton,Cavalier King Charles Spaniel,all-breed
-D00219,O0130,champion,Mr. Joe C. Walton,Cavalier King Charles Spaniel,all-breed
-D00220,O0130,champion,Mr. Joe C. Walton,Cavalier King Charles Spaniel,all-breed
-D00222,O0132,class,Mr. Joe C. Walton,Dachshund (Wirehaired),all-breed
-D00224,O0133,class,Mr. Joe C. Walton,Dachshund (Wirehaired),all-breed
-D00226,O0134,champion,Mr. Joe C. Walton,Dachshund (Wirehaired),all-breed
-D00230,O0135,class,Mr. Joe C. Walton,Affenpinscher,all-breed
-D00231,O0018,class,Mr. Joe C. Walton,Affenpinscher,all-breed
-D00234,O0137,class,Mr. Joe C. Walton,Dachshund (Longhaired),all-breed
-D00236,O0137,class,Mr. Joe C. Walton,Dachshund (Longhaired),all-breed
-D00237,O0139,class,Mr. Joe C. Walton,Dachshund (Longhaired),all-breed
-D00238,O0140,class,Mr. Joe C. Walton,Dachshund (Longhaired),all-breed
-D00239,O0140,class,Mr. Joe C. Walton,Dachshund (Longhaired),all-breed
-D00240,O0142,class,Mr. Joe C. Walton,Dachshund (Longhaired),all-breed
-D00241,O0143,champion,Mr. Joe C. Walton,Dachshund (Longhaired),all-breed
-D00244,O0143,champion,Mr. Joe C. Walton,Dachshund (Longhaired),all-breed
-D00245,O0143,champion,Mr. Joe C. Walton,Dachshund (Longhaired),all-breed
-D00247,O0146,class,Mr. Joe C. Walton,Dachshund (Smooth),all-breed
-D00249,O0147,class,Mr. Joe C. Walton,Dachshund (Smooth),all-breed
-D00255,O0148,class,Mr. Joe C. Walton,Brussels Griffon,all-breed
-D00258,O0149,class,Mr. Joe C. Walton,Russian Tsvetnaya Bolonka,all-breed
-D00259,O0150,class,Mr. Joe C. Walton,Russian Tsvetnaya Bolonka,all-breed
-D00260,O0151,class,Mr. Larry C. Abbott,Bulldog,all-breed
-D00264,O0152,class,Mr. Larry C. Abbott,French Bulldog,all-breed
-D00265,O0153,class,Mr. Larry C. Abbott,French Bulldog,all-breed
-D00266,O0154,class,Mr. Larry C. Abbott,French Bulldog,all-breed
-D00267,O0154,class,Mr. Larry C. Abbott,French Bulldog,all-breed
-D00269,O0156,class,Mr. Larry C. Abbott,French Bulldog,all-breed
-D00270,O0157,class,Mr. Larry C. Abbott,French Bulldog,all-breed
-D00271,O0158,class,Mr. Larry C. Abbott,French Bulldog,all-breed
-D00272,O0158,class,Mr. Larry C. Abbott,French Bulldog,all-breed
-D00277,O0160,champion,Mr. Larry C. Abbott,French Bulldog,all-breed
-D00280,O0161,champion,Mr. Larry C. Abbott,French Bulldog,all-breed
-D00284,O0162,class,Mr. Larry C. Abbott,Poodle (Miniature),all-breed
-D00285,O0163,class,Mr. Larry C. Abbott,Poodle (Miniature),all-breed
-D00286,O0164,class,Mr. Larry C. Abbott,Poodle (Miniature),all-breed
-D00287,O0165,class,Mr. Larry C. Abbott,Poodle (Miniature),all-breed
-D00288,O0166,class,Mr. Larry C. Abbott,Poodle (Miniature),all-breed
-D00289,O0167,class,Mr. Larry C. Abbott,Schipperke,all-breed
-D00290,O0168,class,Mr. Larry C. Abbott,Schipperke,all-breed
-D00292,O0169,class,Mr. Larry C. Abbott,Schipperke,all-breed
-D00293,O0170,class,Mr. Larry C. Abbott,Schipperke,all-breed
-D00296,O0171,champion,Mr. Larry C. Abbott,Schipperke,all-breed
-D00297,O0171,champion,Mr. Larry C. Abbott,Schipperke,all-breed
-D00300,O0173,champion,Mr. Larry C. Abbott,Schipperke,all-breed
-D00302,O0174,class,Mr. Larry C. Abbott,Miniature Pinscher,all-breed
-D00303,O0174,class,Mr. Larry C. Abbott,Miniature Pinscher,all-breed
-D00304,O0176,class,Mr. Larry C. Abbott,Miniature Pinscher,all-breed
-D00305,O0177,class,Mr. Larry C. Abbott,Miniature Pinscher,all-breed
-D00306,O0177,class,Mr. Larry C. Abbott,Miniature Pinscher,all-breed
-D00309,O0179,class,Mr. Larry C. Abbott,Chihuahua (Long Coat),all-breed
-D00310,O0071,class,Mr. Larry C. Abbott,Chihuahua (Long Coat),all-breed
-D00311,O0071,class,Mr. Larry C. Abbott,Chihuahua (Long Coat),all-breed
-D00313,O0182,class,Mr. Larry C. Abbott,Chihuahua (Long Coat),all-breed
-D00314,O0183,class,Mr. Larry C. Abbott,Chihuahua (Long Coat),all-breed
-D00315,O0184,class,Mr. Larry C. Abbott,Chihuahua (Long Coat),all-breed
-D00316,O0185,class,Mr. Larry C. Abbott,Chihuahua (Long Coat),all-breed
-D00317,O0185,class,Mr. Larry C. Abbott,Chihuahua (Long Coat),all-breed
-D00320,O0187,champion,Mr. Larry C. Abbott,Chihuahua (Long Coat),all-breed
-D00321,O0188,champion,Mr. Larry C. Abbott,Chihuahua (Long Coat),all-breed
-D00324,O0189,class,Mr. Larry C. Abbott,Chihuahua (Smooth Coat),all-breed
-D00326,O0190,class,Mr. Larry C. Abbott,Chihuahua (Smooth Coat),all-breed
-D00328,O0191,class,Mr. Larry C. Abbott,Chihuahua (Smooth Coat),all-breed
-D00329,O0192,champion,Mr. Larry C. Abbott,Chihuahua (Smooth Coat),all-breed
-D00332,O0193,champion,Mr. Larry C. Abbott,Bichon Frise,all-breed
-D00333,O0193,champion,Mr. Larry C. Abbott,Bichon Frise,all-breed
-D00334,O0195,class,Mr. Larry C. Abbott,Poodle (Standard),all-breed
-D00335,O0173,class,Mr. Larry C. Abbott,Poodle (Standard),all-breed
-D00337,O0173,class,Mr. Larry C. Abbott,Poodle (Standard),all-breed
-D00338,O0198,class,Mr. Larry C. Abbott,Poodle (Standard),all-breed
-D00339,O0118,class,Mr. Larry C. Abbott,Poodle (Standard),all-breed
-D00340,O0200,champion,Mr. Larry C. Abbott,Poodle (Standard),all-breed
-D00343,O0201,class,Mr. Larry C. Abbott,Chinese Shar-Pei,all-breed
-D00344,O0202,class,Mr. Larry C. Abbott,Chinese Shar-Pei,all-breed
-D00345,O0203,class,Mr. Larry C. Abbott,Chinese Shar-Pei,all-breed
-D00346,O0156,champion,Mr. Larry C. Abbott,Chinese Shar-Pei,all-breed
-D00348,O0205,class,Mr. Larry C. Abbott,Dalmatian,all-breed
-D00349,O0206,class,Mr. Larry C. Abbott,Dalmatian,all-breed
-D00350,O0206,champion,Mr. Larry C. Abbott,Dalmatian,all-breed
-D00352,O0206,champion,Mr. Larry C. Abbott,Dalmatian,all-breed
-D00353,O0209,champion,Mr. Larry C. Abbott,Dalmatian,all-breed
-D00356,O0210,class,Mr. Larry C. Abbott,Xoloitzcuintli,all-breed
-D00362,O0211,class,Mr. Larry C. Abbott,Coton de Tulear,all-breed
-D00364,O0212,champion,Mr. Larry C. Abbott,Coton de Tulear,all-breed
-D00365,O0213,class,Mr. Larry C. Abbott,Lhasa Apso,all-breed
-D00367,O0214,champion,Mr. Larry C. Abbott,Lhasa Apso,all-breed
-D00369,O0028,champion,Mr. Larry C. Abbott,Shiba-Inu,all-breed
-D00370,O0216,class,Mr. Larry C. Abbott,Finnish Lapphund,all-breed
-D00371,O0193,class,Mr. Larry C. Abbott,American Eskimos,all-breed
-D00372,O0218,class,Mr. Larry C. Abbott,American Eskimos,all-breed
-D00373,O0219,class,Mr. Larry C. Abbott,American Eskimos,all-breed
-D00376,O0219,champion,Mr. Larry C. Abbott,American Eskimos,all-breed
-D00377,O0221,class,Mrs. Vicki L. Abbott,Havanese,all-breed
-D00379,O0221,champion,Mrs. Vicki L. Abbott,Havanese,all-breed
-D00380,O0221,champion,Mrs. Vicki L. Abbott,Havanese,all-breed
-D00381,O0224,champion,Mrs. Vicki L. Abbott,Havanese,all-breed
-D00383,O0149,class,Mrs. Vicki L. Abbott,Italian Greyhound,all-breed
-D00384,O0226,class,Mrs. Vicki L. Abbott,Italian Greyhound,all-breed
-D00385,O0227,class,Mrs. Vicki L. Abbott,Italian Greyhound,all-breed
-D00386,O0227,class,Mrs. Vicki L. Abbott,Italian Greyhound,all-breed
-D00387,O0229,class,Mrs. Vicki L. Abbott,Italian Greyhound,all-breed
-D00389,O0229,class,Mrs. Vicki L. Abbott,Italian Greyhound,all-breed
-D00390,O0229,champion,Mrs. Vicki L. Abbott,Italian Greyhound,all-breed
-D00391,O0232,champion,Mrs. Vicki L. Abbott,Italian Greyhound,all-breed
-D00393,O0233,champion,Mrs. Vicki L. Abbott,Italian Greyhound,all-breed
-D00395,O0234,champion,Mrs. Vicki L. Abbott,Italian Greyhound,all-breed
-D00398,O0235,class,Mrs. Vicki L. Abbott,Japanese Chin,all-breed
-D00400,O0235,class,Mrs. Vicki L. Abbott,Japanese Chin,all-breed
-D00401,O0237,class,Mrs. Vicki L. Abbott,Japanese Chin,all-breed
-D00403,O0237,champion,Mrs. Vicki L. Abbott,Japanese Chin,all-breed
-D00404,O0239,class,Mrs. Vicki L. Abbott,Papillon,all-breed
-D00405,O0240,class,Mrs. Vicki L. Abbott,Papillon,all-breed
-D00406,O0241,class,Mrs. Vicki L. Abbott,Papillon,all-breed
-D00407,O0242,class,Mrs. Vicki L. Abbott,Papillon,all-breed
-D00408,O0243,class,Mrs. Vicki L. Abbott,Papillon,all-breed
-D00410,O0244,class,Mrs. Vicki L. Abbott,Papillon,all-breed
-D00411,O0244,class,Mrs. Vicki L. Abbott,Papillon,all-breed
-D00412,O0246,class,Mrs. Vicki L. Abbott,Papillon,all-breed
-D00414,O0174,class,Mrs. Vicki L. Abbott,Papillon,all-breed
-D00419,O0248,champion,Mrs. Vicki L. Abbott,Papillon,all-breed
-D00420,O0249,champion,Mrs. Vicki L. Abbott,Papillon,all-breed
-D00423,O0250,champion,Mrs. Vicki L. Abbott,Papillon,all-breed
-D00424,O0251,champion,Mrs. Vicki L. Abbott,Papillon,all-breed
-D00425,O0252,champion,Mrs. Vicki L. Abbott,Papillon,all-breed
-D00430,O0253,class,Mrs. Vicki L. Abbott,Poodle (Toy),all-breed
-D00431,O0254,champion,Mrs. Vicki L. Abbott,Poodle (Toy),all-breed
-D00432,O0255,class,Mrs. Vicki L. Abbott,Biewer Terrier,all-breed
-D00433,O0256,class,Mrs. Vicki L. Abbott,Biewer Terrier,all-breed
-D00434,O0256,class,Mrs. Vicki L. Abbott,Biewer Terrier,all-breed
-D00435,O0258,class,Mrs. Vicki L. Abbott,Biewer Terrier,all-breed
-D00436,O0259,class,Mrs. Vicki L. Abbott,Biewer Terrier,all-breed
-D00438,O0260,class,Mrs. Vicki L. Abbott,Pomeranian,all-breed
-D00440,O0224,class,Mrs. Vicki L. Abbott,Pomeranian,all-breed
-D00446,O0262,class,Mrs. Vicki L. Abbott,Russian Toy,all-breed
-D00447,O0130,class,Mrs. Vicki L. Abbott,Russian Toy,all-breed
-D00448,O0121,class,Mrs. Vicki L. Abbott,Russian Toy,all-breed
-D00449,O0121,class,Mrs. Vicki L. Abbott,Russian Toy,all-breed
-D00452,O0121,champion,Mrs. Vicki L. Abbott,Russian Toy,all-breed
-D00453,O0267,class,Mrs. Vicki L. Abbott,Shih Tzu,all-breed
-D00454,O0268,class,Mrs. Vicki L. Abbott,Shih Tzu,all-breed
-D00455,O0268,class,Mrs. Vicki L. Abbott,Shih Tzu,all-breed
-D00457,O0268,champion,Mrs. Vicki L. Abbott,Shih Tzu,all-breed
-D00459,O0271,class,Mrs. Vicki L. Abbott,Yorkshire Terrier,all-breed
-D00460,O0271,class,Mrs. Vicki L. Abbott,Yorkshire Terrier,all-breed
-D00461,O0273,class,Mrs. Vicki L. Abbott,Yorkshire Terrier,all-breed
-D00462,O0274,champion,Mrs. Vicki L. Abbott,Yorkshire Terrier,all-breed
-D00463,O0274,champion,Mrs. Vicki L. Abbott,Yorkshire Terrier,all-breed
-D00464,O0276,class,Mrs. Vicki L. Abbott,West Highland White Terrier,all-breed
-D00466,O0277,champion,Mrs. Vicki L. Abbott,West Highland White Terrier,all-breed
-D00468,O0278,class,Mrs. Vicki L. Abbott,Parson Russell Terrier,all-breed
-D00469,O0279,class,Mrs. Vicki L. Abbott,Parson Russell Terrier,all-breed
-D00470,O0280,champion,Mrs. Vicki L. Abbott,Parson Russell Terrier,all-breed
-D00473,O0281,class,Mrs. Vicki L. Abbott,Russell Terriers,all-breed
-D00474,O0209,class,Mrs. Vicki L. Abbott,Russell Terriers,all-breed
-D00478,O0060,class,Mr. Joe C. Walton,Portuguese Water Dog,all-breed
-D00479,O0284,class,Mr. Joe C. Walton,Portuguese Water Dog,all-breed
-D00480,O0285,class,Mr. Joe C. Walton,Portuguese Water Dog,all-breed
-D00483,O0286,class,Dr. Eric Liebes,Standard Schnauzer,all-breed
-D00484,O0287,class,Dr. Eric Liebes,Standard Schnauzer,all-breed
-D00485,O0288,class,Dr. Eric Liebes,Standard Schnauzer,all-breed
-D00486,O0288,class,Dr. Eric Liebes,Standard Schnauzer,all-breed
-D00487,O0290,champion,Dr. Eric Liebes,Standard Schnauzer,all-breed
-D00488,O0291,champion,Dr. Eric Liebes,Standard Schnauzer,all-breed
-D00489,O0291,champion,Dr. Eric Liebes,Standard Schnauzer,all-breed
-D00491,O0293,class,Dr. Eric Liebes,Giant Schnauzer,all-breed
-D00492,O0293,class,Dr. Eric Liebes,Giant Schnauzer,all-breed
-D00495,O0295,champion,Dr. Eric Liebes,Bullmastiff,all-breed
-D00498,O0296,class,Dr. Eric Liebes,Siberian Husky,all-breed
-D00501,O0297,class,Dr. Eric Liebes,Samoyed,all-breed
-D00504,O0297,class,Dr. Eric Liebes,Samoyed,all-breed
-D00506,O0299,champion,Dr. Eric Liebes,Samoyed,all-breed
-D00507,O0300,champion,Dr. Eric Liebes,Samoyed,all-breed
-D00508,O0301,champion,Dr. Eric Liebes,Samoyed,all-breed
-D00509,O0302,champion,Dr. Eric Liebes,Samoyed,all-breed
-D00510,O0303,champion,Dr. Eric Liebes,Samoyed,all-breed
-D00511,O0304,champion,Dr. Eric Liebes,Samoyed,all-breed
-D00514,O0305,class,Dr. Eric Liebes,Alaskan Malamute,all-breed
-D00516,O0306,class,Dr. Eric Liebes,Bernese Mountain Dog,all-breed
-D00517,O0307,class,Dr. Eric Liebes,Bernese Mountain Dog,all-breed
-D00518,O0308,class,Dr. Eric Liebes,Bernese Mountain Dog,all-breed
-D00519,O0309,champion,Dr. Eric Liebes,Bernese Mountain Dog,all-breed
-D00520,O0310,class,Dr. Eric Liebes,Boerboel,all-breed
-D00522,O0311,class,Dr. Eric Liebes,Rottweiler,all-breed
-D00523,O0312,class,Dr. Eric Liebes,Rottweiler,all-breed
-D00529,O0313,class,Dr. Eric Liebes,Boxer,all-breed
-D00531,O0314,class,Dr. Eric Liebes,Boxer,all-breed
-D00532,O0314,class,Dr. Eric Liebes,Boxer,all-breed
-D00533,O0316,class,Dr. Eric Liebes,Boxer,all-breed
-D00534,O0316,class,Dr. Eric Liebes,Boxer,all-breed
-D00535,O0316,class,Dr. Eric Liebes,Boxer,all-breed
-D00536,O0319,class,Dr. Eric Liebes,Boxer,all-breed
-D00537,O0319,class,Dr. Eric Liebes,Boxer,all-breed
-D00540,O0321,class,Dr. Eric Liebes,Boxer,all-breed
-D00541,O0322,champion,Dr. Eric Liebes,Boxer,all-breed
-D00545,O0060,champion,Dr. Eric Liebes,Boxer,all-breed
-D00547,O0324,class,Dr. Eric Liebes,Anatolian Shepherd,all-breed
-D00548,O0324,champion,Dr. Eric Liebes,Anatolian Shepherd,all-breed
-D00549,O0326,class,Dr. Eric Liebes,ST. Bernard,all-breed
-D00551,O0327,class,Dr. Eric Liebes,Cane Corso,all-breed
-D00552,O0328,class,Dr. Eric Liebes,Cane Corso,all-breed
-D00553,O0329,champion,Dr. Eric Liebes,Cane Corso,all-breed
-D00556,O0330,class,Dr. Eric Liebes,Danish-Swedish Farmdog,all-breed
-D00557,O0331,class,Dr. Eric Liebes,Akita,all-breed
-D00558,O0303,class,Dr. Eric Liebes,Akita,all-breed
-D00559,O0333,class,Dr. Eric Liebes,Akita,all-breed
-D00560,O0333,champion,Dr. Eric Liebes,Akita,all-breed
-D00565,O0335,class,Mrs. Joan Luna Liebes,Mastiff,all-breed
-D00566,O0327,class,Mrs. Joan Luna Liebes,Mastiff,all-breed
-D00567,O0327,class,Mrs. Joan Luna Liebes,Mastiff,all-breed
-D00568,O0338,class,Mrs. Joan Luna Liebes,Mastiff,all-breed
-D00569,O0339,class,Mrs. Joan Luna Liebes,Mastiff,all-breed
-D00570,O0339,class,Mrs. Joan Luna Liebes,Mastiff,all-breed
-D00572,O0339,class,Mrs. Joan Luna Liebes,Mastiff,all-breed
-D00573,O0342,class,Mrs. Joan Luna Liebes,Mastiff,all-breed
-D00578,O0342,champion,Mrs. Joan Luna Liebes,Mastiff,all-breed
-D00579,O0344,champion,Mrs. Joan Luna Liebes,Mastiff,all-breed
-D00581,O0345,class,Mrs. Joan Luna Liebes,Beauceron,all-breed
-D00582,O0346,class,Mrs. Joan Luna Liebes,Beauceron,all-breed
-D00583,O0347,class,Mrs. Joan Luna Liebes,Beauceron,all-breed
-D00584,O0347,class,Mrs. Joan Luna Liebes,Beauceron,all-breed
-D00585,O0349,champion,Mrs. Joan Luna Liebes,Beauceron,all-breed
-D00587,O0350,champion,Mrs. Joan Luna Liebes,Beauceron,all-breed
-D00588,O0351,champion,Mrs. Joan Luna Liebes,Belgian Malinois,all-breed
-D00589,O0352,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00590,O0314,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00591,O0354,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00592,O0355,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00594,O0356,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00595,O0357,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00597,O0229,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00599,O0359,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00600,O0360,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00601,O0360,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00603,O0362,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00604,O0363,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00605,O0364,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00606,O0364,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00607,O0366,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00608,O0366,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00610,O0368,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00611,O0369,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00613,O0369,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00615,O0371,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00616,O0372,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00617,O0372,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00618,O0086,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00619,O0375,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00620,O0376,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00621,O0377,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00623,O0378,champion,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00626,O0378,champion,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00627,O0378,champion,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00628,O0381,champion,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00634,O0381,champion,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00636,O0383,champion,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00637,O0384,champion,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00639,O0385,class,Mrs. Joan Luna Liebes,Great Dane,all-breed
-D00641,O0385,class,Mrs. Joan Luna Liebes,Great Dane,all-breed
-D00642,O0387,class,Mrs. Joan Luna Liebes,Great Dane,all-breed
-D00643,O0388,class,Mrs. Joan Luna Liebes,Great Dane,all-breed
-D00644,O0389,class,Mrs. Joan Luna Liebes,Great Dane,all-breed
-D00645,O0389,class,Mrs. Joan Luna Liebes,Great Dane,all-breed
-D00646,O0391,class,Mrs. Joan Luna Liebes,Great Dane,all-breed
-D00653,O0392,champion,Mrs. Joan Luna Liebes,Great Dane,all-breed
-D00655,O0216,class,Mrs. Joan Luna Liebes,German Shepherd Dog,all-breed
-D00656,O0394,class,Mrs. Joan Luna Liebes,Bouvier Des Flandres,all-breed
-D00657,O0394,champion,Mrs. Joan Luna Liebes,Bouvier Des Flandres,all-breed
-D00659,O0394,champion,Mrs. Joan Luna Liebes,Bouvier Des Flandres,all-breed
-D00661,O0397,champion,Mrs. Joan Luna Liebes,Bearded Collie,all-breed
-D00663,O0398,class,Mrs. Joan Luna Liebes,Australian Cattle Dog,all-breed
-D00665,O0399,class,Mrs. Joan Luna Liebes,Australian Cattle Dog,all-breed
-D00666,O0399,class,Mrs. Joan Luna Liebes,Australian Cattle Dog,all-breed
-D00667,O0401,class,Mrs. Joan Luna Liebes,Australian Cattle Dog,all-breed
-D00669,O0402,champion,Mrs. Joan Luna Liebes,Australian Cattle Dog,all-breed
-D00670,O0403,champion,Mrs. Joan Luna Liebes,Australian Cattle Dog,all-breed
-D00671,O0404,champion,Mrs. Joan Luna Liebes,Mudi,all-breed
-D00673,O0405,class,Mrs. Joan Luna Liebes,Border Collie,all-breed
-D00674,O0405,class,Mrs. Joan Luna Liebes,Border Collie,all-breed
-D00675,O0407,class,Mrs. Joan Luna Liebes,Border Collie,all-breed
-D00677,O0394,class,Mrs. Joan Luna Liebes,Border Collie,all-breed
-D00680,O0409,champion,Mrs. Joan Luna Liebes,Border Collie,all-breed
-D00681,O0410,champion,Mrs. Joan Luna Liebes,Border Collie,all-breed
-D00682,O0411,class,Mrs. Joan Luna Liebes,Belgian Tervuren,all-breed
-D00683,O0412,champion,Mrs. Joan Luna Liebes,Belgian Tervuren,all-breed
-D00684,O0413,class,Mrs. Joan Luna Liebes,Belgian Sheepdog,all-breed
-D00686,O0414,class,Mrs. Joan Luna Liebes,Collie (Rough),all-breed
-D00687,O0415,class,Mrs. Joan Luna Liebes,Collie (Rough),all-breed
-D00688,O0415,class,Mrs. Joan Luna Liebes,Collie (Rough),all-breed
-D00690,O0417,champion,Mrs. Joan Luna Liebes,Collie (Rough),all-breed
-D00691,O0418,class,Mrs. Joan Luna Liebes,Cardigan Welsh Corgi,all-breed
-D00692,O0419,class,Mrs. Joan Luna Liebes,Cardigan Welsh Corgi,all-breed
-D00693,O0420,class,Mrs. Joan Luna Liebes,Cardigan Welsh Corgi,all-breed
-D00694,O0421,class,Mrs. Joan Luna Liebes,Cardigan Welsh Corgi,all-breed
-D00695,O0398,class,Mrs. Joan Luna Liebes,Cardigan Welsh Corgi,all-breed
-D00699,O0423,class,Mrs. Debbie L. Melgreen,Australian Shepherd,all-breed
-D00700,O0423,class,Mrs. Debbie L. Melgreen,Australian Shepherd,all-breed
-D00701,O0425,class,Mrs. Debbie L. Melgreen,Australian Shepherd,all-breed
-D00702,O0030,class,Mrs. Debbie L. Melgreen,Australian Shepherd,all-breed
-D00703,O0030,class,Mrs. Debbie L. Melgreen,Australian Shepherd,all-breed
-D00704,O0428,class,Mrs. Debbie L. Melgreen,Australian Shepherd,all-breed
-D00705,O0429,class,Mrs. Debbie L. Melgreen,Australian Shepherd,all-breed
-D00707,O0429,class,Mrs. Debbie L. Melgreen,Australian Shepherd,all-breed
-D00708,O0431,class,Mrs. Debbie L. Melgreen,Australian Shepherd,all-breed
-D00709,O0432,class,Mrs. Debbie L. Melgreen,Australian Shepherd,all-breed
-D00712,O0433,class,Mrs. Debbie L. Melgreen,Australian Shepherd,all-breed
-D00713,O0434,class,Mrs. Debbie L. Melgreen,Australian Shepherd,all-breed
-D00718,O0435,class,Mrs. Debbie L. Melgreen,Vizsla,all-breed
-D00720,O0436,class,Mrs. Debbie L. Melgreen,Vizsla,all-breed
-D00721,O0437,class,Mrs. Debbie L. Melgreen,Vizsla,all-breed
-D00722,O0437,class,Mrs. Debbie L. Melgreen,Vizsla,all-breed
-D00723,O0439,class,Mrs. Debbie L. Melgreen,Vizsla,all-breed
-D00724,O0439,class,Mrs. Debbie L. Melgreen,Vizsla,all-breed
-D00725,O0441,class,Mrs. Debbie L. Melgreen,Vizsla,all-breed
-D00728,O0441,champion,Mrs. Debbie L. Melgreen,Vizsla,all-breed
-D00736,O0443,class,Mrs. Debbie L. Melgreen,Old English Sheepdog,all-breed
-D00738,O0444,champion,Mrs. Debbie L. Melgreen,American Water Spaniel,all-breed
-D00739,O0445,class,Mrs. Debbie L. Melgreen,Swedish Vallhund,all-breed
-D00743,O0446,class,Mrs. Debbie L. Melgreen,Irish Setter,all-breed
-D00749,O0447,class,Mrs. Debbie L. Melgreen,Miniature American Shepherd,all-breed
-D00750,O0448,class,Mrs. Debbie L. Melgreen,Miniature American Shepherd,all-breed
-D00751,O0449,class,Mrs. Debbie L. Melgreen,Miniature American Shepherd,all-breed
-D00752,O0398,class,Mrs. Debbie L. Melgreen,Miniature American Shepherd,all-breed
-D00753,O0398,class,Mrs. Debbie L. Melgreen,Miniature American Shepherd,all-breed
-D00756,O0452,class,Mrs. Debbie L. Melgreen,Miniature American Shepherd,all-breed
-D00757,O0453,class,Mrs. Debbie L. Melgreen,Miniature American Shepherd,all-breed
-D00758,O0210,class,Mrs. Debbie L. Melgreen,Miniature American Shepherd,all-breed
-D00759,O0210,class,Mrs. Debbie L. Melgreen,Miniature American Shepherd,all-breed
-D00761,O0210,class,Mrs. Debbie L. Melgreen,Miniature American Shepherd,all-breed
-D00765,O0457,champion,Mrs. Debbie L. Melgreen,Miniature American Shepherd,all-breed
-D00768,O0458,class,Mrs. Debbie L. Melgreen,Shetland Sheepdog,all-breed
-D00769,O0459,class,Mrs. Debbie L. Melgreen,Shetland Sheepdog,all-breed
-D00770,O0460,class,Mrs. Debbie L. Melgreen,Shetland Sheepdog,all-breed
-D00772,O0418,class,Mrs. Debbie L. Melgreen,Shetland Sheepdog,all-breed
-D00774,O0418,class,Mrs. Debbie L. Melgreen,Shetland Sheepdog,all-breed
-D00775,O0463,class,Mrs. Debbie L. Melgreen,Shetland Sheepdog,all-breed
-D00776,O0463,class,Mrs. Debbie L. Melgreen,Shetland Sheepdog,all-breed
-D00780,O0465,champion,Mrs. Debbie L. Melgreen,Polish Lowland Sheepdog,all-breed
-D00781,O0466,class,Mrs. Debbie L. Melgreen,Clumber Spaniel,all-breed
-D00783,O0467,class,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi,all-breed
-D00784,O0468,class,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi,all-breed
-D00786,O0468,class,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi,all-breed
-D00787,O0468,class,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi,all-breed
-D00788,O0471,class,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi,all-breed
-D00790,O0472,class,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi,all-breed
-D00791,O0473,class,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi,all-breed
-D00792,O0473,class,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi,all-breed
-D00794,O0473,champion,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi,all-breed
-D00795,O0473,champion,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi,all-breed
-D00799,O0477,champion,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi,all-breed
-D00801,O0477,champion,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi,all-breed
-D00802,O0479,class,Ms. Peggy Beisel-McIlwaine,Pointer,all-breed
-D00803,O0479,class,Ms. Peggy Beisel-McIlwaine,Pointer,all-breed
-D00804,O0481,champion,Ms. Peggy Beisel-McIlwaine,Pointer,all-breed
-D00805,O0482,champion,Ms. Peggy Beisel-McIlwaine,Pointer,all-breed
-D00806,O0483,class,Ms. Peggy Beisel-McIlwaine,German Shorthaired Pointer,all-breed
-D00807,O0484,class,Ms. Peggy Beisel-McIlwaine,German Shorthaired Pointer,all-breed
-D00808,O0485,class,Ms. Peggy Beisel-McIlwaine,German Shorthaired Pointer,all-breed
-D00809,O0486,champion,Ms. Peggy Beisel-McIlwaine,German Shorthaired Pointer,all-breed
-D00812,O0487,champion,Ms. Peggy Beisel-McIlwaine,German Shorthaired Pointer,all-breed
-D00813,O0488,champion,Ms. Peggy Beisel-McIlwaine,German Shorthaired Pointer,all-breed
-D00815,O0489,class,Ms. Peggy Beisel-McIlwaine,Flat-Coated Retriever,all-breed
-D00818,O0490,champion,Ms. Peggy Beisel-McIlwaine,Flat-Coated Retriever,all-breed
-D00822,O0491,champion,Ms. Peggy Beisel-McIlwaine,Weimaraner,all-breed
-D00823,O0491,champion,Ms. Peggy Beisel-McIlwaine,Weimaraner,all-breed
-D00824,O0493,class,Ms. Peggy Beisel-McIlwaine,Golden Retriever,all-breed
-D00826,O0437,class,Ms. Peggy Beisel-McIlwaine,Golden Retriever,all-breed
-D00829,O0495,class,Ms. Peggy Beisel-McIlwaine,Golden Retriever,all-breed
-D00830,O0496,class,Ms. Peggy Beisel-McIlwaine,Golden Retriever,all-breed
-D00831,O0496,class,Ms. Peggy Beisel-McIlwaine,Golden Retriever,all-breed
-D00832,O0498,class,Ms. Peggy Beisel-McIlwaine,Golden Retriever,all-breed
-D00833,O0499,class,Ms. Peggy Beisel-McIlwaine,Golden Retriever,all-breed
-D00835,O0499,class,Ms. Peggy Beisel-McIlwaine,Golden Retriever,all-breed
-D00836,O0501,class,Ms. Peggy Beisel-McIlwaine,Golden Retriever,all-breed
-D00838,O0501,champion,Ms. Peggy Beisel-McIlwaine,Golden Retriever,all-breed
-D00839,O0503,champion,Ms. Peggy Beisel-McIlwaine,Golden Retriever,all-breed
-D00841,O0504,champion,Ms. Peggy Beisel-McIlwaine,Golden Retriever,all-breed
-D00843,O0505,class,Ms. Peggy Beisel-McIlwaine,English Setter,all-breed
-D00844,O0506,class,Ms. Peggy Beisel-McIlwaine,English Setter,all-breed
-D00846,O0506,champion,Ms. Peggy Beisel-McIlwaine,English Setter,all-breed
-D00847,O0508,champion,Ms. Peggy Beisel-McIlwaine,Retriever (Nova Scotia Duck),all-breed
-D00848,O0509,class,Ms. Peggy Beisel-McIlwaine,Spinone Italiano,all-breed
-D00849,O0509,class,Ms. Peggy Beisel-McIlwaine,Spinone Italiano,all-breed
-D00851,O0511,class,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00852,O0511,class,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00853,O0513,class,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00854,O0513,class,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00855,O0515,class,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00856,O0516,class,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00857,O0517,class,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00858,O0518,class,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00859,O0489,class,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00862,O0520,class,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00864,O0521,class,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00865,O0521,class,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00866,O0441,class,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00867,O0524,class,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00869,O0525,champion,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00870,O0526,champion,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00871,O0527,champion,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00875,O0528,champion,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00878,O0529,champion,Ms. Peggy Beisel-McIlwaine,Cocker Spaniel (Parti-Color),all-breed
-D00881,O0530,champion,Ms. Peggy Beisel-McIlwaine,English Cocker Spaniel,all-breed
-D00883,O0437,class,Ms. Peggy Beisel-McIlwaine,English Springer Spaniel,all-breed
-D00884,O0532,champion,Ms. Peggy Beisel-McIlwaine,Barbet,all-breed
-D00885,O0533,champion,Ms. Peggy Beisel-McIlwaine,Barbet,all-breed
-D00886,O0534,class,Ms. Peggy Beisel-McIlwaine,Lagotto Romagnolo,all-breed
-D00887,O0513,class,Ms. Peggy Beisel-McIlwaine,Lagotto Romagnolo,all-breed
-D00888,O0536,class,Ms. Peggy Beisel-McIlwaine,Lagotto Romagnolo,all-breed
-D00890,O0536,champion,Ms. Peggy Beisel-McIlwaine,Lagotto Romagnolo,all-breed
-D00892,O0538,champion,Ms. Peggy Beisel-McIlwaine,BracchI Italiani,all-breed
-D00894,O0539,champion,Ms. Peggy Beisel-McIlwaine,Brittany,all-breed
-D00896,O0540,champion,Ms. Peggy Beisel-McIlwaine,Brittany,all-breed
-D00897,O0541,champion,Ms. Peggy Beisel-McIlwaine,Brittany,all-breed
-D00863,P001,class,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00002,P001,champion,Mrs. Debbie L. Melgreen,Borzoi,all-breed
-D00647,P001,class,Mrs. Joan Luna Liebes,Great Dane,all-breed
-D00109,P001,class,Mrs. Vicki L. Abbott,Bull Terrier (Colored),all-breed
-D00095,P001,champion,Mrs. Vicki L. Abbott,Fox Terrier (Smooth),all-breed
-D00097,P001,champion,Mrs. Vicki L. Abbott,Fox Terrier (Smooth),all-breed
-D00053,P001,champion,Mrs. Vicki L. Abbott,Kerry Blue Terrier,all-breed
-D00069,P001,champion,Mrs. Vicki L. Abbott,Lakeland Terrier,all-breed
-D00081,P001,champion,Mrs. Vicki L. Abbott,Rat Terrier,all-breed
-D00477,P001,champion,Mrs. Vicki L. Abbott,Welsh Terrier,all-breed
-D00668,P001-A1,champion,Mrs. Joan Luna Liebes,Australian Cattle Dog,all-breed
-D00706,P001-A1,class,Mrs. Debbie L. Melgreen,Australian Shepherd,all-breed
-D00676,P001-A1,class,Mrs. Joan Luna Liebes,Border Collie,all-breed
-D00697,P001-A1,champion,Mrs. Joan Luna Liebes,Briard,all-breed
-D00762,P001-A1,champion,Mrs. Debbie L. Melgreen,Miniature American Shepherd,all-breed
-D00672,P001-A1,champion,Mrs. Joan Luna Liebes,Mudi,all-breed
-D00735,P001-A1,class,Mrs. Debbie L. Melgreen,Old English Sheepdog,all-breed
-D00789,P001-A1,class,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi,all-breed
-D00771,P001-A1,class,Mrs. Debbie L. Melgreen,Shetland Sheepdog,all-breed
-D00741,P001-A1,champion,Mrs. Debbie L. Melgreen,Swedish Vallhund,all-breed
-D00062,P002,champion,Mrs. Vicki L. Abbott,American Staffordshire Terrier,all-breed
-D00472,P002,champion,Mrs. Vicki L. Abbott,Parson Russell Terrier,all-breed
-D00441,P002,champion,Mrs. Vicki L. Abbott,Pomeranian,all-breed
-D00714,P002,class,Mrs. Debbie L. Melgreen,Australian Shepherd,all-breed
-D00586,P002,champion,Mrs. Joan Luna Liebes,Beauceron,all-breed
-D00685,P002,champion,Mrs. Joan Luna Liebes,Belgian Sheepdog,all-breed
-D00679,P002,champion,Mrs. Joan Luna Liebes,Border Collie,all-breed
-D00658,P002-A1,champion,Mrs. Joan Luna Liebes,Bouvier Des Flandres,all-breed
-D00696,P002-A1,champion,Mrs. Joan Luna Liebes,Cardigan Welsh Corgi,all-breed
-D00766,P002-A1,champion,Mrs. Debbie L. Melgreen,Miniature American Shepherd,all-breed
-D00793,P002-A1,champion,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi,all-breed
-D00778,P002-A1,champion,Mrs. Debbie L. Melgreen,Shetland Sheepdog,all-breed
-D00779,P002-A1,champion,Mrs. Debbie L. Melgreen,Shetland Sheepdog,all-breed
-D00879,P003,champion,Ms. Peggy Beisel-McIlwaine,Cocker Spaniel (Ascob),all-breed
-D00877,P003,champion,Ms. Peggy Beisel-McIlwaine,Cocker Spaniel (Parti-Color),all-breed
-D00819,P003,champion,Ms. Peggy Beisel-McIlwaine,Flat-Coated Retriever,all-breed
-D00814,P003,champion,Ms. Peggy Beisel-McIlwaine,German Shorthaired Pointer,all-breed
-D00746,P003,champion,Mrs. Debbie L. Melgreen,Irish Setter,all-breed
-D00872,P003,champion,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00873,P003,champion,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00732,P003,champion,Mrs. Debbie L. Melgreen,Vizsla,all-breed
-D00546,P003,champion,Dr. Eric Liebes,Boxer,all-breed
-D00497,P003,class,Dr. Eric Liebes,Siberian Husky,all-breed
-D00082,P003,champion,Mrs. Vicki L. Abbott,Rat Terrier,all-breed
-D00054,P004,class,Mrs. Vicki L. Abbott,Bedlington Terrier,all-breed
-D00087,P004,champion,Mrs. Vicki L. Abbott,Norwich Terrier,all-breed
-D00467,P004,champion,Mrs. Vicki L. Abbott,West Highland White Terrier,all-breed
-D00212,P004,champion,Mr. Joe C. Walton,Cavalier King Charles Spaniel,all-breed
-D00413,P004,class,Mrs. Vicki L. Abbott,Papillon,all-breed
-D00439,P004,class,Mrs. Vicki L. Abbott,Pomeranian,all-breed
-D00652,P005,champion,Mrs. Joan Luna Liebes,Great Dane,all-breed
-D00528,P005,champion,Dr. Eric Liebes,Rottweiler,all-breed
-D00550,P005,champion,Dr. Eric Liebes,ST. Bernard,all-breed
-D00490,P005,champion,Dr. Eric Liebes,Standard Schnauzer,all-breed
-D00063,P005,class,Mrs. Vicki L. Abbott,Miniature Schnauzer,all-breed
-D00471,P005,champion,Mrs. Vicki L. Abbott,Parson Russell Terrier,all-breed
-D00050,P005,champion,Mrs. Vicki L. Abbott,Staffordshire Bull Terriers,all-breed
-D00402,P005,champion,Mrs. Vicki L. Abbott,Japanese Chin,all-breed
-D00445,P005,class,Mrs. Vicki L. Abbott,Russian Toy,all-breed
-D00521,P006,champion,Dr. Eric Liebes,Boerboel,all-breed
-D00598,P006,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00630,P006,champion,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00638,P006,class,Mrs. Joan Luna Liebes,Great Dane,all-breed
-D00648,P006,champion,Mrs. Joan Luna Liebes,Great Dane,all-breed
-D00577,P006,champion,Mrs. Joan Luna Liebes,Mastiff,all-breed
-D00526,P006,champion,Dr. Eric Liebes,Rottweiler,all-breed
-D00070,P006-A1,class,Mrs. Vicki L. Abbott,Airedale Terrier,all-breed
-D00110,P006-A1,champion,Mrs. Vicki L. Abbott,Bull Terrier (Colored),all-breed
-D00093,P006-A1,class,Mrs. Vicki L. Abbott,Fox Terrier (Smooth),all-breed
-D00075,P006-A1,champion,Mrs. Vicki L. Abbott,Scottish Terrier,all-breed
-D00188,P006-A1,class,Ms. Peggy Beisel-McIlwaine,Chinese Crested,all-breed
-D00409,P006-A1,class,Mrs. Vicki L. Abbott,Papillon,all-breed
-D00301,P006-A1,champion,Mr. Larry C. Abbott,Schipperke,all-breed
-D00745,P007,champion,Mrs. Debbie L. Melgreen,Irish Setter,all-breed
-D00143,P007,champion,Dr. Eric Liebes,Basenji,all-breed
-D00246,P007,champion,Mr. Joe C. Walton,Dachshund (Longhaired),all-breed
-D00248,P007,class,Mr. Joe C. Walton,Dachshund (Smooth),all-breed
-D00253,P007,champion,Mr. Joe C. Walton,Dachshund (Smooth),all-breed
-D00225,P007,champion,Mr. Joe C. Walton,Dachshund (Wirehaired),all-breed
-D00161,P007,champion,Dr. Eric Liebes,Irish Wolfhound,all-breed
-D00023,P007,class,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00029,P007,champion,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00169,P007-A1,class,Dr. Eric Liebes,Whippet,all-breed
-D00173,P007-A1,class,Dr. Eric Liebes,Whippet,all-breed
-D00182,P007-A1,champion,Dr. Eric Liebes,Whippet,all-breed
-D00602,P007-A1,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00256,P007-A1,class,Mr. Joe C. Walton,Brussels Griffon,all-breed
-D00327,P007-A1,class,Mr. Larry C. Abbott,Chihuahua (Smooth Coat),all-breed
-D00368,P007-A1,class,Mr. Larry C. Abbott,Shiba-Inu,all-breed
-D00763,P007-A1,champion,Mrs. Debbie L. Melgreen,Miniature American Shepherd,all-breed
-D00250,P008,champion,Mr. Joe C. Walton,Dachshund (Smooth),all-breed
-D00223,P008,class,Mr. Joe C. Walton,Dachshund (Wirehaired),all-breed
-D00158,P008,champion,Dr. Eric Liebes,Irish Wolfhound,all-breed
-D00159,P008,champion,Dr. Eric Liebes,Irish Wolfhound,all-breed
-D00129,P008,class,Dr. Eric Liebes,Petit Basset Griffon Vendeens,all-breed
-D00025,P008,class,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00030,P008,champion,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00040,P008,champion,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00221,P008-A1,champion,Mr. Joe C. Walton,Cavalier King Charles Spaniel,all-breed
-D00312,P008-A1,class,Mr. Larry C. Abbott,Chihuahua (Long Coat),all-breed
-D00193,P008-A1,champion,Ms. Peggy Beisel-McIlwaine,Chinese Crested,all-breed
-D00307,P008-A1,class,Mr. Larry C. Abbott,Miniature Pinscher,all-breed
-D00416,P008-A1,champion,Mrs. Vicki L. Abbott,Papillon,all-breed
-D00429,P008-A1,class,Mrs. Vicki L. Abbott,Poodle (Toy),all-breed
-D00008,P009,champion,Mrs. Debbie L. Melgreen,Afghan Hound,all-breed
-D00010,P009,champion,Mrs. Debbie L. Melgreen,Afghan Hound,all-breed
-D00242,P009,champion,Mr. Joe C. Walton,Dachshund (Longhaired),all-breed
-D00251,P009,champion,Mr. Joe C. Walton,Dachshund (Smooth),all-breed
-D00252,P009,champion,Mr. Joe C. Walton,Dachshund (Smooth),all-breed
-D00227,P009,champion,Mr. Joe C. Walton,Dachshund (Wirehaired),all-breed
-D00014,P009,class,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00033,P009,champion,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00180,P009,champion,Dr. Eric Liebes,Whippet,all-breed
-D00561,P009,champion,Dr. Eric Liebes,Akita,all-breed
-D00515,P009,champion,Dr. Eric Liebes,Alaskan Malamute,all-breed
-D00542,P009,champion,Dr. Eric Liebes,Boxer,all-breed
-D00544,P009,champion,Dr. Eric Liebes,Boxer,all-breed
-D00593,P009-A1,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00596,P009-A1,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00622,P009-A1,champion,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00625,P009-A1,champion,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00631,P009-A1,champion,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00654,P009-A1,champion,Mrs. Joan Luna Liebes,Great Dane,all-breed
-D00481,P009-A1,champion,Mr. Joe C. Walton,Portuguese Water Dog,all-breed
-D00512,P009-A1,champion,Dr. Eric Liebes,Samoyed,all-breed
-D00295,P009-A1,champion,Mr. Larry C. Abbott,Schipperke,all-breed
-D00715,P009-A1,champion,Mrs. Debbie L. Melgreen,Australian Shepherd,all-breed
-D00895,P010,champion,Ms. Peggy Beisel-McIlwaine,Brittany,all-breed
-D00825,P010,class,Ms. Peggy Beisel-McIlwaine,Golden Retriever,all-breed
-D00828,P010,class,Ms. Peggy Beisel-McIlwaine,Golden Retriever,all-breed
-D00842,P010,champion,Ms. Peggy Beisel-McIlwaine,Golden Retriever,all-breed
-D00874,P010,champion,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00889,P010,champion,Ms. Peggy Beisel-McIlwaine,Lagotto Romagnolo,all-breed
-D00177,P010,class,Dr. Eric Liebes,Whippet,all-breed
-D00527,P010,champion,Dr. Eric Liebes,Rottweiler,all-breed
-D00083,P010,champion,Mrs. Vicki L. Abbott,Rat Terrier,all-breed
-D00465,P010,champion,Mrs. Vicki L. Abbott,West Highland White Terrier,all-breed
-D00189,P010-A1,class,Ms. Peggy Beisel-McIlwaine,Chinese Crested,all-breed
-D00418,P010-A1,champion,Mrs. Vicki L. Abbott,Papillon,all-breed
-D00710,P010-A1,class,Mrs. Debbie L. Melgreen,Australian Shepherd,all-breed
-D00716,P010-A1,champion,Mrs. Debbie L. Melgreen,Australian Shepherd,all-breed
-D00660,P010-A1,champion,Mrs. Joan Luna Liebes,Bouvier Des Flandres,all-breed
-D00689,P010-A1,champion,Mrs. Joan Luna Liebes,Collie (Rough),all-breed
-D00755,P010-A1,class,Mrs. Debbie L. Melgreen,Miniature American Shepherd,all-breed
-D00760,P010-A1,class,Mrs. Debbie L. Melgreen,Miniature American Shepherd,all-breed
-D00797,P010-A1,champion,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi,all-breed
-D00147,P011,champion,Dr. Eric Liebes,Beagle Thirteen Inch,all-breed
-D00111,P011,champion,Dr. Eric Liebes,Saluki,all-breed
-D00612,P011,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00614,P011,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00493,P011,champion,Dr. Eric Liebes,Giant Schnauzer,all-breed
-D00640,P011,class,Mrs. Joan Luna Liebes,Great Dane,all-breed
-D00571,P011,class,Mrs. Joan Luna Liebes,Mastiff,all-breed
-D00576,P011,champion,Mrs. Joan Luna Liebes,Mastiff,all-breed
-D00500,P011,champion,Dr. Eric Liebes,Siberian Husky,all-breed
-D00323,P011,class,Mr. Larry C. Abbott,Chihuahua (Smooth Coat),all-breed
-D00427,P011,champion,Mrs. Vicki L. Abbott,Pug,all-breed
-D00351,P011,champion,Mr. Larry C. Abbott,Dalmatian,all-breed
-D00228,P012,champion,Mr. Joe C. Walton,Dachshund (Wirehaired),all-breed
-D00229,P012,class,Mr. Joe C. Walton,Affenpinscher,all-breed
-D00330,P012,champion,Mr. Larry C. Abbott,Chihuahua (Smooth Coat),all-breed
-D00186,P012,class,Ms. Peggy Beisel-McIlwaine,Chinese Crested,all-breed
-D00397,P012,champion,Mrs. Vicki L. Abbott,Italian Greyhound,all-breed
-D00374,P012,champion,Mr. Larry C. Abbott,American Eskimos,all-breed
-D00201,P012,champion,Mr. Joe C. Walton,Boston Terrier,all-breed
-D00360,P012,class,Mr. Larry C. Abbott,Coton de Tulear,all-breed
-D00355,P012,champion,Mr. Larry C. Abbott,Dalmatian,all-breed
-D00294,P012,champion,Mr. Larry C. Abbott,Schipperke,all-breed
-D00065,P013,champion,Mrs. Vicki L. Abbott,Miniature Schnauzer,all-breed
-D00388,P013,class,Mrs. Vicki L. Abbott,Italian Greyhound,all-breed
-D00392,P013,champion,Mrs. Vicki L. Abbott,Italian Greyhound,all-breed
-D00394,P013,champion,Mrs. Vicki L. Abbott,Italian Greyhound,all-breed
-D00421,P013,champion,Mrs. Vicki L. Abbott,Papillon,all-breed
-D00444,P013,champion,Mrs. Vicki L. Abbott,Pomeranian,all-breed
-D00458,P013,champion,Mrs. Vicki L. Abbott,Shih Tzu,all-breed
-D00664,P013,class,Mrs. Joan Luna Liebes,Australian Cattle Dog,all-breed
-D00711,P013,class,Mrs. Debbie L. Melgreen,Australian Shepherd,all-breed
-D00717,P013,champion,Mrs. Debbie L. Melgreen,Australian Shepherd,all-breed
-D00662,P013,champion,Mrs. Joan Luna Liebes,Bearded Collie,all-breed
-D00678,P013-A1,champion,Mrs. Joan Luna Liebes,Border Collie,all-breed
-D00754,P013-A1,class,Mrs. Debbie L. Melgreen,Miniature American Shepherd,all-breed
-D00764,P013-A1,champion,Mrs. Debbie L. Melgreen,Miniature American Shepherd,all-breed
-D00737,P013-A1,champion,Mrs. Debbie L. Melgreen,Old English Sheepdog,all-breed
-D00785,P013-A1,class,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi,all-breed
-D00796,P013-A1,champion,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi,all-breed
-D00798,P013-A1,champion,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi,all-breed
-D00800,P013-A1,champion,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi,all-breed
-D00740,P013-A1,class,Mrs. Debbie L. Melgreen,Swedish Vallhund,all-breed
-D00742,P013-A1,champion,Mrs. Debbie L. Melgreen,Swedish Vallhund,all-breed
-D00882,P014,class,Ms. Peggy Beisel-McIlwaine,English Springer Spaniel,all-breed
-D00144,P014,champion,Dr. Eric Liebes,Basenji,all-breed
-D00235,P014,class,Mr. Joe C. Walton,Dachshund (Longhaired),all-breed
-D00163,P014,champion,Dr. Eric Liebes,Irish Wolfhound,all-breed
-D00131,P014,champion,Dr. Eric Liebes,Petit Basset Griffon Vendeens,all-breed
-D00035,P014,champion,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00036,P014,champion,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00113,P014,champion,Dr. Eric Liebes,Saluki,all-breed
-D00120,P014,champion,Dr. Eric Liebes,Scottish Deerhound,all-breed
-D00125,P014-A1,champion,Dr. Eric Liebes,Treeing Walker Coonhound,all-breed
-D00168,P014-A1,class,Dr. Eric Liebes,Whippet,all-breed
-D00530,P014-A1,class,Dr. Eric Liebes,Boxer,all-breed
-D00494,P014-A1,champion,Dr. Eric Liebes,Bullmastiff,all-breed
-D00632,P014-A1,champion,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00555,P014-A1,champion,Dr. Eric Liebes,German Pinscher,all-breed
-D00505,P014-A1,champion,Dr. Eric Liebes,Samoyed,all-breed
-D00513,P014-A1,champion,Dr. Eric Liebes,Samoyed,all-breed
-D00058,P014-A1,champion,Mrs. Vicki L. Abbott,Bedlington Terrier,all-breed
-D00893,P015,class,Ms. Peggy Beisel-McIlwaine,Brittany,all-breed
-D00845,P015,champion,Ms. Peggy Beisel-McIlwaine,English Setter,all-breed
-D00816,P015,class,Ms. Peggy Beisel-McIlwaine,Flat-Coated Retriever,all-breed
-D00817,P015,champion,Ms. Peggy Beisel-McIlwaine,Flat-Coated Retriever,all-breed
-D00834,P015,class,Ms. Peggy Beisel-McIlwaine,Golden Retriever,all-breed
-D00860,P015,class,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00727,P015,champion,Mrs. Debbie L. Melgreen,Vizsla,all-breed
-D00730,P015,champion,Mrs. Debbie L. Melgreen,Vizsla,all-breed
-D00820,P015,class,Ms. Peggy Beisel-McIlwaine,Weimaraner,all-breed
-D00821,P015,champion,Ms. Peggy Beisel-McIlwaine,Weimaraner,all-breed
-D00354,P015-A1,champion,Mr. Larry C. Abbott,Dalmatian,all-breed
-D00263,P015-A1,class,Mr. Larry C. Abbott,French Bulldog,all-breed
-D00268,P015-A1,class,Mr. Larry C. Abbott,French Bulldog,all-breed
-D00275,P015-A1,class,Mr. Larry C. Abbott,French Bulldog,all-breed
-D00276,P015-A1,champion,Mr. Larry C. Abbott,French Bulldog,all-breed
-D00281,P015-A1,champion,Mr. Larry C. Abbott,French Bulldog,all-breed
-D00282,P015-A1,champion,Mr. Larry C. Abbott,French Bulldog,all-breed
-D00283,P015-A1,champion,Mr. Larry C. Abbott,French Bulldog,all-breed
-D00342,P015-A1,champion,Mr. Larry C. Abbott,Poodle (Standard),all-breed
-D00880,P016,champion,Ms. Peggy Beisel-McIlwaine,English Cocker Spaniel,all-breed
-D00810,P016,champion,Ms. Peggy Beisel-McIlwaine,German Shorthaired Pointer,all-breed
-D00827,P016,class,Ms. Peggy Beisel-McIlwaine,Golden Retriever,all-breed
-D00840,P016,champion,Ms. Peggy Beisel-McIlwaine,Golden Retriever,all-breed
-D00744,P016,class,Mrs. Debbie L. Melgreen,Irish Setter,all-breed
-D00850,P016,class,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00861,P016,class,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00891,P016,champion,Ms. Peggy Beisel-McIlwaine,Nederlandse Kooikerhondjes,all-breed
-D00719,P016,class,Mrs. Debbie L. Melgreen,Vizsla,all-breed
-D00726,P016,champion,Mrs. Debbie L. Melgreen,Vizsla,all-breed
-D00731,P016,champion,Mrs. Debbie L. Melgreen,Vizsla,all-breed
-D00733,P016,champion,Mrs. Debbie L. Melgreen,Vizsla,all-breed
-D00139,P016-A1,champion,Dr. Eric Liebes,Basenji,all-breed
-D00539,P016-A1,class,Dr. Eric Liebes,Boxer,all-breed
-D00233,P016-A1,champion,Mr. Joe C. Walton,Affenpinscher,all-breed
-D00375,P016-A1,champion,Mr. Larry C. Abbott,American Eskimos,all-breed
-D00205,P016-A1,champion,Mr. Joe C. Walton,Boston Terrier,all-breed
-D00262,P016-A1,champion,Mr. Larry C. Abbott,Bulldog,all-breed
-D00347,P016-A1,champion,Mr. Larry C. Abbott,Chinese Shar-Pei,all-breed
-D00361,P016-A1,class,Mr. Larry C. Abbott,Coton de Tulear,all-breed
-D00273,P016-A1,class,Mr. Larry C. Abbott,French Bulldog,all-breed
-D00046,P016-A1,champion,Mrs. Vicki L. Abbott,Keeshond,all-breed
-D00366,P016-A2,champion,Mr. Larry C. Abbott,Lhasa Apso,all-breed
-D00336,P016-A2,class,Mr. Larry C. Abbott,Poodle (Standard),all-breed
-D00341,P016-A2,champion,Mr. Larry C. Abbott,Poodle (Standard),all-breed
-D00291,P016-A2,class,Mr. Larry C. Abbott,Schipperke,all-breed
-D00298,P016-A2,champion,Mr. Larry C. Abbott,Schipperke,all-breed
-D00299,P016-A2,champion,Mr. Larry C. Abbott,Schipperke,all-breed
-D00357,P016-A2,class,Mr. Larry C. Abbott,Xoloitzcuintli,all-breed
-D00767,P016-A2,champion,Mrs. Debbie L. Melgreen,Puli,all-breed
-D00747,P017,champion,Mrs. Debbie L. Melgreen,Irish Setter,all-breed
-D00543,P017,champion,Dr. Eric Liebes,Boxer,all-breed
-D00496,P017,champion,Dr. Eric Liebes,Bullmastiff,all-breed
-D00635,P017,champion,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00649,P017,champion,Mrs. Joan Luna Liebes,Great Dane,all-breed
-D00105,P017,champion,Mrs. Vicki L. Abbott,Australian Terrier,all-breed
-D00099,P017,class,Mrs. Vicki L. Abbott,Border Terrier,all-breed
-D00068,P017-A1,champion,Mrs. Vicki L. Abbott,Manchester Terrier (Standard),all-breed
-D00475,P017-A1,champion,Mrs. Vicki L. Abbott,Russell Terriers,all-breed
-D00076,P017-A1,champion,Mrs. Vicki L. Abbott,Scottish Terrier,all-breed
-D00476,P017-A1,champion,Mrs. Vicki L. Abbott,Welsh Terrier,all-breed
-D00261,P017-A1,class,Mr. Larry C. Abbott,Bulldog,all-breed
-D00777,P017-A1,champion,Mrs. Debbie L. Melgreen,Shetland Sheepdog,all-breed
-D00782,P018,champion,Mrs. Debbie L. Melgreen,Clumber Spaniel,all-breed
-D00811,P018,champion,Ms. Peggy Beisel-McIlwaine,German Shorthaired Pointer,all-breed
-D00837,P018,class,Ms. Peggy Beisel-McIlwaine,Golden Retriever,all-breed
-D00748,P018,champion,Mrs. Debbie L. Melgreen,Irish Setter,all-breed
-D00868,P018,champion,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00876,P018,champion,Ms. Peggy Beisel-McIlwaine,Labrador Retriever,all-breed
-D00729,P018,champion,Mrs. Debbie L. Melgreen,Vizsla,all-breed
-D00734,P018,champion,Mrs. Debbie L. Melgreen,Vizsla,all-breed
-D00650,P018,champion,Mrs. Joan Luna Liebes,Great Dane,all-breed
-D00651,P018,champion,Mrs. Joan Luna Liebes,Great Dane,all-breed
-D00437,P018-A1,class,Mrs. Vicki L. Abbott,Biewer Terrier,all-breed
-D00210,P018-A1,class,Mr. Joe C. Walton,Cavalier King Charles Spaniel,all-breed
-D00318,P018-A1,champion,Mr. Larry C. Abbott,Chihuahua (Long Coat),all-breed
-D00319,P018-A1,champion,Mr. Larry C. Abbott,Chihuahua (Long Coat),all-breed
-D00563,P018-A1,class,Mrs. Joan Luna Liebes,Manchester Terrier (Toy),all-breed
-D00422,P018-A1,champion,Mrs. Vicki L. Abbott,Papillon,all-breed
-D00450,P018-A1,champion,Mrs. Vicki L. Abbott,Russian Toy,all-breed
-D00278,P018-A1,champion,Mr. Larry C. Abbott,French Bulldog,all-breed
-D00562,P019,champion,Dr. Eric Liebes,Akita,all-breed
-D00538,P019,class,Dr. Eric Liebes,Boxer,all-breed
-D00554,P019,champion,Dr. Eric Liebes,Cane Corso,all-breed
-D00633,P019,champion,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00580,P019,champion,Mrs. Joan Luna Liebes,Great Pyrenees,all-breed
-D00564,P019,class,Mrs. Joan Luna Liebes,Mastiff,all-breed
-D00575,P019,champion,Mrs. Joan Luna Liebes,Mastiff,all-breed
-D00482,P019-A1,champion,Mr. Joe C. Walton,Portuguese Water Dog,all-breed
-D00524,P019-A1,champion,Dr. Eric Liebes,Rottweiler,all-breed
-D00499,P019-A1,champion,Dr. Eric Liebes,Siberian Husky,all-breed
-D00090,P019-A1,champion,Mrs. Vicki L. Abbott,Irish Terrier,all-breed
-D00051,P019-A1,class,Mrs. Vicki L. Abbott,Kerry Blue Terrier,all-breed
-D00052,P019-A1,class,Mrs. Vicki L. Abbott,Kerry Blue Terrier,all-breed
-D00048,P019-A1,class,Mrs. Vicki L. Abbott,Soft Coated Wheaten Terrier,all-breed
-D00609,P020,class,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00624,P020,champion,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00629,P020,champion,Mrs. Joan Luna Liebes,Doberman Pinscher,all-breed
-D00574,P020,class,Mrs. Joan Luna Liebes,Mastiff,all-breed
-D00525,P020,champion,Dr. Eric Liebes,Rottweiler,all-breed
-D00503,P020,class,Dr. Eric Liebes,Samoyed,all-breed
-D00232,P020,champion,Mr. Joe C. Walton,Affenpinscher,all-breed
-D00257,P020,class,Mr. Joe C. Walton,Brussels Griffon,all-breed
-D00322,P020,champion,Mr. Larry C. Abbott,Chihuahua (Long Coat),all-breed
-D00325,P020-A1,class,Mr. Larry C. Abbott,Chihuahua (Smooth Coat),all-breed
-D00396,P020-A1,champion,Mrs. Vicki L. Abbott,Italian Greyhound,all-breed
-D00399,P020-A1,class,Mrs. Vicki L. Abbott,Japanese Chin,all-breed
-D00308,P020-A1,champion,Mr. Larry C. Abbott,Miniature Pinscher,all-breed
-D00417,P020-A1,champion,Mrs. Vicki L. Abbott,Papillon,all-breed
-D00443,P020-A1,champion,Mrs. Vicki L. Abbott,Pomeranian,all-breed
-D00451,P020-A1,champion,Mrs. Vicki L. Abbott,Russian Toy,all-breed
-D00047,P020-A1,champion,Mrs. Vicki L. Abbott,Keeshond,all-breed
-D00698,P020-A1,class,Mrs. Debbie L. Melgreen,Australian Shepherd,all-breed
-D00140,P021,champion,Dr. Eric Liebes,Basenji,all-breed
-D00150,P021,champion,Dr. Eric Liebes,Beagle Fifteen Inch,all-breed
-D00243,P021,champion,Mr. Joe C. Walton,Dachshund (Longhaired),all-breed
-D00254,P021,champion,Mr. Joe C. Walton,Dachshund (Smooth),all-breed
-D00026,P021,class,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00028,P021,class,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00034,P021,champion,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00041,P021,champion,Mr. Joe C. Walton,Rhodesian Ridgeback,all-breed
-D00172,P021,class,Dr. Eric Liebes,Whippet,all-breed
-D00175,P021,class,Dr. Eric Liebes,Whippet,all-breed
-D00183,P021,champion,Dr. Eric Liebes,Whippet,all-breed
-D00059,P021-A1,champion,Mrs. Vicki L. Abbott,Bedlington Terrier,all-breed
-D00382,P021-A1,class,Mrs. Vicki L. Abbott,Italian Greyhound,all-breed
-D00331,P021-A1,class,Mr. Larry C. Abbott,Bichon Frise,all-breed
-D00194,P021-A1,class,Mr. Joe C. Walton,Boston Terrier,all-breed
-D00363,P021-A1,class,Mr. Larry C. Abbott,Coton de Tulear,all-breed
-D00274,P021-A1,class,Mr. Larry C. Abbott,French Bulldog,all-breed
-D00279,P021-A1,champion,Mr. Larry C. Abbott,French Bulldog,all-breed
-D00359,P021-A1,champion,Mr. Larry C. Abbott,Tibetan Terrier,all-breed
-D00358,P021-A1,champion,Mr. Larry C. Abbott,Xoloitzcuintli,all-breed
-D00003,P022,champion,Mrs. Debbie L. Melgreen,Borzoi,all-breed
-D00502,P022,class,Dr. Eric Liebes,Samoyed,all-breed
-D00108,P022,champion,Mrs. Vicki L. Abbott,Australian Terrier,all-breed
-D00057,P022,champion,Mrs. Vicki L. Abbott,Bedlington Terrier,all-breed
-D00103,P022,champion,Mrs. Vicki L. Abbott,Border Terrier,all-breed
-D00091,P022,champion,Mrs. Vicki L. Abbott,Miniature Bull Terrier,all-breed
-D00086,P022,champion,Mrs. Vicki L. Abbott,Norwich Terrier,all-breed
-D00084,P022,champion,Mrs. Vicki L. Abbott,Rat Terrier,all-breed
-D00216,P022,champion,Mr. Joe C. Walton,Cavalier King Charles Spaniel,all-breed
-D00218,P022,champion,Mr. Joe C. Walton,Cavalier King Charles Spaniel,all-breed
-D00378,P022-A1,class,Mrs. Vicki L. Abbott,Havanese,all-breed
-D00415,P022-A1,class,Mrs. Vicki L. Abbott,Papillon,all-breed
-D00442,P022-A1,champion,Mrs. Vicki L. Abbott,Pomeranian,all-breed
-D00426,P022-A1,champion,Mrs. Vicki L. Abbott,Pug,all-breed
-D00428,P022-A1,champion,Mrs. Vicki L. Abbott,Pug,all-breed
-D00456,P022-A1,champion,Mrs. Vicki L. Abbott,Shih Tzu,all-breed
-D00773,P022-A1,class,Mrs. Debbie L. Melgreen,Shetland Sheepdog,all-breed
+dog,sex,status,exhibitor,judge,event
+D00001,B,class,O0001,Mrs. Debbie L. Melgreen,Borzoi
+D00004,D,class,O0002,Mrs. Debbie L. Melgreen,Afghan Hound
+D00005,B,class,O0003,Mrs. Debbie L. Melgreen,Afghan Hound
+D00006,D,champion,O0003,Mrs. Debbie L. Melgreen,Afghan Hound
+D00007,D,champion,O0003,Mrs. Debbie L. Melgreen,Afghan Hound
+D00009,D,champion,O0006,Mrs. Debbie L. Melgreen,Afghan Hound
+D00011,D,class,O0007,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00012,D,class,O0008,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00013,D,class,O0009,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00015,D,class,O0009,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00016,D,class,O0011,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00017,D,class,O0012,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00018,B,class,O0012,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00019,B,class,O0014,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00020,B,class,O0015,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00021,B,class,O0016,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00022,B,class,O0017,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00024,B,class,O0018,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00027,B,class,O0018,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00031,D,champion,O0020,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00032,D,champion,O0021,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00037,B,champion,O0022,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00038,B,champion,O0022,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00039,B,champion,O0024,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00042,B,champion,O0025,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00043,B,champion,O0025,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00044,D,champion,O0027,Mrs. Vicki L. Abbott,Keeshond
+D00045,D,champion,O0028,Mrs. Vicki L. Abbott,Keeshond
+D00049,B,champion,O0020,Mrs. Vicki L. Abbott,Soft Coated Wheaten Terrier
+D00055,B,class,O0030,Mrs. Vicki L. Abbott,Bedlington Terrier
+D00056,D,champion,O0030,Mrs. Vicki L. Abbott,Bedlington Terrier
+D00060,B,champion,O0032,Mrs. Vicki L. Abbott,Bedlington Terrier
+D00061,D,class,O0033,Mrs. Vicki L. Abbott,American Staffordshire Terrier
+D00064,D,champion,O0034,Mrs. Vicki L. Abbott,Miniature Schnauzer
+D00066,D,champion,O0034,Mrs. Vicki L. Abbott,Miniature Schnauzer
+D00067,D,champion,O0036,Mrs. Vicki L. Abbott,Manchester Terrier (Standard)
+D00071,B,class,O0037,Mrs. Vicki L. Abbott,Airedale Terrier
+D00072,D,champion,O0037,Mrs. Vicki L. Abbott,Airedale Terrier
+D00073,D,champion,O0039,Mrs. Vicki L. Abbott,Scottish Terrier
+D00074,D,champion,O0040,Mrs. Vicki L. Abbott,Scottish Terrier
+D00077,B,class,O0041,Mrs. Vicki L. Abbott,Rat Terrier
+D00078,B,class,O0041,Mrs. Vicki L. Abbott,Rat Terrier
+D00079,B,class,O0041,Mrs. Vicki L. Abbott,Rat Terrier
+D00080,B,class,O0044,Mrs. Vicki L. Abbott,Rat Terrier
+D00085,D,class,O0045,Mrs. Vicki L. Abbott,Norwich Terrier
+D00088,B,class,O0046,Mrs. Vicki L. Abbott,Norfolk Terrier
+D00089,B,class,O0036,Mrs. Vicki L. Abbott,Norfolk Terrier
+D00092,D,champion,O0048,Mrs. Vicki L. Abbott,Fox Terrier (Wire)
+D00094,B,class,O0049,Mrs. Vicki L. Abbott,Fox Terrier (Smooth)
+D00096,D,champion,O0050,Mrs. Vicki L. Abbott,Fox Terrier (Smooth)
+D00098,D,class,O0051,Mrs. Vicki L. Abbott,Border Terrier
+D00100,B,class,O0051,Mrs. Vicki L. Abbott,Border Terrier
+D00101,B,class,O0053,Mrs. Vicki L. Abbott,Border Terrier
+D00102,D,champion,O0054,Mrs. Vicki L. Abbott,Border Terrier
+D00104,B,champion,O0055,Mrs. Vicki L. Abbott,Border Terrier
+D00106,D,champion,O0037,Mrs. Vicki L. Abbott,Australian Terrier
+D00107,B,champion,O0037,Mrs. Vicki L. Abbott,Australian Terrier
+D00112,B,champion,O0058,Dr. Eric Liebes,Saluki
+D00114,B,champion,O0059,Dr. Eric Liebes,Saluki
+D00115,B,champion,O0060,Dr. Eric Liebes,Bloodhound
+D00116,D,class,O0061,Dr. Eric Liebes,Scottish Deerhound
+D00117,D,class,O0062,Dr. Eric Liebes,Scottish Deerhound
+D00118,B,class,O0063,Dr. Eric Liebes,Scottish Deerhound
+D00119,B,class,O0017,Dr. Eric Liebes,Scottish Deerhound
+D00121,B,champion,O0065,Dr. Eric Liebes,Scottish Deerhound
+D00122,B,champion,O0065,Dr. Eric Liebes,Scottish Deerhound
+D00123,D,champion,O0067,Dr. Eric Liebes,Ibizan Hound
+D00124,B,champion,O0067,Dr. Eric Liebes,Ibizan Hound
+D00126,D,class,O0069,Dr. Eric Liebes,Petit Basset Griffon Vendeens
+D00127,D,class,O0070,Dr. Eric Liebes,Petit Basset Griffon Vendeens
+D00128,D,class,O0071,Dr. Eric Liebes,Petit Basset Griffon Vendeens
+D00130,D,champion,O0071,Dr. Eric Liebes,Petit Basset Griffon Vendeens
+D00132,B,champion,O0073,Dr. Eric Liebes,Petit Basset Griffon Vendeens
+D00133,D,class,O0074,Dr. Eric Liebes,Basenji
+D00134,B,class,O0075,Dr. Eric Liebes,Basenji
+D00135,B,class,O0076,Dr. Eric Liebes,Basenji
+D00136,B,class,O0077,Dr. Eric Liebes,Basenji
+D00137,B,class,O0024,Dr. Eric Liebes,Basenji
+D00138,B,class,O0079,Dr. Eric Liebes,Basenji
+D00141,D,champion,O0080,Dr. Eric Liebes,Basenji
+D00142,B,champion,O0081,Dr. Eric Liebes,Basenji
+D00145,B,champion,O0082,Dr. Eric Liebes,Basenji
+D00146,B,champion,O0058,Dr. Eric Liebes,Basenji
+D00148,D,class,O0022,Dr. Eric Liebes,Beagle Fifteen Inch
+D00149,B,class,O0085,Dr. Eric Liebes,Beagle Fifteen Inch
+D00151,D,class,O0086,Dr. Eric Liebes,Irish Wolfhound
+D00152,D,class,O0087,Dr. Eric Liebes,Irish Wolfhound
+D00153,D,class,O0087,Dr. Eric Liebes,Irish Wolfhound
+D00154,D,class,O0089,Dr. Eric Liebes,Irish Wolfhound
+D00155,B,class,O0090,Dr. Eric Liebes,Irish Wolfhound
+D00156,B,class,O0091,Dr. Eric Liebes,Irish Wolfhound
+D00157,D,champion,O0092,Dr. Eric Liebes,Irish Wolfhound
+D00160,D,champion,O0093,Dr. Eric Liebes,Irish Wolfhound
+D00162,B,champion,O0094,Dr. Eric Liebes,Irish Wolfhound
+D00164,D,class,O0095,Dr. Eric Liebes,Whippet
+D00165,D,class,O0095,Dr. Eric Liebes,Whippet
+D00166,D,class,O0097,Dr. Eric Liebes,Whippet
+D00167,D,class,O0098,Dr. Eric Liebes,Whippet
+D00170,D,class,O0099,Dr. Eric Liebes,Whippet
+D00171,D,class,O0100,Dr. Eric Liebes,Whippet
+D00174,B,class,O0100,Dr. Eric Liebes,Whippet
+D00176,B,class,O0100,Dr. Eric Liebes,Whippet
+D00178,B,class,O0100,Dr. Eric Liebes,Whippet
+D00179,B,class,O0104,Dr. Eric Liebes,Whippet
+D00181,D,champion,O0104,Dr. Eric Liebes,Whippet
+D00184,B,champion,O0106,Dr. Eric Liebes,Whippet
+D00185,B,champion,O0107,Dr. Eric Liebes,Basset Hound
+D00187,D,class,O0108,Ms. Peggy Beisel-McIlwaine,Chinese Crested
+D00190,B,class,O0109,Ms. Peggy Beisel-McIlwaine,Chinese Crested
+D00191,B,class,O0110,Ms. Peggy Beisel-McIlwaine,Chinese Crested
+D00192,D,champion,O0110,Ms. Peggy Beisel-McIlwaine,Chinese Crested
+D00195,B,class,O0112,Mr. Joe C. Walton,Boston Terrier
+D00196,B,class,O0113,Mr. Joe C. Walton,Boston Terrier
+D00197,B,class,O0114,Mr. Joe C. Walton,Boston Terrier
+D00198,B,class,O0027,Mr. Joe C. Walton,Boston Terrier
+D00199,B,class,O0116,Mr. Joe C. Walton,Boston Terrier
+D00200,D,champion,O0086,Mr. Joe C. Walton,Boston Terrier
+D00202,D,champion,O0118,Mr. Joe C. Walton,Boston Terrier
+D00203,B,champion,O0118,Mr. Joe C. Walton,Boston Terrier
+D00204,B,champion,O0118,Mr. Joe C. Walton,Boston Terrier
+D00206,D,class,O0121,Mr. Joe C. Walton,Cavalier King Charles Spaniel
+D00207,B,class,O0121,Mr. Joe C. Walton,Cavalier King Charles Spaniel
+D00208,B,class,O0121,Mr. Joe C. Walton,Cavalier King Charles Spaniel
+D00209,B,class,O0121,Mr. Joe C. Walton,Cavalier King Charles Spaniel
+D00211,B,class,O0125,Mr. Joe C. Walton,Cavalier King Charles Spaniel
+D00213,D,champion,O0125,Mr. Joe C. Walton,Cavalier King Charles Spaniel
+D00214,D,champion,O0127,Mr. Joe C. Walton,Cavalier King Charles Spaniel
+D00215,D,champion,O0127,Mr. Joe C. Walton,Cavalier King Charles Spaniel
+D00217,D,champion,O0129,Mr. Joe C. Walton,Cavalier King Charles Spaniel
+D00219,B,champion,O0130,Mr. Joe C. Walton,Cavalier King Charles Spaniel
+D00220,B,champion,O0130,Mr. Joe C. Walton,Cavalier King Charles Spaniel
+D00222,B,class,O0132,Mr. Joe C. Walton,Dachshund (Wirehaired)
+D00224,B,class,O0133,Mr. Joe C. Walton,Dachshund (Wirehaired)
+D00226,D,champion,O0134,Mr. Joe C. Walton,Dachshund (Wirehaired)
+D00230,B,class,O0135,Mr. Joe C. Walton,Affenpinscher
+D00231,B,class,O0018,Mr. Joe C. Walton,Affenpinscher
+D00234,D,class,O0137,Mr. Joe C. Walton,Dachshund (Longhaired)
+D00236,B,class,O0137,Mr. Joe C. Walton,Dachshund (Longhaired)
+D00237,B,class,O0139,Mr. Joe C. Walton,Dachshund (Longhaired)
+D00238,B,class,O0140,Mr. Joe C. Walton,Dachshund (Longhaired)
+D00239,B,class,O0140,Mr. Joe C. Walton,Dachshund (Longhaired)
+D00240,B,class,O0142,Mr. Joe C. Walton,Dachshund (Longhaired)
+D00241,D,champion,O0143,Mr. Joe C. Walton,Dachshund (Longhaired)
+D00244,D,champion,O0143,Mr. Joe C. Walton,Dachshund (Longhaired)
+D00245,B,champion,O0143,Mr. Joe C. Walton,Dachshund (Longhaired)
+D00247,D,class,O0146,Mr. Joe C. Walton,Dachshund (Smooth)
+D00249,B,class,O0147,Mr. Joe C. Walton,Dachshund (Smooth)
+D00255,D,class,O0148,Mr. Joe C. Walton,Brussels Griffon
+D00258,,class,O0149,Mr. Joe C. Walton,Russian Tsvetnaya Bolonka
+D00259,,class,O0150,Mr. Joe C. Walton,Russian Tsvetnaya Bolonka
+D00260,D,class,O0151,Mr. Larry C. Abbott,Bulldog
+D00264,D,class,O0152,Mr. Larry C. Abbott,French Bulldog
+D00265,D,class,O0153,Mr. Larry C. Abbott,French Bulldog
+D00266,D,class,O0154,Mr. Larry C. Abbott,French Bulldog
+D00267,D,class,O0154,Mr. Larry C. Abbott,French Bulldog
+D00269,B,class,O0156,Mr. Larry C. Abbott,French Bulldog
+D00270,B,class,O0157,Mr. Larry C. Abbott,French Bulldog
+D00271,B,class,O0158,Mr. Larry C. Abbott,French Bulldog
+D00272,B,class,O0158,Mr. Larry C. Abbott,French Bulldog
+D00277,D,champion,O0160,Mr. Larry C. Abbott,French Bulldog
+D00280,D,champion,O0161,Mr. Larry C. Abbott,French Bulldog
+D00284,D,class,O0162,Mr. Larry C. Abbott,Poodle (Miniature)
+D00285,D,class,O0163,Mr. Larry C. Abbott,Poodle (Miniature)
+D00286,D,class,O0164,Mr. Larry C. Abbott,Poodle (Miniature)
+D00287,D,class,O0165,Mr. Larry C. Abbott,Poodle (Miniature)
+D00288,B,class,O0166,Mr. Larry C. Abbott,Poodle (Miniature)
+D00289,D,class,O0167,Mr. Larry C. Abbott,Schipperke
+D00290,D,class,O0168,Mr. Larry C. Abbott,Schipperke
+D00292,B,class,O0169,Mr. Larry C. Abbott,Schipperke
+D00293,B,class,O0170,Mr. Larry C. Abbott,Schipperke
+D00296,D,champion,O0171,Mr. Larry C. Abbott,Schipperke
+D00297,D,champion,O0171,Mr. Larry C. Abbott,Schipperke
+D00300,B,champion,O0173,Mr. Larry C. Abbott,Schipperke
+D00302,D,class,O0174,Mr. Larry C. Abbott,Miniature Pinscher
+D00303,D,class,O0174,Mr. Larry C. Abbott,Miniature Pinscher
+D00304,D,class,O0176,Mr. Larry C. Abbott,Miniature Pinscher
+D00305,D,class,O0177,Mr. Larry C. Abbott,Miniature Pinscher
+D00306,B,class,O0177,Mr. Larry C. Abbott,Miniature Pinscher
+D00309,D,class,O0179,Mr. Larry C. Abbott,Chihuahua (Long Coat)
+D00310,D,class,O0071,Mr. Larry C. Abbott,Chihuahua (Long Coat)
+D00311,D,class,O0071,Mr. Larry C. Abbott,Chihuahua (Long Coat)
+D00313,B,class,O0182,Mr. Larry C. Abbott,Chihuahua (Long Coat)
+D00314,B,class,O0183,Mr. Larry C. Abbott,Chihuahua (Long Coat)
+D00315,B,class,O0184,Mr. Larry C. Abbott,Chihuahua (Long Coat)
+D00316,B,class,O0185,Mr. Larry C. Abbott,Chihuahua (Long Coat)
+D00317,B,class,O0185,Mr. Larry C. Abbott,Chihuahua (Long Coat)
+D00320,D,champion,O0187,Mr. Larry C. Abbott,Chihuahua (Long Coat)
+D00321,B,champion,O0188,Mr. Larry C. Abbott,Chihuahua (Long Coat)
+D00324,D,class,O0189,Mr. Larry C. Abbott,Chihuahua (Smooth Coat)
+D00326,D,class,O0190,Mr. Larry C. Abbott,Chihuahua (Smooth Coat)
+D00328,B,class,O0191,Mr. Larry C. Abbott,Chihuahua (Smooth Coat)
+D00329,D,champion,O0192,Mr. Larry C. Abbott,Chihuahua (Smooth Coat)
+D00332,D,champion,O0193,Mr. Larry C. Abbott,Bichon Frise
+D00333,D,champion,O0193,Mr. Larry C. Abbott,Bichon Frise
+D00334,D,class,O0195,Mr. Larry C. Abbott,Poodle (Standard)
+D00335,D,class,O0173,Mr. Larry C. Abbott,Poodle (Standard)
+D00337,B,class,O0173,Mr. Larry C. Abbott,Poodle (Standard)
+D00338,B,class,O0198,Mr. Larry C. Abbott,Poodle (Standard)
+D00339,B,class,O0118,Mr. Larry C. Abbott,Poodle (Standard)
+D00340,B,champion,O0200,Mr. Larry C. Abbott,Poodle (Standard)
+D00343,D,class,O0201,Mr. Larry C. Abbott,Chinese Shar-Pei
+D00344,D,class,O0202,Mr. Larry C. Abbott,Chinese Shar-Pei
+D00345,B,class,O0203,Mr. Larry C. Abbott,Chinese Shar-Pei
+D00346,B,champion,O0156,Mr. Larry C. Abbott,Chinese Shar-Pei
+D00348,D,class,O0205,Mr. Larry C. Abbott,Dalmatian
+D00349,B,class,O0206,Mr. Larry C. Abbott,Dalmatian
+D00350,D,champion,O0206,Mr. Larry C. Abbott,Dalmatian
+D00352,B,champion,O0206,Mr. Larry C. Abbott,Dalmatian
+D00353,B,champion,O0209,Mr. Larry C. Abbott,Dalmatian
+D00356,D,class,O0210,Mr. Larry C. Abbott,Xoloitzcuintli
+D00362,B,class,O0211,Mr. Larry C. Abbott,Coton de Tulear
+D00364,B,champion,O0212,Mr. Larry C. Abbott,Coton de Tulear
+D00365,B,class,O0213,Mr. Larry C. Abbott,Lhasa Apso
+D00367,D,champion,O0214,Mr. Larry C. Abbott,Lhasa Apso
+D00369,D,champion,O0028,Mr. Larry C. Abbott,Shiba-Inu
+D00370,B,class,O0216,Mr. Larry C. Abbott,Finnish Lapphund
+D00371,B,class,O0193,Mr. Larry C. Abbott,American Eskimos
+D00372,B,class,O0218,Mr. Larry C. Abbott,American Eskimos
+D00373,B,class,O0219,Mr. Larry C. Abbott,American Eskimos
+D00376,B,champion,O0219,Mr. Larry C. Abbott,American Eskimos
+D00377,D,class,O0221,Mrs. Vicki L. Abbott,Havanese
+D00379,D,champion,O0221,Mrs. Vicki L. Abbott,Havanese
+D00380,B,champion,O0221,Mrs. Vicki L. Abbott,Havanese
+D00381,B,champion,O0224,Mrs. Vicki L. Abbott,Havanese
+D00383,D,class,O0149,Mrs. Vicki L. Abbott,Italian Greyhound
+D00384,B,class,O0226,Mrs. Vicki L. Abbott,Italian Greyhound
+D00385,B,class,O0227,Mrs. Vicki L. Abbott,Italian Greyhound
+D00386,B,class,O0227,Mrs. Vicki L. Abbott,Italian Greyhound
+D00387,B,class,O0229,Mrs. Vicki L. Abbott,Italian Greyhound
+D00389,B,class,O0229,Mrs. Vicki L. Abbott,Italian Greyhound
+D00390,D,champion,O0229,Mrs. Vicki L. Abbott,Italian Greyhound
+D00391,D,champion,O0232,Mrs. Vicki L. Abbott,Italian Greyhound
+D00393,D,champion,O0233,Mrs. Vicki L. Abbott,Italian Greyhound
+D00395,D,champion,O0234,Mrs. Vicki L. Abbott,Italian Greyhound
+D00398,D,class,O0235,Mrs. Vicki L. Abbott,Japanese Chin
+D00400,B,class,O0235,Mrs. Vicki L. Abbott,Japanese Chin
+D00401,B,class,O0237,Mrs. Vicki L. Abbott,Japanese Chin
+D00403,B,champion,O0237,Mrs. Vicki L. Abbott,Japanese Chin
+D00404,D,class,O0239,Mrs. Vicki L. Abbott,Papillon
+D00405,D,class,O0240,Mrs. Vicki L. Abbott,Papillon
+D00406,D,class,O0241,Mrs. Vicki L. Abbott,Papillon
+D00407,D,class,O0242,Mrs. Vicki L. Abbott,Papillon
+D00408,D,class,O0243,Mrs. Vicki L. Abbott,Papillon
+D00410,B,class,O0244,Mrs. Vicki L. Abbott,Papillon
+D00411,B,class,O0244,Mrs. Vicki L. Abbott,Papillon
+D00412,B,class,O0246,Mrs. Vicki L. Abbott,Papillon
+D00414,B,class,O0174,Mrs. Vicki L. Abbott,Papillon
+D00419,D,champion,O0248,Mrs. Vicki L. Abbott,Papillon
+D00420,D,champion,O0249,Mrs. Vicki L. Abbott,Papillon
+D00423,D,champion,O0250,Mrs. Vicki L. Abbott,Papillon
+D00424,B,champion,O0251,Mrs. Vicki L. Abbott,Papillon
+D00425,B,champion,O0252,Mrs. Vicki L. Abbott,Papillon
+D00430,B,class,O0253,Mrs. Vicki L. Abbott,Poodle (Toy)
+D00431,B,champion,O0254,Mrs. Vicki L. Abbott,Poodle (Toy)
+D00432,D,class,O0255,Mrs. Vicki L. Abbott,Biewer Terrier
+D00433,D,class,O0256,Mrs. Vicki L. Abbott,Biewer Terrier
+D00434,B,class,O0256,Mrs. Vicki L. Abbott,Biewer Terrier
+D00435,B,class,O0258,Mrs. Vicki L. Abbott,Biewer Terrier
+D00436,B,class,O0259,Mrs. Vicki L. Abbott,Biewer Terrier
+D00438,D,class,O0260,Mrs. Vicki L. Abbott,Pomeranian
+D00440,B,class,O0224,Mrs. Vicki L. Abbott,Pomeranian
+D00446,D,class,O0262,Mrs. Vicki L. Abbott,Russian Toy
+D00447,B,class,O0130,Mrs. Vicki L. Abbott,Russian Toy
+D00448,B,class,O0121,Mrs. Vicki L. Abbott,Russian Toy
+D00449,B,class,O0121,Mrs. Vicki L. Abbott,Russian Toy
+D00452,D,champion,O0121,Mrs. Vicki L. Abbott,Russian Toy
+D00453,D,class,O0267,Mrs. Vicki L. Abbott,Shih Tzu
+D00454,B,class,O0268,Mrs. Vicki L. Abbott,Shih Tzu
+D00455,B,class,O0268,Mrs. Vicki L. Abbott,Shih Tzu
+D00457,B,champion,O0268,Mrs. Vicki L. Abbott,Shih Tzu
+D00459,D,class,O0271,Mrs. Vicki L. Abbott,Yorkshire Terrier
+D00460,B,class,O0271,Mrs. Vicki L. Abbott,Yorkshire Terrier
+D00461,B,class,O0273,Mrs. Vicki L. Abbott,Yorkshire Terrier
+D00462,D,champion,O0274,Mrs. Vicki L. Abbott,Yorkshire Terrier
+D00463,D,champion,O0274,Mrs. Vicki L. Abbott,Yorkshire Terrier
+D00464,B,class,O0276,Mrs. Vicki L. Abbott,West Highland White Terrier
+D00466,D,champion,O0277,Mrs. Vicki L. Abbott,West Highland White Terrier
+D00468,B,class,O0278,Mrs. Vicki L. Abbott,Parson Russell Terrier
+D00469,B,class,O0279,Mrs. Vicki L. Abbott,Parson Russell Terrier
+D00470,D,champion,O0280,Mrs. Vicki L. Abbott,Parson Russell Terrier
+D00473,B,class,O0281,Mrs. Vicki L. Abbott,Russell Terriers
+D00474,B,class,O0209,Mrs. Vicki L. Abbott,Russell Terriers
+D00478,D,class,O0060,Mr. Joe C. Walton,Portuguese Water Dog
+D00479,B,class,O0284,Mr. Joe C. Walton,Portuguese Water Dog
+D00480,B,class,O0285,Mr. Joe C. Walton,Portuguese Water Dog
+D00483,D,class,O0286,Dr. Eric Liebes,Standard Schnauzer
+D00484,D,class,O0287,Dr. Eric Liebes,Standard Schnauzer
+D00485,B,class,O0288,Dr. Eric Liebes,Standard Schnauzer
+D00486,B,class,O0288,Dr. Eric Liebes,Standard Schnauzer
+D00487,D,champion,O0290,Dr. Eric Liebes,Standard Schnauzer
+D00488,B,champion,O0291,Dr. Eric Liebes,Standard Schnauzer
+D00489,B,champion,O0291,Dr. Eric Liebes,Standard Schnauzer
+D00491,D,class,O0293,Dr. Eric Liebes,Giant Schnauzer
+D00492,D,class,O0293,Dr. Eric Liebes,Giant Schnauzer
+D00495,B,champion,O0295,Dr. Eric Liebes,Bullmastiff
+D00498,B,class,O0296,Dr. Eric Liebes,Siberian Husky
+D00501,B,class,O0297,Dr. Eric Liebes,Samoyed
+D00504,B,class,O0297,Dr. Eric Liebes,Samoyed
+D00506,D,champion,O0299,Dr. Eric Liebes,Samoyed
+D00507,D,champion,O0300,Dr. Eric Liebes,Samoyed
+D00508,B,champion,O0301,Dr. Eric Liebes,Samoyed
+D00509,B,champion,O0302,Dr. Eric Liebes,Samoyed
+D00510,B,champion,O0303,Dr. Eric Liebes,Samoyed
+D00511,B,champion,O0304,Dr. Eric Liebes,Samoyed
+D00514,,nonregular,O0305,Dr. Eric Liebes,Alaskan Malamute
+D00516,B,class,O0306,Dr. Eric Liebes,Bernese Mountain Dog
+D00517,B,class,O0307,Dr. Eric Liebes,Bernese Mountain Dog
+D00518,B,class,O0308,Dr. Eric Liebes,Bernese Mountain Dog
+D00519,D,champion,O0309,Dr. Eric Liebes,Bernese Mountain Dog
+D00520,B,class,O0310,Dr. Eric Liebes,Boerboel
+D00522,D,class,O0311,Dr. Eric Liebes,Rottweiler
+D00523,D,class,O0312,Dr. Eric Liebes,Rottweiler
+D00529,D,class,O0313,Dr. Eric Liebes,Boxer
+D00531,B,class,O0314,Dr. Eric Liebes,Boxer
+D00532,B,class,O0314,Dr. Eric Liebes,Boxer
+D00533,B,class,O0316,Dr. Eric Liebes,Boxer
+D00534,B,class,O0316,Dr. Eric Liebes,Boxer
+D00535,B,class,O0316,Dr. Eric Liebes,Boxer
+D00536,B,class,O0319,Dr. Eric Liebes,Boxer
+D00537,B,class,O0319,Dr. Eric Liebes,Boxer
+D00540,B,class,O0321,Dr. Eric Liebes,Boxer
+D00541,D,champion,O0322,Dr. Eric Liebes,Boxer
+D00545,B,champion,O0060,Dr. Eric Liebes,Boxer
+D00547,B,class,O0324,Dr. Eric Liebes,Anatolian Shepherd
+D00548,D,champion,O0324,Dr. Eric Liebes,Anatolian Shepherd
+D00549,B,class,O0326,Dr. Eric Liebes,ST. Bernard
+D00551,D,class,O0327,Dr. Eric Liebes,Cane Corso
+D00552,B,class,O0328,Dr. Eric Liebes,Cane Corso
+D00553,D,champion,O0329,Dr. Eric Liebes,Cane Corso
+D00556,B,class,O0330,Dr. Eric Liebes,Danish-Swedish Farmdog
+D00557,B,class,O0331,Dr. Eric Liebes,Akita
+D00558,B,class,O0303,Dr. Eric Liebes,Akita
+D00559,B,class,O0333,Dr. Eric Liebes,Akita
+D00560,D,champion,O0333,Dr. Eric Liebes,Akita
+D00565,D,class,O0335,Mrs. Joan Luna Liebes,Mastiff
+D00566,D,class,O0327,Mrs. Joan Luna Liebes,Mastiff
+D00567,D,class,O0327,Mrs. Joan Luna Liebes,Mastiff
+D00568,D,class,O0338,Mrs. Joan Luna Liebes,Mastiff
+D00569,B,class,O0339,Mrs. Joan Luna Liebes,Mastiff
+D00570,B,class,O0339,Mrs. Joan Luna Liebes,Mastiff
+D00572,B,class,O0339,Mrs. Joan Luna Liebes,Mastiff
+D00573,B,class,O0342,Mrs. Joan Luna Liebes,Mastiff
+D00578,B,champion,O0342,Mrs. Joan Luna Liebes,Mastiff
+D00579,B,champion,O0344,Mrs. Joan Luna Liebes,Mastiff
+D00581,D,class,O0345,Mrs. Joan Luna Liebes,Beauceron
+D00582,D,class,O0346,Mrs. Joan Luna Liebes,Beauceron
+D00583,B,class,O0347,Mrs. Joan Luna Liebes,Beauceron
+D00584,B,class,O0347,Mrs. Joan Luna Liebes,Beauceron
+D00585,D,champion,O0349,Mrs. Joan Luna Liebes,Beauceron
+D00587,B,champion,O0350,Mrs. Joan Luna Liebes,Beauceron
+D00588,D,champion,O0351,Mrs. Joan Luna Liebes,Belgian Malinois
+D00589,D,class,O0352,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00590,D,class,O0314,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00591,D,class,O0354,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00592,D,class,O0355,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00594,D,class,O0356,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00595,D,class,O0357,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00597,B,class,O0229,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00599,B,class,O0359,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00600,B,class,O0360,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00601,B,class,O0360,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00603,B,class,O0362,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00604,B,class,O0363,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00605,B,class,O0364,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00606,B,class,O0364,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00607,B,class,O0366,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00608,B,class,O0366,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00610,B,class,O0368,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00611,B,class,O0369,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00613,B,class,O0369,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00615,B,class,O0371,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00616,B,class,O0372,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00617,B,class,O0372,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00618,B,class,O0086,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00619,B,class,O0375,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00620,B,class,O0376,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00621,B,class,O0377,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00623,D,champion,O0378,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00626,D,champion,O0378,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00627,D,champion,O0378,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00628,D,champion,O0381,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00634,B,champion,O0381,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00636,B,champion,O0383,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00637,B,champion,O0384,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00639,D,class,O0385,Mrs. Joan Luna Liebes,Great Dane
+D00641,D,class,O0385,Mrs. Joan Luna Liebes,Great Dane
+D00642,D,class,O0387,Mrs. Joan Luna Liebes,Great Dane
+D00643,B,class,O0388,Mrs. Joan Luna Liebes,Great Dane
+D00644,B,class,O0389,Mrs. Joan Luna Liebes,Great Dane
+D00645,B,class,O0389,Mrs. Joan Luna Liebes,Great Dane
+D00646,B,class,O0391,Mrs. Joan Luna Liebes,Great Dane
+D00653,B,champion,O0392,Mrs. Joan Luna Liebes,Great Dane
+D00655,B,class,O0216,Mrs. Joan Luna Liebes,German Shepherd Dog
+D00656,D,class,O0394,Mrs. Joan Luna Liebes,Bouvier Des Flandres
+D00657,D,champion,O0394,Mrs. Joan Luna Liebes,Bouvier Des Flandres
+D00659,B,champion,O0394,Mrs. Joan Luna Liebes,Bouvier Des Flandres
+D00661,B,champion,O0397,Mrs. Joan Luna Liebes,Bearded Collie
+D00663,D,class,O0398,Mrs. Joan Luna Liebes,Australian Cattle Dog
+D00665,B,class,O0399,Mrs. Joan Luna Liebes,Australian Cattle Dog
+D00666,B,class,O0399,Mrs. Joan Luna Liebes,Australian Cattle Dog
+D00667,B,class,O0401,Mrs. Joan Luna Liebes,Australian Cattle Dog
+D00669,B,champion,O0402,Mrs. Joan Luna Liebes,Australian Cattle Dog
+D00670,B,champion,O0403,Mrs. Joan Luna Liebes,Australian Cattle Dog
+D00671,D,champion,O0404,Mrs. Joan Luna Liebes,Mudi
+D00673,D,class,O0405,Mrs. Joan Luna Liebes,Border Collie
+D00674,D,class,O0405,Mrs. Joan Luna Liebes,Border Collie
+D00675,B,class,O0407,Mrs. Joan Luna Liebes,Border Collie
+D00677,B,class,O0394,Mrs. Joan Luna Liebes,Border Collie
+D00680,B,champion,O0409,Mrs. Joan Luna Liebes,Border Collie
+D00681,B,champion,O0410,Mrs. Joan Luna Liebes,Border Collie
+D00682,B,class,O0411,Mrs. Joan Luna Liebes,Belgian Tervuren
+D00683,B,champion,O0412,Mrs. Joan Luna Liebes,Belgian Tervuren
+D00684,D,class,O0413,Mrs. Joan Luna Liebes,Belgian Sheepdog
+D00686,B,class,O0414,Mrs. Joan Luna Liebes,Collie (Rough)
+D00687,B,class,O0415,Mrs. Joan Luna Liebes,Collie (Rough)
+D00688,B,class,O0415,Mrs. Joan Luna Liebes,Collie (Rough)
+D00690,D,champion,O0417,Mrs. Joan Luna Liebes,Collie (Rough)
+D00691,D,class,O0418,Mrs. Joan Luna Liebes,Cardigan Welsh Corgi
+D00692,B,class,O0419,Mrs. Joan Luna Liebes,Cardigan Welsh Corgi
+D00693,B,class,O0420,Mrs. Joan Luna Liebes,Cardigan Welsh Corgi
+D00694,B,class,O0421,Mrs. Joan Luna Liebes,Cardigan Welsh Corgi
+D00695,B,class,O0398,Mrs. Joan Luna Liebes,Cardigan Welsh Corgi
+D00699,D,class,O0423,Mrs. Debbie L. Melgreen,Australian Shepherd
+D00700,D,class,O0423,Mrs. Debbie L. Melgreen,Australian Shepherd
+D00701,D,class,O0425,Mrs. Debbie L. Melgreen,Australian Shepherd
+D00702,D,class,O0030,Mrs. Debbie L. Melgreen,Australian Shepherd
+D00703,D,class,O0030,Mrs. Debbie L. Melgreen,Australian Shepherd
+D00704,B,class,O0428,Mrs. Debbie L. Melgreen,Australian Shepherd
+D00705,B,class,O0429,Mrs. Debbie L. Melgreen,Australian Shepherd
+D00707,B,class,O0429,Mrs. Debbie L. Melgreen,Australian Shepherd
+D00708,B,class,O0431,Mrs. Debbie L. Melgreen,Australian Shepherd
+D00709,B,class,O0432,Mrs. Debbie L. Melgreen,Australian Shepherd
+D00712,B,class,O0433,Mrs. Debbie L. Melgreen,Australian Shepherd
+D00713,B,class,O0434,Mrs. Debbie L. Melgreen,Australian Shepherd
+D00718,D,class,O0435,Mrs. Debbie L. Melgreen,Vizsla
+D00720,B,class,O0436,Mrs. Debbie L. Melgreen,Vizsla
+D00721,B,class,O0437,Mrs. Debbie L. Melgreen,Vizsla
+D00722,B,class,O0437,Mrs. Debbie L. Melgreen,Vizsla
+D00723,B,class,O0439,Mrs. Debbie L. Melgreen,Vizsla
+D00724,B,class,O0439,Mrs. Debbie L. Melgreen,Vizsla
+D00725,B,class,O0441,Mrs. Debbie L. Melgreen,Vizsla
+D00728,D,champion,O0441,Mrs. Debbie L. Melgreen,Vizsla
+D00736,D,class,O0443,Mrs. Debbie L. Melgreen,Old English Sheepdog
+D00738,D,champion,O0444,Mrs. Debbie L. Melgreen,American Water Spaniel
+D00739,D,class,O0445,Mrs. Debbie L. Melgreen,Swedish Vallhund
+D00743,B,class,O0446,Mrs. Debbie L. Melgreen,Irish Setter
+D00749,D,class,O0447,Mrs. Debbie L. Melgreen,Miniature American Shepherd
+D00750,D,class,O0448,Mrs. Debbie L. Melgreen,Miniature American Shepherd
+D00751,B,class,O0449,Mrs. Debbie L. Melgreen,Miniature American Shepherd
+D00752,B,class,O0398,Mrs. Debbie L. Melgreen,Miniature American Shepherd
+D00753,B,class,O0398,Mrs. Debbie L. Melgreen,Miniature American Shepherd
+D00756,B,class,O0452,Mrs. Debbie L. Melgreen,Miniature American Shepherd
+D00757,B,class,O0453,Mrs. Debbie L. Melgreen,Miniature American Shepherd
+D00758,B,class,O0210,Mrs. Debbie L. Melgreen,Miniature American Shepherd
+D00759,B,class,O0210,Mrs. Debbie L. Melgreen,Miniature American Shepherd
+D00761,B,class,O0210,Mrs. Debbie L. Melgreen,Miniature American Shepherd
+D00765,B,champion,O0457,Mrs. Debbie L. Melgreen,Miniature American Shepherd
+D00768,D,class,O0458,Mrs. Debbie L. Melgreen,Shetland Sheepdog
+D00769,D,class,O0459,Mrs. Debbie L. Melgreen,Shetland Sheepdog
+D00770,D,class,O0460,Mrs. Debbie L. Melgreen,Shetland Sheepdog
+D00772,B,class,O0418,Mrs. Debbie L. Melgreen,Shetland Sheepdog
+D00774,B,class,O0418,Mrs. Debbie L. Melgreen,Shetland Sheepdog
+D00775,B,class,O0463,Mrs. Debbie L. Melgreen,Shetland Sheepdog
+D00776,B,class,O0463,Mrs. Debbie L. Melgreen,Shetland Sheepdog
+D00780,B,champion,O0465,Mrs. Debbie L. Melgreen,Polish Lowland Sheepdog
+D00781,B,class,O0466,Mrs. Debbie L. Melgreen,Clumber Spaniel
+D00783,D,class,O0467,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi
+D00784,D,class,O0468,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi
+D00786,B,class,O0468,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi
+D00787,B,class,O0468,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi
+D00788,B,class,O0471,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi
+D00790,B,class,O0472,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi
+D00791,B,class,O0473,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi
+D00792,B,class,O0473,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi
+D00794,D,champion,O0473,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi
+D00795,D,champion,O0473,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi
+D00799,B,champion,O0477,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi
+D00801,B,champion,O0477,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi
+D00802,D,class,O0479,Ms. Peggy Beisel-McIlwaine,Pointer
+D00803,D,class,O0479,Ms. Peggy Beisel-McIlwaine,Pointer
+D00804,B,champion,O0481,Ms. Peggy Beisel-McIlwaine,Pointer
+D00805,B,champion,O0482,Ms. Peggy Beisel-McIlwaine,Pointer
+D00806,B,class,O0483,Ms. Peggy Beisel-McIlwaine,German Shorthaired Pointer
+D00807,B,class,O0484,Ms. Peggy Beisel-McIlwaine,German Shorthaired Pointer
+D00808,B,class,O0485,Ms. Peggy Beisel-McIlwaine,German Shorthaired Pointer
+D00809,D,champion,O0486,Ms. Peggy Beisel-McIlwaine,German Shorthaired Pointer
+D00812,B,champion,O0487,Ms. Peggy Beisel-McIlwaine,German Shorthaired Pointer
+D00813,B,champion,O0488,Ms. Peggy Beisel-McIlwaine,German Shorthaired Pointer
+D00815,B,class,O0489,Ms. Peggy Beisel-McIlwaine,Flat-Coated Retriever
+D00818,D,champion,O0490,Ms. Peggy Beisel-McIlwaine,Flat-Coated Retriever
+D00822,B,champion,O0491,Ms. Peggy Beisel-McIlwaine,Weimaraner
+D00823,B,champion,O0491,Ms. Peggy Beisel-McIlwaine,Weimaraner
+D00824,D,class,O0493,Ms. Peggy Beisel-McIlwaine,Golden Retriever
+D00826,D,class,O0437,Ms. Peggy Beisel-McIlwaine,Golden Retriever
+D00829,D,class,O0495,Ms. Peggy Beisel-McIlwaine,Golden Retriever
+D00830,D,class,O0496,Ms. Peggy Beisel-McIlwaine,Golden Retriever
+D00831,B,class,O0496,Ms. Peggy Beisel-McIlwaine,Golden Retriever
+D00832,B,class,O0498,Ms. Peggy Beisel-McIlwaine,Golden Retriever
+D00833,B,class,O0499,Ms. Peggy Beisel-McIlwaine,Golden Retriever
+D00835,B,class,O0499,Ms. Peggy Beisel-McIlwaine,Golden Retriever
+D00836,B,class,O0501,Ms. Peggy Beisel-McIlwaine,Golden Retriever
+D00838,D,champion,O0501,Ms. Peggy Beisel-McIlwaine,Golden Retriever
+D00839,D,champion,O0503,Ms. Peggy Beisel-McIlwaine,Golden Retriever
+D00841,B,champion,O0504,Ms. Peggy Beisel-McIlwaine,Golden Retriever
+D00843,D,class,O0505,Ms. Peggy Beisel-McIlwaine,English Setter
+D00844,B,class,O0506,Ms. Peggy Beisel-McIlwaine,English Setter
+D00846,D,champion,O0506,Ms. Peggy Beisel-McIlwaine,English Setter
+D00847,D,champion,O0508,Ms. Peggy Beisel-McIlwaine,Retriever (Nova Scotia Duck)
+D00848,B,class,O0509,Ms. Peggy Beisel-McIlwaine,Spinone Italiano
+D00849,B,class,O0509,Ms. Peggy Beisel-McIlwaine,Spinone Italiano
+D00851,D,class,O0511,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00852,D,class,O0511,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00853,D,class,O0513,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00854,D,class,O0513,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00855,B,class,O0515,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00856,B,class,O0516,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00857,B,class,O0517,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00858,B,class,O0518,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00859,B,class,O0489,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00862,B,class,O0520,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00864,B,class,O0521,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00865,B,class,O0521,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00866,B,class,O0441,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00867,B,class,O0524,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00869,D,champion,O0525,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00870,D,champion,O0526,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00871,D,champion,O0527,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00875,B,champion,O0528,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00878,B,champion,O0529,Ms. Peggy Beisel-McIlwaine,Cocker Spaniel (Parti-Color)
+D00881,B,champion,O0530,Ms. Peggy Beisel-McIlwaine,English Cocker Spaniel
+D00883,,nonregular,O0437,Ms. Peggy Beisel-McIlwaine,English Springer Spaniel
+D00884,B,champion,O0532,Ms. Peggy Beisel-McIlwaine,Barbet
+D00885,B,champion,O0533,Ms. Peggy Beisel-McIlwaine,Barbet
+D00886,D,class,O0534,Ms. Peggy Beisel-McIlwaine,Lagotto Romagnolo
+D00887,B,class,O0513,Ms. Peggy Beisel-McIlwaine,Lagotto Romagnolo
+D00888,B,class,O0536,Ms. Peggy Beisel-McIlwaine,Lagotto Romagnolo
+D00890,B,champion,O0536,Ms. Peggy Beisel-McIlwaine,Lagotto Romagnolo
+D00892,D,champion,O0538,Ms. Peggy Beisel-McIlwaine,BracchI Italiani
+D00894,D,champion,O0539,Ms. Peggy Beisel-McIlwaine,Brittany
+D00896,B,champion,O0540,Ms. Peggy Beisel-McIlwaine,Brittany
+D00897,B,champion,O0541,Ms. Peggy Beisel-McIlwaine,Brittany
+D00863,B,class,P001,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00002,D,champion,P001,Mrs. Debbie L. Melgreen,Borzoi
+D00647,B,class,P001,Mrs. Joan Luna Liebes,Great Dane
+D00109,B,class,P001,Mrs. Vicki L. Abbott,Bull Terrier (Colored)
+D00095,D,champion,P001,Mrs. Vicki L. Abbott,Fox Terrier (Smooth)
+D00097,B,champion,P001,Mrs. Vicki L. Abbott,Fox Terrier (Smooth)
+D00053,D,champion,P001,Mrs. Vicki L. Abbott,Kerry Blue Terrier
+D00069,B,champion,P001,Mrs. Vicki L. Abbott,Lakeland Terrier
+D00081,D,champion,P001,Mrs. Vicki L. Abbott,Rat Terrier
+D00477,B,champion,P001,Mrs. Vicki L. Abbott,Welsh Terrier
+D00668,D,champion,P001-A1,Mrs. Joan Luna Liebes,Australian Cattle Dog
+D00706,B,class,P001-A1,Mrs. Debbie L. Melgreen,Australian Shepherd
+D00676,B,class,P001-A1,Mrs. Joan Luna Liebes,Border Collie
+D00697,B,champion,P001-A1,Mrs. Joan Luna Liebes,Briard
+D00762,D,champion,P001-A1,Mrs. Debbie L. Melgreen,Miniature American Shepherd
+D00672,D,champion,P001-A1,Mrs. Joan Luna Liebes,Mudi
+D00735,D,class,P001-A1,Mrs. Debbie L. Melgreen,Old English Sheepdog
+D00789,B,class,P001-A1,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi
+D00771,D,class,P001-A1,Mrs. Debbie L. Melgreen,Shetland Sheepdog
+D00741,D,champion,P001-A1,Mrs. Debbie L. Melgreen,Swedish Vallhund
+D00062,D,champion,P002,Mrs. Vicki L. Abbott,American Staffordshire Terrier
+D00472,B,champion,P002,Mrs. Vicki L. Abbott,Parson Russell Terrier
+D00441,D,champion,P002,Mrs. Vicki L. Abbott,Pomeranian
+D00714,B,class,P002,Mrs. Debbie L. Melgreen,Australian Shepherd
+D00586,D,champion,P002,Mrs. Joan Luna Liebes,Beauceron
+D00685,B,champion,P002,Mrs. Joan Luna Liebes,Belgian Sheepdog
+D00679,D,champion,P002,Mrs. Joan Luna Liebes,Border Collie
+D00658,D,champion,P002-A1,Mrs. Joan Luna Liebes,Bouvier Des Flandres
+D00696,D,champion,P002-A1,Mrs. Joan Luna Liebes,Cardigan Welsh Corgi
+D00766,B,champion,P002-A1,Mrs. Debbie L. Melgreen,Miniature American Shepherd
+D00793,D,champion,P002-A1,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi
+D00778,D,champion,P002-A1,Mrs. Debbie L. Melgreen,Shetland Sheepdog
+D00779,B,champion,P002-A1,Mrs. Debbie L. Melgreen,Shetland Sheepdog
+D00879,D,champion,P003,Ms. Peggy Beisel-McIlwaine,Cocker Spaniel (Ascob)
+D00877,D,champion,P003,Ms. Peggy Beisel-McIlwaine,Cocker Spaniel (Parti-Color)
+D00819,B,champion,P003,Ms. Peggy Beisel-McIlwaine,Flat-Coated Retriever
+D00814,B,champion,P003,Ms. Peggy Beisel-McIlwaine,German Shorthaired Pointer
+D00746,D,champion,P003,Mrs. Debbie L. Melgreen,Irish Setter
+D00872,D,champion,P003,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00873,D,champion,P003,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00732,B,champion,P003,Mrs. Debbie L. Melgreen,Vizsla
+D00546,B,champion,P003,Dr. Eric Liebes,Boxer
+D00497,D,class,P003,Dr. Eric Liebes,Siberian Husky
+D00082,D,champion,P003,Mrs. Vicki L. Abbott,Rat Terrier
+D00054,D,class,P004,Mrs. Vicki L. Abbott,Bedlington Terrier
+D00087,D,champion,P004,Mrs. Vicki L. Abbott,Norwich Terrier
+D00467,D,champion,P004,Mrs. Vicki L. Abbott,West Highland White Terrier
+D00212,D,champion,P004,Mr. Joe C. Walton,Cavalier King Charles Spaniel
+D00413,B,class,P004,Mrs. Vicki L. Abbott,Papillon
+D00439,B,class,P004,Mrs. Vicki L. Abbott,Pomeranian
+D00652,B,champion,P005,Mrs. Joan Luna Liebes,Great Dane
+D00528,B,champion,P005,Dr. Eric Liebes,Rottweiler
+D00550,D,champion,P005,Dr. Eric Liebes,ST. Bernard
+D00490,B,champion,P005,Dr. Eric Liebes,Standard Schnauzer
+D00063,D,class,P005,Mrs. Vicki L. Abbott,Miniature Schnauzer
+D00471,B,champion,P005,Mrs. Vicki L. Abbott,Parson Russell Terrier
+D00050,D,champion,P005,Mrs. Vicki L. Abbott,Staffordshire Bull Terriers
+D00402,D,champion,P005,Mrs. Vicki L. Abbott,Japanese Chin
+D00445,D,class,P005,Mrs. Vicki L. Abbott,Russian Toy
+D00521,D,champion,P006,Dr. Eric Liebes,Boerboel
+D00598,B,class,P006,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00630,B,champion,P006,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00638,D,class,P006,Mrs. Joan Luna Liebes,Great Dane
+D00648,D,champion,P006,Mrs. Joan Luna Liebes,Great Dane
+D00577,D,champion,P006,Mrs. Joan Luna Liebes,Mastiff
+D00526,D,champion,P006,Dr. Eric Liebes,Rottweiler
+D00070,B,class,P006-A1,Mrs. Vicki L. Abbott,Airedale Terrier
+D00110,B,champion,P006-A1,Mrs. Vicki L. Abbott,Bull Terrier (Colored)
+D00093,D,class,P006-A1,Mrs. Vicki L. Abbott,Fox Terrier (Smooth)
+D00075,B,champion,P006-A1,Mrs. Vicki L. Abbott,Scottish Terrier
+D00188,B,class,P006-A1,Ms. Peggy Beisel-McIlwaine,Chinese Crested
+D00409,D,class,P006-A1,Mrs. Vicki L. Abbott,Papillon
+D00301,B,champion,P006-A1,Mr. Larry C. Abbott,Schipperke
+D00745,D,champion,P007,Mrs. Debbie L. Melgreen,Irish Setter
+D00143,B,champion,P007,Dr. Eric Liebes,Basenji
+D00246,B,champion,P007,Mr. Joe C. Walton,Dachshund (Longhaired)
+D00248,B,class,P007,Mr. Joe C. Walton,Dachshund (Smooth)
+D00253,B,champion,P007,Mr. Joe C. Walton,Dachshund (Smooth)
+D00225,D,champion,P007,Mr. Joe C. Walton,Dachshund (Wirehaired)
+D00161,D,champion,P007,Dr. Eric Liebes,Irish Wolfhound
+D00023,B,class,P007,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00029,D,champion,P007,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00169,D,class,P007-A1,Dr. Eric Liebes,Whippet
+D00173,B,class,P007-A1,Dr. Eric Liebes,Whippet
+D00182,D,champion,P007-A1,Dr. Eric Liebes,Whippet
+D00602,B,class,P007-A1,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00256,B,class,P007-A1,Mr. Joe C. Walton,Brussels Griffon
+D00327,B,class,P007-A1,Mr. Larry C. Abbott,Chihuahua (Smooth Coat)
+D00368,B,class,P007-A1,Mr. Larry C. Abbott,Shiba-Inu
+D00763,D,champion,P007-A1,Mrs. Debbie L. Melgreen,Miniature American Shepherd
+D00250,D,champion,P008,Mr. Joe C. Walton,Dachshund (Smooth)
+D00223,B,class,P008,Mr. Joe C. Walton,Dachshund (Wirehaired)
+D00158,D,champion,P008,Dr. Eric Liebes,Irish Wolfhound
+D00159,D,champion,P008,Dr. Eric Liebes,Irish Wolfhound
+D00129,B,class,P008,Dr. Eric Liebes,Petit Basset Griffon Vendeens
+D00025,B,class,P008,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00030,D,champion,P008,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00040,B,champion,P008,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00221,B,champion,P008-A1,Mr. Joe C. Walton,Cavalier King Charles Spaniel
+D00312,D,class,P008-A1,Mr. Larry C. Abbott,Chihuahua (Long Coat)
+D00193,B,champion,P008-A1,Ms. Peggy Beisel-McIlwaine,Chinese Crested
+D00307,B,class,P008-A1,Mr. Larry C. Abbott,Miniature Pinscher
+D00416,D,champion,P008-A1,Mrs. Vicki L. Abbott,Papillon
+D00429,D,class,P008-A1,Mrs. Vicki L. Abbott,Poodle (Toy)
+D00008,D,champion,P009,Mrs. Debbie L. Melgreen,Afghan Hound
+D00010,B,champion,P009,Mrs. Debbie L. Melgreen,Afghan Hound
+D00242,D,champion,P009,Mr. Joe C. Walton,Dachshund (Longhaired)
+D00251,D,champion,P009,Mr. Joe C. Walton,Dachshund (Smooth)
+D00252,D,champion,P009,Mr. Joe C. Walton,Dachshund (Smooth)
+D00227,B,champion,P009,Mr. Joe C. Walton,Dachshund (Wirehaired)
+D00014,D,class,P009,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00033,D,champion,P009,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00180,D,champion,P009,Dr. Eric Liebes,Whippet
+D00561,B,champion,P009,Dr. Eric Liebes,Akita
+D00515,D,champion,P009,Dr. Eric Liebes,Alaskan Malamute
+D00542,D,champion,P009,Dr. Eric Liebes,Boxer
+D00544,D,champion,P009,Dr. Eric Liebes,Boxer
+D00593,D,class,P009-A1,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00596,B,class,P009-A1,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00622,D,champion,P009-A1,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00625,D,champion,P009-A1,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00631,B,champion,P009-A1,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00654,B,champion,P009-A1,Mrs. Joan Luna Liebes,Great Dane
+D00481,B,champion,P009-A1,Mr. Joe C. Walton,Portuguese Water Dog
+D00512,B,champion,P009-A1,Dr. Eric Liebes,Samoyed
+D00295,D,champion,P009-A1,Mr. Larry C. Abbott,Schipperke
+D00715,D,champion,P009-A1,Mrs. Debbie L. Melgreen,Australian Shepherd
+D00895,D,champion,P010,Ms. Peggy Beisel-McIlwaine,Brittany
+D00825,D,class,P010,Ms. Peggy Beisel-McIlwaine,Golden Retriever
+D00828,D,class,P010,Ms. Peggy Beisel-McIlwaine,Golden Retriever
+D00842,B,champion,P010,Ms. Peggy Beisel-McIlwaine,Golden Retriever
+D00874,B,champion,P010,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00889,D,champion,P010,Ms. Peggy Beisel-McIlwaine,Lagotto Romagnolo
+D00177,B,class,P010,Dr. Eric Liebes,Whippet
+D00527,B,champion,P010,Dr. Eric Liebes,Rottweiler
+D00083,B,champion,P010,Mrs. Vicki L. Abbott,Rat Terrier
+D00465,D,champion,P010,Mrs. Vicki L. Abbott,West Highland White Terrier
+D00189,B,class,P010-A1,Ms. Peggy Beisel-McIlwaine,Chinese Crested
+D00418,D,champion,P010-A1,Mrs. Vicki L. Abbott,Papillon
+D00710,B,class,P010-A1,Mrs. Debbie L. Melgreen,Australian Shepherd
+D00716,D,champion,P010-A1,Mrs. Debbie L. Melgreen,Australian Shepherd
+D00660,B,champion,P010-A1,Mrs. Joan Luna Liebes,Bouvier Des Flandres
+D00689,D,champion,P010-A1,Mrs. Joan Luna Liebes,Collie (Rough)
+D00755,B,class,P010-A1,Mrs. Debbie L. Melgreen,Miniature American Shepherd
+D00760,B,class,P010-A1,Mrs. Debbie L. Melgreen,Miniature American Shepherd
+D00797,D,champion,P010-A1,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi
+D00147,D,champion,P011,Dr. Eric Liebes,Beagle Thirteen Inch
+D00111,D,champion,P011,Dr. Eric Liebes,Saluki
+D00612,B,class,P011,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00614,B,class,P011,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00493,D,champion,P011,Dr. Eric Liebes,Giant Schnauzer
+D00640,D,class,P011,Mrs. Joan Luna Liebes,Great Dane
+D00571,B,class,P011,Mrs. Joan Luna Liebes,Mastiff
+D00576,D,champion,P011,Mrs. Joan Luna Liebes,Mastiff
+D00500,B,champion,P011,Dr. Eric Liebes,Siberian Husky
+D00323,D,class,P011,Mr. Larry C. Abbott,Chihuahua (Smooth Coat)
+D00427,D,champion,P011,Mrs. Vicki L. Abbott,Pug
+D00351,D,champion,P011,Mr. Larry C. Abbott,Dalmatian
+D00228,B,champion,P012,Mr. Joe C. Walton,Dachshund (Wirehaired)
+D00229,D,class,P012,Mr. Joe C. Walton,Affenpinscher
+D00330,B,champion,P012,Mr. Larry C. Abbott,Chihuahua (Smooth Coat)
+D00186,D,class,P012,Ms. Peggy Beisel-McIlwaine,Chinese Crested
+D00397,B,champion,P012,Mrs. Vicki L. Abbott,Italian Greyhound
+D00374,D,champion,P012,Mr. Larry C. Abbott,American Eskimos
+D00201,D,champion,P012,Mr. Joe C. Walton,Boston Terrier
+D00360,D,class,P012,Mr. Larry C. Abbott,Coton de Tulear
+D00355,B,champion,P012,Mr. Larry C. Abbott,Dalmatian
+D00294,D,champion,P012,Mr. Larry C. Abbott,Schipperke
+D00065,D,champion,P013,Mrs. Vicki L. Abbott,Miniature Schnauzer
+D00388,B,class,P013,Mrs. Vicki L. Abbott,Italian Greyhound
+D00392,D,champion,P013,Mrs. Vicki L. Abbott,Italian Greyhound
+D00394,D,champion,P013,Mrs. Vicki L. Abbott,Italian Greyhound
+D00421,D,champion,P013,Mrs. Vicki L. Abbott,Papillon
+D00444,B,champion,P013,Mrs. Vicki L. Abbott,Pomeranian
+D00458,B,champion,P013,Mrs. Vicki L. Abbott,Shih Tzu
+D00664,D,class,P013,Mrs. Joan Luna Liebes,Australian Cattle Dog
+D00711,B,class,P013,Mrs. Debbie L. Melgreen,Australian Shepherd
+D00717,B,champion,P013,Mrs. Debbie L. Melgreen,Australian Shepherd
+D00662,B,champion,P013,Mrs. Joan Luna Liebes,Bearded Collie
+D00678,D,champion,P013-A1,Mrs. Joan Luna Liebes,Border Collie
+D00754,B,class,P013-A1,Mrs. Debbie L. Melgreen,Miniature American Shepherd
+D00764,D,champion,P013-A1,Mrs. Debbie L. Melgreen,Miniature American Shepherd
+D00737,D,champion,P013-A1,Mrs. Debbie L. Melgreen,Old English Sheepdog
+D00785,D,class,P013-A1,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi
+D00796,D,champion,P013-A1,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi
+D00798,B,champion,P013-A1,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi
+D00800,B,champion,P013-A1,Mrs. Debbie L. Melgreen,Pembroke Welsh Corgi
+D00740,D,class,P013-A1,Mrs. Debbie L. Melgreen,Swedish Vallhund
+D00742,B,champion,P013-A1,Mrs. Debbie L. Melgreen,Swedish Vallhund
+D00882,B,class,P014,Ms. Peggy Beisel-McIlwaine,English Springer Spaniel
+D00144,B,champion,P014,Dr. Eric Liebes,Basenji
+D00235,B,class,P014,Mr. Joe C. Walton,Dachshund (Longhaired)
+D00163,B,champion,P014,Dr. Eric Liebes,Irish Wolfhound
+D00131,B,champion,P014,Dr. Eric Liebes,Petit Basset Griffon Vendeens
+D00035,D,champion,P014,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00036,B,champion,P014,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00113,B,champion,P014,Dr. Eric Liebes,Saluki
+D00120,D,champion,P014,Dr. Eric Liebes,Scottish Deerhound
+D00125,D,champion,P014-A1,Dr. Eric Liebes,Treeing Walker Coonhound
+D00168,D,class,P014-A1,Dr. Eric Liebes,Whippet
+D00530,D,class,P014-A1,Dr. Eric Liebes,Boxer
+D00494,D,champion,P014-A1,Dr. Eric Liebes,Bullmastiff
+D00632,B,champion,P014-A1,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00555,D,champion,P014-A1,Dr. Eric Liebes,German Pinscher
+D00505,D,champion,P014-A1,Dr. Eric Liebes,Samoyed
+D00513,B,champion,P014-A1,Dr. Eric Liebes,Samoyed
+D00058,D,champion,P014-A1,Mrs. Vicki L. Abbott,Bedlington Terrier
+D00893,B,class,P015,Ms. Peggy Beisel-McIlwaine,Brittany
+D00845,D,champion,P015,Ms. Peggy Beisel-McIlwaine,English Setter
+D00816,B,class,P015,Ms. Peggy Beisel-McIlwaine,Flat-Coated Retriever
+D00817,D,champion,P015,Ms. Peggy Beisel-McIlwaine,Flat-Coated Retriever
+D00834,B,class,P015,Ms. Peggy Beisel-McIlwaine,Golden Retriever
+D00860,B,class,P015,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00727,D,champion,P015,Mrs. Debbie L. Melgreen,Vizsla
+D00730,B,champion,P015,Mrs. Debbie L. Melgreen,Vizsla
+D00820,D,class,P015,Ms. Peggy Beisel-McIlwaine,Weimaraner
+D00821,D,champion,P015,Ms. Peggy Beisel-McIlwaine,Weimaraner
+D00354,B,champion,P015-A1,Mr. Larry C. Abbott,Dalmatian
+D00263,D,class,P015-A1,Mr. Larry C. Abbott,French Bulldog
+D00268,D,class,P015-A1,Mr. Larry C. Abbott,French Bulldog
+D00275,B,class,P015-A1,Mr. Larry C. Abbott,French Bulldog
+D00276,D,champion,P015-A1,Mr. Larry C. Abbott,French Bulldog
+D00281,B,champion,P015-A1,Mr. Larry C. Abbott,French Bulldog
+D00282,B,champion,P015-A1,Mr. Larry C. Abbott,French Bulldog
+D00283,B,champion,P015-A1,Mr. Larry C. Abbott,French Bulldog
+D00342,B,champion,P015-A1,Mr. Larry C. Abbott,Poodle (Standard)
+D00880,D,champion,P016,Ms. Peggy Beisel-McIlwaine,English Cocker Spaniel
+D00810,D,champion,P016,Ms. Peggy Beisel-McIlwaine,German Shorthaired Pointer
+D00827,D,class,P016,Ms. Peggy Beisel-McIlwaine,Golden Retriever
+D00840,B,champion,P016,Ms. Peggy Beisel-McIlwaine,Golden Retriever
+D00744,B,class,P016,Mrs. Debbie L. Melgreen,Irish Setter
+D00850,D,class,P016,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00861,B,class,P016,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00891,D,champion,P016,Ms. Peggy Beisel-McIlwaine,Nederlandse Kooikerhondjes
+D00719,D,class,P016,Mrs. Debbie L. Melgreen,Vizsla
+D00726,D,champion,P016,Mrs. Debbie L. Melgreen,Vizsla
+D00731,B,champion,P016,Mrs. Debbie L. Melgreen,Vizsla
+D00733,B,champion,P016,Mrs. Debbie L. Melgreen,Vizsla
+D00139,D,champion,P016-A1,Dr. Eric Liebes,Basenji
+D00539,B,class,P016-A1,Dr. Eric Liebes,Boxer
+D00233,B,champion,P016-A1,Mr. Joe C. Walton,Affenpinscher
+D00375,B,champion,P016-A1,Mr. Larry C. Abbott,American Eskimos
+D00205,B,champion,P016-A1,Mr. Joe C. Walton,Boston Terrier
+D00262,B,champion,P016-A1,Mr. Larry C. Abbott,Bulldog
+D00347,B,champion,P016-A1,Mr. Larry C. Abbott,Chinese Shar-Pei
+D00361,B,class,P016-A1,Mr. Larry C. Abbott,Coton de Tulear
+D00273,B,class,P016-A1,Mr. Larry C. Abbott,French Bulldog
+D00046,D,champion,P016-A1,Mrs. Vicki L. Abbott,Keeshond
+D00366,D,champion,P016-A2,Mr. Larry C. Abbott,Lhasa Apso
+D00336,D,class,P016-A2,Mr. Larry C. Abbott,Poodle (Standard)
+D00341,B,champion,P016-A2,Mr. Larry C. Abbott,Poodle (Standard)
+D00291,B,class,P016-A2,Mr. Larry C. Abbott,Schipperke
+D00298,D,champion,P016-A2,Mr. Larry C. Abbott,Schipperke
+D00299,B,champion,P016-A2,Mr. Larry C. Abbott,Schipperke
+D00357,B,class,P016-A2,Mr. Larry C. Abbott,Xoloitzcuintli
+D00767,D,champion,P016-A2,Mrs. Debbie L. Melgreen,Puli
+D00747,D,champion,P017,Mrs. Debbie L. Melgreen,Irish Setter
+D00543,D,champion,P017,Dr. Eric Liebes,Boxer
+D00496,B,champion,P017,Dr. Eric Liebes,Bullmastiff
+D00635,B,champion,P017,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00649,D,champion,P017,Mrs. Joan Luna Liebes,Great Dane
+D00105,D,champion,P017,Mrs. Vicki L. Abbott,Australian Terrier
+D00099,B,class,P017,Mrs. Vicki L. Abbott,Border Terrier
+D00068,B,champion,P017-A1,Mrs. Vicki L. Abbott,Manchester Terrier (Standard)
+D00475,D,champion,P017-A1,Mrs. Vicki L. Abbott,Russell Terriers
+D00076,B,champion,P017-A1,Mrs. Vicki L. Abbott,Scottish Terrier
+D00476,D,champion,P017-A1,Mrs. Vicki L. Abbott,Welsh Terrier
+D00261,D,class,P017-A1,Mr. Larry C. Abbott,Bulldog
+D00777,D,champion,P017-A1,Mrs. Debbie L. Melgreen,Shetland Sheepdog
+D00782,D,champion,P018,Mrs. Debbie L. Melgreen,Clumber Spaniel
+D00811,D,champion,P018,Ms. Peggy Beisel-McIlwaine,German Shorthaired Pointer
+D00837,B,class,P018,Ms. Peggy Beisel-McIlwaine,Golden Retriever
+D00748,B,champion,P018,Mrs. Debbie L. Melgreen,Irish Setter
+D00868,D,champion,P018,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00876,B,champion,P018,Ms. Peggy Beisel-McIlwaine,Labrador Retriever
+D00729,D,champion,P018,Mrs. Debbie L. Melgreen,Vizsla
+D00734,B,champion,P018,Mrs. Debbie L. Melgreen,Vizsla
+D00650,D,champion,P018,Mrs. Joan Luna Liebes,Great Dane
+D00651,D,champion,P018,Mrs. Joan Luna Liebes,Great Dane
+D00437,B,class,P018-A1,Mrs. Vicki L. Abbott,Biewer Terrier
+D00210,B,class,P018-A1,Mr. Joe C. Walton,Cavalier King Charles Spaniel
+D00318,D,champion,P018-A1,Mr. Larry C. Abbott,Chihuahua (Long Coat)
+D00319,D,champion,P018-A1,Mr. Larry C. Abbott,Chihuahua (Long Coat)
+D00563,D,class,P018-A1,Mrs. Joan Luna Liebes,Manchester Terrier (Toy)
+D00422,D,champion,P018-A1,Mrs. Vicki L. Abbott,Papillon
+D00450,D,champion,P018-A1,Mrs. Vicki L. Abbott,Russian Toy
+D00278,D,champion,P018-A1,Mr. Larry C. Abbott,French Bulldog
+D00562,B,champion,P019,Dr. Eric Liebes,Akita
+D00538,B,class,P019,Dr. Eric Liebes,Boxer
+D00554,D,champion,P019,Dr. Eric Liebes,Cane Corso
+D00633,B,champion,P019,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00580,D,champion,P019,Mrs. Joan Luna Liebes,Great Pyrenees
+D00564,D,class,P019,Mrs. Joan Luna Liebes,Mastiff
+D00575,D,champion,P019,Mrs. Joan Luna Liebes,Mastiff
+D00482,B,champion,P019-A1,Mr. Joe C. Walton,Portuguese Water Dog
+D00524,D,champion,P019-A1,Dr. Eric Liebes,Rottweiler
+D00499,D,champion,P019-A1,Dr. Eric Liebes,Siberian Husky
+D00090,D,champion,P019-A1,Mrs. Vicki L. Abbott,Irish Terrier
+D00051,B,class,P019-A1,Mrs. Vicki L. Abbott,Kerry Blue Terrier
+D00052,B,class,P019-A1,Mrs. Vicki L. Abbott,Kerry Blue Terrier
+D00048,B,class,P019-A1,Mrs. Vicki L. Abbott,Soft Coated Wheaten Terrier
+D00609,B,class,P020,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00624,D,champion,P020,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00629,D,champion,P020,Mrs. Joan Luna Liebes,Doberman Pinscher
+D00574,B,class,P020,Mrs. Joan Luna Liebes,Mastiff
+D00525,D,champion,P020,Dr. Eric Liebes,Rottweiler
+D00503,B,class,P020,Dr. Eric Liebes,Samoyed
+D00232,D,champion,P020,Mr. Joe C. Walton,Affenpinscher
+D00257,B,class,P020,Mr. Joe C. Walton,Brussels Griffon
+D00322,B,champion,P020,Mr. Larry C. Abbott,Chihuahua (Long Coat)
+D00325,D,class,P020-A1,Mr. Larry C. Abbott,Chihuahua (Smooth Coat)
+D00396,B,champion,P020-A1,Mrs. Vicki L. Abbott,Italian Greyhound
+D00399,D,class,P020-A1,Mrs. Vicki L. Abbott,Japanese Chin
+D00308,D,champion,P020-A1,Mr. Larry C. Abbott,Miniature Pinscher
+D00417,D,champion,P020-A1,Mrs. Vicki L. Abbott,Papillon
+D00443,D,champion,P020-A1,Mrs. Vicki L. Abbott,Pomeranian
+D00451,D,champion,P020-A1,Mrs. Vicki L. Abbott,Russian Toy
+D00047,B,champion,P020-A1,Mrs. Vicki L. Abbott,Keeshond
+D00698,D,class,P020-A1,Mrs. Debbie L. Melgreen,Australian Shepherd
+D00140,D,champion,P021,Dr. Eric Liebes,Basenji
+D00150,D,champion,P021,Dr. Eric Liebes,Beagle Fifteen Inch
+D00243,D,champion,P021,Mr. Joe C. Walton,Dachshund (Longhaired)
+D00254,B,champion,P021,Mr. Joe C. Walton,Dachshund (Smooth)
+D00026,B,class,P021,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00028,B,class,P021,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00034,D,champion,P021,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00041,B,champion,P021,Mr. Joe C. Walton,Rhodesian Ridgeback
+D00172,B,class,P021,Dr. Eric Liebes,Whippet
+D00175,B,class,P021,Dr. Eric Liebes,Whippet
+D00183,B,champion,P021,Dr. Eric Liebes,Whippet
+D00059,D,champion,P021-A1,Mrs. Vicki L. Abbott,Bedlington Terrier
+D00382,D,class,P021-A1,Mrs. Vicki L. Abbott,Italian Greyhound
+D00331,B,class,P021-A1,Mr. Larry C. Abbott,Bichon Frise
+D00194,D,class,P021-A1,Mr. Joe C. Walton,Boston Terrier
+D00363,B,class,P021-A1,Mr. Larry C. Abbott,Coton de Tulear
+D00274,B,class,P021-A1,Mr. Larry C. Abbott,French Bulldog
+D00279,D,champion,P021-A1,Mr. Larry C. Abbott,French Bulldog
+D00359,D,champion,P021-A1,Mr. Larry C. Abbott,Tibetan Terrier
+D00358,D,champion,P021-A1,Mr. Larry C. Abbott,Xoloitzcuintli
+D00003,D,champion,P022,Mrs. Debbie L. Melgreen,Borzoi
+D00502,B,class,P022,Dr. Eric Liebes,Samoyed
+D00108,B,champion,P022,Mrs. Vicki L. Abbott,Australian Terrier
+D00057,D,champion,P022,Mrs. Vicki L. Abbott,Bedlington Terrier
+D00103,D,champion,P022,Mrs. Vicki L. Abbott,Border Terrier
+D00091,D,champion,P022,Mrs. Vicki L. Abbott,Miniature Bull Terrier
+D00086,D,champion,P022,Mrs. Vicki L. Abbott,Norwich Terrier
+D00084,B,champion,P022,Mrs. Vicki L. Abbott,Rat Terrier
+D00216,D,champion,P022,Mr. Joe C. Walton,Cavalier King Charles Spaniel
+D00218,D,champion,P022,Mr. Joe C. Walton,Cavalier King Charles Spaniel
+D00378,B,class,P022-A1,Mrs. Vicki L. Abbott,Havanese
+D00415,B,class,P022-A1,Mrs. Vicki L. Abbott,Papillon
+D00442,D,champion,P022-A1,Mrs. Vicki L. Abbott,Pomeranian
+D00426,D,champion,P022-A1,Mrs. Vicki L. Abbott,Pug
+D00428,B,champion,P022-A1,Mrs. Vicki L. Abbott,Pug
+D00456,B,champion,P022-A1,Mrs. Vicki L. Abbott,Shih Tzu
+D00773,B,class,P022-A1,Mrs. Debbie L. Melgreen,Shetland Sheepdog

@@ -70,6 +70,8 @@ def busy_windows(program: JudgingProgram) -> tuple[list[BusyWindow], list[Entry]
     grouped: dict[tuple[str, int], list[Entry]] = defaultdict(list)
     missing = []
     for en in program.show.entries:
+        if en.exhibitor is None:
+            continue  # no one on record: cannot be in two places
         if id(en.event) not in timing:
             missing.append(en)
         else:
@@ -91,7 +93,7 @@ def registered_window_pairs(entries: list[Entry]) -> list[tuple[JudgingEvent, Ju
     """
     windows: dict[str, dict[int, list[Entry]]] = defaultdict(dict)
     for en in entries:
-        if en.exhibitor.registered:
+        if en.exhibitor is not None and en.exhibitor.registered:
             windows[en.exhibitor.id].setdefault(id(en.event), []).append(en)
     pairs: dict[tuple, int] = defaultdict(int)
     events: dict[int, JudgingEvent] = {}

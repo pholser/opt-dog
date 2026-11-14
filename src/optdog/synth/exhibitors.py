@@ -3,8 +3,9 @@
 Real judging programs give per-breed entry counts but not who shows which dog, so
 exhibitor conflicts (SPEC S1) need made-up exhibitors (user decision). The model:
 
-1. Every all-breed breed event's printed breakdown is expanded into dogs: class dogs
-   (regular + non-regular classes) and champions (Best of Breed competitors).
+1. The dogs are the show's own (a parsed program's are generated from its printed counts):
+   class dogs (regular and non-regular classes) and champions (Best of Breed competitors).
+   Each keeps its id, sex and status; only its exhibitor is made up.
 2. **Professional handler teams** (about one per ``entries_per_professional`` breed
    entries) show a large share of champions and a smaller share of class dogs. Each
    team has a few "home" groups it mostly works in. A team is the handler plus
@@ -27,8 +28,9 @@ These defaults are guesses, not measurements; they are parameters to be tuned.
 
 from __future__ import annotations
 
+import itertools
 import random
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 
 from optdog.domain import (
@@ -41,6 +43,7 @@ from optdog.domain import (
     Group,
     JudgingEvent,
     Show,
+    anonymous_entries,
 )
 
 
@@ -60,16 +63,15 @@ class ExhibitorModel:
     registered_share_professional: float = 0.5  # handlers and assistants alike
 
 
-def _dogs(show: Show) -> list[tuple[JudgingEvent, EntryStatus]]:
+def _dogs(show: Show) -> list[Entry]:
+    """The show's all-breed breed dogs, generated from the counts for events without dogs on record."""
+    have = {id(en.event) for en in show.entries}
+    ids = (f"D{n:05d}" for n in itertools.count(1))
     out = []
     for e in show.events:
         if e.kind is not EventKind.BREED or e.competition is not Competition.ALL_BREED or e.entries <= 0:
             continue
-        if e.counts is None:
-            out += [(e, EntryStatus.CLASS)] * e.entries
-        else:
-            out += [(e, EntryStatus.CLASS)] * e.counts.before_bob
-            out += [(e, EntryStatus.CHAMPION)] * e.counts.champions
+        out += [en for en in show.entries if en.event is e] if id(e) in have else anonymous_entries(e, ids)
     return out
 
 
@@ -88,17 +90,17 @@ def generate(show: Show, model: ExhibitorModel = ExhibitorModel()) -> list[Entry
             return rng.choice(home)
         return rng.choice(teams)[0]
 
-    team_dogs: dict[str, list[tuple[str, JudgingEvent, EntryStatus]]] = {t: [] for t, _ in teams}
+    team_dogs: dict[str, list[Entry]] = {t: [] for t, _ in teams}
 
     owners: list[tuple[Exhibitor, JudgingEvent]] = []  # (owner, an event they show in)
     entries: list[Entry] = []
     last_owner: Exhibitor | None = None
     last_event: JudgingEvent | None = None
-    for n, (event, status) in enumerate(dogs, 1):
-        dog = f"D{n:05d}"
-        share = model.pro_share_champion if status is EntryStatus.CHAMPION else model.pro_share_class
+    for en in dogs:
+        event = en.event
+        share = model.pro_share_champion if en.status is EntryStatus.CHAMPION else model.pro_share_class
         if rng.random() < share:
-            team_dogs[pick_team(event)].append((dog, event, status))
+            team_dogs[pick_team(event)].append(en)
             continue
         if last_owner is not None and last_event is event and rng.random() < model.owner_same_breed_more:
             owner = last_owner  # breeder showing several of the same breed
@@ -112,7 +114,7 @@ def generate(show: Show, model: ExhibitorModel = ExhibitorModel()) -> list[Entry
         if owner is None:
             owner = Exhibitor(f"O{len(owners) + 1:04d}", registered=rng.random() < model.registered_share_owner)
         owners.append((owner, event))
-        entries.append(Entry(dog, event, owner, status))
+        entries.append(replace(en, exhibitor=owner))
         last_owner, last_event = owner, event
     entries += _staff_teams(team_dogs, model, rng)
     return entries
@@ -127,8 +129,8 @@ def _staff_teams(team_dogs, model: ExhibitorModel, rng: random.Random) -> list[E
             continue
         by_event: dict[int, list] = {}
         for d in dogs:
-            by_event.setdefault(id(d[1]), []).append(d)
-        events = sorted(by_event.values(), key=lambda ds: (order.get(ds[0][1].group, 99), ds[0][1].name))
+            by_event.setdefault(id(d.event), []).append(d)
+        events = sorted(by_event.values(), key=lambda ds: (order.get(ds[0].event.group, 99), ds[0].event.name))
         n_members = max(1, -(-len(dogs) // model.dogs_per_team_member))  # ceiling
         members = [
             Exhibitor(team if k == 0 else f"{team}-A{k}", professional=True, team=team,
@@ -140,13 +142,14 @@ def _staff_teams(team_dogs, model: ExhibitorModel, rng: random.Random) -> list[E
         for ds in events:
             if load >= target and k < n_members - 1:
                 k, load = k + 1, 0
-            out += [Entry(dog, ev, members[k], st) for dog, ev, st in ds]
+            out += [replace(en, exhibitor=members[k]) for en in ds]
             load += len(ds)
     return out
 
 
 def main() -> None:
-    from optdog.io.program_csv import read_program, write_entries
+    from optdog.io.entries_csv import write_entries
+    from optdog.io.program_csv import read_program
 
     root = Path(__file__).resolve().parents[3]
     model = ExhibitorModel()

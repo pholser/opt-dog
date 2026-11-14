@@ -1,0 +1,654 @@
+dog,sex,status,exhibitor,judge,event
+D00001,D,class,,Mr. Jon R. Cole,Dogo Argentino
+D00002,D,class,,Mr. Jon R. Cole,Dogo Argentino
+D00003,D,class,,Mr. Jon R. Cole,Dogo Argentino
+D00004,D,class,,Mr. Jon R. Cole,Dogo Argentino
+D00005,B,class,,Mr. Jon R. Cole,Dogo Argentino
+D00006,B,class,,Mr. Jon R. Cole,Dogo Argentino
+D00007,D,champion,,Mr. Jon R. Cole,Dogo Argentino
+D00008,B,champion,,Mr. Jon R. Cole,Dogo Argentino
+D00009,D,class,,Mr. Jon R. Cole,Wirehaired Pointing Griffon
+D00010,B,class,,Mr. Jon R. Cole,Wirehaired Pointing Griffon
+D00011,B,class,,Mr. Jon R. Cole,Wirehaired Pointing Griffon
+D00012,B,class,,Mr. Jon R. Cole,Wirehaired Pointing Griffon
+D00013,B,class,,Mr. Jon R. Cole,Wirehaired Pointing Griffon
+D00014,D,class,,Mr. Jon R. Cole,Chesapeake Bay Retriever
+D00015,B,champion,,Mr. Jon R. Cole,Chesapeake Bay Retriever
+D00016,D,class,,Mr. Jon R. Cole,Flat-Coated Retriever
+D00017,D,class,,Mr. Jon R. Cole,Flat-Coated Retriever
+D00018,D,champion,,Mr. Jon R. Cole,Flat-Coated Retriever
+D00019,D,champion,,Mr. Jon R. Cole,Flat-Coated Retriever
+D00020,B,champion,,Mr. Jon R. Cole,Flat-Coated Retriever
+D00021,B,champion,,Mr. Jon R. Cole,Flat-Coated Retriever
+D00022,D,class,,Mr. Jon R. Cole,Brittany
+D00023,B,class,,Mr. Jon R. Cole,Brittany
+D00024,B,champion,,Mr. Jon R. Cole,Brittany
+D00025,D,champion,,Mr. Jon R. Cole,Nederlandse Kooikerhondjes
+D00026,B,class,,Mr. Jon R. Cole,Pointer
+D00027,D,champion,,Mr. Jon R. Cole,Curly-Coated Retriever
+D00028,D,champion,,Mr. Jon R. Cole,English Setter
+D00029,B,champion,,Mr. Jon R. Cole,Weimaraner
+D00030,D,class,,Mr. Jon R. Cole,Labrador Retriever
+D00031,D,class,,Mr. Jon R. Cole,Labrador Retriever
+D00032,D,class,,Mr. Jon R. Cole,Labrador Retriever
+D00033,B,class,,Mr. Jon R. Cole,Labrador Retriever
+D00034,B,class,,Mr. Jon R. Cole,Labrador Retriever
+D00035,B,class,,Mr. Jon R. Cole,Labrador Retriever
+D00036,B,class,,Mr. Jon R. Cole,Labrador Retriever
+D00037,B,class,,Mr. Jon R. Cole,Labrador Retriever
+D00038,B,class,,Mr. Jon R. Cole,Labrador Retriever
+D00039,B,class,,Mr. Jon R. Cole,Labrador Retriever
+D00040,D,champion,,Mr. Jon R. Cole,Labrador Retriever
+D00041,D,champion,,Mr. Jon R. Cole,Labrador Retriever
+D00042,D,champion,,Mr. Jon R. Cole,Labrador Retriever
+D00043,B,champion,,Mr. Jon R. Cole,Labrador Retriever
+D00044,B,champion,,Mr. Jon R. Cole,Labrador Retriever
+D00045,D,class,,Mr. Jon R. Cole,Golden Retriever
+D00046,D,class,,Mr. Jon R. Cole,Golden Retriever
+D00047,D,class,,Mr. Jon R. Cole,Golden Retriever
+D00048,D,class,,Mr. Jon R. Cole,Golden Retriever
+D00049,D,class,,Mr. Jon R. Cole,Golden Retriever
+D00050,D,class,,Mr. Jon R. Cole,Golden Retriever
+D00051,D,class,,Mr. Jon R. Cole,Golden Retriever
+D00052,D,class,,Mr. Jon R. Cole,Golden Retriever
+D00053,D,class,,Mr. Jon R. Cole,Golden Retriever
+D00054,D,class,,Mr. Jon R. Cole,Golden Retriever
+D00055,D,class,,Mr. Jon R. Cole,Golden Retriever
+D00056,D,class,,Mr. Jon R. Cole,Golden Retriever
+D00057,D,class,,Mr. Jon R. Cole,Golden Retriever
+D00058,D,class,,Mr. Jon R. Cole,Golden Retriever
+D00059,D,class,,Mr. Jon R. Cole,Golden Retriever
+D00060,D,class,,Mr. Jon R. Cole,Golden Retriever
+D00061,B,class,,Mr. Jon R. Cole,Golden Retriever
+D00062,B,class,,Mr. Jon R. Cole,Golden Retriever
+D00063,B,class,,Mr. Jon R. Cole,Golden Retriever
+D00064,B,class,,Mr. Jon R. Cole,Golden Retriever
+D00065,B,class,,Mr. Jon R. Cole,Golden Retriever
+D00066,B,class,,Mr. Jon R. Cole,Golden Retriever
+D00067,B,class,,Mr. Jon R. Cole,Golden Retriever
+D00068,B,class,,Mr. Jon R. Cole,Golden Retriever
+D00069,B,class,,Mr. Jon R. Cole,Golden Retriever
+D00070,B,class,,Mr. Jon R. Cole,Golden Retriever
+D00071,B,class,,Mr. Jon R. Cole,Golden Retriever
+D00072,B,class,,Mr. Jon R. Cole,Golden Retriever
+D00073,B,class,,Mr. Jon R. Cole,Golden Retriever
+D00074,B,class,,Mr. Jon R. Cole,Golden Retriever
+D00075,B,class,,Mr. Jon R. Cole,Golden Retriever
+D00076,D,champion,,Mr. Jon R. Cole,Golden Retriever
+D00077,D,champion,,Mr. Jon R. Cole,Golden Retriever
+D00078,D,champion,,Mr. Jon R. Cole,Golden Retriever
+D00079,D,champion,,Mr. Jon R. Cole,Golden Retriever
+D00080,B,champion,,Mr. Jon R. Cole,Golden Retriever
+D00081,B,champion,,Mr. Jon R. Cole,Golden Retriever
+D00082,D,champion,,Mr. Jon R. Cole,English Toy Spaniel (B&PC)
+D00083,B,class,,Mr. Jon R. Cole,Havanese
+D00084,D,champion,,Mr. Jon R. Cole,Havanese
+D00085,D,champion,,Mr. Jon R. Cole,Havanese
+D00086,D,class,,Mr. Jon R. Cole,Chinese Crested
+D00087,B,class,,Mr. Jon R. Cole,Chinese Crested
+D00088,D,champion,,Mr. Jon R. Cole,Chinese Crested
+D00089,D,champion,,Mr. Jon R. Cole,Chinese Crested
+D00090,D,champion,,Mr. Jon R. Cole,Chinese Crested
+D00091,B,champion,,Mr. Jon R. Cole,Chinese Crested
+D00092,D,class,,Mr. Garry K. Newton,Great Dane
+D00093,D,class,,Mr. Garry K. Newton,Great Dane
+D00094,D,class,,Mr. Garry K. Newton,Great Dane
+D00095,D,class,,Mr. Garry K. Newton,Great Dane
+D00096,D,class,,Mr. Garry K. Newton,Great Dane
+D00097,B,class,,Mr. Garry K. Newton,Great Dane
+D00098,B,class,,Mr. Garry K. Newton,Great Dane
+D00099,B,class,,Mr. Garry K. Newton,Great Dane
+D00100,B,class,,Mr. Garry K. Newton,Great Dane
+D00101,B,class,,Mr. Garry K. Newton,Great Dane
+D00102,B,class,,Mr. Garry K. Newton,Great Dane
+D00103,B,class,,Mr. Garry K. Newton,Great Dane
+D00104,B,class,,Mr. Garry K. Newton,Great Dane
+D00105,B,class,,Mr. Garry K. Newton,Great Dane
+D00106,B,class,,Mr. Garry K. Newton,Great Dane
+D00107,B,class,,Mr. Garry K. Newton,Great Dane
+D00108,B,class,,Mr. Garry K. Newton,Great Dane
+D00109,B,class,,Mr. Garry K. Newton,Great Dane
+D00110,B,class,,Mr. Garry K. Newton,Great Dane
+D00111,D,champion,,Mr. Garry K. Newton,Great Dane
+D00112,D,champion,,Mr. Garry K. Newton,Great Dane
+D00113,D,champion,,Mr. Garry K. Newton,Great Dane
+D00114,B,champion,,Mr. Garry K. Newton,Great Dane
+D00115,B,champion,,Mr. Garry K. Newton,Great Dane
+D00116,D,class,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00117,D,class,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00118,D,class,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00119,D,class,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00120,D,class,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00121,D,class,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00122,D,class,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00123,D,class,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00124,D,class,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00125,D,class,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00126,B,class,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00127,B,class,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00128,B,class,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00129,B,class,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00130,B,class,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00131,B,class,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00132,B,class,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00133,B,class,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00134,B,class,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00135,B,class,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00136,B,class,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00137,D,champion,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00138,D,champion,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00139,D,champion,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00140,D,champion,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00141,B,champion,,Mr. Garry K. Newton,Rhodesian Ridgeback
+D00142,B,class,,Mr. Garry K. Newton,Scottish Deerhound
+D00143,D,class,,Mr. Garry K. Newton,Borzoi
+D00144,D,class,,Mr. Garry K. Newton,Borzoi
+D00145,D,class,,Mr. Garry K. Newton,Borzoi
+D00146,D,class,,Mr. Garry K. Newton,Borzoi
+D00147,B,class,,Mr. Garry K. Newton,Borzoi
+D00148,B,class,,Mr. Garry K. Newton,Borzoi
+D00149,D,champion,,Mr. Garry K. Newton,Borzoi
+D00150,D,class,,Mr. Garry K. Newton,Irish Wolfhound
+D00151,B,class,,Mr. Garry K. Newton,Irish Wolfhound
+D00152,B,class,,Mr. Garry K. Newton,Irish Wolfhound
+D00153,D,champion,,Mr. Garry K. Newton,Irish Wolfhound
+D00154,B,champion,,Mr. Garry K. Newton,Irish Wolfhound
+D00155,D,class,,Mr. Garry K. Newton,Afghan Hound
+D00156,D,champion,,Mr. Garry K. Newton,Afghan Hound
+D00157,B,champion,,Mr. Garry K. Newton,Afghan Hound
+D00158,B,class,,Mr. Garry K. Newton,Basenji
+D00159,B,class,,Mr. Garry K. Newton,Basenji
+D00160,B,class,,Mr. Garry K. Newton,Basenji
+D00161,D,champion,,Mr. Garry K. Newton,Basenji
+D00162,D,champion,,Mr. Garry K. Newton,Basenji
+D00163,B,champion,,Mr. Garry K. Newton,Basenji
+D00164,D,champion,,Mr. Garry K. Newton,Beagle Thirteen Inches
+D00165,B,champion,,Mr. Garry K. Newton,Beagle Thirteen Inches
+D00166,D,class,,Mr. Garry K. Newton,Beagle Fifteen Inches
+D00167,D,champion,,Mr. Garry K. Newton,Beagle Fifteen Inches
+D00168,D,champion,,Mr. Garry K. Newton,Beagle Fifteen Inches
+D00169,B,champion,,Mr. Garry K. Newton,Ibizan Hound
+D00170,D,class,,Mr. Garry K. Newton,Whippet
+D00171,B,class,,Mr. Garry K. Newton,Whippet
+D00172,B,class,,Mr. Garry K. Newton,Whippet
+D00173,B,class,,Mr. Garry K. Newton,Whippet
+D00174,B,class,,Mr. Garry K. Newton,Whippet
+D00175,D,champion,,Mr. Garry K. Newton,Whippet
+D00176,B,champion,,Mr. Garry K. Newton,Whippet
+D00177,B,champion,,Mr. Garry K. Newton,Whippet
+D00178,D,champion,,Mr. Garry K. Newton,Basset Hound
+D00179,B,champion,,Mr. Garry K. Newton,Basset Hound
+D00180,B,class,,Mr. Jon R. Cole,Greater Swiss Mountain Dog
+D00181,D,class,,Mr. Jon R. Cole,Portuguese Water Dog
+D00182,D,class,,Mr. Jon R. Cole,Portuguese Water Dog
+D00183,B,class,,Mr. Jon R. Cole,Portuguese Water Dog
+D00184,D,champion,,Mr. Jon R. Cole,Portuguese Water Dog
+D00185,D,champion,,Mr. Jon R. Cole,Portuguese Water Dog
+D00186,D,class,,Mr. Jon R. Cole,Boxer
+D00187,D,class,,Mr. Jon R. Cole,Boxer
+D00188,D,class,,Mr. Jon R. Cole,Boxer
+D00189,D,class,,Mr. Jon R. Cole,Boxer
+D00190,B,class,,Mr. Jon R. Cole,Boxer
+D00191,B,class,,Mr. Jon R. Cole,Boxer
+D00192,B,class,,Mr. Jon R. Cole,Boxer
+D00193,B,class,,Mr. Jon R. Cole,Boxer
+D00194,B,class,,Mr. Jon R. Cole,Boxer
+D00195,D,champion,,Mr. Jon R. Cole,Boxer
+D00196,D,champion,,Mr. Jon R. Cole,Boxer
+D00197,B,champion,,Mr. Jon R. Cole,Boxer
+D00198,B,champion,,Mr. Jon R. Cole,Boxer
+D00199,D,class,,Mr. Jon R. Cole,Cane Corso
+D00200,D,class,,Mr. Jon R. Cole,Cane Corso
+D00201,D,class,,Mr. Jon R. Cole,Cane Corso
+D00202,D,class,,Mr. Jon R. Cole,Cane Corso
+D00203,D,class,,Mr. Jon R. Cole,Cane Corso
+D00204,B,class,,Mr. Jon R. Cole,Cane Corso
+D00205,B,class,,Mr. Jon R. Cole,Cane Corso
+D00206,B,class,,Mr. Jon R. Cole,Cane Corso
+D00207,B,class,,Mr. Jon R. Cole,Cane Corso
+D00208,D,champion,,Mr. Jon R. Cole,Cane Corso
+D00209,D,champion,,Mr. Jon R. Cole,Cane Corso
+D00210,B,champion,,Mr. Jon R. Cole,Cane Corso
+D00211,D,class,,Mr. Jon R. Cole,Anatolian Shepherd
+D00212,D,class,,Mr. Jon R. Cole,Anatolian Shepherd
+D00213,D,class,,Mr. Jon R. Cole,Anatolian Shepherd
+D00214,B,class,,Mr. Jon R. Cole,Anatolian Shepherd
+D00215,B,class,,Mr. Jon R. Cole,Anatolian Shepherd
+D00216,D,champion,,Mr. Jon R. Cole,Anatolian Shepherd
+D00217,D,champion,,Mr. Jon R. Cole,Anatolian Shepherd
+D00218,D,class,,Mr. Jon R. Cole,Bernese Mountain Dog
+D00219,D,class,,Mr. Jon R. Cole,Bernese Mountain Dog
+D00220,D,class,,Mr. Jon R. Cole,Bernese Mountain Dog
+D00221,B,class,,Mr. Jon R. Cole,Bernese Mountain Dog
+D00222,B,class,,Mr. Jon R. Cole,Bernese Mountain Dog
+D00223,D,champion,,Mr. Jon R. Cole,Bernese Mountain Dog
+D00224,D,champion,,Mr. Jon R. Cole,Bernese Mountain Dog
+D00225,B,champion,,Mr. Jon R. Cole,Bernese Mountain Dog
+D00226,D,class,,Mr. Jon R. Cole,Bullmastiff
+D00227,D,class,,Mr. Jon R. Cole,Bullmastiff
+D00228,B,class,,Mr. Jon R. Cole,Bullmastiff
+D00229,D,champion,,Mr. Jon R. Cole,Bullmastiff
+D00230,D,champion,,Mr. Jon R. Cole,Bullmastiff
+D00231,B,champion,,Mr. Jon R. Cole,Bullmastiff
+D00232,B,champion,,Mr. Jon R. Cole,Bullmastiff
+D00233,D,class,,Mr. Jon R. Cole,Doberman Pinscher
+D00234,B,class,,Mr. Jon R. Cole,Doberman Pinscher
+D00235,B,class,,Mr. Jon R. Cole,Doberman Pinscher
+D00236,B,champion,,Mr. Jon R. Cole,Doberman Pinscher
+D00237,D,champion,,Mr. Jon R. Cole,Black Russian Terrier
+D00238,D,class,,Mr. Jon R. Cole,Boerboel
+D00239,B,class,,Mr. Jon R. Cole,Boerboel
+D00240,D,class,,Mr. Jon R. Cole,Giant Schnauzer
+D00241,D,class,,Mr. Jon R. Cole,Giant Schnauzer
+D00242,B,class,,Mr. Jon R. Cole,Giant Schnauzer
+D00243,B,class,,Mr. Jon R. Cole,Giant Schnauzer
+D00244,B,champion,,Mr. Jon R. Cole,Giant Schnauzer
+D00245,D,class,,Mr. Jon R. Cole,Great Pyrenees
+D00246,B,class,,Mr. Jon R. Cole,Great Pyrenees
+D00247,B,class,,Mr. Jon R. Cole,Great Pyrenees
+D00248,B,class,,Mr. Jon R. Cole,Great Pyrenees
+D00249,D,champion,,Mr. Jon R. Cole,Great Pyrenees
+D00250,D,class,,Mr. Jon R. Cole,Tibetan Mastiff
+D00251,D,class,,Mr. Jon R. Cole,Tibetan Mastiff
+D00252,D,champion,,Mr. Jon R. Cole,Tibetan Mastiff
+D00253,D,class,,Mr. Jon R. Cole,Newfoundland
+D00254,D,class,,Mr. Jon R. Cole,Newfoundland
+D00255,D,class,,Mr. Jon R. Cole,Newfoundland
+D00256,B,class,,Mr. Jon R. Cole,Newfoundland
+D00257,B,class,,Mr. Jon R. Cole,Newfoundland
+D00258,B,class,,Mr. Jon R. Cole,Newfoundland
+D00259,B,class,,Mr. Jon R. Cole,Newfoundland
+D00260,D,champion,,Mr. Jon R. Cole,Newfoundland
+D00261,D,champion,,Mr. Jon R. Cole,Newfoundland
+D00262,B,champion,,Mr. Jon R. Cole,Newfoundland
+D00263,D,class,,Ms. Victoria M. Jordan,Cardigan Welsh Corgi
+D00264,B,class,,Ms. Victoria M. Jordan,Cardigan Welsh Corgi
+D00265,B,class,,Ms. Victoria M. Jordan,Cardigan Welsh Corgi
+D00266,B,champion,,Ms. Victoria M. Jordan,Cardigan Welsh Corgi
+D00267,B,champion,,Ms. Victoria M. Jordan,Cardigan Welsh Corgi
+D00268,B,champion,,Ms. Victoria M. Jordan,Cardigan Welsh Corgi
+D00269,B,champion,,Ms. Victoria M. Jordan,Cardigan Welsh Corgi
+D00270,D,class,,Ms. Victoria M. Jordan,Pembroke Welsh Corgi
+D00271,D,class,,Ms. Victoria M. Jordan,Pembroke Welsh Corgi
+D00272,D,class,,Ms. Victoria M. Jordan,Pembroke Welsh Corgi
+D00273,D,class,,Ms. Victoria M. Jordan,Pembroke Welsh Corgi
+D00274,D,class,,Ms. Victoria M. Jordan,Pembroke Welsh Corgi
+D00275,D,class,,Ms. Victoria M. Jordan,Pembroke Welsh Corgi
+D00276,B,class,,Ms. Victoria M. Jordan,Pembroke Welsh Corgi
+D00277,B,class,,Ms. Victoria M. Jordan,Pembroke Welsh Corgi
+D00278,B,class,,Ms. Victoria M. Jordan,Pembroke Welsh Corgi
+D00279,D,champion,,Ms. Victoria M. Jordan,Pembroke Welsh Corgi
+D00280,D,champion,,Ms. Victoria M. Jordan,Pembroke Welsh Corgi
+D00281,B,champion,,Ms. Victoria M. Jordan,Pembroke Welsh Corgi
+D00282,D,class,,Ms. Victoria M. Jordan,Miniature American Shepherd
+D00283,B,class,,Ms. Victoria M. Jordan,Miniature American Shepherd
+D00284,B,class,,Ms. Victoria M. Jordan,Miniature American Shepherd
+D00285,B,class,,Ms. Victoria M. Jordan,Miniature American Shepherd
+D00286,D,champion,,Ms. Victoria M. Jordan,Miniature American Shepherd
+D00287,D,champion,,Ms. Victoria M. Jordan,Miniature American Shepherd
+D00288,B,class,,Ms. Victoria M. Jordan,Poodle (Toy)
+D00289,D,class,,Ms. Victoria M. Jordan,Bouvier Des Flandres
+D00290,B,class,,Ms. Victoria M. Jordan,Bouvier Des Flandres
+D00291,D,champion,,Ms. Victoria M. Jordan,Bouvier Des Flandres
+D00292,D,champion,,Ms. Victoria M. Jordan,Bouvier Des Flandres
+D00293,D,champion,,Ms. Victoria M. Jordan,Bouvier Des Flandres
+D00294,B,champion,,Ms. Victoria M. Jordan,Bouvier Des Flandres
+D00295,D,class,,Ms. Victoria M. Jordan,Australian Cattle Dog
+D00296,D,class,,Ms. Victoria M. Jordan,Australian Cattle Dog
+D00297,D,class,,Ms. Victoria M. Jordan,Australian Cattle Dog
+D00298,D,class,,Ms. Victoria M. Jordan,Australian Cattle Dog
+D00299,B,class,,Ms. Victoria M. Jordan,Australian Cattle Dog
+D00300,B,class,,Ms. Victoria M. Jordan,Australian Cattle Dog
+D00301,B,class,,Ms. Victoria M. Jordan,Australian Cattle Dog
+D00302,D,champion,,Ms. Victoria M. Jordan,Australian Cattle Dog
+D00303,D,champion,,Ms. Victoria M. Jordan,Australian Cattle Dog
+D00304,D,champion,,Ms. Victoria M. Jordan,Australian Cattle Dog
+D00305,B,champion,,Ms. Victoria M. Jordan,Australian Cattle Dog
+D00306,B,champion,,Ms. Victoria M. Jordan,Australian Cattle Dog
+D00307,B,champion,,Ms. Victoria M. Jordan,Australian Cattle Dog
+D00308,D,class,,Ms. Victoria M. Jordan,Australian Shepherd
+D00309,D,class,,Ms. Victoria M. Jordan,Australian Shepherd
+D00310,B,class,,Ms. Victoria M. Jordan,Australian Shepherd
+D00311,D,class,,Ms. Victoria M. Jordan,Belgian Tervuren
+D00312,D,champion,,Ms. Victoria M. Jordan,Belgian Tervuren
+D00313,D,class,,Ms. Victoria M. Jordan,Beauceron
+D00314,,nonregular,,Ms. Victoria M. Jordan,Bearded Collie
+D00315,D,champion,,Ms. Victoria M. Jordan,Bearded Collie
+D00316,B,champion,,Ms. Victoria M. Jordan,Bearded Collie
+D00317,D,class,,Ms. Victoria M. Jordan,Border Collie
+D00318,B,champion,,Ms. Victoria M. Jordan,Norwegian Buhund
+D00319,D,champion,,Ms. Victoria M. Jordan,Polish Lowland Sheepdog
+D00320,D,champion,,Ms. Victoria M. Jordan,Shetland Sheepdog
+D00321,B,champion,,Ms. Victoria M. Jordan,Collie (Smooth)
+D00322,D,class,,Ms. Victoria M. Jordan,Collie (Rough)
+D00323,B,class,,Ms. Victoria M. Jordan,Collie (Rough)
+D00324,B,class,,Ms. Victoria M. Jordan,Collie (Rough)
+D00325,B,class,,Ms. Victoria M. Jordan,Collie (Rough)
+D00326,B,class,,Ms. Victoria M. Jordan,Collie (Rough)
+D00327,B,class,,Ms. Victoria M. Jordan,Collie (Rough)
+D00328,B,class,,Ms. Victoria M. Jordan,Collie (Rough)
+D00329,D,champion,,Ms. Victoria M. Jordan,Collie (Rough)
+D00330,D,champion,,Ms. Victoria M. Jordan,Collie (Rough)
+D00331,D,class,,Ms. Victoria M. Jordan,Old English Sheepdog
+D00332,D,class,,Ms. Victoria M. Jordan,Old English Sheepdog
+D00333,B,class,,Ms. Victoria M. Jordan,Old English Sheepdog
+D00334,D,champion,,Ms. Victoria M. Jordan,Old English Sheepdog
+D00335,D,class,,Ms. Victoria M. Jordan,Pomeranian
+D00336,D,class,,Ms. Victoria M. Jordan,Pomeranian
+D00337,D,class,,Ms. Victoria M. Jordan,Pomeranian
+D00338,B,class,,Ms. Victoria M. Jordan,Pomeranian
+D00339,B,class,,Ms. Victoria M. Jordan,Pomeranian
+D00340,B,class,,Ms. Victoria M. Jordan,Pomeranian
+D00341,B,class,,Ms. Victoria M. Jordan,Pomeranian
+D00342,D,champion,,Ms. Victoria M. Jordan,Pomeranian
+D00343,D,champion,,Ms. Victoria M. Jordan,Pomeranian
+D00344,B,class,,Ms. Victoria M. Jordan,Mastiff
+D00345,D,class,,Ms. Victoria M. Jordan,Rottweiler
+D00346,D,class,,Ms. Victoria M. Jordan,Rottweiler
+D00347,D,class,,Ms. Victoria M. Jordan,Rottweiler
+D00348,D,class,,Ms. Victoria M. Jordan,Rottweiler
+D00349,B,class,,Ms. Victoria M. Jordan,Rottweiler
+D00350,B,class,,Ms. Victoria M. Jordan,Rottweiler
+D00351,B,class,,Ms. Victoria M. Jordan,Rottweiler
+D00352,B,class,,Ms. Victoria M. Jordan,Rottweiler
+D00353,B,class,,Ms. Victoria M. Jordan,Rottweiler
+D00354,D,champion,,Ms. Victoria M. Jordan,Rottweiler
+D00355,D,champion,,Ms. Victoria M. Jordan,Rottweiler
+D00356,B,champion,,Ms. Victoria M. Jordan,Rottweiler
+D00357,B,champion,,Ms. Victoria M. Jordan,Rottweiler
+D00358,B,champion,,Ms. Victoria M. Jordan,Rottweiler
+D00359,B,champion,,Ms. Victoria M. Jordan,Rottweiler
+D00360,D,class,,Mrs. Lee Murphy-East,Pekingese
+D00361,D,class,,Mrs. Lee Murphy-East,Pekingese
+D00362,B,class,,Mrs. Lee Murphy-East,Pekingese
+D00363,B,class,,Mrs. Lee Murphy-East,Pekingese
+D00364,D,champion,,Mrs. Lee Murphy-East,Pekingese
+D00365,D,class,,Mrs. Lee Murphy-East,Pug
+D00366,D,class,,Mrs. Lee Murphy-East,Pug
+D00367,B,class,,Mrs. Lee Murphy-East,Pug
+D00368,B,class,,Mrs. Lee Murphy-East,Pug
+D00369,B,class,,Mrs. Lee Murphy-East,Pug
+D00370,D,champion,,Mrs. Lee Murphy-East,Pug
+D00371,B,champion,,Mrs. Lee Murphy-East,Pug
+D00372,D,class,,Mrs. Lee Murphy-East,Vizsla
+D00373,B,class,,Mrs. Lee Murphy-East,Vizsla
+D00374,B,class,,Mrs. Lee Murphy-East,Vizsla
+D00375,B,class,,Mrs. Lee Murphy-East,Vizsla
+D00376,B,class,,Mrs. Lee Murphy-East,Vizsla
+D00377,B,class,,Mrs. Lee Murphy-East,Vizsla
+D00378,B,class,,Mrs. Lee Murphy-East,Vizsla
+D00379,D,champion,,Mrs. Lee Murphy-East,Vizsla
+D00380,B,champion,,Mrs. Lee Murphy-East,Vizsla
+D00381,B,champion,,Mrs. Lee Murphy-East,Vizsla
+D00382,D,class,,Mrs. Lee Murphy-East,German Shorthaired Pointer
+D00383,D,class,,Mrs. Lee Murphy-East,German Shorthaired Pointer
+D00384,B,class,,Mrs. Lee Murphy-East,German Shorthaired Pointer
+D00385,B,class,,Mrs. Lee Murphy-East,German Shorthaired Pointer
+D00386,B,champion,,Mrs. Lee Murphy-East,German Shorthaired Pointer
+D00387,B,champion,,Mrs. Lee Murphy-East,German Shorthaired Pointer
+D00388,B,champion,,Mrs. Lee Murphy-East,German Shorthaired Pointer
+D00389,D,class,,Mrs. Lee Murphy-East,Irish Setter
+D00390,D,class,,Mrs. Lee Murphy-East,Irish Setter
+D00391,,nonregular,,Mrs. Lee Murphy-East,Irish Setter
+D00392,D,champion,,Mrs. Lee Murphy-East,Irish Setter
+D00393,B,class,,Mrs. Lee Murphy-East,Clumber Spaniel
+D00394,B,class,,Mrs. Lee Murphy-East,Clumber Spaniel
+D00395,B,champion,,Mrs. Lee Murphy-East,Clumber Spaniel
+D00396,D,champion,,Mrs. Lee Murphy-East,Cocker Spaniel (Black)
+D00397,B,champion,,Mrs. Lee Murphy-East,Cocker Spaniel (Black)
+D00398,B,champion,,Mrs. Lee Murphy-East,Cocker Spaniel (Black)
+D00399,D,champion,,Mrs. Lee Murphy-East,Cocker Spaniel (Ascob)
+D00400,B,champion,,Mrs. Lee Murphy-East,Cocker Spaniel (Ascob)
+D00401,D,class,,Mrs. Lee Murphy-East,Cocker Spaniel (Parti-Color)
+D00402,D,class,,Mrs. Lee Murphy-East,Cocker Spaniel (Parti-Color)
+D00403,D,champion,,Mrs. Lee Murphy-East,Cocker Spaniel (Parti-Color)
+D00404,B,champion,,Mrs. Lee Murphy-East,Cocker Spaniel (Parti-Color)
+D00405,B,champion,,Mrs. Lee Murphy-East,Cocker Spaniel (Parti-Color)
+D00406,D,class,,Mrs. Lee Murphy-East,English Cocker Spaniel
+D00407,D,class,,Mrs. Lee Murphy-East,English Cocker Spaniel
+D00408,D,champion,,Mrs. Lee Murphy-East,English Cocker Spaniel
+D00409,D,champion,,Mrs. Lee Murphy-East,English Cocker Spaniel
+D00410,D,class,,Mrs. Lee Murphy-East,Samoyed
+D00411,D,champion,,Mrs. Lee Murphy-East,Samoyed
+D00412,D,champion,,Mrs. Lee Murphy-East,Samoyed
+D00413,D,champion,,Mrs. Lee Murphy-East,Samoyed
+D00414,D,class,,Mrs. Lee Murphy-East,Siberian Husky
+D00415,D,class,,Mrs. Lee Murphy-East,Siberian Husky
+D00416,D,class,,Mrs. Lee Murphy-East,Siberian Husky
+D00417,D,champion,,Mrs. Lee Murphy-East,Siberian Husky
+D00418,D,champion,,Mrs. Lee Murphy-East,Siberian Husky
+D00419,D,champion,,Mrs. Lee Murphy-East,Siberian Husky
+D00420,D,champion,,Mrs. Lee Murphy-East,Siberian Husky
+D00421,B,champion,,Mrs. Lee Murphy-East,Siberian Husky
+D00422,B,champion,,Mrs. Lee Murphy-East,Siberian Husky
+D00423,D,class,,Mrs. Lee Murphy-East,Toy Fox Terrier
+D00424,D,class,,Mrs. Lee Murphy-East,Toy Fox Terrier
+D00425,D,class,,Mrs. Lee Murphy-East,Toy Fox Terrier
+D00426,B,champion,,Mrs. Lee Murphy-East,Toy Fox Terrier
+D00427,B,champion,,Mrs. Lee Murphy-East,Silky Terrier
+D00428,D,class,,Mrs. Lee Murphy-East,Maltese
+D00429,D,class,,Mrs. Lee Murphy-East,Maltese
+D00430,B,class,,Mrs. Lee Murphy-East,Maltese
+D00431,B,class,,Mrs. Lee Murphy-East,Maltese
+D00432,B,class,,Mrs. Lee Murphy-East,Maltese
+D00433,B,class,,Mrs. Lee Murphy-East,Maltese
+D00434,D,class,,Mrs. Lee Murphy-East,Italian Greyhound
+D00435,D,champion,,Mrs. Lee Murphy-East,Japanese Chin
+D00436,D,class,,Mrs. Lee Murphy-East,Papillon
+D00437,D,class,,Mrs. Lee Murphy-East,Papillon
+D00438,D,class,,Mrs. Lee Murphy-East,Papillon
+D00439,D,class,,Mrs. Lee Murphy-East,Papillon
+D00440,D,class,,Mrs. Lee Murphy-East,Papillon
+D00441,D,class,,Mrs. Lee Murphy-East,Papillon
+D00442,B,class,,Mrs. Lee Murphy-East,Papillon
+D00443,B,class,,Mrs. Lee Murphy-East,Papillon
+D00444,B,class,,Mrs. Lee Murphy-East,Papillon
+D00445,B,class,,Mrs. Lee Murphy-East,Papillon
+D00446,B,class,,Mrs. Lee Murphy-East,Papillon
+D00447,B,class,,Mrs. Lee Murphy-East,Papillon
+D00448,B,class,,Mrs. Lee Murphy-East,Papillon
+D00449,B,class,,Mrs. Lee Murphy-East,Papillon
+D00450,B,class,,Mrs. Lee Murphy-East,Papillon
+D00451,B,class,,Mrs. Lee Murphy-East,Papillon
+D00452,B,class,,Mrs. Lee Murphy-East,Papillon
+D00453,D,champion,,Mrs. Lee Murphy-East,Papillon
+D00454,D,champion,,Mrs. Lee Murphy-East,Papillon
+D00455,D,champion,,Mrs. Lee Murphy-East,Papillon
+D00456,B,champion,,Mrs. Lee Murphy-East,Papillon
+D00457,B,champion,,Mrs. Lee Murphy-East,Papillon
+D00458,B,class,,Mrs. Lee Murphy-East,Yorkshire Terrier
+D00459,B,class,,Mrs. Lee Murphy-East,Yorkshire Terrier
+D00460,D,champion,,Mrs. Lee Murphy-East,Miniature Pinscher
+D00461,B,champion,,Mrs. Lee Murphy-East,Miniature Pinscher
+D00462,D,class,,Mr. Nathaniel Horn,French Bulldog
+D00463,D,class,,Mr. Nathaniel Horn,French Bulldog
+D00464,D,class,,Mr. Nathaniel Horn,French Bulldog
+D00465,D,class,,Mr. Nathaniel Horn,French Bulldog
+D00466,D,class,,Mr. Nathaniel Horn,French Bulldog
+D00467,D,class,,Mr. Nathaniel Horn,French Bulldog
+D00468,D,class,,Mr. Nathaniel Horn,French Bulldog
+D00469,D,class,,Mr. Nathaniel Horn,French Bulldog
+D00470,D,class,,Mr. Nathaniel Horn,French Bulldog
+D00471,D,class,,Mr. Nathaniel Horn,French Bulldog
+D00472,B,class,,Mr. Nathaniel Horn,French Bulldog
+D00473,B,class,,Mr. Nathaniel Horn,French Bulldog
+D00474,B,class,,Mr. Nathaniel Horn,French Bulldog
+D00475,B,class,,Mr. Nathaniel Horn,French Bulldog
+D00476,B,class,,Mr. Nathaniel Horn,French Bulldog
+D00477,B,class,,Mr. Nathaniel Horn,French Bulldog
+D00478,B,class,,Mr. Nathaniel Horn,French Bulldog
+D00479,B,class,,Mr. Nathaniel Horn,French Bulldog
+D00480,B,class,,Mr. Nathaniel Horn,French Bulldog
+D00481,B,class,,Mr. Nathaniel Horn,French Bulldog
+D00482,B,class,,Mr. Nathaniel Horn,French Bulldog
+D00483,B,class,,Mr. Nathaniel Horn,French Bulldog
+D00484,B,class,,Mr. Nathaniel Horn,French Bulldog
+D00485,D,champion,,Mr. Nathaniel Horn,French Bulldog
+D00486,D,champion,,Mr. Nathaniel Horn,French Bulldog
+D00487,D,champion,,Mr. Nathaniel Horn,French Bulldog
+D00488,D,champion,,Mr. Nathaniel Horn,French Bulldog
+D00489,D,champion,,Mr. Nathaniel Horn,French Bulldog
+D00490,D,champion,,Mr. Nathaniel Horn,French Bulldog
+D00491,B,champion,,Mr. Nathaniel Horn,French Bulldog
+D00492,B,champion,,Mr. Nathaniel Horn,French Bulldog
+D00493,B,champion,,Mr. Nathaniel Horn,French Bulldog
+D00494,D,class,,Mr. Nathaniel Horn,Bulldog
+D00495,D,class,,Mr. Nathaniel Horn,Bulldog
+D00496,D,class,,Mr. Nathaniel Horn,Bulldog
+D00497,D,class,,Mr. Nathaniel Horn,Bulldog
+D00498,D,class,,Mr. Nathaniel Horn,Bulldog
+D00499,D,class,,Mr. Nathaniel Horn,Bulldog
+D00500,B,class,,Mr. Nathaniel Horn,Bulldog
+D00501,B,class,,Mr. Nathaniel Horn,Bulldog
+D00502,B,class,,Mr. Nathaniel Horn,Bulldog
+D00503,B,class,,Mr. Nathaniel Horn,Bulldog
+D00504,B,class,,Mr. Nathaniel Horn,Bulldog
+D00505,D,champion,,Mr. Nathaniel Horn,Bulldog
+D00506,B,champion,,Mr. Nathaniel Horn,Bulldog
+D00507,B,class,,Mr. Nathaniel Horn,Chow Chow
+D00508,D,champion,,Mr. Nathaniel Horn,Chow Chow
+D00509,B,champion,,Mr. Nathaniel Horn,Chow Chow
+D00510,D,champion,,Mr. Nathaniel Horn,Keeshond
+D00511,B,champion,,Mr. Nathaniel Horn,Keeshond
+D00512,D,class,,Mr. Nathaniel Horn,Boston Terrier
+D00513,D,class,,Mr. Nathaniel Horn,Boston Terrier
+D00514,D,champion,,Mr. Nathaniel Horn,Boston Terrier
+D00515,D,champion,,Mr. Nathaniel Horn,Boston Terrier
+D00516,B,class,,Mr. Nathaniel Horn,Coton de Tulear
+D00517,D,champion,,Mr. Nathaniel Horn,Coton de Tulear
+D00518,D,class,,Mr. Nathaniel Horn,American Eskimos
+D00519,B,class,,Mr. Nathaniel Horn,American Eskimos
+D00520,B,class,,Mr. Nathaniel Horn,American Eskimos
+D00521,B,champion,,Mr. Nathaniel Horn,American Eskimos
+D00522,B,champion,,Mr. Nathaniel Horn,American Eskimos
+D00523,B,class,,Mr. Nathaniel Horn,Lhasa Apso
+D00524,B,class,,Mr. Nathaniel Horn,Lhasa Apso
+D00525,B,class,,Mr. Nathaniel Horn,Lhasa Apso
+D00526,B,class,,Mr. Nathaniel Horn,Lhasa Apso
+D00527,B,champion,,Mr. Nathaniel Horn,Lhasa Apso
+D00528,B,class,,Mr. Nathaniel Horn,Shiba-Inu
+D00529,B,class,,Mr. Nathaniel Horn,Shiba-Inu
+D00530,B,champion,,Mr. Nathaniel Horn,Shiba-Inu
+D00531,B,champion,,Mr. Nathaniel Horn,Tibetan Spaniel
+D00532,B,champion,,Mr. Nathaniel Horn,Tibetan Spaniel
+D00533,B,class,,Mr. Nathaniel Horn,Xoloitzcuintli
+D00534,B,class,,Mr. Nathaniel Horn,Xoloitzcuintli
+D00535,D,champion,,Mr. Nathaniel Horn,Xoloitzcuintli
+D00536,B,class,,Mr. Nathaniel Horn,Poodle (Miniature)
+D00537,B,class,,Mr. Nathaniel Horn,Poodle (Miniature)
+D00538,D,champion,,Mr. Nathaniel Horn,Poodle (Miniature)
+D00539,D,class,,Mr. Nathaniel Horn,Bichon Frise
+D00540,B,class,,Mr. Nathaniel Horn,Bichon Frise
+D00541,D,champion,,Mr. Nathaniel Horn,Bichon Frise
+D00542,D,champion,,Mr. Nathaniel Horn,Bichon Frise
+D00543,D,champion,,Mr. Nathaniel Horn,Bichon Frise
+D00544,D,champion,,Mr. Nathaniel Horn,Bichon Frise
+D00545,B,champion,,Mr. Nathaniel Horn,Bichon Frise
+D00546,B,champion,,Mr. Nathaniel Horn,Bichon Frise
+D00547,B,champion,,Mr. Nathaniel Horn,Tibetan Terrier
+D00548,B,champion,,Mr. Nathaniel Horn,Tibetan Terrier
+D00549,D,class,,Mr. Nathaniel Horn,Dalmatian
+D00550,B,class,,Mr. Nathaniel Horn,Dalmatian
+D00551,D,champion,,Mr. Nathaniel Horn,Dalmatian
+D00552,D,champion,,Mr. Nathaniel Horn,Dalmatian
+D00553,D,champion,,Mr. Nathaniel Horn,Dalmatian
+D00554,B,champion,,Mr. Nathaniel Horn,Dalmatian
+D00555,B,champion,,Mr. Nathaniel Horn,Dalmatian
+D00556,B,champion,,Mr. Nathaniel Horn,Dalmatian
+D00557,B,champion,,Mr. Nathaniel Horn,Dalmatian
+D00558,D,class,,Mr. Nathaniel Horn,Poodle (Standard)
+D00559,B,class,,Mr. Nathaniel Horn,Poodle (Standard)
+D00560,B,class,,Mr. Nathaniel Horn,Poodle (Standard)
+D00561,B,class,,Mr. Nathaniel Horn,Poodle (Standard)
+D00562,B,class,,Mr. Nathaniel Horn,Poodle (Standard)
+D00563,B,class,,Mr. Nathaniel Horn,Poodle (Standard)
+D00564,B,class,,Mr. Nathaniel Horn,Poodle (Standard)
+D00565,D,champion,,Mr. Desmond J. Murphy,Parson Russell Terrier
+D00566,D,champion,,Mr. Desmond J. Murphy,Parson Russell Terrier
+D00567,B,champion,,Mr. Desmond J. Murphy,Parson Russell Terrier
+D00568,D,class,,Mr. Desmond J. Murphy,Russell Terriers
+D00569,B,class,,Mr. Desmond J. Murphy,Russell Terriers
+D00570,B,class,,Mr. Desmond J. Murphy,Russell Terriers
+D00571,D,champion,,Mr. Desmond J. Murphy,Russell Terriers
+D00572,B,champion,,Mr. Desmond J. Murphy,Russell Terriers
+D00573,B,class,,Mr. Desmond J. Murphy,Airedale Terrier
+D00574,B,class,,Mr. Desmond J. Murphy,Airedale Terrier
+D00575,B,champion,,Mr. Desmond J. Murphy,Airedale Terrier
+D00576,D,champion,,Mr. Desmond J. Murphy,Welsh Terrier
+D00577,D,champion,,Mr. Desmond J. Murphy,Welsh Terrier
+D00578,B,class,,Mr. Desmond J. Murphy,Skye Terrier
+D00579,B,class,,Mr. Desmond J. Murphy,Skye Terrier
+D00580,B,class,,Mr. Desmond J. Murphy,Skye Terrier
+D00581,,nonregular,,Mr. Desmond J. Murphy,Skye Terrier
+D00582,D,class,,Mr. Desmond J. Murphy,American Staffordshire Terrier
+D00583,D,class,,Mr. Desmond J. Murphy,American Staffordshire Terrier
+D00584,B,class,,Mr. Desmond J. Murphy,American Staffordshire Terrier
+D00585,D,champion,,Mr. Desmond J. Murphy,American Staffordshire Terrier
+D00586,B,champion,,Mr. Desmond J. Murphy,American Staffordshire Terrier
+D00587,B,champion,,Mr. Desmond J. Murphy,American Staffordshire Terrier
+D00588,B,champion,,Mr. Desmond J. Murphy,American Staffordshire Terrier
+D00589,D,champion,,Mr. Desmond J. Murphy,Irish Terrier
+D00590,B,champion,,Mr. Desmond J. Murphy,Irish Terrier
+D00591,D,champion,,Mr. Desmond J. Murphy,Australian Terrier
+D00592,B,champion,,Mr. Desmond J. Murphy,Cairn Terrier
+D00593,D,class,,Mr. Desmond J. Murphy,Miniature Bull Terrier
+D00594,B,champion,,Mr. Desmond J. Murphy,Miniature Bull Terrier
+D00595,B,champion,,Mr. Desmond J. Murphy,Miniature Bull Terrier
+D00596,B,champion,,Mr. Desmond J. Murphy,Miniature Bull Terrier
+D00597,D,class,,Mr. Desmond J. Murphy,Soft Coated Wheaten Terrier
+D00598,D,class,,Mr. Desmond J. Murphy,Staffordshire Bull Terriers
+D00599,D,class,,Mr. Desmond J. Murphy,Staffordshire Bull Terriers
+D00600,D,class,,Mr. Desmond J. Murphy,Staffordshire Bull Terriers
+D00601,D,class,,Mr. Desmond J. Murphy,Staffordshire Bull Terriers
+D00602,D,champion,,Mr. Desmond J. Murphy,Staffordshire Bull Terriers
+D00603,D,champion,,Mr. Desmond J. Murphy,Staffordshire Bull Terriers
+D00604,B,champion,,Mr. Desmond J. Murphy,Staffordshire Bull Terriers
+D00605,B,champion,,Mr. Desmond J. Murphy,Staffordshire Bull Terriers
+D00606,B,champion,,Mr. Desmond J. Murphy,Staffordshire Bull Terriers
+D00607,D,class,,Mr. Desmond J. Murphy,Miniature Schnauzer
+D00608,B,class,,Mr. Desmond J. Murphy,Miniature Schnauzer
+D00609,D,champion,,Mr. Desmond J. Murphy,Miniature Schnauzer
+D00610,D,champion,,Mr. Desmond J. Murphy,Norwich Terrier
+D00611,D,class,,Mr. Desmond J. Murphy,West Highland White Terrier
+D00612,D,champion,,Mr. Desmond J. Murphy,West Highland White Terrier
+D00613,D,class,,Mr. Desmond J. Murphy,Scottish Terrier
+D00614,B,class,,Mr. Desmond J. Murphy,Scottish Terrier
+D00615,D,champion,,Mr. Desmond J. Murphy,Scottish Terrier
+D00616,B,champion,,Mr. Desmond J. Murphy,Scottish Terrier
+D00617,D,class,,Mr. Desmond J. Murphy,Border Terrier
+D00618,B,class,,Mr. Desmond J. Murphy,Border Terrier
+D00619,B,class,,Mr. Desmond J. Murphy,Border Terrier
+D00620,D,champion,,Mr. Desmond J. Murphy,Border Terrier
+D00621,D,champion,,Mr. Desmond J. Murphy,Border Terrier
+D00622,D,champion,,Mr. Desmond J. Murphy,Border Terrier
+D00623,B,champion,,Mr. Desmond J. Murphy,Border Terrier
+D00624,D,class,,Mr. Desmond J. Murphy,Affenpinscher
+D00625,D,class,,Mr. Desmond J. Murphy,Affenpinscher
+D00626,D,champion,,Mr. Desmond J. Murphy,Affenpinscher
+D00627,D,champion,,Mr. Desmond J. Murphy,Affenpinscher
+D00628,B,champion,,Mr. Desmond J. Murphy,Affenpinscher
+D00629,D,class,,Mr. Desmond J. Murphy,Chihuahua (Long Coat)
+D00630,B,class,,Mr. Desmond J. Murphy,Chihuahua (Long Coat)
+D00631,B,class,,Mr. Desmond J. Murphy,Chihuahua (Long Coat)
+D00632,B,class,,Mr. Desmond J. Murphy,Chihuahua (Long Coat)
+D00633,B,class,,Mr. Desmond J. Murphy,Chihuahua (Long Coat)
+D00634,D,champion,,Mr. Desmond J. Murphy,Chihuahua (Long Coat)
+D00635,D,class,,Mr. Desmond J. Murphy,Chihuahua (Smooth Coat)
+D00636,B,champion,,Mr. Desmond J. Murphy,Chihuahua (Smooth Coat)
+D00637,D,class,,Mr. Desmond J. Murphy,Cavalier King Charles Spaniel
+D00638,D,class,,Mr. Desmond J. Murphy,Cavalier King Charles Spaniel
+D00639,D,class,,Mr. Desmond J. Murphy,Cavalier King Charles Spaniel
+D00640,D,class,,Mr. Desmond J. Murphy,Cavalier King Charles Spaniel
+D00641,D,class,,Mr. Desmond J. Murphy,Cavalier King Charles Spaniel
+D00642,B,class,,Mr. Desmond J. Murphy,Cavalier King Charles Spaniel
+D00643,B,class,,Mr. Desmond J. Murphy,Cavalier King Charles Spaniel
+D00644,B,class,,Mr. Desmond J. Murphy,Cavalier King Charles Spaniel
+D00645,B,class,,Mr. Desmond J. Murphy,Cavalier King Charles Spaniel
+D00646,B,class,,Mr. Desmond J. Murphy,Cavalier King Charles Spaniel
+D00647,B,class,,Mr. Desmond J. Murphy,Cavalier King Charles Spaniel
+D00648,B,class,,Mr. Desmond J. Murphy,Cavalier King Charles Spaniel
+D00649,D,champion,,Mr. Desmond J. Murphy,Cavalier King Charles Spaniel
+D00650,D,champion,,Mr. Desmond J. Murphy,Cavalier King Charles Spaniel
+D00651,D,champion,,Mr. Desmond J. Murphy,Cavalier King Charles Spaniel
+D00652,B,champion,,Mr. Desmond J. Murphy,Cavalier King Charles Spaniel
+D00653,B,champion,,Mr. Desmond J. Murphy,Cavalier King Charles Spaniel

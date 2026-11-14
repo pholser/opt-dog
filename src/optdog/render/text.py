@@ -4,17 +4,13 @@ then the groups and Best in Show, then the validator's findings."""
 from __future__ import annotations
 
 from optdog.domain import EntryCounts, JudgingEvent, JudgingProgram, fmt_time
-from optdog.instance import PINNED_COMPETITIONS
 from optdog.params import ShowParameters
 from optdog.validate import ValidationResult, validate
 
 
 def pinned_ids(program: JudgingProgram) -> set[int]:
-    """Blocks a scheduler must keep: the show's pinned blocks, or (for a parsed program, whose
-    Show has none) every special-attraction block, which an instance would pin (SPEC H11)."""
-    ids = {id(sb) for sb in program.show.pinned}
-    ids |= {id(sb) for sb in program.blocks if sb.block.events[0].competition in PINNED_COMPETITIONS}
-    return ids
+    """Blocks a scheduler must keep: the show's pinned blocks (SPEC H11)."""
+    return {id(sb) for sb in program.show.pinned}
 
 
 def _counts(c: EntryCounts | None) -> str:
@@ -66,7 +62,7 @@ def render_text(program: JudgingProgram, params: ShowParameters | None = None,
             if sb.judge != judge:
                 judge = sb.judge
                 out.append(f"  {judge.name}")
-            mark = f"  (pinned: {sb.block.events[0].competition.value})" if id(sb) in pinned else ""
+            mark = "  (pinned)" if id(sb) in pinned else ""
             out.append(f"    {fmt_time(sb.start)} – {fmt_time(int(round(sb.end)))}   "
                        f"{sb.block.entries} dogs, {sb.block.duration:.0f} min{mark}")
             for e, off in sb.block.offsets():

@@ -4,21 +4,17 @@
                  bis_judge
     rings.csv    number, size (S/M/L/XL, blank means XL), group (1 for a group ring)
     judges.csv   name, permit, minutes_per_dog (blank: the AKC rate)
-    events.csv   one row per thing judged, in running-order preference: judge, event, kind,
-                 competition, breed, entries, the five class counts (optional), and pin_ring and
-                 pin_start for a fixed commitment (H11). Pinned rows with the same judge,
-                 ring and start form one block, in file order. Their ring need not be in rings.csv
-                 (obedience and rally run in their own rings)
+    events.csv   one row per breed event, in running-order preference: judge, event, breed, and
+                 pin_ring and pin_start for a fixed commitment (H11). Pinned rows with the same
+                 judge, ring and start form one block, in file order
     groups.csv   group, judge
+    entries.csv  one row per dog: dog, sex, status, exhibitor, judge, event. Every event needs at
+                 least one; its entry total and breakdown are counted from them. See
+                 io/entries_csv.py
+    exhibitors.csv  optional: needed only when some entry names an exhibitor. Without exhibitors,
+                 or with none signed up for conflict resolution, conflicts play no part
 
-Optional, together, for exhibitor conflicts (S1):
-
-    exhibitors.csv  id, professional, registered, team. One row per person who takes dogs into
-                 the ring: each member of a professional handler's team is an exhibitor of their
-                 own, opts in (registered = 1) on their own, and ``team`` only labels them
-    entries.csv  dog, exhibitor, status (class or champion), judge, event, competition: one row
-                 per dog in a breed event. Events without rows are fine; the solver minimizes
-                 conflicts only for registered exhibitors
+Only regular breed events of the all-breed show are held (U 2026-11-13).
 
 CSV is only a serialization of the domain model: reading gives a ``Show`` with no schedule.
 """
@@ -28,13 +24,10 @@ from __future__ import annotations
 import csv
 from pathlib import Path
 
-from optdog.io.program_csv import read_entries_for, write_entries
-
 from optdog.breeds import BreedCatalog, default_catalog
+from optdog.io.entries_csv import check_regular, entries_of, read_entry_table, write_entries
 from optdog.domain import (
     Block,
-    Competition,
-    EntryCounts,
     EventKind,
     Group,
     JudgingEvent,
@@ -45,8 +38,7 @@ from optdog.domain import (
     Show,
 )
 
-COUNTS = ("class_dogs", "class_bitches", "bob_dogs", "bob_bitches", "nonregular")
-EVENT_FIELDS = ("judge", "event", "kind", "competition", "breed", "entries", *COUNTS, "pin_ring", "pin_start")
+EVENT_FIELDS = ("judge", "event", "breed", "pin_ring", "pin_start")
 
 
 def _hhmm(t: int | None) -> str:
@@ -90,16 +82,14 @@ def write_problem(show: Show, out_dir: str | Path) -> None:
     pins = {id(e): sb for sb in show.pinned for e in sb.block.events}
 
     def row(e: JudgingEvent):
-        c = e.counts
         sb = pins.get(id(e))
-        return (e.judge.name, e.name, e.kind.value, e.competition.value, e.breed.name if e.breed else "", e.entries,
-                *("" if c is None else getattr(c, k) for k in COUNTS),
+        return (e.judge.name, e.name, e.breed.name if e.breed else "",
                 sb.ring.number if sb else "", _hhmm(sb.start) if sb else "")
 
+    check_regular(show.events)
     table("events.csv", EVENT_FIELDS, [row(e) for e in show.events])
     table("groups.csv", ("group", "judge"), [(g.value, j.name) for g, j in show.group_judges.items()])
-    if show.entries:
-        write_entries(show.entries, out)
+    write_entries(entries_of(show), out)
 
 
 def read_problem(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Show:
@@ -128,18 +118,24 @@ def read_problem(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Sho
             group_rings.append(ring)
     by_number = {r.number: r for r in rings}
 
+    try:
+        entry_table = read_entry_table(d)
+    except ValueError as err:
+        raise ProblemFormatError(str(err)) from err
     events: list[JudgingEvent] = []
     pinned: dict[tuple[str, int, int], list[JudgingEvent]] = {}
-    for r in rows("events.csv"):
-        where = f"events.csv, {r['event']}"
-        counts = EntryCounts(*(int(r[k]) for k in COUNTS)) if r.get("class_dogs") else None
+    for i, r in enumerate(rows("events.csv"), start=2):
+        where = f"events.csv, line {i}"
         breed = None
         if r["breed"]:
             breed = catalog.get(r["breed"])
             if breed is None:
                 raise ProblemFormatError(f"{where}: breed {r['breed']!r} is not in the AKC catalog")
-        e = JudgingEvent(r["event"], EventKind(r["kind"]), judge(r["judge"], where), int(r["entries"]), breed, counts,
-                         Competition(r["competition"] or Competition.ALL_BREED.value))
+        try:
+            total, counts = entry_table.counts(r["judge"], r["event"], where)
+        except ValueError as err:
+            raise ProblemFormatError(str(err)) from err
+        e = JudgingEvent(r["event"], EventKind.BREED, judge(r["judge"], where), total, breed, counts)
         events.append(e)
         if r.get("pin_ring") or r.get("pin_start"):
             if not (r.get("pin_ring") and r.get("pin_start")):
@@ -156,15 +152,10 @@ def read_problem(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Sho
         group_judges[values[r["group"]]] = judge(r["judge"], f"groups.csv, {r['group']}")
     bis = judge(meta["bis_judge"], "show.csv, bis_judge") if meta.get("bis_judge") else None
     lunch = tuple(_mins(t) for t in meta["lunch_window"].split("-")) if meta.get("lunch_window") else None
-    entries = []
-    present = [n for n in ("exhibitors.csv", "entries.csv") if (d / n).exists()]
-    if len(present) == 1:
-        raise ProblemFormatError(f"{present[0]} needs {'entries.csv' if present[0] == 'exhibitors.csv' else 'exhibitors.csv'} too")
-    if present:
-        try:
-            entries = read_entries_for(d, events)
-        except ValueError as err:
-            raise ProblemFormatError(str(err)) from err
+    try:
+        entries = entry_table.attach(events)
+    except ValueError as err:
+        raise ProblemFormatError(str(err)) from err
     on_panel = {e.judge.name for e in events}
     return Show(name=meta["name"], date=meta["date"], judges=[j for n, j in judges.items() if n in on_panel], events=events,
                 rings=rings, group_judges=group_judges, bis_judge=bis, group_rings=tuple(group_rings),

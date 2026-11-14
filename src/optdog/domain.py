@@ -272,10 +272,18 @@ class JudgingEvent:
 
 
 class EntryStatus(Enum):
-    """How a dog competes in its breed, which decides how long its exhibitor is busy (U)."""
+    """How a dog competes in its breed, which decides when it is judged and how long its exhibitor
+    is busy (U). Judging order: regular class dogs, then bitches, then non-regular classes, then
+    Best of Breed."""
 
-    CLASS = "class"  # regular or non-regular class dog: busy for the whole breed event
+    CLASS = "class"  # regular class dog: busy for the whole breed event
+    NONREGULAR = "nonregular"  # non-regular class (veterans, etc.): busy for the whole breed event, too
     CHAMPION = "champion"  # Best of Breed competition only: busy only for the BOB portion
+
+
+class Sex(Enum):
+    DOG = "D"
+    BITCH = "B"
 
 
 @dataclass(frozen=True)
@@ -299,12 +307,18 @@ class Exhibitor:
 
 @dataclass(frozen=True)
 class Entry:
-    """One dog entered in one breed event, shown by one exhibitor."""
+    """One dog entered in one breed event.
+
+    ``exhibitor`` is None when no one is on record (e.g. entries generated from a published
+    program's counts): such a dog never causes an exhibitor conflict. ``sex`` is None when it is
+    not known; published programs do not split non-regular classes by sex.
+    """
 
     dog: str
     event: "JudgingEvent"
-    exhibitor: Exhibitor
+    exhibitor: Exhibitor | None
     status: EntryStatus
+    sex: Sex | None = None
 
     @property
     def busy_offset(self) -> tuple[float, float]:
@@ -312,6 +326,34 @@ class Entry:
         if self.status is EntryStatus.CHAMPION:
             return self.event.bob_offset, self.event.duration
         return 0.0, self.event.duration
+
+
+def entry_counts(statuses: Iterable[tuple[EntryStatus, Sex | None]]) -> tuple[int, EntryCounts | None]:
+    """An event's entry total and breakdown from its dogs' (status, sex). The breakdown is None
+    when a class dog or champion has no sex, since the program's ``dogs-bitches-(BOB)`` form needs it."""
+    rows = list(statuses)
+    n: dict[tuple[EntryStatus, Sex | None], int] = defaultdict(int)
+    for st, sex in rows:
+        n[st, None if st is EntryStatus.NONREGULAR else sex] += 1
+    if any(n[st, None] for st in (EntryStatus.CLASS, EntryStatus.CHAMPION)):
+        return len(rows), None
+    c, ch = EntryStatus.CLASS, EntryStatus.CHAMPION
+    return len(rows), EntryCounts(n[c, Sex.DOG], n[c, Sex.BITCH], n[ch, Sex.DOG], n[ch, Sex.BITCH],
+                                  n[EntryStatus.NONREGULAR, None])
+
+
+def anonymous_entries(event: JudgingEvent, dog_ids: Iterator[str]) -> list[Entry]:
+    """Dogs for ``event`` as its counts describe them, with no exhibitor: class dogs, class
+    bitches, non-regular entries, then champion dogs and bitches. Without a breakdown, every dog
+    is a class dog of unknown sex."""
+    c = event.counts
+    if c is None:
+        spec = [(EntryStatus.CLASS, None, event.entries)]
+    else:
+        spec = [(EntryStatus.CLASS, Sex.DOG, c.class_dogs), (EntryStatus.CLASS, Sex.BITCH, c.class_bitches),
+                (EntryStatus.NONREGULAR, None, c.nonregular),
+                (EntryStatus.CHAMPION, Sex.DOG, c.bob_dogs), (EntryStatus.CHAMPION, Sex.BITCH, c.bob_bitches)]
+    return [Entry(next(dog_ids), event, None, st, sex) for st, sex, k in spec for _ in range(k)]
 
 
 # --------------------------------------------------------------------------- blocks
@@ -423,7 +465,7 @@ class Show:
     bis_judge: Judge | None = None
     group_rings: tuple[Ring, ...] = ()
     start: Minutes | None = None
-    entries: list[Entry] = field(default_factory=list)  # individual dogs, when known (synthetic for now)
+    entries: list[Entry] = field(default_factory=list)  # individual dogs, when known
     pinned: list[ScheduledBlock] = field(default_factory=list)  # published commitments a program must keep (SPEC H11)
     # When judges' lunch breaks may start. Set ahead of time by the club, usually by when
     # the venue's concessions serve lunch; an input, not a scheduling decision.
@@ -439,7 +481,8 @@ class Show:
     def exhibitors(self) -> list[Exhibitor]:
         seen: dict[str, Exhibitor] = {}
         for en in self.entries:
-            seen.setdefault(en.exhibitor.id, en.exhibitor)
+            if en.exhibitor is not None:
+                seen.setdefault(en.exhibitor.id, en.exhibitor)
         return list(seen.values())
 
     def events_for(self, judge: Judge) -> list[JudgingEvent]:

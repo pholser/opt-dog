@@ -4,8 +4,7 @@
     python -m optdog.analysis.figures        # writes docs/figures.html
 
 One self-contained page: inline SVG, no external resources, each figure with its data table.
-Scores are for conformation only on both sides, and block sizes leave out pinned blocks, which
-no scheduler controls. Rule slack in figure 5 describes the schedule; it does not prove what
+Block sizes leave out pinned blocks, which no scheduler controls. Rule slack in figure 5 describes the schedule; it does not prove what
 relaxing a rule would gain.
 """
 
@@ -18,7 +17,6 @@ from datetime import date
 from pathlib import Path
 
 from optdog.domain import JudgingProgram, fmt_time
-from optdog.instance import conformation_only
 from optdog.params import ShowParameters
 from optdog.solutions import load_day, parsed_days
 from optdog.solve.greedy import greedy_program
@@ -99,7 +97,7 @@ def _slack(program: JudgingProgram, res: ValidationResult, p: ShowParameters) ->
 
 
 def score(program: JudgingProgram, pinned: set[int], p: ShowParameters) -> Scored:
-    view = conformation_only(program)
+    view = program
     res = validate(view, p)
     movable = [sb for sb in view.blocks if id(sb) not in pinned]
     return Scored(
@@ -394,7 +392,7 @@ Days binding: {_e(tally)}. {unbound}This describes these schedules: it doesn't s
 <section><h2>Reading these numbers</h2><ul class="notes">
 <li>Times are planned times at the judges' rates. Published programs are re-timed the same way, so they show what was planned, not what happened on the day.</li>
 <li>Group and Best in Show durations are upper bounds, so finish times run late. Differences between schedules are more reliable than clock times.</li>
-<li>Scores cover conformation only on both sides. Obedience and rally run in their own rings, outside the optimizer.</li>
+<li>Only regular breed events are scheduled. Published programs are read without their sweepstakes, Junior Showmanship, Beginner Puppy, FSS, specialty, obedience and rally events.</li>
 <li>Hard-rule counts leave out V1, a judge over the daily entry limit, which is an input problem no schedule can fix.</li>
 <li>Exhibitor conflicts are left out because they rest on synthetic entries.</li>
 <li>The optimizer gives up to {p.short_block_finish_minutes:g} minutes of finish to avoid a short block. 3a and 3b are the earlier steps: 3b chooses each judge's group order, and 3c also packs the breeds inside each run into full blocks.</li>

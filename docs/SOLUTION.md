@@ -1,6 +1,6 @@
 # opt-dog: the solution as it stands
 
-As of commit `a35dac1` (2026-11-09). Rule numbers (H1, S9 and so on) and their sources are in
+As of 2026-11-14. Rule numbers (H1, S9 and so on) and their sources are in
 [`SPEC.md`](SPEC.md). Per-day results are in [`baseline.md`](baseline.md) and
 [`figures.html`](figures.html).
 
@@ -19,7 +19,9 @@ The main goal is the earliest show finish that breaks no hard rule. It then redu
 ring changes, equipment moves and judge idle time. Every rule traces to an AKC document in
 `docs/akc/`, a decision by the project owner, or evidence from published programs.
 
-Who judges what is an input. The program does not assign judges.
+Who judges what is an input. The program does not assign judges. Only regular breed events
+exist for it: sweepstakes, Junior Showmanship, Beginner Puppy, FSS, specialty, obedience and
+rally events are dropped when published programs are parsed.
 
 ## 2. How it works
 
@@ -118,19 +120,22 @@ A problem directory holds:
 | `show.csv` | Name, date, start, lunch window, BIS judge |
 | `rings.csv` | Number, size, whether it is a group ring |
 | `judges.csv` | Name, permit status, minutes per dog |
-| `events.csv` | Judge, event, kind, breed, entry breakdown, optional pinned ring and start |
+| `events.csv` | Judge, event, breed, optional pinned ring and start |
 | `groups.csv` | Group and its judge |
-| `exhibitors.csv` (optional) | Exhibitor id, professional, signed up for conflict resolution, team |
-| `entries.csv` (optional) | Dog, exhibitor, class or champion, judge, event, competition |
+| `entries.csv` | One row per dog: dog, sex (D/B), status (class, nonregular or champion), exhibitor (may be blank), judge, event |
+| `exhibitors.csv` (only if a dog names an exhibitor) | Exhibitor id, professional, signed up for conflict resolution, team |
 
-Without them, or with no one signed up, the show is planned with no regard to exhibitor
-conflicts: the conflict phases are skipped and the solver goes from structure to times. The two exhibitor files go together. One exhibitor is one person who takes dogs into the ring:
+Every breed's entry total and breakdown are counted from `entries.csv`, and every event needs
+at least one dog. A parsed program carries an `entries.csv` too, generated from its printed
+counts with no exhibitors; `extract` copies it. Without exhibitors, or with no one signed up, the
+show is planned with no regard to exhibitor conflicts: the conflict phases are skipped and the
+solver goes from structure to times. One exhibitor is one person who takes dogs into the ring:
 each member of a professional handler's team is an exhibitor of their own and signs up on
-their own, and `team` is only a label. Events without entry rows are allowed. With registered
-exhibitors present, `solve` runs the conflict phases and reports conflict minutes. `check`
-warns when an event's rows do not match its entry count, when a dog is entered twice in one
-event, and when nobody is signed up. `extract --entries` copies in a directory of these files,
-such as `data/synthetic/bradshaw/<show>/seed-0`.
+their own, and `team` is only a label. With registered exhibitors present, `solve` runs the
+conflict phases and reports conflict minutes. `check` warns when a dog is entered twice in one
+event and when nobody is signed up. `extract --entries` takes the dogs and their exhibitors from
+another directory instead, such as `data/synthetic/bradshaw/<show>/seed-0`, whose counts must
+match the program's.
 
 `check` and `solve` exit with status 2 on input errors. `solve` exits with status 1 and writes
 nothing if the result breaks a hard rule other than V1.
@@ -141,46 +146,48 @@ These cover 11 published all-breed days from one superintendent (Bradshaw), 2022
 
 | Day | Lower bound | Published | 3c | 3c status |
 |---|---|---|---|---|
-| Del Sur 2022-04-30 | 5:47 PM | 7:30 PM | 5:49 PM | Optimal |
+| Del Sur 2022-04-30 | 5:28 PM | 7:30 PM | 5:35 PM | Optimal |
 | Del Sur 2022-05-01 | 5:00 PM | 6:25 PM | 5:00 PM | Optimal |
-| Tucson 2025-11-14 | 6:29 PM | 8:14 PM | 6:39 PM | Optimal |
+| Tucson 2025-11-14 | 6:04 PM | 8:14 PM | 6:04 PM | Optimal |
 | Tucson 2025-11-15 | 6:47 PM | 8:37 PM | 6:52 PM | Optimal |
-| Greater Sierra Vista 2025-11-16 | 7:19 PM | 8:44 PM | 7:19 PM | Optimal |
+| Greater Sierra Vista 2025-11-16 | 5:59 PM | 8:44 PM | 5:59 PM | Optimal |
 | Greater Sierra Vista 2025-11-17 | 6:10 PM | 7:15 PM | 6:10 PM | Optimal |
 | Palm Springs 2026-01-03 | 8:15 PM | 9:20 PM | 8:24 PM | Optimal |
 | Palm Springs 2026-01-04 | 7:44 PM | 8:44 PM | 7:54 PM | Optimal |
 | Palm Springs 2026-01-05 | 9:59 PM | 10:04 PM | 10:04 PM | Feasible, not proven |
-| Sir Francis Drake 2026-09-12 | 6:30 PM | 7:50 PM | 6:33 PM | Feasible, not proven |
-| Sir Francis Drake 2026-09-13 | 7:23 PM | 8:18 PM | 7:27 PM | Feasible, not proven |
+| Sir Francis Drake 2026-09-12 | 6:30 PM | 7:50 PM | 6:30 PM | Optimal |
+| Sir Francis Drake 2026-09-13 | 7:23 PM | 8:18 PM | 7:27 PM | Optimal |
 
 | Total over the 11 days | Published | 3b | 3c |
 |---|---|---|---|
-| Short blocks (under 15 dogs) | 64 | 50 | 22 |
-| Equipment switches in a ring | 421 | 230 | 218 |
-| Judge ring changes | 27 | 12 | 16 |
-| Exhibitor conflict minutes (opted-in, synthetic seed 0) | 16,823 | 8,056 | 7,398 |
-| Judge idle minutes | 1,413 | 2,170 | 1,911 |
-| Mean minutes above the lower bound | 74 | 6 | 4 |
+| Short blocks (under 15 dogs) | 55 | 44 | 14 |
+| Equipment switches in a ring | 358 | 166 | 163 |
+| Judge ring changes (outside lunch) | 21 | 0 | 0 |
+| Exhibitor conflict minutes (opted-in, synthetic seed 0) | 16,937 | 7,401 | 7,541 |
+| Judge idle minutes | 1,258 | 1,911 | 1,549 |
+| Mean minutes above the lower bound | 86 | 7 | 4 |
 
-- Conflicts in 3c are lower than published on every day: 56% lower in total, 51–96% lower on
-  the eight smaller days, and 46–60% lower on the three Palm Springs days, where most
+- Conflicts in 3c are lower than published on every day: 55% lower in total, 39–98% lower on
+  the eight smaller days, and 47–61% lower on the three Palm Springs days, where most
   conflict minutes are.
-- Judge idle is the price. Before the conflict phases, 3c had 1,138 idle minutes; it now has
-  1,911, more than the published programs. The budget allows up to twice the least idle the
-  idle phase finds.
+- Judge idle is the price: 3c has 1,549 idle minutes, more than the published programs' 1,258.
+  The budget allows up to twice the least idle the idle phase finds.
+- No judge changes rings outside lunch in 3b or 3c. The 12 and 16 changes of earlier runs came
+  from pinned Beginner Puppy, FSS and specialty blocks, which are no longer scheduled.
 - Phase limits mattered. With 60-second idle and conflict phases, 3c had 10,361 conflict
   minutes and 2,183 idle. A 180-second idle phase tightened the budget (Palm Springs 1/5:
   cap 511 → about 338, idle used 511 → 239), giving 10,194 and 1,703. A 180-second conflict
-  phase then gave 7,408 and 1,913 (7,398 and 1,911 after Sir Francis Drake 9/12 was re-solved).
+  phase then gave 7,408 and 1,913. Those runs still scheduled the non-regular events; with
+  regular breed events only, 3c has 7,541 and 1,549.
 - Per-day figures are one sample. The conflict phase never proves a minimum, and between runs
   a day's conflicts can move by a factor of three (Greater Sierra Vista 11/17: 102, 301 and 81)
   and its idle by a factor of two (Tucson 11/14: 157 and 308).
 
-- 11 of the 22 short blocks in 3c are a judge's whole assignment of under 15 dogs, so they cannot
+- 3 of the 14 short blocks in 3c are a judge's whole assignment of under 15 dogs, so they cannot
   be made larger.
-- 3c breaks no hard rule on any day, except V1 on Tucson 11/15. That is a panel limit the published
-  program breaks too.
-- 8 of the 11 published programs break at least one hard rule as this project defines them.
+- 3c breaks no hard rule on any day. No judge is over the V1 limit once juniors and sweepstakes
+  are left out (the heaviest has 175 entries).
+- 6 of the 11 published programs break at least one hard rule as this project defines them.
 
 **How to read the clock times.** Group and BIS durations are deliberately conservative upper
 bounds (SPEC §2.5), so modeled finishes run later than real shows close. Published programs are
@@ -192,7 +199,7 @@ packing step fixed, at the trade price of 10 minutes per short block.
 
 **Runtime.** A full batch of bound and all four steps took about 57 minutes for 11 days, or 2–9
 minutes per day, before the conflict phases. With them, at 180 seconds each, the batch took
-about 3.8 hours, or 14–27 minutes per day.
+about 3.5 hours, or 13–25 minutes per day.
 
 **Ring-size experiment.** Three days, with invented layouts, because no published program states
 ring sizes. Each cell lists Del Sur 5/1, Palm Springs 1/4 and Sir Francis Drake 9/12.
@@ -207,7 +214,7 @@ Limiting ring sizes barely moved the finish, but cost ring changes and idle time
 are rough, because the last phase runs out of time on these runs, and they predate the change that
 counts any wait beyond a lunch's length as idle, so they understate it.
 
-**Tests.** All 278 pass, in about 7–11 minutes. The solver tests use short time limits, so they
+**Tests.** All 292 pass, in about 6 minutes. The solver tests use short time limits, so they
 should run with nothing else competing for CPU.
 
 ## 5. Unresolved and unaddressed
@@ -244,7 +251,7 @@ should run with nothing else competing for CPU.
 |---|---|
 | 3c is not globally optimal | Packing fixes the breed order before the main model runs. A full per-breed circuit was rejected as too large (2,000–4,800 arcs per day, each with a constraint per ring) |
 | Three days unproven | Sir Francis Drake 9/12 and 9/13, and in this run Palm Springs 1/5, end the finish and trade phases at the time limit. Palm Springs 1/5 was proven in an earlier run with the same finish, so its result depends on the run |
-| Last phases time out | The idle and conflict phases hit their limits on every day, and the structure phase on five days (the three Palm Springs days and both Sir Francis Drake days), so none of them is proven minimal |
+| Last phases time out | In 3c the conflict phase hits its limit on every day, the idle phase on 10 of 11, and the structure phase on two (Palm Springs 1/5 and Sir Francis Drake 9/13), so none of them is proven minimal |
 | No ring symmetry breaking | The model has none. With mixed ring sizes it would need to respect size classes. It may also reduce the idle cost seen in the ring experiment |
 | Lower bound ignores ring size | Still valid, but weaker when ring sizes bind |
 | One unexplained solver failure | A test once ended with no solution after 3.5 seconds, under a 20-second limit. It did not recur, but the cause was never found |
@@ -265,8 +272,8 @@ should run with nothing else competing for CPU.
 
 - Assigning or reassigning judges, including fixing a V1 overload
 - Multi-day clusters: each day is planned alone
-- Obedience and rally, beyond pinning a judge's commitments
-- Exhibitors entered in both conformation and obedience or rally
+- Every event other than regular breed judging: sweepstakes, Junior Showmanship, Beginner Puppy,
+  FSS open shows, concurrent specialties, obedience and rally
 
 ### Documentation debt
 

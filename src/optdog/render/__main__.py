@@ -19,7 +19,8 @@ import sys
 from pathlib import Path
 
 from optdog.instance import instance_from_program
-from optdog.io.program_csv import read_entries, read_program
+from optdog.io.entries_csv import read_entries
+from optdog.io.program_csv import read_program
 from optdog.params import ShowParameters
 from optdog.render.compare import render_compare
 from optdog.render.html import render_html
@@ -52,7 +53,7 @@ def main(argv: list[str] | None = None) -> int:
     human = read_program(a.show_dir)
     synth = ROOT / "data" / "synthetic" / a.show_dir.parent.name / a.show_dir.name / f"seed-{a.seed}"
     if synth.exists():
-        human.show.entries = read_entries(synth, human)
+        human.show.entries = read_entries(synth, human.show.events)
     params = ShowParameters()
     programs = []
     if not a.greedy_only:

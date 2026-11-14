@@ -7,7 +7,7 @@ import pytest
 
 from optdog.breeds import default_catalog
 from optdog.domain import (
-    VARIETY_GROUPS, Block, Competition, EventKind, GroupsPlan, JudgingEvent, JudgingProgram, Judge, Ring,
+    VARIETY_GROUPS, Block, Competition, EventKind, JudgingEvent, Judge, Ring,
     ScheduledBlock, Show,
 )
 from optdog.instance import instance_from_program
@@ -139,40 +139,13 @@ def test_ordering_leaves_no_idle_time_in_a_judges_day_when_nothing_forces_it():
     assert sum(b.start - a.end for a, b in zip(seq, seq[1:])) < 5  # the grid may round a start up
 
 
-def test_obedience_is_a_fixed_commitment_for_a_judge_who_also_judges_conformation():
-    d = Judge("Mrs. D")  # obedience only: not part of the problem
-    obed = JudgingEvent("Obedience-Novice A", EventKind.OTHER, A, 20, competition=Competition.OBEDIENCE)
-    only = JudgingEvent("Obedience-Open A", EventKind.OTHER, d, 20, competition=Competition.OBEDIENCE)
-    boxer, rott, pug = ev("Boxer", A, 25), ev("Rottweiler", A, 25), ev("Pug", B, 10)
-    blocks = [ScheduledBlock(Block(A, (boxer,)), Ring(2), 480), ScheduledBlock(Block(A, (rott,)), Ring(2), 660),
-              ScheduledBlock(Block(B, (pug,)), Ring(3), 480),
-              ScheduledBlock(Block(A, (obed,)), Ring(9), 545), ScheduledBlock(Block(d, (only,)), Ring(8), 480)]
-    base = show_of([boxer, rott, pug, obed, only], (A, B, d))
-    plan = GroupsPlan((Ring(1),), 780, tuple(VARIETY_GROUPS), dict(base.group_judges), G)
-    show = instance_from_program(JudgingProgram(base, blocks, [], plan))
-    assert d not in show.judges and only not in show.events
-    assert Ring(9) not in show.rings and any(sb.block.events == (obed,) for sb in show.pinned)
-    res = solve_ordering(show, P0)
-    assert res.program is not None
-    assert validate(res.program, P0).violations == []
-    assert not any(sb.ring == Ring(9) for sb in res.program.blocks if sb.block.events != (obed,))
-    seq = res.program.judge_schedule(A)
-    assert any(sb.block.events == (obed,) for sb in seq)
-    assert all(a.end <= b.start for a, b in zip(seq, seq[1:]))
-    # the commitment holds the judge, not one of the conformation rings
-    assert relaxed_lower_bound(show, P0).value <= res.finish + 1e-6
-
-
 def test_short_blocks_are_traded_for_finish_up_to_the_parameter():
-    # A's commitment at 8:30 splits the morning: judge one breed before it and one after, for two
+    # A's pinned block at 8:30 splits the morning: judge one breed before it and one after, for two
     # short blocks and the fastest finish, or both after it, as one full block, about 24 min later.
-    obed = JudgingEvent("Obedience-Novice A", EventKind.OTHER, A, 20, competition=Competition.OBEDIENCE)
+    akita = ev("Akita", A, 20)
     boxer, rott = ev("Boxer", A, 10), ev("Rottweiler", A, 10)
-    blocks = [ScheduledBlock(Block(A, (boxer,)), Ring(2), 480), ScheduledBlock(Block(A, (obed,)), Ring(9), 510),
-              ScheduledBlock(Block(A, (rott,)), Ring(2), 570)]
-    base = show_of([boxer, rott, obed], (A,))
-    plan = GroupsPlan((Ring(1),), 780, tuple(VARIETY_GROUPS), dict(base.group_judges), G)
-    show = instance_from_program(JudgingProgram(base, blocks, [], plan))
+    show = show_of([boxer, rott, akita], (A,))
+    show.pinned = [ScheduledBlock(Block(A, (akita,)), Ring(3), 510)]
 
     def solve(minutes):
         return solve_formation(show, replace(P0, short_block_finish_minutes=minutes))
@@ -186,7 +159,7 @@ def test_short_blocks_are_traded_for_finish_up_to_the_parameter():
     assert dear.phases[0].objective == first.finish == dear.bound  # the fastest is still reported
     assert dear.phases[1].name == "trade" and dear.optimal
     assert validate(dear.program, P0).violations == []
-    assert sum(sb.block.entries < P0.short_block_dogs for sb in dear.program.blocks if sb.block.events != (obed,)) == 0
+    assert sum(sb.block.entries < P0.short_block_dogs for sb in dear.program.blocks if sb.block.events != (akita,)) == 0
 
 
 def test_price_of_short_blocks_is_skipped_when_blocks_are_fixed():

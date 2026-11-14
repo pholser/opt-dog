@@ -18,8 +18,8 @@ Hard constraints checked here:
     V1  judge daily entry limit (input check)
 Not checkable from a program alone: H5 (published order is taken as given),
 H10 (sequencing is built into the group timeline), H11 (pinned events are not
-recorded in parsed programs). S1 (exhibitor conflicts) is scored when the show
-has entries (``Show.entries``; synthetic for now).
+recorded in parsed programs). S1 (exhibitor conflicts) is scored when some dog has an
+exhibitor on record (``Show.exhibitors``; synthetic for now).
 
 Soft costs scored: S2 ring changes, S3 equipment switches, S4 group switches,
 S5 judge idle, S8 dogs over the final-segment limit (AKC's 50-dog final-segment
@@ -340,7 +340,7 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
 
     # ---------------------------------------------------------------- S1 exhibitor conflicts
     conflict_minutes = None
-    if program.show.entries:
+    if program.show.exhibitors:
         from optdog.conflicts import exhibitor_conflicts
 
         cr = exhibitor_conflicts(program, p.exhibitor_travel_minutes)

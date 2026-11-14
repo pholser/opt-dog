@@ -13,12 +13,13 @@ from __future__ import annotations
 
 import json
 from collections import defaultdict
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
 from pathlib import Path
 
 from optdog.domain import Block, Break, GroupsPlan, JudgingEvent, JudgingProgram, ScheduledBlock, Show
 from optdog.instance import instance_from_program
-from optdog.io.program_csv import read_entries, read_program, write_program
+from optdog.io.entries_csv import read_entries
+from optdog.io.program_csv import read_program, write_program
 from optdog.solve.cpsat import PhaseStats, PlacementResult
 from optdog.solve.relaxation import RelaxedBound
 
@@ -38,7 +39,9 @@ def _pin_key(sb: ScheduledBlock) -> tuple:
 
 
 def save_result(result: PlacementResult, out_dir: Path) -> None:
-    write_program(result.program, out_dir, source="optdog")
+    # the dogs as the counts give them: their synthetic exhibitors stay in data/synthetic
+    program = result.program
+    write_program(replace(program, show=replace(program.show, entries=[])), out_dir, source="optdog")
     (out_dir / "solve.json").write_text(json.dumps({
         "finish": result.finish, "bound": result.bound, "costs": result.costs,
         "phases": [asdict(ph) for ph in result.phases]}, indent=1) + "\n")
@@ -91,7 +94,7 @@ def read_day(day: Path, seed: int = 0) -> tuple[JudgingProgram, Show]:
     human = read_program(day)
     synth = SYNTH / day.parent.name / day.name / f"seed-{seed}"
     if synth.exists():
-        human.show.entries = read_entries(synth, human)
+        human.show.entries = read_entries(synth, human.show.events)
     return human, instance_from_program(human)
 
 

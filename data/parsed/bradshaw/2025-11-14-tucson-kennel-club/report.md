@@ -33,6 +33,17 @@ Source: `data/raw/bradshaw/843.pdf` (FRIDAY)
 | Total Dog Entries in Show (all-breed section) | 1101 | 1100 | **MISMATCH** |
 | breed index rows (breeds) matching listings | 149 | 149 | ok |
 
+## Not kept (only regular breed events are)
+
+- breed (beginner-puppy): 24
+- breed (specialty): 1
+- group (beginner-puppy): 8
+- junior-showmanship (all-breed): 1
+- junior-showmanship (specialty): 1
+- other (obedience): 12
+- other (rally): 9
+- sweepstakes (specialty): 2
+
 ## Notes
 
 - Total Dogs in Show (unique dogs, informational): 1046; breed entries parsed: 1000

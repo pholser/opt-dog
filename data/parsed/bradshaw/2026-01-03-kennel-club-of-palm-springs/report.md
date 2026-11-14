@@ -55,6 +55,14 @@ Source: `data/raw/bradshaw/603.pdf` (SATURDAY)
 | Total Dog Entries in Show (all-breed section) | 2370 | 2368 | **MISMATCH** |
 | breed index rows (breeds) matching listings | 176 | 176 | ok |
 
+## Not kept (only regular breed events are)
+
+- breed (fss-open): 12
+- junior-showmanship (all-breed): 1
+- other (obedience): 13
+- other (rally): 9
+- sweepstakes (all-breed): 8
+
 ## Notes
 
 - Total Dogs in Show (unique dogs, informational): 2247; breed entries parsed: 2137

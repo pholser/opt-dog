@@ -7,7 +7,8 @@ from optdog.domain import (
     Block, EntryCounts, Entry, EntryStatus, EventKind, Exhibitor, JudgingEvent, JudgingProgram, Judge, Ring,
     ScheduledBlock, Show,
 )
-from optdog.io.program_csv import read_entries, read_program, write_entries
+from optdog.io.entries_csv import read_entries, write_entries
+from optdog.io.program_csv import read_program
 from optdog.synth.exhibitors import ExhibitorModel, generate
 
 CAT = default_catalog()
@@ -79,9 +80,14 @@ def test_generator_matches_entry_counts_and_is_deterministic():
     entries = generate(p.show, ExhibitorModel(seed=1))
     per_event = Counter((id(e.event), e.status) for e in entries)
     for e in p.show.events:
-        if e.kind is EventKind.BREED and e.competition.value == "all-breed" and e.counts:
-            assert per_event[(id(e), EntryStatus.CLASS)] == e.counts.before_bob
+        if e.counts:
+            assert per_event[(id(e), EntryStatus.CLASS)] == e.counts.class_dogs + e.counts.class_bitches
+            assert per_event[(id(e), EntryStatus.NONREGULAR)] == e.counts.nonregular
             assert per_event[(id(e), EntryStatus.CHAMPION)] == e.counts.champions
+    # the dogs are the show's own: only their exhibitors are made up
+    assert sorted((x.dog, id(x.event), x.status, x.sex) for x in entries) == sorted(
+        (x.dog, id(x.event), x.status, x.sex) for x in p.show.entries)
+    assert all(x.exhibitor is None for x in p.show.entries)
     again = generate(p.show, ExhibitorModel(seed=1))
     assert [(x.dog, x.exhibitor.id) for x in entries] == [(x.dog, x.exhibitor.id) for x in again]
     assert [(x.dog, x.exhibitor.id) for x in generate(p.show, ExhibitorModel(seed=2))] != [
@@ -121,10 +127,16 @@ def test_entries_csv_round_trip(tmp_path):
     p = _palm_springs()
     entries = generate(p.show)
     write_entries(entries, tmp_path)
-    back = read_entries(tmp_path, p)
-    assert [(e.dog, e.exhibitor, e.status, e.event is f.event) for e, f in zip(entries, back)] == [
-        (e.dog, e.exhibitor, e.status, True) for e in entries
-    ]
+    back = read_entries(tmp_path, p.show.events)
+    key = lambda e: (e.dog, e.exhibitor, e.status, e.sex, id(e.event))  # noqa: E731
+    assert sorted(map(key, back)) == sorted(map(key, entries))
+
+
+def test_dogs_with_no_exhibitor_never_conflict():
+    pugs = ev("Pug", A, EntryCounts(10, 10, 3, 2, 0))
+    boxers = ev("Boxer", B, EntryCounts(5, 5, 0, 0, 0))
+    nobody = [Entry("d1", pugs, None, EntryStatus.CLASS), Entry("d2", boxers, None, EntryStatus.CLASS)]
+    assert exhibitor_conflicts(prog([(pugs, 1, 480), (boxers, 2, 480)], nobody), 2).minutes == 0
 
 
 def test_conflicts_counted_by_breed_not_by_dog():

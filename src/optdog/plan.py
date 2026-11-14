@@ -4,8 +4,9 @@
     python -m optdog.plan solve <problem dir> --out <dir> [--html chart.html] [--time-limit 60]
     python -m optdog.plan extract <parsed program dir> <problem dir> [--entries <dir>]
 
-``extract`` writes a published show's inputs; ``--entries`` adds exhibitors and entries from a
-directory with ``exhibitors.csv`` and ``entries.csv`` (e.g. data/synthetic/<source>/<show>/seed-0).
+``extract`` writes a published show's inputs, with its dogs generated from the printed counts and
+no exhibitors; ``--entries`` takes the dogs, with their exhibitors, from a directory with
+``entries.csv`` and ``exhibitors.csv`` instead (e.g. data/synthetic/<source>/<show>/seed-0).
 
 Exhibitor information is optional: without it, or with no one signed up for conflict
 resolution, the program is planned with no regard to exhibitor conflicts.
@@ -27,7 +28,8 @@ from optdog.conflicts import exhibitor_conflicts
 from optdog.domain import VARIETY_GROUPS, Show, fmt_time
 from optdog.instance import instance_from_program
 from optdog.io.problem_csv import ProblemFormatError, read_problem, write_problem
-from optdog.io.program_csv import read_entries, read_program, write_program
+from optdog.io.entries_csv import read_entries
+from optdog.io.program_csv import read_program, write_program
 from optdog.params import ShowParameters
 from optdog.render.html import render_html
 from optdog.render.text import render_text
@@ -111,22 +113,16 @@ def check_problem(show: Show, params: ShowParameters | None = None) -> list[Issu
     clashes(lambda sb: sb.ring.number, "Ring {}")
     clashes(lambda sb: sb.judge.name, "{}")
 
-    # exhibitors and entries (optional)
-    if show.entries:
-        rows: dict[int, int] = defaultdict(int)
-        dogs: dict[tuple[str, int], int] = defaultdict(int)
-        for en in show.entries:
-            rows[id(en.event)] += 1
-            dogs[en.dog, id(en.event)] += 1
-        for e in show.events:
-            if rows[id(e)] and rows[id(e)] != e.entries:
-                warn(e.name, f"{rows[id(e)]} rows in entries.csv for {e.entries} entries")
-        names = {id(e): e.name for e in show.events}
-        for (dog, ev), n in dogs.items():
-            if n > 1:
-                warn(names[ev], f"dog {dog} is entered {n} times")
-        if not any(en.exhibitor.registered for en in show.entries):
-            warn("exhibitors.csv", "no exhibitor is signed up for conflict resolution, so conflicts are not scheduled")
+    # dogs and exhibitors
+    dogs: dict[tuple[str, int], int] = defaultdict(int)
+    for en in show.entries:
+        dogs[en.dog, id(en.event)] += 1
+    names = {id(e): e.name for e in show.events}
+    for (dog, ev), n in dogs.items():
+        if n > 1:
+            warn(names[ev], f"dog {dog} is entered {n} times")
+    if show.exhibitors and not any(x.registered for x in show.exhibitors):
+        warn("exhibitors.csv", "no exhibitor is signed up for conflict resolution, so conflicts are not scheduled")
     return out
 
 
@@ -153,13 +149,13 @@ def main(argv: list[str] | None = None) -> int:
     e = sub.add_parser("extract", help="write a published program's inputs as a problem")
     e.add_argument("program", type=Path)
     e.add_argument("problem", type=Path)
-    e.add_argument("--entries", type=Path, help="a directory with exhibitors.csv and entries.csv for this show")
+    e.add_argument("--entries", type=Path, help="a directory with entries.csv and exhibitors.csv for this show")
     a = ap.parse_args(argv)
 
     if a.command == "extract":
         program = read_program(a.program)
         if a.entries:
-            program.show.entries = read_entries(a.entries, program)
+            program.show.entries = read_entries(a.entries, program.show.events)
         write_problem(instance_from_program(program), a.problem)
         print(f"wrote {a.problem}", file=sys.stderr)
         return 0
@@ -188,7 +184,7 @@ def main(argv: list[str] | None = None) -> int:
         print("the schedule breaks hard rules: not written", file=sys.stderr)
         return 1
     print(f"finish {fmt_time(int(round(res.finish)))} ({res.status.lower()})", file=sys.stderr)
-    registered = {en.exhibitor.id for en in show.entries if en.exhibitor.registered}
+    registered = {x.id for x in show.exhibitors if x.registered}
     if registered:
         report = exhibitor_conflicts(res.program, params.exhibitor_travel_minutes)
         print(f"exhibitor conflicts: {report.minutes:.0f} min, "

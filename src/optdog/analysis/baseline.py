@@ -49,7 +49,7 @@ def render(params: ShowParameters | None = None) -> str:
         "- **Comb. LB**: the combinatorial `max(judge-chain, ring-capacity)` bound (`solve/bounds.py`).",
         "- **Human**: the published program, re-timed by the validator (groups start at the published time).",
         "- **Greedy**: `solve/greedy.py` on the instance derived from the same program",
-        "  (special-attraction blocks pinned, all-breed events re-planned).",
+        "  (regular breed events only, all re-planned).",
         "- **CP**: CP-SAT placement (`solve/cpsat.py`, step 1) of the greedy's blocks: rings, times,",
         "  lunches and group order re-optimized; *opt* = proven optimal for those blocks.",
         "- **3a**: CP-SAT block formation (`solve_formation`): the greedy's running order per judge,",
@@ -115,7 +115,7 @@ def render(params: ShowParameters | None = None) -> str:
         "",
         "Total S1 minutes: " + ", ".join(f"{k} {v:,.0f}" for k, v in s1.items()) + ".",
         "",
-        "Hard-constraint codes: V1 is a judge over 175 entries, an input problem that no schedule can fix.",
+        "Hard-constraint codes are those of SPEC §4. V1 (a judge over 175 entries) is an input problem that no schedule can fix.",
         "",
     ]
     return "\n".join(lines)
