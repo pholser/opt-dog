@@ -102,7 +102,7 @@ Run these from the repository root with `.venv/bin/python`.
 # Plan a show from inputs alone
 python -m optdog.plan check   <problem dir>
 python -m optdog.plan solve   <problem dir> --out <dir> --html chart.html --time-limit 60
-python -m optdog.plan extract <parsed program dir> <problem dir>   # a published show's inputs
+python -m optdog.plan extract <parsed program dir> <problem dir> [--entries <dir>]   # a published show's inputs
 
 # Work with the published shows
 python -m optdog.analysis.solve_all [--step packing]   # solve and save to data/solved/
@@ -120,6 +120,16 @@ A problem directory holds:
 | `judges.csv` | Name, permit status, minutes per dog |
 | `events.csv` | Judge, event, kind, breed, entry breakdown, optional pinned ring and start |
 | `groups.csv` | Group and its judge |
+| `exhibitors.csv` (optional) | Exhibitor id, professional, signed up for conflict resolution, team |
+| `entries.csv` (optional) | Dog, exhibitor, class or champion, judge, event, competition |
+
+The two exhibitor files go together. One exhibitor is one person who takes dogs into the ring:
+each member of a professional handler's team is an exhibitor of their own and signs up on
+their own, and `team` is only a label. Events without entry rows are allowed. With registered
+exhibitors present, `solve` runs the conflict phases and reports conflict minutes. `check`
+warns when an event's rows do not match its entry count, when a dog is entered twice in one
+event, and when nobody is signed up. `extract --entries` copies in a directory of these files,
+such as `data/synthetic/bradshaw/<show>/seed-0`.
 
 `check` and `solve` exit with status 2 on input errors. `solve` exits with status 1 and writes
 nothing if the result breaks a hard rule other than V1.
@@ -145,22 +155,22 @@ These cover 11 published all-breed days from one superintendent (Bradshaw), 2022
 | Total over the 11 days | Published | 3b | 3c |
 |---|---|---|---|
 | Short blocks (under 15 dogs) | 64 | 50 | 22 |
-| Equipment switches in a ring | 421 | 231 | 216 |
-| Judge ring changes | 27 | 11 | 15 |
-| Exhibitor conflict minutes (opted-in, synthetic seed 0) | 16,823 | 8,062 | 7,408 |
-| Judge idle minutes | 1,413 | 2,169 | 1,913 |
+| Equipment switches in a ring | 421 | 230 | 218 |
+| Judge ring changes | 27 | 12 | 16 |
+| Exhibitor conflict minutes (opted-in, synthetic seed 0) | 16,823 | 8,056 | 7,398 |
+| Judge idle minutes | 1,413 | 2,170 | 1,911 |
 | Mean minutes above the lower bound | 74 | 6 | 4 |
 
 - Conflicts in 3c are lower than published on every day: 56% lower in total, 51–96% lower on
   the eight smaller days, and 46–60% lower on the three Palm Springs days, where most
   conflict minutes are.
 - Judge idle is the price. Before the conflict phases, 3c had 1,138 idle minutes; it now has
-  1,913, more than the published programs. The budget allows up to twice the least idle the
+  1,911, more than the published programs. The budget allows up to twice the least idle the
   idle phase finds.
 - Phase limits mattered. With 60-second idle and conflict phases, 3c had 10,361 conflict
   minutes and 2,183 idle. A 180-second idle phase tightened the budget (Palm Springs 1/5:
   cap 511 → about 338, idle used 511 → 239), giving 10,194 and 1,703. A 180-second conflict
-  phase then gave 7,408 and 1,913.
+  phase then gave 7,408 and 1,913 (7,398 and 1,911 after Sir Francis Drake 9/12 was re-solved).
 - Per-day figures are one sample. The conflict phase never proves a minimum, and between runs
   a day's conflicts can move by a factor of three (Greater Sierra Vista 11/17: 102, 301 and 81)
   and its idle by a factor of two (Tucson 11/14: 157 and 308).
@@ -205,7 +215,6 @@ should run with nothing else competing for CPU.
 
 | Item | Detail |
 |---|---|
-| Exhibitor input for planning | The conflict phase runs only when a show has entries, and the problem format has no exhibitor file, so `python -m optdog.plan` cannot use it yet. `baseline.md` reports them for every step |
 | Ring size by entries | Show Manual §6 also requires rings large enough for "the class with the largest number of entries". Only breed size is modeled. Entry thresholds are undecided |
 | Similar-size dogs in a block | Show Manual §6. Not modeled. It would interact with 3c packing |
 | Ring proximity | Show Manual §6. Needs venue layouts, and `adj` from SPEC §2.2 is not implemented |
@@ -225,7 +234,7 @@ should run with nothing else competing for CPU.
 | "Larger breeds" | The ground / table / ramp rule is a proxy. Individual breeds may need overrides |
 | Group and BIS durations | Conservative by decision, so absolute finish times are not calibrated against real shows |
 | Why humans start groups later | The model can start groups earlier than published programs. SPEC §8 lists possible causes that are not modeled |
-| Exhibitor data model | Synthetic only. How realistic it needs to be is undecided |
+| Exhibitor data model | Synthetic only. The problem format accepts real entries, but no real entry data has been tried, and nothing reads a superintendent's entry export. How realistic synthetic data needs to be is undecided |
 | Conflicts against judge idle | Settled for now with an idle budget (default 2 × least idle). Conflicts first had cut conflicts more but let idle grow to 361 and 1,243 minutes on two trial days. With the budget, Del Sur 5/1 went from 138 to 9 conflict minutes (idle 45 → 88), and Palm Springs 1/4 from 3,524 to 2,695 (idle 131 → 238). On big days the budget limits how many conflicts are removed. The budget is a multiple, so a day whose least idle is 0 cannot spend idle on conflicts. A per-judge cap is not tried |
 
 ### Solver limits

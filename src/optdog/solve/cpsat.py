@@ -132,7 +132,7 @@ class PhaseStats:
 @dataclass
 class PlacementResult:
     program: JudgingProgram | None
-    finish: float | None  # BIS end of the returned schedule, minutes after midnight (model value)
+    finish: float | None  # BIS end of the returned schedule, minutes after midnight, as the validator times it
     bound: float | None  # CP-SAT's proven lower bound on the finish for this model (from phase 1)
     phases: list[PhaseStats] = field(default_factory=list)
     costs: dict[str, float] = field(default_factory=dict)  # structure costs of the returned schedule
@@ -365,6 +365,11 @@ def _solve(m: "_Model", o: PlacementOptions, hint_prog: JudgingProgram | None) -
         m.model.Minimize(m.finish)  # fall back to the last good solution (kept as the hint)
         solver.Solve(m.model)
     res.program = m.extract(solver)
+    # Group starts are only bounded below, so a phase that stops at its limit can leave them
+    # later than needed. Report the finish the program itself gives, as the validator times it.
+    timeline = res.program.group_timeline(judge_travel_minutes=m.p.judge_travel_minutes)
+    if timeline is not None:
+        res.finish = round(timeline.finish, 1)  # the model works in tenths of a minute
     res.costs = {k: float(solver.Value(v)) for k, v in m.cost_terms.items()}
     res.idle = solver.Value(m.idle) / SCALE
     return res

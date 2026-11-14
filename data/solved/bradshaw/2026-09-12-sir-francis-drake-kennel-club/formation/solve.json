@@ -1,5 +1,5 @@
 {
- "finish": 1120.4,
+ "finish": 1120.3999999999999,
  "bound": 1115.4,
  "costs": {
   "ring_changes": 0.0,
@@ -18,42 +18,42 @@
    "status": "OPTIMAL",
    "objective": 1115.4,
    "bound": 1115.4,
-   "seconds": 1.40096624798025
+   "seconds": 0.9499437449849211
   },
   {
    "name": "trade",
    "status": "OPTIMAL",
    "objective": 1170.4,
    "bound": 1170.4,
-   "seconds": 3.964650342008099
+   "seconds": 2.2614833649713546
   },
   {
    "name": "structure",
    "status": "OPTIMAL",
    "objective": 166.0,
    "bound": 166.0,
-   "seconds": 5.102209354983643
+   "seconds": 3.3173414790071547
   },
   {
    "name": "idle",
    "status": "OPTIMAL",
    "objective": 92170.4,
    "bound": 92170.4,
-   "seconds": 99.98541076699621
+   "seconds": 41.41350234701531
   },
   {
    "name": "conflicts",
    "status": "OPTIMAL",
    "objective": 46.4,
    "bound": 46.4,
-   "seconds": 31.433205295994412
+   "seconds": 8.511288973968476
   },
   {
    "name": "times",
    "status": "OPTIMAL",
    "objective": 98311.6,
    "bound": 98311.6,
-   "seconds": 21.872888223006157
+   "seconds": 10.04559962201165
   }
  ]
 }

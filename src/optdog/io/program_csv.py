@@ -217,18 +217,53 @@ def write_entries(entries, out_dir: str | Path) -> None:
 
 def read_entries(in_dir: str | Path, program: JudgingProgram) -> list:
     """Read entries written by ``write_entries``, attached to ``program``'s event objects."""
+    return read_entries_for(in_dir, program.show.events)
+
+
+def read_entries_for(in_dir: str | Path, events) -> list:
+    """Entries from ``exhibitors.csv`` and ``entries.csv``, attached to the given event objects.
+
+    One exhibitor per person who takes dogs into the ring: each member of a professional
+    handler's team is an exhibitor of their own, and ``team`` only labels them. Raises
+    ``ValueError`` naming the file and row for a bad reference or value.
+    """
     from optdog.domain import Entry, EntryStatus, Exhibitor
 
     d = Path(in_dir)
+
+    def flag(value: str, where: str) -> bool:
+        v = (value or "0").strip()
+        if v not in ("0", "1"):
+            raise ValueError(f"{where}: expected 0 or 1, got {value!r}")
+        return v == "1"
+
+    exhibitors: dict[str, Exhibitor] = {}
     with open(d / "exhibitors.csv", newline="") as f:
-        exhibitors = {
-            r["id"]: Exhibitor(r["id"], bool(int(r["professional"])), bool(int(r["registered"])), r.get("team") or None)
-            for r in csv.DictReader(f)
-        }
-    events = {(e.judge.name, e.name, e.competition.value): e for e in program.show.events}
+        for i, r in enumerate(csv.DictReader(f), start=2):
+            where = f"exhibitors.csv, line {i}"
+            if not r.get("id"):
+                raise ValueError(f"{where}: no id")
+            if r["id"] in exhibitors:
+                raise ValueError(f"{where}: exhibitor {r['id']!r} is listed twice")
+            exhibitors[r["id"]] = Exhibitor(r["id"], flag(r.get("professional"), where), flag(r.get("registered"), where),
+                                            r.get("team") or None)
+    by_key: dict[tuple[str, str, str], list] = {}
+    for e in events:
+        by_key.setdefault((e.judge.name, e.name, e.competition.value), []).append(e)
+    statuses = {s.value for s in EntryStatus}
     out = []
     with open(d / "entries.csv", newline="") as f:
-        for r in csv.DictReader(f):
-            ev = events[(r["judge"], r["event"], r["competition"])]
-            out.append(Entry(r["dog"], ev, exhibitors[r["exhibitor"]], EntryStatus(r["status"])))
+        for i, r in enumerate(csv.DictReader(f), start=2):
+            where = f"entries.csv, line {i}"
+            key = (r["judge"], r["event"], r.get("competition") or "all-breed")
+            evs = by_key.get(key)
+            if not evs:
+                raise ValueError(f"{where}: no event {r['event']!r} judged by {r['judge']!r} ({key[2]})")
+            if len(evs) > 1:
+                raise ValueError(f"{where}: event {r['event']!r} for {r['judge']!r} ({key[2]}) is listed more than once")
+            if r["exhibitor"] not in exhibitors:
+                raise ValueError(f"{where}: exhibitor {r['exhibitor']!r} is not in exhibitors.csv")
+            if r["status"] not in statuses:
+                raise ValueError(f"{where}: status {r['status']!r} is not one of {sorted(statuses)}")
+            out.append(Entry(r["dog"], evs[0], exhibitors[r["exhibitor"]], EntryStatus(r["status"])))
     return out

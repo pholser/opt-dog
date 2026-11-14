@@ -11,6 +11,15 @@
                  (obedience and rally run in their own rings)
     groups.csv   group, judge
 
+Optional, together, for exhibitor conflicts (S1):
+
+    exhibitors.csv  id, professional, registered, team. One row per person who takes dogs into
+                 the ring: each member of a professional handler's team is an exhibitor of their
+                 own, opts in (registered = 1) on their own, and ``team`` only labels them
+    entries.csv  dog, exhibitor, status (class or champion), judge, event, competition: one row
+                 per dog in a breed event. Events without rows are fine; the solver minimizes
+                 conflicts only for registered exhibitors
+
 CSV is only a serialization of the domain model: reading gives a ``Show`` with no schedule.
 """
 
@@ -18,6 +27,8 @@ from __future__ import annotations
 
 import csv
 from pathlib import Path
+
+from optdog.io.program_csv import read_entries_for, write_entries
 
 from optdog.breeds import BreedCatalog, default_catalog
 from optdog.domain import (
@@ -87,6 +98,8 @@ def write_problem(show: Show, out_dir: str | Path) -> None:
 
     table("events.csv", EVENT_FIELDS, [row(e) for e in show.events])
     table("groups.csv", ("group", "judge"), [(g.value, j.name) for g, j in show.group_judges.items()])
+    if show.entries:
+        write_entries(show.entries, out)
 
 
 def read_problem(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Show:
@@ -143,7 +156,16 @@ def read_problem(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Sho
         group_judges[values[r["group"]]] = judge(r["judge"], f"groups.csv, {r['group']}")
     bis = judge(meta["bis_judge"], "show.csv, bis_judge") if meta.get("bis_judge") else None
     lunch = tuple(_mins(t) for t in meta["lunch_window"].split("-")) if meta.get("lunch_window") else None
+    entries = []
+    present = [n for n in ("exhibitors.csv", "entries.csv") if (d / n).exists()]
+    if len(present) == 1:
+        raise ProblemFormatError(f"{present[0]} needs {'entries.csv' if present[0] == 'exhibitors.csv' else 'exhibitors.csv'} too")
+    if present:
+        try:
+            entries = read_entries_for(d, events)
+        except ValueError as err:
+            raise ProblemFormatError(str(err)) from err
     on_panel = {e.judge.name for e in events}
     return Show(name=meta["name"], date=meta["date"], judges=[j for n, j in judges.items() if n in on_panel], events=events,
                 rings=rings, group_judges=group_judges, bis_judge=bis, group_rings=tuple(group_rings),
-                start=_mins(meta["start"]), pinned=blocks, lunch_window=lunch)
+                start=_mins(meta["start"]), pinned=blocks, lunch_window=lunch, entries=entries)
