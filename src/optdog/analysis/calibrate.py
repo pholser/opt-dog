@@ -14,12 +14,11 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from optdog.domain import VARIETY_GROUPS, Duration, JudgingProgram, TimeOfDay
-from optdog.io.program_csv import read_program
+from optdog.io.csv_dataset import CsvDataset
 from optdog.params import ShowParameters
 from optdog.validate import validate
 
 ROOT = Path(__file__).resolve().parents[3]
-PARSED = ROOT / "data" / "parsed"
 OUT = ROOT / "docs" / "calibration.md"
 
 
@@ -221,11 +220,8 @@ def render(m: Measurements) -> str:
 
 
 def load_all() -> list[tuple[str, JudgingProgram]]:
-    out = []
-    for d in sorted(PARSED.glob("*/*")):
-        if (d / "schedule.csv").exists():
-            out.append((d.name, read_program(d)))
-    return out
+    data = CsvDataset()
+    return [(key.slug, data.program(key)) for key in data.program_keys()]
 
 
 def main() -> None:

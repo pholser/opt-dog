@@ -31,7 +31,6 @@ from __future__ import annotations
 import itertools
 import random
 from dataclasses import dataclass, replace
-from pathlib import Path
 
 from optdog.domain import (
     VARIETY_GROUPS,
@@ -147,22 +146,18 @@ def _staff_teams(team_dogs, model: ExhibitorModel, rng: random.Random) -> list[E
 
 
 def main() -> None:
-    from optdog.io.entries_csv import write_entries
-    from optdog.io.program_csv import read_program
+    from optdog.io.csv_dataset import CsvDataset
 
-    root = Path(__file__).resolve().parents[3]
+    data = CsvDataset()
     model = ExhibitorModel()
-    for d in sorted((root / "data" / "parsed").glob("*/*")):
-        if not (d / "schedule.csv").exists():
-            continue
-        prog = read_program(d)
+    for key in data.program_keys():
+        prog = data.program(key)
         entries = generate(prog.show, model)
-        out = root / "data" / "synthetic" / d.parent.name / d.name / f"seed-{model.seed}"
-        write_entries(entries, out)
+        data.put_entries(key, entries, model.seed)
         exs = {e.exhibitor for e in entries if e.exhibitor is not None}
         pros = sum(1 for x in exs if x.professional)
         teams = len({x.team for x in exs if x.team})
-        print(f"{d.name:45} {len(entries):5} dogs  {len(exs):5} exhibitors ({teams} handler teams, "
+        print(f"{key.slug:45} {len(entries):5} dogs  {len(exs):5} exhibitors ({teams} handler teams, "
               f"{pros} team members)  {sum(1 for x in exs if x.registered)} registered")
 
 

@@ -19,16 +19,13 @@ import sys
 from collections.abc import Callable
 from pathlib import Path
 
-from optdog.instance import instance_from_program
-from optdog.io.entries_csv import read_entries
-from optdog.io.program_csv import read_program
+from optdog.io.csv_dataset import CsvDataset
 from optdog.params import ShowParameters
 from optdog.render.compare import render_compare
 from optdog.render.html import render_html
 from optdog.render.text import render_text
 from optdog.solve.greedy import greedy_program
-
-ROOT = Path(__file__).resolve().parents[3]
+from optdog.sources import published_day, result_on
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -51,20 +48,20 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--seed", type=int, default=0, help="synthetic-exhibitor seed for conflict scoring")
     a = ap.parse_args(argv)
 
-    human = read_program(a.show_dir)
-    synth = ROOT / "data" / "synthetic" / a.show_dir.parent.name / a.show_dir.name / f"seed-{a.seed}"
-    if synth.exists():
-        human.show.entries = read_entries(synth, human.show.events)
+    data = CsvDataset(a.show_dir.resolve().parents[2])
+    key = data.key_of(a.show_dir.resolve())
+    human, instance = published_day(data, data, key, a.seed)
     params = ShowParameters()
     programs = []
     if not a.greedy_only:
         programs.append(("Published program", human))
     if a.greedy or a.greedy_only:
-        programs.append(("Greedy baseline", greedy_program(instance_from_program(human), params)))
+        programs.append(("Greedy baseline", greedy_program(instance, params)))
     if a.saved:
-        from optdog.solutions import load_result, solved_dir
-
-        res = load_result(solved_dir(a.show_dir) / a.saved, instance_from_program(human))
+        saved = data.result(key, a.saved)
+        if saved is None:
+            ap.error(f"{key} has no saved {a.saved}: run python -m optdog.analysis.solve_all")
+        res = result_on(saved, instance)
         status = res.status.lower()
         programs.append((f"CP-SAT {a.saved} ({status})", res.program))
     step = "placement" if a.cp and not a.solve else a.solve
@@ -81,7 +78,7 @@ def main(argv: list[str] | None = None) -> int:
         solve, name = steps[step]
         print(f"solving ({name}, up to {a.time_limit:.0f} s per phase)...", file=sys.stderr)
         try:
-            res = solve(instance_from_program(human), params, options=PlacementOptions(time_limit=a.time_limit))
+            res = solve(instance, params, options=PlacementOptions(time_limit=a.time_limit))
             programs.append((f"{name} ({res.status.lower()})", res.program))
         except NoSchedule as err:
             print(f"CP-SAT: {err}", file=sys.stderr)

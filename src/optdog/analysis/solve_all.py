@@ -4,7 +4,7 @@
     python -m optdog.analysis.solve_all --only 2026-01   # days whose name contains this
     python -m optdog.analysis.solve_all --step packing   # this step only, keeping the rest
 
-Writes data/solved (see solutions.py). Every saved schedule is checked for hard-constraint
+Writes data/solved (see io/csv_dataset.py). Every saved schedule is checked for hard-constraint
 violations first; V1 (a judge over the entry limit) is an input problem and is allowed.
 """
 
@@ -14,8 +14,9 @@ import argparse
 import sys
 import time
 
+from optdog.io.csv_dataset import CsvDataset
 from optdog.params import ShowParameters
-from optdog.solutions import STEPS, parsed_days, read_day, save_bound, save_result, solved_dir
+from optdog.sources import STEPS, published_day
 from optdog.solve.cpsat import NoSchedule, PlacementOptions, solve_formation, solve_ordering, solve_packing, solve_placement
 from optdog.solve.relaxation import relaxed_lower_bound
 from optdog.validate import validate
@@ -28,17 +29,17 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--time-limit", type=float, default=60.0, help="CP-SAT seconds per phase")
     a = ap.parse_args(argv)
     params = ShowParameters()
+    data = CsvDataset()
     bad = 0
-    for day in parsed_days():
-        if a.only and a.only not in day.name:
+    for key in data.program_keys():
+        if a.only and a.only not in key.slug:
             continue
-        _, show = read_day(day)
-        out = solved_dir(day)
+        _, show = published_day(data, data, key)
         t = time.perf_counter()
-        line = [day.name + ":"]
+        line = [key.slug + ":"]
         if not a.step:
             bound = relaxed_lower_bound(show, params, time_limit=a.time_limit)
-            save_bound(bound, out)
+            data.put_bound(key, bound)
             line.append(f"bound {bound.value.minutes:.1f} ({bound.status.lower()})")
         for step, solve, options in (
             ("placement", solve_placement, PlacementOptions(time_limit=30, tidy=False)),
@@ -59,7 +60,7 @@ def main(argv: list[str] | None = None) -> int:
                 line.append(f"{step} NOT SAVED: {hard}")
                 bad += 1
                 continue
-            save_result(res, out / step)
+            data.put_result(key, step, res)
             line.append(f"{step} {res.finish.minutes:.1f} ({res.status.lower()})")
         print(f"{'; '.join(line)}  [{time.perf_counter() - t:.0f} s]", flush=True)
     return 1 if bad else 0

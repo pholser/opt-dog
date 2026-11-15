@@ -11,7 +11,8 @@ from __future__ import annotations
 from pathlib import Path
 
 from optdog.params import ShowParameters
-from optdog.solutions import load_day, parsed_days
+from optdog.io.csv_dataset import CsvDataset
+from optdog.sources import solved_day
 from optdog.solve.greedy import greedy_program
 from optdog.validate import validate
 
@@ -20,8 +21,9 @@ OUT = ROOT / "docs" / "baseline.md"
 
 
 def rows(params: ShowParameters):
-    for day in parsed_days():
-        d = load_day(day)
+    data = CsvDataset()
+    for key in data.program_keys():
+        d = solved_day(data, data, data, key)
         human, show, bound = d.human, d.show, d.bound
         greedy = greedy_program(show, params)
         cp, fm, ob, pk = (d.results[s] for s in ("placement", "formation", "ordering", "packing"))

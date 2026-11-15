@@ -19,7 +19,8 @@ from pathlib import Path
 
 from optdog.domain import GroupsPlan, GroupTimeline, JudgingProgram, TimeOfDay
 from optdog.params import ShowParameters
-from optdog.solutions import load_day, parsed_days
+from optdog.io.csv_dataset import CsvDataset
+from optdog.sources import solved_day
 from optdog.solve.greedy import greedy_program
 from optdog.validate import lunch_ends, validate
 
@@ -120,8 +121,9 @@ def score(program: JudgingProgram, pinned: set[int], p: ShowParameters) -> Score
 
 def collect(p: ShowParameters) -> list[Day]:
     days = []
-    for path in parsed_days():
-        d = load_day(path)
+    data = CsvDataset()
+    for key in data.program_keys():
+        d = solved_day(data, data, data, key)
         pinned = {id(sb) for sb in d.show.pinned}
         label, short = _label(d.name, d.show.name, d.show.date)
         days.append(Day(

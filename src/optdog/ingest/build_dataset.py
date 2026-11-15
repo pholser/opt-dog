@@ -15,11 +15,11 @@ import re
 from pathlib import Path
 
 from optdog.ingest.bradshaw import BradshawParser, ParsedDay
-from optdog.io.program_csv import write_program
+from optdog.io.csv_dataset import CsvDataset
+from optdog.sources import ShowKey
 
 ROOT = Path(__file__).resolve().parents[3]
 RAW = ROOT / "data" / "raw"
-PARSED = ROOT / "data" / "parsed"
 
 
 def slug(s: str) -> str:
@@ -60,6 +60,7 @@ def write_report(pd: ParsedDay, path: Path) -> None:
 
 def build_bradshaw() -> list[tuple[str, ParsedDay]]:
     parser = BradshawParser()
+    data = CsvDataset()
     src = RAW / "bradshaw"
     with open(src / "manifest.csv", newline="") as f:
         rows = [r for r in csv.DictReader(f) if r["include"] == "1"]
@@ -77,11 +78,10 @@ def build_bradshaw() -> list[tuple[str, ParsedDay]]:
             pd.program.show.date = e["date"]
             if e["notes"]:
                 pd.report.notes.append(f"manifest: {e['notes']}")
-            key = f"{e['date']}-{slug(e['show'])}"
-            d = PARSED / "bradshaw" / key
-            write_program(pd.program, d, source=f"bradshaw/{fname}#{e['day']}")
-            write_report(pd, d / "report.md")
-            out.append((key, pd))
+            key = ShowKey("bradshaw", f"{e['date']}-{slug(e['show'])}")
+            data.put_program(key, pd.program, origin=f"bradshaw/{fname}#{e['day']}")
+            write_report(pd, data.program_dir(key) / "report.md")
+            out.append((key.slug, pd))
     return out
 
 
