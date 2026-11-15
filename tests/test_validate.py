@@ -4,7 +4,7 @@ import pytest
 
 from optdog.breeds import default_catalog
 from optdog.domain import (
-    Block, Break, Duration, EventKind, Group, GroupsPlan, JudgingEvent, JudgingProgram, Judge, Ring, ScheduledBlock,
+    Block, Break, Duration, Group, GroupsPlan, JudgingEvent, JudgingProgram, Judge, Ring, ScheduledBlock,
     Show, TimeOfDay,
 )
 from optdog.params import ShowParameters
@@ -15,7 +15,7 @@ P0 = ShowParameters(overlap_tolerance=Duration.ZERO)
 
 
 def ev(breed, judge, n):
-    return JudgingEvent(breed, EventKind.BREED, judge, n, CAT[breed])
+    return JudgingEvent(breed, judge, n, CAT[breed])
 
 
 def program(blocks, judges, breaks=(), plan=None, group_judges=None, bis=None):

@@ -6,10 +6,9 @@ make schedules hard. Steps:
 1. **Target group order.** The order that achieves the judge-chain lower bound
    (``bounds.finish_lower_bound``). It is used only to set priorities; the final group
    order is chosen in step 5.
-2. **Each judge's running order.** A judge's all-breed events are sorted by target group
-   order, so breeds of early groups are judged first (H7, S4). Within a group, ground,
-   ramp and table breeds are kept together (S3). Sweepstakes come just before their breed.
-   Miscellaneous breeds and Junior Showmanship go last, since no group waits for them.
+2. **Each judge's running order.** A judge's events are sorted by target group order, so
+   breeds of early groups are judged first (H7, S4). Within a group, ground, ramp and table
+   breeds are kept together (S3). Miscellaneous breeds go last, since no group waits for them.
 3. **Blocks.** Pack the running order into consecutive blocks of at most
    ``max_block`` (about an hour, Rules Ch.7 §12). An event too big for a block
    is a block of its own.
@@ -39,7 +38,6 @@ from optdog.domain import (
     Block,
     Break,
     Duration,
-    EventKind,
     Group,
     GroupsPlan,
     JudgingEvent,
@@ -109,14 +107,12 @@ def _exam(e: JudgingEvent) -> str:
 def running_order(events: list[JudgingEvent], rank: dict[Group, int]) -> list[JudgingEvent]:
     def key(e: JudgingEvent):
         g = e.breed.group if e.breed else None
-        if e.kind is EventKind.JUNIOR_SHOWMANSHIP:
-            r = len(rank) + 2
-        elif g is None or not g.is_variety_group:
+        if g is None or not g.is_variety_group:
             r = len(rank) + 1  # Miscellaneous, FSS: nothing waits for them
         else:
             r = rank[g]
         breed = e.breed.name if e.breed else e.name
-        return r, _EXAM_ORDER[_exam(e)], breed, 0 if e.kind is EventKind.SWEEPSTAKES else 1, e.name
+        return r, _EXAM_ORDER[_exam(e)], breed, e.name
 
     return sorted(events, key=key)
 

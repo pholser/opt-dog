@@ -2,7 +2,7 @@
 
 Source: `data/raw/bradshaw/490.pdf` (SUNDAY)
 
-- judges: 9, rings: 9, blocks: 40, events: 134
+- judges: 7, rings: 7, blocks: 28, events: 116
 - judging starts: 8:00 AM
 - groups: 1:30 PM in rings 4, 5; order: Terrier, Toy, Sporting, Working, Non-Sporting, Herding, Hound; BIS: Ms. Victoria M. Jordan
 
@@ -24,9 +24,7 @@ Source: `data/raw/bradshaw/490.pdf` (SUNDAY)
 
 ## Not kept (only regular breed events are)
 
-- junior-showmanship (all-breed): 1
-- other (obedience): 9
-- other (rally): 8
+- 18 events of the all-breed show that are not breed judging (sweepstakes, Junior Showmanship, obedience, rally)
 
 ## Notes
 

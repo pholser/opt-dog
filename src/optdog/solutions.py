@@ -32,8 +32,8 @@ SOLVED = ROOT / "data" / "solved"
 STEPS = ("placement", "formation", "ordering", "packing")
 
 
-def _event_key(e: JudgingEvent) -> tuple[str, str, str]:
-    return e.judge.name, e.name, e.competition.value
+def _event_key(e: JudgingEvent) -> tuple[str, str]:
+    return e.judge.name, e.name
 
 
 def _pin_key(sb: ScheduledBlock) -> tuple:

@@ -18,9 +18,9 @@ soft costs are low.
 
 **Scope: regular breed events only** (U 2026-11-13). No other events exist for the model:
 sweepstakes, Junior Showmanship, Beginner Puppy, FSS open shows, concurrent specialties,
-obedience and rally are dropped when published programs are parsed (`ingest/build_dataset.py`;
-each `report.md` lists what was dropped), and the program and problem formats hold breed events
-only.
+obedience and rally are read when published programs are parsed, for the parser's checks
+against printed totals, but not kept (`ingest/bradshaw.py`; each `report.md` counts them). Neither
+the domain model nor the program and problem formats can represent them.
 
 This is a constraint-programming / optimization problem: a scheduling problem with
 parallel machines (rings), a resource per judge, precedence (breeds before their group),
@@ -50,7 +50,7 @@ and a partitioning sub-problem (forming blocks).
 | Symbol | Meaning |
 |---|---|
 | `J` | judges |
-| `ρ_j` | minutes per dog: 2.4 (25/hr) by default; 3.0 (20/hr) for permit/sweepstakes judges (Rules Ch.7 §12; Show Manual §6). Per-judge override allowed |
+| `ρ_j` | minutes per dog: 2.4 (25/hr) by default; 3.0 (20/hr) for permit judges (Rules Ch.7 §12; Show Manual §6). Per-judge override allowed |
 | `fixed_j` | optional fixed commitments: pinned blocks (H11) |
 
 ### 2.4 Judging units
@@ -61,7 +61,7 @@ A **unit** is the smallest thing judged without interruption: a breed or variety
 | `U` | units |
 | `j(u)` | assigned judge (input; reassignment for overload is out of scope) |
 | `n_u` | entries, with breakdown dogs–bitches–(BOB dogs–BOB bitches)–nonregular, counted from the dogs in `entries.csv` (U 2026-11-13): one row per dog with its sex and status (class, nonregular or champion). A parsed program's dogs are generated from its printed counts, with no exhibitors |
-| `grp(u)` | AKC classification: one of the 7 variety groups, Miscellaneous Class, or none (FSS breeds, juniors, sweepstakes). Only variety-group breeds feed a group (H7); Miscellaneous breeds compete for Best in Miscellaneous in the breed ring |
+| `grp(u)` | AKC classification: one of the 7 variety groups, Miscellaneous Class, or none (FSS breeds). Only variety-group breeds feed a group (H7); Miscellaneous breeds compete for Best in Miscellaneous in the breed ring |
 | `eq(u)` | equipment: table / ramp / floor (AKC table_breeds list) |
 | `d_u` | duration = `n_u · ρ_j(u)`; juniors at 20/hr (Show Manual §6) |
 | `fixed_u` | optional pinned ring and start time (`pin_ring`, `pin_start` in a problem) |
@@ -123,10 +123,10 @@ start of unit `u` (block start + durations of the units ahead of it in the block
 | H12 | Everything ends by `Tend`; nothing starts before `T0`. The solver enforces `T0` only: `Tend` (`closing_time`) is checked by the validator when known, and the problem format has no field for it | Show Manual §6 |
 | H13 | The breeds of at least **two** groups (parameter, default 2; fewer if fewer groups are entered) are all done before the first group starts | Show Manual §6: "Breed judging in at least two groups should be scheduled to be complete before group judging is scheduled to begin"; U |
 | H14 | The first group starts only after **every** judge's lunch has ended: a published break counts as published; a judge over five hours with no published break takes lunch in a gap of lunch length, at the minimum length. Parameter `groups_after_all_lunches`, default on | U; E: holds on all 11 parsed days. Not an AKC rule |
-| H15 | Multi-entry classes (Stud Dog, Brood Bitch) come after the judge's regular classes in that breed. Sweepstakes immediately precede their breed (convention, E) | Show Manual §6 "Scheduling Breed Judging"; E |
+| H15 | Multi-entry classes (Stud Dog, Brood Bitch) come after the judge's regular classes in that breed. (Before 2026-11-13, sweepstakes also immediately preceded their breed (convention, E); sweepstakes are now out of scope) | Show Manual §6 "Scheduling Breed Judging"; E |
 | H16 | **Ring size**: each block is in a ring at least as large as its largest breed needs. Ring classes from the Show Manual's suggested sizes (width × unobstructed length, ft): S 24×32 (Toy), M 32×40 (Terrier, Hound, Non-Sporting), L 40×48 (Sporting, Working, Herding; the "larger breeds" of Terrier, Hound and Non-Sporting, 32×50), XL 48×64. Each breed's minimum: Toy S; otherwise table or ramp breeds M, ground breeds L (U: AKC's table/ramp list stands in for size, since the Manual does not say which breeds are "larger"); events without a breed M. The catalog's `min_ring` column overrides the rule per breed. Ring sizes are a show input (`ring_sizes` in show.csv); a ring of unknown size is XL, so without layout data nothing changes | Show Manual §6 "Scheduling Rings": "Assigned rings must be large enough to accommodate the largest breed being judged"; §3 "Breed Rings", ring size table; U |
 | H17 | **Group ring size**: every group ring is at least `group_ring_min` (default XL). An input check: group rings are given | Show Manual §3 "Group Rings": "enlarged or combined", "large enough to accommodate the largest number of breeds in any group" |
-| V1 | (input check, not a decision) Each judge has ≤ 175 entries; 200 for a specialty-only judge. The rule also counts juniors and sweeps, which are out of scope, so the check can understate a real judge's load | Rules Ch.7 §13; Show Manual §6 |
+| V1 | (input check, not a decision) Each judge has ≤ 175 entries. The rule also counts juniors and sweeps, which are out of scope, so the check can understate a real judge's load | Rules Ch.7 §13; Show Manual §6 |
 
 ## 5. Soft constraints / costs
 
@@ -257,10 +257,10 @@ Those before the "Group judges" entry predate the parser fix, and judge idle fig
   form a chain in the greedy's running order; a cut `c_u` between consecutive events either
   starts a block (on the grid, any ring, travel margin if the ring changes) or continues it
   (`s_u = s_u⁻ + d_u⁻`, same ring). Step 1 is the special case with every cut fixed. H1 caps a
-  formed block at 65 min (an event longer than that is its own block); a sweepstakes stays in
-  its breed's block (H15). After the finish, a second phase minimizes S2 (ring changes, cheaper
-  at lunch), S9 (short blocks), S10 (lunch splitting a group run) and a small per-block
-  tie-break; a third starts blocks as early as possible.
+  formed block at 65 min (an event longer than that is its own block). After the finish, a
+  second phase minimizes S2 (ring changes, cheaper at lunch), S9 (short blocks), S10 (lunch
+  splitting a group run) and a small per-block tie-break; a third starts blocks as early as
+  possible.
   Results: optimal on all 11 days, all valid. Choosing the block breaks gains little:
   4 days improve by 1–7 min; mean gap 42 → 40 min.
   **What holds up groups** (3a re-solved with one rule relaxed at a time, gap in minutes):
@@ -303,8 +303,7 @@ Those before the "Group judges" entry predate the parser fix, and judge idle fig
   move breeds inside a run.
 - **CP-SAT step 3c** (`solve_packing`): as 3b, with the breeds inside each (group, equipment)
   run ordered first, by a small bin-packing solve per run (`solve/packing.py`): fewest short
-  bins under the block cap, then fewest bins. A breed stays with its sweepstakes (H15) and the
-  varieties of one breed stay together (§8: 82% in published programs). Giving each breed its
+  bins under the block cap, then fewest bins. The varieties of one breed stay together (§8: 82% in published programs). Giving each breed its
   own node in the circuit would cost 2,000–4,800 arcs per day, each with a constraint per ring,
   so the order is fixed before the model runs, and 3c is optimal only for that order.
   Results: short blocks 64 published → 50 (3b) → 22 (3c), 11 of them the whole assignment of a

@@ -82,7 +82,6 @@ class ShowParameters:
 
     # --- limits (Rules Ch.7 §13)
     judge_daily_limit: int = 175
-    specialty_only_daily_limit: int = 200
 
     # --- show hours
     closing_time: TimeOfDay | None = None  # posted closing time, if known

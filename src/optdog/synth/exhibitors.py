@@ -35,10 +35,8 @@ from pathlib import Path
 
 from optdog.domain import (
     VARIETY_GROUPS,
-    Competition,
     Entry,
     EntryStatus,
-    EventKind,
     Exhibitor,
     Group,
     JudgingEvent,
@@ -69,7 +67,7 @@ def _dogs(show: Show) -> list[Entry]:
     ids = (f"D{n:05d}" for n in itertools.count(1))
     out = []
     for e in show.events:
-        if e.kind is not EventKind.BREED or e.competition is not Competition.ALL_BREED or e.entries <= 0:
+        if e.entries <= 0:
             continue
         out += [en for en in show.entries if en.event is e] if id(e) in have else anonymous_entries(e, ids)
     return out

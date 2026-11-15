@@ -8,7 +8,7 @@ import pytest
 
 from optdog.breeds import default_catalog
 from optdog.domain import (
-    VARIETY_GROUPS, Block, Competition, EventKind, Group, JudgingEvent, Judge, Ring, RingSize, ScheduledBlock, Show,
+    VARIETY_GROUPS, Block, Group, JudgingEvent, Judge, Ring, RingSize, ScheduledBlock, Show,
     TimeOfDay,
 )
 from optdog.instance import instance_from_program
@@ -27,8 +27,8 @@ A, B, G = Judge("Ms. A"), Judge("Mr. B"), Judge("Dr. G")
 
 
 def small(**kw) -> Show:
-    events = [JudgingEvent(b, EventKind.BREED, A, 18, CAT[b]) for b in ("Boxer", "Akita")]
-    events += [JudgingEvent("Pug", EventKind.BREED, B, 20, CAT["Pug"])]
+    events = [JudgingEvent(b, A, 18, CAT[b]) for b in ("Boxer", "Akita")]
+    events += [JudgingEvent("Pug", B, 20, CAT["Pug"])]
     rings = [Ring(1), Ring(2, RingSize.L), Ring(3, RingSize.S)]
     args = dict(name="T", date="2026-01-01", judges=[A, B], events=events, rings=rings,
                 group_judges={Group.WORKING: G, Group.TOY: G}, bis_judge=G, group_rings=(rings[0],), start=TimeOfDay(480))
@@ -36,7 +36,7 @@ def small(**kw) -> Show:
 
 
 def signature(show: Show):
-    return ([(e.judge, e.name, e.kind, e.competition, e.breed, e.entries, e.counts) for e in show.events],
+    return ([(e.judge, e.name, e.breed, e.entries, e.counts) for e in show.events],
             [(r.number, r.size) for r in show.rings], [r.number for r in show.group_rings], show.judges, show.group_judges,
             show.bis_judge, show.start, show.lunch_window,
             [(sb.ring.number, sb.start, sb.judge, [e.name for e in sb.block.events]) for sb in show.pinned])
@@ -88,14 +88,14 @@ def test_input_errors_are_reported(change, expect):
 
 
 def test_a_judge_over_the_daily_limit_is_a_warning():
-    over = JudgingEvent("Boxer", EventKind.BREED, A, 180, CAT["Boxer"])
+    over = JudgingEvent("Boxer", A, 180, CAT["Boxer"])
     issues = check_problem(small(events=[over]))
     assert [i.error for i in issues if "(V1)" in i.what] == [False]
 
 
 def test_pinned_blocks_that_clash_are_errors():
-    x = JudgingEvent("Boxer", EventKind.BREED, A, 20, CAT["Boxer"], competition=Competition.SPECIALTY)
-    y = JudgingEvent("Akita", EventKind.BREED, B, 20, CAT["Akita"], competition=Competition.SPECIALTY)
+    x = JudgingEvent("Boxer", A, 20, CAT["Boxer"])
+    y = JudgingEvent("Akita", B, 20, CAT["Akita"])
     pins = [ScheduledBlock(Block(A, (x,)), Ring(2), TimeOfDay(480)), ScheduledBlock(Block(B, (y,)), Ring(2), TimeOfDay(500))]
     assert any("overlap" in i.what and i.error for i in check_problem(small(events=[x, y], pinned=pins)))
 
@@ -214,7 +214,7 @@ def _drop_rows(path: Path, word: str) -> None:
 def test_entry_counts_come_from_the_dogs(tmp_path):
     from optdog.domain import Entry, EntryCounts, EntryStatus, Sex
 
-    pug = JudgingEvent("Pug", EventKind.BREED, B, 0, CAT["Pug"])
+    pug = JudgingEvent("Pug", B, 0, CAT["Pug"])
     dogs = [("c1", EntryStatus.CLASS, Sex.DOG), ("c2", EntryStatus.CLASS, Sex.BITCH), ("c3", EntryStatus.CLASS, Sex.BITCH),
             ("v1", EntryStatus.NONREGULAR, None), ("ch1", EntryStatus.CHAMPION, Sex.BITCH)]
     show = small(events=[pug], entries=[Entry(d, pug, None, st, sex) for d, st, sex in dogs])
@@ -229,18 +229,12 @@ def test_entry_counts_come_from_the_dogs(tmp_path):
 def test_without_dogs_on_record_they_are_generated_from_the_counts(tmp_path):
     from optdog.domain import EntryCounts
 
-    pug = JudgingEvent("Pug", EventKind.BREED, B, 9, CAT["Pug"], EntryCounts(2, 3, 1, 2, 1))
+    pug = JudgingEvent("Pug", B, 9, CAT["Pug"], EntryCounts(2, 3, 1, 2, 1))
     write_problem(small(events=[pug]), tmp_path)
     back = read_problem(tmp_path)
     assert (back.events[0].entries, back.events[0].counts) == (9, EntryCounts(2, 3, 1, 2, 1))
     assert all(en.exhibitor is None for en in back.entries)
     assert check_problem(back) == []  # no exhibitors: no conflict resolution, and nothing to warn about
-
-
-def test_only_regular_breed_events_are_written(tmp_path):
-    sweeps = JudgingEvent("Pug Sweepstakes", EventKind.SWEEPSTAKES, B, 4, CAT["Pug"])
-    with pytest.raises(ValueError, match="not a regular breed event"):
-        write_problem(small(events=[sweeps]), tmp_path)
 
 
 def test_entry_checks_warn_about_duplicates_and_no_one_signed_up():

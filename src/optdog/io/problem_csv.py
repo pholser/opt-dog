@@ -25,12 +25,11 @@ import csv
 from pathlib import Path
 
 from optdog.breeds import BreedCatalog, default_catalog
-from optdog.io.entries_csv import check_regular, entries_of, read_entry_table, write_entries
+from optdog.io.entries_csv import entries_of, read_entry_table, write_entries
 from optdog.io.program_csv import parse_window
 from optdog.domain import (
     Block,
     Duration,
-    EventKind,
     Group,
     JudgingEvent,
     Judge,
@@ -84,7 +83,6 @@ def write_problem(show: Show, out_dir: str | Path) -> None:
         return (e.judge.name, e.name, e.breed.name if e.breed else "",
                 sb.ring.number if sb else "", _hhmm(sb.start) if sb else "")
 
-    check_regular(show.events)
     table("events.csv", EVENT_FIELDS, [row(e) for e in show.events])
     table("groups.csv", ("group", "judge"), [(g.value, j.name) for g, j in show.group_judges.items()])
     write_entries(entries_of(show), out)
@@ -134,7 +132,7 @@ def read_problem(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Sho
             total, counts = entry_table.counts(r["judge"], r["event"], where)
         except ValueError as err:
             raise ProblemFormatError(str(err)) from err
-        e = JudgingEvent(r["event"], EventKind.BREED, judge(r["judge"], where), total, breed, counts)
+        e = JudgingEvent(r["event"], judge(r["judge"], where), total, breed, counts)
         events.append(e)
         if r.get("pin_ring") or r.get("pin_start"):
             if not (r.get("pin_ring") and r.get("pin_start")):

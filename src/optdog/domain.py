@@ -5,7 +5,7 @@ Vocabulary (see docs/SPEC.md):
 - A **Show** is one day's all-breed conformation event: judges, the judging events
   they are assigned, rings, and group/BIS assignments. It is the problem *instance*.
 - A **JudgingEvent** is the smallest thing judged without interruption: a breed or
-  variety, a sweepstakes, Junior Showmanship, etc.
+  variety.
 - A **Block** is an ordered run of one judge's events published under a single
   "not before" time.
 - A **JudgingProgram** places blocks in rings at start times, places judges' breaks,
@@ -323,52 +323,26 @@ class Judge:
 # --------------------------------------------------------------------------- events
 
 
-class Competition(Enum):
-    """Which competition an event belongs to; most of a day is the all-breed show,
-    but programs interleave special attractions and concurrent events."""
-
-    ALL_BREED = "all-breed"
-    SPECIALTY = "specialty"  # concurrent or designated specialty
-    BEGINNER_PUPPY = "beginner-puppy"
-    FSS_OPEN = "fss-open"
-    OBEDIENCE = "obedience"
-    RALLY = "rally"
-    OTHER = "other"
-
-
-class EventKind(Enum):
-    BREED = "breed"
-    SWEEPSTAKES = "sweepstakes"
-    JUNIOR_SHOWMANSHIP = "junior-showmanship"
-    GROUP = "group"  # e.g. Beginner Puppy groups judged in a breed ring
-    OTHER = "other"  # obedience classes, Best in Misc, Pee Wee, ...
-
-
 @dataclass(frozen=True)
 class JudgingEvent:
-    """Something judged without interruption by one judge in one ring."""
+    """A breed (or variety) judged without interruption by one judge in one ring. Only the regular
+    breed judging of the all-breed show is modeled: no sweepstakes, Junior Showmanship, specialties,
+    obedience, etc. (U 2026-11-13)."""
 
     name: str
-    kind: EventKind
     judge: Judge
     entries: int
     breed: Breed | None = None
     counts: EntryCounts | None = None
-    competition: Competition = Competition.ALL_BREED
-    per_entry: Duration | None = None  # overrides the judge's rate (e.g. juniors)
+    per_entry: Duration | None = None  # overrides the judge's rate
 
     @property
     def rate(self) -> Duration:
-        if self.per_entry is not None:
-            return self.per_entry
-        if self.kind is EventKind.JUNIOR_SHOWMANSHIP:
-            return PERMIT_PER_DOG  # Show Manual §6: juniors at 20 per hour
-        return self.judge.rate
+        return self.per_entry if self.per_entry is not None else self.judge.rate
 
     @property
     def min_ring(self) -> RingSize:
-        """The smallest ring this event can be judged in (H16). Events without a breed (juniors,
-        puppy groups, obedience) need M."""
+        """The smallest ring this event can be judged in (H16). An event whose breed is unknown needs M."""
         return self.breed.min_ring if self.breed is not None else RingSize.M
 
     @property
@@ -385,13 +359,13 @@ class JudgingEvent:
 
     @property
     def group(self) -> Group | None:
-        """The breed's AKC group (including MISCELLANEOUS) for breed events; else None."""
-        return self.breed.group if self.breed and self.kind is EventKind.BREED else None
+        """The breed's AKC group (including MISCELLANEOUS), or None for an unknown or FSS breed."""
+        return self.breed.group if self.breed else None
 
     @property
     def equipment(self) -> str | None:
-        """'table', 'ramp' or 'ground' for a breed event (S3); None for anything else."""
-        if self.kind is not EventKind.BREED or self.breed is None:
+        """'table', 'ramp' or 'ground' (S3); None for an unknown breed."""
+        if self.breed is None:
             return None
         ex = self.breed.examination
         return "table" if ex.needs_table else "ramp" if ex.needs_ramp else "ground"
@@ -629,19 +603,15 @@ class Show:
 
     def judge_load(self, judge: Judge) -> int:
         """Entries counting toward the AKC 175/day limit (Rules Ch.7 §13)."""
-        return sum(e.entries for e in self.events_for(judge) if e.competition in _COUNTS_TOWARD_LIMIT)
+        return sum(e.entries for e in self.events_for(judge))
 
     def breeds_in(self, group: Group) -> list[JudgingEvent]:
         """Breed events of an AKC group (MISCELLANEOUS included)."""
         return [e for e in self.events if e.group is group]
 
     def feeding(self, group: Group) -> list[JudgingEvent]:
-        """All-breed show events that must finish before ``group`` is judged.
-
-        Empty for MISCELLANEOUS. Concurrent specialty shows' winners do not go to
-        the all-breed group, so only ALL_BREED events feed a group.
-        """
-        return [e for e in self.events if e.feeds_group is group and e.competition is Competition.ALL_BREED]
+        """Events that must finish before ``group`` is judged. Empty for MISCELLANEOUS."""
+        return [e for e in self.events if e.feeds_group is group]
 
     # ------------------------------------------------------------ group / BIS sizing
     #
@@ -655,13 +625,7 @@ class Show:
 
     def group_entrants(self, group: Group) -> int:
         """Breeds/varieties of ``group`` entered in the all-breed show (one BOB/BOV each)."""
-        return len(
-            {
-                e.breed
-                for e in self.feeding(group)
-                if e.competition is Competition.ALL_BREED and e.entries > 0
-            }
-        )
+        return len({e.breed for e in self.feeding(group) if e.entries > 0})
 
     def group_duration(self, group: Group) -> Duration:
         """Planned time to judge ``group``: entrants × the group judge's rate."""
@@ -680,16 +644,6 @@ class Show:
     def groups_and_bis_duration(self) -> Duration:
         """Total planned time of group + BIS judging if run back to back."""
         return Duration.total(self.group_duration(g) for g in VARIETY_GROUPS) + self.bis_duration()
-
-
-_COUNTS_TOWARD_LIMIT = {
-    Competition.ALL_BREED,
-    Competition.SPECIALTY,
-    Competition.BEGINNER_PUPPY,
-    Competition.FSS_OPEN,
-    Competition.OBEDIENCE,
-    Competition.RALLY,
-}
 
 
 @dataclass

@@ -4,7 +4,7 @@ from pathlib import Path
 from optdog.breeds import default_catalog
 from optdog.conflicts import exhibitor_conflicts
 from optdog.domain import (
-    Block, Duration, EntryCounts, Entry, EntryStatus, EventKind, Exhibitor, JudgingEvent, JudgingProgram, Judge, Ring,
+    Block, Duration, EntryCounts, Entry, EntryStatus, Exhibitor, JudgingEvent, JudgingProgram, Judge, Ring,
     ScheduledBlock, Show, TimeOfDay,
 )
 from optdog.io.entries_csv import read_entries, write_entries
@@ -17,7 +17,7 @@ A, B = Judge("Ms. A"), Judge("Mr. B")
 
 
 def ev(breed, judge, counts):
-    return JudgingEvent(breed, EventKind.BREED, judge, counts.total, CAT[breed], counts)
+    return JudgingEvent(breed, judge, counts.total, CAT[breed], counts)
 
 
 def prog(placements, entries):

@@ -6,7 +6,7 @@ import pytest
 
 from optdog.breeds import BreedCatalog, default_catalog
 from optdog.domain import (
-    VARIETY_GROUPS, Block, Competition, Duration, EventKind, GroupsPlan, Judge, JudgingEvent, JudgingProgram,
+    VARIETY_GROUPS, Block, Duration, GroupsPlan, Judge, JudgingEvent, JudgingProgram,
     Ring, RingSize, ScheduledBlock, Show, TimeOfDay,
 )
 from optdog.io.program_csv import read_program, write_program
@@ -40,18 +40,18 @@ def test_the_catalog_can_override_the_rule(tmp_path):
 
 
 def test_events_and_blocks_need_their_largest_breed():
-    pug = JudgingEvent("Pug", EventKind.BREED, A, 10, CAT["Pug"])
-    dane = JudgingEvent("Great Dane", EventKind.BREED, A, 10, CAT["Great Dane"])
-    juniors = JudgingEvent("Junior Showmanship", EventKind.JUNIOR_SHOWMANSHIP, A, 5)
+    pug = JudgingEvent("Pug", A, 10, CAT["Pug"])
+    dane = JudgingEvent("Great Dane", A, 10, CAT["Great Dane"])
+    unknown = JudgingEvent("Not A Breed", A, 5)
     assert Block(A, (pug,)).min_ring is RingSize.S
     assert Block(A, (pug, dane)).min_ring is RingSize.L
-    assert juniors.min_ring is RingSize.M
+    assert unknown.min_ring is RingSize.M
     assert Ring(3).size is RingSize.XL and Ring(3, RingSize.S) == Ring(3)
 
 
 def _show(rings):
-    toy = [JudgingEvent(b, EventKind.BREED, A, 15, CAT[b]) for b in ("Pug", "Maltese", "Papillon")]
-    big = [JudgingEvent(b, EventKind.BREED, B, 15, CAT[b]) for b in ("Great Dane", "Mastiff", "Boxer")]
+    toy = [JudgingEvent(b, A, 15, CAT[b]) for b in ("Pug", "Maltese", "Papillon")]
+    big = [JudgingEvent(b, B, 15, CAT[b]) for b in ("Great Dane", "Mastiff", "Boxer")]
     return Show("T", "2026-01-01", [A, B], toy + big, rings, group_judges={g: G for g in VARIETY_GROUPS},
                 bis_judge=G, group_rings=(rings[0],), start=TimeOfDay(480))
 

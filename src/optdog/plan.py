@@ -90,12 +90,12 @@ def check_problem(show: Show, params: ShowParameters | None = None) -> list[Issu
         if load > p.judge_daily_limit:
             warn(j.name, f"{load} entries; the limit is {p.judge_daily_limit} a day (V1)")
 
-    seen: dict[tuple, int] = defaultdict(int)
+    seen: dict[tuple[str, str], int] = defaultdict(int)
     for e in show.events:
-        seen[e.judge.name, e.name, e.competition.value] += 1
-    for (judge, name, comp), n in seen.items():
+        seen[e.judge.name, e.name] += 1
+    for (judge, name), n in seen.items():
         if n > 1:
-            warn(name, f"listed {n} times for {judge} ({comp})")
+            warn(name, f"listed {n} times for {judge}")
 
     # fixed commitments that cannot both happen
     def clashes(key, label: str) -> None:

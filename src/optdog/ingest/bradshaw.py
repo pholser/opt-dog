@@ -21,8 +21,10 @@ Special attractions (Beginner Puppy, FSS Open) and concurrent specialties appear
 their own titled sections inside a day. The groups page is full-width and lists the
 group start time, rings, order and judges.
 
-The parser builds domain objects (``optdog.domain``). Anything it doesn't understand
-goes into ``ParseReport.unparsed`` instead of being dropped silently.
+The parser reads every event, so that its counts can be checked against the program's printed
+totals and breed index, but builds domain objects (``optdog.domain``) only for the regular breed
+judging of the all-breed show (U 2026-11-13); ``ParseReport.not_kept`` says what else there was.
+Anything it doesn't understand goes into ``ParseReport.unparsed`` instead of being dropped silently.
 """
 
 from __future__ import annotations
@@ -38,9 +40,7 @@ from optdog.breeds import BreedCatalog, default_catalog
 from optdog.domain import (
     Block,
     Break,
-    Competition,
     EntryCounts,
-    EventKind,
     Group,
     GroupsPlan,
     JudgingEvent,
@@ -160,6 +160,7 @@ class ParseReport:
     checks: list[tuple[str, int, int]] = field(default_factory=list)  # (what, stated, parsed)
     notes: list[str] = field(default_factory=list)
     index_mismatches: list[str] = field(default_factory=list)
+    not_kept: list[str] = field(default_factory=list)
 
     @property
     def failed_checks(self) -> list[tuple[str, int, int]]:
@@ -190,14 +191,22 @@ class _RawBlock:
     ring: int
     judge: str
     start: TimeOfDay
-    competition: Competition
-    events: list[tuple] = field(default_factory=list)  # (name, kind, entries, counts|None)
+    all_breed: bool  # in the all-breed show, not a special attraction or concurrent specialty
+    events: list[_RawEvent] = field(default_factory=list)
+
+
+@dataclass
+class _RawEvent:
+    name: str
+    breed: bool  # regular breed judging, not sweepstakes, juniors, obedience, rally, ...
+    entries: int
+    counts: EntryCounts | None = None
 
 
 @dataclass
 class _Section:
     title: str
-    competition: Competition
+    all_breed: bool
     stated_total: int
 
 
@@ -209,33 +218,26 @@ class _DayState:
     breaks: list[tuple[int, str, TimeOfDay]] = field(default_factory=list)  # ring, judge, start
     subtotals: list[tuple[int, str, int, int, int]] = field(default_factory=list)  # ring, judge, stated, from, to
     unparsed: list[str] = field(default_factory=list)
-    section_end_totals: list[tuple[Competition, int]] = field(default_factory=list)
+    section_end_totals: list[tuple[bool, int]] = field(default_factory=list)  # (all-breed?, stated)
 
 
-def _subtitle_competition(line: str) -> Competition | None:
-    """Sub-titles that introduce a different competition within a day's listing."""
+def _is_subtitle(line: str) -> bool:
+    """Does this sub-title introduce another competition (Beginner Puppy, an FSS open show,
+    a specialty) within a day's listing?"""
     low = line.lower()
-    if "beginner puppy" in low:
-        return Competition.BEGINNER_PUPPY
-    if re.match(r"^(fss )?open show\b", low):
-        return Competition.FSS_OPEN
-    if re.search(r"\bclub\b", low) and not re.search(r"\d+-\d+", low):
-        return Competition.SPECIALTY
-    return None
+    return bool(
+        "beginner puppy" in low
+        or re.match(r"^(fss )?open show\b", low)
+        or (re.search(r"\bclub\b", low) and not re.search(r"\d+-\d+", low))
+    )
 
 
-def _classify_section(title: str) -> Competition:
-    for part in title.split(" / "):
-        if (sub := _subtitle_competition(part)) is not None:
-            return sub
+def _is_all_breed_section(title: str) -> bool:
     t = title.lower()
-    if "beginner puppy" in t:
-        return Competition.BEGINNER_PUPPY
-    if "fss" in t:
-        return Competition.FSS_OPEN
-    if "club" in t or "specialty" in t:
-        return Competition.SPECIALTY
-    return Competition.ALL_BREED
+    return not (
+        any(_is_subtitle(part) for part in title.split(" / "))
+        or "beginner puppy" in t or "fss" in t or "club" in t or "specialty" in t
+    )
 
 
 class BradshawParser:
@@ -254,15 +256,16 @@ class BradshawParser:
         days = self._scan(columns)
         groups = self._parse_groups_pages(full_pages)
         indexes = _parse_breed_indexes(columns)
-        out = []
+        out, listed = [], []
         for day in days:
             pd = self._build_day(pdf_path, name, dates.get(day.name, day.name), day, groups.get(day.name))
             if pd is not None:
                 out.append(pd)
+                listed.append(day.blocks)
         # one breed index per all-breed day, in day order
         if len(indexes) == len(out):
-            for pd, idx in zip(out, indexes):
-                _cross_check_index(pd, idx)
+            for pd, blocks, idx in zip(out, listed, indexes):
+                _cross_check_index(pd.report, blocks, idx)
         else:
             for pd in out:
                 pd.report.notes.append(f"found {len(indexes)} breed indexes for {len(out)} all-breed days; not cross-checked")
@@ -275,8 +278,8 @@ class BradshawParser:
         order: list[str] = []
         day: _DayState | None = None
         in_section = False
-        main_competition = Competition.ALL_BREED
-        competition = Competition.ALL_BREED
+        main_all_breed = True  # the day's first section
+        all_breed = True
         pending_title: list[str] = []
         ring: int | None = None
         judge: str | None = None
@@ -284,8 +287,8 @@ class BradshawParser:
         cur_time: TimeOfDay | None = None
         juniors: list[int] | None = None
         last_event_obedience = False
-        section_comp = Competition.ALL_BREED  # competition of the current titled section
-        next_ring_comp: Competition | None = None  # set by a sub-title like "Beginner Puppy 4-6 Months"
+        section_all_breed = True  # the current titled section
+        next_ring_other = False  # set by a sub-title like "Beginner Puppy 4-6 Months"
         seg_start = 0  # index into day.blocks where the current judge's stint in this ring began
         stint_starts: dict[tuple, int] = {}
         section_stated, section_parsed = 0, 0  # entries stated/parsed in the current titled section
@@ -294,7 +297,7 @@ class BradshawParser:
         def flush_juniors():
             nonlocal juniors
             if juniors is not None and cur is not None:
-                cur.events.append(("Junior Showmanship", EventKind.JUNIOR_SHOWMANSHIP, sum(juniors), None))
+                cur.events.append(_RawEvent("Junior Showmanship", False, sum(juniors)))
             juniors = None
 
         for col in columns:
@@ -316,29 +319,29 @@ class BradshawParser:
                 if m := RE_SECTION_START.match(line):
                     flush_juniors()
                     title = " / ".join(pending_title)
-                    competition = next_ring_comp or _classify_section(title)
+                    all_breed = not next_ring_other and _is_all_breed_section(title)
                     if not day.sections:
-                        main_competition = competition
-                    section_comp = competition
+                        main_all_breed = all_breed
+                    section_all_breed = all_breed
                     section_stated, section_parsed = int(m.group(1)), 0
-                    day.sections.append(_Section(title, competition, int(m.group(1))))
+                    day.sections.append(_Section(title, all_breed, int(m.group(1))))
                     in_section, pending_title, ring, judge, cur = True, [], None, None, None
-                    next_ring_comp = None
+                    next_ring_other = False
                     continue
                 if m := RE_SECTION_END.match(line):
                     flush_juniors()
                     if in_section:  # ignore totals in back matter such as the breed index
-                        day.section_end_totals.append((section_comp, int(m.group(1))))
+                        day.section_end_totals.append((section_all_breed, int(m.group(1))))
                     in_section, cur = False, None
-                    competition = section_comp = main_competition
+                    all_breed = section_all_breed = main_all_breed
                     continue
                 if m := RE_RING.match(line):
                     flush_juniors()
                     if not in_section:  # rings after a sub-section ended resume the main show
-                        section_comp = main_competition
+                        section_all_breed = main_all_breed
                         in_section = True
-                    competition = next_ring_comp or section_comp
-                    next_ring_comp = None
+                    all_breed = section_all_breed and not next_ring_other
+                    next_ring_other = False
                     ring, judge, cur, cur_time = int(m.group(1)), None, None, None
                     continue
                 if not in_section:
@@ -383,21 +386,21 @@ class BradshawParser:
                     # A sub-title applies to one ring stint. A titled sub-section (own "Total Dogs
                     # in Show") lasts until its "Total Dog Entries" line or until its stated
                     # number of dogs has been listed (some programs omit the end line).
-                    competition = section_comp
-                    if section_comp is not main_competition and section_parsed >= section_stated:
-                        section_comp = competition = main_competition
+                    all_breed = section_all_breed
+                    if section_all_breed != main_all_breed and section_parsed >= section_stated:
+                        section_all_breed = all_breed = main_all_breed
                     continue
                 if line.startswith("Junior Showmanship Competition"):
                     flush_juniors()
-                    cur = self._open_block(day, ring, judge, cur_time, competition, line)
+                    cur = self._open_block(day, ring, judge, cur_time, all_breed, line)
                     juniors = []
                     continue
                 if m := RE_JUNIOR_CLASS.match(line):
                     if juniors is None:  # juniors listed without a "Competition" heading
-                        cur = cur or self._open_block(day, ring, judge, cur_time, competition, line)
+                        cur = cur or self._open_block(day, ring, judge, cur_time, all_breed, line)
                         juniors = []
                     juniors.append(int(m.group(1)))
-                    if competition is section_comp:
+                    if all_breed == section_all_breed:
                         section_parsed += int(m.group(1))
                     continue
                 if juniors is not None and line in ("Class)",):
@@ -407,18 +410,18 @@ class BradshawParser:
                 gl = GROUP_LINE_NAMES.get(line.lower())
                 if gl is not None:
                     flush_juniors()
-                    cur = cur or self._open_block(day, ring, judge, cur_time, competition, line)
+                    cur = cur or self._open_block(day, ring, judge, cur_time, all_breed, line)
                     if cur is not None:
-                        cur.events.append((gl, EventKind.GROUP, 0, None))
+                        cur.events.append(_RawEvent(gl, False, 0))
                     continue
                 if (m := RE_ENTRY_COUNTS.match(line)) or (m := RE_ENTRY.match(line)):
                     entries, name = int(m.group(1)), m.group(2)
                     counts = parse_counts(m.group(3)) if m.re is RE_ENTRY_COUNTS else None
                     flush_juniors()
-                    cur = cur or self._open_block(day, ring, judge, cur_time, competition, line)
+                    cur = cur or self._open_block(day, ring, judge, cur_time, all_breed, line)
                     if cur is None:
                         continue
-                    kind = EventKind.BREED
+                    breed = True
                     low = name.lower()
                     last_event_obedience = False
                     if low.startswith(("obedience", "rally")) or re.match(
@@ -426,28 +429,26 @@ class BradshawParser:
                         r"graduate novice|preferred|versatility)",
                         low,
                     ):
-                        kind = EventKind.OTHER
+                        breed = False
                         last_event_obedience = True
-                    elif RE_SWEEPS.search(name) or "sweep" in low or " swps" in low:
-                        kind = EventKind.SWEEPSTAKES
-                    elif re.search(r"\b(head type|movement)$", low):
-                        kind = EventKind.OTHER
-                    cur.events.append((name, kind, entries, counts))
-                    if competition is section_comp:
+                    elif RE_SWEEPS.search(name) or "sweep" in low or " swps" in low or re.search(r"\b(head type|movement)$", low):
+                        breed = False
+                    cur.events.append(_RawEvent(name, breed, entries, counts))
+                    if all_breed == section_all_breed:
                         section_parsed += entries
                     continue
-                if (sub := _subtitle_competition(line)) is not None:
-                    next_ring_comp = sub
+                if _is_subtitle(line):
+                    next_ring_other = True
                     continue
                 day.unparsed.append(f"p{col.page}{col.side}: {line}")
         flush_juniors()
         return [days[d] for d in order]
 
-    def _open_block(self, day, ring, judge, t, competition, line) -> _RawBlock | None:
+    def _open_block(self, day, ring, judge, t, all_breed, line) -> _RawBlock | None:
         if ring is None or judge is None or t is None:
             day.unparsed.append(f"(no ring/judge/time) {line}")
             return None
-        b = _RawBlock(ring, judge, t, competition)
+        b = _RawBlock(ring, judge, t, all_breed)
         day.blocks.append(b)
         return b
 
@@ -515,9 +516,8 @@ class BradshawParser:
 
     def _build_day(self, pdf_path, show_name, date, day: _DayState, groups_info) -> ParsedDay | None:
         report = ParseReport(source=str(pdf_path), day=day.name, unparsed=list(day.unparsed))
-        main = next((s for s in day.sections if s.competition is Competition.ALL_BREED), None)
-        breed_blocks = [b for b in day.blocks if b.competition is Competition.ALL_BREED]
-        if main is None or not any(k is EventKind.BREED for b in breed_blocks for _, k, _, _ in b.events):
+        main = next((s for s in day.sections if s.all_breed), None)
+        if main is None or not any(e.breed for b in day.blocks if b.all_breed for e in b.events):
             return None  # no all-breed conformation show this day
 
         judges: dict[str, Judge] = {}
@@ -534,72 +534,71 @@ class BradshawParser:
         def ring_of(n: int) -> Ring:
             return rings.setdefault(n, Ring(n))
 
+        # only the regular breed judging of the all-breed show becomes domain objects
         events: list[JudgingEvent] = []
         scheduled: list[ScheduledBlock] = []
+        other_competitions = not_breed_judging = 0
         for rb in day.blocks:
             j = judge_of(rb.judge)
             evs = []
-            for name, kind, entries, counts in rb.events:
-                breed = None
-                if kind is EventKind.BREED:
-                    breed = self.catalog.get(name)
-                    if breed is None:
-                        report.unknown_breeds.append(name)
-                elif kind is EventKind.SWEEPSTAKES:
-                    breed = self.catalog.get(RE_SWEEPS.sub("", name))
-                comp = rb.competition
-                if kind is EventKind.OTHER and name.lower().startswith(("obedience-rally", "rally")):
-                    comp = Competition.RALLY
-                elif kind is EventKind.OTHER:
-                    comp = Competition.OBEDIENCE
-                ev = JudgingEvent(name, kind, j, entries, breed, counts, comp)
-                evs.append(ev)
-                events.append(ev)
-                if counts is not None and counts.total != entries:
-                    report.checks.append((f"breakdown {name}", entries, counts.total))
+            for raw in rb.events:
+                if raw.counts is not None and raw.counts.total != raw.entries:
+                    report.checks.append((f"breakdown {raw.name}", raw.entries, raw.counts.total))
+                if not rb.all_breed:
+                    other_competitions += 1
+                    continue
+                if not raw.breed:
+                    not_breed_judging += 1
+                    continue
+                breed = self.catalog.get(raw.name)
+                if breed is None:
+                    report.unknown_breeds.append(raw.name)
+                evs.append(JudgingEvent(raw.name, j, raw.entries, breed, raw.counts))
+            events += evs
             if evs:
                 scheduled.append(ScheduledBlock(Block(j, tuple(evs)), ring_of(rb.ring), rb.start))
+        if other_competitions:
+            report.not_kept.append(f"{other_competitions} events of other competitions on the program "
+                                   "(special attractions, concurrent specialties)")
+        if not_breed_judging:
+            report.not_kept.append(f"{not_breed_judging} events of the all-breed show that are not breed judging "
+                                   "(sweepstakes, Junior Showmanship, obedience, rally)")
 
-        # breaks: length = gap until that judge's next block in the same ring, if any
+        # breaks: length = gap until that judge's next block (of any competition), if any
         breaks = []
         for ring_no, jname, start in day.breaks:
             j = judge_of(jname)
-            nxt = [sb.start for sb in scheduled if sb.judge == j and sb.start > start]
+            nxt = [rb.start for rb in day.blocks if rb.events and judge_of(rb.judge) == j and rb.start > start]
             length = (min(nxt) - start) if nxt else None
             breaks.append(Break(j, ring_of(ring_no), start, length))
 
-        # totals checks
+        # totals checks, over every event listed
         for ring_no, jname, stated, lo, hi in day.subtotals:
             parsed = sum(
-                entries
+                e.entries
                 for rb in day.blocks[lo:hi]
                 if rb.ring == ring_no and rb.judge == jname
-                for _, kind, entries, _ in rb.events
+                for e in rb.events
             )
             report.checks.append((f"ring {ring_no} {jname} subtotal", stated, parsed))
-        main_entries = sum(
-            e.entries
-            for e in events
-            if e.competition in (Competition.ALL_BREED, Competition.OBEDIENCE, Competition.RALLY)
-        )
-        ends = [n for comp, n in day.section_end_totals if comp is Competition.ALL_BREED]
+        main_entries = sum(e.entries for rb in day.blocks if rb.all_breed for e in rb.events)
+        ends = [n for all_breed, n in day.section_end_totals if all_breed]
         if ends:
             report.checks.append(("Total Dog Entries in Show (all-breed section)", ends[-1], main_entries))
         else:
             report.notes.append("no 'Total Dog Entries in Show' line for the all-breed section")
-        breed_entries = sum(e.entries for e in events if e.competition is Competition.ALL_BREED and e.kind is EventKind.BREED)
+        breed_entries = sum(e.entries for e in events)
         report.notes.append(f"Total Dogs in Show (unique dogs, informational): {main.stated_total}; breed entries parsed: {breed_entries}")
 
-        starts = [sb.start for sb in scheduled if sb.block.events[0].competition is Competition.ALL_BREED]
-        if not starts:
+        if not scheduled:
             raise ValueError(f"{show_name} {date}: no all-breed judging found")
         show = Show(
             name=show_name,
             date=date,
-            judges=list(judges.values()),
+            judges=list(judges.values()),  # all of them, to resolve the groups page's names; narrowed below
             events=events,
             rings=sorted(rings.values(), key=lambda r: r.number),
-            start=min(starts),
+            start=min(sb.start for sb in scheduled),  # when breed judging begins
         )
         plan = None
         if groups_info:
@@ -623,6 +622,13 @@ class BradshawParser:
                 report.notes.append(f"groups page lists {len(plan.order)} groups: {plan.order}")
         else:
             report.notes.append("no groups page found for this day")
+        # keep the judges who judge breeds, the rings they or the groups use, and the panel's breaks
+        judging = {sb.judge for sb in scheduled}
+        panel = judging | set(show.group_judges.values()) | ({show.bis_judge} if show.bis_judge else set())
+        used = {sb.ring for sb in scheduled} | set(show.group_rings)
+        show.judges = [j for j in show.judges if j in judging]
+        show.rings = [r for r in show.rings if r in used]
+        breaks = [br for br in breaks if br.judge in panel]
         return ParsedDay(JudgingProgram(show, scheduled, breaks, plan), report)
 
 
@@ -725,14 +731,14 @@ def _parse_breed_indexes(columns) -> list[list[IndexRow]]:
     return [ix for ix in out if ix]
 
 
-def _cross_check_index(pd: ParsedDay, index: list[IndexRow]) -> None:
-    """Compare the back-of-program breed index with the parsed ring listings."""
+def _cross_check_index(report: ParseReport, blocks: list[_RawBlock], index: list[IndexRow]) -> None:
+    """Compare the back-of-program breed index with the parsed ring listings (every event)."""
     from optdog.breeds import name_key
 
     rows = defaultdict(list)
-    for e, sb, _ in pd.program.scheduled_events():
-        rows[name_key(e.name)].append((e, sb))
-    report = pd.report
+    for rb in blocks:
+        for e in rb.events:
+            rows[name_key(e.name)].append((e, rb))
     matched = 0
     skip = re.compile(
         r"(Junior|Intermediate|Senior|Master) Class|Novice|Open Class|Utility|Graduate|Preferred|Versatility|"
@@ -746,17 +752,13 @@ def _cross_check_index(pd: ParsedDay, index: list[IndexRow]) -> None:
         if not cands:
             report.index_mismatches.append(f"index lists {row.name!r} ({row.entries}, ring {row.ring}) but listings do not")
             continue
-        ok = [
-            (e, sb)
-            for e, sb in cands
-            if e.entries == row.entries and sb.start == row.time and sb.ring.number == row.ring
-        ]
+        ok = [(e, rb) for e, rb in cands if e.entries == row.entries and rb.start == row.time and rb.ring == row.ring]
         if ok:
             matched += 1
         else:
-            e, sb = cands[0]
+            e, rb = cands[0]
             report.index_mismatches.append(
                 f"{row.name!r}: index {row.entries} @ {row.time} ring {row.ring}; "
-                f"listing {e.entries} @ {sb.start} ring {sb.ring.number}"
+                f"listing {e.entries} @ {rb.start} ring {rb.ring}"
             )
     report.checks.append(("breed index rows (breeds) matching listings", len(index), matched))

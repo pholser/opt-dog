@@ -1,15 +1,15 @@
 """Step 3c: breeds inside a run are ordered to pack into full blocks."""
 
 from optdog.breeds import default_catalog
-from optdog.domain import Competition, Duration, EventKind, JudgingEvent, Judge
+from optdog.domain import Duration, JudgingEvent, Judge
 from optdog.solve.packing import items_of, pack_run
 
 CAT = default_catalog()
 A = Judge("Ms. A")
 
 
-def ev(breed, n, kind=EventKind.BREED):
-    return JudgingEvent(breed, kind, A, n, CAT[breed], competition=Competition.ALL_BREED)
+def ev(breed, n):
+    return JudgingEvent(breed, A, n, CAT[breed])
 
 
 def dogs(bins):
@@ -33,11 +33,7 @@ def test_no_bin_is_over_the_cap():
     assert all(Duration.total(e.duration for e in b) <= Duration(65) for b in pack_run(run, Duration(65), 15))
 
 
-def test_a_sweepstakes_stays_just_before_its_breed_and_varieties_stay_together():
-    sw = JudgingEvent("Boxer Sweepstakes", EventKind.SWEEPSTAKES, A, 3, CAT["Boxer"], competition=Competition.ALL_BREED)
-    boxer, akita = ev("Boxer", 20), ev("Akita", 5)
-    assert items_of([akita, sw, boxer]) == [[akita], [sw, boxer]]
+def test_varieties_of_a_breed_stay_together():
+    akita = ev("Akita", 5)
     poodles = [ev("Poodle (Miniature)", 3), ev("Poodle (Standard)", 3)]
-    assert len(items_of([poodles[0], akita, poodles[1]])) == 2
-    flat = [e for b in pack_run([akita, sw, boxer], Duration(65), 15) for e in b]
-    assert flat.index(boxer) == flat.index(sw) + 1
+    assert items_of([poodles[0], akita, poodles[1]]) == [[poodles[0], poodles[1]], [akita]]

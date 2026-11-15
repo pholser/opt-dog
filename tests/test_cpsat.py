@@ -7,7 +7,7 @@ import pytest
 
 from optdog.breeds import default_catalog
 from optdog.domain import (
-    VARIETY_GROUPS, Block, Competition, Duration, EventKind, Judge, JudgingEvent, Ring, ScheduledBlock, Show,
+    VARIETY_GROUPS, Block, Duration, Judge, JudgingEvent, Ring, ScheduledBlock, Show,
     TimeOfDay,
 )
 from optdog.instance import instance_from_program
@@ -27,8 +27,8 @@ PARSED = sorted((Path(__file__).resolve().parents[1] / "data" / "parsed" / "brad
 A, B, C, G = Judge("Ms. A"), Judge("Mr. B"), Judge("Dr. C"), Judge("Dr. G")
 
 
-def ev(breed, judge, n, competition=Competition.ALL_BREED):
-    return JudgingEvent(breed, EventKind.BREED, judge, n, CAT[breed], competition=competition)
+def ev(breed, judge, n):
+    return JudgingEvent(breed, judge, n, CAT[breed])
 
 
 def show_of(events, judges, rings=3):
@@ -49,7 +49,7 @@ def test_small_show_is_valid_and_matches_the_validator():
 
 def test_back_to_back_pinned_blocks_for_one_judge():
     # two pinned blocks 4 minutes apart: padding each by the travel margin must not make them clash
-    p1, p2 = ev("Pug", C, 5, Competition.BEGINNER_PUPPY), ev("Maltese", C, 5, Competition.BEGINNER_PUPPY)
+    p1, p2 = ev("Pug", C, 5), ev("Maltese", C, 5)
     pins = [ScheduledBlock(Block(C, (p1,)), Ring(3), TimeOfDay(13 * 60)), ScheduledBlock(Block(C, (p2,)), Ring(3), TimeOfDay(13 * 60 + 16))]
     show = show_of([ev("Boxer", A, 25), ev("Beagle (13 Inch)", B, 25), p1, p2], (A, B, C))
     show.pinned = pins
@@ -82,15 +82,10 @@ def test_formation_on_parsed_shows(d):
     assert res.finish >= relaxed_lower_bound(show, time_limit=20).value - EPS
 
 
-def test_formation_keeps_sweepstakes_with_their_breed_and_caps_blocks():
-    sw = JudgingEvent("Pug Sweepstakes", EventKind.SWEEPSTAKES, A, 6, CAT["Pug"])
-    events = [ev("Boxer", A, 20), sw, ev("Pug", A, 20), ev("Maltese", A, 20), ev("Beagle (13 Inch)", B, 25)]
+def test_formation_caps_blocks():
+    events = [ev("Boxer", A, 20), ev("Pug", A, 20), ev("Maltese", A, 20), ev("Beagle (13 Inch)", B, 25)]
     res = solve_formation(show_of(events, (A, B)), P0)
-    for sb in res.program.blocks:
-        assert sb.block.duration <= Duration(65) + EPS
-        names = [e.name for e in sb.block.events]
-        if "Pug Sweepstakes" in names:
-            assert names[names.index("Pug Sweepstakes") + 1] == "Pug"
+    assert all(sb.block.duration <= Duration(65) + EPS for sb in res.program.blocks)
     assert validate(res.program, P0).violations == []
 
 

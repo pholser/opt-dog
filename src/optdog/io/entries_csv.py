@@ -24,11 +24,9 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from optdog.domain import (
-    Competition,
     Entry,
     EntryCounts,
     EntryStatus,
-    EventKind,
     Exhibitor,
     JudgingEvent,
     Sex,
@@ -38,13 +36,6 @@ from optdog.domain import (
 )
 
 ENTRY_FIELDS = ("dog", "sex", "status", "exhibitor", "judge", "event")
-
-
-def check_regular(events) -> None:
-    """Files hold regular breed events of the all-breed show only (U 2026-11-13)."""
-    for e in events:
-        if e.kind is not EventKind.BREED or e.competition is not Competition.ALL_BREED:
-            raise ValueError(f"{e.name} ({e.kind.value}, {e.competition.value}) is not a regular breed event")
 
 
 def entries_of(show: Show) -> list[Entry]:
@@ -62,7 +53,6 @@ def entries_of(show: Show) -> list[Entry]:
 def write_entries(entries: list[Entry], out_dir: str | Path) -> None:
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
-    check_regular({id(en.event): en.event for en in entries}.values())
     exhibitors: dict[str, Exhibitor] = {}
     for en in entries:
         if en.exhibitor is not None:

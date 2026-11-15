@@ -21,7 +21,8 @@ ring changes, equipment moves and judge idle time. Every rule traces to an AKC d
 
 Who judges what is an input. The program does not assign judges. Only regular breed events
 exist for it: sweepstakes, Junior Showmanship, Beginner Puppy, FSS, specialty, obedience and
-rally events are dropped when published programs are parsed.
+rally events are dropped when published programs are parsed, and the domain model has no way to
+represent them.
 
 ## 2. How it works
 
@@ -73,7 +74,7 @@ limit, 60 seconds by default.
 |---|---|
 | H1 block length, H3 one block per ring, H4 judge in one place, H5 published order | Enforced |
 | H6 lunch, H7–H10 groups and BIS sequencing, H13 two groups done first, H14 groups after lunches | Enforced |
-| H11 pinned events, H15 sweepstakes and multi-entry classes | Enforced |
+| H11 pinned events, H15 multi-entry classes | Enforced |
 | H16 ring big enough for the breed, H17 group ring size | Enforced. A ring of unknown size counts as XL |
 | H12 closing time | **Validator only** (see section 5) |
 | V1 judge's daily entry limit | Input check. The panel is given, so the solver cannot fix it |
@@ -214,7 +215,7 @@ Limiting ring sizes barely moved the finish, but cost ring changes and idle time
 are rough, because the last phase runs out of time on these runs, and they predate the change that
 counts any wait beyond a lunch's length as idle, so they understate it.
 
-**Tests.** All 298 pass, in about 6 minutes. The solver tests use short time limits, so they
+**Tests.** All 296 pass, in about 6 minutes. The solver tests use short time limits, so they
 should run with nothing else competing for CPU.
 
 **Type checking.** `mypy` (a dev extra) checks `src/optdog` clean. `solve/cpsat.py` is exempt

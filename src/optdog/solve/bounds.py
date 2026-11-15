@@ -33,7 +33,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from itertools import combinations
 
-from optdog.domain import VARIETY_GROUPS, Competition, Duration, Group, Judge, Show, TimeOfDay
+from optdog.domain import VARIETY_GROUPS, Duration, Group, Judge, Show, TimeOfDay
 from optdog.params import ShowParameters
 
 
@@ -85,7 +85,7 @@ def finish_lower_bound(show: Show, params: ShowParameters | None = None) -> Fini
     feed: dict[Judge, list[Duration]] = {}
     for e in show.events:
         g = e.feeds_group
-        if g is None or e.competition is not Competition.ALL_BREED:  # as Show.feeding
+        if g is None:
             continue
         feed.setdefault(e.judge, [Duration.ZERO] * len(groups))[groups.index(g)] += e.duration
 

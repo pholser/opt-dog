@@ -21,12 +21,11 @@ import csv
 from pathlib import Path
 
 from optdog.breeds import BreedCatalog, default_catalog
-from optdog.io.entries_csv import check_regular, entries_of, read_entry_table, write_entries
+from optdog.io.entries_csv import entries_of, read_entry_table, write_entries
 from optdog.domain import (
     Block,
     Break,
     Duration,
-    EventKind,
     Group,
     GroupsPlan,
     JudgingEvent,
@@ -87,7 +86,6 @@ def write_program(program: JudgingProgram, out_dir: str | Path, source: str = ""
         for j in judges.values():
             w.writerow([j.name, int(j.permit), "" if j.per_dog is None else j.per_dog.minutes])
 
-    check_regular(e for sb in program.blocks for e in sb.block.events)
     with open(out / "schedule.csv", "w", newline="") as f:
         rows = csv.DictWriter(f, SCHEDULE_FIELDS)
         rows.writeheader()
@@ -145,7 +143,6 @@ def read_program(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Jud
             total, counts = table.counts(r["judge"], r["event"], f"schedule.csv, line {i}")
             e = JudgingEvent(
                 name=r["event"],
-                kind=EventKind.BREED,
                 judge=judges[r["judge"]],
                 entries=total,
                 breed=catalog[r["breed"]] if r["breed"] else None,

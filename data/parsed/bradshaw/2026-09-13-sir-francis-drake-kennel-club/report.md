@@ -2,7 +2,7 @@
 
 Source: `data/raw/bradshaw/50.pdf` (SUNDAY)
 
-- judges: 7, rings: 8, blocks: 33, events: 163
+- judges: 7, rings: 8, blocks: 31, events: 138
 - judging starts: 8:00 AM
 - groups: 2:30 PM in rings 5, 6; order: Non-Sporting, Toy, Terrier, Hound, Sporting, Working, Herding; BIS: Mrs. Nancy D. Simmons
 
@@ -29,9 +29,8 @@ Source: `data/raw/bradshaw/50.pdf` (SUNDAY)
 
 ## Not kept (only regular breed events are)
 
-- breed (beginner-puppy): 17
-- group (beginner-puppy): 7
-- junior-showmanship (all-breed): 1
+- 24 events of other competitions on the program (special attractions, concurrent specialties)
+- 1 events of the all-breed show that are not breed judging (sweepstakes, Junior Showmanship, obedience, rally)
 
 ## Notes
 

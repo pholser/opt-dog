@@ -7,7 +7,7 @@ import pytest
 from optdog.breeds import default_catalog
 from optdog.conflicts import exhibitor_conflicts, registered_window_pairs
 from optdog.domain import (
-    VARIETY_GROUPS, Competition, Duration, Entry, EntryStatus, EventKind, Exhibitor, Judge, JudgingEvent,
+    VARIETY_GROUPS, Duration, Entry, EntryStatus, Exhibitor, Judge, JudgingEvent,
     Ring, Show, TimeOfDay,
 )
 from optdog.params import ShowParameters
@@ -20,7 +20,7 @@ A, B, C, G = Judge("Ms. A"), Judge("Mr. B"), Judge("Dr. C"), Judge("Dr. G")
 
 
 def ev(breed, judge, n):
-    return JudgingEvent(breed, EventKind.BREED, judge, n, CAT[breed], competition=Competition.ALL_BREED)
+    return JudgingEvent(breed, judge, n, CAT[breed])
 
 
 def show_of(events, judges, rings=3):

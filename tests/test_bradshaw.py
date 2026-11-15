@@ -3,9 +3,8 @@ from pathlib import Path
 
 import pytest
 
-from optdog.domain import VARIETY_GROUPS, EntryCounts, EventKind, TimeOfDay
+from optdog.domain import VARIETY_GROUPS, EntryCounts, TimeOfDay
 from optdog.ingest.bradshaw import BradshawParser, _split_group_pairs, parse_counts, parse_time
-from optdog.ingest.build_dataset import regular_breed_only
 from optdog.io.program_csv import read_program, write_program
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -109,14 +108,14 @@ def test_groups_plan_complete(parsed, row):
 @pytest.mark.parametrize("row", _manifest(), ids=lambda r: f"{r['file']}-{r['day']}")
 def test_all_breeds_resolved(parsed, row):
     pd = parsed[(row["file"], row["day"])]
-    unresolved = [e.name for e in pd.program.show.events if e.kind is EventKind.BREED and e.breed is None]
+    unresolved = [e.name for e in pd.program.show.events if e.breed is None]
     assert not unresolved
 
 
 def test_csv_round_trip(parsed, tmp_path):
     pd = parsed[("603.pdf", "SATURDAY")]
-    p0, dropped = regular_breed_only(pd.program)
-    assert dropped and all(e.kind is EventKind.BREED and e.competition.value == "all-breed" for e in p0.show.events)
+    p0 = pd.program
+    assert pd.report.not_kept  # the program has more than regular breed judging, which is not kept
     write_program(p0, tmp_path)
     p1 = read_program(tmp_path)
     assert not (tmp_path / "exhibitors.csv").exists()  # the dogs have no exhibitors on record

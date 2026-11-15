@@ -32,9 +32,7 @@ from collections import defaultdict
 from dataclasses import dataclass, field
 
 from optdog.domain import (
-    Competition,
     Duration,
-    EventKind,
     GroupTimeline,
     JudgingProgram,
     Judge,
@@ -42,8 +40,6 @@ from optdog.domain import (
     TimeOfDay,
 )
 from optdog.params import ShowParameters
-
-CONFORMATION = {Competition.ALL_BREED, Competition.SPECIALTY, Competition.BEGINNER_PUPPY, Competition.FSS_OPEN}
 
 
 @dataclass(frozen=True)
@@ -80,10 +76,6 @@ def _label(sb: ScheduledBlock) -> str:
     return f"{sb.ring} {sb.start} ({sb.judge.name})"
 
 
-def _conformation_blocks(program: JudgingProgram) -> list[ScheduledBlock]:
-    return [sb for sb in program.blocks if sb.block.events[0].competition in CONFORMATION]
-
-
 def lunch_fits_window(start: TimeOfDay, length: Duration, params: ShowParameters, published: bool) -> bool:
     """Can this lunch start inside the lunch window (H6)?
 
@@ -105,7 +97,7 @@ def lunch_ends(program: JudgingProgram, params: ShowParameters) -> dict[Judge, T
     (preferring one that starts in the lunch window), for the minimum lunch length.
     """
     p = params.for_show(program.show)
-    blocks = _conformation_blocks(program)
+    blocks = program.blocks
     judges = {sb.judge for sb in blocks}
     out: dict[Judge, TimeOfDay] = {}
     last_start: dict[Judge, TimeOfDay] = {}
@@ -130,7 +122,7 @@ def lunch_ends(program: JudgingProgram, params: ShowParameters) -> dict[Judge, T
 def validate(program: JudgingProgram, params: ShowParameters | None = None) -> ValidationResult:
     p = (params or ShowParameters()).for_show(program.show)
     res = ValidationResult()
-    blocks = _conformation_blocks(program)
+    blocks = program.blocks
     by_ring: dict = defaultdict(list)
     by_judge: dict[Judge, list[ScheduledBlock]] = defaultdict(list)
     for sb in blocks:
@@ -147,7 +139,6 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
             b = sb.block
             if id(sb) in pinned:
                 continue  # a published commitment of the instance (H11), not a decision being checked
-            breed_events = [e for e in b.events if e.kind is EventKind.BREED]
             single = len(b.events) == 1
             if single and b.entries > p.single_breed_exception_entries:
                 continue  # Rules Ch.7 §12 exception
@@ -281,7 +272,7 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
     # ---------------------------------------------------------------- S4 group switches per judge
     extra_group_switches = 0
     for judge, seq in by_judge.items():
-        groups = [e.group for sb in seq for e in sb.block.events if e.kind is EventKind.BREED and e.group is not None]
+        groups = [e.group for sb in seq for e in sb.block.events if e.group is not None]
         switches = sum(1 for x, y in zip(groups, groups[1:]) if x != y)
         extra_group_switches += max(0, switches - (len(set(groups)) - 1))
 
@@ -369,11 +360,9 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
     show = program.show
     for judge in show.judges:
         load = show.judge_load(judge)
-        evs = show.events_for(judge)
-        specialty_only = evs and all(e.competition is Competition.SPECIALTY for e in evs)
-        most = p.specialty_only_daily_limit if specialty_only else p.judge_daily_limit
-        if load > most:
-            res.violations.append(Violation("V1", judge.name, f"{load} entries (limit {most})", load - most))
+        if load > p.judge_daily_limit:
+            res.violations.append(Violation("V1", judge.name, f"{load} entries (limit {p.judge_daily_limit})",
+                                            load - p.judge_daily_limit))
 
     # ---------------------------------------------------------------- soft costs, metrics, objective
     off_grid = sum(1 for sb in blocks if not sb.start.on_grid(p.slot))

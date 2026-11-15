@@ -6,7 +6,7 @@ import pytest
 
 from optdog.breeds import default_catalog
 from optdog.domain import (
-    VARIETY_GROUPS, Block, Competition, Duration, EventKind, Group, GroupsPlan, Judge, JudgingEvent,
+    VARIETY_GROUPS, Block, Duration, Group, GroupsPlan, Judge, JudgingEvent,
     JudgingProgram, Ring, ScheduledBlock, Show, TimeOfDay,
 )
 from optdog.instance import instance_from_program
@@ -26,8 +26,8 @@ PARSED = sorted((Path(__file__).resolve().parents[1] / "data" / "parsed" / "brad
 A, B, G = Judge("Ms. A"), Judge("Mr. B"), Judge("Dr. G")
 
 
-def ev(breed, judge, n, kind=EventKind.BREED, competition=Competition.ALL_BREED):
-    return JudgingEvent(breed, kind, judge, n, CAT[breed], competition=competition)
+def ev(breed, judge, n):
+    return JudgingEvent(breed, judge, n, CAT[breed])
 
 
 def small_show(events, rings=2, judges=(A, B)):
@@ -91,7 +91,7 @@ def test_greedy_small_show_is_valid_and_not_below_bound():
 
 
 def test_greedy_respects_pinned_blocks():
-    spec = ev("Pug", A, 10, competition=Competition.SPECIALTY)
+    spec = ev("Pug", A, 10)
     pinned = ScheduledBlock(Block(A, (spec,)), Ring(2), TimeOfDay(9 * 60))
     show = small_show([spec, ev("Maltese", A, 25), ev("Boxer", B, 25)])
     show.pinned = [pinned]

@@ -2,7 +2,7 @@
 
 Source: `data/raw/bradshaw/603.pdf` (MONDAY)
 
-- judges: 19, rings: 19, blocks: 71, events: 197
+- judges: 16, rings: 17, blocks: 58, events: 174
 - judging starts: 8:30 AM
 - groups: 2:30 PM in rings 5, 7; order: Toy, Sporting, Working, Herding, Terrier, Non-Sporting, Hound; BIS: Mr. Harold Tatro
 
@@ -38,10 +38,8 @@ Source: `data/raw/bradshaw/603.pdf` (MONDAY)
 
 ## Not kept (only regular breed events are)
 
-- breed (fss-open): 4
-- junior-showmanship (all-breed): 1
-- other (obedience): 9
-- other (rally): 9
+- 4 events of other competitions on the program (special attractions, concurrent specialties)
+- 19 events of the all-breed show that are not breed judging (sweepstakes, Junior Showmanship, obedience, rally)
 
 ## Notes
 

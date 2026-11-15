@@ -2,7 +2,7 @@
 
 Source: `data/raw/bradshaw/843.pdf` (MONDAY)
 
-- judges: 8, rings: 12, blocks: 43, events: 164
+- judges: 7, rings: 11, blocks: 36, events: 143
 - judging starts: 8:00 AM
 - groups: 1:15 PM in rings 5, 6; order: Sporting, Toy, Hound, Non-Sporting, Working, Herding, Terrier; BIS: Mr. Joe C. Walton
 
@@ -29,9 +29,7 @@ Source: `data/raw/bradshaw/843.pdf` (MONDAY)
 
 ## Not kept (only regular breed events are)
 
-- junior-showmanship (all-breed): 1
-- other (obedience): 11
-- other (rally): 9
+- 21 events of the all-breed show that are not breed judging (sweepstakes, Junior Showmanship, obedience, rally)
 
 ## Notes
 

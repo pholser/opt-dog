@@ -6,15 +6,15 @@ at thousands of arcs per day, each with a constraint per ring. So the order is c
 small bin-packing problem per run, and the model then cuts, places and times it as in 3b. The
 result is optimal only for this order.
 
-An item stays whole: a breed with its sweepstakes (H15), and the varieties of one breed, which
-humans keep consecutive 82% of the time (SPEC §8). An item over the block cap has a bin to itself.
+An item stays whole: the varieties of one breed, which humans keep consecutive 82% of the time
+(SPEC §8). An item over the block cap has a bin to itself.
 """
 
 from __future__ import annotations
 
 from ortools.sat.python import cp_model
 
-from optdog.domain import Duration, EventKind, JudgingEvent
+from optdog.domain import Duration, JudgingEvent
 
 Item = list[JudgingEvent]
 SHORT_OVER_BLOCK = 1000  # a short block costs more than any number of extra blocks
@@ -30,8 +30,6 @@ def items_of(run: list[JudgingEvent]) -> list[Item]:
     items: dict[str, Item] = {}
     for e in run:
         items.setdefault(family(e), []).append(e)
-    for item in items.values():  # each sweepstakes just before its breed, as the run has them
-        item.sort(key=lambda e: 0 if e.kind is EventKind.SWEEPSTAKES else 1)
     return list(items.values())
 
 

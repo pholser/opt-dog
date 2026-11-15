@@ -2,7 +2,7 @@
 
 Source: `data/raw/bradshaw/843.pdf` (SUNDAY)
 
-- judges: 15, rings: 14, blocks: 63, events: 176
+- judges: 10, rings: 12, blocks: 45, events: 149
 - judging starts: 8:00 AM
 - groups: 2:30 PM in rings 5, 6; order: Terrier, Hound, Toy, Non-Sporting, Sporting, Herding, Working; BIS: Dr. John V. Ioia
 
@@ -37,12 +37,8 @@ Source: `data/raw/bradshaw/843.pdf` (SUNDAY)
 
 ## Not kept (only regular breed events are)
 
-- breed (specialty): 2
-- junior-showmanship (all-breed): 1
-- other (obedience): 12
-- other (rally): 9
-- sweepstakes (all-breed): 2
-- sweepstakes (specialty): 1
+- 3 events of other competitions on the program (special attractions, concurrent specialties)
+- 24 events of the all-breed show that are not breed judging (sweepstakes, Junior Showmanship, obedience, rally)
 
 ## Notes
 

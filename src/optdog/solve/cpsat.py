@@ -68,7 +68,6 @@ from optdog.domain import (
     Block,
     Break,
     Duration,
-    EventKind,
     Group,
     GroupsPlan,
     JudgingEvent,
@@ -190,20 +189,14 @@ def _free_cuts_of(chain: Chain, cap: Duration) -> list[Cut]:
         a, b = chain[i - 1], chain[i]
         if alone[i - 1] or alone[i]:
             cuts[i] = True
-        elif a.kind is EventKind.SWEEPSTAKES and b.kind is EventKind.BREED and a.breed == b.breed:
-            cuts[i] = False
     if chain and alone[0]:
         cuts[0] = True
     return cuts
 
 
 def free_cuts(chains: dict[Judge, Chain], cap: Duration) -> dict[Judge, list[Segment]]:
-    """One segment per judge with cuts for the solver to choose (step 3a), except that
-
-    - an event longer than the block cap is a block of its own (H1 exception), and
-    - a sweepstakes stays in the same block as the breed it precedes (H15), unless
-      that breed must be alone.
-    """
+    """One segment per judge with cuts for the solver to choose (step 3a), except that an event
+    longer than the block cap is a block of its own (H1 exception)."""
     out = {}
     for j, chain in chains.items():
         cuts = _free_cuts_of(chain, cap)
@@ -220,11 +213,8 @@ def _exam(e: JudgingEvent) -> str:
 
 
 def segment_class(e: JudgingEvent) -> object:
-    """The group an event's segment belongs to: its variety group (sweepstakes by their
-    breed's), "junior" for Junior Showmanship, "other" for the rest (Miscellaneous, FSS,
-    obedience...) — the same classes as the greedy's running order."""
-    if e.kind is EventKind.JUNIOR_SHOWMANSHIP:
-        return "junior"
+    """The group an event's segment belongs to: its variety group, or "other" (Miscellaneous,
+    FSS, unknown breeds) — the same classes as the greedy's running order."""
     g = e.breed.group if e.breed else None
     return g if g is not None and g.is_variety_group else "other"
 

@@ -123,7 +123,7 @@ def _program_section(idx: int, label: str, program: JudgingProgram, res: Validat
         names = [f"{e.entries} {e.name}" for e in sb.block.events]
         tip = [f"{sb.judge.name}", f"{sb.ring} · {sb.start}–{sb.end} · {sb.block.entries} dogs, {sb.block.duration.minutes:.0f} min"]
         if id(sb) in pinned:
-            tip.append(f"pinned ({sb.block.events[0].competition.value})")
+            tip.append("pinned")
         tip += [""] + [f"{sb.start + off}  {e.entries:>3} {e.name}" for e, off in sb.block.offsets()]
         cm = conflicts.get(id(sb), 0.0)
         if cm:
@@ -337,7 +337,7 @@ def render_html(programs: list[tuple[str, JudgingProgram]], params: ShowParamete
     head = title or f"{show.name}"
     sections = "".join(_program_section(i, label, prog, res, chart, p) for i, (label, prog, res) in enumerate(results))
     legend = "".join(f'<span class="g-{k}"><i></i>{_e(g.value)}</span>' for g, k in _GROUP_KEY.items())
-    legend += '<span class="g-other"><i></i>Juniors / other</span>'
+    legend += '<span class="g-other"><i></i>Other (FSS, unknown breed)</span>'
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{_e(head)}</title><style>{_CSS}</style></head>

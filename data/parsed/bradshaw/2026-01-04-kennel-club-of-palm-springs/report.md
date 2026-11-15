@@ -2,7 +2,7 @@
 
 Source: `data/raw/bradshaw/603.pdf` (SUNDAY)
 
-- judges: 26, rings: 27, blocks: 88, events: 254
+- judges: 21, rings: 23, blocks: 72, events: 174
 - judging starts: 8:30 AM
 - groups: 1:30 PM in rings 5, 7; order: Toy, Terrier, Non-Sporting, Working, Hound, Herding, Sporting; BIS: Mr. Stephen Dainard
 
@@ -46,13 +46,8 @@ Source: `data/raw/bradshaw/603.pdf` (SUNDAY)
 
 ## Not kept (only regular breed events are)
 
-- breed (beginner-puppy): 41
-- breed (fss-open): 10
-- group (beginner-puppy): 7
-- junior-showmanship (all-breed): 1
-- other (obedience): 11
-- other (rally): 9
-- sweepstakes (all-breed): 1
+- 58 events of other competitions on the program (special attractions, concurrent specialties)
+- 22 events of the all-breed show that are not breed judging (sweepstakes, Junior Showmanship, obedience, rally)
 
 ## Notes
 

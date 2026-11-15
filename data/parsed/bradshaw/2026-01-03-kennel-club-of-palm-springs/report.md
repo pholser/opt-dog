@@ -2,7 +2,7 @@
 
 Source: `data/raw/bradshaw/603.pdf` (SATURDAY)
 
-- judges: 35, rings: 27, blocks: 95, events: 219
+- judges: 25, rings: 23, blocks: 76, events: 176
 - judging starts: 8:30 AM
 - groups: 2:00 PM in rings 5, 7; order: Non-Sporting, Working, Hound, Herding, Sporting, Terrier, Toy; BIS: Miss Sandra M. Lex
 
@@ -57,11 +57,8 @@ Source: `data/raw/bradshaw/603.pdf` (SATURDAY)
 
 ## Not kept (only regular breed events are)
 
-- breed (fss-open): 12
-- junior-showmanship (all-breed): 1
-- other (obedience): 13
-- other (rally): 9
-- sweepstakes (all-breed): 8
+- 12 events of other competitions on the program (special attractions, concurrent specialties)
+- 31 events of the all-breed show that are not breed judging (sweepstakes, Junior Showmanship, obedience, rally)
 
 ## Notes
 

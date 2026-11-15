@@ -2,7 +2,7 @@
 
 Source: `data/raw/bradshaw/843.pdf` (SATURDAY)
 
-- judges: 19, rings: 14, blocks: 65, events: 187
+- judges: 11, rings: 12, blocks: 45, events: 152
 - judging starts: 8:00 AM
 - groups: 2:15 PM in rings 5, 6; order: Toy, Terrier, Non-Sporting, Sporting, Hound, Working, Herding; BIS: Mrs. Debbie L. Melgreen
 
@@ -40,12 +40,8 @@ Source: `data/raw/bradshaw/843.pdf` (SATURDAY)
 
 ## Not kept (only regular breed events are)
 
-- breed (specialty): 3
-- junior-showmanship (all-breed): 1
-- other (obedience): 14
-- other (rally): 9
-- sweepstakes (all-breed): 3
-- sweepstakes (specialty): 5
+- 8 events of other competitions on the program (special attractions, concurrent specialties)
+- 27 events of the all-breed show that are not breed judging (sweepstakes, Junior Showmanship, obedience, rally)
 
 ## Notes
 
