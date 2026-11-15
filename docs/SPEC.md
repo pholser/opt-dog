@@ -2,7 +2,8 @@
 
 Every constraint cites its source: an AKC document (`docs/akc/`), a user decision (U), or
 evidence from parsed real programs (E). Items marked **OPEN** need a decision. What is built
-and what remains open is summarized in [`SOLUTION.md`](SOLUTION.md).
+and what remains open is summarized in [`SOLUTION.md`](SOLUTION.md). The optimization model
+itself, in mathematics, with the rationale for its choices, is in [`FORMULATION.md`](FORMULATION.md).
 
 ## 1. Problem
 
@@ -63,7 +64,7 @@ A **unit** is the smallest thing judged without interruption: a breed or variety
 | `n_u` | entries, with breakdown dogs–bitches–(BOB dogs–BOB bitches)–nonregular, counted from the dogs in `entries.csv` (U 2026-11-13): one row per dog with its sex and status (class, nonregular or champion). A parsed program's dogs are generated from its printed counts, with no exhibitors |
 | `grp(u)` | AKC classification: one of the 7 variety groups, Miscellaneous Class, or none (FSS breeds). Only variety-group breeds feed a group (H7); Miscellaneous breeds compete for Best in Miscellaneous in the breed ring |
 | `eq(u)` | equipment: table / ramp / floor (AKC table_breeds list) |
-| `d_u` | duration = `n_u · ρ_j(u)`; juniors at 20/hr (Show Manual §6) |
+| `d_u` | duration = `n_u · ρ_j(u)` |
 | `fixed_u` | optional pinned ring and start time (`pin_ring`, `pin_start` in a problem) |
 | `pred(u,v)` | optional precedence |
 

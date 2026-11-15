@@ -84,7 +84,7 @@ from optdog.solve.packing import pack_run
 
 SCALE = 10  # model time unit = 1/10 minute: domain times and lengths enter and leave the model as ints
 WSCALE = 10  # soft-cost weights → integer coefficients
-IDLE_OVER_STARTS = 10  # phase 5: one unit of judge idle outweighs ten units of later starts
+IDLE_OVER_STARTS = 10  # phases 4 and 6: one unit of judge idle outweighs ten units of later starts
 
 Chain = list[JudgingEvent]
 Cut = bool | None  # event starts a block (True), continues the block (False), or the solver chooses (None)

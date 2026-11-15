@@ -1,8 +1,8 @@
 # opt-dog: the solution as it stands
 
 As of 2026-11-14. Rule numbers (H1, S9 and so on) and their sources are in
-[`SPEC.md`](SPEC.md). Per-day results are in [`baseline.md`](baseline.md) and
-[`figures.html`](figures.html).
+[`SPEC.md`](SPEC.md), and the optimization model in [`FORMULATION.md`](FORMULATION.md). Per-day
+results are in [`baseline.md`](baseline.md) and [`figures.html`](figures.html).
 
 ## 1. What it does
 
