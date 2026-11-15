@@ -17,7 +17,7 @@ from pathlib import Path
 
 from collections import Counter
 
-from optdog.domain import Competition, EventKind, JudgingProgram, fmt_time
+from optdog.domain import Competition, EventKind, JudgingProgram
 from optdog.ingest.bradshaw import BradshawParser, ParsedDay
 from optdog.io.program_csv import write_program
 
@@ -64,11 +64,11 @@ def write_report(pd: ParsedDay, path: Path, dropped: Counter | None = None) -> N
         f"Source: `{Path(r.source).relative_to(ROOT)}` ({r.day})",
         "",
         f"- judges: {len(show.judges)}, rings: {len(show.rings)}, blocks: {len(prog.blocks)}, events: {len(show.events)}",
-        f"- judging starts: {fmt_time(show.start) if show.start else '?'}",
+        f"- judging starts: {show.start if show.start is not None else '?'}",
     ]
     if plan:
         lines.append(
-            f"- groups: {fmt_time(plan.start) if plan.start else '?'} in rings "
+            f"- groups: {plan.start if plan.start is not None else '?'} in rings "
             f"{', '.join(str(x.number) for x in plan.rings)}; order: {', '.join(g.value for g in plan.order)}; "
             f"BIS: {plan.bis_judge.name if plan.bis_judge else '?'}"
         )

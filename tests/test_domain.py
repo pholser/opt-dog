@@ -1,5 +1,5 @@
 from optdog.breeds import default_catalog
-from optdog.domain import EventKind, Group, JudgingEvent, Judge, Show
+from optdog.domain import Duration, EventKind, Group, JudgingEvent, Judge, Show
 
 
 def _event(name, judge, entries=3, kind=EventKind.BREED):
@@ -51,11 +51,11 @@ def test_group_and_bis_durations():
                 bis_judge=bis_judge)
 
     assert show.group_entrants(Group.SPORTING) == 4
-    assert show.group_duration(Group.SPORTING) == 4 * 3.0
+    assert show.group_duration(Group.SPORTING) == Duration(4 * 3.0)
     assert show.group_entrants(Group.HOUND) == 1
-    assert show.group_duration(Group.HOUND) == 1 * 2.4
+    assert show.group_duration(Group.HOUND) == Duration(1 * 2.4)
     assert show.group_entrants(Group.TOY) == 0
-    assert show.group_duration(Group.TOY) == 0
+    assert show.group_duration(Group.TOY) == Duration.ZERO
     assert show.bis_entrants() == 2  # only Sporting and Hound have breeds entered
-    assert show.bis_duration() == 2 * 2.4
-    assert show.groups_and_bis_duration() == 12.0 + 2.4 + 4.8
+    assert show.bis_duration() == Duration(2 * 2.4)
+    assert show.groups_and_bis_duration() == Duration(12.0 + 2.4 + 4.8)

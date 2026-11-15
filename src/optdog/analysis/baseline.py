@@ -10,7 +10,6 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from optdog.domain import fmt_time
 from optdog.params import ShowParameters
 from optdog.solutions import load_day, parsed_days
 from optdog.solve.greedy import greedy_program
@@ -18,10 +17,6 @@ from optdog.validate import validate
 
 ROOT = Path(__file__).resolve().parents[3]
 OUT = ROOT / "docs" / "baseline.md"
-
-
-def _t(x: float) -> str:
-    return fmt_time(int(round(x)))
 
 
 def rows(params: ShowParameters):
@@ -58,7 +53,7 @@ def render(params: ShowParameters | None = None) -> str:
         "  within each group, the order of its ground / ramp / table runs chosen by the solver.",
         "- **3c**: CP-SAT packing (`solve_packing`): as 3b, with the breeds inside each run ordered first",
         "  to pack into full blocks; *opt* = proven optimal for that order.",
-        f"- 3a, 3b and 3c give up to {p.short_block_finish_minutes:g} min of finish per short block avoided.",
+        f"- 3a, 3b and 3c give up to {p.short_block_finish.minutes:g} min of finish per short block avoided.",
         "- **Gap**: minutes of finish above the lower bound.",
         "- **S1**: conflict minutes of exhibitors signed up for the accommodation, synthetic exhibitors,",
         f"  seed 0. 3a–3c minimize it after the structure costs, letting judge idle grow to {p.conflict_idle_budget:g} × its minimum.",
@@ -72,31 +67,31 @@ def render(params: ShowParameters | None = None) -> str:
     for name, bound, human, rh, greedy, rg, cp, rc, fm, rf, ob, ro, pk, rk in rows(p):
         lb = bound.value
         fh, fg = rh.timeline.finish, rg.timeline.finish
-        gaps_h.append(fh - lb)
-        gaps_g.append(fg - lb)
+        gaps_h.append((fh - lb).minutes)
+        gaps_g.append((fg - lb).minutes)
         hard_h = ", ".join(sorted({v.code for v in rh.violations})) or "–"
         hard_g = ", ".join(sorted({v.code for v in rg.violations})) or "–"
         fc = rc.timeline.finish
-        gaps_c.append(fc - lb)
+        gaps_c.append((fc - lb).minutes)
         hard_c = ", ".join(sorted({v.code for v in rc.violations})) or "–"
         ff = rf.timeline.finish
-        gaps_f.append(ff - lb)
+        gaps_f.append((ff - lb).minutes)
         hard_f = ", ".join(sorted({v.code for v in rf.violations})) or "–"
         fo = ro.timeline.finish
-        gaps_o.append(fo - lb)
+        gaps_o.append((fo - lb).minutes)
         hard_o = ", ".join(sorted({v.code for v in ro.violations})) or "–"
         fk = rk.timeline.finish
-        gaps_k.append(fk - lb)
+        gaps_k.append((fk - lb).minutes)
         hard_k = ", ".join(sorted({v.code for v in rk.violations})) or "–"
         for k, r in zip(s1, (rh, rg, rc, rf, ro, rk)):
             s1[k] += r.soft.get("S1_conflict_min", 0)
         lines.append(
-            f"| {name} | {_t(lb)}{' opt' if bound.optimal else ''} | {_t(bound.combinatorial)} | {rh.metrics['groups_start']} | {_t(fh)} | {max(fh - lb, 0):.0f} | "
-            f"{rg.metrics['groups_start']} | {_t(fg)} | {max(fg - lb, 0):.0f} | "
-            f"{rc.metrics['groups_start']} | {_t(fc)}{' opt' if cp.optimal else ''} | {max(fc - lb, 0):.0f} | "
-            f"{rf.metrics['groups_start']} | {_t(ff)}{' opt' if fm.optimal else ''} | {max(ff - lb, 0):.0f} | "
-            f"{ro.metrics['groups_start']} | {_t(fo)}{' opt' if ob.optimal else ''} | {max(fo - lb, 0):.0f} | "
-            f"{rk.metrics['groups_start']} | {_t(fk)}{' opt' if pk.optimal else ''} | {max(fk - lb, 0):.0f} | "
+            f"| {name} | {lb}{' opt' if bound.optimal else ''} | {bound.combinatorial} | {rh.metrics['groups_start']} | {fh} | {max((fh - lb).minutes, 0):.0f} | "
+            f"{rg.metrics['groups_start']} | {fg} | {max((fg - lb).minutes, 0):.0f} | "
+            f"{rc.metrics['groups_start']} | {fc}{' opt' if cp.optimal else ''} | {max((fc - lb).minutes, 0):.0f} | "
+            f"{rf.metrics['groups_start']} | {ff}{' opt' if fm.optimal else ''} | {max((ff - lb).minutes, 0):.0f} | "
+            f"{ro.metrics['groups_start']} | {fo}{' opt' if ob.optimal else ''} | {max((fo - lb).minutes, 0):.0f} | "
+            f"{rk.metrics['groups_start']} | {fk}{' opt' if pk.optimal else ''} | {max((fk - lb).minutes, 0):.0f} | "
             f"{hard_h} | {hard_g} | {hard_c} | {hard_f} | {hard_o} | {hard_k} | "
             f"{rh.soft.get('S1_conflict_min', 0):.0f} | {rg.soft.get('S1_conflict_min', 0):.0f} | "
             f"{rc.soft.get('S1_conflict_min', 0):.0f} | {rf.soft.get('S1_conflict_min', 0):.0f} | "

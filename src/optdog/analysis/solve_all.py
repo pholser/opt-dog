@@ -39,7 +39,7 @@ def main(argv: list[str] | None = None) -> int:
         if not a.step:
             bound = relaxed_lower_bound(show, params, time_limit=a.time_limit)
             save_bound(bound, out)
-            line.append(f"bound {bound.value:.1f} ({bound.status.lower()})")
+            line.append(f"bound {bound.value.minutes:.1f} ({bound.status.lower()})")
         for step, solve, options in (
             ("placement", solve_placement, PlacementOptions(time_limit=30, tidy=False)),
             ("formation", solve_formation, PlacementOptions(time_limit=a.time_limit)),
@@ -59,7 +59,7 @@ def main(argv: list[str] | None = None) -> int:
                 bad += 1
                 continue
             save_result(res, out / step)
-            line.append(f"{step} {res.finish:.1f} ({res.status.lower()})")
+            line.append(f"{step} {res.finish.minutes:.1f} ({res.status.lower()})")
         print(f"{'; '.join(line)}  [{time.perf_counter() - t:.0f} s]", flush=True)
     return 1 if bad else 0
 

@@ -7,8 +7,8 @@ import pytest
 
 from optdog.breeds import default_catalog
 from optdog.domain import (
-    VARIETY_GROUPS, Block, Competition, EventKind, JudgingEvent, Judge, Ring,
-    ScheduledBlock, Show,
+    VARIETY_GROUPS, Block, Competition, Duration, EventKind, Judge, JudgingEvent, Ring, ScheduledBlock, Show,
+    TimeOfDay,
 )
 from optdog.instance import instance_from_program
 from optdog.io.program_csv import read_program
@@ -20,7 +20,8 @@ from optdog.solve.greedy import greedy_program
 from optdog.validate import validate
 
 CAT = default_catalog()
-P0 = ShowParameters(overlap_tolerance_minutes=0)
+EPS = Duration(1e-6)  # float slack
+P0 = ShowParameters(overlap_tolerance=Duration.ZERO)
 FAST = PlacementOptions(time_limit=20, tidy=False)
 PARSED = sorted((Path(__file__).resolve().parents[1] / "data" / "parsed" / "bradshaw").iterdir())
 A, B, C, G = Judge("Ms. A"), Judge("Mr. B"), Judge("Dr. C"), Judge("Dr. G")
@@ -32,7 +33,7 @@ def ev(breed, judge, n, competition=Competition.ALL_BREED):
 
 def show_of(events, judges, rings=3):
     return Show("T", "2026-01-01", list(judges), events, [Ring(i + 1) for i in range(rings)],
-                group_judges={g: G for g in VARIETY_GROUPS}, bis_judge=G, group_rings=(Ring(1),), start=480)
+                group_judges={g: G for g in VARIETY_GROUPS}, bis_judge=G, group_rings=(Ring(1),), start=TimeOfDay(480))
 
 
 def test_small_show_is_valid_and_matches_the_validator():
@@ -42,14 +43,14 @@ def test_small_show_is_valid_and_matches_the_validator():
     assert res.optimal
     v = validate(res.program, P0)
     assert v.violations == []
-    assert v.timeline.finish == pytest.approx(res.finish, abs=0.1)
-    assert res.finish >= finish_lower_bound(show, P0).value - 1e-6
+    assert v.timeline.finish.minutes == pytest.approx(res.finish.minutes, abs=0.1)
+    assert res.finish >= finish_lower_bound(show, P0).value - EPS
 
 
 def test_back_to_back_pinned_blocks_for_one_judge():
     # two pinned blocks 4 minutes apart: padding each by the travel margin must not make them clash
     p1, p2 = ev("Pug", C, 5, Competition.BEGINNER_PUPPY), ev("Maltese", C, 5, Competition.BEGINNER_PUPPY)
-    pins = [ScheduledBlock(Block(C, (p1,)), Ring(3), 13 * 60), ScheduledBlock(Block(C, (p2,)), Ring(3), 13 * 60 + 16)]
+    pins = [ScheduledBlock(Block(C, (p1,)), Ring(3), TimeOfDay(13 * 60)), ScheduledBlock(Block(C, (p2,)), Ring(3), TimeOfDay(13 * 60 + 16))]
     show = show_of([ev("Boxer", A, 25), ev("Beagle (13 Inch)", B, 25), p1, p2], (A, B, C))
     show.pinned = pins
     res = solve_placement(show, P0)
@@ -65,9 +66,9 @@ def test_placement_on_parsed_shows(d):
     assert res.program is not None, res.phases
     v = validate(res.program)
     assert {x.code for x in v.violations} <= {"V1"}, [str(x) for x in v.violations]
-    assert v.timeline.finish == pytest.approx(res.finish, abs=0.1)
-    assert res.finish <= validate(greedy_program(show)).timeline.finish + 1e-6
-    assert res.finish >= finish_lower_bound(show).value - 1e-6
+    assert v.timeline.finish.minutes == pytest.approx(res.finish.minutes, abs=0.1)
+    assert res.finish <= validate(greedy_program(show)).timeline.finish + EPS
+    assert res.finish >= finish_lower_bound(show).value - EPS
 
 
 @pytest.mark.parametrize("d", PARSED, ids=lambda d: d.name)
@@ -79,9 +80,9 @@ def test_formation_on_parsed_shows(d):
     assert res.program is not None, res.phases
     v = validate(res.program)
     assert {x.code for x in v.violations} <= {"V1"}, [str(x) for x in v.violations]
-    assert v.timeline.finish == pytest.approx(res.finish, abs=0.1)
-    assert res.phases[0].objective <= placed.finish + 1e-6  # the fastest, before any trade
-    assert res.finish >= relaxed_lower_bound(show, time_limit=20).value - 1e-6
+    assert v.timeline.finish.minutes == pytest.approx(res.finish.minutes, abs=0.1)
+    assert res.phases[0].objective <= placed.finish.minutes + 1e-6  # the fastest, before any trade
+    assert res.finish >= relaxed_lower_bound(show, time_limit=20).value - EPS
 
 
 def test_formation_keeps_sweepstakes_with_their_breed_and_caps_blocks():
@@ -90,7 +91,7 @@ def test_formation_keeps_sweepstakes_with_their_breed_and_caps_blocks():
     res = solve_formation(show_of(events, (A, B)), P0)
     assert res.program is not None
     for sb in res.program.blocks:
-        assert sb.block.duration <= 65 + 1e-6
+        assert sb.block.duration <= Duration(65) + EPS
         names = [e.name for e in sb.block.events]
         if "Pug Sweepstakes" in names:
             assert names[names.index("Pug Sweepstakes") + 1] == "Pug"
@@ -106,9 +107,9 @@ def test_ordering_on_parsed_shows(d):
     assert res.program is not None, res.phases
     v = validate(res.program)
     assert {x.code for x in v.violations} <= {"V1"}, [str(x) for x in v.violations]
-    assert v.timeline.finish == pytest.approx(res.finish, abs=0.1)
-    assert res.phases[0].objective <= placed.finish + 1e-6  # the fastest, before any trade
-    assert res.finish >= relaxed_lower_bound(show, time_limit=20).value - 1e-6
+    assert v.timeline.finish.minutes == pytest.approx(res.finish.minutes, abs=0.1)
+    assert res.phases[0].objective <= placed.finish.minutes + 1e-6  # the fastest, before any trade
+    assert res.finish >= relaxed_lower_bound(show, time_limit=20).value - EPS
 
 
 def test_ordering_keeps_groups_together_and_meets_table_runs():
@@ -116,7 +117,7 @@ def test_ordering_keeps_groups_together_and_meets_table_runs():
     # Flipping one group's equipment order makes like meet like at the group boundary: 2.
     events = [ev("Golden Retriever", A, 10), ev("English Cocker Spaniel", A, 10),
               ev("Greyhound", A, 10), ev("Beagle (13 Inch)", A, 10), ev("Boxer", B, 25)]
-    p = replace(P0, equipment_free_gap_minutes=10_000)  # no idle time makes a switch free
+    p = replace(P0, equipment_free_gap=Duration(10_000))  # no idle time makes a switch free
     res = solve_ordering(show_of(events, (A, B)), p)
     assert res.program is not None
     v = validate(res.program, p)
@@ -136,7 +137,7 @@ def test_ordering_leaves_no_idle_time_in_a_judges_day_when_nothing_forces_it():
     assert res.program is not None
     seq = res.program.judge_schedule(A)
     assert len(seq) >= 2
-    assert sum(b.start - a.end for a, b in zip(seq, seq[1:])) < 5  # the grid may round a start up
+    assert Duration.total(b.start - a.end for a, b in zip(seq, seq[1:])) < Duration(5)  # the grid may round a start up
 
 
 def test_short_blocks_are_traded_for_finish_up_to_the_parameter():
@@ -145,18 +146,18 @@ def test_short_blocks_are_traded_for_finish_up_to_the_parameter():
     akita = ev("Akita", A, 20)
     boxer, rott = ev("Boxer", A, 10), ev("Rottweiler", A, 10)
     show = show_of([boxer, rott, akita], (A,))
-    show.pinned = [ScheduledBlock(Block(A, (akita,)), Ring(3), 510)]
+    show.pinned = [ScheduledBlock(Block(A, (akita,)), Ring(3), TimeOfDay(510))]
 
     def solve(minutes):
-        return solve_formation(show, replace(P0, short_block_finish_minutes=minutes))
+        return solve_formation(show, replace(P0, short_block_finish=Duration(minutes)))
 
     first, cheap, dear = solve(0), solve(5), solve(60)
     assert [ph.name for ph in first.phases][:2] == ["finish", "structure"]
     assert first.costs["short_blocks"] == cheap.costs["short_blocks"] == 2
     assert cheap.finish == first.finish
     assert dear.costs["short_blocks"] == 0
-    assert 0 < dear.finish - first.finish <= 2 * 60
-    assert dear.phases[0].objective == first.finish == dear.bound  # the fastest is still reported
+    assert Duration.ZERO < dear.finish - first.finish <= Duration(2 * 60)
+    assert TimeOfDay(dear.phases[0].objective) == first.finish == dear.bound  # the fastest is still reported
     assert dear.phases[1].name == "trade" and dear.optimal
     assert validate(dear.program, P0).violations == []
     assert sum(sb.block.entries < P0.short_block_dogs for sb in dear.program.blocks if sb.block.events != (akita,)) == 0

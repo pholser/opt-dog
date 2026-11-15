@@ -40,7 +40,7 @@ inside a segment, chosen by an arc a_{PQ} at a segment's first event):
     groups:  NoOverlap(group intervals); BIS starts after every group                    (H10)
 
 H11 holds by the pinned blocks; H12 and V1 are input checks. Six lexicographic phases:
-(1) minimize the BIS end; (2) minimize BIS end + `short_block_finish_minutes` × short blocks,
+(1) minimize the BIS end; (2) minimize BIS end + `short_block_finish` × short blocks,
 giving up finish for fewer short blocks (skipped if nothing can change the count, or the
 parameter is 0); (3) at that finish and count, minimize the soft costs the structure controls
 (S2 ring changes, S3 equipment switches, S9 short blocks, S10 lunch splitting a group, block
@@ -67,6 +67,7 @@ from optdog.domain import (
     VARIETY_GROUPS,
     Block,
     Break,
+    Duration,
     EventKind,
     Group,
     GroupsPlan,
@@ -76,12 +77,13 @@ from optdog.domain import (
     Ring,
     ScheduledBlock,
     Show,
+    TimeOfDay,
 )
 from optdog.params import ShowParameters
 from optdog.solve.greedy import greedy_program
 from optdog.solve.packing import pack_run
 
-SCALE = 10  # model time unit = 1/10 minute
+SCALE = 10  # model time unit = 1/10 minute: domain times and lengths enter and leave the model as ints
 WSCALE = 10  # soft-cost weights → integer coefficients
 IDLE_OVER_STARTS = 10  # phase 5: one unit of judge idle outweighs ten units of later starts
 
@@ -99,9 +101,9 @@ class Segment:
     cls: object = None
 
 
-def _u(minutes: float) -> int:
-    """Minutes → model units, rounding durations up (never shorter than planned)."""
-    return int(math.ceil(minutes * SCALE - 1e-6))
+def _u(t: Duration | TimeOfDay) -> int:
+    """A length or time in model units, rounded up (never shorter than planned)."""
+    return int(math.ceil(t.minutes * SCALE - 1e-6))
 
 
 @dataclass(frozen=True)
@@ -117,7 +119,7 @@ class PlacementOptions:
     hint: bool = True  # start from a known schedule (greedy, or step 1 for formation)
     tidy: bool = True  # phases 3-6: at that finish, lower soft costs, then earlier blocks
     log: bool = False
-    max_block_minutes: float = 65.0  # 3a-3c: H1 cap on a formed block; same as the greedy (E: human p90 27 dogs)
+    max_block: Duration = Duration(65)  # 3a-3c: H1 cap on a formed block; same as the greedy (E: human p90 27 dogs)
 
 
 @dataclass
@@ -132,12 +134,12 @@ class PhaseStats:
 @dataclass
 class PlacementResult:
     program: JudgingProgram | None
-    finish: float | None  # BIS end of the returned schedule, minutes after midnight, as the validator times it
-    bound: float | None  # CP-SAT's proven lower bound on the finish for this model (from phase 1)
-    phases: list[PhaseStats] = field(default_factory=list)
+    finish: TimeOfDay | None  # BIS end of the returned schedule, as the validator times it
+    bound: TimeOfDay | None  # CP-SAT's proven lower bound on the finish for this model (from phase 1)
+    phases: list[PhaseStats] = field(default_factory=list)  # objectives in each phase's own units
     costs: dict[str, float] = field(default_factory=dict)  # structure costs of the returned schedule
-    idle: float | None = None  # judge idle of the returned schedule, minutes (model value, S5)
-    idle_min: float | None = None  # least idle at that structure (phase 4), before the conflict budget
+    idle: Duration | None = None  # judge idle of the returned schedule (model value, S5)
+    idle_min: Duration | None = None  # least idle at that structure (phase 4), before the conflict budget
 
     @property
     def status(self) -> str:
@@ -173,9 +175,9 @@ def chains_from_blocks(blocks: dict[Judge, list[Block]]) -> dict[Judge, list[Seg
     return out
 
 
-def _free_cuts_of(chain: Chain, cap_minutes: float) -> list[Cut]:
+def _free_cuts_of(chain: Chain, cap: Duration) -> list[Cut]:
     cuts: list[Cut] = [None] * len(chain)
-    alone = [e.duration > cap_minutes for e in chain]
+    alone = [e.duration > cap for e in chain]
     for i in range(1, len(chain)):
         a, b = chain[i - 1], chain[i]
         if alone[i - 1] or alone[i]:
@@ -187,7 +189,7 @@ def _free_cuts_of(chain: Chain, cap_minutes: float) -> list[Cut]:
     return cuts
 
 
-def free_cuts(chains: dict[Judge, Chain], cap_minutes: float) -> dict[Judge, list[Segment]]:
+def free_cuts(chains: dict[Judge, Chain], cap: Duration) -> dict[Judge, list[Segment]]:
     """One segment per judge with cuts for the solver to choose (step 3a), except that
 
     - an event longer than the block cap is a block of its own (H1 exception), and
@@ -196,7 +198,7 @@ def free_cuts(chains: dict[Judge, Chain], cap_minutes: float) -> dict[Judge, lis
     """
     out = {}
     for j, chain in chains.items():
-        cuts = _free_cuts_of(chain, cap_minutes)
+        cuts = _free_cuts_of(chain, cap)
         cuts[0] = True
         out[j] = [Segment(tuple(chain), tuple(cuts))]
     return out
@@ -219,7 +221,7 @@ def segment_class(e: JudgingEvent) -> object:
     return g if g is not None and g.is_variety_group else "other"
 
 
-def ordering_segments(chains: dict[Judge, Chain], cap_minutes: float) -> dict[Judge, list[Segment]]:
+def ordering_segments(chains: dict[Judge, Chain], cap: Duration) -> dict[Judge, list[Segment]]:
     """Step 3b: each judge's events split by (group class, equipment), each keeping its order
     in ``chains``; cuts free as in step 3a."""
     out = {}
@@ -227,21 +229,21 @@ def ordering_segments(chains: dict[Judge, Chain], cap_minutes: float) -> dict[Ju
         parts: dict[tuple, list[JudgingEvent]] = {}
         for e in chain:
             parts.setdefault((segment_class(e), _exam(e)), []).append(e)
-        out[j] = [Segment(tuple(evs), tuple(_free_cuts_of(evs, cap_minutes)), key[0]) for key, evs in parts.items()]
+        out[j] = [Segment(tuple(evs), tuple(_free_cuts_of(evs, cap)), key[0]) for key, evs in parts.items()]
         if len(out[j]) == 1:
             only = out[j][0]
             out[j] = [replace(only, cuts=(True,) + only.cuts[1:])]
     return out
 
 
-def packed_blocks(chains: dict[Judge, Chain], cap_minutes: float, short_dogs: int) -> dict[Judge, list[Block]]:
+def packed_blocks(chains: dict[Judge, Chain], cap: Duration, short_dogs: int) -> dict[Judge, list[Block]]:
     """Step 3c: each judge's runs, as in 3b, with their breeds packed into full blocks."""
     out = {}
     for j, chain in chains.items():
         parts: dict[tuple, list[JudgingEvent]] = {}
         for e in chain:
             parts.setdefault((segment_class(e), _exam(e)), []).append(e)
-        out[j] = [Block(j, tuple(b)) for run in parts.values() for b in pack_run(run, cap_minutes, short_dogs)]
+        out[j] = [Block(j, tuple(b)) for run in parts.values() for b in pack_run(run, cap, short_dogs)]
     return out
 
 
@@ -277,7 +279,7 @@ def solve_formation(show: Show, params: ShowParameters | None = None,
     p = (params or ShowParameters()).for_show(show)
     o = options or PlacementOptions()
     chains, hint = _greedy_start(show, p, o)
-    m = _Model(show, p, free_cuts(chains, o.max_block_minutes), cap=o.max_block_minutes)
+    m = _Model(show, p, free_cuts(chains, o.max_block), cap=o.max_block)
     return _solve(m, o, hint)
 
 
@@ -288,7 +290,7 @@ def solve_ordering(show: Show, params: ShowParameters | None = None,
     p = (params or ShowParameters()).for_show(show)
     o = options or PlacementOptions()
     chains, hint = _greedy_start(show, p, o)
-    m = _Model(show, p, ordering_segments(chains, o.max_block_minutes), cap=o.max_block_minutes)
+    m = _Model(show, p, ordering_segments(chains, o.max_block), cap=o.max_block)
     return _solve(m, o, hint)
 
 
@@ -329,11 +331,11 @@ def _solve(m: "_Model", o: PlacementOptions, hint_prog: JudgingProgram | None) -
     if not run("finish", m.finish, SCALE):
         return res
     best_finish = solver.Value(m.finish)
-    res.bound = solver.BestObjectiveBound() / SCALE
+    res.bound = TimeOfDay.from_units(solver.BestObjectiveBound(), SCALE)
     floor = math.ceil(solver.BestObjectiveBound() - 1e-6)
 
     # phase 2: give up finish for fewer short blocks
-    trade = _u(m.p.short_block_finish_minutes)
+    trade = _u(m.p.short_block_finish)
     if trade > 0 and m.short_flags:
         short = solver.Value(m.short_blocks)
         m.model.Add(m.finish >= floor)  # valid cuts: no better trade lies outside these
@@ -341,7 +343,7 @@ def _solve(m: "_Model", o: PlacementOptions, hint_prog: JudgingProgram | None) -
         if run("trade", m.finish + trade * m.short_blocks, SCALE):
             best_finish = solver.Value(m.finish)
             m.model.Add(m.short_blocks <= solver.Value(m.short_blocks))
-    res.finish = best_finish / SCALE
+    res.finish = TimeOfDay.from_units(best_finish, SCALE)
     m.model.Add(m.finish <= best_finish)
 
     if o.tidy:
@@ -353,7 +355,7 @@ def _solve(m: "_Model", o: PlacementOptions, hint_prog: JudgingProgram | None) -
             if conflicts is not None:
                 # phase 4: least judge idle, which then may grow by the budget
                 if run("idle", times, SCALE, o.idle_time_limit or 3 * o.time_limit):
-                    res.idle_min = solver.Value(m.idle) / SCALE
+                    res.idle_min = Duration.from_units(solver.Value(m.idle), SCALE)
                     budget = max(1.0, m.p.conflict_idle_budget)
                     m.model.Add(m.idle <= math.floor(solver.Value(m.idle) * budget + 1e-6))
                 # phase 5: exhibitor conflicts, for those signed up for the accommodation
@@ -367,11 +369,11 @@ def _solve(m: "_Model", o: PlacementOptions, hint_prog: JudgingProgram | None) -
     res.program = m.extract(solver)
     # Group starts are only bounded below, so a phase that stops at its limit can leave them
     # later than needed. Report the finish the program itself gives, as the validator times it.
-    timeline = res.program.group_timeline(judge_travel_minutes=m.p.judge_travel_minutes)
+    timeline = res.program.group_timeline(judge_travel=m.p.judge_travel)
     if timeline is not None:
-        res.finish = round(timeline.finish, 1)  # the model works in tenths of a minute
+        res.finish = TimeOfDay(round(timeline.finish.minutes, 1))  # the model works in tenths of a minute
     res.costs = {k: float(solver.Value(v)) for k, v in m.cost_terms.items()}
-    res.idle = solver.Value(m.idle) / SCALE
+    res.idle = Duration.from_units(solver.Value(m.idle), SCALE)
     return res
 
 
@@ -381,10 +383,10 @@ def solve_packing(show: Show, params: ShowParameters | None = None,
     p = (params or ShowParameters()).for_show(show)
     o = options or PlacementOptions()
     chains, _ = _greedy_start(show, p, o)
-    blocks = packed_blocks(chains, o.max_block_minutes, p.short_block_dogs)
+    blocks = packed_blocks(chains, o.max_block, p.short_block_dogs)
     hint = solve_placement(show, p, blocks, replace(o, tidy=False)).program
     packed = {j: [e for b in bl for e in b.events] for j, bl in blocks.items()}
-    m = _Model(show, p, ordering_segments(packed, o.max_block_minutes), cap=o.max_block_minutes)
+    m = _Model(show, p, ordering_segments(packed, o.max_block), cap=o.max_block)
     return _solve(m, o, hint)
 
 
@@ -392,13 +394,13 @@ def solve_packing(show: Show, params: ShowParameters | None = None,
 
 
 class _Model:
-    def __init__(self, show: Show, p: ShowParameters, chains: dict[Judge, list[Segment]], cap: float | None):
+    def __init__(self, show: Show, p: ShowParameters, chains: dict[Judge, list[Segment]], cap: Duration | None):
         self.show, self.p, self.chains = show, p, chains
         md = self.model = cp_model.CpModel()
-        slot = self.slot = p.slot_minutes * SCALE
-        t0 = self.t0 = show.start * SCALE
+        slot = self.slot = p.slot.units(SCALE)
+        t0 = self.t0 = show.start.units(SCALE)
         H = self.H = t0 + 18 * 60 * SCALE
-        travel = _u(p.judge_travel_minutes)
+        travel = _u(p.judge_travel)
         rings = self.rings = list(show.rings)
         group_rings = set(show.group_rings)
         w = p.weights
@@ -586,7 +588,7 @@ class _Model:
 
         pinned_spans: dict[Judge, list[list[int]]] = defaultdict(list)
         for sb in sorted(show.pinned, key=lambda b: b.start):
-            s, d = sb.start * SCALE, _u(sb.block.duration)
+            s, d = sb.start.units(SCALE), _u(sb.block.duration)
             ring_iv[sb.ring].append(md.NewFixedSizeIntervalVar(s, d, f"pin_r_{id(sb)}"))
             # the judge is busy from `travel` before to `travel` after; merge back-to-back
             # commitments so that their padded spans do not overlap each other
@@ -601,14 +603,14 @@ class _Model:
                 judge_iv[j].append(md.NewFixedSizeIntervalVar(lo, hi - lo, f"pin_j_{j.name}_{n}"))
 
         # ------------------------------------------------------------------ lunch (H6)
-        l0, l1 = p.lunch_window[0] * SCALE, p.lunch_window[1] * SCALE
-        lunch_len = p.lunch_min_minutes * SCALE
+        l0, l1 = (t.units(SCALE) for t in p.lunch_window)
+        lunch_len = p.lunch_min.units(SCALE)
         self.lunch: dict[Judge, cp_model.IntVar] = {}
         self.before: dict[int, cp_model.IntVar] = {}  # event id → "judged before this judge's lunch"
         at_lunch: dict[int, cp_model.LinearExprT] = {}  # event id → "lunch comes just before it"
         for j in show.judges:
-            work = sum(e.duration for e in show.events_for(j))
-            if work <= p.lunch_required_after_minutes:
+            work = Duration.total(e.duration for e in show.events_for(j))
+            if work <= p.lunch_required_after:
                 continue
             segs = chains.get(j, [])
             events = [e for s in segs for e in s.events]
@@ -640,14 +642,14 @@ class _Model:
                     md.Add(bp == (bef[u] if pu is None else bef[pu])).OnlyEnforceIf(a)
                 at_lunch[u] = bp - bef[u]
             # judging both before and after the lunch (a break *in* the assignment)
-            if not any(sb.end * SCALE <= l0 for sb in pins):
+            if not any(sb.end <= p.lunch_window[0] for sb in pins):
                 if not events:
                     raise ValueError(f"{j.name} needs lunch but has no movable events before it")
                 if len(segs) == 1:
                     md.Add(bef[id(events[0])] == 1)
                 else:
                     md.AddBoolOr([bef[id(e)] for e in events])
-            if not any(sb.start * SCALE >= l1 + lunch_len for sb in pins):
+            if not any(sb.start >= p.lunch_window[1] + p.lunch_min for sb in pins):
                 if not events:
                     raise ValueError(f"{j.name} needs lunch but has no movable events after it")
                 if len(segs) == 1:
@@ -670,14 +672,14 @@ class _Model:
                 return self.s[u] + self.d[u]
             return pinned_event_end[u]
 
-        groups = [g for g in VARIETY_GROUPS if show.group_duration(g) > 0]
+        groups = [g for g in VARIETY_GROUPS if show.group_duration(g) > Duration.ZERO]
         self.groups = groups
         self.tau: dict[Group, cp_model.IntVar] = {}
         group_iv = []
         first_k = md.NewIntVar(t0 // slot, H // slot, "first_k")
         self.first = md.NewIntVar(t0, H, "first")
         md.Add(self.first == slot * first_k)
-        setup = _u(p.group_ring_setup_minutes)
+        setup = _u(p.group_ring_setup)
 
         def judge_free_terms(j: Judge):
             """Lower bounds on when ``j`` can be in the group ring (H8)."""
@@ -777,9 +779,9 @@ class _Model:
         idle_terms = []
         for j, segs in chains.items():
             pins = [sb for sb in show.pinned if sb.judge == j]
-            starts = [self.s[id(seg.events[0])] for seg in segs] + [sb.start * SCALE for sb in pins]
+            starts = [self.s[id(seg.events[0])] for seg in segs] + [sb.start.units(SCALE) for sb in pins]
             ends = [self.s[id(seg.events[-1])] + self.d[id(seg.events[-1])] for seg in segs]
-            ends += [sb.start * SCALE + _u(sb.block.duration) for sb in pins]
+            ends += [sb.start.units(SCALE) + _u(sb.block.duration) for sb in pins]
             if len(segs) == 1 and len(segs[0].events) == 1 and not pins:
                 continue
             first_j = md.NewIntVar(t0, H, f"day_start_{j.name}")
@@ -822,9 +824,9 @@ class _Model:
         those pairs are left out, and so are pairs of pinned events, which no decision can change.
         """
         md, H = self.model, self.H
-        margin = _u(self.p.exhibitor_travel_minutes)
+        margin = _u(self.p.exhibitor_travel)
         index = {r: i for i, r in enumerate(dict.fromkeys(list(self.rings) + [sb.ring for sb in self.show.pinned]), 1)}
-        pinned = {id(e): (round((sb.start + off) * SCALE), index[sb.ring])
+        pinned = {id(e): ((sb.start + off).units(SCALE), index[sb.ring])
                   for sb in self.show.pinned for e, off in sb.block.offsets()}
 
         def place(e: JudgingEvent):
@@ -839,8 +841,8 @@ class _Model:
             if a is None or b is None or ea.judge == eb.judge or (id(ea) in pinned and id(eb) in pinned):
                 continue
             (sa, ra), (sb_, rb) = a, b
-            la, ha = round(oa[0] * SCALE), round(oa[1] * SCALE)
-            lb, hb = round(ob[0] * SCALE), round(ob[1] * SCALE)
+            la, ha = oa[0].units(SCALE), oa[1].units(SCALE)
+            lb, hb = ob[0].units(SCALE), ob[1].units(SCALE)
             lo = md.NewIntVar(-margin, 2 * H, "conflict_lo")
             hi = md.NewIntVar(-margin, 2 * H, "conflict_hi")
             md.AddMaxEquality(lo, [sa + la - margin, sb_ + lb])
@@ -864,14 +866,14 @@ class _Model:
     def _equipment_switches(self, changes):
         """S3: table/ramp/ground switches between consecutive breeds in a ring, free across a lunch
         (of the judge who leaves or arrives, in the ring's idle time, itself at least
-        ``equipment_free_gap_minutes``). Counted within each segment
+        ``equipment_free_gap``). Counted within each segment
         and across the arcs between a judge's segments, and between judges at each judge's
         first and last breed (a judge who changes rings mid-day is not counted at that change,
         nor is a switch across a segment without breeds: approximations; the validator counts
         exactly)."""
         md, p, H, t0 = self.model, self.p, self.H, self.t0
-        G = _u(p.equipment_free_gap_minutes)
-        lunch_len = p.lunch_min_minutes * SCALE
+        G = _u(p.equipment_free_gap)
+        lunch_len = p.lunch_min.units(SCALE)
         chg = {u: lit for _, u, lit in changes}
         terms: list = []
 
@@ -1013,11 +1015,11 @@ class _Model:
     def hint(self, prog: JudgingProgram) -> None:
         """Hint from a program judging the same events, each judge's in an order this model allows."""
         md, slot = self.model, self.slot
-        where: dict[int, tuple[ScheduledBlock, float, bool]] = {}
+        where: dict[int, tuple[ScheduledBlock, Duration, bool]] = {}
         for sb in prog.blocks:
             for n, (e, off) in enumerate(sb.block.offsets()):
                 where[id(e)] = (sb, off, n == 0)
-        lunch = {br.judge: br.start * SCALE for br in prog.breaks if br.judge in self.lunch}
+        lunch = {br.judge: br.start.units(SCALE) for br in prog.breaks if br.judge in self.lunch}
         for j, segs in self.chains.items():
             seg_of = {id(e): q for q, s in enumerate(segs, 1) for e in s.events}
             order = sorted((e for s in segs for e in s.events), key=lambda e: (where[id(e)][0].start, where[id(e)][1]))
@@ -1035,7 +1037,7 @@ class _Model:
             for e in order:
                 u = id(e)
                 sb, off, first = where[u]
-                s = pos = sb.start * SCALE if first else pos  # the model adds rounded durations
+                s = pos = sb.start.units(SCALE) if first else pos  # the model adds rounded durations
                 if u in self.k:
                     md.AddHint(self.s[u], s)
                     if first:
@@ -1047,13 +1049,13 @@ class _Model:
                 if u in self.same:
                     md.AddHint(self.same[u], int(prev_sb is None or prev_sb.ring == sb.ring))
                 if first:
-                    acc, bs = 0, sb.start * SCALE
+                    acc, bs = 0, sb.start.units(SCALE)
                 acc += e.entries
                 if u in self.bs:
                     md.AddHint(self.bs[u], bs)
                     md.AddHint(self.acc[u], acc)
                 if u in self.before and j in lunch:
-                    md.AddHint(self.before[u], int(sb.start * SCALE < lunch[j]))
+                    md.AddHint(self.before[u], int(sb.start.units(SCALE) < lunch[j]))
                 prev_sb = sb
                 pos += self.d[u]
         for j, ls in lunch.items():
@@ -1090,7 +1092,7 @@ class _Model:
                 starts = c if isinstance(c, bool) else bool(solver.Value(c))
                 if starts and current:
                     ring = next(r for r, x in self.x[head].items() if solver.Value(x))
-                    out.append(ScheduledBlock(Block(j, tuple(current)), ring, solver.Value(self.s[head]) // SCALE))
+                    out.append(ScheduledBlock(Block(j, tuple(current)), ring, TimeOfDay.from_units(solver.Value(self.s[head]), SCALE)))
                     current = []
                 if e is None:
                     break
@@ -1099,12 +1101,12 @@ class _Model:
                 current.append(e)
         breaks = []
         for j, ls in self.lunch.items():
-            start = solver.Value(ls) // SCALE
+            start = TimeOfDay.from_units(solver.Value(ls), SCALE)
             before = [sb for sb in out if sb.judge == j and sb.start < start]
             ring = max(before, key=lambda sb: sb.start).ring if before else None
-            breaks.append(Break(j, ring, start, self.p.lunch_min_minutes))
+            breaks.append(Break(j, ring, start, self.p.lunch_min))
         order = tuple(sorted(self.groups, key=lambda g: solver.Value(self.tau[g])))
         order += tuple(g for g in VARIETY_GROUPS if g not in order)  # groups with no entries
-        plan = GroupsPlan(show.group_rings, solver.Value(self.first) // SCALE, order,
+        plan = GroupsPlan(show.group_rings, TimeOfDay.from_units(solver.Value(self.first), SCALE), order,
                           dict(show.group_judges), show.bis_judge)
         return JudgingProgram(show, out, breaks, plan)

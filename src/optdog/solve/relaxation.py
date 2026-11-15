@@ -32,24 +32,24 @@ from dataclasses import dataclass
 
 from ortools.sat.python import cp_model
 
-from optdog.domain import VARIETY_GROUPS, Show
+from optdog.domain import VARIETY_GROUPS, Duration, Show, TimeOfDay
 from optdog.params import ShowParameters
 from optdog.solve.bounds import finish_lower_bound
 
 SCALE = 10
 
 
-def _f(minutes: float) -> int:
-    """Minutes → tenths, rounded down (never longer than planned)."""
-    return int(math.floor(minutes * SCALE + 1e-6))
+def _f(t: Duration | TimeOfDay) -> int:
+    """A length or time in tenths of a minute, rounded down (never longer than planned)."""
+    return int(math.floor(t.minutes * SCALE + 1e-6))
 
 
 @dataclass(frozen=True)
 class RelaxedBound:
-    value: float  # the lower bound on BIS end: max(relaxation's proven bound, combinatorial bound)
-    relaxation: float  # CP-SAT's proven bound on the relaxation (minutes after midnight)
-    combinatorial: float  # bounds.finish_lower_bound(...).value
-    relaxed_finish: float | None  # the relaxation's best schedule (≥ relaxation; equal if optimal)
+    value: TimeOfDay  # the lower bound on BIS end: max(relaxation's proven bound, combinatorial bound)
+    relaxation: TimeOfDay  # CP-SAT's proven bound on the relaxation
+    combinatorial: TimeOfDay  # bounds.finish_lower_bound(...).value
+    relaxed_finish: TimeOfDay | None  # the relaxation's best schedule (≥ relaxation; equal if optimal)
     status: str
     seconds: float
 
@@ -62,9 +62,9 @@ def relaxed_lower_bound(show: Show, params: ShowParameters | None = None,
                         time_limit: float = 60.0, workers: int = 8) -> RelaxedBound:
     p = (params or ShowParameters()).for_show(show)
     md = cp_model.CpModel()
-    t0 = show.start * SCALE
+    t0 = show.start.units(SCALE)
     H = t0 + 18 * 60 * SCALE
-    slot = p.slot_minutes * SCALE
+    slot = p.slot.units(SCALE)
     rings = len(show.rings)
     group_rings = set(show.group_rings)
     pinned_ids = {id(e) for sb in show.pinned for e in sb.block.events}
@@ -84,7 +84,7 @@ def relaxed_lower_bound(show: Show, params: ShowParameters | None = None,
         pool.append(iv)
         demand.append(1)
     for sb in show.pinned:
-        s0 = sb.start * SCALE
+        s0 = sb.start.units(SCALE)
         for e, off in sb.block.offsets():
             start[id(e)] = _f(sb.start + off)
             end[id(e)] = _f(sb.start + off) + _f(e.duration)
@@ -110,11 +110,11 @@ def relaxed_lower_bound(show: Show, params: ShowParameters | None = None,
             md.Add(first >= _f(sb.end))
 
     # H6: lunch in the window, judging before and after it; H14: every lunch over by F
-    l0, l1 = p.lunch_window[0] * SCALE, p.lunch_window[1] * SCALE
-    lunch_len = p.lunch_min_minutes * SCALE
+    l0, l1 = (t.units(SCALE) for t in p.lunch_window)
+    lunch_len = p.lunch_min.units(SCALE)
     for j in show.judges:
         events = show.events_for(j)
-        if sum(e.duration for e in events) <= p.lunch_required_after_minutes:
+        if Duration.total(e.duration for e in events) <= p.lunch_required_after:
             continue
         ls = md.NewIntVar(l0, l1, f"ls_{j.name}")
         judge_iv[j].append(md.NewFixedSizeIntervalVar(ls, lunch_len, f"lunch_{j.name}"))
@@ -128,9 +128,9 @@ def relaxed_lower_bound(show: Show, params: ShowParameters | None = None,
             md.Add(end[id(e)] <= ls).OnlyEnforceIf(b)
             md.Add(start[id(e)] >= ls + lunch_len).OnlyEnforceIf(b.Not())
             bef.append(b)
-        if not any(sb.end * SCALE <= l0 for sb in pins):
+        if not any(sb.end <= p.lunch_window[0] for sb in pins):
             md.AddBoolOr(bef or [md.NewConstant(0)])
-        if not any(sb.start * SCALE >= l1 + lunch_len for sb in pins):
+        if not any(sb.start >= p.lunch_window[1] + p.lunch_min for sb in pins):
             md.AddBoolOr([b.Not() for b in bef] or [md.NewConstant(0)])
     for ivs in judge_iv.values():
         md.AddNoOverlap(ivs)
@@ -139,7 +139,7 @@ def relaxed_lower_bound(show: Show, params: ShowParameters | None = None,
     def judge_done(j) -> list:
         return [end[id(e)] for e in show.events_for(j)]
 
-    groups = [g for g in VARIETY_GROUPS if show.group_duration(g) > 0]
+    groups = [g for g in VARIETY_GROUPS if show.group_duration(g) > Duration.ZERO]
     tau, group_iv = {}, []
     for g in groups:
         d = _f(show.group_duration(g))
@@ -176,7 +176,7 @@ def relaxed_lower_bound(show: Show, params: ShowParameters | None = None,
 
     finish = bis + _f(show.bis_duration())
     combinatorial = finish_lower_bound(show, p).value
-    md.Add(finish >= math.floor(combinatorial * SCALE))  # a valid cut: helps the search prove
+    md.Add(finish >= _f(combinatorial))  # a valid cut: helps the search prove
     md.Minimize(finish)
 
     solver = cp_model.CpSolver()
@@ -186,6 +186,8 @@ def relaxed_lower_bound(show: Show, params: ShowParameters | None = None,
     status = solver.Solve(md)
     secs = time.perf_counter() - t
     good = status in (cp_model.OPTIMAL, cp_model.FEASIBLE)
-    relax = solver.BestObjectiveBound() / SCALE if good or status == cp_model.UNKNOWN else combinatorial
+    relax = (TimeOfDay.from_units(solver.BestObjectiveBound(), SCALE) if good or status == cp_model.UNKNOWN
+             else combinatorial)
     return RelaxedBound(max(relax, combinatorial), relax, combinatorial,
-                        solver.ObjectiveValue() / SCALE if good else None, solver.StatusName(status), secs)
+                        TimeOfDay.from_units(solver.ObjectiveValue(), SCALE) if good else None,
+                        solver.StatusName(status), secs)

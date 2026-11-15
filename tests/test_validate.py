@@ -4,13 +4,14 @@ import pytest
 
 from optdog.breeds import default_catalog
 from optdog.domain import (
-    Block, Break, EventKind, Group, GroupsPlan, JudgingEvent, JudgingProgram, Judge, Ring, ScheduledBlock, Show,
+    Block, Break, Duration, EventKind, Group, GroupsPlan, JudgingEvent, JudgingProgram, Judge, Ring, ScheduledBlock,
+    Show, TimeOfDay,
 )
 from optdog.params import ShowParameters
 from optdog.validate import validate
 
 CAT = default_catalog()
-P0 = ShowParameters(overlap_tolerance_minutes=0)
+P0 = ShowParameters(overlap_tolerance=Duration.ZERO)
 
 
 def ev(breed, judge, n):
@@ -26,7 +27,16 @@ def program(blocks, judges, breaks=(), plan=None, group_judges=None, bis=None):
 
 
 def sb(judge, ring, start, *events):
-    return ScheduledBlock(Block(judge, tuple(events)), Ring(ring), start)
+    """A block starting ``start`` minutes after midnight."""
+    return ScheduledBlock(Block(judge, tuple(events)), Ring(ring), TimeOfDay(start))
+
+
+def brk(judge, ring, start, length):
+    return Break(judge, Ring(ring), TimeOfDay(start), Duration(length))
+
+
+def groups(rings, start, order, judges, bis):
+    return GroupsPlan(tuple(Ring(r) for r in rings), TimeOfDay(start), order, judges, bis)
 
 
 def codes(prog, params=P0):
@@ -62,14 +72,14 @@ def test_h9_requires_every_group_ring_free():
     g = Judge("Dr. G")
     ring1 = sb(A, 1, 480, ev("Pug", A, 25))  # ends 9:00
     ring2 = sb(B, 2, 480, ev("Golden Retriever", B, 50))  # ends 10:00, after groups start
-    plan = GroupsPlan((Ring(1), Ring(2)), 9 * 60 + 30, (Group.TOY,), {Group.TOY: g}, g)
+    plan = groups((1, 2), 9 * 60 + 30, (Group.TOY,), {Group.TOY: g}, g)
     prog = program([ring1, ring2], [A, B], plan=plan, group_judges={Group.TOY: g}, bis=g)
     assert "H9" in codes(prog)
 
 
 def test_travel_margins_default_to_two_minutes():
     p = ShowParameters()
-    assert p.judge_travel_minutes == 2.0 and p.exhibitor_travel_minutes == 2.0
+    assert p.judge_travel == Duration(2) and p.exhibitor_travel == Duration(2)
 
 
 def test_h3_ring_overlap_and_tolerance():
@@ -77,15 +87,15 @@ def test_h3_ring_overlap_and_tolerance():
     b = sb(B, 1, 535, ev("Boxer", B, 5))
     prog = program([a, b], [A, B])
     assert codes(prog) == ["H3"]
-    assert codes(prog, ShowParameters(overlap_tolerance_minutes=5)) == []
+    assert codes(prog, ShowParameters(overlap_tolerance=Duration(5))) == []
 
 
 def test_h4_judge_travel_between_rings():
     a = sb(A, 1, 480, ev("Pug", A, 25))  # ends 540
     b = sb(A, 2, 540, ev("Boxer", A, 5))  # no time to walk to ring 2
-    assert codes(program([a, b], [A]), ShowParameters(overlap_tolerance_minutes=0, judge_travel_minutes=5)) == ["H4"]
+    assert codes(program([a, b], [A]), ShowParameters(overlap_tolerance=Duration.ZERO, judge_travel=Duration(5))) == ["H4"]
     b_ok = sb(A, 2, 545, ev("Boxer", A, 5))
-    assert codes(program([a, b_ok], [A]), ShowParameters(overlap_tolerance_minutes=0, judge_travel_minutes=5)) == []
+    assert codes(program([a, b_ok], [A]), ShowParameters(overlap_tolerance=Duration.ZERO, judge_travel=Duration(5))) == []
 
 
 def test_h6_lunch_required_after_five_hours():
@@ -93,7 +103,7 @@ def test_h6_lunch_required_after_five_hours():
         ["Pug", "Maltese", "Papillon", "Pomeranian", "Havanese", "Shih Tzu"])]  # 6 h, no gap
     assert "H6" in codes(program(blocks, [A]))
     with_lunch = blocks[:4] + [sb(A, 1, 12 * 60 + 45 + 60 * i, ev(b, A, 25)) for i, b in enumerate(["Havanese", "Shih Tzu"])]
-    lunch = Break(A, Ring(1), 12 * 60, 45)
+    lunch = brk(A, 1, 12 * 60, 45)
     assert "H6" not in codes(program(with_lunch, [A], breaks=[lunch]))
 
 
@@ -101,14 +111,14 @@ def test_group_timeline_waits_and_h7_h9():
     g_judge = Judge("Dr. G")
     sporting = sb(A, 1, 480, ev("Golden Retriever", A, 50))  # ends 600
     hound = sb(B, 2, 480, ev("Whippet", B, 25))  # ends 540
-    plan = GroupsPlan((Ring(1),), 570, (Group.SPORTING, Group.HOUND), {Group.SPORTING: g_judge, Group.HOUND: g_judge}, g_judge)
+    plan = groups((1,), 570, (Group.SPORTING, Group.HOUND), {Group.SPORTING: g_judge, Group.HOUND: g_judge}, g_judge)
     prog = program([sporting, hound], [A, B], plan=plan,
                    group_judges={Group.SPORTING: g_judge, Group.HOUND: g_judge}, bis=g_judge)
     found = codes(prog)
     assert "H7" in found  # Sporting published at 9:30 but Goldens finish at 10:00
     assert "H9" in found  # ring 1 (group ring) busy until 10:00
     tl = prog.group_timeline()
-    assert tl.groups[0].start == 600 and tl.groups[0].wait == 30
+    assert tl.groups[0].start == TimeOfDay(600) and tl.groups[0].wait == Duration(30)
     assert tl.groups[1].start == tl.groups[0].end  # Hound breeds already done
     assert tl.bis_start == tl.groups[1].end
 
@@ -121,15 +131,15 @@ def test_v1_judge_daily_limit():
 def test_group_judge_needs_travel_margin_from_another_ring():
     g = Judge("Dr. G")  # judges Pugs in ring 3, then the Toy Group in ring 1
     pugs = sb(g, 3, 480, ev("Pug", g, 25))  # ends 9:00
-    plan = GroupsPlan((Ring(1),), 9 * 60, (Group.TOY,), {Group.TOY: g}, g)
+    plan = groups((1,), 9 * 60, (Group.TOY,), {Group.TOY: g}, g)
     prog = program([pugs], [g], plan=plan, group_judges={Group.TOY: g}, bis=g)
-    tl = prog.group_timeline(judge_travel_minutes=2)
-    assert tl.groups[0].ready == 9 * 60 + 2 and tl.groups[0].start == 9 * 60 + 2
-    assert "H8" in codes(prog, ShowParameters(overlap_tolerance_minutes=0, judge_travel_minutes=2))
+    tl = prog.group_timeline(judge_travel=Duration(2))
+    assert tl.groups[0].ready == TimeOfDay(9 * 60 + 2) and tl.groups[0].start == TimeOfDay(9 * 60 + 2)
+    assert "H8" in codes(prog, ShowParameters(overlap_tolerance=Duration.ZERO, judge_travel=Duration(2)))
     # judging in the group ring itself needs no walk
     pugs_in_group_ring = sb(g, 1, 480, ev("Pug", g, 25))
     prog2 = program([pugs_in_group_ring], [g], plan=plan, group_judges={Group.TOY: g}, bis=g)
-    assert prog2.group_timeline(judge_travel_minutes=2).groups[0].ready == 9 * 60
+    assert prog2.group_timeline(judge_travel=Duration(2)).groups[0].ready == TimeOfDay(9 * 60)
 
 
 def test_h1_does_not_judge_pinned_blocks():
@@ -150,15 +160,15 @@ def test_s3_equipment_switch_is_free_across_a_lunch_only():
     gap = program([sb(A, 1, 480, ev("Pug", A, 10)), sb(A, 1, 550, ev("Boxer", A, 10))], [A])
     r = validate(gap, P0)
     assert r.soft["S3_equipment_switches"] == 1
-    assert r.soft["S5_judge_idle_min"] == pytest.approx(550 - 480 - ev("Pug", A, 10).duration, abs=0.1)
+    assert r.soft["S5_judge_idle_min"] == pytest.approx(550 - 480 - ev("Pug", A, 10).duration.minutes, abs=0.1)
     # free across the judge's lunch
     lunch = program([sb(A, 1, 660, ev("Pug", A, 10)), sb(A, 1, 730, ev("Boxer", A, 10))], [A],
-                    breaks=[Break(A, Ring(1), 685, 45)])
+                    breaks=[brk(A, 1, 685, 45)])
     assert validate(lunch, P0).soft["S3_equipment_switches"] == 0
     # across judges: free when the leaving judge's lunch falls in the ring's idle time
     handover = program([sb(A, 1, 660, ev("Boxer", A, 10)), sb(B, 1, 735, ev("Pug", B, 10)),
                         sb(A, 2, 735, ev("Golden Retriever", A, 10))], [A, B],
-                       breaks=[Break(A, Ring(1), 685, 45)])
+                       breaks=[brk(A, 1, 685, 45)])
     assert validate(handover, P0).soft["S3_equipment_switches"] == 0
     # across judges too: B's table breed right after A's ground breed in the same ring
     both = program([sb(A, 1, 480, ev("Boxer", A, 10)), sb(B, 1, 505, ev("Pug", B, 10))], [A, B])
@@ -169,5 +179,5 @@ def test_s5_a_lunch_counts_only_for_its_own_length():
     first, second = ev("Pug", A, 70), ev("Boxer", A, 70)  # 168 min each: over five hours, so lunch is due
     blocks = [sb(A, 1, 480, first), sb(A, 1, 480 + 168 + 90, second)]  # a 90-minute gap
     assert validate(program(blocks, [A]), P0).soft["S5_judge_idle_min"] == pytest.approx(90 - 45, abs=0.1)
-    published = program(blocks, [A], breaks=[Break(A, Ring(1), 480 + 168, 60)])  # a stated 60-minute break
+    published = program(blocks, [A], breaks=[brk(A, 1, 480 + 168, 60)])  # a stated 60-minute break
     assert validate(published, P0).soft["S5_judge_idle_min"] == pytest.approx(90 - 60, abs=0.1)

@@ -25,6 +25,7 @@ from optdog.io.entries_csv import check_regular, entries_of, read_entry_table, w
 from optdog.domain import (
     Block,
     Break,
+    Duration,
     EventKind,
     Group,
     GroupsPlan,
@@ -35,20 +36,18 @@ from optdog.domain import (
     RingSize,
     ScheduledBlock,
     Show,
+    TimeOfDay,
 )
 
 SCHEDULE_FIELDS = ["ring", "judge", "block_start", "position", "event", "breed", "group"]
 
 
-def _hhmm(t: int | None) -> str:
-    return "" if t is None else f"{t // 60:02d}:{t % 60:02d}"
+def _hhmm(t: TimeOfDay | None) -> str:
+    return "" if t is None else t.hhmm()
 
 
-def _mins(s: str) -> int | None:
-    if not s:
-        return None
-    h, m = s.split(":")
-    return int(h) * 60 + int(m)
+def _time(s: str) -> TimeOfDay | None:
+    return TimeOfDay.parse(s) if s else None
 
 
 def write_program(program: JudgingProgram, out_dir: str | Path, source: str = "") -> None:
@@ -78,7 +77,7 @@ def write_program(program: JudgingProgram, out_dir: str | Path, source: str = ""
         w = csv.writer(f)
         w.writerow(["name", "permit", "minutes_per_dog"])
         for j in judges.values():
-            w.writerow([j.name, int(j.permit), "" if j.minutes_per_dog is None else j.minutes_per_dog])
+            w.writerow([j.name, int(j.permit), "" if j.per_dog is None else j.per_dog.minutes])
 
     check_regular(e for sb in program.blocks for e in sb.block.events)
     with open(out / "schedule.csv", "w", newline="") as f:
@@ -101,7 +100,8 @@ def write_program(program: JudgingProgram, out_dir: str | Path, source: str = ""
         w = csv.writer(f)
         w.writerow(["judge", "ring", "start", "minutes"])
         for b in sorted(program.breaks, key=lambda b: (b.start, b.judge.name)):
-            w.writerow([b.judge.name, b.ring.number if b.ring else "", _hhmm(b.start), "" if b.minutes is None else b.minutes])
+            w.writerow([b.judge.name, b.ring.number if b.ring else "", _hhmm(b.start),
+                        "" if b.length is None else f"{b.length.minutes:g}"])
 
     with open(out / "groups.csv", "w", newline="") as f:
         w = csv.writer(f)
@@ -119,7 +119,8 @@ def read_program(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Jud
         meta = {r["key"]: r["value"] for r in csv.DictReader(f)}
     with open(d / "judges.csv", newline="") as f:
         judges = {
-            r["name"]: Judge(r["name"], bool(int(r["permit"])), float(r["minutes_per_dog"]) if r["minutes_per_dog"] else None)
+            r["name"]: Judge(r["name"], bool(int(r["permit"])),
+                             Duration(float(r["minutes_per_dog"])) if r["minutes_per_dog"] else None)
             for r in csv.DictReader(f)
         }
     rings: dict[int, Ring] = {}
@@ -143,15 +144,15 @@ def read_program(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Jud
                 counts=counts,
             )
             events.append(e)
-            blocks.setdefault((int(r["ring"]), r["judge"], _mins(r["block_start"])), []).append(e)
+            blocks.setdefault((int(r["ring"]), r["judge"], _time(r["block_start"])), []).append(e)
     scheduled = [
         ScheduledBlock(Block(judges[j], tuple(evs)), ring(rn), start) for (rn, j, start), evs in blocks.items()
     ]
     breaks = []
     with open(d / "breaks.csv", newline="") as f:
         for r in csv.DictReader(f):
-            breaks.append(Break(judges[r["judge"]], ring(int(r["ring"])) if r["ring"] else None, _mins(r["start"]),
-                                int(r["minutes"]) if r["minutes"] else None))
+            breaks.append(Break(judges[r["judge"]], ring(int(r["ring"])) if r["ring"] else None, _time(r["start"]),
+                                Duration(float(r["minutes"])) if r["minutes"] else None))
     groups_by_value = {g.value: g for g in Group}
     order, group_judges = [], {}
     with open(d / "groups.csv", newline="") as f:
@@ -172,9 +173,9 @@ def read_program(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Jud
         group_judges=group_judges,
         bis_judge=bis,
         group_rings=group_rings,
-        start=_mins(meta["start"]),
-        lunch_window=tuple(_mins(t) for t in meta["lunch_window"].split("-")) if meta.get("lunch_window") else None,
+        start=_time(meta["start"]),
+        lunch_window=tuple(_time(t) for t in meta["lunch_window"].split("-")) if meta.get("lunch_window") else None,
         entries=table.attach(events),
     )
-    plan = GroupsPlan(group_rings, _mins(meta["group_start"]), tuple(order), group_judges, bis) if order else None
+    plan = GroupsPlan(group_rings, _time(meta["group_start"]), tuple(order), group_judges, bis) if order else None
     return JudgingProgram(show, scheduled, breaks, plan)

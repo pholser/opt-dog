@@ -16,7 +16,7 @@ from dataclasses import dataclass, field
 from datetime import date
 from pathlib import Path
 
-from optdog.domain import JudgingProgram, fmt_time
+from optdog.domain import JudgingProgram, TimeOfDay
 from optdog.params import ShowParameters
 from optdog.solutions import load_day, parsed_days
 from optdog.solve.greedy import greedy_program
@@ -37,8 +37,9 @@ def _e(x: object) -> str:
     return html.escape(str(x), quote=True)
 
 
-def _clock(t: float) -> str:
-    return fmt_time(int(round(t)))
+def _clock(minutes: float) -> str:
+    """A chart coordinate (minutes after midnight) as a clock time."""
+    return str(TimeOfDay(minutes))
 
 
 # --------------------------------------------------------------------------- metrics
@@ -46,22 +47,22 @@ def _clock(t: float) -> str:
 
 @dataclass
 class Scored:
-    finish: float
-    group_start: int
+    finish: TimeOfDay
+    group_start: TimeOfDay
     hard: list[str]
     switches: int
     short: int
     ring_changes: int
-    idle: float
+    idle: float  # minutes, as scored
     sizes: list[int]
-    slack: dict[str, float] = field(default_factory=dict)
+    slack: dict[str, float] = field(default_factory=dict)  # minutes
 
 
 @dataclass
 class Day:
     label: str
     short: str
-    bound: float
+    bound: TimeOfDay
     bound_proven: bool
     solver_proven: bool
     published: Scored
@@ -88,12 +89,12 @@ def _slack(program: JudgingProgram, res: ValidationResult, p: ShowParameters) ->
     lunches = lunch_ends(program, p)
     needs = {"H7, H8": first.ready}  # its breeds done and its judge free
     if ring_free:
-        needs["H9"] = max(ring_free) + p.group_ring_setup_minutes
+        needs["H9"] = max(ring_free) + p.group_ring_setup
     if need:
         needs["H13"] = entered[need - 1]
     if lunches:
         needs["H14"] = max(lunches.values())
-    return {k: plan.start - v for k, v in needs.items()}
+    return {k: (plan.start - v).minutes for k, v in needs.items()}
 
 
 def score(program: JudgingProgram, pinned: set[int], p: ShowParameters) -> Scored:
@@ -274,10 +275,13 @@ def render(params: ShowParameters | None = None) -> str:
     n = len(days)
 
     # headline figures
-    gap_pub = _mean([d.published.finish - d.bound for d in days])
-    gap_gre = _mean([d.greedy.finish - d.bound for d in days])
-    gap_sol = _mean([d.solver.finish - d.bound for d in days])
-    earlier = _mean([d.published.finish - d.solver.finish for d in days])
+    def gap(s: Scored, d: Day) -> float:
+        return (s.finish - d.bound).minutes
+
+    gap_pub = _mean([gap(d.published, d) for d in days])
+    gap_gre = _mean([gap(d.greedy, d) for d in days])
+    gap_sol = _mean([gap(d.solver, d) for d in days])
+    earlier = _mean([(d.published.finish - d.solver.finish).minutes for d in days])
     clean_pub = sum(not _hard(d.published) for d in days)
     clean_sol = sum(not _hard(d.solver) for d in days)
     proven = sum(d.solver_proven for d in days)
@@ -289,23 +293,23 @@ def render(params: ShowParameters | None = None) -> str:
     ]
 
     # 1. finish against the bound
-    rows = [(d.label, {"published": d.published.finish - d.bound, "greedy": d.greedy.finish - d.bound,
-                       "solver": d.solver.finish - d.bound}) for d in days]
+    rows = [(d.label, {"published": gap(d.published, d), "greedy": gap(d.greedy, d), "solver": gap(d.solver, d)})
+            for d in days]
     top = max(max(v.values()) for _, v in rows)
     fig1 = dot_chart(rows, PROGRAMS, lambda v: f"{max(v, 0):.0f}", _ticks(0, top), "Minutes above the lower bound on show finish")
     t1 = table(["Day", "Lower bound", "Published", "Greedy", "3a", "3b", "3c", "3c above bound"],
-               [[d.label, _clock(d.bound), _clock(d.published.finish), _clock(d.greedy.finish), _clock(d.formation.finish),
-                 _clock(d.ordering.finish), _clock(d.solver.finish), f"{max(d.solver.finish - d.bound, 0):.0f}"] for d in days])
+               [[d.label, d.bound, d.published.finish, d.greedy.finish, d.formation.finish,
+                 d.ordering.finish, d.solver.finish, f"{max(gap(d.solver, d), 0):.0f}"] for d in days])
 
     # 2. group start
-    rows = [(d.label, {"published": float(d.published.group_start), "solver": float(d.solver.group_start)}) for d in days]
+    rows = [(d.label, {"published": d.published.group_start.minutes, "solver": d.solver.group_start.minutes}) for d in days]
     lo = min(min(v.values()) for _, v in rows)
     hi = max(max(v.values()) for _, v in rows)
     two = {k: PROGRAMS[k] for k in ("published", "solver")}
     fig2 = dot_chart(rows, two, _clock, [t * 60 for t in range(int(lo // 60), int(-(-hi // 60)) + 1)], "First group's start time")
     t2 = table(["Day", "Published", "3c", "Earlier by (min)"],
-               [[d.label, _clock(d.published.group_start), _clock(d.solver.group_start),
-                 d.published.group_start - d.solver.group_start] for d in days])
+               [[d.label, d.published.group_start, d.solver.group_start,
+                 f"{(d.published.group_start - d.solver.group_start).minutes:g}"] for d in days])
 
     # 3. schedule quality
     metrics = [("Equipment switches", "switches"), ("Short blocks", "short"), ("Judge ring changes", "ring_changes"),
@@ -320,7 +324,7 @@ def render(params: ShowParameters | None = None) -> str:
                [[d.label] + [f"{getattr(s, m[1]):g}" for m in metrics for s in (d.published, d.solver)] for d in days])
     totals = {attr: (sum(getattr(d.published, attr) for d in days), sum(getattr(d.solver, attr) for d in days)) for _, attr in metrics}
     worse = {attr: sum(getattr(d.solver, attr) > getattr(d.published, attr) for d in days) for _, attr in metrics}
-    start_gain = _mean([d.published.group_start - d.solver.group_start for d in days])
+    start_gain = _mean([(d.published.group_start - d.solver.group_start).minutes for d in days])
 
     # 4. block sizes
     sp = [s for d in days for s in d.published.sizes]
@@ -350,7 +354,7 @@ def render(params: ShowParameters | None = None) -> str:
                 cells.append('<td class="binds">● binds</td>')
             else:
                 cells.append(f"<td>{v:.0f}</td>")
-        body.append(f"<tr><td>{_e(d.label)}</td><td>{_clock(d.solver.group_start)}</td>{''.join(cells)}</tr>")
+        body.append(f"<tr><td>{_e(d.label)}</td><td>{d.solver.group_start}</td>{''.join(cells)}</tr>")
     fig5 = (f'<div class="scroll"><table><thead><tr><th>Day</th><th>3c group start</th>{head}</tr></thead>'
             f'<tbody>{"".join(body)}</tbody></table></div>')
     tally = "; ".join(f"{RULE_NAMES[r]} ({r}) on {counts[r]}" for r in sorted(RULES, key=lambda r: -counts[r]) if counts[r])
@@ -395,8 +399,8 @@ Days binding: {_e(tally)}. {unbound}This describes these schedules: it doesn't s
 <li>Only regular breed events are scheduled. Published programs are read without their sweepstakes, Junior Showmanship, Beginner Puppy, FSS, specialty, obedience and rally events.</li>
 <li>Hard-rule counts leave out V1, a judge over the daily entry limit, which is an input problem no schedule can fix.</li>
 <li>Exhibitor conflicts are left out because they rest on synthetic entries.</li>
-<li>The optimizer gives up to {p.short_block_finish_minutes:g} minutes of finish to avoid a short block. 3a and 3b are the earlier steps: 3b chooses each judge's group order, and 3c also packs the breeds inside each run into full blocks.</li>
-<li>"Proven optimal" means nothing better exists, counting {p.short_block_finish_minutes:g} minutes per short block, under 3c's own rules: the block cap, the time grid, each judge keeping their groups together, and the packed breed order. A schedule with a freer order could still beat it.</li>
+<li>The optimizer gives up to {p.short_block_finish.minutes:g} minutes of finish to avoid a short block. 3a and 3b are the earlier steps: 3b chooses each judge's group order, and 3c also packs the breeds inside each run into full blocks.</li>
+<li>"Proven optimal" means nothing better exists, counting {p.short_block_finish.minutes:g} minutes per short block, under 3c's own rules: the block cap, the time grid, each judge keeping their groups together, and the packed breed order. A schedule with a freer order could still beat it.</li>
 </ul></section>
 </main><div id="tip"></div><script>{JS}</script></body></html>
 """

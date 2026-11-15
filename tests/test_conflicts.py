@@ -4,8 +4,8 @@ from pathlib import Path
 from optdog.breeds import default_catalog
 from optdog.conflicts import exhibitor_conflicts
 from optdog.domain import (
-    Block, EntryCounts, Entry, EntryStatus, EventKind, Exhibitor, JudgingEvent, JudgingProgram, Judge, Ring,
-    ScheduledBlock, Show,
+    Block, Duration, EntryCounts, Entry, EntryStatus, EventKind, Exhibitor, JudgingEvent, JudgingProgram, Judge, Ring,
+    ScheduledBlock, Show, TimeOfDay,
 )
 from optdog.io.entries_csv import read_entries, write_entries
 from optdog.io.program_csv import read_program
@@ -21,32 +21,36 @@ def ev(breed, judge, counts):
 
 
 def prog(placements, entries):
-    """placements: [(event, ring, start)] — one block per event."""
-    blocks = [ScheduledBlock(Block(e.judge, (e,)), Ring(r), t) for e, r, t in placements]
+    """placements: [(event, ring, start in minutes after midnight)] — one block per event."""
+    blocks = [ScheduledBlock(Block(e.judge, (e,)), Ring(r), TimeOfDay(t)) for e, r, t in placements]
     show = Show("T", "2026-01-01", [A, B], [e for e, _, _ in placements], [Ring(r) for _, r, _ in placements],
                 entries=entries)
     return JudgingProgram(show, blocks)
 
 
+def conflict_minutes(program, travel):
+    return exhibitor_conflicts(program, Duration(travel)).total.minutes
+
+
 def test_class_dog_busy_whole_breed_champion_only_bob():
     pugs = ev("Pug", A, EntryCounts(5, 5, 3, 2, 0))  # 15 dogs = 36 min; BOB after 10 dogs = 24 min
     x = Exhibitor("X", registered=True)
-    assert Entry("d1", pugs, x, EntryStatus.CLASS).busy_offset == (0.0, 36.0)
-    assert Entry("d2", pugs, x, EntryStatus.CHAMPION).busy_offset == (24.0, 36.0)
+    assert Entry("d1", pugs, x, EntryStatus.CLASS).busy_offset == (Duration(0.0), Duration(36.0))
+    assert Entry("d2", pugs, x, EntryStatus.CHAMPION).busy_offset == (Duration(24.0), Duration(36.0))
 
 
-def test_overlap_minutes_between_rings():
+def test_overlap_between_rings():
     x = Exhibitor("X", registered=True)
     pugs = ev("Pug", A, EntryCounts(10, 10, 3, 2, 0))  # 25 dogs, 60 min
     boxers = ev("Boxer", B, EntryCounts(5, 5, 0, 0, 0))  # 10 dogs, 24 min
     entries = [Entry("d1", pugs, x, EntryStatus.CLASS), Entry("d2", boxers, x, EntryStatus.CLASS)]
     # Pugs ring 1 8:00–9:00; Boxers ring 2 8:30–8:54 → 24 min overlap (+ margin clipped by Boxer window)
     p = prog([(pugs, 1, 480), (boxers, 2, 510)], entries)
-    assert exhibitor_conflicts(p, travel_minutes=0).minutes == 24
+    assert conflict_minutes(p, 0) == 24
     # back to back in different rings: Boxers start 9:01 → 1 min short of a 2-min walk
     p = prog([(pugs, 1, 480), (boxers, 2, 541)], entries)
-    assert exhibitor_conflicts(p, travel_minutes=0).minutes == 0
-    assert exhibitor_conflicts(p, travel_minutes=2).minutes == 1
+    assert conflict_minutes(p, 0) == 0
+    assert conflict_minutes(p, 2) == 1
 
 
 def test_champion_only_conflicts_with_bob_portion():
@@ -55,7 +59,7 @@ def test_champion_only_conflicts_with_bob_portion():
     boxers = ev("Boxer", B, EntryCounts(5, 5, 0, 0, 0))
     entries = [Entry("d1", pugs, x, EntryStatus.CHAMPION), Entry("d2", boxers, x, EntryStatus.CLASS)]
     p = prog([(pugs, 1, 480), (boxers, 2, 480)], entries)  # Boxers 8:00–8:24: before Pug BOB
-    assert exhibitor_conflicts(p, travel_minutes=2).minutes == 0
+    assert conflict_minutes(p, 2) == 0
 
 
 def test_same_ring_unregistered_and_same_breed_do_not_count():
@@ -64,11 +68,11 @@ def test_same_ring_unregistered_and_same_breed_do_not_count():
     pugs = ev("Pug", A, EntryCounts(10, 10, 3, 2, 0))
     boxers = ev("Boxer", A, EntryCounts(5, 5, 0, 0, 0))
     same_ring = [Entry("d1", pugs, x, EntryStatus.CLASS), Entry("d2", boxers, x, EntryStatus.CLASS)]
-    assert exhibitor_conflicts(prog([(pugs, 1, 480), (boxers, 1, 540)], same_ring), 2).minutes == 0
+    assert conflict_minutes(prog([(pugs, 1, 480), (boxers, 1, 540)], same_ring), 2) == 0
     unregistered = [Entry("d1", pugs, y, EntryStatus.CLASS), Entry("d2", boxers, y, EntryStatus.CLASS)]
-    assert exhibitor_conflicts(prog([(pugs, 1, 480), (boxers, 2, 480)], unregistered), 2).minutes == 0
+    assert conflict_minutes(prog([(pugs, 1, 480), (boxers, 2, 480)], unregistered), 2) == 0
     same_breed = [Entry("d1", pugs, x, EntryStatus.CLASS), Entry("d2", pugs, x, EntryStatus.CHAMPION)]
-    assert exhibitor_conflicts(prog([(pugs, 1, 480)], same_breed), 2).minutes == 0
+    assert conflict_minutes(prog([(pugs, 1, 480)], same_breed), 2) == 0
 
 
 def _palm_springs():
@@ -136,7 +140,7 @@ def test_dogs_with_no_exhibitor_never_conflict():
     pugs = ev("Pug", A, EntryCounts(10, 10, 3, 2, 0))
     boxers = ev("Boxer", B, EntryCounts(5, 5, 0, 0, 0))
     nobody = [Entry("d1", pugs, None, EntryStatus.CLASS), Entry("d2", boxers, None, EntryStatus.CLASS)]
-    assert exhibitor_conflicts(prog([(pugs, 1, 480), (boxers, 2, 480)], nobody), 2).minutes == 0
+    assert conflict_minutes(prog([(pugs, 1, 480), (boxers, 2, 480)], nobody), 2) == 0
 
 
 def test_conflicts_counted_by_breed_not_by_dog():
@@ -151,8 +155,8 @@ def test_conflicts_counted_by_breed_not_by_dog():
     ]
     p1 = prog([(pugs, 1, 480), (boxers, 2, 510)], one_each)
     p2 = prog([(pugs, 1, 480), (boxers, 2, 510)], many)
-    assert exhibitor_conflicts(p1, 2).minutes == exhibitor_conflicts(p2, 2).minutes == 24
-    assert len(exhibitor_conflicts(p2, 2).conflicts) == 1
+    assert conflict_minutes(p1, 2) == conflict_minutes(p2, 2) == 24
+    assert len(exhibitor_conflicts(p2, Duration(2)).conflicts) == 1
 
 
 def test_breed_window_is_whole_event_if_any_class_dog():
@@ -160,6 +164,6 @@ def test_breed_window_is_whole_event_if_any_class_dog():
     pugs = ev("Pug", A, EntryCounts(10, 10, 3, 2, 0))  # 8:00–9:00, BOB 8:48–9:00
     boxers = ev("Boxer", B, EntryCounts(5, 5, 0, 0, 0))  # ring 2, 8:00–8:24
     champ_only = [Entry("d1", pugs, x, EntryStatus.CHAMPION), Entry("d2", boxers, x, EntryStatus.CLASS)]
-    assert exhibitor_conflicts(prog([(pugs, 1, 480), (boxers, 2, 480)], champ_only), 2).minutes == 0
+    assert conflict_minutes(prog([(pugs, 1, 480), (boxers, 2, 480)], champ_only), 2) == 0
     with_class = champ_only + [Entry("d3", pugs, x, EntryStatus.CLASS)]
-    assert exhibitor_conflicts(prog([(pugs, 1, 480), (boxers, 2, 480)], with_class), 2).minutes == 24
+    assert conflict_minutes(prog([(pugs, 1, 480), (boxers, 2, 480)], with_class), 2) == 24

@@ -12,7 +12,7 @@ from __future__ import annotations
 
 import textwrap
 
-from optdog.domain import Judge, JudgingProgram, Ring, fmt_time
+from optdog.domain import Judge, JudgingProgram, Ring, TimeOfDay
 from optdog.params import ShowParameters
 from optdog.render.text import event_line, pinned_ids
 from optdog.validate import ValidationResult, validate
@@ -27,8 +27,8 @@ def _short_block(sb, p: ShowParameters) -> bool:
 def _block_head(sb, pinned: set[int], ring: bool) -> str:
     where = f"{sb.ring}  " if ring else ""
     mark = "  pinned" if id(sb) in pinned else ""
-    return (f"  {where}{fmt_time(sb.start)} – {fmt_time(int(round(sb.end)))}   "
-            f"{sb.block.entries} dogs, {sb.block.duration:.0f} min{mark}")
+    return (f"  {where}{sb.start} – {sb.end}   "
+            f"{sb.block.entries} dogs, {sb.block.duration.minutes:.0f} min{mark}")
 
 
 def _judge_sections(program: JudgingProgram) -> dict[Judge, list[str]]:
@@ -40,13 +40,13 @@ def _judge_sections(program: JudgingProgram) -> dict[Judge, list[str]]:
             if sb.ring not in rings:
                 rings.append(sb.ring)
         lines = [f"{judge.name}  ({', '.join(str(r) for r in rings)}; {len(seq)} blocks; "
-                 f"done {fmt_time(int(round(seq[-1].end)))})"]
+                 f"done {seq[-1].end})"]
         items = [(sb.start, 1, sb) for sb in seq]
         items += [(br.start, 0, br) for br in program.breaks if br.judge == judge]
         for _, kind, x in sorted(items, key=lambda t: (t[0], t[1])):
             if kind == 0:
-                length = f"{x.minutes} min" if x.minutes else "length not stated"
-                lines.append(f"  {fmt_time(x.start)}   LUNCH ({length})")
+                length = str(x.length) if x.length else "length not stated"
+                lines.append(f"  {x.start}   LUNCH ({length})")
                 continue
             lines.append(_block_head(x, pinned, ring=True))
             for e, off in x.block.offsets():
@@ -78,10 +78,10 @@ def _groups_section(program: JudgingProgram, res: ValidationResult) -> list[str]
     if res.timeline is None:
         return lines + ["  (no group plan)"]
     for s in res.timeline.groups:
-        wait = f"  waits {s.wait:.0f}" if s.wait > 0.5 else ""
-        lines.append(f"  {fmt_time(int(round(s.start))):>8} – {fmt_time(int(round(s.end))):>8}  {s.group.value}{wait}")
-    lines.append(f"  {fmt_time(int(round(res.timeline.bis_start))):>8} – "
-                 f"{fmt_time(int(round(res.timeline.bis_end))):>8}  Best in Show")
+        wait = f"  waits {s.wait.minutes:.0f}" if s.wait.minutes > 0.5 else ""
+        lines.append(f"  {str(s.start):>8} – {str(s.end):>8}  {s.group.value}{wait}")
+    lines.append(f"  {str(res.timeline.bis_start):>8} – "
+                 f"{str(res.timeline.bis_end):>8}  Best in Show")
     return lines
 
 
@@ -100,14 +100,16 @@ def _summary(left: tuple[str, JudgingProgram, ValidationResult],
         da = "–" if a is None else fmt(a)
         db = "–" if b is None else fmt(b)
         d = ""
-        if diff and isinstance(a, (int, float)) and isinstance(b, (int, float)) and a != b:
+        if diff and isinstance(a, TimeOfDay) and isinstance(b, TimeOfDay) and a != b:
+            d = f"{(b - a).minutes:+g}"
+        elif diff and isinstance(a, (int, float)) and isinstance(b, (int, float)) and a != b:
             d = f"{b - a:+g}"
         return f"  {label:<34}{da:>22}{db:>22}{d:>10}"
 
     (la, pa, ra), (lb, pb, rb) = left, right
 
     def finish(r):
-        return round(r.timeline.finish) if r.timeline else None
+        return TimeOfDay(round(r.timeline.finish.minutes)) if r.timeline else None
 
     def group_start(prog):
         return prog.groups.start if prog.groups and prog.groups.start is not None else None
@@ -115,8 +117,7 @@ def _summary(left: tuple[str, JudgingProgram, ValidationResult],
     def first(prog):
         return min(sb.start for sb in prog.blocks) if prog.blocks else None
 
-    def t(x):
-        return fmt_time(int(x))
+    t = str
 
     def hard(r):
         return ", ".join(sorted({v.code for v in r.violations})) or "none"

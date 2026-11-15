@@ -25,7 +25,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from optdog.conflicts import exhibitor_conflicts
-from optdog.domain import VARIETY_GROUPS, Show, fmt_time
+from optdog.domain import VARIETY_GROUPS, Show
 from optdog.instance import instance_from_program
 from optdog.io.problem_csv import ProblemFormatError, read_problem, write_problem
 from optdog.io.entries_csv import read_entries
@@ -69,7 +69,7 @@ def check_problem(show: Show, params: ShowParameters | None = None) -> list[Issu
             error(str(r), f"group ring is {r.size.name}; needs {p.group_ring_min.name} (H17)")
     a, b = p.lunch_window
     if a >= b:
-        error("show", f"lunch window {fmt_time(a)}–{fmt_time(b)} is empty")
+        error("show", f"lunch window {a}–{b} is empty")
 
     for g in VARIETY_GROUPS:
         if show.group_entrants(g) > 0 and g not in show.group_judges:
@@ -107,8 +107,8 @@ def check_problem(show: Show, params: ShowParameters | None = None) -> list[Issu
         for k, seq in groups.items():
             seq.sort(key=lambda sb: sb.start)
             for x, y in zip(seq, seq[1:]):
-                if y.start < x.end - p.overlap_tolerance_minutes:
-                    error(label.format(k), f"pinned blocks overlap at {fmt_time(y.start)}")
+                if y.start < x.end - p.overlap_tolerance:
+                    error(label.format(k), f"pinned blocks overlap at {y.start}")
 
     clashes(lambda sb: sb.ring.number, "Ring {}")
     clashes(lambda sb: sb.judge.name, "{}")
@@ -183,11 +183,11 @@ def main(argv: list[str] | None = None) -> int:
             print(f"✗ {v}", file=sys.stderr)
         print("the schedule breaks hard rules: not written", file=sys.stderr)
         return 1
-    print(f"finish {fmt_time(int(round(res.finish)))} ({res.status.lower()})", file=sys.stderr)
+    print(f"finish {res.finish} ({res.status.lower()})", file=sys.stderr)
     registered = {x.id for x in show.exhibitors if x.registered}
     if registered:
-        report = exhibitor_conflicts(res.program, params.exhibitor_travel_minutes)
-        print(f"exhibitor conflicts: {report.minutes:.0f} min, "
+        report = exhibitor_conflicts(res.program, params.exhibitor_travel)
+        print(f"exhibitor conflicts: {report.total.minutes:.0f} min, "
               f"{len(report.by_exhibitor())} of {len(registered)} registered exhibitors", file=sys.stderr)
     if a.out:
         write_program(res.program, a.out, source="optdog.plan")

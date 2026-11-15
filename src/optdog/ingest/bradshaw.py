@@ -46,10 +46,10 @@ from optdog.domain import (
     JudgingEvent,
     JudgingProgram,
     Judge,
-    Minutes,
     Ring,
     ScheduledBlock,
     Show,
+    TimeOfDay,
 )
 from optdog.ingest.pdftext import extract_columns
 
@@ -117,18 +117,18 @@ GROUP_WORDS = {
 }
 
 
-def parse_time(s: str) -> Minutes | None:
+def parse_time(s: str) -> TimeOfDay | None:
     m = RE_TIME.match(s.strip())
     if not m:
         return None
     h, mm, ampm = int(m.group(1)), int(m.group(2) or 0), m.group(3).upper().replace(".", "")
     if ampm == "NOON":
-        return 12 * 60 + mm
+        return TimeOfDay.at(12, mm)
     if ampm == "PM" and h != 12:
         h += 12
     if ampm == "AM" and h == 12:
         h = 0
-    return h * 60 + mm
+    return TimeOfDay.at(h, mm)
 
 
 def parse_counts(s: str) -> EntryCounts:
@@ -172,7 +172,7 @@ class IndexRow:
 
     name: str
     entries: int
-    time: Minutes
+    time: TimeOfDay
     ring: int
 
 
@@ -189,7 +189,7 @@ class ParsedDay:
 class _RawBlock:
     ring: int
     judge: str
-    start: Minutes
+    start: TimeOfDay
     competition: Competition
     events: list[tuple] = field(default_factory=list)  # (name, kind, entries, counts|None)
 
@@ -206,7 +206,7 @@ class _DayState:
     name: str
     sections: list[_Section] = field(default_factory=list)
     blocks: list[_RawBlock] = field(default_factory=list)
-    breaks: list[tuple[int, str, Minutes]] = field(default_factory=list)  # ring, judge, start
+    breaks: list[tuple[int, str, TimeOfDay]] = field(default_factory=list)  # ring, judge, start
     subtotals: list[tuple[int, str, int, int, int]] = field(default_factory=list)  # ring, judge, stated, from, to
     unparsed: list[str] = field(default_factory=list)
     section_end_totals: list[tuple[Competition, int]] = field(default_factory=list)
@@ -281,7 +281,7 @@ class BradshawParser:
         ring: int | None = None
         judge: str | None = None
         cur: _RawBlock | None = None
-        cur_time: Minutes | None = None
+        cur_time: TimeOfDay | None = None
         juniors: list[int] | None = None
         last_event_obedience = False
         section_comp = Competition.ALL_BREED  # competition of the current titled section
@@ -565,8 +565,8 @@ class BradshawParser:
         for ring_no, jname, start in day.breaks:
             j = judge_of(jname)
             nxt = [sb.start for sb in scheduled if sb.judge == j and sb.start > start]
-            minutes = (min(nxt) - start) if nxt else None
-            breaks.append(Break(j, ring_of(ring_no), start, minutes))
+            length = (min(nxt) - start) if nxt else None
+            breaks.append(Break(j, ring_of(ring_no), start, length))
 
         # totals checks
         for ring_no, jname, stated, lo, hi in day.subtotals:
@@ -754,7 +754,7 @@ def _cross_check_index(pd: ParsedDay, index: list[IndexRow]) -> None:
         else:
             e, sb = cands[0]
             report.index_mismatches.append(
-                f"{row.name!r}: index {row.entries} @ {row.time // 60}:{row.time % 60:02d} ring {row.ring}; "
-                f"listing {e.entries} @ {sb.start // 60}:{sb.start % 60:02d} ring {sb.ring.number}"
+                f"{row.name!r}: index {row.entries} @ {row.time} ring {row.ring}; "
+                f"listing {e.entries} @ {sb.start} ring {sb.ring.number}"
             )
     report.checks.append(("breed index rows (breeds) matching listings", len(index), matched))

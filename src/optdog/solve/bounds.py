@@ -33,29 +33,29 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from itertools import combinations
 
-from optdog.domain import VARIETY_GROUPS, Competition, Group, Judge, Show
+from optdog.domain import VARIETY_GROUPS, Competition, Duration, Group, Judge, Show, TimeOfDay
 from optdog.params import ShowParameters
 
 
 @dataclass(frozen=True)
 class FinishBound:
-    chain: float  # judge-chain bound on BIS end (minutes after midnight)
-    capacity: float  # ring-capacity bound on BIS end
+    chain: TimeOfDay  # judge-chain bound on BIS end
+    capacity: TimeOfDay  # ring-capacity bound on BIS end
     order: tuple[Group, ...]  # group order achieving the chain bound
-    group_starts: dict[Group, float] = field(default_factory=dict, compare=False)  # in the relaxed schedule
-    judge_free: dict[Judge, float] = field(default_factory=dict, compare=False)  # earliest each judge can be done
+    group_starts: dict[Group, TimeOfDay] = field(default_factory=dict, compare=False)  # in the relaxed schedule
+    judge_free: dict[Judge, TimeOfDay] = field(default_factory=dict, compare=False)  # earliest each judge can be done
 
     @property
-    def value(self) -> float:
+    def value(self) -> TimeOfDay:
         return max(self.chain, self.capacity)
 
 
-def judge_work(show: Show, judge: Judge) -> float:
-    """Planned minutes of conformation judging (pinned blocks included)."""
-    return sum(e.duration for e in show.events_for(judge))
+def judge_work(show: Show, judge: Judge) -> Duration:
+    """Planned time of conformation judging (pinned blocks included)."""
+    return Duration.total(e.duration for e in show.events_for(judge))
 
 
-def earliest_free(show: Show, params: ShowParameters) -> dict[Judge, float]:
+def earliest_free(show: Show, params: ShowParameters) -> dict[Judge, TimeOfDay]:
     """Earliest time each judge could finish all their judging: back-to-back from the start,
     plus a minimum lunch if the day exceeds five hours, and not before any pinned block ends."""
     params = params.for_show(show)
@@ -63,14 +63,14 @@ def earliest_free(show: Show, params: ShowParameters) -> dict[Judge, float]:
     out = {}
     for j in show.judges:
         work = judge_work(show, j)
-        needs_lunch = work > params.lunch_required_after_minutes
-        lunch = params.lunch_min_minutes if needs_lunch else 0
+        needs_lunch = work > params.lunch_required_after
+        lunch = params.lunch_min if needs_lunch else Duration.ZERO
         pinned_end = max((sb.end for sb in show.pinned if sb.judge == j), default=t0)
         out[j] = max(t0 + work + lunch, pinned_end)
         if needs_lunch:
             # lunch starts no earlier than the window opens (H6), and at least one event follows it
             shortest = min(e.duration for e in show.events_for(j))
-            out[j] = max(out[j], params.lunch_window[0] + params.lunch_min_minutes + shortest)
+            out[j] = max(out[j], params.lunch_window[0] + params.lunch_min + shortest)
     return out
 
 
@@ -82,24 +82,25 @@ def finish_lower_bound(show: Show, params: ShowParameters | None = None) -> Fini
     free = earliest_free(show, p)
 
     # feeding work per (judge, group)
-    feed: dict[Judge, list[float]] = {}
+    feed: dict[Judge, list[Duration]] = {}
     for e in show.events:
         g = e.feeds_group
         if g is None or e.competition is not Competition.ALL_BREED:  # as Show.feeding
             continue
-        feed.setdefault(e.judge, [0.0] * len(groups))[groups.index(g)] += e.duration
+        feed.setdefault(e.judge, [Duration.ZERO] * len(groups))[groups.index(g)] += e.duration
 
-    def breeds_done(subset: int) -> float:
+    def breeds_done(subset: int) -> TimeOfDay:
         """Earliest time every breed of the groups in ``subset`` can be judged."""
         return t0 + max(
-            (sum(w[i] for i in range(len(groups)) if subset >> i & 1) for w in feed.values()), default=0.0
+            (Duration.total(w[i] for i in range(len(groups)) if subset >> i & 1) for w in feed.values()),
+            default=Duration.ZERO,
         )
 
-    def release(subset: int, k: int) -> float:
+    def release(subset: int, k: int) -> TimeOfDay:
         """Earliest start of group k if the groups in ``subset`` (which includes k) go first."""
         r = breeds_done(subset)
         gj = show.group_judges.get(groups[k])
-        if gj is not None and dur[groups[k]] > 0:
+        if gj is not None and dur[groups[k]] > Duration.ZERO:
             r = max(r, free.get(gj, t0))
         return r
 
@@ -108,27 +109,26 @@ def finish_lower_bound(show: Show, params: ShowParameters | None = None) -> Fini
     entered = [i for i, g in enumerate(groups) if show.group_entrants(g) > 0]
     need = min(p.groups_complete_before_start, len(entered))
     first_start = min(
-        (breeds_done(sum(1 << i for i in c)) for c in combinations(entered, need)), default=float(t0)
+        (breeds_done(sum(1 << i for i in c)) for c in combinations(entered, need)), default=t0
     )
 
     # DP over subsets: best[S] = earliest time all groups in S can be finished, judged first.
-    INF = float("inf")
-    best = [INF] * (1 << n)
+    best: list[TimeOfDay | None] = [None] * (1 << n)
     prev: list[tuple[int, int] | None] = [None] * (1 << n)
     # H14 + H6: if any judge needs lunch, groups wait until it can have ended (window opens + lunch)
-    lunches_over = float(t0)
-    if p.groups_after_all_lunches and any(judge_work(show, j) > p.lunch_required_after_minutes for j in show.judges):
-        lunches_over = p.lunch_window[0] + p.lunch_min_minutes
-    best[0] = max(float(t0), first_start, lunches_over)
+    lunches_over = t0
+    if p.groups_after_all_lunches and any(judge_work(show, j) > p.lunch_required_after for j in show.judges):
+        lunches_over = p.lunch_window[0] + p.lunch_min
+    best[0] = max(t0, first_start, lunches_over)
     for s in range(1 << n):
-        if best[s] == INF:
+        if best[s] is None:
             continue
         for k in range(n):
             if s >> k & 1:
                 continue
             s2 = s | 1 << k
             end = max(best[s], release(s2, k)) + dur[groups[k]]
-            if end < best[s2]:
+            if best[s2] is None or end < best[s2]:
                 best[s2], prev[s2] = end, (s, k)
     full = (1 << n) - 1
     order: list[Group] = []
@@ -138,7 +138,7 @@ def finish_lower_bound(show: Show, params: ShowParameters | None = None) -> Fini
         order.append(groups[k])
     order.reverse()
 
-    starts: dict[Group, float] = {}
+    starts: dict[Group, TimeOfDay] = {}
     t, s = best[0], 0
     for g in order:
         k = groups.index(g)
@@ -149,11 +149,11 @@ def finish_lower_bound(show: Show, params: ShowParameters | None = None) -> Fini
     chain = max(best[full], bis_ready) + show.bis_duration()
 
     # ring capacity
-    w_feed = sum(sum(w) for w in feed.values())
+    w_feed = Duration.total(x for w in feed.values() for x in w)
     r_all = len(show.rings)
     r_open = r_all - len(show.group_rings)
-    total_groups = sum(dur.values())
-    before = max(0.0, (w_feed - r_open * total_groups) / r_all) if r_all else 0.0
+    total_groups = Duration.total(dur.values())
+    before = max(Duration.ZERO, (w_feed - total_groups * r_open) / r_all) if r_all else Duration.ZERO
     capacity = t0 + before + total_groups + show.bis_duration()
 
     return FinishBound(chain, capacity, tuple(order), starts, free)

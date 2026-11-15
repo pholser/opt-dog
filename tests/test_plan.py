@@ -7,7 +7,10 @@ from pathlib import Path
 import pytest
 
 from optdog.breeds import default_catalog
-from optdog.domain import VARIETY_GROUPS, Block, Competition, EventKind, Group, JudgingEvent, Judge, Ring, RingSize, ScheduledBlock, Show
+from optdog.domain import (
+    VARIETY_GROUPS, Block, Competition, EventKind, Group, JudgingEvent, Judge, Ring, RingSize, ScheduledBlock, Show,
+    TimeOfDay,
+)
 from optdog.instance import instance_from_program
 from optdog.io.problem_csv import ProblemFormatError, read_problem, write_problem
 from optdog.conflicts import registered_window_pairs
@@ -28,7 +31,7 @@ def small(**kw) -> Show:
     events += [JudgingEvent("Pug", EventKind.BREED, B, 20, CAT["Pug"])]
     rings = [Ring(1), Ring(2, RingSize.L), Ring(3, RingSize.S)]
     args = dict(name="T", date="2026-01-01", judges=[A, B], events=events, rings=rings,
-                group_judges={Group.WORKING: G, Group.TOY: G}, bis_judge=G, group_rings=(rings[0],), start=480)
+                group_judges={Group.WORKING: G, Group.TOY: G}, bis_judge=G, group_rings=(rings[0],), start=TimeOfDay(480))
     return Show(**(args | kw))
 
 
@@ -76,7 +79,7 @@ def test_a_clean_problem_has_no_issues():
     (dict(group_judges={Group.WORKING: G}), "no judge"),
     (dict(group_rings=()), "no group ring"),
     (dict(group_rings=(Ring(2, RingSize.L),)), "(H17)"),
-    (dict(lunch_window=(720, 660)), "is empty"),
+    (dict(lunch_window=(TimeOfDay(720), TimeOfDay(660))), "is empty"),
     (dict(rings=[Ring(1, RingSize.M)], group_rings=()), "(H16)"),
 ])
 def test_input_errors_are_reported(change, expect):
@@ -93,7 +96,7 @@ def test_a_judge_over_the_daily_limit_is_a_warning():
 def test_pinned_blocks_that_clash_are_errors():
     x = JudgingEvent("Boxer", EventKind.BREED, A, 20, CAT["Boxer"], competition=Competition.SPECIALTY)
     y = JudgingEvent("Akita", EventKind.BREED, B, 20, CAT["Akita"], competition=Competition.SPECIALTY)
-    pins = [ScheduledBlock(Block(A, (x,)), Ring(2), 480), ScheduledBlock(Block(B, (y,)), Ring(2), 500)]
+    pins = [ScheduledBlock(Block(A, (x,)), Ring(2), TimeOfDay(480)), ScheduledBlock(Block(B, (y,)), Ring(2), TimeOfDay(500))]
     assert any("overlap" in i.what and i.error for i in check_problem(small(events=[x, y], pinned=pins)))
 
 

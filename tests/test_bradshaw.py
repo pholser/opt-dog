@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from optdog.domain import VARIETY_GROUPS, EntryCounts, EventKind
+from optdog.domain import VARIETY_GROUPS, EntryCounts, EventKind, TimeOfDay
 from optdog.ingest.bradshaw import BradshawParser, _split_group_pairs, parse_counts, parse_time
 from optdog.ingest.build_dataset import regular_breed_only
 from optdog.io.program_csv import read_program, write_program
@@ -15,11 +15,11 @@ RAW = ROOT / "data" / "raw" / "bradshaw"
 @pytest.mark.parametrize(
     "text,expected",
     [
-        ("8:00 AM", 8 * 60),
-        ("12 Noon", 12 * 60),
-        ("12:00 NOON", 12 * 60),
-        ("1:25 PM", 13 * 60 + 25),
-        ("12:40 PM", 12 * 60 + 40),
+        ("8:00 AM", TimeOfDay.at(8)),
+        ("12 Noon", TimeOfDay.at(12)),
+        ("12:00 NOON", TimeOfDay.at(12)),
+        ("1:25 PM", TimeOfDay.at(13, 25)),
+        ("12:40 PM", TimeOfDay.at(12, 40)),
         ("Lunch", None),
     ],
 )
@@ -101,7 +101,7 @@ def test_groups_plan_complete(parsed, row):
     plan = parsed[(row["file"], row["day"])].program.groups
     assert plan is not None
     assert sorted(g.value for g in plan.order) == sorted(g.value for g in VARIETY_GROUPS)
-    assert plan.start is not None and 12 * 60 <= plan.start <= 16 * 60
+    assert plan.start is not None and TimeOfDay.at(12) <= plan.start <= TimeOfDay.at(16)
     assert len(plan.rings) in (1, 2)
     assert plan.bis_judge is not None
 
@@ -131,7 +131,7 @@ def test_csv_round_trip(parsed, tmp_path):
     assert p0.groups.order == p1.groups.order
     assert p0.groups.start == p1.groups.start
     assert [r.number for r in p0.groups.rings] == [r.number for r in p1.groups.rings]
-    assert {(b.judge.name, b.start, b.minutes) for b in p0.breaks} == {(b.judge.name, b.start, b.minutes) for b in p1.breaks}
+    assert {(b.judge.name, b.start, b.length) for b in p0.breaks} == {(b.judge.name, b.start, b.length) for b in p1.breaks}
 
 
 def test_group_judge_abbreviations_resolve_to_the_breed_judge():

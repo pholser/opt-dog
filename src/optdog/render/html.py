@@ -10,9 +10,10 @@ be compared row for row. No external resources: one file, works offline.
 from __future__ import annotations
 
 import html
+import math
 from collections import defaultdict
 
-from optdog.domain import Group, JudgingProgram, Judge, Ring, ScheduledBlock, fmt_time
+from optdog.domain import Duration, Group, JudgingProgram, Judge, Ring, ScheduledBlock, TimeOfDay
 from optdog.params import ShowParameters
 from optdog.render.text import pinned_ids
 from optdog.validate import ValidationResult, _label, validate
@@ -33,10 +34,6 @@ def _e(s: object) -> str:
     return html.escape(str(s), quote=True)
 
 
-def _t(x: float) -> str:
-    return fmt_time(int(round(x)))
-
-
 def _block_group(sb: ScheduledBlock) -> str:
     weight: dict[str, int] = defaultdict(int)
     for e in sb.block.events:
@@ -51,39 +48,49 @@ def _surname(j: Judge) -> str:
 
 
 def _block_conflicts(program: JudgingProgram, p: ShowParameters) -> dict[int, float]:
+    """Conflict minutes per block (by id)."""
     if not program.show.exhibitors:
         return {}
     from optdog.conflicts import exhibitor_conflicts
 
     block_of = {id(e): sb for e, sb, _ in program.scheduled_events()}
     out: dict[int, float] = defaultdict(float)
-    for c in exhibitor_conflicts(program, p.exhibitor_travel_minutes).conflicts:
+    for c in exhibitor_conflicts(program, p.exhibitor_travel).conflicts:
         for w in (c.a, c.b):
-            out[id(block_of[id(w.event)])] += c.minutes
+            out[id(block_of[id(w.event)])] += c.overlap.minutes
     return out
 
 
+def _px(d: Duration) -> float:
+    return d.minutes * PX_PER_MIN
+
+
 class _Chart:
-    def __init__(self, t_min: int, t_max: int):
+    """A time axis from ``t_min`` to ``t_max``, both on the hour."""
+
+    def __init__(self, t_min: TimeOfDay, t_max: TimeOfDay):
         self.t_min, self.t_max = t_min, t_max
 
-    def x(self, t: float) -> float:
-        return (t - self.t_min) * PX_PER_MIN
+    def x(self, t: TimeOfDay) -> float:
+        return _px(t - self.t_min)
 
     @property
     def width(self) -> float:
         return self.x(self.t_max)
 
+    def _every(self, step: int) -> list[TimeOfDay]:
+        return [TimeOfDay(m) for m in range(round(self.t_min.minutes), round(self.t_max.minutes) + 1, step)]
+
     def axis(self) -> str:
         ticks = []
-        for t in range(self.t_min, self.t_max + 1, 60):
+        for t in self._every(60):
             first = ' first' if t == self.t_min else ''
-            ticks.append(f'<div class="tick{first}" style="left:{self.x(t):.1f}px">{_e(fmt_time(t))}</div>')
+            ticks.append(f'<div class="tick{first}" style="left:{self.x(t):.1f}px">{_e(t)}</div>')
         return f'<div class="axis" style="width:{self.width:.0f}px">{"".join(ticks)}</div>'
 
     def grid(self) -> str:
-        lines = [f'<div class="gl{" hour" if (t - self.t_min) % 60 == 0 else ""}" style="left:{self.x(t):.1f}px"></div>'
-                 for t in range(self.t_min, self.t_max + 1, 30)]
+        lines = [f'<div class="gl{" hour" if (t - self.t_min).minutes % 60 == 0 else ""}" style="left:{self.x(t):.1f}px"></div>'
+                 for t in self._every(30)]
         return "".join(lines)
 
 
@@ -114,26 +121,26 @@ def _program_section(idx: int, label: str, program: JudgingProgram, res: Validat
         if lbl in bad_blocks:
             cls.append("bad")
         names = [f"{e.entries} {e.name}" for e in sb.block.events]
-        tip = [f"{sb.judge.name}", f"{sb.ring} · {_t(sb.start)}–{_t(sb.end)} · {sb.block.entries} dogs, {sb.block.duration:.0f} min"]
+        tip = [f"{sb.judge.name}", f"{sb.ring} · {sb.start}–{sb.end} · {sb.block.entries} dogs, {sb.block.duration.minutes:.0f} min"]
         if id(sb) in pinned:
             tip.append(f"pinned ({sb.block.events[0].competition.value})")
-        tip += [""] + [f"{_t(sb.start + off)}  {e.entries:>3} {e.name}" for e, off in sb.block.offsets()]
+        tip += [""] + [f"{sb.start + off}  {e.entries:>3} {e.name}" for e, off in sb.block.offsets()]
         cm = conflicts.get(id(sb), 0.0)
         if cm:
             tip.append(f"\nexhibitor conflicts touching this block: {cm:.0f} min")
         tip += [""] + bad_blocks.get(lbl, [])
         short = names[0] if len(names) == 1 else f"{names[0]} +{len(names) - 1}"
         warn = '<span class="warn">!</span>' if lbl in bad_blocks else ""
-        conf = f'<span class="conf">{cm:.0f}′</span>' if cm >= 1 and sb.block.duration * PX_PER_MIN >= 70 else ""
-        return (f'<div class="{" ".join(cls)}" style="left:{chart.x(sb.start):.1f}px;width:{max(2.0, sb.block.duration * PX_PER_MIN):.1f}px" '
+        conf = f'<span class="conf">{cm:.0f}′</span>' if cm >= 1 and _px(sb.block.duration) >= 70 else ""
+        return (f'<div class="{" ".join(cls)}" style="left:{chart.x(sb.start):.1f}px;width:{max(2.0, _px(sb.block.duration)):.1f}px" '
                 f'data-tip="{_e(chr(10).join(tip).strip())}">{warn}<b>{_e(_surname(sb.judge))}</b> '
                 f'<span class="sub">{_e(short)}</span>{conf}</div>')
 
     def lunch_div(br) -> str:
-        if br.minutes is None:
+        if br.length is None:
             return ""
-        tip = f"{br.judge.name}\nlunch {_t(br.start)}–{_t(br.end)} ({br.minutes} min)"
-        return (f'<div class="lunch" style="left:{chart.x(br.start):.1f}px;width:{br.minutes * PX_PER_MIN:.1f}px" '
+        tip = f"{br.judge.name}\nlunch {br.start}–{br.end} ({br.length})"
+        return (f'<div class="lunch" style="left:{chart.x(br.start):.1f}px;width:{_px(br.length):.1f}px" '
                 f'data-tip="{_e(tip)}">lunch</div>')
 
     def groups_divs(judge: Judge | None = None) -> str:
@@ -145,23 +152,23 @@ def _program_section(idx: int, label: str, program: JudgingProgram, res: Validat
             gj = show.group_judges.get(s.group)
             if judge is not None and gj != judge:
                 continue
-            if s.end - s.start <= 0:
+            if s.end <= s.start:
                 continue
-            tip = (f"{s.group.value} Group · {_t(s.start)}–{_t(s.end)}\n{show.group_entrants(s.group)} entrants"
-                   f"\njudge: {gj.name if gj else '?'}\nbreeds done {_t(s.breeds_done)}, ready {_t(s.ready)}"
-                   + (f"\nwaited {s.wait:.0f} min" if s.wait > 0.5 else ""))
+            tip = (f"{s.group.value} Group · {s.start}–{s.end}\n{show.group_entrants(s.group)} entrants"
+                   f"\njudge: {gj.name if gj else '?'}\nbreeds done {s.breeds_done}, ready {s.ready}"
+                   + (f"\nwaited {s.wait.minutes:.0f} min" if s.wait.minutes > 0.5 else ""))
             out.append(f'<div class="grp g-{_GROUP_KEY[s.group]}" style="left:{chart.x(s.start):.1f}px;'
-                       f'width:{(s.end - s.start) * PX_PER_MIN:.1f}px" data-tip="{_e(tip)}">{_e(s.group.value)}</div>')
+                       f'width:{_px(s.end - s.start):.1f}px" data-tip="{_e(tip)}">{_e(s.group.value)}</div>')
         if judge is None or judge == show.bis_judge:
-            tip = f"Best in Show · {_t(tl.bis_start)}–{_t(tl.bis_end)}\n{show.bis_entrants()} entrants\njudge: {show.bis_judge.name if show.bis_judge else '?'}"
+            tip = f"Best in Show · {tl.bis_start}–{tl.bis_end}\n{show.bis_entrants()} entrants\njudge: {show.bis_judge.name if show.bis_judge else '?'}"
             out.append(f'<div class="grp bis" style="left:{chart.x(tl.bis_start):.1f}px;'
-                       f'width:{(tl.bis_end - tl.bis_start) * PX_PER_MIN:.1f}px" data-tip="{_e(tip)}">BIS</div>')
+                       f'width:{_px(tl.bis_end - tl.bis_start):.1f}px" data-tip="{_e(tip)}">BIS</div>')
         return "".join(out)
 
     marker = ""
     if plan and plan.start is not None:
         marker = (f'<div class="mark" style="left:{chart.x(plan.start):.1f}px" '
-                  f'data-tip="{_e("published group start " + fmt_time(plan.start))}"></div>')
+                  f'data-tip="{_e(f"published group start {plan.start}")}"></div>')
 
     def row(label_html: str, content: str, cls: str = "", tip: str = "") -> str:
         t = f' data-tip="{_e(tip)}"' if tip else ""
@@ -182,7 +189,7 @@ def _program_section(idx: int, label: str, program: JudgingProgram, res: Validat
 
     judges = sorted({sb.judge for sb in program.blocks} | set(show.group_judges.values())
                     | ({show.bis_judge} if show.bis_judge else set()),
-                    key=lambda j: (min((sb.start for sb in program.judge_schedule(j)), default=10_000), j.name))
+                    key=lambda j: (min((sb.start for sb in program.judge_schedule(j)), default=TimeOfDay.at(24)), j.name))
     judge_rows = []
     for j in judges:
         content = "".join(block_div(sb) for sb in program.judge_schedule(j))
@@ -323,9 +330,9 @@ def render_html(programs: list[tuple[str, JudgingProgram]], params: ShowParamete
     results = [(label, prog, validate(prog, p)) for label, prog in programs]
     starts = [sb.start for _, prog, _ in results for sb in prog.blocks]
     ends = [r.timeline.finish if r.timeline else max(sb.end for sb in prog.blocks) for _, prog, r in results]
-    t_min = (min(starts) // 60) * 60
-    t_max = int(-(-max(ends) // 60) * 60)
-    chart = _Chart(int(t_min), t_max)
+    t_min = TimeOfDay(math.floor(min(starts).minutes / 60) * 60)
+    t_max = TimeOfDay(math.ceil(max(ends).minutes / 60) * 60)
+    chart = _Chart(t_min, t_max)
     show = programs[0][1].show
     head = title or f"{show.name}"
     sections = "".join(_program_section(i, label, prog, res, chart, p) for i, (label, prog, res) in enumerate(results))

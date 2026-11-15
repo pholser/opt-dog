@@ -5,6 +5,7 @@ import re
 import pytest
 
 from optdog.analysis import baseline, figures
+from optdog.domain import Duration
 from optdog.params import ShowParameters
 from optdog.solutions import load_day, parsed_days
 from optdog.validate import validate
@@ -29,8 +30,8 @@ def test_saved_schedules_are_valid_and_never_beat_the_bound():
         for res in d.results.values():
             v = validate(res.program, p)
             assert {x.code for x in v.violations} <= {"V1"}, [str(x) for x in v.violations]
-            assert v.timeline.finish == pytest.approx(res.finish, abs=0.1)
-            assert res.finish >= d.bound.value - 1e-6
+            assert v.timeline.finish.minutes == pytest.approx(res.finish.minutes, abs=0.1)
+            assert res.finish >= d.bound.value - Duration(1e-6)
 
 
 def test_baseline_reports_every_day_from_saved_results():

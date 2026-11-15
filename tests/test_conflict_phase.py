@@ -7,14 +7,15 @@ import pytest
 from optdog.breeds import default_catalog
 from optdog.conflicts import exhibitor_conflicts, registered_window_pairs
 from optdog.domain import (
-    VARIETY_GROUPS, Competition, Entry, EntryStatus, EventKind, Exhibitor, Judge, JudgingEvent, Ring, Show,
+    VARIETY_GROUPS, Competition, Duration, Entry, EntryStatus, EventKind, Exhibitor, Judge, JudgingEvent,
+    Ring, Show, TimeOfDay,
 )
 from optdog.params import ShowParameters
 from optdog.solve.cpsat import solve_ordering
 from optdog.validate import validate
 
 CAT = default_catalog()
-P = ShowParameters(overlap_tolerance_minutes=0)
+P = ShowParameters(overlap_tolerance=Duration.ZERO)
 A, B, C, G = Judge("Ms. A"), Judge("Mr. B"), Judge("Dr. C"), Judge("Dr. G")
 
 
@@ -24,7 +25,7 @@ def ev(breed, judge, n):
 
 def show_of(events, judges, rings=3):
     return Show("T", "2026-01-01", list(judges), events, [Ring(i + 1) for i in range(rings)],
-                group_judges={g: G for g in VARIETY_GROUPS}, bis_judge=G, group_rings=(Ring(1),), start=480)
+                group_judges={g: G for g in VARIETY_GROUPS}, bis_judge=G, group_rings=(Ring(1),), start=TimeOfDay(480))
 
 
 def enter(show, exhibitor, *events, status=EntryStatus.CLASS):
@@ -33,7 +34,7 @@ def enter(show, exhibitor, *events, status=EntryStatus.CLASS):
 
 def minutes(res, show):
     res.program.show.entries = show.entries
-    return exhibitor_conflicts(res.program, P.exhibitor_travel_minutes).minutes
+    return exhibitor_conflicts(res.program, P.exhibitor_travel).total.minutes
 
 
 def names(res):
@@ -85,7 +86,7 @@ def test_pairs_merge_an_exhibitors_dogs_and_count_exhibitors():
     assert len(pairs) == 1
     a, b, oa, ob, n = pairs[0]
     assert (a, b, n) == (pug, boxer, 2)
-    assert oa == (0.0, pug.duration)  # a class dog in the breed: busy for all of it
+    assert oa == (Duration.ZERO, pug.duration)  # a class dog in the breed: busy for all of it
     assert ob == (boxer.bob_offset, boxer.duration)  # champions only: Best of Breed portion
 
 
@@ -104,7 +105,7 @@ def test_idle_comes_first_and_the_budget_buys_fewer_conflicts():
     tight, tight_conflicts = budget_case(1.0)
     loose, loose_conflicts = budget_case(3.0)
     assert names(tight)[-3:] == ["idle", "conflicts", "times"]
-    assert tight.finish == loose.finish and tight.idle_min == loose.idle_min > 0
-    assert tight.idle == pytest.approx(tight.idle_min)  # budget 1: no idle spent on conflicts
-    assert tight.idle_min < loose.idle <= 3 * loose.idle_min + 0.1
+    assert tight.finish == loose.finish and tight.idle_min == loose.idle_min > Duration.ZERO
+    assert tight.idle.minutes == pytest.approx(tight.idle_min.minutes)  # budget 1: no idle spent on conflicts
+    assert tight.idle_min < loose.idle <= loose.idle_min * 3 + Duration(0.1)
     assert loose_conflicts < tight_conflicts

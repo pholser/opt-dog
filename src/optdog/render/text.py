@@ -3,7 +3,7 @@ then the groups and Best in Show, then the validator's findings."""
 
 from __future__ import annotations
 
-from optdog.domain import EntryCounts, JudgingEvent, JudgingProgram, fmt_time
+from optdog.domain import EntryCounts, JudgingEvent, JudgingProgram, TimeOfDay
 from optdog.params import ShowParameters
 from optdog.validate import ValidationResult, validate
 
@@ -20,7 +20,7 @@ def _counts(c: EntryCounts | None) -> str:
     return s + (f"-{c.nonregular}" if c.nonregular else "")
 
 
-def event_line(e: JudgingEvent, start: float, counts: bool = True) -> str:
+def event_line(e: JudgingEvent, start: TimeOfDay, counts: bool = True) -> str:
     tags = []
     if e.breed is not None and e.breed.examination.needs_table:
         tags.append("table")
@@ -28,7 +28,7 @@ def event_line(e: JudgingEvent, start: float, counts: bool = True) -> str:
         tags.append("ramp")
     tag = f"  [{', '.join(tags)}]" if tags else ""
     c = f"{_counts(e.counts):<14}" if counts else ""
-    return f"      {fmt_time(int(round(start))):>8}  {e.entries:>3}  {e.name:<38} {c}{tag}".rstrip()
+    return f"      {str(start):>8}  {e.entries:>3}  {e.name:<38} {c}{tag}".rstrip()
 
 
 def render_text(program: JudgingProgram, params: ShowParameters | None = None,
@@ -40,11 +40,11 @@ def render_text(program: JudgingProgram, params: ShowParameters | None = None,
     out: list[str] = []
     head = title or f"{show.name} — {show.date}"
     out += [head, "=" * len(head)]
-    info = [f"judging from {fmt_time(show.start)}" if show.start is not None else ""]
+    info = [f"judging from {show.start}" if show.start is not None else ""]
     if plan and plan.start is not None:
-        info.append(f"groups {fmt_time(plan.start)} in {', '.join(str(r) for r in plan.rings)}")
+        info.append(f"groups {plan.start} in {', '.join(str(r) for r in plan.rings)}")
     if res.timeline:
-        info.append(f"planned finish {fmt_time(int(round(res.timeline.finish)))}")
+        info.append(f"planned finish {res.timeline.finish}")
     out += ["   ".join(x for x in info if x), ""]
 
     pinned = pinned_ids(program)
@@ -63,24 +63,24 @@ def render_text(program: JudgingProgram, params: ShowParameters | None = None,
                 judge = sb.judge
                 out.append(f"  {judge.name}")
             mark = "  (pinned)" if id(sb) in pinned else ""
-            out.append(f"    {fmt_time(sb.start)} – {fmt_time(int(round(sb.end)))}   "
-                       f"{sb.block.entries} dogs, {sb.block.duration:.0f} min{mark}")
+            out.append(f"    {sb.start} – {sb.end}   "
+                       f"{sb.block.entries} dogs, {sb.block.duration.minutes:.0f} min{mark}")
             for e, off in sb.block.offsets():
                 out.append(event_line(e, sb.start + off))
             for br in after.get(id(sb), []):
-                length = f"{br.minutes} min" if br.minutes else "length not stated"
-                out.append(f"    {fmt_time(br.start)}   LUNCH ({length})")
+                length = str(br.length) if br.length else "length not stated"
+                out.append(f"    {br.start}   LUNCH ({length})")
         out.append("")
 
     if res.timeline:
         out.append("GROUPS AND BEST IN SHOW")
         for s in res.timeline.groups:
             judge = show.group_judges.get(s.group)
-            wait = f"   waits {s.wait:.0f} min" if s.wait > 0.5 else ""
-            out.append(f"  {fmt_time(int(round(s.start))):>8} – {fmt_time(int(round(s.end))):>8}  {s.group.value:<13} "
+            wait = f"   waits {s.wait.minutes:.0f} min" if s.wait.minutes > 0.5 else ""
+            out.append(f"  {str(s.start):>8} – {str(s.end):>8}  {s.group.value:<13} "
                        f"{show.group_entrants(s.group):>2} entrants  {judge.name if judge else ''}{wait}")
         bis = show.bis_judge.name if show.bis_judge else ""
-        out.append(f"  {fmt_time(int(round(res.timeline.bis_start))):>8} – {fmt_time(int(round(res.timeline.bis_end))):>8}  "
+        out.append(f"  {str(res.timeline.bis_start):>8} – {str(res.timeline.bis_end):>8}  "
                    f"{'Best in Show':<13} {show.bis_entrants():>2} entrants  {bis}")
         out.append("")
 

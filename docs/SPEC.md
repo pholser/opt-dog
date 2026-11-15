@@ -110,7 +110,7 @@ start of unit `u` (block start + durations of the units ahead of it in the block
 
 | # | Constraint | Source |
 |---|---|---|
-| H1 | Each block lasts **about one hour** (`D_b ≤ 60 + ε`; ε = 15 min in the validator, E; blocks the solver forms are capped at 65 min, `max_block_minutes`). Exception: a single unit with `n_u > 30` is its own block, with no cap | Rules Ch.7 §12 |
+| H1 | Each block lasts **about one hour** (`D_b ≤ 60 + ε`; ε = 15 min in the validator, E; blocks the solver forms are capped at 65 min, `max_block`). Exception: a single unit with `n_u > 30` is its own block, with no cap | Rules Ch.7 §12 |
 | H3 | Each ring holds at most one block at a time | — |
 | H4 | A judge is never in two rings at once: their blocks, their group/BIS assignment, and their lunch never overlap. When a judge's consecutive blocks are in different rings, the next starts ≥ `m_J` minutes after the previous ends (travel margin) | U |
 | H5 | Units in a block are judged in the published order; no block starts before `s_b` | Rules Ch.7 §12; REJ999 |
@@ -134,13 +134,13 @@ start of unit `u` (block start + durations of the units ahead of it in the block
 |---|---|---|
 | S1 | **Exhibitor conflict minutes**, counted **by breed** (U), only for exhibitors signed up for the conflict-resolution program; not every exhibitor opts in (U). In the solver it ranks after the structure costs (U), within a judge-idle budget (`conflict_idle_budget`, default 2 × least idle, U). For each registered exhibitor `x ∈ X*`, their dogs in one unit merge into one busy window (any class dog → the whole unit; champions only → just the BOB portion, §2.7). Several dogs in the same unit are never a conflict. For each pair of `x`'s windows in *different units*, the cost is the **minutes of overlap**. If the two units are in **different rings**, one window is first widened by the travel margin `m_X` (so units back to back across rings with less than `m_X` between them still conflict). Units in the same ring never overlap, so they never conflict | U |
 | S2 | **Judge ring changes**: penalty for each change between consecutive blocks; a heavier penalty when the change isn't at lunch | Best Practices; Show Manual §6; U |
-| S3 | **Equipment switches**: cost per change of equipment (ground / table / ramp) between consecutive breeds **in a ring**, across judges sharing the ring. A switch **across a lunch** is free: a lunch of the judge who leaves or the judge who arrives falls in the ring's idle time between the two breeds, itself at least `equipment_free_gap_minutes` (default 45) (U). A long idle gap with no lunch is not a break: otherwise the solver inserts idle time to make switches free (seen in 3b, SFD 9/12) (U). Within a judge's sequence, table breeds consecutive and ramp breeds consecutive, applied within each group run since S4 takes precedence (§8: humans keep table breeds together within a group 69% of the time, across a whole assignment only 37%) | Show Manual §6 "Scheduling Rings": "Within a judging assignment, all breeds judged on a table should be scheduled consecutively, and all breeds judged on a ramp should be scheduled consecutively"; Best Practices: "schedule table breeds and ramp breeds being judged in the same ring together to decrease the movement of equipment which causes delays" |
+| S3 | **Equipment switches**: cost per change of equipment (ground / table / ramp) between consecutive breeds **in a ring**, across judges sharing the ring. A switch **across a lunch** is free: a lunch of the judge who leaves or the judge who arrives falls in the ring's idle time between the two breeds, itself at least `equipment_free_gap` (default 45 min) (U). A long idle gap with no lunch is not a break: otherwise the solver inserts idle time to make switches free (seen in 3b, SFD 9/12) (U). Within a judge's sequence, table breeds consecutive and ramp breeds consecutive, applied within each group run since S4 takes precedence (§8: humans keep table breeds together within a group 69% of the time, across a whole assignment only 37%) | Show Manual §6 "Scheduling Rings": "Within a judging assignment, all breeds judged on a table should be scheduled consecutively, and all breeds judged on a ramp should be scheduled consecutively"; Best Practices: "schedule table breeds and ramp breeds being judged in the same ring together to decrease the movement of equipment which causes delays" |
 | S4 | **Group split**: a judge with breeds in several groups judges each group's breeds in one consecutive run. Cost per extra run of a group in a judge's sequence, scored by the validator; steps 3b and 3c keep each group in one run by construction (soft, U: humans split a group on 37 of 129 judge-days, 83 extra runs) | Show Manual §6 "Scheduling Breed Judging": "If judges are assigned breeds in more than one group, organize their breed-judging schedule by group"; U |
 | S5 | Idle gaps in a judge's day, from first to last event. A lunch counts only for its own length (a published break's stated length, otherwise the 45-minute minimum); any wait beyond it is idle. A judge who needs no lunch has none unless the program publishes one, so their long gaps are idle (U). The solver minimizes it after S2, S3, S9 and S10 are fixed; S1 may then raise it up to `conflict_idle_budget` × that minimum, and the last phase minimizes it again with S1 fixed | E/convention |
 | S6 | **Not modeled.** Short-nosed (brachycephalic) breeds in the cooler part of the day (outdoor shows) | Show Manual §6 |
 | S7 | **Not modeled.** Permit judges at non-conflicting times (for the AKC field rep) | Show Manual §6 |
 | S8 | **Final segment over 50 dogs**: a ring's final segment may stretch past an hour; each dog over 50 (unless it is a single breed/variety) costs `w_final`. AKC states this as a rule, but it is a soft cost here because real programs exceed it (§8). Scored by the validator; not in the solver | Rules Ch.7 §12; U; E |
-| S9 | **Short blocks**: each block of fewer than `short_block_dogs` dogs (default 15) costs `w_short` per missing dog. A judge's only block is exempt: it cannot be made larger (U: "absolutely discourage short blocks"). Humans have 64 of 517 blocks under 15 dogs, mostly a judge's whole small assignment or the remainder before lunch or at day's end (§8). Avoiding one short block is worth up to `short_block_finish_minutes` of show finish (default 10, U): the solver finds the fastest finish, then minimizes finish + that × short blocks | U; E |
+| S9 | **Short blocks**: each block of fewer than `short_block_dogs` dogs (default 15) costs `w_short` per missing dog. A judge's only block is exempt: it cannot be made larger (U: "absolutely discourage short blocks"). Humans have 64 of 517 blocks under 15 dogs, mostly a judge's whole small assignment or the remainder before lunch or at day's end (§8). Avoiding one short block is worth up to `short_block_finish` of show finish (default 10, U): the solver finds the fastest finish, then minimizes finish + that × short blocks | U; E |
 | S10 | **Lunch at a logical stopping point**: a cost when a judge's lunch splits a group run (soft, small) | Show Manual §6 "Scheduling Lunch and Breaks": "Try to schedule the lunch or rest break at a logical stopping point" |
 
 ## 6. Objective
@@ -153,7 +153,7 @@ The original decision was a **weighted sum** (U), and the validator still report
 The **solver is lexicographic**. Each phase holds the results of the ones before it:
 
 1. Finish: the earliest BIS end.
-2. Trade: finish + `short_block_finish_minutes` × short blocks.
+2. Trade: finish + `short_block_finish` × short blocks.
 3. Structure: a weighted sum of S2, S3, S9, S10 and block count.
 4. Idle: S5 judge idle (with earliest starts as a tie-break). Idle is then capped at
    `conflict_idle_budget` × this minimum (default 2). This phase runs 3 × the phase limit
@@ -190,10 +190,10 @@ all-breed show days, 653–2,137 breed entries each. Timings assume 25 dogs/hr.
 
 - **Rate.** Superintendents schedule at 25 dogs/hr: the median published gap is exactly
   2.40 min/dog. Times are rounded to 5-minute marks, so a block is often 1–2 dogs over the hour.
-  → `overlap_tolerance_minutes = 5` (one slot). This leaves 16 overlaps on 11 days,
+  → `overlap_tolerance` = 5 min (one slot). This leaves 16 overlaps on 11 days,
   down from 248 at zero tolerance.
 - **Blocks (H1).** Multi-breed blocks: median 24 dogs, p90 27, max 39. Blocks over 75 min
-  that aren't a single breed of more than 30: 7 on 6 of 11 days. → `block_tolerance_minutes = 15` holds.
+  that aren't a single breed of more than 30: 7 on 6 of 11 days. → `block_tolerance` = 15 min holds.
 - **Final segment (S8) is bent.** 12 final segments of 51–73 mixed-breed dogs on 4 of 11
   days; checked against the source, e.g. a 67-dog, 21-breed terrier afternoon. → made a
   soft cost, S8 (U).
@@ -296,7 +296,7 @@ Those before the "Group judges" entry predate the parser fix, and judge idle fig
   unchanged. Putting idle in phase 2 instead at its 0.5/min weight gave 1078 idle minutes, but
   raised short blocks to 96 and switches to 244, and phase 2 no longer proved optimal on any day.
 - **Short blocks traded for finish (S9).** A phase after the fastest finish minimizes
-  finish + `short_block_finish_minutes` (default 10, U) × short blocks; later phases hold both.
+  finish + `short_block_finish` (default 10, U) × short blocks; later phases hold both.
   On 3b: short blocks 64 → 52 over the 11 days for 6 min of finish in total. Raising the price
   did not help: on Palm Springs 1/3 even an unlimited price left 10 avoidable short blocks
   (published: 6), because a small breed sits beside one too long to share a block and 3b cannot

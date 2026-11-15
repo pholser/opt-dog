@@ -9,7 +9,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field, replace
 from typing import TYPE_CHECKING
 
-from optdog.domain import Minutes, RingSize
+from optdog.domain import Duration, RingSize, TimeOfDay
 
 if TYPE_CHECKING:
     from optdog.domain import Show
@@ -17,7 +17,8 @@ if TYPE_CHECKING:
 
 @dataclass(frozen=True)
 class ObjectiveWeights:
-    """Weights for the validator's weighted-sum score (SPEC §6). All per unit stated.
+    """Weights for the validator's weighted-sum score (SPEC §6). All per unit stated; the score is
+    a plain number, so times enter it in minutes.
 
     The solver is lexicographic and uses only the ring-change, equipment, short-block,
     lunch-split and block-count weights, inside its structure phase.
@@ -39,15 +40,15 @@ class ObjectiveWeights:
 @dataclass(frozen=True)
 class ShowParameters:
     # --- time grid
-    slot_minutes: int = 5  # published times seen on 5-minute marks (E: Bradshaw 9:25, 10:10)
+    slot: Duration = Duration(5)  # published times seen on 5-minute marks (E: Bradshaw 9:25, 10:10)
 
     # --- blocks (Rules Ch.7 §12)
-    block_target_minutes: float = 60.0  # "periods of about one hour"
-    block_tolerance_minutes: float = 15.0  # E: multi-breed blocks p90 27 dogs; 7 blocks > 75 min on 11 days
+    block_target: Duration = Duration(60)  # "periods of about one hour"
+    block_tolerance: Duration = Duration(15)  # E: multi-breed blocks p90 27 dogs; 7 blocks > 75 min on 11 days
     single_breed_exception_entries: int = 30  # a breed with > 30 entries may be its own longer block
     short_block_dogs: int = 15  # S9: blocks under this many dogs cost per missing dog (E: human p10 is 13 dogs)
-    # S9: minutes of show finish worth giving up to avoid one short block (U, 2026-11-06). 0 puts finish first.
-    short_block_finish_minutes: float = 10.0
+    # S9: show finish worth giving up to avoid one short block (U, 2026-11-06). 0 puts finish first.
+    short_block_finish: Duration = Duration(10)
     # S1/S5: after judge idle is minimized, idle may grow to this multiple of that minimum to cut
     # conflicts of registered exhibitors (U, 2026-11-09; trial: ×2 kept most of the gain on
     # Del Sur 5/1 and cut Palm Springs 1/4 by a quarter). 1 puts idle first; larger favors exhibitors.
@@ -55,27 +56,27 @@ class ShowParameters:
     final_segment_max_dogs: int = 50  # Rules: final segment ≤ 50 unless single breed; a SOFT cost here (U; humans exceed it)
 
     # --- judge breaks (Rules Ch.7 §12)
-    lunch_required_after_minutes: float = 300.0  # assignment exceeding five hours
-    lunch_min_minutes: int = 45
-    lunch_max_minutes: int = 60
+    lunch_required_after: Duration = Duration(300)  # assignment exceeding five hours
+    lunch_min: Duration = Duration(45)
+    lunch_max: Duration = Duration(60)
     # H6, hard (U): a lunch must START in this window. The window is a show input (Show.lunch_window),
     # set ahead of time by concessions availability; this is only the default when a show gives none.
     # E: published lunches start 11:10–12:30 (p10–p90 11:30–12:20)
-    lunch_window: tuple[Minutes, Minutes] = (11 * 60, 12 * 60 + 30)
+    lunch_window: tuple[TimeOfDay, TimeOfDay] = (TimeOfDay.at(11), TimeOfDay.at(12, 30))
 
     # --- equipment (S3)
     # A table/ramp switch across a lunch is free (U): a lunch of the judge who leaves or arrives
     # falls in the ring's idle time between the two breeds, which is at least this long. A long
     # idle gap without a lunch is not a break (U, 2026-11-05).
-    equipment_free_gap_minutes: float = 45.0
+    equipment_free_gap: Duration = Duration(45)
 
     # --- margins (U)
-    exhibitor_travel_minutes: float = 2.0  # m_X between rings (U, adjustable)
-    judge_travel_minutes: float = 2.0  # m_J between rings (U, adjustable)
-    overlap_tolerance_minutes: float = 5.0  # E: at 25/hr, human blocks overrun the next published time by median 2.4, p90 4.8 min (~2 dogs)
+    exhibitor_travel: Duration = Duration(2)  # m_X between rings (U, adjustable)
+    judge_travel: Duration = Duration(2)  # m_J between rings (U, adjustable)
+    overlap_tolerance: Duration = Duration(5)  # E: at 25/hr, human blocks overrun the next published time by median 2.4, p90 4.8 min (~2 dogs)
 
     # --- groups (Show Manual §6)
-    group_ring_setup_minutes: float = 0.0  # buffer between last breed in group ring(s) and first group
+    group_ring_setup: Duration = Duration.ZERO  # buffer between last breed in group ring(s) and first group
     groups_complete_before_start: int = 2  # H13, Show Manual §6: "breed judging in at least two groups ... complete before group judging is scheduled to begin"
     groups_after_all_lunches: bool = True  # H14 (U): first group after every judge's lunch ends. E: true on all 11 parsed days
 
@@ -84,7 +85,7 @@ class ShowParameters:
     specialty_only_daily_limit: int = 200
 
     # --- show hours
-    closing_time: Minutes | None = None  # posted closing time, if known
+    closing_time: TimeOfDay | None = None  # posted closing time, if known
     # H17: group rings are "enlarged or combined" breed rings, large enough for the largest group (Show Manual §3)
     group_ring_min: RingSize = RingSize.XL
 

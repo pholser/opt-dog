@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from ortools.sat.python import cp_model
 
-from optdog.domain import EventKind, JudgingEvent
+from optdog.domain import Duration, EventKind, JudgingEvent
 
 Item = list[JudgingEvent]
 SHORT_OVER_BLOCK = 1000  # a short block costs more than any number of extra blocks
@@ -35,13 +35,14 @@ def items_of(run: list[JudgingEvent]) -> list[Item]:
     return list(items.values())
 
 
-def pack_run(run: list[JudgingEvent], cap_minutes: float, short_dogs: int, time_limit: float = 2.0) -> list[list[JudgingEvent]]:
+def pack_run(run: list[JudgingEvent], cap: Duration, short_dogs: int, time_limit: float = 2.0) -> list[list[JudgingEvent]]:
     """``run`` as bins of events, fewest short bins first, then fewest bins; fullest bins first."""
     items = items_of(run)
     dogs = [sum(e.entries for e in it) for it in items]
-    mins = [int(round(sum(e.duration for e in it) * 10)) for it in items]
-    cap = int(cap_minutes * 10)
-    alone = [i for i, m in enumerate(mins) if m > cap]
+    units = 10  # to a minute
+    mins = [Duration.total(e.duration for e in it).units(units) for it in items]
+    cap_units = int(cap.minutes * units)
+    alone = [i for i, m in enumerate(mins) if m > cap_units]
     free = [i for i in range(len(items)) if i not in alone]
     bins: list[list[int]] = [[i] for i in alone]
     if free:
@@ -53,7 +54,7 @@ def pack_run(run: list[JudgingEvent], cap_minutes: float, short_dogs: int, time_
         for i in free:
             md.AddExactlyOne(x[i, b] for b in range(n))
         for b in range(n):
-            md.Add(sum(mins[i] * x[i, b] for i in free) <= cap * used[b])
+            md.Add(sum(mins[i] * x[i, b] for i in free) <= cap_units * used[b])
             md.Add(sum(dogs[i] * x[i, b] for i in free) + short_dogs * short[b] >= short_dogs * used[b])
             if b:
                 md.AddImplication(used[b], used[b - 1])

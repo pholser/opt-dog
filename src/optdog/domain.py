@@ -11,25 +11,163 @@ Vocabulary (see docs/SPEC.md):
 - A **JudgingProgram** places blocks in rings at start times, places judges' breaks,
   and fixes the group order. It is a *solution* (or a parsed human-made schedule).
 
-Times are minutes after midnight (``Minutes``). This module has no I/O or solver
+Times of day are ``TimeOfDay`` and lengths of time ``Duration``: neither mixes with plain
+numbers, so a length cannot be used as a time or the reverse. This module has no I/O or solver
 dependencies.
 """
 
 from __future__ import annotations
 
+import math
 from collections import defaultdict
 from dataclasses import dataclass, field
 from enum import Enum, IntEnum
-from typing import Iterable, Iterator
+from typing import ClassVar, Iterable, Iterator
 
-Minutes = int  # minutes after midnight
+# --------------------------------------------------------------------------- time
 
 
-def fmt_time(t: Minutes) -> str:
-    h, m = divmod(t, 60)
-    suffix = "AM" if h < 12 else "PM"
-    h12 = h % 12 or 12
-    return f"{h12}:{m:02d} {suffix}"
+@dataclass(frozen=True, order=True, slots=True)
+class Duration:
+    """A length of time in minutes, fractional where judging rates make it so (2.4 min a dog)."""
+
+    minutes: float
+
+    ZERO: ClassVar[Duration]
+
+    def __eq__(self, other: object) -> bool:
+        if isinstance(other, Duration):
+            return self.minutes == other.minutes
+        if isinstance(other, (int, float)):
+            raise TypeError(f"compare a Duration with a Duration, not {other!r}")
+        return NotImplemented
+
+    def __add__(self, other: Duration) -> Duration:
+        if not isinstance(other, Duration):
+            return NotImplemented
+        return Duration(self.minutes + other.minutes)
+
+    def __sub__(self, other: Duration) -> Duration:
+        if not isinstance(other, Duration):
+            return NotImplemented
+        return Duration(self.minutes - other.minutes)
+
+    def __mul__(self, k: float) -> Duration:
+        if not isinstance(k, (int, float)):
+            return NotImplemented
+        return Duration(self.minutes * k)
+
+    __rmul__ = __mul__
+
+    def __truediv__(self, other):
+        """By a number, a Duration; by a Duration, their ratio."""
+        if isinstance(other, Duration):
+            return self.minutes / other.minutes
+        if isinstance(other, (int, float)):
+            return Duration(self.minutes / other)
+        return NotImplemented
+
+    def __neg__(self) -> Duration:
+        return Duration(-self.minutes)
+
+    def __abs__(self) -> Duration:
+        return Duration(abs(self.minutes))
+
+    def __bool__(self) -> bool:
+        return self.minutes != 0
+
+    def __str__(self) -> str:
+        return f"{self.minutes:g} min"
+
+    @classmethod
+    def total(cls, durations: Iterable[Duration]) -> Duration:
+        """Their sum, correctly rounded (as ``math.fsum``), so 25 dogs at 2.4 min are 60 min exactly."""
+        return cls(math.fsum(d.minutes for d in durations))
+
+    @classmethod
+    def from_units(cls, units: int, per_minute: int) -> Duration:
+        """From a solver's integer time units, ``per_minute`` to a minute."""
+        return cls(units / per_minute)
+
+    def units(self, per_minute: int) -> int:
+        """In a solver's integer time units, ``per_minute`` to a minute, to the nearest unit."""
+        return round(self.minutes * per_minute)
+
+
+Duration.ZERO = Duration(0.0)
+
+
+@dataclass(frozen=True, order=True, slots=True)
+class TimeOfDay:
+    """A time on the show day, in minutes after midnight (fractional for planned event ends).
+
+    A time plus or minus a ``Duration`` is a time; one time minus another is a ``Duration``.
+    """
+
+    minutes: float
+
+    MIDNIGHT: ClassVar[TimeOfDay]
+
+    def __eq__(self, other: object) -> bool:
+        if isinstance(other, TimeOfDay):
+            return self.minutes == other.minutes
+        if isinstance(other, (int, float)):
+            raise TypeError(f"compare a TimeOfDay with a TimeOfDay, not {other!r}")
+        return NotImplemented
+
+    @classmethod
+    def at(cls, hour: int, minute: int = 0) -> TimeOfDay:
+        return cls(hour * 60 + minute)
+
+    @classmethod
+    def parse(cls, hhmm: str) -> TimeOfDay:
+        """From 24-hour ``HH:MM``."""
+        h, m = hhmm.strip().split(":")
+        return cls(int(h) * 60 + int(m))
+
+    @classmethod
+    def from_units(cls, units: int, per_minute: int) -> TimeOfDay:
+        """From a solver's integer time units, ``per_minute`` to a minute."""
+        return cls(units / per_minute)
+
+    def units(self, per_minute: int) -> int:
+        """In a solver's integer time units, ``per_minute`` to a minute, to the nearest unit."""
+        return round(self.minutes * per_minute)
+
+    def __add__(self, d: Duration) -> TimeOfDay:
+        if not isinstance(d, Duration):
+            return NotImplemented
+        return TimeOfDay(self.minutes + d.minutes)
+
+    __radd__ = __add__
+
+    def __sub__(self, other):
+        """Minus a Duration, a time; minus a time, the Duration between them."""
+        if isinstance(other, TimeOfDay):
+            return Duration(self.minutes - other.minutes)
+        if isinstance(other, Duration):
+            return TimeOfDay(self.minutes - other.minutes)
+        return NotImplemented
+
+    def on_grid(self, step: Duration) -> bool:
+        return self.minutes % step.minutes == 0
+
+    def ceil(self, step: Duration) -> TimeOfDay:
+        """The first time on the ``step`` grid at or after this one."""
+        return TimeOfDay(math.ceil(self.minutes / step.minutes - 1e-9) * step.minutes)
+
+    def hhmm(self) -> str:
+        """24-hour ``HH:MM``, to the nearest minute."""
+        h, m = divmod(round(self.minutes), 60)
+        return f"{h:02d}:{m:02d}"
+
+    def __str__(self) -> str:
+        """``8:30 AM``, to the nearest minute."""
+        h, m = divmod(round(self.minutes), 60)
+        return f"{h % 12 or 12}:{m:02d} {'AM' if h < 12 else 'PM'}"
+
+
+TimeOfDay.MIDNIGHT = TimeOfDay(0.0)
 
 
 # --------------------------------------------------------------------------- breeds
@@ -161,22 +299,22 @@ class EntryCounts:
 # --------------------------------------------------------------------------- judges
 
 
-DEFAULT_MINUTES_PER_DOG = 60 / 25  # Rules Ch.7 §12: about 25 dogs per hour
-PERMIT_MINUTES_PER_DOG = 60 / 20  # Show Manual §6: permit/sweeps judges about 20/hr
+DEFAULT_PER_DOG = Duration(60 / 25)  # Rules Ch.7 §12: about 25 dogs per hour
+PERMIT_PER_DOG = Duration(60 / 20)  # Show Manual §6: permit/sweeps judges about 20/hr
 
 
 @dataclass(frozen=True)
 class Judge:
     name: str
     permit: bool = False
-    minutes_per_dog: float | None = None  # per-judge override
+    per_dog: Duration | None = None  # per-judge override of the time a dog takes
 
     @property
-    def rate(self) -> float:
-        """Minutes per dog."""
-        if self.minutes_per_dog is not None:
-            return self.minutes_per_dog
-        return PERMIT_MINUTES_PER_DOG if self.permit else DEFAULT_MINUTES_PER_DOG
+    def rate(self) -> Duration:
+        """Time per dog."""
+        if self.per_dog is not None:
+            return self.per_dog
+        return PERMIT_PER_DOG if self.permit else DEFAULT_PER_DOG
 
     def __str__(self) -> str:
         return self.name
@@ -217,14 +355,14 @@ class JudgingEvent:
     breed: Breed | None = None
     counts: EntryCounts | None = None
     competition: Competition = Competition.ALL_BREED
-    minutes_per_entry: float | None = None  # overrides the judge's rate (e.g. juniors)
+    per_entry: Duration | None = None  # overrides the judge's rate (e.g. juniors)
 
     @property
-    def rate(self) -> float:
-        if self.minutes_per_entry is not None:
-            return self.minutes_per_entry
+    def rate(self) -> Duration:
+        if self.per_entry is not None:
+            return self.per_entry
         if self.kind is EventKind.JUNIOR_SHOWMANSHIP:
-            return 60 / 20  # Show Manual §6: juniors at 20 per hour
+            return PERMIT_PER_DOG  # Show Manual §6: juniors at 20 per hour
         return self.judge.rate
 
     @property
@@ -234,16 +372,16 @@ class JudgingEvent:
         return self.breed.min_ring if self.breed is not None else RingSize.M
 
     @property
-    def duration(self) -> float:
-        """Planned minutes to judge this event."""
-        return self.entries * self.rate
+    def duration(self) -> Duration:
+        """Planned time to judge this event."""
+        return self.rate * self.entries
 
     @property
-    def bob_offset(self) -> float:
-        """Minutes from the event's start until Best of Breed (champions) begins."""
+    def bob_offset(self) -> Duration:
+        """Time from the event's start until Best of Breed (champions) begins."""
         if self.counts is None:
-            return 0.0
-        return self.counts.before_bob * self.rate
+            return Duration.ZERO
+        return self.rate * self.counts.before_bob
 
     @property
     def group(self) -> Group | None:
@@ -321,11 +459,11 @@ class Entry:
     sex: Sex | None = None
 
     @property
-    def busy_offset(self) -> tuple[float, float]:
-        """(from, to) minutes after the event starts during which the exhibitor is busy."""
+    def busy_offset(self) -> tuple[Duration, Duration]:
+        """(from, to) after the event starts: when the exhibitor is busy."""
         if self.status is EntryStatus.CHAMPION:
             return self.event.bob_offset, self.event.duration
-        return 0.0, self.event.duration
+        return Duration.ZERO, self.event.duration
 
 
 def entry_counts(statuses: Iterable[tuple[EntryStatus, Sex | None]]) -> tuple[int, EntryCounts | None]:
@@ -378,16 +516,16 @@ class Block:
         return sum(e.entries for e in self.events)
 
     @property
-    def duration(self) -> float:
-        return sum(e.duration for e in self.events)
+    def duration(self) -> Duration:
+        return Duration.total(e.duration for e in self.events)
 
     @property
     def min_ring(self) -> RingSize:
         return max(e.min_ring for e in self.events)
 
-    def offsets(self) -> Iterator[tuple[JudgingEvent, float]]:
-        """Each event with its planned start offset (minutes) from the block start."""
-        t = 0.0
+    def offsets(self) -> Iterator[tuple[JudgingEvent, Duration]]:
+        """Each event with its planned start offset from the block start."""
+        t = Duration.ZERO
         for e in self.events:
             yield e, t
             t += e.duration
@@ -406,14 +544,14 @@ class Ring:
 class ScheduledBlock:
     block: Block
     ring: Ring
-    start: Minutes  # published "not before" time
+    start: TimeOfDay  # published "not before" time
 
     @property
     def judge(self) -> Judge:
         return self.block.judge
 
     @property
-    def end(self) -> float:
+    def end(self) -> TimeOfDay:
         return self.start + self.block.duration
 
 
@@ -423,12 +561,12 @@ class Break:
 
     judge: Judge
     ring: Ring | None
-    start: Minutes
-    minutes: int | None = None  # None when the program does not state the length
+    start: TimeOfDay
+    length: Duration | None = None  # None when the program does not state the length
 
     @property
-    def end(self) -> float | None:
-        return None if self.minutes is None else self.start + self.minutes
+    def end(self) -> TimeOfDay | None:
+        return None if self.length is None else self.start + self.length
 
 
 # --------------------------------------------------------------------------- groups
@@ -443,7 +581,7 @@ class GroupsPlan:
     """
 
     rings: tuple[Ring, ...]
-    start: Minutes | None
+    start: TimeOfDay | None
     order: tuple[Group, ...]
     judges: dict[Group, Judge] = field(default_factory=dict, hash=False, compare=False)
     bis_judge: Judge | None = None
@@ -464,13 +602,13 @@ class Show:
     group_judges: dict[Group, Judge] = field(default_factory=dict)
     bis_judge: Judge | None = None
     group_rings: tuple[Ring, ...] = ()
-    start: Minutes | None = None
+    start: TimeOfDay | None = None
     entries: list[Entry] = field(default_factory=list)  # individual dogs, when known
     pinned: list[ScheduledBlock] = field(default_factory=list)  # published commitments a program must keep (SPEC H11)
     # When judges' lunch breaks may start. Set ahead of time by the club, usually by when
     # the venue's concessions serve lunch; an input, not a scheduling decision.
     # None: use ShowParameters.lunch_window.
-    lunch_window: tuple[Minutes, Minutes] | None = None
+    lunch_window: tuple[TimeOfDay, TimeOfDay] | None = None
 
     def unpinned_events(self) -> list[JudgingEvent]:
         """Events the scheduler places: every event not inside a pinned block."""
@@ -524,23 +662,23 @@ class Show:
             }
         )
 
-    def group_duration(self, group: Group) -> float:
-        """Planned minutes to judge ``group``: entrants × the group judge's rate."""
+    def group_duration(self, group: Group) -> Duration:
+        """Planned time to judge ``group``: entrants × the group judge's rate."""
         judge = self.group_judges.get(group)
-        rate = judge.rate if judge else DEFAULT_MINUTES_PER_DOG
-        return self.group_entrants(group) * rate
+        rate = judge.rate if judge else DEFAULT_PER_DOG
+        return rate * self.group_entrants(group)
 
     def bis_entrants(self) -> int:
         """One group winner per variety group that has at least one breed entered."""
         return sum(1 for g in VARIETY_GROUPS if self.group_entrants(g) > 0)
 
-    def bis_duration(self) -> float:
-        rate = self.bis_judge.rate if self.bis_judge else DEFAULT_MINUTES_PER_DOG
-        return self.bis_entrants() * rate
+    def bis_duration(self) -> Duration:
+        rate = self.bis_judge.rate if self.bis_judge else DEFAULT_PER_DOG
+        return rate * self.bis_entrants()
 
-    def groups_and_bis_duration(self) -> float:
-        """Total planned minutes of group + BIS judging if run back to back."""
-        return sum(self.group_duration(g) for g in VARIETY_GROUPS) + self.bis_duration()
+    def groups_and_bis_duration(self) -> Duration:
+        """Total planned time of group + BIS judging if run back to back."""
+        return Duration.total(self.group_duration(g) for g in VARIETY_GROUPS) + self.bis_duration()
 
 
 _COUNTS_TOWARD_LIMIT = {
@@ -574,24 +712,24 @@ class JudgingProgram:
             out[b.judge].append(b)
         return dict(out)
 
-    def scheduled_events(self) -> Iterable[tuple[JudgingEvent, ScheduledBlock, float]]:
-        """Every event with its block and planned start time (minutes)."""
+    def scheduled_events(self) -> Iterable[tuple[JudgingEvent, ScheduledBlock, TimeOfDay]]:
+        """Every event with its block and planned start time."""
         for sb in self.blocks:
             for e, off in sb.block.offsets():
                 yield e, sb, sb.start + off
 
-    def event_end(self, event: JudgingEvent) -> float | None:
+    def event_end(self, event: JudgingEvent) -> TimeOfDay | None:
         for e, _, start in self.scheduled_events():
             if e is event:
                 return start + e.duration
         return None
 
-    def group_timeline(self, judge_travel_minutes: float = 0.0) -> GroupTimeline | None:
+    def group_timeline(self, judge_travel: Duration = Duration.ZERO) -> GroupTimeline | None:
         """Planned group and BIS times, run sequentially in the group ring(s).
 
         The first group is published to start at ``groups.start``; each later group
         follows the previous one. A group cannot start before its breeds are done and
-        its judge has finished their breed blocks — plus ``judge_travel_minutes`` if
+        its judge has finished their breed blocks — plus ``judge_travel`` if
         the judge's last block was outside the group ring(s). BIS follows the last
         group and cannot start before the BIS judge is free on the same terms.
         """
@@ -604,45 +742,46 @@ class JudgingProgram:
             if sb.judge not in last_block or sb.end > last_block[sb.judge].end:
                 last_block[sb.judge] = sb
         group_rings = set(plan.rings)
-        judge_free: dict[Judge, float] = {
-            j: sb.end + (0.0 if sb.ring in group_rings else judge_travel_minutes) for j, sb in last_block.items()
+        judge_free: dict[Judge, TimeOfDay] = {
+            j: sb.end + (Duration.ZERO if sb.ring in group_rings else judge_travel) for j, sb in last_block.items()
         }
         slots: list[GroupSlot] = []
-        t = float(plan.start)
+        t = plan.start
+        never = TimeOfDay.MIDNIGHT
         for g in plan.order:
-            breeds_done = max((ends[id(e)] for e in self.show.feeding(g) if id(e) in ends), default=0.0)
+            breeds_done = max((ends[id(e)] for e in self.show.feeding(g) if id(e) in ends), default=never)
             judge = self.show.group_judges.get(g)
-            ready = max(breeds_done, judge_free.get(judge, 0.0) if judge else 0.0)
+            ready = max(breeds_done, judge_free.get(judge, never) if judge else never)
             start = max(t, ready)
             end = start + self.show.group_duration(g)
             slots.append(GroupSlot(g, start, end, breeds_done, ready, available=t))
             t = end
         bis = self.show.bis_judge
-        bis_start = max(t, judge_free.get(bis, 0.0) if bis else 0.0)
+        bis_start = max(t, judge_free.get(bis, never) if bis else never)
         return GroupTimeline(tuple(slots), bis_start, bis_start + self.show.bis_duration())
 
 
 @dataclass(frozen=True)
 class GroupSlot:
     group: Group
-    start: float
-    end: float
-    breeds_done: float  # when the group's last breed finishes
-    ready: float  # max(breeds_done, group judge free)
-    available: float  # when the group ring could have taken this group (previous end / published start)
+    start: TimeOfDay
+    end: TimeOfDay
+    breeds_done: TimeOfDay  # when the group's last breed finishes
+    ready: TimeOfDay  # max(breeds_done, group judge free)
+    available: TimeOfDay  # when the group ring could have taken this group (previous end / published start)
 
     @property
-    def wait(self) -> float:
-        """Minutes the group ring sat idle waiting for this group's breeds or judge."""
+    def wait(self) -> Duration:
+        """How long the group ring sat idle waiting for this group's breeds or judge."""
         return self.start - self.available
 
 
 @dataclass(frozen=True)
 class GroupTimeline:
     groups: tuple[GroupSlot, ...]
-    bis_start: float
-    bis_end: float
+    bis_start: TimeOfDay
+    bis_end: TimeOfDay
 
     @property
-    def finish(self) -> float:
+    def finish(self) -> TimeOfDay:
         return self.bis_end

@@ -13,7 +13,7 @@ from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from optdog.domain import VARIETY_GROUPS, EventKind, JudgingProgram, fmt_time
+from optdog.domain import VARIETY_GROUPS, Duration, EventKind, JudgingProgram, TimeOfDay
 from optdog.io.program_csv import read_program
 from optdog.params import ShowParameters
 from optdog.validate import _conformation_blocks, validate
@@ -39,22 +39,28 @@ def dist(xs, fmt="{:.1f}") -> str:
     return f"n={len(xs)}; p10 {fmt.format(vals[0])} · median {fmt.format(vals[1])} · p90 {fmt.format(vals[2])} · max {fmt.format(max(xs))}"
 
 
+def _clock(minutes: float) -> str:
+    return str(TimeOfDay(minutes))
+
+
 @dataclass
 class Measurements:
+    """Samples for the distributions below; times and lengths are in minutes (after midnight for times)."""
+
     shows: list[tuple[str, JudgingProgram]] = field(default_factory=list)
     implied_min_per_dog: list[float] = field(default_factory=list)  # published gap / entries, same judge+ring
     block_entries: list[int] = field(default_factory=list)  # non-final multi-breed blocks
     block_published_minutes: list[float] = field(default_factory=list)  # gap to the same judge's next block
     over_hour_minutes: list[float] = field(default_factory=list)  # planned duration − 60, for non-exempt blocks > 60
     overlaps: list[float] = field(default_factory=list)  # H3/H4 shortfall in minutes
-    lunch_starts: list[int] = field(default_factory=list)
+    lunch_starts: list[float] = field(default_factory=list)
     lunch_lengths: list[float] = field(default_factory=list)
     final_segment_entries: list[int] = field(default_factory=list)
     judge_loads: list[int] = field(default_factory=list)
     judge_work_minutes: list[float] = field(default_factory=list)
     group_ring_slack: list[float] = field(default_factory=list)  # group start − group ring free
-    group_start: list[int] = field(default_factory=list)
-    judging_start: list[int] = field(default_factory=list)
+    group_start: list[float] = field(default_factory=list)
+    judging_start: list[TimeOfDay] = field(default_factory=list)
     group_breeds_done_vs_start: dict = field(default_factory=lambda: defaultdict(list))
     first_group_slack: list[float] = field(default_factory=list)
     violations: Counter = field(default_factory=Counter)
@@ -80,40 +86,40 @@ def measure(programs: list[tuple[str, JudgingProgram]]) -> Measurements:
             for a, b in zip(seq, seq[1:]):
                 if a.ring == b.ring and a.block.entries > 0:
                     gap = b.start - a.start
-                    if gap < 45 + a.block.duration:  # exclude lunch / long idle gaps
-                        m.implied_min_per_dog.append(gap / a.block.entries)
-                        m.block_published_minutes.append(gap)
-            m.judge_work_minutes.append(sum(sb.block.duration for sb in seq))
+                    if gap < Duration(45) + a.block.duration:  # exclude lunch / long idle gaps
+                        m.implied_min_per_dog.append((gap / a.block.entries).minutes)
+                        m.block_published_minutes.append(gap.minutes)
+            m.judge_work_minutes.append(Duration.total(sb.block.duration for sb in seq).minutes)
         for ring, seq in by_ring.items():
             m.final_segment_entries.append(seq[-1].block.entries)
             for sb in seq[:-1]:
                 b = sb.block
                 if len(b.events) > 1:
                     m.block_entries.append(b.entries)
-                    if b.duration > 60:
-                        m.over_hour_minutes.append(b.duration - 60)
+                    if b.duration > Duration(60):
+                        m.over_hour_minutes.append((b.duration - Duration(60)).minutes)
         for br in prog.breaks:
-            if br.minutes is not None:
-                m.lunch_starts.append(br.start)
-                m.lunch_lengths.append(br.minutes)
+            if br.length is not None:
+                m.lunch_starts.append(br.start.minutes)
+                m.lunch_lengths.append(br.length.minutes)
         for j in prog.show.judges:
             m.judge_loads.append(prog.show.judge_load(j))
 
         res = validate(prog)
         codes = Counter(v.code for v in res.violations)
-        m.violations_strict.update(v.code for v in validate(prog, ShowParameters(overlap_tolerance_minutes=0)).violations)
+        m.violations_strict.update(v.code for v in validate(prog, ShowParameters(overlap_tolerance=Duration.ZERO)).violations)
         m.violations.update(codes)
         for c in codes:
             m.shows_with[c] += 1
         m.overlaps += [v.amount for v in res.violations if v.code in ("H3", "H4")]
         tl, plan = res.timeline, prog.groups
         if tl and plan:
-            m.group_start.append(plan.start)
+            m.group_start.append(plan.start.minutes)
             if res.metrics.get("group_ring_slack_min") is not None:
                 m.group_ring_slack.append(res.metrics["group_ring_slack_min"])
             for s in tl.groups:
-                m.group_breeds_done_vs_start[s.group].append(s.breeds_done - plan.start)
-            m.first_group_slack.append(plan.start - tl.groups[0].breeds_done)
+                m.group_breeds_done_vs_start[s.group].append((s.breeds_done - plan.start).minutes)
+            m.first_group_slack.append((plan.start - tl.groups[0].breeds_done).minutes)
         entries = sum(e.entries for e in prog.show.events if e.kind is EventKind.BREED and e.competition.value == "all-breed")
         m.rows.append(
             {
@@ -121,8 +127,8 @@ def measure(programs: list[tuple[str, JudgingProgram]]) -> Measurements:
                 "breed entries": entries,
                 "judges": len(by_judge),
                 "rings": len(by_ring),
-                "start": fmt_time(min(sb.start for sb in blocks)),
-                "groups": fmt_time(plan.start) if plan else "?",
+                "start": str(min(sb.start for sb in blocks)),
+                "groups": str(plan.start) if plan else "?",
                 "group rings": " & ".join(str(r.number) for r in plan.rings) if plan else "?",
                 "violations": ", ".join(f"{k}×{v}" for k, v in sorted(codes.items())) or "none",
                 **{k.split("_", 1)[0] + " " + k.split("_", 1)[1].replace("_", " "): v for k, v in res.soft.items()},
@@ -174,7 +180,7 @@ def render(m: Measurements) -> str:
         "## Lunch",
         "",
         f"- start: {dist(m.lunch_starts, '{:.0f}')} (minutes after midnight) — "
-        + (f"p10 {fmt_time(q(m.lunch_starts, 10))}, median {fmt_time(q(m.lunch_starts, 50))}, p90 {fmt_time(q(m.lunch_starts, 90))}" if m.lunch_starts else ""),
+        + (f"p10 {_clock(q(m.lunch_starts, 10))}, median {_clock(q(m.lunch_starts, 50))}, p90 {_clock(q(m.lunch_starts, 90))}" if m.lunch_starts else ""),
         f"- length (to the judge's next block), minutes: {dist(m.lunch_lengths, '{:.0f}')}",
         "",
         "## Judges",
@@ -184,9 +190,9 @@ def render(m: Measurements) -> str:
         "",
         "## Groups",
         "",
-        f"- judging starts: " + ", ".join(sorted({fmt_time(t) for t in m.judging_start})),
+        f"- judging starts: " + ", ".join(sorted({str(t) for t in m.judging_start})),
         f"- first group published: {dist(m.group_start, '{:.0f}')} — "
-        + (f"earliest {fmt_time(min(m.group_start))}, latest {fmt_time(max(m.group_start))}" if m.group_start else ""),
+        + (f"earliest {_clock(min(m.group_start))}, latest {_clock(max(m.group_start))}" if m.group_start else ""),
         f"- group ring(s) free before groups (group start − last breed block end in group rings), minutes: {dist(m.group_ring_slack, '{:.0f}')}",
         f"- first group's breeds finish before group start by, minutes: {dist(m.first_group_slack, '{:.0f}')}",
         "",
@@ -203,7 +209,7 @@ def render(m: Measurements) -> str:
         "",
         "## Hard-constraint violations in human-made programs",
         "",
-        f"Default parameters (overlap tolerance {ShowParameters().overlap_tolerance_minutes:.0f} min), and with zero tolerance:",
+        f"Default parameters (overlap tolerance {ShowParameters().overlap_tolerance.minutes:.0f} min), and with zero tolerance:",
         "",
         "| code | total | shows | total, zero tolerance |",
         "|---|---|---|---|",

@@ -30,7 +30,7 @@ rally events are dropped when published programs are parsed.
 | Stage | Code | Role |
 |---|---|---|
 | Ingest | `ingest/` | Parses published Bradshaw programs into `data/parsed/` |
-| Domain model | `domain.py`, `instance.py`, `breeds.py` | Typed objects. CSV appears only at the I/O edges (`io/`) |
+| Domain model | `domain.py`, `instance.py`, `breeds.py` | Typed objects. CSV appears only at the I/O edges (`io/`). Times of day are `TimeOfDay` and lengths of time `Duration`; neither mixes with plain numbers, and they become integers only inside the CP-SAT models and the files |
 | Greedy schedule | `solve/greedy.py` | A fast valid schedule, used as the solver's starting point and as a baseline |
 | Lower bounds | `solve/bounds.py`, `solve/relaxation.py` | The earliest finish any valid schedule could reach |
 | Optimizer | `solve/cpsat.py`, `solve/packing.py` | CP-SAT model (details below) |
@@ -52,7 +52,7 @@ that planning uses.
 The 3c solve runs in phases, and each phase holds the results of the ones before it:
 
 1. **Finish:** the earliest possible show finish.
-2. **Trade:** give up to 10 minutes of finish per short block avoided (`short_block_finish_minutes`).
+2. **Trade:** give up to 10 minutes of finish per short block avoided (`short_block_finish`).
 3. **Structure:** ring changes, short blocks, lunch placement, equipment switches and block count.
 4. **Idle:** least judge idle. Idle may then grow to `conflict_idle_budget` times this minimum
    (default 2) to make room for the next phase. This phase gets three times the usual limit

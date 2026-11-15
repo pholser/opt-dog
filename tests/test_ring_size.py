@@ -6,8 +6,8 @@ import pytest
 
 from optdog.breeds import BreedCatalog, default_catalog
 from optdog.domain import (
-    VARIETY_GROUPS, Block, Competition, EventKind, GroupsPlan, JudgingEvent, JudgingProgram, Judge, Ring,
-    RingSize, ScheduledBlock, Show,
+    VARIETY_GROUPS, Block, Competition, Duration, EventKind, GroupsPlan, Judge, JudgingEvent, JudgingProgram,
+    Ring, RingSize, ScheduledBlock, Show, TimeOfDay,
 )
 from optdog.io.program_csv import read_program, write_program
 from optdog.params import ShowParameters
@@ -16,7 +16,7 @@ from optdog.solve.greedy import greedy_program
 from optdog.validate import validate
 
 CAT = default_catalog()
-P0 = ShowParameters(overlap_tolerance_minutes=0)
+P0 = ShowParameters(overlap_tolerance=Duration.ZERO)
 A, B, G = Judge("Ms. A"), Judge("Mr. B"), Judge("Dr. G")
 
 
@@ -53,16 +53,16 @@ def _show(rings):
     toy = [JudgingEvent(b, EventKind.BREED, A, 15, CAT[b]) for b in ("Pug", "Maltese", "Papillon")]
     big = [JudgingEvent(b, EventKind.BREED, B, 15, CAT[b]) for b in ("Great Dane", "Mastiff", "Boxer")]
     return Show("T", "2026-01-01", [A, B], toy + big, rings, group_judges={g: G for g in VARIETY_GROUPS},
-                bis_judge=G, group_rings=(rings[0],), start=480)
+                bis_judge=G, group_rings=(rings[0],), start=TimeOfDay(480))
 
 
 def test_validator_flags_a_breed_in_a_ring_too_small_and_a_small_group_ring():
     show = _show([Ring(1, RingSize.XL), Ring(2, RingSize.S), Ring(3, RingSize.L)])
     big = [e for e in show.events if e.judge == B]
     toy = [e for e in show.events if e.judge == A]
-    plan = GroupsPlan((Ring(1, RingSize.XL),), 720, tuple(VARIETY_GROUPS), dict(show.group_judges), G)
-    bad = JudgingProgram(show, [ScheduledBlock(Block(B, tuple(big)), show.rings[1], 480),
-                                ScheduledBlock(Block(A, tuple(toy)), show.rings[2], 480)], [], plan)
+    plan = GroupsPlan((Ring(1, RingSize.XL),), TimeOfDay(720), tuple(VARIETY_GROUPS), dict(show.group_judges), G)
+    bad = JudgingProgram(show, [ScheduledBlock(Block(B, tuple(big)), show.rings[1], TimeOfDay(480)),
+                                ScheduledBlock(Block(A, tuple(toy)), show.rings[2], TimeOfDay(480))], [], plan)
     codes = [v.code for v in validate(bad, P0).violations]
     assert codes.count("H16") == 1
     small_group = replace(plan, rings=(Ring(1, RingSize.L),))

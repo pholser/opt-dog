@@ -22,7 +22,7 @@ from collections import defaultdict
 from dataclasses import dataclass, field
 from itertools import combinations
 
-from optdog.domain import Entry, Exhibitor, JudgingEvent, JudgingProgram, Ring
+from optdog.domain import Duration, Entry, Exhibitor, JudgingEvent, JudgingProgram, Ring, TimeOfDay
 
 
 @dataclass(frozen=True)
@@ -31,8 +31,8 @@ class BusyWindow:
 
     exhibitor: Exhibitor
     entries: tuple[Entry, ...]
-    start: float
-    end: float
+    start: TimeOfDay
+    end: TimeOfDay
     ring: Ring
 
     @property
@@ -45,7 +45,7 @@ class Conflict:
     exhibitor: Exhibitor
     a: BusyWindow
     b: BusyWindow
-    minutes: float
+    overlap: Duration
 
 
 @dataclass
@@ -54,13 +54,13 @@ class ConflictReport:
     unscheduled: list[Entry] = field(default_factory=list)  # entries whose event is not in the program
 
     @property
-    def minutes(self) -> float:
-        return sum(c.minutes for c in self.conflicts)
+    def total(self) -> Duration:
+        return Duration.total(c.overlap for c in self.conflicts)
 
-    def by_exhibitor(self) -> dict[Exhibitor, float]:
-        out: dict[Exhibitor, float] = defaultdict(float)
+    def by_exhibitor(self) -> dict[Exhibitor, Duration]:
+        out: dict[Exhibitor, Duration] = defaultdict(lambda: Duration.ZERO)
         for c in self.conflicts:
-            out[c.exhibitor] += c.minutes
+            out[c.exhibitor] += c.overlap
         return dict(out)
 
 
@@ -85,7 +85,10 @@ def busy_windows(program: JudgingProgram) -> tuple[list[BusyWindow], list[Entry]
     return windows, missing
 
 
-def registered_window_pairs(entries: list[Entry]) -> list[tuple[JudgingEvent, JudgingEvent, tuple[float, float], tuple[float, float], int]]:
+Offsets = tuple[Duration, Duration]
+
+
+def registered_window_pairs(entries: list[Entry]) -> list[tuple[JudgingEvent, JudgingEvent, Offsets, Offsets, int]]:
     """The window pairs S1 can charge, before any schedule exists.
 
     Each item is (event a, event b, a's busy offsets, b's busy offsets, how many registered
@@ -107,12 +110,12 @@ def registered_window_pairs(entries: list[Entry]) -> list[tuple[JudgingEvent, Ju
     return [(events[a], events[b], oa, ob, n) for (a, b, oa, ob), n in pairs.items()]
 
 
-def overlap_minutes(a: BusyWindow, b: BusyWindow, travel_minutes: float) -> float:
-    margin = travel_minutes if a.ring != b.ring else 0.0
-    return max(0.0, min(a.end + margin, b.end) - max(a.start - margin, b.start))
+def overlap(a: BusyWindow, b: BusyWindow, travel: Duration) -> Duration:
+    margin = travel if a.ring != b.ring else Duration.ZERO
+    return max(Duration.ZERO, min(a.end + margin, b.end) - max(a.start - margin, b.start))
 
 
-def exhibitor_conflicts(program: JudgingProgram, travel_minutes: float, registered_only: bool = True) -> ConflictReport:
+def exhibitor_conflicts(program: JudgingProgram, travel: Duration, registered_only: bool = True) -> ConflictReport:
     windows, missing = busy_windows(program)
     report = ConflictReport(unscheduled=missing)
     by_exhibitor: dict[str, list[BusyWindow]] = defaultdict(list)
@@ -121,7 +124,7 @@ def exhibitor_conflicts(program: JudgingProgram, travel_minutes: float, register
             by_exhibitor[w.exhibitor.id].append(w)
     for ws in by_exhibitor.values():
         for a, b in combinations(ws, 2):  # windows are per breed event, so a and b are different breeds
-            m = overlap_minutes(a, b, travel_minutes)
-            if m > 0:
+            m = overlap(a, b, travel)
+            if m > Duration.ZERO:
                 report.conflicts.append(Conflict(a.exhibitor, a, b, m))
     return report

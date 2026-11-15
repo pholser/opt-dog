@@ -28,6 +28,7 @@ from optdog.breeds import BreedCatalog, default_catalog
 from optdog.io.entries_csv import check_regular, entries_of, read_entry_table, write_entries
 from optdog.domain import (
     Block,
+    Duration,
     EventKind,
     Group,
     JudgingEvent,
@@ -36,18 +37,14 @@ from optdog.domain import (
     RingSize,
     ScheduledBlock,
     Show,
+    TimeOfDay,
 )
 
 EVENT_FIELDS = ("judge", "event", "breed", "pin_ring", "pin_start")
 
 
-def _hhmm(t: int | None) -> str:
-    return "" if t is None else f"{t // 60:02d}:{t % 60:02d}"
-
-
-def _mins(s: str) -> int:
-    h, m = s.strip().split(":")
-    return int(h) * 60 + int(m)
+def _hhmm(t: TimeOfDay | None) -> str:
+    return "" if t is None else t.hhmm()
 
 
 class ProblemFormatError(ValueError):
@@ -77,7 +74,7 @@ def write_problem(show: Show, out_dir: str | Path) -> None:
     for e in show.events:
         people.setdefault(e.judge.name, e.judge)
     table("judges.csv", ("name", "permit", "minutes_per_dog"),
-          [(j.name, int(j.permit), "" if j.minutes_per_dog is None else j.minutes_per_dog) for j in people.values()])
+          [(j.name, int(j.permit), "" if j.per_dog is None else j.per_dog.minutes) for j in people.values()])
 
     pins = {id(e): sb for sb in show.pinned for e in sb.block.events}
 
@@ -101,7 +98,8 @@ def read_problem(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Sho
             return list(csv.DictReader(f))
 
     meta = {r["key"]: r["value"] for r in rows("show.csv")}
-    judges = {r["name"]: Judge(r["name"], bool(int(r["permit"] or 0)), float(r["minutes_per_dog"]) if r["minutes_per_dog"] else None)
+    judges = {r["name"]: Judge(r["name"], bool(int(r["permit"] or 0)),
+                               Duration(float(r["minutes_per_dog"])) if r["minutes_per_dog"] else None)
               for r in rows("judges.csv")}
 
     def judge(name: str, where: str) -> Judge:
@@ -140,7 +138,7 @@ def read_problem(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Sho
         if r.get("pin_ring") or r.get("pin_start"):
             if not (r.get("pin_ring") and r.get("pin_start")):
                 raise ProblemFormatError(f"{where}: a pinned event needs both pin_ring and pin_start")
-            pinned.setdefault((r["judge"], int(r["pin_ring"]), _mins(r["pin_start"])), []).append(e)
+            pinned.setdefault((r["judge"], int(r["pin_ring"]), TimeOfDay.parse(r["pin_start"])), []).append(e)
 
     blocks = [ScheduledBlock(Block(judges[j], tuple(evs)), by_number.get(n, Ring(n)), start)
               for (j, n, start), evs in pinned.items()]
@@ -151,7 +149,7 @@ def read_problem(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Sho
             raise ProblemFormatError(f"groups.csv: unknown group {r['group']!r}")
         group_judges[values[r["group"]]] = judge(r["judge"], f"groups.csv, {r['group']}")
     bis = judge(meta["bis_judge"], "show.csv, bis_judge") if meta.get("bis_judge") else None
-    lunch = tuple(_mins(t) for t in meta["lunch_window"].split("-")) if meta.get("lunch_window") else None
+    lunch = tuple(TimeOfDay.parse(t) for t in meta["lunch_window"].split("-")) if meta.get("lunch_window") else None
     try:
         entries = entry_table.attach(events)
     except ValueError as err:
@@ -159,4 +157,4 @@ def read_problem(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Sho
     on_panel = {e.judge.name for e in events}
     return Show(name=meta["name"], date=meta["date"], judges=[j for n, j in judges.items() if n in on_panel], events=events,
                 rings=rings, group_judges=group_judges, bis_judge=bis, group_rings=tuple(group_rings),
-                start=_mins(meta["start"]), pinned=blocks, lunch_window=lunch, entries=entries)
+                start=TimeOfDay.parse(meta["start"]), pinned=blocks, lunch_window=lunch, entries=entries)

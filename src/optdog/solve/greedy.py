@@ -11,7 +11,7 @@ make schedules hard. Steps:
    ramp and table breeds are kept together (S3). Sweepstakes come just before their breed.
    Miscellaneous breeds and Junior Showmanship go last, since no group waits for them.
 3. **Blocks.** Pack the running order into consecutive blocks of at most
-   ``max_block_minutes`` (about an hour, Rules Ch.7 §12). An event too big for a block
+   ``max_block`` (about an hour, Rules Ch.7 §12). An event too big for a block
    is a block of its own.
 4. **Rings and times.** Each judge works in one ring all day, large enough for all of their
    breeds (H16) if any ring is, so there are no ring changes
@@ -32,13 +32,13 @@ make schedules hard. Steps:
 
 from __future__ import annotations
 
-import math
 from dataclasses import dataclass
 
 from optdog.domain import (
     VARIETY_GROUPS,
     Block,
     Break,
+    Duration,
     EventKind,
     Group,
     GroupsPlan,
@@ -48,6 +48,7 @@ from optdog.domain import (
     Ring,
     ScheduledBlock,
     Show,
+    TimeOfDay,
 )
 from optdog.params import ShowParameters
 from optdog.solve.bounds import FinishBound, finish_lower_bound
@@ -55,7 +56,7 @@ from optdog.solve.bounds import FinishBound, finish_lower_bound
 
 @dataclass(frozen=True)
 class GreedyOptions:
-    max_block_minutes: float = 65.0  # one hour plus a 5-minute slot: humans' p90 block is 27 dogs ≈ 65 min (E)
+    max_block: Duration = Duration(65)  # one hour plus a 5-minute slot: humans' p90 block is 27 dogs ≈ 65 min (E)
     group_order: tuple[Group, ...] | None = None  # target order; default: the lower bound's order
 
 
@@ -66,31 +67,27 @@ class Calendar:
     """Busy intervals of one ring or one judge."""
 
     def __init__(self) -> None:
-        self.busy: list[tuple[float, float]] = []
+        self.busy: list[tuple[TimeOfDay, TimeOfDay]] = []
 
-    def add(self, start: float, end: float) -> None:
+    def add(self, start: TimeOfDay, end: TimeOfDay) -> None:
         self.busy.append((start, end))
         self.busy.sort()
 
-    def clashes(self, start: float, end: float) -> tuple[float, float] | None:
+    def clashes(self, start: TimeOfDay, end: TimeOfDay) -> tuple[TimeOfDay, TimeOfDay] | None:
         for a, b in self.busy:
             if a < end and start < b:
                 return a, b
         return None
 
 
-def _ceil(t: float, slot: int) -> int:
-    return int(math.ceil(t / slot - 1e-9) * slot)
-
-
-def _fit(t: float, duration: float, slot: int, *cals: Calendar) -> int:
+def _fit(t: TimeOfDay, duration: Duration, slot: Duration, *cals: Calendar) -> TimeOfDay:
     """Earliest grid time ≥ t at which [s, s + duration) is free in every calendar."""
-    s = _ceil(t, slot)
+    s = t.ceil(slot)
     while True:
         for cal in cals:
             clash = cal.clashes(s, s + duration)
             if clash:
-                s = _ceil(clash[1], slot)
+                s = clash[1].ceil(slot)
                 break
         else:
             return s
@@ -124,10 +121,10 @@ def running_order(events: list[JudgingEvent], rank: dict[Group, int]) -> list[Ju
     return sorted(events, key=key)
 
 
-def pack_blocks(judge: Judge, order: list[JudgingEvent], max_minutes: float) -> list[Block]:
+def pack_blocks(judge: Judge, order: list[JudgingEvent], max_block: Duration) -> list[Block]:
     blocks: list[list[JudgingEvent]] = []
     for e in order:
-        if blocks and sum(x.duration for x in blocks[-1]) + e.duration <= max_minutes:
+        if blocks and Duration.total(x.duration for x in blocks[-1]) + e.duration <= max_block:
             blocks[-1].append(e)
         else:
             blocks.append([e])
@@ -144,7 +141,7 @@ class _Placement:
     lunch: Break | None
 
     @property
-    def end(self) -> float:
+    def end(self) -> TimeOfDay:
         return max(sb.end for sb in self.blocks)
 
 
@@ -159,7 +156,7 @@ def _place_chain(judge: Judge, blocks: list[Block], ring: Ring, ring_cal: Calend
     ``_RULE`` to take it at the first boundary inside the lunch window.
     """
     l0, l1 = p.lunch_window
-    t: float = show.start
+    t: TimeOfDay = show.start
     out: list[ScheduledBlock] = []
     lunch = None
     for i, b in enumerate(blocks):
@@ -170,10 +167,10 @@ def _place_chain(judge: Judge, blocks: list[Block], ring: Ring, ring_cal: Calend
             take = i == lunch_before
         if take:
             # take lunch at this block boundary, waiting for the window to open if need be (H6)
-            ls = _ceil(max(t, l0), p.slot_minutes)
-            lunch = Break(judge, ring, ls, p.lunch_min_minutes)
-            t = ls + p.lunch_min_minutes
-        s = _fit(t, d, p.slot_minutes, ring_cal, judge_cal)
+            ls = max(t, l0).ceil(p.slot)
+            lunch = Break(judge, ring, ls, p.lunch_min)
+            t = ls + p.lunch_min
+        s = _fit(t, d, p.slot, ring_cal, judge_cal)
         out.append(ScheduledBlock(b, ring, s))
         t = s + d
     return _Placement(ring, out, lunch)
@@ -184,17 +181,17 @@ def _lunch_gap(judge: Judge, placement: _Placement, show: Show, p: ShowParameter
     items = sorted([(sb.start, sb.end, sb.ring) for sb in placement.blocks]
                    + [(sb.start, sb.end, sb.ring) for sb in show.pinned if sb.judge == judge])
     for (_, a_end, ring), (b_start, _, _) in zip(items, items[1:]):
-        start = _ceil(max(a_end, p.lunch_window[0]), p.slot_minutes)  # the lunch must start in the window (H6)
-        if start <= p.lunch_window[1] and b_start - start >= p.lunch_min_minutes:
-            return Break(judge, ring, start, p.lunch_min_minutes)
+        start = max(a_end, p.lunch_window[0]).ceil(p.slot)  # the lunch must start in the window (H6)
+        if start <= p.lunch_window[1] and b_start - start >= p.lunch_min:
+            return Break(judge, ring, start, p.lunch_min)
     return None
 
 
 def _place_judge(judge: Judge, blocks: list[Block], ring: Ring, ring_cal: Calendar, judge_cal: Calendar,
                  show: Show, p: ShowParameters) -> _Placement:
     """Place the chain; if the day needs lunch (H6), make sure it has a lunch-length gap."""
-    work = sum(e.duration for e in show.events_for(judge))  # pinned blocks count toward the day
-    if work <= p.lunch_required_after_minutes:
+    work = Duration.total(e.duration for e in show.events_for(judge))  # pinned blocks count toward the day
+    if work <= p.lunch_required_after:
         return _place_chain(judge, blocks, ring, ring_cal, judge_cal, show, p, None)
     pl = _place_chain(judge, blocks, ring, ring_cal, judge_cal, show, p, _RULE)
     if pl.lunch is not None and pl.lunch.start > p.lunch_window[1]:
@@ -218,21 +215,21 @@ def _place_judge(judge: Judge, blocks: list[Block], ring: Ring, ring_cal: Calend
     return min(tries, key=lambda x: x.end) if tries else pl
 
 
-def _urgency(judge: Judge, order: list[JudgingEvent], show: Show, bound: FinishBound, p: ShowParameters) -> float:
-    """Latest time the judge could start and still meet the relaxed group schedule (smaller = more urgent)."""
-    latest = math.inf
-    done = 0.0
-    last_of: dict[Group, float] = {}
+def _urgency(judge: Judge, order: list[JudgingEvent], show: Show, bound: FinishBound,
+             p: ShowParameters) -> TimeOfDay | None:
+    """Latest time the judge could start and still meet the relaxed group schedule (smaller = more
+    urgent); None if no group waits for them."""
+    latest: TimeOfDay | None = None
+    done = Duration.ZERO
+    last_of: dict[Group, Duration] = {}
     for e in order:
         done += e.duration
         if e.feeds_group is not None:
             last_of[e.feeds_group] = done
-    for g, w in last_of.items():
-        latest = min(latest, bound.group_starts.get(g, math.inf) - w)
-    for g, gj in show.group_judges.items():
-        if gj == judge:
-            latest = min(latest, bound.group_starts.get(g, math.inf) - (bound.judge_free[judge] - show.start))
-    return latest
+    needed = [bound.group_starts[g] - w for g, w in last_of.items() if g in bound.group_starts]
+    needed += [bound.group_starts[g] - (bound.judge_free[judge] - show.start)
+               for g, gj in show.group_judges.items() if gj == judge and g in bound.group_starts]
+    return min(needed, default=None)
 
 
 def greedy_program(show: Show, params: ShowParameters | None = None, options: GreedyOptions | None = None) -> JudgingProgram:
@@ -247,7 +244,7 @@ def greedy_program(show: Show, params: ShowParameters | None = None, options: Gr
     judge_cal = {j: Calendar() for j in show.judges}
     for sb in show.pinned:
         ring_cal.setdefault(sb.ring, Calendar()).add(sb.start, sb.end)
-        judge_cal.setdefault(sb.judge, Calendar()).add(sb.start - p.judge_travel_minutes, sb.end + p.judge_travel_minutes)
+        judge_cal.setdefault(sb.judge, Calendar()).add(sb.start - p.judge_travel, sb.end + p.judge_travel)
 
     unpinned = show.unpinned_events()
     plans = []
@@ -256,8 +253,10 @@ def greedy_program(show: Show, params: ShowParameters | None = None, options: Gr
         if not evs:
             continue
         order = running_order(evs, rank)
-        work = sum(e.duration for e in evs)
-        plans.append((_urgency(j, order, show, bound, p), -work, j.name, j, pack_blocks(j, order, o.max_block_minutes)))
+        work = Duration.total(e.duration for e in evs)
+        urgency = _urgency(j, order, show, bound, p)
+        plans.append(((urgency is None, urgency or TimeOfDay.MIDNIGHT), -work, j.name, j,
+                      pack_blocks(j, order, o.max_block)))
     plans.sort(key=lambda x: x[:3])
 
     group_rings = set(show.group_rings)
@@ -286,7 +285,7 @@ def plan_groups(program: JudgingProgram, p: ShowParameters) -> GroupsPlan:
     show = program.show
     provisional = GroupsPlan(show.group_rings, show.start, VARIETY_GROUPS, dict(show.group_judges), show.bis_judge)
     program.groups = provisional
-    timeline = program.group_timeline(judge_travel_minutes=p.judge_travel_minutes)
+    timeline = program.group_timeline(judge_travel=p.judge_travel)
     ready = {s.group: s.ready for s in timeline.groups}
     order = tuple(sorted(VARIETY_GROUPS, key=lambda g: (ready[g], g.value)))
     rings_free = max((sb.end for sb in program.blocks if sb.ring in set(show.group_rings)), default=show.start)
@@ -298,6 +297,5 @@ def plan_groups(program: JudgingProgram, p: ShowParameters) -> GroupsPlan:
         from optdog.validate import lunch_ends
 
         lunches_over = max(lunch_ends(program, p).values(), default=show.start)
-    start = _ceil(max(ready[order[0]], rings_free + p.group_ring_setup_minutes, enough_groups_done, lunches_over),
-                  p.slot_minutes)
+    start = max(ready[order[0]], rings_free + p.group_ring_setup, enough_groups_done, lunches_over).ceil(p.slot)
     return GroupsPlan(show.group_rings, start, order, dict(show.group_judges), show.bis_judge)
