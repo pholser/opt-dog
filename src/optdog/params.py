@@ -17,8 +17,8 @@ if TYPE_CHECKING:
 
 @dataclass(frozen=True)
 class ObjectiveWeights:
-    """Weights for the validator's weighted-sum score (SPEC §6). All per unit stated; the score is
-    a plain number, so times enter it in minutes.
+    """Weights for the validator's weighted-sum score (SPEC §6), which uses all of them. All per
+    unit stated; the score is a plain number, so times enter it in minutes.
 
     The solver is lexicographic and uses only the ring-change, equipment, short-block,
     lunch-split and block-count weights, inside its structure phase.

@@ -23,7 +23,9 @@ exhibitor on record (``Show.exhibitors``; synthetic for now).
 
 Soft costs scored: S2 ring changes, S3 equipment switches, S4 group switches,
 S5 judge idle, S8 dogs over the final-segment limit (AKC's 50-dog final-segment
-rule is a soft cost by decision: real programs exceed it).
+rule is a soft cost by decision: real programs exceed it), S9 dogs short of
+`short_block_dogs` per block, S10 lunches that split a judge's run of one group.
+The weighted objective also counts the blocks, as the solver's structure phase does.
 """
 
 from __future__ import annotations
@@ -56,7 +58,7 @@ class Violation:
 @dataclass
 class ValidationResult:
     violations: list[Violation] = field(default_factory=list)
-    soft: dict[str, float] = field(default_factory=dict)  # S2..S5 raw quantities; times in minutes
+    soft: dict[str, float] = field(default_factory=dict)  # S1-S10 raw quantities; times in minutes
     metrics: dict[str, float | int | str | None] = field(default_factory=dict)
     timeline: GroupTimeline | None = None
     objective: float | None = None
@@ -184,7 +186,7 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
 
     # ---------------------------------------------------------------- H6 lunch; S2 ring changes; S5 idle
     lunch_gaps: dict[Judge, tuple[TimeOfDay, Duration] | None] = {}
-    ring_changes = ring_changes_at_lunch = 0
+    ring_changes = ring_changes_at_lunch = lunch_splits = 0
     idle = Duration.ZERO
     for judge, seq in by_judge.items():
         work = Duration.total(sb.block.duration for sb in seq)
@@ -216,6 +218,10 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
                     Violation("H6", judge.name, f"no lunch-length gap that can start in the lunch window "
                               f"{p.lunch_window[0]}–{p.lunch_window[1]}", 0.0)
                 )
+        # S10: the lunch falls between two events of the same group
+        if lunch is not None:
+            before, after = lunch[2].block.events[-1].group, lunch[3].block.events[0].group
+            lunch_splits += before is not None and before == after
         for a, b in zip(seq, seq[1:]):
             if a.ring != b.ring:
                 if lunch is not None and lunch[2] is a and lunch[3] is b:
@@ -275,6 +281,17 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
         groups = [e.group for sb in seq for e in sb.block.events if e.group is not None]
         switches = sum(1 for x, y in zip(groups, groups[1:]) if x != y)
         extra_group_switches += max(0, switches - (len(set(groups)) - 1))
+
+    # ---------------------------------------------------------------- S9 short blocks
+    # dogs each block falls short of `short_block_dogs`; a judge with fewer dogs in all is exempt
+    short_dogs = short_blocks = 0
+    for judge, seq in by_judge.items():
+        if sum(sb.block.entries for sb in seq) < p.short_block_dogs:
+            continue
+        for sb in seq:
+            missing = max(0, p.short_block_dogs - sb.block.entries)
+            short_dogs += missing
+            short_blocks += missing > 0
 
     # ---------------------------------------------------------------- groups: H7, H8, H9, H12
     timeline = program.group_timeline(judge_travel=p.judge_travel)
@@ -373,6 +390,9 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
         "S4_extra_group_switches": extra_group_switches,
         "S5_judge_idle_min": round(idle.minutes, 1),
         "S8_final_segment_excess_dogs": final_excess,
+        "S9_short_block_dogs": short_dogs,
+        "S9_short_blocks": short_blocks,
+        "S10_lunch_splits": lunch_splits,
     }
     if conflict_minutes is not None:
         res.soft["S1_conflict_min"] = round(conflict_minutes, 1)
@@ -396,6 +416,9 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
             + w.group_switch * extra_group_switches
             + w.judge_idle * idle.minutes
             + w.final_segment_excess * final_excess
+            + w.short_block * short_dogs
+            + w.lunch_split * lunch_splits
+            + w.block_count * len(blocks)
             + w.conflict * (conflict_minutes or 0.0)
         )
     return res

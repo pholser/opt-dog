@@ -149,7 +149,10 @@ start of unit `u` (block start + durations of the units ahead of it in the block
 The original decision was a **weighted sum** (U), and the validator still reports one as
 `ValidationResult.objective`, using `ObjectiveWeights`:
 
-    minimize  w_F · (τ_BIS + D_BIS − T0)  +  Σ_k w_k · S_k
+    minimize  w_F · (τ_BIS + D_BIS − T0)  +  Σ_k w_k · S_k  +  w_blocks · (number of blocks)
+
+over S1–S5, S8, S9 (dogs short) and S10, the same terms and weights as the solver's structure
+phase plus finish, S1, S4, S5 and S8.
 
 The **solver is lexicographic**. Each phase holds the results of the ones before it:
 

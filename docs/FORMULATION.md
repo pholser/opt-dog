@@ -334,11 +334,13 @@ optimal only when the solver says so.
 The originally decided form was a weighted sum (U), and the validator still reports one
 (`ValidationResult.objective`):
 
-$$1 \cdot (\Phi - T_0) + 1 \cdot S_1 + 10\,S_2^{\text{off}} + 2\,(S_2^{\text{all}} - S_2^{\text{off}}) + 5\,S_3 + 2\,S_4 + 0.5\,S_5 + 2\,S_8,$$
+$$1 \cdot (\Phi - T_0) + 1 \cdot S_1 + 10\,S_2^{\text{off}} + 2\,(S_2^{\text{all}} - S_2^{\text{off}}) + 5\,S_3 + 2\,S_4 + 0.5\,S_5 + 2\,S_8 + 2\,S_9 + 2\,S_{10} + 0.5\,\lvert\mathcal{B}\rvert,$$
 
-in minutes where the cost is a time, with $S_1$ only for registered exhibitors. It leaves out
-S9, S10 and the block count, which the solver's structure phase includes. Which form stays is an
-open question (SPEC §7).
+in minutes where the cost is a time, with $S_1$ only for registered exhibitors and
+$\lvert\mathcal{B}\rvert$ the number of blocks. Its S2, S3, S9, S10 and block-count terms and
+weights are those of the solver's structure phase. The validator takes a program's lunches as
+published, or else infers each from the judge's longest lunch-length gap, so for a human program
+its S10 is an estimate. Which form stays is an open question (SPEC §7).
 
 ## 7. What the solver actually solves
 

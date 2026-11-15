@@ -182,3 +182,33 @@ def test_s5_a_lunch_counts_only_for_its_own_length():
     assert validate(program(blocks, [A]), P0).soft["S5_judge_idle_min"] == pytest.approx(90 - 45, abs=0.1)
     published = program(blocks, [A], breaks=[brk(A, 1, 480 + 168, 60)])  # a stated 60-minute break
     assert validate(published, P0).soft["S5_judge_idle_min"] == pytest.approx(90 - 60, abs=0.1)
+
+
+def test_s9_counts_dogs_short_and_exempts_a_judge_too_small_to_avoid_it():
+    prog = program([sb(A, 1, 480, ev("Pug", A, 25)), sb(A, 1, 545, ev("Boxer", A, 10)),
+                    sb(B, 2, 480, ev("Maltese", B, 8))], [A, B])  # B has only 8 dogs: exempt
+    r = validate(prog, P0)
+    assert (r.soft["S9_short_block_dogs"], r.soft["S9_short_blocks"]) == (15 - 10, 1)
+
+
+def test_s10_lunch_between_two_breeds_of_one_group():
+    def lunch_between(before, after):
+        prog = program([sb(A, 1, 660, ev(before, A, 10)), sb(A, 1, 730, ev(after, A, 10))], [A],
+                       breaks=[brk(A, 1, 685, 45)])
+        return validate(prog, P0).soft["S10_lunch_splits"]
+    assert lunch_between("Pug", "Maltese") == 1  # both Toy
+    assert lunch_between("Pug", "Boxer") == 0
+
+
+def test_objective_counts_short_blocks_lunch_splits_and_blocks():
+    g = Judge("Dr. G")
+    plan = groups((2,), 800, (Group.TOY,), {Group.TOY: g}, g)
+    prog = program([sb(A, 1, 660, ev("Pug", A, 10)), sb(A, 1, 730, ev("Maltese", A, 10))], [A],
+                   breaks=[brk(A, 1, 685, 45)], plan=plan, group_judges={Group.TOY: g}, bis=g)
+    plain = validate(prog, P0)
+    w = P0.weights
+    zero = ShowParameters(overlap_tolerance=Duration.ZERO,
+                          weights=type(w)(short_block=0, lunch_split=0, block_count=0))
+    without = validate(prog, zero)
+    assert plain.objective - without.objective == pytest.approx(
+        w.short_block * 10 + w.lunch_split * 1 + w.block_count * 2)

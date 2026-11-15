@@ -138,6 +138,8 @@ def _summary(left: tuple[str, JudgingProgram, ValidationResult],
         "S4_extra_group_switches": "S4 extra group switches",
         "S5_judge_idle_min": "S5 judge idle minutes",
         "S8_final_segment_excess_dogs": "S8 final-segment excess dogs",
+        "S9_short_block_dogs": "S9 dogs short in short blocks",
+        "S10_lunch_splits": "S10 lunches splitting a group",
     }
     for k, name in names.items():
         if k in ra.soft or k in rb.soft:
