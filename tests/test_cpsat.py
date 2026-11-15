@@ -54,7 +54,6 @@ def test_back_to_back_pinned_blocks_for_one_judge():
     show = show_of([ev("Boxer", A, 25), ev("Beagle (13 Inch)", B, 25), p1, p2], (A, B, C))
     show.pinned = pins
     res = solve_placement(show, P0)
-    assert res.program is not None
     assert validate(res.program, P0).violations == []
     assert all(sb in res.program.blocks for sb in pins)
 
@@ -63,7 +62,6 @@ def test_back_to_back_pinned_blocks_for_one_judge():
 def test_placement_on_parsed_shows(d):
     show = instance_from_program(read_program(d))
     res = solve_placement(show, options=FAST)
-    assert res.program is not None, res.phases
     v = validate(res.program)
     assert {x.code for x in v.violations} <= {"V1"}, [str(x) for x in v.violations]
     assert v.timeline.finish.minutes == pytest.approx(res.finish.minutes, abs=0.1)
@@ -77,7 +75,6 @@ def test_formation_on_parsed_shows(d):
     show = instance_from_program(read_program(d))
     placed = solve_placement(show, options=FAST)
     res = solve_formation(show, options=FAST)
-    assert res.program is not None, res.phases
     v = validate(res.program)
     assert {x.code for x in v.violations} <= {"V1"}, [str(x) for x in v.violations]
     assert v.timeline.finish.minutes == pytest.approx(res.finish.minutes, abs=0.1)
@@ -89,7 +86,6 @@ def test_formation_keeps_sweepstakes_with_their_breed_and_caps_blocks():
     sw = JudgingEvent("Pug Sweepstakes", EventKind.SWEEPSTAKES, A, 6, CAT["Pug"])
     events = [ev("Boxer", A, 20), sw, ev("Pug", A, 20), ev("Maltese", A, 20), ev("Beagle (13 Inch)", B, 25)]
     res = solve_formation(show_of(events, (A, B)), P0)
-    assert res.program is not None
     for sb in res.program.blocks:
         assert sb.block.duration <= Duration(65) + EPS
         names = [e.name for e in sb.block.events]
@@ -104,7 +100,6 @@ def test_ordering_on_parsed_shows(d):
     show = instance_from_program(read_program(d))
     placed = solve_placement(show, options=FAST)
     res = solve_ordering(show, options=FAST)
-    assert res.program is not None, res.phases
     v = validate(res.program)
     assert {x.code for x in v.violations} <= {"V1"}, [str(x) for x in v.violations]
     assert v.timeline.finish.minutes == pytest.approx(res.finish.minutes, abs=0.1)
@@ -119,7 +114,6 @@ def test_ordering_keeps_groups_together_and_meets_table_runs():
               ev("Greyhound", A, 10), ev("Beagle (13 Inch)", A, 10), ev("Boxer", B, 25)]
     p = replace(P0, equipment_free_gap=Duration(10_000))  # no idle time makes a switch free
     res = solve_ordering(show_of(events, (A, B)), p)
-    assert res.program is not None
     v = validate(res.program, p)
     assert v.violations == []
     order = [e for sb in sorted(res.program.blocks, key=lambda b: b.start) if sb.judge == A for e in sb.block.events]
@@ -134,7 +128,6 @@ def test_ordering_leaves_no_idle_time_in_a_judges_day_when_nothing_forces_it():
     # 75 dogs take three hours: more than one block, with nothing to wait for between them
     events = [ev("Boxer", A, 25), ev("Rottweiler", A, 25), ev("Great Dane", A, 25), ev("Pug", B, 10)]
     res = solve_ordering(show_of(events, (A, B)), P0)
-    assert res.program is not None
     seq = res.program.judge_schedule(A)
     assert len(seq) >= 2
     assert Duration.total(b.start - a.end for a, b in zip(seq, seq[1:])) < Duration(5)  # the grid may round a start up

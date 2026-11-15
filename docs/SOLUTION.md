@@ -214,8 +214,12 @@ Limiting ring sizes barely moved the finish, but cost ring changes and idle time
 are rough, because the last phase runs out of time on these runs, and they predate the change that
 counts any wait beyond a lunch's length as idle, so they understate it.
 
-**Tests.** All 292 pass, in about 6 minutes. The solver tests use short time limits, so they
+**Tests.** All 298 pass, in about 6 minutes. The solver tests use short time limits, so they
 should run with nothing else competing for CPU.
+
+**Type checking.** `mypy` (a dev extra) checks `src/optdog` clean. `solve/cpsat.py` is exempt
+(`pyproject.toml`): its model keeps decided cuts and arcs as Python constants in the slots CP-SAT
+literals use, which OR-Tools' type stubs cannot express.
 
 ## 5. Unresolved and unaddressed
 

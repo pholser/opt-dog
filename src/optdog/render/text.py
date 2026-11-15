@@ -40,7 +40,7 @@ def render_text(program: JudgingProgram, params: ShowParameters | None = None,
     out: list[str] = []
     head = title or f"{show.name} — {show.date}"
     out += [head, "=" * len(head)]
-    info = [f"judging from {show.start}" if show.start is not None else ""]
+    info = [f"judging from {show.start}"]
     if plan and plan.start is not None:
         info.append(f"groups {plan.start} in {', '.join(str(r) for r in plan.rings)}")
     if res.timeline:

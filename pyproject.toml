@@ -17,3 +17,15 @@ where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.12"
+files = ["src/optdog"]
+check_untyped_defs = true
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+# The CP-SAT model keeps fixed decisions as Python constants (True/False/ints) in the slots its
+# literals and expressions use, which OR-Tools' stubs cannot express. Its domain inputs are typed.
+module = ["optdog.solve.cpsat"]
+ignore_errors = true

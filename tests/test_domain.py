@@ -1,5 +1,7 @@
 from optdog.breeds import default_catalog
-from optdog.domain import Duration, EventKind, Group, JudgingEvent, Judge, Show
+from optdog.domain import Duration, EventKind, Group, JudgingEvent, Judge, Show, TimeOfDay
+
+EIGHT = TimeOfDay.at(8)
 
 
 def _event(name, judge, entries=3, kind=EventKind.BREED):
@@ -14,7 +16,7 @@ def test_miscellaneous_breeds_do_not_feed_a_group():
     assert pio.feeds_group is None
     assert golden.feeds_group is Group.SPORTING
 
-    show = Show("Test KC", "2026-01-01", [j], [pio, golden], [])
+    show = Show("Test KC", "2026-01-01", [j], [pio, golden], [], start=EIGHT)
     assert show.breeds_in(Group.MISCELLANEOUS) == [pio]
     assert show.feeding(Group.MISCELLANEOUS) == []
     assert show.feeding(Group.SPORTING) == [golden]
@@ -46,7 +48,7 @@ def test_group_and_bis_durations():
         JudgingEvent("Beagle (13 Inch)", EventKind.BREED, breed_judge, 3, default_catalog()["Beagle (13 Inch)"],
                      competition=Competition.BEGINNER_PUPPY),  # not the all-breed show
     ]
-    show = Show("Test KC", "2026-01-01", [breed_judge], events, [],
+    show = Show("Test KC", "2026-01-01", [breed_judge], events, [], start=EIGHT,
                 group_judges={Group.SPORTING: sporting_judge, Group.HOUND: hound_judge},
                 bis_judge=bis_judge)
 

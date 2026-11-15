@@ -38,8 +38,8 @@ def _block_group(sb: ScheduledBlock) -> str:
     weight: dict[str, int] = defaultdict(int)
     for e in sb.block.events:
         g = e.breed.group if e.breed is not None else None
-        weight[_GROUP_KEY.get(g, "other")] += max(1, e.entries)
-    return max(weight, key=weight.get)
+        weight[_GROUP_KEY.get(g, "other") if g is not None else "other"] += max(1, e.entries)
+    return max(weight, key=lambda k: weight[k])
 
 
 def _surname(j: Judge) -> str:

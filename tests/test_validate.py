@@ -21,7 +21,8 @@ def ev(breed, judge, n):
 def program(blocks, judges, breaks=(), plan=None, group_judges=None, bis=None):
     events = [e for sb in blocks for e in sb.block.events]
     rings = sorted({sb.ring for sb in blocks}, key=lambda r: r.number)
-    show = Show("T", "2026-01-01", judges, events, rings, group_judges=group_judges or {}, bis_judge=bis,
+    show = Show("T", "2026-01-01", judges, events, rings, start=min(sb.start for sb in blocks),
+                group_judges=group_judges or {}, bis_judge=bis,
                 group_rings=plan.rings if plan else ())
     return JudgingProgram(show, blocks, list(breaks), plan)
 

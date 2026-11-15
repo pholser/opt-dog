@@ -24,7 +24,7 @@ def prog(placements, entries):
     """placements: [(event, ring, start in minutes after midnight)] — one block per event."""
     blocks = [ScheduledBlock(Block(e.judge, (e,)), Ring(r), TimeOfDay(t)) for e, r, t in placements]
     show = Show("T", "2026-01-01", [A, B], [e for e, _, _ in placements], [Ring(r) for _, r, _ in placements],
-                entries=entries)
+                start=TimeOfDay(480), entries=entries)
     return JudgingProgram(show, blocks)
 
 

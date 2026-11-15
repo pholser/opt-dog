@@ -143,7 +143,7 @@ def parse_counts(s: str) -> EntryCounts:
         bob_d, bob_b = int(m.group(1)), int(m.group(2))
         s = s[: m.start()] + "-" + s[m.end():]
     parts = [t for t in re.split(r"[-\s]+", s) if t]
-    nums = [int(re.match(r"\d+", t).group()) for t in parts if re.match(r"\d+", t)]
+    nums = [int(d.group()) for t in parts if (d := re.match(r"\d+", t))]
     nonreg = sum(nums[2:])
     return EntryCounts(nums[0], nums[1], bob_d, bob_b, nonreg)
 
@@ -590,20 +590,24 @@ class BradshawParser:
         breed_entries = sum(e.entries for e in events if e.competition is Competition.ALL_BREED and e.kind is EventKind.BREED)
         report.notes.append(f"Total Dogs in Show (unique dogs, informational): {main.stated_total}; breed entries parsed: {breed_entries}")
 
+        starts = [sb.start for sb in scheduled if sb.block.events[0].competition is Competition.ALL_BREED]
+        if not starts:
+            raise ValueError(f"{show_name} {date}: no all-breed judging found")
         show = Show(
             name=show_name,
             date=date,
             judges=list(judges.values()),
             events=events,
             rings=sorted(rings.values(), key=lambda r: r.number),
+            start=min(starts),
         )
         plan = None
         if groups_info:
             group_judges = {}
             for g, raw in groups_info["order"]:
-                j = _resolve_judge(raw, show.judges, report)
-                if j is not None:
-                    group_judges[g] = j
+                gj = _resolve_judge(raw, show.judges, report)
+                if gj is not None:
+                    group_judges[g] = gj
             bis = _resolve_judge(groups_info["bis"], show.judges, report) if groups_info["bis"] else None
             show.group_judges = group_judges
             show.bis_judge = bis
@@ -619,8 +623,6 @@ class BradshawParser:
                 report.notes.append(f"groups page lists {len(plan.order)} groups: {plan.order}")
         else:
             report.notes.append("no groups page found for this day")
-        starts = [sb.start for sb in scheduled if sb.block.events[0].competition is Competition.ALL_BREED]
-        show.start = min(starts) if starts else None
         return ParsedDay(JudgingProgram(show, scheduled, breaks, plan), report)
 
 
@@ -693,7 +695,7 @@ def _guess_show_name(cover: str) -> str:
 
 
 def _cover_dates(cover: str) -> dict[str, str]:
-    out = {}
+    out: dict[str, str] = {}
     for m in re.finditer(r"(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\s+([A-Z][a-z]+ \d{1,2}, \d{4})", cover):
         out.setdefault(m.group(1).upper(), f"{m.group(1)}, {m.group(2)}")
     return out
@@ -718,8 +720,8 @@ def _parse_breed_indexes(columns) -> list[list[IndexRow]]:
             if cur is None:
                 continue
             m = RE_INDEX.match(line)
-            if m:
-                cur.append(IndexRow(m.group("name").strip(), int(m.group("n")), parse_time(m.group("time")), int(m.group("ring"))))
+            if m and (t := parse_time(m.group("time"))) is not None:
+                cur.append(IndexRow(m.group("name").strip(), int(m.group("n")), t, int(m.group("ring"))))
     return [ix for ix in out if ix]
 
 

@@ -66,8 +66,8 @@ def save_bound(bound: RelaxedBound, out_dir: Path) -> None:
 
 def load_bound(path: Path) -> RelaxedBound:
     row = json.loads(path.read_text())
-    times = ("value", "relaxation", "combinatorial", "relaxed_finish")
-    return RelaxedBound(**{k: _time(v) if k in times else v for k, v in row.items()})
+    return RelaxedBound(TimeOfDay(row["value"]), TimeOfDay(row["relaxation"]), TimeOfDay(row["combinatorial"]),
+                        _time(row["relaxed_finish"]), row["status"], row["seconds"])
 
 
 def load_program(in_dir: Path, show: Show) -> JudgingProgram:
@@ -89,13 +89,15 @@ def load_program(in_dir: Path, show: Show) -> JudgingProgram:
         blocks.append(ScheduledBlock(Block(evs[0].judge, evs), rings.get(sb.ring.number, sb.ring), sb.start))
     breaks = [Break(judges[br.judge.name], br.ring, br.start, br.length) for br in saved.breaks]
     plan = saved.groups
+    if plan is None:
+        raise ValueError(f"{in_dir}: the saved schedule has no groups")
     groups = GroupsPlan(show.group_rings, plan.start, plan.order, dict(show.group_judges), show.bis_judge)
     return JudgingProgram(show, blocks, breaks, groups)
 
 
 def load_result(in_dir: Path, show: Show) -> PlacementResult:
     meta = json.loads((in_dir / "solve.json").read_text())
-    return PlacementResult(load_program(in_dir, show), _time(meta["finish"]), _time(meta["bound"]),
+    return PlacementResult(load_program(in_dir, show), TimeOfDay(meta["finish"]), TimeOfDay(meta["bound"]),
                            [PhaseStats(**ph) for ph in meta["phases"]], meta["costs"])
 
 

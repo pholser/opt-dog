@@ -93,11 +93,11 @@ def measure(programs: list[tuple[str, JudgingProgram]]) -> Measurements:
         for ring, seq in by_ring.items():
             m.final_segment_entries.append(seq[-1].block.entries)
             for sb in seq[:-1]:
-                b = sb.block
-                if len(b.events) > 1:
-                    m.block_entries.append(b.entries)
-                    if b.duration > Duration(60):
-                        m.over_hour_minutes.append((b.duration - Duration(60)).minutes)
+                block = sb.block
+                if len(block.events) > 1:
+                    m.block_entries.append(block.entries)
+                    if block.duration > Duration(60):
+                        m.over_hour_minutes.append((block.duration - Duration(60)).minutes)
         for br in prog.breaks:
             if br.length is not None:
                 m.lunch_starts.append(br.start.minutes)
@@ -113,10 +113,11 @@ def measure(programs: list[tuple[str, JudgingProgram]]) -> Measurements:
             m.shows_with[c] += 1
         m.overlaps += [v.amount for v in res.violations if v.code in ("H3", "H4")]
         tl, plan = res.timeline, prog.groups
-        if tl and plan:
+        if tl and plan and plan.start is not None:
             m.group_start.append(plan.start.minutes)
-            if res.metrics.get("group_ring_slack_min") is not None:
-                m.group_ring_slack.append(res.metrics["group_ring_slack_min"])
+            slack = res.metrics.get("group_ring_slack_min")
+            if isinstance(slack, (int, float)):
+                m.group_ring_slack.append(slack)
             for s in tl.groups:
                 m.group_breeds_done_vs_start[s.group].append((s.breeds_done - plan.start).minutes)
             m.first_group_slack.append((plan.start - tl.groups[0].breeds_done).minutes)

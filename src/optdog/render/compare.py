@@ -12,7 +12,7 @@ from __future__ import annotations
 
 import textwrap
 
-from optdog.domain import Judge, JudgingProgram, Ring, TimeOfDay
+from optdog.domain import Break, Judge, JudgingProgram, Ring, ScheduledBlock, TimeOfDay
 from optdog.params import ShowParameters
 from optdog.render.text import event_line, pinned_ids
 from optdog.validate import ValidationResult, validate
@@ -41,10 +41,10 @@ def _judge_sections(program: JudgingProgram) -> dict[Judge, list[str]]:
                 rings.append(sb.ring)
         lines = [f"{judge.name}  ({', '.join(str(r) for r in rings)}; {len(seq)} blocks; "
                  f"done {seq[-1].end})"]
-        items = [(sb.start, 1, sb) for sb in seq]
-        items += [(br.start, 0, br) for br in program.breaks if br.judge == judge]
-        for _, kind, x in sorted(items, key=lambda t: (t[0], t[1])):
-            if kind == 0:
+        items: list[tuple[TimeOfDay, int, ScheduledBlock | Break]] = [(sb.start, 1, sb) for sb in seq]
+        items += [(br.start, 0, br) for br in program.breaks if br.judge == judge]  # a lunch before a block at its time
+        for _, _, x in sorted(items, key=lambda t: (t[0], t[1])):
+            if isinstance(x, Break):
                 length = str(x.length) if x.length else "length not stated"
                 lines.append(f"  {x.start}   LUNCH ({length})")
                 continue
@@ -182,16 +182,20 @@ def render_compare(left: tuple[str, JudgingProgram], right: tuple[str, JudgingPr
     out += _summary((la, pa, ra), (lb, pb, rb), p)
     out += ["", "", *_columns([la, "-" * len(la)], [lb, "-" * len(lb)], width), ""]
 
+    none = ["(none)"]
+    pairs: list[tuple[list[str], list[str]]]
     if by == "ring":
-        sa, sb_ = _ring_sections(pa), _ring_sections(pb)
-        keys = sorted(set(sa) | set(sb_), key=lambda r: r.number)
+        ra_, rb_ = _ring_sections(pa), _ring_sections(pb)
+        rings = sorted(set(ra_) | set(rb_), key=lambda r: r.number)
+        pairs = [(ra_.get(r, none), rb_.get(r, none)) for r in rings]
     else:
-        sa, sb_ = _judge_sections(pa), _judge_sections(pb)
+        ja, jb = _judge_sections(pa), _judge_sections(pb)
         first_seen = {j: min(s.start for s in seq) for j, seq in pa.by_judge().items()}
         first_seen.update({j: min(s.start for s in seq) for j, seq in pb.by_judge().items() if j not in first_seen})
-        keys = sorted(set(sa) | set(sb_), key=lambda j: (first_seen[j], j.name))
-    for k in keys:
-        out += _columns(sa.get(k, ["(none)"]), sb_.get(k, ["(none)"]), width)
+        judges = sorted(set(ja) | set(jb), key=lambda j: (first_seen[j], j.name))
+        pairs = [(ja.get(j, none), jb.get(j, none)) for j in judges]
+    for left_lines, right_lines in pairs:
+        out += _columns(left_lines, right_lines, width)
         out.append("")
     out += _columns(_groups_section(pa, ra), _groups_section(pb, rb), width)
     out.append("")

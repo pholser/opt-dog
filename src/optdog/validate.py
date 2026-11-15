@@ -108,12 +108,12 @@ def lunch_ends(program: JudgingProgram, params: ShowParameters) -> dict[Judge, T
     blocks = _conformation_blocks(program)
     judges = {sb.judge for sb in blocks}
     out: dict[Judge, TimeOfDay] = {}
-    last_start = {}
+    last_start: dict[Judge, TimeOfDay] = {}
     for sb in blocks:
         last_start[sb.judge] = max(last_start.get(sb.judge, sb.start), sb.start)
     for br in program.breaks:
         if br.length and br.judge in judges and br.start < last_start[br.judge]:  # a break within the assignment
-            out[br.judge] = max(out.get(br.judge, TimeOfDay.MIDNIGHT), br.end)
+            out[br.judge] = max(out.get(br.judge, TimeOfDay.MIDNIGHT), br.start + br.length)
     for judge in judges - out.keys():
         seq = sorted((sb for sb in blocks if sb.judge == judge), key=lambda b: b.start)
         if Duration.total(sb.block.duration for sb in seq) <= p.lunch_required_after:
@@ -178,10 +178,10 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
             breaks_by_judge[br.judge].append(br)
     for judge, seq in by_judge.items():
         for a, b in zip(seq, seq[1:]):
-            need = p.judge_travel if a.ring != b.ring else Duration.ZERO
-            short = (a.end + need) - b.start
+            walk = p.judge_travel if a.ring != b.ring else Duration.ZERO
+            short = (a.end + walk) - b.start
             if short > p.overlap_tolerance:
-                what = f"needs {need.minutes:.0f} min to move from {a.ring}" if need else "overlaps previous block"
+                what = f"needs {walk.minutes:.0f} min to move from {a.ring}" if walk else "overlaps previous block"
                 res.violations.append(Violation("H4", _label(b), f"{what}; short by {short.minutes:.0f} min", short.minutes))
         for br in breaks_by_judge.get(judge, []):
             for sb in seq:
@@ -289,7 +289,7 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
     timeline = program.group_timeline(judge_travel=p.judge_travel)
     res.timeline = timeline
     plan = program.groups
-    if timeline is not None and plan is not None:
+    if timeline is not None and plan is not None and plan.start is not None:
         first = timeline.groups[0]
         if first.breeds_done > plan.start + p.overlap_tolerance:
             res.violations.append(
@@ -371,9 +371,9 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
         load = show.judge_load(judge)
         evs = show.events_for(judge)
         specialty_only = evs and all(e.competition is Competition.SPECIALTY for e in evs)
-        limit = p.specialty_only_daily_limit if specialty_only else p.judge_daily_limit
-        if load > limit:
-            res.violations.append(Violation("V1", judge.name, f"{load} entries (limit {limit})", load - limit))
+        most = p.specialty_only_daily_limit if specialty_only else p.judge_daily_limit
+        if load > most:
+            res.violations.append(Violation("V1", judge.name, f"{load} entries (limit {most})", load - most))
 
     # ---------------------------------------------------------------- soft costs, metrics, objective
     off_grid = sum(1 for sb in blocks if not sb.start.on_grid(p.slot))

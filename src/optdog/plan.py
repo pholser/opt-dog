@@ -33,7 +33,7 @@ from optdog.io.program_csv import read_program, write_program
 from optdog.params import ShowParameters
 from optdog.render.html import render_html
 from optdog.render.text import render_text
-from optdog.solve.cpsat import PlacementOptions, solve_packing
+from optdog.solve.cpsat import NoSchedule, PlacementOptions, PlacementResult, solve_packing
 from optdog.validate import validate
 
 
@@ -58,8 +58,6 @@ def check_problem(show: Show, params: ShowParameters | None = None) -> list[Issu
     def warn(where: str, what: str) -> None:
         out.append(Issue(False, where, what))
 
-    if show.start is None:
-        error("show", "no judging start time")
     if not show.rings:
         error("rings", "no rings")
     if not show.group_rings:
@@ -126,7 +124,7 @@ def check_problem(show: Show, params: ShowParameters | None = None) -> list[Issu
     return out
 
 
-def solve(show: Show, params: ShowParameters | None = None, time_limit: float = 60.0):
+def solve(show: Show, params: ShowParameters | None = None, time_limit: float = 60.0) -> PlacementResult:
     return solve_packing(show, params, PlacementOptions(time_limit=time_limit))
 
 
@@ -173,9 +171,10 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     print(f"solving (up to {a.time_limit:.0f} s per phase, {3 * a.time_limit:.0f} s for idle and conflicts)...", file=sys.stderr)
-    res = solve(show, params, a.time_limit)
-    if res.program is None:
-        print(f"no schedule found: {[(ph.name, ph.status) for ph in res.phases]}", file=sys.stderr)
+    try:
+        res = solve(show, params, a.time_limit)
+    except NoSchedule as err:
+        print(err, file=sys.stderr)
         return 1
     hard = [v for v in validate(res.program, params).violations if v.code != "V1"]
     if hard:

@@ -64,7 +64,7 @@ def write_report(pd: ParsedDay, path: Path, dropped: Counter | None = None) -> N
         f"Source: `{Path(r.source).relative_to(ROOT)}` ({r.day})",
         "",
         f"- judges: {len(show.judges)}, rings: {len(show.rings)}, blocks: {len(prog.blocks)}, events: {len(show.events)}",
-        f"- judging starts: {show.start if show.start is not None else '?'}",
+        f"- judging starts: {show.start}",
     ]
     if plan:
         lines.append(

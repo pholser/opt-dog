@@ -119,34 +119,39 @@ def finish_lower_bound(show: Show, params: ShowParameters | None = None) -> Fini
     lunches_over = t0
     if p.groups_after_all_lunches and any(judge_work(show, j) > p.lunch_required_after for j in show.judges):
         lunches_over = p.lunch_window[0] + p.lunch_min
-    best[0] = max(t0, first_start, lunches_over)
+    earliest = best[0] = max(t0, first_start, lunches_over)
     for s in range(1 << n):
-        if best[s] is None:
+        here = best[s]
+        if here is None:
             continue
         for k in range(n):
             if s >> k & 1:
                 continue
             s2 = s | 1 << k
-            end = max(best[s], release(s2, k)) + dur[groups[k]]
-            if best[s2] is None or end < best[s2]:
+            end = max(here, release(s2, k)) + dur[groups[k]]
+            there = best[s2]
+            if there is None or end < there:
                 best[s2], prev[s2] = end, (s, k)
     full = (1 << n) - 1
+    all_done = best[full]
+    assert all_done is not None  # every subset is reachable from the empty one
     order: list[Group] = []
-    s = full
-    while prev[s] is not None:
-        s, k = prev[s]
+    step = prev[full]
+    while step is not None:
+        s, k = step
         order.append(groups[k])
+        step = prev[s]
     order.reverse()
 
     starts: dict[Group, TimeOfDay] = {}
-    t, s = best[0], 0
+    t, s = earliest, 0
     for g in order:
         k = groups.index(g)
         s |= 1 << k
         starts[g] = max(t, release(s, k))
         t = starts[g] + dur[g]
     bis_ready = free.get(show.bis_judge, t0) if show.bis_judge else t0
-    chain = max(best[full], bis_ready) + show.bis_duration()
+    chain = max(all_done, bis_ready) + show.bis_duration()
 
     # ring capacity
     w_feed = Duration.total(x for w in feed.values() for x in w)

@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import sys
+from collections.abc import Callable
 from pathlib import Path
 
 from optdog.instance import instance_from_program
@@ -68,19 +69,22 @@ def main(argv: list[str] | None = None) -> int:
         programs.append((f"CP-SAT {a.saved} ({status})", res.program))
     step = "placement" if a.cp and not a.solve else a.solve
     if step:
-        from optdog.solve.cpsat import PlacementOptions, solve_formation, solve_ordering, solve_packing, solve_placement
+        from optdog.solve.cpsat import (
+            NoSchedule, PlacementOptions, PlacementResult, solve_formation, solve_ordering, solve_packing, solve_placement,
+        )
 
-        solve, name = {"placement": (solve_placement, "CP-SAT placement"),
+        steps: dict[str, tuple[Callable[..., PlacementResult], str]] = {
+                       "placement": (solve_placement, "CP-SAT placement"),
                        "formation": (solve_formation, "CP-SAT 3a"),
                        "ordering": (solve_ordering, "CP-SAT 3b"),
-                       "packing": (solve_packing, "CP-SAT 3c")}[step]
+                       "packing": (solve_packing, "CP-SAT 3c")}
+        solve, name = steps[step]
         print(f"solving ({name}, up to {a.time_limit:.0f} s per phase)...", file=sys.stderr)
-        res = solve(instance_from_program(human), params, options=PlacementOptions(time_limit=a.time_limit))
-        if res.program is None:
-            print(f"CP-SAT found no schedule: {res.phases}", file=sys.stderr)
-        else:
-            status = res.status.lower()
-            programs.append((f"{name} ({status})", res.program))
+        try:
+            res = solve(instance_from_program(human), params, options=PlacementOptions(time_limit=a.time_limit))
+            programs.append((f"{name} ({res.status.lower()})", res.program))
+        except NoSchedule as err:
+            print(f"CP-SAT: {err}", file=sys.stderr)
 
     if a.html:
         a.html.write_text(render_html(programs, params, title=f"{human.show.name} — {human.show.date}"))

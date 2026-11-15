@@ -16,7 +16,7 @@ import time
 
 from optdog.params import ShowParameters
 from optdog.solutions import STEPS, parsed_days, read_day, save_bound, save_result, solved_dir
-from optdog.solve.cpsat import PlacementOptions, solve_formation, solve_ordering, solve_packing, solve_placement
+from optdog.solve.cpsat import NoSchedule, PlacementOptions, solve_formation, solve_ordering, solve_packing, solve_placement
 from optdog.solve.relaxation import relaxed_lower_bound
 from optdog.validate import validate
 
@@ -48,8 +48,9 @@ def main(argv: list[str] | None = None) -> int:
         ):
             if a.step and step != a.step:
                 continue
-            res = solve(show, params, options=options)
-            if res.program is None:
+            try:
+                res = solve(show, params, options=options)
+            except NoSchedule:
                 line.append(f"{step} found no schedule")
                 bad += 1
                 continue

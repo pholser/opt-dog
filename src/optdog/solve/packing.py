@@ -48,25 +48,25 @@ def pack_run(run: list[JudgingEvent], cap: Duration, short_dogs: int, time_limit
     if free:
         md = cp_model.CpModel()
         n = len(free)
-        x = {(i, b): md.NewBoolVar(f"x_{i}_{b}") for i in free for b in range(n)}
-        used = [md.NewBoolVar(f"used_{b}") for b in range(n)]
-        short = [md.NewBoolVar(f"short_{b}") for b in range(n)]
+        x = {(i, b): md.new_bool_var(f"x_{i}_{b}") for i in free for b in range(n)}
+        used = [md.new_bool_var(f"used_{b}") for b in range(n)]
+        short = [md.new_bool_var(f"short_{b}") for b in range(n)]
         for i in free:
-            md.AddExactlyOne(x[i, b] for b in range(n))
+            md.add_exactly_one(x[i, b] for b in range(n))
         for b in range(n):
-            md.Add(sum(mins[i] * x[i, b] for i in free) <= cap_units * used[b])
-            md.Add(sum(dogs[i] * x[i, b] for i in free) + short_dogs * short[b] >= short_dogs * used[b])
+            md.add(sum(mins[i] * x[i, b] for i in free) <= cap_units * used[b])
+            md.add(sum(dogs[i] * x[i, b] for i in free) + short_dogs * short[b] >= short_dogs * used[b])
             if b:
-                md.AddImplication(used[b], used[b - 1])
-        md.Minimize(SHORT_OVER_BLOCK * sum(short) + sum(used))
+                md.add_implication(used[b], used[b - 1])
+        md.minimize(SHORT_OVER_BLOCK * sum(short) + sum(used))
         solver = cp_model.CpSolver()
         solver.parameters.max_time_in_seconds = time_limit
         solver.parameters.num_workers = 1
         solver.parameters.random_seed = 0
-        if solver.Solve(md) not in (cp_model.OPTIMAL, cp_model.FEASIBLE):
+        if solver.solve(md) not in (cp_model.OPTIMAL, cp_model.FEASIBLE):
             return [list(run)]  # keep the order we were given
         for b in range(n):
-            members = [i for i in free if solver.Value(x[i, b])]
+            members = [i for i in free if solver.value(x[i, b])]
             if members:
                 bins.append(members)
     bins.sort(key=lambda b: (-sum(dogs[i] for i in b), b[0]))

@@ -85,7 +85,7 @@ class Duration:
         return cls(math.fsum(d.minutes for d in durations))
 
     @classmethod
-    def from_units(cls, units: int, per_minute: int) -> Duration:
+    def from_units(cls, units: float, per_minute: int) -> Duration:
         """From a solver's integer time units, ``per_minute`` to a minute."""
         return cls(units / per_minute)
 
@@ -126,7 +126,7 @@ class TimeOfDay:
         return cls(int(h) * 60 + int(m))
 
     @classmethod
-    def from_units(cls, units: int, per_minute: int) -> TimeOfDay:
+    def from_units(cls, units: float, per_minute: int) -> TimeOfDay:
         """From a solver's integer time units, ``per_minute`` to a minute."""
         return cls(units / per_minute)
 
@@ -485,6 +485,7 @@ def anonymous_entries(event: JudgingEvent, dog_ids: Iterator[str]) -> list[Entry
     bitches, non-regular entries, then champion dogs and bitches. Without a breakdown, every dog
     is a class dog of unknown sex."""
     c = event.counts
+    spec: list[tuple[EntryStatus, Sex | None, int]]
     if c is None:
         spec = [(EntryStatus.CLASS, None, event.entries)]
     else:
@@ -602,7 +603,7 @@ class Show:
     group_judges: dict[Group, Judge] = field(default_factory=dict)
     bis_judge: Judge | None = None
     group_rings: tuple[Ring, ...] = ()
-    start: TimeOfDay | None = None
+    start: TimeOfDay = field(kw_only=True)  # when breed judging may begin: the first published block
     entries: list[Entry] = field(default_factory=list)  # individual dogs, when known
     pinned: list[ScheduledBlock] = field(default_factory=list)  # published commitments a program must keep (SPEC H11)
     # When judges' lunch breaks may start. Set ahead of time by the club, usually by when

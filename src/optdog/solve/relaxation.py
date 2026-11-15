@@ -32,7 +32,7 @@ from dataclasses import dataclass
 
 from ortools.sat.python import cp_model
 
-from optdog.domain import VARIETY_GROUPS, Duration, Show, TimeOfDay
+from optdog.domain import VARIETY_GROUPS, Duration, Judge, Show, TimeOfDay
 from optdog.params import ShowParameters
 from optdog.solve.bounds import finish_lower_bound
 
@@ -70,16 +70,18 @@ def relaxed_lower_bound(show: Show, params: ShowParameters | None = None,
     pinned_ids = {id(e) for sb in show.pinned for e in sb.block.events}
 
     # events
-    start, end = {}, {}
-    judge_iv = {j: [] for j in show.judges}
-    pool, demand = [], []
+    start: dict[int, cp_model.LinearExprT] = {}
+    end: dict[int, cp_model.LinearExprT] = {}
+    judge_iv: dict[Judge, list[cp_model.IntervalVar]] = {j: [] for j in show.judges}
+    pool: list[cp_model.IntervalVar] = []
+    demand: list[int] = []
     for e in show.events:
         if id(e) in pinned_ids:
             continue
         u, d = id(e), _f(e.duration)
-        s = start[u] = md.NewIntVar(t0, H - d, f"s_{u}")
+        s = start[u] = md.new_int_var(t0, H - d, f"s_{u}")
         end[u] = s + d
-        iv = md.NewFixedSizeIntervalVar(s, d, f"iv_{u}")
+        iv = md.new_fixed_size_interval_var(s, d, f"iv_{u}")
         judge_iv[e.judge].append(iv)
         pool.append(iv)
         demand.append(1)
@@ -88,26 +90,26 @@ def relaxed_lower_bound(show: Show, params: ShowParameters | None = None,
         for e, off in sb.block.offsets():
             start[id(e)] = _f(sb.start + off)
             end[id(e)] = _f(sb.start + off) + _f(e.duration)
-        iv = md.NewFixedSizeIntervalVar(s0, _f(sb.block.duration), f"pin_{id(sb)}")
+        iv = md.new_fixed_size_interval_var(s0, _f(sb.block.duration), f"pin_{id(sb)}")
         judge_iv[sb.judge].append(iv)
         if sb.ring in show.rings:  # an obedience commitment's ring is not one of the pool's
             pool.append(iv)
             demand.append(1)
 
     # first group start F, on the grid
-    fk = md.NewIntVar(t0 // slot, H // slot, "first_k")
-    first = md.NewIntVar(t0, H, "first")
-    md.Add(first == slot * fk)
+    fk = md.new_int_var(t0 // slot, H // slot, "first_k")
+    first = md.new_int_var(t0, H, "first")
+    md.add(first == slot * fk)
 
     # H9: from F on, the group rings are not available for breed judging
     if group_rings:
-        taken = md.NewIntervalVar(first, md.NewIntVar(0, H - t0, "taken_len"), H, "group_rings")
+        taken = md.new_interval_var(first, md.new_int_var(0, H - t0, "taken_len"), H, "group_rings")
         pool.append(taken)
         demand.append(len(group_rings))
-    md.AddCumulative(pool, demand, rings)
+    md.add_cumulative(pool, demand, rings)
     for sb in show.pinned:
         if sb.ring in group_rings:
-            md.Add(first >= _f(sb.end))
+            md.add(first >= _f(sb.end))
 
     # H6: lunch in the window, judging before and after it; H14: every lunch over by F
     l0, l1 = (t.units(SCALE) for t in p.lunch_window)
@@ -116,24 +118,24 @@ def relaxed_lower_bound(show: Show, params: ShowParameters | None = None,
         events = show.events_for(j)
         if Duration.total(e.duration for e in events) <= p.lunch_required_after:
             continue
-        ls = md.NewIntVar(l0, l1, f"ls_{j.name}")
-        judge_iv[j].append(md.NewFixedSizeIntervalVar(ls, lunch_len, f"lunch_{j.name}"))
+        ls = md.new_int_var(l0, l1, f"ls_{j.name}")
+        judge_iv[j].append(md.new_fixed_size_interval_var(ls, lunch_len, f"lunch_{j.name}"))
         if p.groups_after_all_lunches:
-            md.Add(first >= ls + lunch_len)
+            md.add(first >= ls + lunch_len)
         free = [e for e in events if id(e) not in pinned_ids]
         pins = [sb for sb in show.pinned if sb.judge == j]
         bef = []
         for e in free:
-            b = md.NewBoolVar(f"before_{id(e)}")
-            md.Add(end[id(e)] <= ls).OnlyEnforceIf(b)
-            md.Add(start[id(e)] >= ls + lunch_len).OnlyEnforceIf(b.Not())
+            b = md.new_bool_var(f"before_{id(e)}")
+            md.add(end[id(e)] <= ls).only_enforce_if(b)
+            md.add(start[id(e)] >= ls + lunch_len).only_enforce_if(b.negated())
             bef.append(b)
         if not any(sb.end <= p.lunch_window[0] for sb in pins):
-            md.AddBoolOr(bef or [md.NewConstant(0)])
+            md.add_bool_or(bef or [md.new_constant(0)])
         if not any(sb.start >= p.lunch_window[1] + p.lunch_min for sb in pins):
-            md.AddBoolOr([b.Not() for b in bef] or [md.NewConstant(0)])
+            md.add_bool_or([b.negated() for b in bef] or [md.new_constant(0)])
     for ivs in judge_iv.values():
-        md.AddNoOverlap(ivs)
+        md.add_no_overlap(ivs)
 
     # groups: H7, H8, H10; F = earliest group start; BIS after every group
     def judge_done(j) -> list:
@@ -143,24 +145,24 @@ def relaxed_lower_bound(show: Show, params: ShowParameters | None = None,
     tau, group_iv = {}, []
     for g in groups:
         d = _f(show.group_duration(g))
-        t = tau[g] = md.NewIntVar(t0, H, f"tau_{g.name}")
-        group_iv.append(md.NewFixedSizeIntervalVar(t, d, f"gv_{g.name}"))
+        t = tau[g] = md.new_int_var(t0, H, f"tau_{g.name}")
+        group_iv.append(md.new_fixed_size_interval_var(t, d, f"gv_{g.name}"))
         for e in show.feeding(g):
-            md.Add(t >= end[id(e)])
+            md.add(t >= end[id(e)])
         gj = show.group_judges.get(g)
         if gj is not None:
             for x in judge_done(gj):
-                md.Add(t >= x)
-    md.AddNoOverlap(group_iv)
+                md.add(t >= x)
+    md.add_no_overlap(group_iv)
     if groups:
-        md.AddMinEquality(first, [tau[g] for g in groups])
-    bis = md.NewIntVar(t0, H, "bis")
-    md.Add(bis >= first)
+        md.add_min_equality(first, [tau[g] for g in groups])
+    bis = md.new_int_var(t0, H, "bis")
+    md.add(bis >= first)
     for g in groups:
-        md.Add(bis >= tau[g] + _f(show.group_duration(g)))
+        md.add(bis >= tau[g] + _f(show.group_duration(g)))
     if show.bis_judge is not None:
         for x in judge_done(show.bis_judge):
-            md.Add(bis >= x)
+            md.add(bis >= x)
 
     # H13: the breeds of at least `need` groups are done by F
     entered = [g for g in VARIETY_GROUPS if show.group_entrants(g) > 0]
@@ -168,26 +170,26 @@ def relaxed_lower_bound(show: Show, params: ShowParameters | None = None,
     if need:
         done = []
         for g in entered:
-            dg = md.NewBoolVar(f"done_{g.name}")
+            dg = md.new_bool_var(f"done_{g.name}")
             for e in show.feeding(g):
-                md.Add(end[id(e)] <= first).OnlyEnforceIf(dg)
+                md.add(end[id(e)] <= first).only_enforce_if(dg)
             done.append(dg)
-        md.Add(sum(done) >= need)
+        md.add(sum(done) >= need)
 
     finish = bis + _f(show.bis_duration())
     combinatorial = finish_lower_bound(show, p).value
-    md.Add(finish >= _f(combinatorial))  # a valid cut: helps the search prove
-    md.Minimize(finish)
+    md.add(finish >= _f(combinatorial))  # a valid cut: helps the search prove
+    md.minimize(finish)
 
     solver = cp_model.CpSolver()
     solver.parameters.max_time_in_seconds = time_limit
     solver.parameters.num_workers = workers
-    t = time.perf_counter()
-    status = solver.Solve(md)
-    secs = time.perf_counter() - t
+    began = time.perf_counter()
+    status = solver.solve(md)
+    secs = time.perf_counter() - began
     good = status in (cp_model.OPTIMAL, cp_model.FEASIBLE)
-    relax = (TimeOfDay.from_units(solver.BestObjectiveBound(), SCALE) if good or status == cp_model.UNKNOWN
+    relax = (TimeOfDay.from_units(solver.best_objective_bound, SCALE) if good or status == cp_model.UNKNOWN
              else combinatorial)
     return RelaxedBound(max(relax, combinatorial), relax, combinatorial,
-                        TimeOfDay.from_units(solver.ObjectiveValue(), SCALE) if good else None,
-                        solver.StatusName(status), secs)
+                        TimeOfDay.from_units(solver.objective_value, SCALE) if good else None,
+                        solver.status_name(status), secs)

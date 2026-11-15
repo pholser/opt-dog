@@ -271,7 +271,7 @@ def greedy_program(show: Show, params: ShowParameters | None = None, options: Gr
             ring_cal[best.ring].add(sb.start, sb.end)
             judge_cal[judge].add(sb.start, sb.end)
         if best.lunch:
-            judge_cal[judge].add(best.lunch.start, best.lunch.end)
+            judge_cal[judge].add(best.lunch.start, best.lunch.start + p.lunch_min)
             breaks.append(best.lunch)
         blocks += best.blocks
 
@@ -286,6 +286,7 @@ def plan_groups(program: JudgingProgram, p: ShowParameters) -> GroupsPlan:
     provisional = GroupsPlan(show.group_rings, show.start, VARIETY_GROUPS, dict(show.group_judges), show.bis_judge)
     program.groups = provisional
     timeline = program.group_timeline(judge_travel=p.judge_travel)
+    assert timeline is not None  # the provisional plan has a start
     ready = {s.group: s.ready for s in timeline.groups}
     order = tuple(sorted(VARIETY_GROUPS, key=lambda g: (ready[g], g.value)))
     rings_free = max((sb.end for sb in program.blocks if sb.ring in set(show.group_rings)), default=show.start)

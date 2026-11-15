@@ -22,6 +22,5 @@ def instance_from_program(program: JudgingProgram) -> Show:
     show = program.show
     rings = sorted({sb.ring for sb in program.blocks} | set(show.group_rings), key=lambda r: r.number)
     judges = [j for j in show.judges if any(e.judge == j for e in show.events)]
-    start = show.start if show.start is not None else min(sb.start for sb in program.blocks)
-    return replace(show, judges=judges, rings=rings, start=start, events=list(show.events),
+    return replace(show, judges=judges, rings=rings, events=list(show.events),
                    entries=list(show.entries), pinned=list(show.pinned))

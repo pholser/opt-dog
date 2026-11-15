@@ -96,6 +96,7 @@ def generate(show: Show, model: ExhibitorModel = ExhibitorModel()) -> list[Entry
     entries: list[Entry] = []
     last_owner: Exhibitor | None = None
     last_event: JudgingEvent | None = None
+    owner: Exhibitor | None
     for en in dogs:
         event = en.event
         share = model.pro_share_champion if en.status is EntryStatus.CHAMPION else model.pro_share_class
@@ -160,7 +161,7 @@ def main() -> None:
         entries = generate(prog.show, model)
         out = root / "data" / "synthetic" / d.parent.name / d.name / f"seed-{model.seed}"
         write_entries(entries, out)
-        exs = {e.exhibitor for e in entries}
+        exs = {e.exhibitor for e in entries if e.exhibitor is not None}
         pros = sum(1 for x in exs if x.professional)
         teams = len({x.team for x in exs if x.team})
         print(f"{d.name:45} {len(entries):5} dogs  {len(exs):5} exhibitors ({teams} handler teams, "

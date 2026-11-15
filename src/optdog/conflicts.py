@@ -67,7 +67,7 @@ class ConflictReport:
 def busy_windows(program: JudgingProgram) -> tuple[list[BusyWindow], list[Entry]]:
     """One window per (exhibitor, breed event): the span covering all their dogs in it."""
     timing = {id(e): (start, sb.ring) for e, sb, start in program.scheduled_events()}
-    grouped: dict[tuple[str, int], list[Entry]] = defaultdict(list)
+    grouped: dict[tuple[Exhibitor, int], list[Entry]] = defaultdict(list)
     missing = []
     for en in program.show.entries:
         if en.exhibitor is None:
@@ -75,13 +75,13 @@ def busy_windows(program: JudgingProgram) -> tuple[list[BusyWindow], list[Entry]
         if id(en.event) not in timing:
             missing.append(en)
         else:
-            grouped[(en.exhibitor.id, id(en.event))].append(en)
+            grouped[(en.exhibitor, id(en.event))].append(en)
     windows = []
-    for ens in grouped.values():
+    for (exhibitor, _), ens in grouped.items():
         start, ring = timing[id(ens[0].event)]
         lo = min(en.busy_offset[0] for en in ens)
         hi = max(en.busy_offset[1] for en in ens)
-        windows.append(BusyWindow(ens[0].exhibitor, tuple(ens), start + lo, start + hi, ring))
+        windows.append(BusyWindow(exhibitor, tuple(ens), start + lo, start + hi, ring))
     return windows, missing
 
 

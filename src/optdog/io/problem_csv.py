@@ -26,6 +26,7 @@ from pathlib import Path
 
 from optdog.breeds import BreedCatalog, default_catalog
 from optdog.io.entries_csv import check_regular, entries_of, read_entry_table, write_entries
+from optdog.io.program_csv import parse_window
 from optdog.domain import (
     Block,
     Duration,
@@ -121,7 +122,7 @@ def read_problem(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Sho
     except ValueError as err:
         raise ProblemFormatError(str(err)) from err
     events: list[JudgingEvent] = []
-    pinned: dict[tuple[str, int, int], list[JudgingEvent]] = {}
+    pinned: dict[tuple[str, int, TimeOfDay], list[JudgingEvent]] = {}
     for i, r in enumerate(rows("events.csv"), start=2):
         where = f"events.csv, line {i}"
         breed = None
@@ -149,7 +150,10 @@ def read_problem(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Sho
             raise ProblemFormatError(f"groups.csv: unknown group {r['group']!r}")
         group_judges[values[r["group"]]] = judge(r["judge"], f"groups.csv, {r['group']}")
     bis = judge(meta["bis_judge"], "show.csv, bis_judge") if meta.get("bis_judge") else None
-    lunch = tuple(TimeOfDay.parse(t) for t in meta["lunch_window"].split("-")) if meta.get("lunch_window") else None
+    lunch = parse_window(meta.get("lunch_window", ""))
+    if not meta.get("start"):
+        raise ProblemFormatError("show.csv: no start (when breed judging may begin, HH:MM)")
+    start = TimeOfDay.parse(meta["start"])
     try:
         entries = entry_table.attach(events)
     except ValueError as err:
@@ -157,4 +161,4 @@ def read_problem(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Sho
     on_panel = {e.judge.name for e in events}
     return Show(name=meta["name"], date=meta["date"], judges=[j for n, j in judges.items() if n in on_panel], events=events,
                 rings=rings, group_judges=group_judges, bis_judge=bis, group_rings=tuple(group_rings),
-                start=TimeOfDay.parse(meta["start"]), pinned=blocks, lunch_window=lunch, entries=entries)
+                start=start, pinned=blocks, lunch_window=lunch, entries=entries)

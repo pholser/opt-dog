@@ -50,6 +50,14 @@ def _time(s: str) -> TimeOfDay | None:
     return TimeOfDay.parse(s) if s else None
 
 
+def parse_window(s: str) -> tuple[TimeOfDay, TimeOfDay] | None:
+    """``HH:MM-HH:MM``, or None for a blank field."""
+    if not s:
+        return None
+    a, b = s.split("-")
+    return TimeOfDay.parse(a), TimeOfDay.parse(b)
+
+
 def write_program(program: JudgingProgram, out_dir: str | Path, source: str = "") -> None:
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
@@ -81,11 +89,11 @@ def write_program(program: JudgingProgram, out_dir: str | Path, source: str = ""
 
     check_regular(e for sb in program.blocks for e in sb.block.events)
     with open(out / "schedule.csv", "w", newline="") as f:
-        w = csv.DictWriter(f, SCHEDULE_FIELDS)
-        w.writeheader()
+        rows = csv.DictWriter(f, SCHEDULE_FIELDS)
+        rows.writeheader()
         for sb in sorted(program.blocks, key=lambda b: (b.ring.number, b.start)):
             for pos, e in enumerate(sb.block.events):
-                w.writerow({
+                rows.writerow({
                     "ring": sb.ring.number,
                     "judge": sb.judge.name,
                     "block_start": _hhmm(sb.start),
@@ -108,8 +116,8 @@ def write_program(program: JudgingProgram, out_dir: str | Path, source: str = ""
         w.writerow(["order", "group", "judge"])
         if plan:
             for i, g in enumerate(plan.order, 1):
-                j = plan.judges.get(g)
-                w.writerow([i, g.value, j.name if j else ""])
+                gj = plan.judges.get(g)
+                w.writerow([i, g.value, gj.name if gj else ""])
 
 
 def read_program(in_dir: str | Path, catalog: BreedCatalog | None = None) -> JudgingProgram:
@@ -131,7 +139,7 @@ def read_program(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Jud
 
     table = read_entry_table(d)
     events: list[JudgingEvent] = []
-    blocks: dict[tuple[int, str, int], list[JudgingEvent]] = {}
+    blocks: dict[tuple[int, str, TimeOfDay], list[JudgingEvent]] = {}
     with open(d / "schedule.csv", newline="") as f:
         for i, r in enumerate(csv.DictReader(f), start=2):
             total, counts = table.counts(r["judge"], r["event"], f"schedule.csv, line {i}")
@@ -144,14 +152,14 @@ def read_program(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Jud
                 counts=counts,
             )
             events.append(e)
-            blocks.setdefault((int(r["ring"]), r["judge"], _time(r["block_start"])), []).append(e)
+            blocks.setdefault((int(r["ring"]), r["judge"], TimeOfDay.parse(r["block_start"])), []).append(e)
     scheduled = [
         ScheduledBlock(Block(judges[j], tuple(evs)), ring(rn), start) for (rn, j, start), evs in blocks.items()
     ]
     breaks = []
     with open(d / "breaks.csv", newline="") as f:
         for r in csv.DictReader(f):
-            breaks.append(Break(judges[r["judge"]], ring(int(r["ring"])) if r["ring"] else None, _time(r["start"]),
+            breaks.append(Break(judges[r["judge"]], ring(int(r["ring"])) if r["ring"] else None, TimeOfDay.parse(r["start"]),
                                 Duration(float(r["minutes"])) if r["minutes"] else None))
     groups_by_value = {g.value: g for g in Group}
     order, group_judges = [], {}
@@ -173,8 +181,8 @@ def read_program(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Jud
         group_judges=group_judges,
         bis_judge=bis,
         group_rings=group_rings,
-        start=_time(meta["start"]),
-        lunch_window=tuple(_time(t) for t in meta["lunch_window"].split("-")) if meta.get("lunch_window") else None,
+        start=TimeOfDay.parse(meta["start"]),
+        lunch_window=parse_window(meta.get("lunch_window", "")),
         entries=table.attach(events),
     )
     plan = GroupsPlan(group_rings, _time(meta["group_start"]), tuple(order), group_judges, bis) if order else None

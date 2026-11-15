@@ -12,15 +12,16 @@ from __future__ import annotations
 
 import html
 import math
+from collections.abc import Sequence
 from dataclasses import dataclass, field
 from datetime import date
 from pathlib import Path
 
-from optdog.domain import JudgingProgram, TimeOfDay
+from optdog.domain import GroupsPlan, GroupTimeline, JudgingProgram, TimeOfDay
 from optdog.params import ShowParameters
 from optdog.solutions import load_day, parsed_days
 from optdog.solve.greedy import greedy_program
-from optdog.validate import ValidationResult, lunch_ends, validate
+from optdog.validate import lunch_ends, validate
 
 ROOT = Path(__file__).resolve().parents[3]
 OUT = ROOT / "docs" / "figures.html"
@@ -79,9 +80,9 @@ def _label(name: str, show_name: str, iso: str) -> tuple[str, str]:
     return f"{club} {d.month}/{d.day}/{d.year % 100}", f"{initials} {d.month}/{d.day}"
 
 
-def _slack(program: JudgingProgram, res: ValidationResult, p: ShowParameters) -> dict[str, float]:
-    """Minutes between what each rule requires and the published group start."""
-    plan, tl = program.groups, res.timeline
+def _slack(program: JudgingProgram, plan: GroupsPlan, start: TimeOfDay, tl: GroupTimeline,
+           p: ShowParameters) -> dict[str, float]:
+    """Minutes between what each rule requires and the published group ``start``."""
     first = tl.groups[0]
     entered = sorted(s.breeds_done for s in tl.groups if program.show.group_entrants(s.group) > 0)
     need = min(p.groups_complete_before_start, len(entered))
@@ -94,23 +95,26 @@ def _slack(program: JudgingProgram, res: ValidationResult, p: ShowParameters) ->
         needs["H13"] = entered[need - 1]
     if lunches:
         needs["H14"] = max(lunches.values())
-    return {k: (plan.start - v).minutes for k, v in needs.items()}
+    return {k: (start - v).minutes for k, v in needs.items()}
 
 
 def score(program: JudgingProgram, pinned: set[int], p: ShowParameters) -> Scored:
     view = program
     res = validate(view, p)
+    tl, plan = res.timeline, view.groups
+    if tl is None or plan is None or plan.start is None:
+        raise ValueError(f"{view.show.name}: a program without a group plan cannot be scored")
     movable = [sb for sb in view.blocks if id(sb) not in pinned]
     return Scored(
-        finish=res.timeline.finish,
-        group_start=view.groups.start,
+        finish=tl.finish,
+        group_start=plan.start,
         hard=sorted({v.code for v in res.violations}),
-        switches=res.soft["S3_equipment_switches"],
+        switches=int(res.soft["S3_equipment_switches"]),
         short=sum(sb.block.entries < p.short_block_dogs for sb in movable),
-        ring_changes=res.soft["S2_ring_changes"] + res.soft["S2_ring_changes_at_lunch"],
+        ring_changes=int(res.soft["S2_ring_changes"] + res.soft["S2_ring_changes_at_lunch"]),
         idle=res.soft["S5_judge_idle_min"],
         sizes=[sb.block.entries for sb in movable],
-        slack=_slack(view, res, p),
+        slack=_slack(view, plan, plan.start, tl, p),
     )
 
 
@@ -214,7 +218,7 @@ def histogram(sizes: list[int], ymax: int, var: str, title: str, threshold: int)
     return "".join(parts)
 
 
-def table(head: list[str], rows: list[list[object]], summary: str = "Data table") -> str:
+def table(head: list[str], rows: Sequence[Sequence[object]], summary: str = "Data table") -> str:
     th = "".join(f"<th>{_e(h)}</th>" for h in head)
     tr = "".join("<tr>" + "".join(f"<td>{_e(c)}</td>" for c in r) + "</tr>" for r in rows)
     return f'<details><summary>{_e(summary)}</summary><div class="scroll"><table><thead><tr>{th}</tr></thead><tbody>{tr}</tbody></table></div></details>'

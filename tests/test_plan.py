@@ -108,6 +108,14 @@ def test_a_bad_reference_names_the_file_and_the_problem(tmp_path):
         read_problem(tmp_path)
 
 
+def test_a_problem_needs_a_start_time(tmp_path):
+    write_problem(small(), tmp_path)
+    text = (tmp_path / "show.csv").read_text().replace("start,08:00", "start,")
+    (tmp_path / "show.csv").write_text(text)
+    with pytest.raises(ProblemFormatError, match="show.csv: no start"):
+        read_problem(tmp_path)
+
+
 def test_cli_plans_a_show_from_files_and_writes_a_valid_program(tmp_path, capsys):
     prob, out = tmp_path / "problem", tmp_path / "out"
     show = small(group_judges={g: G for g in VARIETY_GROUPS})
