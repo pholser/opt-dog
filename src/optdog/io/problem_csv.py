@@ -3,7 +3,7 @@
     show.csv     key,value: name, date, start (HH:MM), lunch_window (HH:MM-HH:MM, optional),
                  bis_judge
     rings.csv    number, size (S/M/L/XL, blank means XL), group (1 for a group ring)
-    judges.csv   name, permit, minutes_per_dog (blank: the AKC rate)
+    judges.csv   name, permit, minutes_per_dog (blank: the AKC pace)
     events.csv   one row per breed event, in running-order preference: judge, event, breed, and
                  pin_ring and pin_start for a fixed commitment (H11). Pinned rows with the same
                  judge, ring and start form one block, in file order
@@ -74,7 +74,7 @@ def write_problem(show: Show, out_dir: str | Path) -> None:
     for e in show.events:
         people.setdefault(e.judge.name, e.judge)
     table("judges.csv", ("name", "permit", "minutes_per_dog"),
-          [(j.name, int(j.permit), "" if j.per_dog is None else j.per_dog.minutes) for j in people.values()])
+          [(j.name, int(j.permit), "" if j.own_time_per_dog is None else j.own_time_per_dog.minutes) for j in people.values()])
 
     pins = {id(e): sb for sb in show.pinned for e in sb.block.events}
 

@@ -72,9 +72,9 @@ A **unit** is the smallest thing judged without interruption: a breed or variety
 |---|---|
 | `G` | the 7 groups |
 | `judge(g)`, `judge(BIS)` | group and BIS judges |
-| `D_g` | group duration = (number of breeds/varieties of group `g` entered in the show) × group judge's rate. Assumes at most one BOB/BOV winner per breed/variety competes in group (U) |
-| `D_BIS` | BIS duration = (number of variety groups with ≥1 breed entered, normally 7) × BIS judge's rate (U) |
-| | Both use the judge's breed rate (U). Not every breed winner competes in group, so `D_g` and `D_BIS` are conservative upper bounds; on the 11 parsed shows they sum to 5–7½ h, so modeled group/BIS end times run well past real show close and are not a calibration target (U) |
+| `D_g` | group duration = (number of breeds/varieties of group `g` entered in the show) × group judge's time per dog. Assumes at most one BOB/BOV winner per breed/variety competes in group (U) |
+| `D_BIS` | BIS duration = (number of variety groups with ≥1 breed entered, normally 7) × BIS judge's time per dog (U) |
+| | Both use the judge's time per dog in breed judging (U). Not every breed winner competes in group, so `D_g` and `D_BIS` are conservative upper bounds; on the 11 parsed shows they sum to 5–7½ h, so modeled group/BIS end times run well past real show close and are not a calibration target (U) |
 
 ### 2.6 Exhibitors (U)
 | Symbol | Meaning |
@@ -178,7 +178,7 @@ to a weighted sum, and what the default weights should be.
 3. ~~Exhibitor vs. handler~~ → synthetic exhibitor/handler data for now (U).
    The generation model is still **OPEN**.
 4. **Group ring(s)**: an input today. **OPEN**: should the program choose them?
-5. ~~Group / BIS durations~~ → proportional to the number of breeds/varieties entered (group) and groups entered (BIS), at the judge's rate (U).
+5. ~~Group / BIS durations~~ → proportional to the number of breeds/varieties entered (group) and groups entered (BIS), at the judge's time per dog (U).
 6. ~~Block tolerance ε and lunch window~~ → ε = 15 min (E); lunch window hard, 11:00–12:30 by default (U, E).
 7. ~~Ring capacity / size classes~~ → S, M, L and XL (H16, H17, U). The Show Manual's size rule for the class with the most entries is **OPEN**.
 8. ~~Solver approach~~ → CP-SAT, with block formation inside the same model; breeds within a run are packed first (step 3c, §9).

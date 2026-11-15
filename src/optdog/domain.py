@@ -299,22 +299,22 @@ class EntryCounts:
 # --------------------------------------------------------------------------- judges
 
 
-DEFAULT_PER_DOG = Duration(60 / 25)  # Rules Ch.7 §12: about 25 dogs per hour
-PERMIT_PER_DOG = Duration(60 / 20)  # Show Manual §6: permit/sweeps judges about 20/hr
+STANDARD_TIME_PER_DOG = Duration(60 / 25)  # Rules Ch.7 §12: about 25 dogs per hour
+PERMIT_TIME_PER_DOG = Duration(60 / 20)  # Show Manual §6: permit judges about 20 per hour
 
 
 @dataclass(frozen=True)
 class Judge:
     name: str
     permit: bool = False
-    per_dog: Duration | None = None  # per-judge override of the time a dog takes
+    own_time_per_dog: Duration | None = None  # this judge's own pace, overriding the AKC one
 
     @property
-    def rate(self) -> Duration:
-        """Time per dog."""
-        if self.per_dog is not None:
-            return self.per_dog
-        return PERMIT_PER_DOG if self.permit else DEFAULT_PER_DOG
+    def time_per_dog(self) -> Duration:
+        """Planned time to judge one dog."""
+        if self.own_time_per_dog is not None:
+            return self.own_time_per_dog
+        return PERMIT_TIME_PER_DOG if self.permit else STANDARD_TIME_PER_DOG
 
     def __str__(self) -> str:
         return self.name
@@ -334,11 +334,6 @@ class JudgingEvent:
     entries: int
     breed: Breed | None = None
     counts: EntryCounts | None = None
-    per_entry: Duration | None = None  # overrides the judge's rate
-
-    @property
-    def rate(self) -> Duration:
-        return self.per_entry if self.per_entry is not None else self.judge.rate
 
     @property
     def min_ring(self) -> RingSize:
@@ -348,14 +343,14 @@ class JudgingEvent:
     @property
     def duration(self) -> Duration:
         """Planned time to judge this event."""
-        return self.rate * self.entries
+        return self.judge.time_per_dog * self.entries
 
     @property
     def bob_offset(self) -> Duration:
         """Time from the event's start until Best of Breed (champions) begins."""
         if self.counts is None:
             return Duration.ZERO
-        return self.rate * self.counts.before_bob
+        return self.judge.time_per_dog * self.counts.before_bob
 
     @property
     def group(self) -> Group | None:
@@ -619,7 +614,7 @@ class Show:
     # (BOB/BOV) competes in its group, so a group's size is the number of its breeds
     # and varieties entered in the all-breed show. BIS has one competitor per variety
     # group with at least one breed entered. Each is judged at its judge's (breed)
-    # rate. In reality not every breed winner competes in group, so these are
+    # time per dog. In reality not every breed winner competes in group, so these are
     # conservative upper bounds; absolute group/BIS end times are not a calibration
     # target (on real shows they run hours past actual show close).
 
@@ -628,18 +623,16 @@ class Show:
         return len({e.breed for e in self.feeding(group) if e.entries > 0})
 
     def group_duration(self, group: Group) -> Duration:
-        """Planned time to judge ``group``: entrants × the group judge's rate."""
+        """Planned time to judge ``group``: entrants × the group judge's time per dog."""
         judge = self.group_judges.get(group)
-        rate = judge.rate if judge else DEFAULT_PER_DOG
-        return rate * self.group_entrants(group)
+        return (judge.time_per_dog if judge else STANDARD_TIME_PER_DOG) * self.group_entrants(group)
 
     def bis_entrants(self) -> int:
         """One group winner per variety group that has at least one breed entered."""
         return sum(1 for g in VARIETY_GROUPS if self.group_entrants(g) > 0)
 
     def bis_duration(self) -> Duration:
-        rate = self.bis_judge.rate if self.bis_judge else DEFAULT_PER_DOG
-        return rate * self.bis_entrants()
+        return (self.bis_judge.time_per_dog if self.bis_judge else STANDARD_TIME_PER_DOG) * self.bis_entrants()
 
     def groups_and_bis_duration(self) -> Duration:
         """Total planned time of group + BIS judging if run back to back."""

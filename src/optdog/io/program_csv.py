@@ -84,7 +84,7 @@ def write_program(program: JudgingProgram, out_dir: str | Path, source: str = ""
         w = csv.writer(f)
         w.writerow(["name", "permit", "minutes_per_dog"])
         for j in judges.values():
-            w.writerow([j.name, int(j.permit), "" if j.per_dog is None else j.per_dog.minutes])
+            w.writerow([j.name, int(j.permit), "" if j.own_time_per_dog is None else j.own_time_per_dog.minutes])
 
     with open(out / "schedule.csv", "w", newline="") as f:
         rows = csv.DictWriter(f, SCHEDULE_FIELDS)

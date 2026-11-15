@@ -2,7 +2,7 @@
 
 The validator works on any JudgingProgram — a parsed human-made program or a solver
 result — and never repairs it. Times are *planned* times: each block starts at its
-published time and lasts entries × rate.
+published time and lasts entries × the judge's time per dog.
 
 Hard constraints checked here:
     H1  blocks of about one hour (single breed > 30 entries exempt)
