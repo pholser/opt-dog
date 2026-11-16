@@ -2,8 +2,9 @@
 
 The rest of the package names a show by a ``ShowKey`` and asks a source for domain objects; it
 never sees a path or a file format. Each kind of data has a read protocol and a write protocol,
-so a read-only source (a parser of some other format, a remote service) need not fake writes,
-and one backend may implement any of them:
+so a read-only source (a parser of some other format, a remote service) need not fake writes.
+A backend names the protocols it implements as its base classes, so mypy checks each method
+against them where the class is defined:
 
     ProgramSource / ProgramSink   published (or generated) judging programs
     EntrySource / EntrySink       a show's dogs and exhibitors, per synthetic seed
@@ -97,7 +98,7 @@ class ResultSink(Protocol):
 # ---------------------------------------------------------------------------- in memory
 
 
-class MemoryDataset:
+class MemoryDataset(ProgramSource, ProgramSink, EntrySource, EntrySink, ResultSource, ResultSink):
     """Every protocol, held in dictionaries: for tests, and for data built in code."""
 
     def __init__(self) -> None:

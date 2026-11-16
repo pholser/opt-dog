@@ -7,7 +7,8 @@
     <root>/solved/<source>/<slug>/<step>/solve.json      its finish, proven bound, phases, costs
 
 Times in the JSON files are minutes after midnight. ``CsvDataset`` implements every protocol in
-``optdog.sources``; callers outside the I/O edge use it only through them.
+``optdog.sources`` and names them as its bases; callers outside the I/O edge use it only through
+them.
 """
 
 from __future__ import annotations
@@ -21,7 +22,15 @@ from optdog.io.entries_csv import read_entries, write_entries
 from optdog.io.program_csv import read_program, write_program
 from optdog.solve.cpsat import PhaseStats, PlacementResult
 from optdog.solve.relaxation import RelaxedBound
-from optdog.sources import ShowKey
+from optdog.sources import (
+    EntrySink,
+    EntrySource,
+    ProgramSink,
+    ProgramSource,
+    ResultSink,
+    ResultSource,
+    ShowKey,
+)
 
 REPO_DATA = Path(__file__).resolve().parents[3] / "data"
 
@@ -34,7 +43,7 @@ def _time(minutes: float | None) -> TimeOfDay | None:
     return None if minutes is None else TimeOfDay(minutes)
 
 
-class CsvDataset:
+class CsvDataset(ProgramSource, ProgramSink, EntrySource, EntrySink, ResultSource, ResultSink):
     def __init__(self, root: Path = REPO_DATA) -> None:
         self._root = root
 
