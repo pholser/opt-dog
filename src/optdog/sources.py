@@ -21,7 +21,7 @@ that instance's own objects.
 from __future__ import annotations
 
 from collections import defaultdict
-from dataclasses import dataclass, field, replace
+from dataclasses import dataclass, replace
 from typing import Protocol
 
 from optdog.domain import (
@@ -97,14 +97,17 @@ class ResultSink(Protocol):
 # ---------------------------------------------------------------------------- in memory
 
 
-@dataclass
 class MemoryDataset:
     """Every protocol, held in dictionaries: for tests, and for data built in code."""
 
-    programs: dict[ShowKey, JudgingProgram] = field(default_factory=dict)
-    dogs: dict[tuple[ShowKey, int], list[Entry]] = field(default_factory=dict)
-    bounds: dict[ShowKey, RelaxedBound] = field(default_factory=dict)
-    results: dict[tuple[ShowKey, str], PlacementResult] = field(default_factory=dict)
+    def __init__(self) -> None:
+        self.programs: dict[ShowKey, JudgingProgram] = {}
+        self.dogs: dict[tuple[ShowKey, int], list[Entry]] = {}
+        self.bounds: dict[ShowKey, RelaxedBound] = {}
+        self.results: dict[tuple[ShowKey, str], PlacementResult] = {}
+
+    def __repr__(self) -> str:
+        return f"MemoryDataset({len(self.programs)} programs, {len(self.results)} results)"
 
     def program_keys(self) -> list[ShowKey]:
         return sorted(self.programs)

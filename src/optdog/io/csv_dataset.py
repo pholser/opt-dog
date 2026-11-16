@@ -13,7 +13,7 @@ Times in the JSON files are minutes after midnight. ``CsvDataset`` implements ev
 from __future__ import annotations
 
 import json
-from dataclasses import asdict, dataclass, fields, replace
+from dataclasses import asdict, fields, replace
 from pathlib import Path
 
 from optdog.domain import Entry, JudgingEvent, JudgingProgram, TimeOfDay
@@ -34,9 +34,17 @@ def _time(minutes: float | None) -> TimeOfDay | None:
     return None if minutes is None else TimeOfDay(minutes)
 
 
-@dataclass(frozen=True)
 class CsvDataset:
-    root: Path = REPO_DATA
+    def __init__(self, root: Path = REPO_DATA) -> None:
+        self._root = root
+
+    @property
+    def root(self) -> Path:
+        """The directory holding parsed/, synthetic/ and solved/."""
+        return self._root
+
+    def __repr__(self) -> str:
+        return f"CsvDataset({self._root})"
 
     # ----------------------------------------------------------------------- layout
     def program_dir(self, key: ShowKey) -> Path:
