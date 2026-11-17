@@ -127,7 +127,7 @@ python -m optdog.analysis.figures       # 6. → docs/figures.html
 | only a report's wording or layout | 5 or 6 |
 
 Steps 1–3, 5 and 6 take seconds. Step 4 solves every day with every solver step, each phase up
-to its time limit, so it takes much longer.
+to its time limit: the last full run took about 3.5 hours for the 11 days (SOLUTION.md §4).
 
 ### 1. Parse the published programs: `optdog.ingest.build_dataset`
 
