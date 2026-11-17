@@ -35,7 +35,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--greedy-only", action="store_true", help="render only the greedy schedule")
     ap.add_argument("--cp", action="store_true", help="also render the CP-SAT placement (same as --solve placement)")
     ap.add_argument("--solve", nargs="?", const="packing", choices=["placement", "formation", "ordering", "packing"],
-                    help="also render a CP-SAT schedule: step 1 placement, 3a formation, or 3b ordering (default)")
+                    help="also render a CP-SAT schedule: step 1 placement, 3a formation, 3b ordering, or 3c packing (default)")
     ap.add_argument("--saved", nargs="?", const="packing", choices=["placement", "formation", "ordering", "packing"],
                     help="also render a saved schedule from data/solved instead of solving")
     ap.add_argument("--compare", nargs="?", const="judge", choices=["judge", "ring"],

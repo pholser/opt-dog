@@ -99,19 +99,11 @@ not define "larger breeds".
 
 ## 3. Using it
 
-Run these from the repository root with `.venv/bin/python`.
+How to run every program, and what each is for, is in [RUNNING.md](RUNNING.md). In short:
 
 ```sh
-# Plan a show from inputs alone
-python -m optdog.plan check   <problem dir>
-python -m optdog.plan solve   <problem dir> --out <dir> --html chart.html --time-limit 60
-python -m optdog.plan extract <parsed program dir> <problem dir> [--entries <dir>]   # a published show's inputs
-
-# Work with the published shows
-python -m optdog.analysis.solve_all [--step packing]   # solve and save to data/solved/
-python -m optdog.analysis.baseline                     # rebuild docs/baseline.md
-python -m optdog.analysis.figures                      # rebuild docs/figures.html
-python -m optdog.render <parsed program dir> --saved --compare
+python -m optdog.plan check <problem dir>
+python -m optdog.plan solve <problem dir> --out <dir> --html chart.html
 ```
 
 A problem directory holds:
