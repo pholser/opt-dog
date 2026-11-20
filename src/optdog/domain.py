@@ -579,6 +579,10 @@ class Show:
     # the venue's concessions serve lunch; an input, not a scheduling decision.
     # None: use ShowParameters.lunch_window.
     lunch_window: tuple[TimeOfDay, TimeOfDay] | None = None
+    # The posted closing time: judging, Best in Show included, must be over by then (H12, Show
+    # Manual §6: "Clubs must conclude judging by the posted closing time"). For an outdoor show
+    # it can stand for sunset. None: no limit.
+    closing_time: TimeOfDay | None = None
 
     def unpinned_events(self) -> list[JudgingEvent]:
         """Events the scheduler places: every event not inside a pinned block."""

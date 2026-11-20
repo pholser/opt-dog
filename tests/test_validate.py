@@ -212,3 +212,13 @@ def test_objective_counts_short_blocks_lunch_splits_and_blocks():
     without = validate(prog, zero)
     assert plain.objective - without.objective == pytest.approx(
         w.short_block * 10 + w.lunch_split * 1 + w.block_count * 2)
+
+
+def test_h12_judging_ends_by_the_closing_time():
+    g = Judge("Dr. G")
+    plan = groups((2,), 800, (Group.TOY,), {Group.TOY: g}, g)
+    prog = program([sb(A, 1, 660, ev("Pug", A, 10))], [A], plan=plan, group_judges={Group.TOY: g}, bis=g)
+    finish = validate(prog, P0).timeline.finish
+    for closing, broken in ((finish, False), (finish - Duration(1), True)):
+        prog.show.closing_time = closing
+        assert ("H12" in codes(prog)) is broken

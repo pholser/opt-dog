@@ -72,6 +72,8 @@ def write_program(program: JudgingProgram, out_dir: str | Path, source: str = ""
         "lunch_window": "-".join(_hhmm(t) for t in show.lunch_window) if show.lunch_window else "",
         "bis_judge": show.bis_judge.name if show.bis_judge else "",
     }
+    if show.closing_time is not None:  # written only when set, like the problem format
+        meta["closing_time"] = _hhmm(show.closing_time)
     with open(out / "show.csv", "w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["key", "value"])
@@ -180,6 +182,7 @@ def read_program(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Jud
         group_rings=group_rings,
         start=TimeOfDay.parse(meta["start"]),
         lunch_window=parse_window(meta.get("lunch_window", "")),
+        closing_time=_time(meta.get("closing_time", "")),
         entries=table.attach(events),
     )
     plan = GroupsPlan(group_rings, _time(meta["group_start"]), tuple(order), group_judges, bis) if order else None

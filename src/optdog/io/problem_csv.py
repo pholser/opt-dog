@@ -1,7 +1,7 @@
 """Read/write a scheduling problem: what a superintendent knows before any program exists.
 
     show.csv     key,value: name, date, start (HH:MM), lunch_window (HH:MM-HH:MM, optional),
-                 bis_judge
+                 closing_time (HH:MM, optional: judging must be over by then), bis_judge
     rings.csv    number, size (S/M/L/XL, blank means XL), group (1 for a group ring)
     judges.csv   name, permit, minutes_per_dog (blank: the AKC pace)
     events.csv   one row per breed event, in running-order preference: judge, event, breed, and
@@ -62,8 +62,10 @@ def write_problem(show: Show, out_dir: str | Path) -> None:
             w.writerows(rows)
 
     window = "-".join(_hhmm(t) for t in show.lunch_window) if show.lunch_window else ""
-    table("show.csv", ("key", "value"), [("name", show.name), ("date", show.date), ("start", _hhmm(show.start)),
-                                         ("lunch_window", window), ("bis_judge", show.bis_judge.name if show.bis_judge else "")])
+    meta = [("name", show.name), ("date", show.date), ("start", _hhmm(show.start)), ("lunch_window", window)]
+    if show.closing_time is not None:
+        meta.append(("closing_time", _hhmm(show.closing_time)))
+    table("show.csv", ("key", "value"), meta + [("bis_judge", show.bis_judge.name if show.bis_judge else "")])
     group_rings = set(show.group_rings)
     table("rings.csv", ("number", "size", "group"), [(r.number, r.size.name, int(r in group_rings)) for r in show.rings])
 
@@ -152,6 +154,7 @@ def read_problem(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Sho
     if not meta.get("start"):
         raise ProblemFormatError("show.csv: no start (when breed judging may begin, HH:MM)")
     start = TimeOfDay.parse(meta["start"])
+    closing = TimeOfDay.parse(meta["closing_time"]) if meta.get("closing_time") else None
     try:
         entries = entry_table.attach(events)
     except ValueError as err:
@@ -159,4 +162,4 @@ def read_problem(in_dir: str | Path, catalog: BreedCatalog | None = None) -> Sho
     on_panel = {e.judge.name for e in events}
     return Show(name=meta["name"], date=meta["date"], judges=[j for n, j in judges.items() if n in on_panel], events=events,
                 rings=rings, group_judges=group_judges, bis_judge=bis, group_rings=tuple(group_rings),
-                start=start, pinned=blocks, lunch_window=lunch, entries=entries)
+                start=start, pinned=blocks, lunch_window=lunch, closing_time=closing, entries=entries)

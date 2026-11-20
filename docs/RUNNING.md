@@ -48,7 +48,8 @@ python -m optdog.plan extract <parsed program dir> <problem dir> [--entries <dir
 
 - **`check`** reads the inputs and reports anything that would stop a valid program before any
   solving: errors such as no group ring, a group with entries but no judge, a breed that needs a
-  larger ring than the show has, or pinned blocks that overlap; and warnings such as a judge over
+  larger ring than the show has, pinned blocks that overlap, or a closing time earlier than any
+  schedule could finish; and warnings such as a judge over
   the daily entry limit or an event listed twice. It prints `no errors`, or the problems, and
   exits with status 2 on an error or on inputs it cannot read.
 - **`solve`** runs the full solver (step 3c, packing; see SOLUTION.md), validates the result and
@@ -58,7 +59,8 @@ python -m optdog.plan extract <parsed program dir> <problem dir> [--entries <dir
   seconds (the idle and conflict phases get three times as long), so lower it for a quick
   answer and raise it for a better one. It reports the finish and whether it was proven optimal,
   and, when some exhibitors are signed up for conflict resolution, their conflict minutes. If the
-  schedule breaks a hard rule it is not written and the exit status is 1.
+  schedule breaks a hard rule it is not written and the exit status is 1, as it is when no
+  schedule can finish by the show's closing time.
 - **`extract`** turns a published show into a problem, so the planner can be tried on real
   inputs. Without `--entries` the dogs are generated from the printed counts, with no
   exhibitors, and the show is planned without regard to conflicts. `--entries` takes dogs with

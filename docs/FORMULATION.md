@@ -67,6 +67,7 @@ judge's breeds into blocks).
 | Symbol | Meaning |
 |---|---|
 | $T_0$ | when breed judging may begin (required input) |
+| $T_{\text{end}}$ | the posted closing time (optional input) [none] |
 | $\Delta$ | grid for published times [5 min] |
 | $\kappa$ | cap on a formed block's length [65 min in the solver; the validator allows 60 + 15] |
 | $[L_0, L_1]$ | lunch window: a lunch must start in it [11:00–12:30, or the show's own] |
@@ -109,6 +110,17 @@ $$s_u \ge T_0, \qquad c_u = 1 \;\Rightarrow\; s_u \in \Delta \mathbb{Z}.$$
 
 Here $\Delta\mathbb{Z}$ means a multiple of $\Delta$ on the clock (8:05, 8:10, ...), whatever
 $T_0$ is.
+
+**Closing time (H12).** When the show posts a closing time, Best in Show ends by it:
+
+$$\Phi \le T_{\text{end}}.$$
+
+*Why:* Show Manual §6: "Clubs must conclude judging by the posted closing time. For outdoor
+events, ensure that judging will be completed before sunset." An outdoor show can give sunset as
+its closing time. The limit holds in every phase, so phase 2 cannot trade finish past it. A
+closing time earlier than the combinatorial lower bound (section 8) is reported by `plan check`
+before solving; one between that bound and the true earliest finish makes phase 1 infeasible,
+and `plan solve` says so.
 
 *Why:* published times are "not before" times on 5-minute marks (E: 9:25, 10:10). Events inside
 a block have no published time of their own.
@@ -374,9 +386,6 @@ the packing's bins are a suggestion: the model can still cut elsewhere.
 - S1 leaves out pairs of events of the same judge, which cannot overlap, and pairs of pinned
   events, which no decision changes.
 
-**Hard constraints the solver does not enforce.** H12's closing time: the problem format has no
-field for it, and the validator checks it when it is known.
-
 ## 8. How good is a solution?
 
 Each phase reports its proven bound. For the finish there are also two **lower bounds**, which no
@@ -391,6 +400,9 @@ valid program can beat:
   drops blocks (H1, H5), the grid, travel, ring identity, running order and equipment, and rounds
   durations down. It is solved to proven optimality in seconds, and its optimum bounds every valid
   program. The larger of the two bounds is reported.
+
+Neither bound uses the closing time $T_{\text{end}}$: it limits how late a program may finish,
+not how early, so the bounds stay valid with or without it.
 
 Step 3c's finish is within 0–10 minutes of the lower bound on every one of the 11 published
 days (mean 4; SOLUTION.md §4), and proven optimal for the restricted problem on 10 of them. The gap measures both the restriction of section 7 and the bound's own
@@ -446,7 +458,6 @@ cannot represent them.
   same between any two rings, and two group rings are assumed adjacent.
 - **Choosing the group rings.** They are an input (open question, SPEC §7).
 - **Judge assignment.** Who judges what is an input; reassigning an overloaded judge is out of scope.
-- **The closing time** (H12) in the solver, as above.
 - **Short-nosed breeds in the cool of the day, and permit judges at times the AKC field
   representative can attend** (S6, S7): neither has data.
 - **Why humans start groups later.** Under these rules even the greedy baseline starts groups

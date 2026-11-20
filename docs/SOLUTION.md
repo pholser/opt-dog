@@ -76,7 +76,7 @@ limit, 60 seconds by default.
 | H6 lunch, H7–H10 groups and BIS sequencing, H13 two groups done first, H14 groups after lunches | Enforced |
 | H11 pinned events, H15 multi-entry classes | Enforced |
 | H16 ring big enough for the breed, H17 group ring size | Enforced. A ring of unknown size counts as XL |
-| H12 closing time | **Validator only** (see section 5) |
+| H12 closing time | Enforced when the show has one |
 | V1 judge's daily entry limit | Input check. The panel is given, so the solver cannot fix it |
 | S1 exhibitor conflicts, opted-in exhibitors only | In the objective, after structure, within a judge-idle budget. Runs when the show has exhibitor entries |
 | S2 ring changes, S5 idle, S9 short blocks, S10 lunch at a stopping point | In the objective |
@@ -110,7 +110,7 @@ A problem directory holds:
 
 | File | Contents |
 |---|---|
-| `show.csv` | Name, date, start, lunch window, BIS judge |
+| `show.csv` | Name, date, start, lunch window, closing time (optional), BIS judge |
 | `rings.csv` | Number, size, whether it is a group ring |
 | `judges.csv` | Name, permit status, minutes per dog |
 | `events.csv` | Judge, event, breed, optional pinned ring and start |
@@ -223,7 +223,6 @@ literals use, which OR-Tools' type stubs cannot express.
 | Ring size by entries | Show Manual §6 also requires rings large enough for "the class with the largest number of entries". Only breed size is modeled. Entry thresholds are undecided |
 | Similar-size dogs in a block | Show Manual §6. Not modeled. It would interact with 3c packing |
 | Ring proximity | Show Manual §6. Needs venue layouts, and `adj` from SPEC §2.2 is not implemented |
-| Closing time (H12) | The solver does not use it, and the problem format has no field for it. Only the validator checks it, and only if a closing time is known |
 | Final segment over 50 dogs (S8) | Scored by the validator, not in the solver |
 | Short-nosed breeds in the cool of the day (S6) | Not modeled |
 | Permit judges at non-conflicting times (S7) | Not modeled |
@@ -274,6 +273,5 @@ literals use, which OR-Tools' type stubs cannot express.
 
 ### Documentation debt
 
-- There is no README.
 - The running entries in SPEC §9 give the figures at the time of each entry, so the earlier ones
   are historical. Current results are in section 4 and in `baseline.md`.

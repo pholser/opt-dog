@@ -15,7 +15,7 @@ from optdog.instance import instance_from_program
 from optdog.io.problem_csv import ProblemFormatError, read_problem, write_problem
 from optdog.conflicts import registered_window_pairs
 from optdog.io.entries_csv import read_entries
-from optdog.io.program_csv import read_program
+from optdog.io.program_csv import read_program, write_program
 from optdog.params import ShowParameters
 from optdog.plan import Issue, check_problem, main
 from optdog.solve.greedy import greedy_program
@@ -38,7 +38,7 @@ def small(**kw) -> Show:
 def signature(show: Show):
     return ([(e.judge, e.name, e.breed, e.entries, e.counts) for e in show.events],
             [(r.number, r.size) for r in show.rings], [r.number for r in show.group_rings], show.judges, show.group_judges,
-            show.bis_judge, show.start, show.lunch_window,
+            show.bis_judge, show.start, show.lunch_window, show.closing_time,
             [(sb.ring.number, sb.start, sb.judge, [e.name for e in sb.block.events]) for sb in show.pinned])
 
 
@@ -81,6 +81,8 @@ def test_a_clean_problem_has_no_issues():
     (dict(group_rings=(Ring(2, RingSize.L),)), "(H17)"),
     (dict(lunch_window=(TimeOfDay(720), TimeOfDay(660))), "is empty"),
     (dict(rings=[Ring(1, RingSize.M)], group_rings=()), "(H16)"),
+    (dict(closing_time=TimeOfDay(480)), "is not after the start"),
+    (dict(closing_time=TimeOfDay(9 * 60 + 30)), "(H12)"),  # the lower bound is 9:38
 ])
 def test_input_errors_are_reported(change, expect):
     issues = check_problem(small(**change))
@@ -129,6 +131,29 @@ def test_cli_plans_a_show_from_files_and_writes_a_valid_program(tmp_path, capsys
     assert validate(program, ShowParameters()).violations == []
     assert (tmp_path / "c.html").stat().st_size > 0
     assert {sb.ring.number for sb in program.blocks if sb.judge.name == "Ms. A"} <= {1, 2}  # Boxer and Akita need L
+
+
+def test_the_closing_time_survives_both_formats(tmp_path):
+    show = small(closing_time=TimeOfDay(18 * 60))
+    write_problem(show, tmp_path / "problem")
+    assert read_problem(tmp_path / "problem").closing_time == TimeOfDay(18 * 60)
+    write_program(greedy_program(show), tmp_path / "program")
+    assert read_program(tmp_path / "program").show.closing_time == TimeOfDay(18 * 60)
+    write_problem(small(), tmp_path / "none")
+    assert "closing_time" not in (tmp_path / "none" / "show.csv").read_text()  # optional: absent when unset
+
+
+def test_cli_solve_keeps_the_closing_time_or_says_it_cannot(tmp_path, capsys):
+    # unconstrained, this show finishes at 9:42 at the earliest; the quick bound says only 9:38
+    def plan(closing: str) -> int:
+        prob = tmp_path / closing.replace(":", "")
+        write_problem(small(group_judges={g: G for g in VARIETY_GROUPS}, closing_time=TimeOfDay.parse(closing)), prob)
+        return main(["solve", str(prob), "--out", str(prob / "out"), "--time-limit", "10"])
+    assert plan("09:42") == 0
+    assert read_program(tmp_path / "0942" / "out").show.closing_time == TimeOfDay.parse("09:42")
+    assert validate(read_program(tmp_path / "0942" / "out")).violations == []
+    assert plan("09:41") == 1
+    assert "no schedule finishes by the closing time 9:41 AM (H12)" in capsys.readouterr().err
 
 
 def test_cli_stops_on_input_errors_without_solving(tmp_path, capsys):

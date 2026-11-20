@@ -346,8 +346,10 @@ def validate(program: JudgingProgram, params: ShowParameters | None = None) -> V
         res.metrics["groups_start"] = str(plan.start)
         res.metrics["group_wait_min"] = round(Duration.total(s.wait for s in timeline.groups).minutes, 1)
         res.metrics["finish"] = str(timeline.finish)
-        if p.closing_time is not None and timeline.finish > p.closing_time:
-            res.violations.append(Violation("H12", "show", f"finishes {timeline.finish}", (timeline.finish - p.closing_time).minutes))
+        closing = program.show.closing_time
+        if closing is not None and timeline.finish > closing:
+            res.violations.append(Violation("H12", "show", f"finishes {timeline.finish}, after the closing time {closing}",
+                                            (timeline.finish - closing).minutes))
 
     # ---------------------------------------------------------------- S1 exhibitor conflicts
     conflict_minutes = None

@@ -39,7 +39,8 @@ inside a segment, chosen by an arc a_{PQ} at a segment's first event):
              F ≥ every judge's lunch end                                                 (H14)
     groups:  NoOverlap(group intervals); BIS starts after every group                    (H10)
 
-H11 holds by the pinned blocks; H12 and V1 are input checks. Six lexicographic phases:
+H11 holds by the pinned blocks; H12 bounds the BIS end by the closing time, when the show has one;
+V1 is an input check. Six lexicographic phases:
 (1) minimize the BIS end; (2) minimize BIS end + `short_block_finish` × short blocks,
 giving up finish for fewer short blocks (skipped if nothing can change the count, or the
 parameter is 0); (3) at that finish and count, minimize the soft costs the structure controls
@@ -724,6 +725,8 @@ class _Model:
             for term in judge_free_terms(show.bis_judge):
                 md.add(self.bis >= term)
         self.finish = self.bis + bis_d
+        if show.closing_time is not None:  # H12
+            md.add(self.finish <= show.closing_time.units(SCALE))
 
         # H9: every group ring clear before the first group
         for ids, _ in self.runs:

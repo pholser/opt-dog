@@ -33,6 +33,7 @@ from optdog.io.program_csv import read_program, write_program
 from optdog.params import ShowParameters
 from optdog.render.html import render_html
 from optdog.render.text import render_text
+from optdog.solve.bounds import finish_lower_bound
 from optdog.solve.cpsat import NoSchedule, PlacementOptions, PlacementResult, solve_packing
 from optdog.validate import validate
 
@@ -121,6 +122,17 @@ def check_problem(show: Show, params: ShowParameters | None = None) -> list[Issu
             warn(names[ev], f"dog {dog} is entered {n} times")
     if show.exhibitors and not any(x.registered for x in show.exhibitors):
         warn("exhibitors.csv", "no exhibitor is signed up for conflict resolution, so conflicts are not scheduled")
+
+    # H12: a closing time no schedule can meet. The combinatorial bound is quick and never above
+    # the true earliest finish, so it proves only the hopeless cases; the solver finds the rest.
+    closing = show.closing_time
+    if closing is not None:
+        if closing <= show.start:
+            error("show", f"closing time {closing} is not after the start {show.start}")
+        elif not any(i.error for i in out):
+            earliest = finish_lower_bound(show, p).value
+            if earliest > closing:
+                error("show", f"no schedule can finish before {earliest}, after the closing time {closing} (H12)")
     return out
 
 
@@ -174,7 +186,10 @@ def main(argv: list[str] | None = None) -> int:
     try:
         res = solve(show, params, a.time_limit)
     except NoSchedule as err:
-        print(err, file=sys.stderr)
+        if show.closing_time is not None and err.phases and err.phases[0].status == "INFEASIBLE":
+            print(f"no schedule finishes by the closing time {show.closing_time} (H12)", file=sys.stderr)
+        else:
+            print(err, file=sys.stderr)
         return 1
     hard = [v for v in validate(res.program, params).violations if v.code != "V1"]
     if hard:

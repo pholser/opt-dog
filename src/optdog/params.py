@@ -83,8 +83,6 @@ class ShowParameters:
     # --- limits (Rules Ch.7 §13)
     judge_daily_limit: int = 175
 
-    # --- show hours
-    closing_time: TimeOfDay | None = None  # posted closing time, if known
     # H17: group rings are "enlarged or combined" breed rings, large enough for the largest group (Show Manual §3)
     group_ring_min: RingSize = RingSize.XL
 

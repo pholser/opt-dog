@@ -33,7 +33,7 @@ and a partitioning sub-problem (forming blocks).
 | Symbol | Meaning |
 |---|---|
 | `T0` | official judging start (e.g. 8:00) — Show Manual §6 says on or before 9:00 |
-| `Tend` | posted show closing time; all judging must finish by then (Show Manual §6) |
+| `Tend` | posted show closing time; all judging must finish by then (Show Manual §6). An optional input (`Show.closing_time`, `closing_time` in show.csv); an outdoor show can give sunset. Published programs do not state it, so parsed shows have none |
 | `Δ` | time grid for published block times. Real programs use 5-min times (9:25, 10:10) (E) — default 5 min |
 | `[L0, L1]` | lunch window: every lunch break must **start** in it (H6). An **input** set ahead of time by the club, usually by when the venue's concessions serve lunch; not a scheduling decision (U). `Show.lunch_window`; when a show gives none (as with all parsed programs), the default `ShowParameters.lunch_window` = 11:00–12:30 (E: published lunches start 11:10–12:30) |
 | `m_X` | exhibitor travel margin between rings, in minutes. Parameter, default **2** (U) |
@@ -121,7 +121,7 @@ start of unit `u` (block start + durations of the units ahead of it in the block
 | H9 | The first group starts only once **every** group ring in `RG` is **free of breed blocks**, even when two rings are used (U). An optional set-up buffer is a parameter | Show Manual §6; U |
 | H10 | Groups run **sequentially** in `RG` (two adjacent rings act as one) in order π; **BIS starts as soon as the last group ends** | U |
 | H11 | Pinned units start at their fixed ring and time; precedences hold. Only a problem's own pins (`pin_ring`, `pin_start`): parsed programs, which hold regular breed events only, pin nothing. (Before 2026-11-13, instances pinned the published concurrent-specialty, Beginner Puppy and FSS blocks and judges' obedience and rally commitments; those events are now out of scope) | U |
-| H12 | Everything ends by `Tend`; nothing starts before `T0`. The solver enforces `T0` only: `Tend` (`closing_time`) is checked by the validator when known, and the problem format has no field for it | Show Manual §6 |
+| H12 | Everything ends by `Tend`, when the show has one: BIS ends by it; nothing starts before `T0`. Enforced by the solver and checked by the validator. `plan check` reports a `Tend` before the combinatorial lower bound; `plan solve` reports one no schedule can meet | Show Manual §6: "Clubs must conclude judging by the posted closing time. For outdoor events, ensure that judging will be completed before sunset" |
 | H13 | The breeds of at least **two** groups (parameter, default 2; fewer if fewer groups are entered) are all done before the first group starts | Show Manual §6: "Breed judging in at least two groups should be scheduled to be complete before group judging is scheduled to begin"; U |
 | H14 | The first group starts only after **every** judge's lunch has ended: a published break counts as published; a judge over five hours with no published break takes lunch in a gap of lunch length, at the minimum length. Parameter `groups_after_all_lunches`, default on | U; E: holds on all 11 parsed days. Not an AKC rule |
 | H15 | Multi-entry classes (Stud Dog, Brood Bitch) come after the judge's regular classes in that breed. (Before 2026-11-13, sweepstakes also immediately preceded their breed (convention, E); sweepstakes are now out of scope) | Show Manual §6 "Scheduling Breed Judging"; E |
