@@ -37,9 +37,12 @@ times run late. Compare the columns with each other, not with real show close.
 | 2026-01-05-kennel-club-of-palm-springs | 9:59 PM opt | 9:39 PM | 2:30 PM | 10:04 PM | 5 | 2:55 PM | 10:09 PM | 10 | 2:55 PM | 10:09 PM opt | 10 | 2:55 PM | 10:09 PM opt | 10 | 2:50 PM | 10:04 PM | 5 | 2:50 PM | 10:04 PM | 5 | H13, H8 | – | – | – | – | – | 2332 | 2604 | 2604 | 962 | 859 | 909 | 40 | 28 | 24 | 18 | 17 |
 | 2026-09-12-sir-francis-drake-kennel-club | 6:30 PM opt | 6:26 PM | 2:00 PM | 7:50 PM | 80 | 1:00 PM | 6:50 PM | 20 | 1:00 PM | 6:50 PM opt | 20 | 12:50 PM | 6:40 PM opt | 10 | 12:40 PM | 6:30 PM | 0 | 12:40 PM | 6:30 PM opt | 0 | – | – | – | – | – | – | 285 | 331 | 331 | 58 | 26 | 5 | 33 | 24 | 23 | 19 | 16 |
 | 2026-09-13-sir-francis-drake-kennel-club | 7:23 PM opt | 7:23 PM | 2:30 PM | 8:18 PM | 55 | 12:40 PM | 7:34 PM | 11 | 12:40 PM | 7:34 PM opt | 11 | 1:05 PM | 7:34 PM opt | 10 | 12:40 PM | 7:32 PM | 9 | 12:35 PM | 7:27 PM opt | 4 | H3, H4, H9 | – | – | – | – | – | 220 | 317 | 317 | 19 | 16 | 11 | 25 | 23 | 22 | 15 | 17 |
+| 2024-05-16-kennel-club-of-anne-arundel | 5:03 PM opt | 5:01 PM | 1:45 PM | 7:43 PM | 160 | 11:15 AM | 5:13 PM | 10 | 11:15 AM | 5:13 PM opt | 10 | 11:20 AM | 5:18 PM opt | 15 | 11:10 AM | 5:08 PM opt | 5 | 11:10 AM | 5:08 PM opt | 5 | H1, H12, H4 | – | – | – | – | – | 168 | 121 | 121 | 4 | 9 | 10 | 25 | 21 | 20 | 14 | 14 |
+| 2024-05-17-kennel-club-of-anne-arundel | 5:07 PM opt | 5:04 PM | 1:45 PM | 7:52 PM | 165 | 11:15 AM | 5:22 PM | 15 | 11:15 AM | 5:22 PM opt | 15 | 11:15 AM | 5:22 PM opt | 15 | 11:00 AM | 5:07 PM opt | 0 | 11:05 AM | 5:12 PM opt | 5 | H1, H12, H3 | – | – | – | – | – | 242 | 278 | 278 | 52 | 69 | 109 | 30 | 23 | 21 | 14 | 14 |
+| 2024-07-15-twin-brooks-kennel-club | 3:51 PM opt | 3:47 PM | 1:00 PM | 5:36 PM | 105 | 11:20 AM | 5:48 PM | 117 | 11:15 AM | 3:58 PM opt | 7 | 11:15 AM | 3:51 PM opt | 0 | 11:15 AM | 3:51 PM opt | 0 | 11:15 AM | 3:51 PM opt | 0 | – | – | – | – | – | – | 118 | 24 | 164 | 34 | 12 | 14 | 23 | 16 | 15 | 12 | 12 |
 
-Mean gap to the lower bound: human 86 min, greedy 24 min, CP 17 min, 3a 15 min, 3b 7 min, 3c 4 min (greedy finishes earlier than the human program on 10 of 11 days; CP improves on the greedy on 4; 3a improves on CP on 4; 3b improves on 3a on 7).
+Mean gap to the lower bound: human 98 min, greedy 29 min, CP 16 min, 3a 14 min, 3b 6 min, 3c 4 min (greedy finishes earlier than the human program on 12 of 14 days; CP improves on the greedy on 5; 3a improves on CP on 5; 3b improves on 3a on 9).
 
-Total S1 minutes: human 16,937, greedy 16,792, CP 16,385, 3a 7,547, 3b 7,401, 3c 7,541.
+Total S1 minutes: human 17,465, greedy 17,216, CP 16,949, 3a 7,637, 3b 7,491, 3c 7,674.
 
 Hard-constraint codes are those of SPEC §4. V1 (a judge over 175 entries) is an input problem that no schedule can fix.

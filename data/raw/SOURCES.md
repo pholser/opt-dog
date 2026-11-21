@@ -3,6 +3,7 @@
 Publicly posted judging programs, downloaded 2026-11-03. Untrusted input: parse only, never execute.
 
 ## Jack Bradshaw Dog Show Superintendents (`bradshaw/`)
+Parsed (`ingest/bradshaw.py`, `manifest.csv`).
 URL pattern: `https://www.jbradshaw.com/<id>/jp.pdf`
 - 50.pdf — Sir Francis Drake KC
 - 450.pdf — (452 was an identical copy; dropped)
@@ -20,6 +21,7 @@ URL pattern: `https://baray-production-storage.s3.us-west-2.amazonaws.com/judgin
 - t0XbmdUPfPT4AAHS9zG16v8g8CzY6KGvy1aFBr9F.pdf
 
 ## Rau Dog Shows (`rau/`)
+Parsed (`ingest/rau.py`, `manifest.csv`) except Brookhaven, whose groups are judged in the breed rings.
 - https://raudogshows.com/wp-content/uploads/Brookhaven-2024-JP-2.pdf
 - https://raudogshows.com/wp-content/uploads/Twin-Brooks-2024-JP-Mon.pdf
 - https://www.raudogshows.com/wp-content/uploads/KC-Anne-Arundel-Carroll-KC-2024-JP-Thurs.pdf

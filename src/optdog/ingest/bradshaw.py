@@ -30,7 +30,6 @@ Anything it doesn't understand goes into ``ParseReport.unparsed`` instead of bei
 from __future__ import annotations
 
 import re
-from collections import defaultdict
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -40,7 +39,6 @@ from optdog.breeds import BreedCatalog, default_catalog
 from optdog.domain import (
     Block,
     Break,
-    EntryCounts,
     Group,
     GroupsPlan,
     JudgingEvent,
@@ -51,11 +49,21 @@ from optdog.domain import (
     Show,
     TimeOfDay,
 )
+from optdog.ingest.common import (
+    DAYS,
+    GROUP_WORDS,
+    IndexRow,
+    ParsedDay,
+    ParseReport,
+    RawBlock,
+    RawEvent,
+    cross_check_index,
+    parse_counts,
+    parse_time,
+)
 from optdog.ingest.pdftext import extract_columns
 
-DAYS = ("MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY")
 
-RE_TIME = re.compile(r"^(\d{1,2})(?::(\d{2}))?\s*(AM|PM|A\.M\.|P\.M\.|Noon|NOON)$", re.I)
 RE_SECTION_START = re.compile(r"^Total Dogs in Show:\s*(\d+)")
 RE_SECTION_END = re.compile(r"^Total Dog Entries in Show:\s*(\d+)")
 RE_RING = re.compile(r"^Ring No\.?\s*(\d+)\s*$", re.I)
@@ -102,105 +110,12 @@ GROUP_LINE_NAMES = {
     "herding group, bpis": "Herding Group, Best Puppy In Show",
     "bpis": "Best Puppy In Show",
 }
-GROUP_WORDS = {
-    "sporting": Group.SPORTING,
-    "hound": Group.HOUND,
-    "hounds": Group.HOUND,
-    "working": Group.WORKING,
-    "terrier": Group.TERRIER,
-    "terriers": Group.TERRIER,
-    "toy": Group.TOY,
-    "toys": Group.TOY,
-    "nonsporting": Group.NON_SPORTING,
-    "non-sporting": Group.NON_SPORTING,
-    "herding": Group.HERDING,
-}
-
-
-def parse_time(s: str) -> TimeOfDay | None:
-    m = RE_TIME.match(s.strip())
-    if not m:
-        return None
-    h, mm, ampm = int(m.group(1)), int(m.group(2) or 0), m.group(3).upper().replace(".", "")
-    if ampm == "NOON":
-        return TimeOfDay.at(12, mm)
-    if ampm == "PM" and h != 12:
-        h += 12
-    if ampm == "AM" and h == 12:
-        h = 0
-    return TimeOfDay.at(h, mm)
-
-
-def parse_counts(s: str) -> EntryCounts:
-    """Parse ``dogs-bitches[-nonreg...]-(bobD-bobB)[-nonreg...]``.
-
-    Non-regular tokens look like ``4``, ``4V``, ``1VD``, ``1 SD``, ``1BB``; any token
-    starting with a number after the first two counts is a non-regular class.
-    """
-    bob_d = bob_b = 0
-    m = re.search(r"\((\d+)-(\d+)\)", s)
-    if m:
-        bob_d, bob_b = int(m.group(1)), int(m.group(2))
-        s = s[: m.start()] + "-" + s[m.end():]
-    parts = [t for t in re.split(r"[-\s]+", s) if t]
-    nums = [int(d.group()) for t in parts if (d := re.match(r"\d+", t))]
-    nonreg = sum(nums[2:])
-    return EntryCounts(nums[0], nums[1], bob_d, bob_b, nonreg)
 
 
 # --------------------------------------------------------------------------- report
 
 
-@dataclass
-class ParseReport:
-    source: str
-    day: str
-    unparsed: list[str] = field(default_factory=list)
-    unknown_breeds: list[str] = field(default_factory=list)
-    checks: list[tuple[str, int, int]] = field(default_factory=list)  # (what, stated, parsed)
-    notes: list[str] = field(default_factory=list)
-    index_mismatches: list[str] = field(default_factory=list)
-    not_kept: list[str] = field(default_factory=list)
-
-    @property
-    def failed_checks(self) -> list[tuple[str, int, int]]:
-        return [c for c in self.checks if c[1] != c[2]]
-
-
-@dataclass(frozen=True)
-class IndexRow:
-    """One line of the program's breed index: 'Golden Retriever......37 9:50 AM 1'."""
-
-    name: str
-    entries: int
-    time: TimeOfDay
-    ring: int
-
-
-@dataclass
-class ParsedDay:
-    program: JudgingProgram
-    report: ParseReport
-
-
 # --------------------------------------------------------------------------- internal state
-
-
-@dataclass
-class _RawBlock:
-    ring: int
-    judge: str
-    start: TimeOfDay
-    all_breed: bool  # in the all-breed show, not a special attraction or concurrent specialty
-    events: list[_RawEvent] = field(default_factory=list)
-
-
-@dataclass
-class _RawEvent:
-    name: str
-    breed: bool  # regular breed judging, not sweepstakes, juniors, obedience, rally, ...
-    entries: int
-    counts: EntryCounts | None = None
 
 
 @dataclass
@@ -214,7 +129,7 @@ class _Section:
 class _DayState:
     name: str
     sections: list[_Section] = field(default_factory=list)
-    blocks: list[_RawBlock] = field(default_factory=list)
+    blocks: list[RawBlock] = field(default_factory=list)
     breaks: list[tuple[int, str, TimeOfDay]] = field(default_factory=list)  # ring, judge, start
     subtotals: list[tuple[int, str, int, int, int]] = field(default_factory=list)  # ring, judge, stated, from, to
     unparsed: list[str] = field(default_factory=list)
@@ -265,7 +180,7 @@ class BradshawParser:
         # one breed index per all-breed day, in day order
         if len(indexes) == len(out):
             for pd, blocks, idx in zip(out, listed, indexes):
-                _cross_check_index(pd.report, blocks, idx)
+                cross_check_index(pd.report, blocks, idx)
         else:
             for pd in out:
                 pd.report.notes.append(f"found {len(indexes)} breed indexes for {len(out)} all-breed days; not cross-checked")
@@ -283,7 +198,7 @@ class BradshawParser:
         pending_title: list[str] = []
         ring: int | None = None
         judge: str | None = None
-        cur: _RawBlock | None = None
+        cur: RawBlock | None = None
         cur_time: TimeOfDay | None = None
         juniors: list[int] | None = None
         last_event_obedience = False
@@ -297,7 +212,7 @@ class BradshawParser:
         def flush_juniors():
             nonlocal juniors
             if juniors is not None and cur is not None:
-                cur.events.append(_RawEvent("Junior Showmanship", False, sum(juniors)))
+                cur.events.append(RawEvent("Junior Showmanship", False, sum(juniors)))
             juniors = None
 
         for col in columns:
@@ -412,7 +327,7 @@ class BradshawParser:
                     flush_juniors()
                     cur = cur or self._open_block(day, ring, judge, cur_time, all_breed, line)
                     if cur is not None:
-                        cur.events.append(_RawEvent(gl, False, 0))
+                        cur.events.append(RawEvent(gl, False, 0))
                     continue
                 if (m := RE_ENTRY_COUNTS.match(line)) or (m := RE_ENTRY.match(line)):
                     entries, name = int(m.group(1)), m.group(2)
@@ -433,7 +348,7 @@ class BradshawParser:
                         last_event_obedience = True
                     elif RE_SWEEPS.search(name) or "sweep" in low or " swps" in low or re.search(r"\b(head type|movement)$", low):
                         breed = False
-                    cur.events.append(_RawEvent(name, breed, entries, counts))
+                    cur.events.append(RawEvent(name, breed, entries, counts))
                     if all_breed == section_all_breed:
                         section_parsed += entries
                     continue
@@ -444,11 +359,11 @@ class BradshawParser:
         flush_juniors()
         return [days[d] for d in order]
 
-    def _open_block(self, day, ring, judge, t, all_breed, line) -> _RawBlock | None:
+    def _open_block(self, day, ring, judge, t, all_breed, line) -> RawBlock | None:
         if ring is None or judge is None or t is None:
             day.unparsed.append(f"(no ring/judge/time) {line}")
             return None
-        b = _RawBlock(ring, judge, t, all_breed)
+        b = RawBlock(ring, judge, t, all_breed)
         day.blocks.append(b)
         return b
 
@@ -729,36 +644,3 @@ def _parse_breed_indexes(columns) -> list[list[IndexRow]]:
             if m and (t := parse_time(m.group("time"))) is not None:
                 cur.append(IndexRow(m.group("name").strip(), int(m.group("n")), t, int(m.group("ring"))))
     return [ix for ix in out if ix]
-
-
-def _cross_check_index(report: ParseReport, blocks: list[_RawBlock], index: list[IndexRow]) -> None:
-    """Compare the back-of-program breed index with the parsed ring listings (every event)."""
-    from optdog.breeds import name_key
-
-    rows = defaultdict(list)
-    for rb in blocks:
-        for e in rb.events:
-            rows[name_key(e.name)].append((e, rb))
-    matched = 0
-    skip = re.compile(
-        r"(Junior|Intermediate|Senior|Master) Class|Novice|Open Class|Utility|Graduate|Preferred|Versatility|"
-        r"Rally|Obedience|Sw(ee)?p|Swps|Sws\b|Vt |Head Type|Movement|Bred by",
-        re.I,
-    )
-    index = [row for row in index if not skip.search(row.name)]
-    for row in index:
-        key = name_key(row.name)
-        cands = rows.get(key) or [v for k, vs in rows.items() if k.startswith(key) or key.startswith(k) for v in vs]
-        if not cands:
-            report.index_mismatches.append(f"index lists {row.name!r} ({row.entries}, ring {row.ring}) but listings do not")
-            continue
-        ok = [(e, rb) for e, rb in cands if e.entries == row.entries and rb.start == row.time and rb.ring == row.ring]
-        if ok:
-            matched += 1
-        else:
-            e, rb = cands[0]
-            report.index_mismatches.append(
-                f"{row.name!r}: index {row.entries} @ {row.time} ring {row.ring}; "
-                f"listing {e.entries} @ {rb.start} ring {rb.ring}"
-            )
-    report.checks.append(("breed index rows (breeds) matching listings", len(index), matched))

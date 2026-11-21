@@ -22,7 +22,7 @@ from optdog.solve.greedy import greedy_program
 from optdog.validate import validate
 
 CAT = default_catalog()
-PARSED = sorted((Path(__file__).resolve().parents[1] / "data" / "parsed" / "bradshaw").iterdir())
+PARSED = sorted(d for d in (Path(__file__).resolve().parents[1] / "data" / "parsed").glob("*/*") if (d / "schedule.csv").exists())
 A, B, G = Judge("Ms. A"), Judge("Mr. B"), Judge("Dr. G")
 
 

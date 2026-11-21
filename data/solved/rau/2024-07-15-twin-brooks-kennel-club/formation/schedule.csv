@@ -1,0 +1,109 @@
+ring,judge,block_start,position,event,breed,group
+1,Ms. JoAnne M Buehler,08:40,0,Akitas,Akita,Working
+1,Ms. JoAnne M Buehler,08:40,1,Bernese Mountain Dogs,Bernese Mountain Dog,Working
+1,Ms. JoAnne M Buehler,08:40,2,Boxers,Boxer,Working
+1,Ms. JoAnne M Buehler,09:30,0,Doberman Pinschers,Doberman Pinscher,Working
+1,Ms. JoAnne M Buehler,09:30,1,Dogues de Bordeaux,Dogue de Bordeaux,Working
+1,Ms. JoAnne M Buehler,09:30,2,Giant Schnauzers,Giant Schnauzer,Working
+1,Ms. JoAnne M Buehler,09:30,3,Great Danes,Great Dane,Working
+1,Ms. JoAnne M Buehler,10:35,0,Greater Swiss Mountain Dogs,Greater Swiss Mountain Dog,Working
+1,Ms. JoAnne M Buehler,10:35,1,Leonberger,Leonberger,Working
+1,Ms. JoAnne M Buehler,10:35,2,Newfoundlands,Newfoundland,Working
+1,Ms. JoAnne M Buehler,10:35,3,Portuguese Water Dogs,Portuguese Water Dog,Working
+1,Ms. JoAnne M Buehler,11:40,0,Rottweilers,Rottweiler,Working
+1,Ms. JoAnne M Buehler,11:40,1,Siberian Huskies,Siberian Husky,Working
+1,Ms. JoAnne M Buehler,11:40,2,Standard Schnauzers,Standard Schnauzer,Working
+1,Ms. JoAnne M Buehler,11:40,3,Kerry Blue Terriers,Kerry Blue Terrier,Terrier
+1,Ms. JoAnne M Buehler,11:40,4,Cairn Terriers,Cairn Terrier,Terrier
+1,Ms. JoAnne M Buehler,11:40,5,Miniature Schnauzers,Miniature Schnauzer,Terrier
+1,Ms. JoAnne M Buehler,11:40,6,Scottish Terriers,Scottish Terrier,Terrier
+1,Ms. JoAnne M Buehler,11:40,7,Papillons,Papillon,Toy
+1,Ms. JoAnne M Buehler,11:40,8,Pomeranians,Pomeranian,Toy
+2,John Schoeneman,08:30,0,Dalmatians,Dalmatian,Non-Sporting
+2,John Schoeneman,08:30,1,Poodles (Standard),Poodle (Standard),Non-Sporting
+2,John Schoeneman,08:30,2,Bulldogs,Bulldog,Non-Sporting
+2,John Schoeneman,08:30,3,Chinese Shar-Pei,Chinese Shar-Pei,Non-Sporting
+2,John Schoeneman,08:30,4,Keeshonden,Keeshond,Non-Sporting
+2,John Schoeneman,09:10,0,Boston Terriers,Boston Terrier,Non-Sporting
+2,John Schoeneman,09:10,1,Coton de Tulear,Coton de Tulear,Non-Sporting
+2,John Schoeneman,09:10,2,French Bulldogs,French Bulldog,Non-Sporting
+2,John Schoeneman,09:10,3,Lhasa Apsos,Lhasa Apso,Non-Sporting
+2,John Schoeneman,09:10,4,Lowchen,Lowchen,Non-Sporting
+2,John Schoeneman,09:10,5,Schipperkes,Schipperke,Non-Sporting
+2,John Schoeneman,10:00,0,Tibetan Spaniels,Tibetan Spaniel,Non-Sporting
+2,John Schoeneman,10:00,1,Tibetan Terriers,Tibetan Terrier,Non-Sporting
+2,John Schoeneman,10:00,2,Australian Cattle Dogs,Australian Cattle Dog,Herding
+2,John Schoeneman,10:00,3,Australian Shepherds,Australian Shepherd,Herding
+2,John Schoeneman,10:00,4,Bearded Collies,Bearded Collie,Herding
+2,John Schoeneman,10:00,5,Belgian Sheepdogs,Belgian Sheepdog,Herding
+2,John Schoeneman,10:00,6,Belgian Tervuren,Belgian Tervuren,Herding
+2,John Schoeneman,10:00,7,Bergamasco Sheepdog,Bergamasco Sheepdog,Herding
+2,John Schoeneman,11:00,0,Collies (Smooth),Collie (Smooth),Herding
+2,John Schoeneman,11:00,1,Finnish Lapphunds,Finnish Lapphund,Herding
+2,John Schoeneman,11:00,2,German Shepherd Dogs,German Shepherd Dog,Herding
+2,John Schoeneman,11:00,3,Norwegian Buhunds,Norwegian Buhund,Herding
+2,John Schoeneman,11:00,4,Old English Sheepdogs,Old English Sheepdog,Herding
+2,John Schoeneman,11:00,5,Cardigan Welsh Corgis,Cardigan Welsh Corgi,Herding
+2,John Schoeneman,11:00,6,Pembroke Welsh Corgis,Pembroke Welsh Corgi,Herding
+2,John Schoeneman,11:00,7,Shetland Sheepdogs,Shetland Sheepdog,Herding
+3,Mr. Alfred J Ferruggiaro,09:15,0,Basenjis,Basenji,Hound
+3,Mr. Alfred J Ferruggiaro,09:15,1,Borzois,Borzoi,Hound
+3,Mr. Alfred J Ferruggiaro,09:15,2,Greyhounds,Greyhound,Hound
+3,Mr. Alfred J Ferruggiaro,09:15,3,Ibizan Hounds,Ibizan Hound,Hound
+3,Mr. Alfred J Ferruggiaro,09:15,4,Irish Wolfhounds,Irish Wolfhound,Hound
+3,Mr. Alfred J Ferruggiaro,09:15,5,Redbone Coonhounds,Redbone Coonhound,Hound
+3,Mr. Alfred J Ferruggiaro,10:15,0,Rhodesian Ridgebacks,Rhodesian Ridgeback,Hound
+3,Mr. Alfred J Ferruggiaro,10:15,1,Whippets,Whippet,Hound
+3,Mr. Alfred J Ferruggiaro,11:00,0,Dachshunds (Longhaired),Dachshund (Longhaired),Hound
+3,Mr. Alfred J Ferruggiaro,11:00,1,Dachshunds (Smooth),Dachshund (Smooth),Hound
+3,Mr. Alfred J Ferruggiaro,11:00,2,Dachshunds (Wirehaired),Dachshund (Wirehaired),Hound
+3,Mr. Alfred J Ferruggiaro,11:00,3,Airedale Terriers,Airedale Terrier,Terrier
+3,Mr. Alfred J Ferruggiaro,11:00,4,American Staffordshire Terrier,American Staffordshire Terrier,Terrier
+3,Mr. Alfred J Ferruggiaro,11:00,5,Miniature Bull Terriers,Miniature Bull Terrier,Terrier
+3,Mr. Alfred J Ferruggiaro,11:00,6,Bedlington Terriers,Bedlington Terrier,Terrier
+3,Mr. Alfred J Ferruggiaro,12:05,0,Glen of Imaal Terrier,Glen of Imaal Terrier,Terrier
+3,Mr. Alfred J Ferruggiaro,12:05,1,Lakeland Terriers,Lakeland Terrier,Terrier
+3,Mr. Alfred J Ferruggiaro,12:05,2,Manchester Terriers (Standard),Manchester Terrier (Standard),Terrier
+3,Mr. Alfred J Ferruggiaro,12:05,3,Russell Terrier,Russell Terrier,Terrier
+3,Mr. Alfred J Ferruggiaro,12:05,4,Sealyham Terriers,Sealyham Terrier,Terrier
+3,Mr. Alfred J Ferruggiaro,12:05,5,Biewer Terriers,Biewer Terrier,Toy
+3,Mr. Alfred J Ferruggiaro,12:05,6,Brussels Griffons,Brussels Griffon,Toy
+3,Mr. Alfred J Ferruggiaro,12:05,7,Cavalier King Charles Spaniels,Cavalier King Charles Spaniel,Toy
+3,Mr. Alfred J Ferruggiaro,12:05,8,Chihuahuas (Long Coat),Chihuahua (Long Coat),Toy
+3,Mr. Alfred J Ferruggiaro,12:05,9,Chinese Crested,Chinese Crested,Toy
+3,Mr. Alfred J Ferruggiaro,12:05,10,English Toy Spaniels (B&PC),English Toy Spaniel (B&PC),Toy
+3,Mr. Alfred J Ferruggiaro,13:10,0,English Toy Spaniels (KC&R),English Toy Spaniel (KC&R),Toy
+3,Mr. Alfred J Ferruggiaro,13:10,1,Havanese,Havanese,Toy
+3,Mr. Alfred J Ferruggiaro,13:10,2,Maltese,Maltese,Toy
+3,Mr. Alfred J Ferruggiaro,13:10,3,Manchester Terriers (Toy),Manchester Terrier (Toy),Toy
+3,Mr. Alfred J Ferruggiaro,13:10,4,Pugs,Pug,Toy
+3,Mr. Alfred J Ferruggiaro,13:10,5,Yorkshire Terriers,Yorkshire Terrier,Toy
+5,James R. Dickson,08:50,0,Pointers,Pointer,Sporting
+5,James R. Dickson,08:50,1,Spaniels (Welsh Springer),Welsh Springer Spaniel,Sporting
+5,James R. Dickson,08:50,2,Spaniels (English Cocker),English Cocker Spaniel,Sporting
+5,James R. Dickson,08:50,3,Great Pyrenees,Great Pyrenees,Working
+5,James R. Dickson,08:50,4,Irish Terriers,Irish Terrier,Terrier
+5,James R. Dickson,09:40,0,Soft-Coated Wheaten Terriers,Soft Coated Wheaten Terrier,Terrier
+5,James R. Dickson,09:40,1,Border Terriers,Border Terrier,Terrier
+5,James R. Dickson,09:40,2,Fox Terriers (Smooth),Smooth Fox Terrier,Terrier
+5,James R. Dickson,09:40,3,Welsh Terriers,Welsh Terrier,Terrier
+5,James R. Dickson,09:40,4,West Highland White Terriers,West Highland White Terrier,Terrier
+6,Mr. Bob Eisele,08:30,0,Barbets,Barbet,Sporting
+6,Mr. Bob Eisele,08:30,1,Bracchi Italiani,Bracco Italiano,Sporting
+6,Mr. Bob Eisele,08:30,2,Brittanys,Brittany,Sporting
+6,Mr. Bob Eisele,08:30,3,Retrievers (Chesapeake Bay),Chesapeake Bay Retriever,Sporting
+6,Mr. Bob Eisele,08:30,4,Retrievers (Flat-Coated),Flat-Coated Retriever,Sporting
+6,Mr. Bob Eisele,08:30,5,Pointers (German Shorthaired),German Shorthaired Pointer,Sporting
+6,Mr. Bob Eisele,08:30,6,Retrievers (Golden),Golden Retriever,Sporting
+6,Mr. Bob Eisele,08:30,7,Setters (Irish),Irish Setter,Sporting
+6,Mr. Bob Eisele,08:30,8,Retrievers (Labrador),Labrador Retriever,Sporting
+6,Mr. Bob Eisele,09:30,0,Retrievers (Nova Scotia Duck T,Nova Scotia Duck Tolling Retriever,Sporting
+6,Mr. Bob Eisele,09:30,1,Spinone Italiano,Spinone Italiano,Sporting
+6,Mr. Bob Eisele,09:30,2,Vizslas,Vizsla,Sporting
+6,Mr. Bob Eisele,10:30,0,Weimaraners,Weimaraner,Sporting
+6,Mr. Bob Eisele,10:30,1,Wirehaired Pointing Griffons,Wirehaired Pointing Griffon,Sporting
+6,Mr. Bob Eisele,10:30,2,Wirehaired Vizsla,Wirehaired Vizsla,Sporting
+6,Mr. Bob Eisele,10:30,3,Spaniels (English Springer),English Springer Spaniel,Sporting
+6,Mr. Bob Eisele,10:30,4,Lagotto Romagnolo,Lagotto Romagnolo,Sporting
+6,Mr. Bob Eisele,10:30,5,Spaniels (Cocker) ASCOB,Cocker Spaniel (ASCOB),Sporting
+6,Mr. Bob Eisele,10:30,6,Spaniels (Cocker) Black,Cocker Spaniel (Black),Sporting

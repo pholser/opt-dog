@@ -1,0 +1,148 @@
+ring,judge,block_start,position,event,breed,group
+1,Mrs. Donna Ernst,08:40,0,Soft-Coated Wheaten Terriers,Soft Coated Wheaten Terrier,Terrier
+1,Mrs. Donna Ernst,08:40,1,American Hairless Terrier,American Hairless Terrier,Terrier
+1,Mrs. Donna Ernst,08:40,2,Australian Terriers,Australian Terrier,Terrier
+1,Mrs. Donna Ernst,08:40,3,Border Terriers,Border Terrier,Terrier
+1,Mrs. Donna Ernst,08:40,4,Cairn Terriers,Cairn Terrier,Terrier
+1,Mrs. Donna Ernst,08:40,5,Dandie Dinmont Terriers,Dandie Dinmont Terrier,Terrier
+1,Mrs. Donna Ernst,08:40,6,Glen of Imaal Terrier,Glen of Imaal Terrier,Terrier
+1,Mrs. Donna Ernst,08:40,7,Lakeland Terriers,Lakeland Terrier,Terrier
+1,Mrs. Donna Ernst,08:40,8,Miniature Schnauzers,Miniature Schnauzer,Terrier
+1,Mrs. Donna Ernst,08:40,9,Norfolk Terriers,Norfolk Terrier,Terrier
+1,Mrs. Donna Ernst,09:30,0,Norwich Terriers,Norwich Terrier,Terrier
+1,Mrs. Donna Ernst,09:30,1,Parson Russell Terrier,Parson Russell Terrier,Terrier
+1,Mrs. Donna Ernst,09:30,2,Russell Terrier,Russell Terrier,Terrier
+1,Mrs. Donna Ernst,09:30,3,Scottish Terriers,Scottish Terrier,Terrier
+1,Mrs. Donna Ernst,09:30,4,Sealyham Terriers,Sealyham Terrier,Terrier
+1,Mrs. Donna Ernst,09:30,5,Fox Terriers (Smooth),Smooth Fox Terrier,Terrier
+1,Mrs. Donna Ernst,09:30,6,Welsh Terriers,Welsh Terrier,Terrier
+1,Mrs. Donna Ernst,10:35,0,West Highland White Terriers,West Highland White Terrier,Terrier
+1,Mrs. Donna Ernst,10:35,1,Fox Terriers (Wire),Wire Fox Terrier,Terrier
+1,Mrs. Donna Ernst,10:35,2,American Staffordshire Terrier,American Staffordshire Terrier,Terrier
+1,Mrs. Donna Ernst,10:35,3,Spaniels (Field),Field Spaniel,Sporting
+1,Mrs. Donna Ernst,10:35,4,Spinone Italiano,Spinone Italiano,Sporting
+1,Mrs. Donna Ernst,11:40,0,Vizslas,Vizsla,Sporting
+1,Mrs. Donna Ernst,11:40,1,Weimaraners,Weimaraner,Sporting
+1,Mrs. Donna Ernst,11:40,2,Spaniels (Welsh Springer),Welsh Springer Spaniel,Sporting
+1,Mrs. Donna Ernst,11:40,3,Wirehaired Pointing Griffons,Wirehaired Pointing Griffon,Sporting
+1,Mrs. Donna Ernst,11:40,4,Spaniels (Sussex),Sussex Spaniel,Sporting
+2,Greg Speeks,12:50,0,Shetland Sheepdogs,Shetland Sheepdog,Herding
+3,Mrs. Melanie S Whitehair,08:30,0,Bull Terriers (Colored),Bull Terrier (Colored),Terrier
+3,Mrs. Melanie S Whitehair,09:45,0,Bull Terriers (White),Bull Terrier (White),Terrier
+3,Mrs. Melanie S Whitehair,09:45,1,Miniature Bull Terriers,Miniature Bull Terrier,Terrier
+4,Mrs. Janet Turnage Nahikian,08:30,0,Briards,Briard,Herding
+4,Mrs. Janet Turnage Nahikian,08:30,1,German Shepherd Dogs,German Shepherd Dog,Herding
+4,Mrs. Janet Turnage Nahikian,08:30,2,Mudik,Mudi,Herding
+4,Mrs. Janet Turnage Nahikian,08:30,3,Old English Sheepdogs,Old English Sheepdog,Herding
+4,Mrs. Janet Turnage Nahikian,08:30,4,Cardigan Welsh Corgis,Cardigan Welsh Corgi,Herding
+4,Mrs. Janet Turnage Nahikian,09:10,0,Miniature American Shepherds,Miniature American Shepherd,Herding
+4,Mrs. Janet Turnage Nahikian,09:10,1,Pembroke Welsh Corgis,Pembroke Welsh Corgi,Herding
+4,Mrs. Janet Turnage Nahikian,09:10,2,Pumi,Pumi,Herding
+4,Mrs. Janet Turnage Nahikian,09:10,3,Pyrenean Shepherds,Pyrenean Shepherd,Herding
+4,Mrs. Janet Turnage Nahikian,10:00,0,Poodles (Toy),Poodle (Toy),Toy
+4,Mrs. Janet Turnage Nahikian,10:00,1,Poodles (Miniature),Poodle (Miniature),Non-Sporting
+4,Mrs. Janet Turnage Nahikian,10:00,2,Poodles (Standard),Poodle (Standard),Non-Sporting
+5,Patricia V Trotter,08:30,0,Manchester Terriers (Toy),Manchester Terrier (Toy),Toy
+5,Patricia V Trotter,08:30,1,Miniature Pinschers,Miniature Pinscher,Toy
+5,Patricia V Trotter,08:30,2,Papillons,Papillon,Toy
+5,Patricia V Trotter,08:30,3,Pekingese,Pekingese,Toy
+5,Patricia V Trotter,08:30,4,Pomeranians,Pomeranian,Toy
+5,Patricia V Trotter,09:20,0,Pugs,Pug,Toy
+5,Patricia V Trotter,09:20,1,Basset Hounds,Basset Hound,Hound
+5,Patricia V Trotter,09:20,2,American Foxhounds,American Foxhound,Hound
+5,Patricia V Trotter,09:20,3,Bloodhounds,Bloodhound,Hound
+5,Patricia V Trotter,09:20,4,English Foxhound,English Foxhound,Hound
+5,Patricia V Trotter,09:20,5,Irish Wolfhounds,Irish Wolfhound,Hound
+5,Patricia V Trotter,10:00,0,Retrievers (Chesapeake Bay),Chesapeake Bay Retriever,Sporting
+5,Patricia V Trotter,10:00,1,Retrievers (Curly-Coated),Curly-Coated Retriever,Sporting
+5,Patricia V Trotter,10:00,2,Retrievers (Flat-Coated),Flat-Coated Retriever,Sporting
+5,Patricia V Trotter,10:40,0,Retrievers (Golden),Golden Retriever,Sporting
+5,Mrs. Betty Nelson Pollock,12:05,0,Dutch Shepherds,Dutch Shepherd,Miscellaneous
+5,Mrs. Betty Nelson Pollock,12:05,1,Great Danes,Great Dane,Working
+5,Mrs. Betty Nelson Pollock,12:05,2,Great Pyrenees,Great Pyrenees,Working
+5,Mrs. Betty Nelson Pollock,13:10,0,Greater Swiss Mountain Dogs,Greater Swiss Mountain Dog,Working
+5,Mrs. Betty Nelson Pollock,13:10,1,Leonberger,Leonberger,Working
+5,Mrs. Betty Nelson Pollock,13:10,2,Newfoundlands,Newfoundland,Working
+5,Mrs. Betty Nelson Pollock,13:10,3,Portuguese Water Dogs,Portuguese Water Dog,Working
+5,Mrs. Betty Nelson Pollock,14:10,0,Rottweilers,Rottweiler,Working
+5,Mrs. Betty Nelson Pollock,14:10,1,Saint Bernards,Saint Bernard,Working
+5,Mrs. Betty Nelson Pollock,14:10,2,Samoyeds,Samoyed,Working
+6,Peggy Beisel-McIlwaine,10:50,0,Boxers,Boxer,Working
+6,Peggy Beisel-McIlwaine,10:50,1,Bullmastiffs,Bullmastiff,Working
+6,Peggy Beisel-McIlwaine,10:50,2,Cane Corso,Cane Corso,Working
+6,Peggy Beisel-McIlwaine,10:50,3,Australian Cattle Dogs,Australian Cattle Dog,Herding
+6,Peggy Beisel-McIlwaine,11:45,0,Collies (Rough),Collie (Rough),Herding
+6,Peggy Beisel-McIlwaine,11:45,1,Collies (Smooth),Collie (Smooth),Herding
+6,Peggy Beisel-McIlwaine,11:45,2,Bracchi Italiani,Bracco Italiano,Sporting
+6,Peggy Beisel-McIlwaine,11:45,3,Brittanys,Brittany,Sporting
+6,Peggy Beisel-McIlwaine,11:45,4,Setters (English),English Setter,Sporting
+6,Peggy Beisel-McIlwaine,12:45,0,Pointers (German Shorthaired),German Shorthaired Pointer,Sporting
+6,Peggy Beisel-McIlwaine,12:45,1,Setters (Gordon),Gordon Setter,Sporting
+6,Peggy Beisel-McIlwaine,12:45,2,Setters (Irish),Irish Setter,Sporting
+6,Peggy Beisel-McIlwaine,12:45,3,Retrievers (Labrador),Labrador Retriever,Sporting
+6,Peggy Beisel-McIlwaine,13:50,0,Spaniels (English Cocker),English Cocker Spaniel,Sporting
+6,Peggy Beisel-McIlwaine,13:50,1,Nederlandse Kooikerhondjes,Nederlandse Kooikerhondje,Sporting
+6,Peggy Beisel-McIlwaine,13:50,2,Spaniels (English Springer),English Springer Spaniel,Sporting
+6,Peggy Beisel-McIlwaine,13:50,3,Lagotto Romagnolo,Lagotto Romagnolo,Sporting
+7,Grace M Fritz,09:40,0,English Toy Spaniels (B&PC),English Toy Spaniel (B&PC),Toy
+7,Grace M Fritz,09:40,1,English Toy Spaniels (KC&R),English Toy Spaniel (KC&R),Toy
+7,Grace M Fritz,09:40,2,Beagles (13''),Beagle (13 Inch),Hound
+7,Grace M Fritz,09:40,3,Beagles (13''-15''),Beagle (15 Inch),Hound
+7,Grace M Fritz,09:40,4,Dachshunds (Longhaired),Dachshund (Longhaired),Hound
+7,Grace M Fritz,09:40,5,Dachshunds (Smooth),Dachshund (Smooth),Hound
+7,Grace M Fritz,09:40,6,Dachshunds (Wirehaired),Dachshund (Wirehaired),Hound
+7,Grace M Fritz,09:40,7,Petit Basset Griffon Vendeen,Petit Basset Griffon Vendeen,Hound
+7,Grace M Fritz,09:40,8,Cirneco Dell'Etna,Cirneco dell'Etna,Hound
+7,Grace M Fritz,09:40,9,Afghan Hounds,Afghan Hound,Hound
+7,Grace M Fritz,10:45,0,Borzois,Borzoi,Hound
+7,Grace M Fritz,10:45,1,Ibizan Hounds,Ibizan Hound,Hound
+7,Grace M Fritz,10:45,2,Otterhounds,Otterhound,Hound
+7,Grace M Fritz,10:45,3,Pharaoh Hounds,Pharaoh Hound,Hound
+7,Grace M Fritz,10:45,4,Rhodesian Ridgebacks,Rhodesian Ridgeback,Hound
+7,Grace M Fritz,11:45,0,Whippets,Whippet,Hound
+7,Grace M Fritz,11:45,1,Retrievers (Nova Scotia Duck T,Nova Scotia Duck Tolling Retriever,Sporting
+7,Grace M Fritz,11:45,2,Pointers,Pointer,Sporting
+7,Grace M Fritz,11:45,3,Doberman Pinschers,Doberman Pinscher,Working
+7,Grace M Fritz,12:50,0,Dogo Argentinos,Dogo Argentino,Working
+7,Grace M Fritz,12:50,1,Siberian Huskies,Siberian Husky,Working
+7,Grace M Fritz,12:50,2,Standard Schnauzers,Standard Schnauzer,Working
+7,Grace M Fritz,12:50,3,Tibetan Mastiff,Tibetan Mastiff,Working
+7,Ms. Catherine Burlile,14:25,0,Bernese Mountain Dogs,Bernese Mountain Dog,Working
+8,Ms. Jan N Paulk,08:30,0,Affenpinschers,Affenpinscher,Toy
+8,Ms. Jan N Paulk,08:30,1,Biewer Terriers,Biewer Terrier,Toy
+8,Ms. Jan N Paulk,08:30,2,Cavalier King Charles Spaniels,Cavalier King Charles Spaniel,Toy
+8,Ms. Jan N Paulk,08:30,3,Chihuahuas (Long Coat),Chihuahua (Long Coat),Toy
+8,Ms. Jan N Paulk,08:30,4,Chihuahuas (Smooth Coat),Chihuahua (Smooth Coat),Toy
+8,Ms. Jan N Paulk,09:35,0,Chinese Crested,Chinese Crested,Toy
+8,Ms. Jan N Paulk,09:35,1,Havanese,Havanese,Toy
+8,Ms. Jan N Paulk,09:35,2,Italian Greyhounds,Italian Greyhound,Toy
+8,Ms. Jan N Paulk,09:35,3,Japanese Chin,Japanese Chin,Toy
+8,Ms. Jan N Paulk,09:35,4,Maltese,Maltese,Toy
+8,Ms. Jan N Paulk,10:35,0,Russian Toys,Russian Toy,Toy
+8,Ms. Jan N Paulk,10:35,1,Toy Fox Terrier,Toy Fox Terrier,Toy
+8,Ms. Jan N Paulk,10:35,2,Yorkshire Terriers,Yorkshire Terrier,Toy
+8,Ms. Jan N Paulk,10:35,3,Basenjis,Basenji,Hound
+8,Ms. Jan N Paulk,10:35,4,Salukis,Saluki,Hound
+8,Ms. Jan N Paulk,10:35,5,Scottish Deerhounds,Scottish Deerhound,Hound
+8,Ms. Jan N Paulk,10:35,6,Australian Shepherds,Australian Shepherd,Herding
+8,Ms. Jan N Paulk,10:35,7,Beauceron,Beauceron,Herding
+8,Ms. Jan N Paulk,12:05,0,Belgian Malinois,Belgian Malinois,Herding
+8,Ms. Jan N Paulk,12:05,1,Belgian Sheepdogs,Belgian Sheepdog,Herding
+8,Ms. Jan N Paulk,12:05,2,Belgian Tervuren,Belgian Tervuren,Herding
+8,Ms. Jan N Paulk,12:05,3,Berger Picards,Berger Picard,Herding
+8,Ms. Jan N Paulk,12:05,4,Border Collies,Border Collie,Herding
+8,Ms. Jan N Paulk,12:05,5,Bouvier Des Flandres,Bouvier des Flandres,Herding
+9,Dr. Kenneth H. Levison,08:40,0,American Eskimo Dog,American Eskimo Dog,Non-Sporting
+9,Dr. Kenneth H. Levison,08:40,1,Boston Terriers,Boston Terrier,Non-Sporting
+9,Dr. Kenneth H. Levison,08:40,2,Coton de Tulear,Coton de Tulear,Non-Sporting
+9,Dr. Kenneth H. Levison,08:40,3,French Bulldogs,French Bulldog,Non-Sporting
+9,Dr. Kenneth H. Levison,08:40,4,Lowchen,Lowchen,Non-Sporting
+9,Dr. Kenneth H. Levison,08:40,5,Schipperkes,Schipperke,Non-Sporting
+9,Dr. Kenneth H. Levison,08:40,6,Tibetan Spaniels,Tibetan Spaniel,Non-Sporting
+9,Dr. Kenneth H. Levison,08:40,7,Tibetan Terriers,Tibetan Terrier,Non-Sporting
+9,Dr. Kenneth H. Levison,09:45,0,Xoloitzcuintli,Xoloitzcuintli,Non-Sporting
+9,Dr. Kenneth H. Levison,09:45,1,Bulldogs,Bulldog,Non-Sporting
+9,Dr. Kenneth H. Levison,09:45,2,Chinese Shar-Pei,Chinese Shar-Pei,Non-Sporting
+9,Dr. Kenneth H. Levison,09:45,3,Chow Chows,Chow Chow,Non-Sporting
+9,Dr. Kenneth H. Levison,11:05,0,Keeshonden,Keeshond,Non-Sporting
+9,Dr. Kenneth H. Levison,11:05,1,Dalmatians,Dalmatian,Non-Sporting

@@ -1,7 +1,7 @@
 name,group,examination,variety_of,min_ring,aliases
 American Water Spaniel,Sporting,ground_or_ramp,,,
 Barbet,Sporting,ground,,,
-Boykin Spaniel,Sporting,ground_or_ramp,,,
+Boykin Spaniel,Sporting,ground_or_ramp,,,Spaniel (Boykin)
 Bracco Italiano,Sporting,ground,,,Bracchi Italiani
 Brittany,Sporting,ground,,,
 Chesapeake Bay Retriever,Sporting,ground,,,Retriever (Chesapeake Bay)
@@ -26,7 +26,7 @@ Irish Water Spaniel,Sporting,ground,,,Spaniel (Irish Water)
 Labrador Retriever,Sporting,ground,,,Retriever (Labrador)
 Lagotto Romagnolo,Sporting,ramp,,,Lagotti Romagnoli
 Nederlandse Kooikerhondje,Sporting,table,,,
-Nova Scotia Duck Tolling Retriever,Sporting,ground_or_ramp,,,Retriever (Nova Scotia Duck Tolling)|Retriever (Nova Scotia Duck Toll)|Retriever (Nova Scotia Duck)|Ret (Nova Scotia Duck Tolling)|Retriever (NS Duck Tolling)
+Nova Scotia Duck Tolling Retriever,Sporting,ground_or_ramp,,,Retriever (Nova Scotia Duck Tolling)|Retriever (Nova Scotia Duck Toll)|Retriever (Nova Scotia Duck)|Ret (Nova Scotia Duck Tolling)|Retriever (NS Duck Tolling)|Retriever (Nova Scotia Duck T)
 Pointer,Sporting,ground,,,
 Spinone Italiano,Sporting,ground,,,Spinoni Italiani
 Sussex Spaniel,Sporting,ramp,,,Spaniel (Sussex)
@@ -100,7 +100,7 @@ Portuguese Water Dog,Working,ground_or_ramp,,,
 Rottweiler,Working,ground,,,
 Saint Bernard,Working,ground,,,St. Bernard
 Samoyed,Working,ground,,,
-Siberian Husky,Working,ground,,,
+Siberian Husky,Working,ground,,,Siberian Huskies
 Standard Schnauzer,Working,ground_or_ramp,,,
 Tibetan Mastiff,Working,ground,,,
 Airedale Terrier,Terrier,ground,,,

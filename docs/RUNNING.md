@@ -22,7 +22,7 @@ examples write `python` for short.
 |---|---|---|---|
 | [`optdog.plan`](#plan-a-show-optdogplan) | Plan a real show from its inputs: the product | a problem directory | a program directory, an HTML chart |
 | [`optdog.render`](#look-at-one-show-optdogrender) | Look at one show's schedules, and compare them | `data/parsed`, `data/synthetic`, `data/solved` | text or HTML |
-| [`optdog.ingest.build_dataset`](#1-parse-the-published-programs-optdogingestbuild_dataset) | Turn published PDF programs into data | `data/raw/bradshaw` | `data/parsed` |
+| [`optdog.ingest.build_dataset`](#1-parse-the-published-programs-optdogingestbuild_dataset) | Turn published PDF programs into data | `data/raw/<superintendent>` | `data/parsed` |
 | [`optdog.ingest.pdftext`](#inspect-a-pdf-optdogingestpdftext) | See the text the parser sees | one PDF | stdout |
 | [`optdog.synth.exhibitors`](#2-make-up-exhibitors-optdogsynthexhibitors) | Give the published shows exhibitors, for conflict scoring | `data/parsed` | `data/synthetic` |
 | [`optdog.analysis.calibrate`](#3-measure-human-practice-optdoganalysiscalibrate) | Measure how superintendents really schedule | `data/parsed` | `docs/calibration.md` |
@@ -129,21 +129,29 @@ python -m optdog.analysis.figures       # 6. → docs/figures.html
 | only a report's wording or layout | 5 or 6 |
 
 Steps 1–3, 5 and 6 take seconds. Step 4 solves every day with every solver step, each phase up
-to its time limit: the last full run took about 3.5 hours for the 11 days (SOLUTION.md §4).
+to its time limit: the last full run took about 3.5 hours for the 11 Bradshaw days, and each
+Rau day took 15–20 minutes (SOLUTION.md §4).
 
 ### 1. Parse the published programs: `optdog.ingest.build_dataset`
 
 Real programs are the evidence: the constraints are checked against them and the solver is
-compared with them. This step parses each PDF listed in `data/raw/bradshaw/manifest.csv` (rows
-with `include` = 1) with the Bradshaw parser and writes one directory per show day to
-`data/parsed/bradshaw/<date>-<club>/`: the program as CSV, plus `report.md`, which records the
-parser's checks against the program's printed totals and breed index and what it left out
-(sweepstakes, juniors, obedience and other events outside regular breed judging). It prints a
-line per day with how many checks passed.
+compared with them. Each superintendent lays out programs differently and has its own parser:
+Jack Bradshaw (`ingest/bradshaw.py`) and Rau Dog Shows (`ingest/rau.py`). This step parses each
+PDF listed in `data/raw/<superintendent>/manifest.csv` (rows with `include` = 1; a row left out
+says why in its notes) and writes one directory per show day to
+`data/parsed/<superintendent>/<date>-<club>/`: the program as CSV, plus `report.md`, which records
+the parser's checks against the program's own figures (ring or judge totals, the breed index,
+the number of breeds) and what it left out (sweepstakes, juniors, Beginner Puppy and other events
+outside regular breed judging). Checks that fail because the program contradicts itself are
+listed in the parser's tests. It prints a line per day with how many checks passed.
 
-Only the Bradshaw programs are parsed. The other folders in `data/raw/` (see
-`data/raw/SOURCES.md`) are kept for reference and have no parser yet. The PDFs are untrusted
-input: they are parsed, never executed.
+```sh
+python -m optdog.ingest.build_dataset          # every superintendent
+python -m optdog.ingest.build_dataset rau      # only these
+```
+
+The Baray programs and the Mid-Kentucky excerpt in `data/raw/` (see `data/raw/SOURCES.md`) have
+no parser yet. The PDFs are untrusted input: they are parsed, never executed.
 
 ### Inspect a PDF: `optdog.ingest.pdftext`
 
@@ -175,7 +183,7 @@ and which hard rules the human programs break when timed at AKC's 25 dogs an hou
 Solving takes minutes per show, so this runs once and saves the results for the reports and for
 `render --saved`. For each parsed day it computes the lower bound on the finish, then runs each
 solver step (placement, formation, ordering, packing), validates each result, and saves the
-valid ones to `data/solved/bradshaw/<show>/`. A result that breaks a hard rule is not saved
+valid ones to `data/solved/<superintendent>/<show>/`. A result that breaks a hard rule is not saved
 (a judge over the entry limit, V1, is an input problem and is allowed). It prints one line per
 day and exits with status 1 if any step failed.
 

@@ -29,20 +29,23 @@ its source.
 
 ## Results so far
 
-Tested on 11 published all-breed show days from one superintendent, 2022–2026, comparing the
-published program with opt-dog's best solver step (3c), both timed the same way:
+Tested on 14 published all-breed show days from two superintendents (11 from Jack Bradshaw in
+California and Arizona, 2022–2026; 3 from Rau Dog Shows in New Jersey and Maryland, 2024),
+comparing the published program with opt-dog's best solver step (3c), both timed the same way:
 
-| Over the 11 days | Published | opt-dog |
+| Over the 14 days | Published | opt-dog |
 |---|---|---|
-| Mean minutes of finish above the proven lower bound | 86 | 4 |
-| Days within 10 minutes of the lower bound | 1 | 11 |
-| Short blocks (under 15 dogs) | 55 | 14 |
-| Judge ring changes outside lunch | 21 | 0 |
-| Exhibitor-conflict minutes (synthetic exhibitors) | 16,937 | 7,541 |
-| Judge idle minutes | 1,258 | 1,549 |
+| Mean minutes of finish above the proven lower bound | 98 | 4 |
+| Days within 10 minutes of the lower bound | 1 | 14 |
+| Short blocks (under 15 dogs) | 59 | 15 |
+| Judge ring changes outside lunch | 32 | 0 |
+| Exhibitor-conflict minutes (synthetic exhibitors) | 17,466 | 7,674 |
+| Judge idle minutes | 1,657 | 1,724 |
 
-The schedules break no hard rule on any day; 6 of the 11 published programs break at least one
-as this project defines them. Judge idle time is the price paid for fewer exhibitor conflicts.
+The schedules break no hard rule on any day, including the posted closing time where a program
+gives one; 8 of the 14 published programs break at least one as this project defines them. On
+the large Bradshaw days, judge idle time is the price paid for fewer exhibitor conflicts; on the
+smaller Rau days both go down.
 
 Two cautions. Group and Best in Show durations are deliberately conservative, so the absolute
 clock times run later than real shows close; they are for comparison, not prediction. And
@@ -142,7 +145,7 @@ tests/          pytest suite
 
 ## Status
 
-A research prototype. The model is tested against published programs from one superintendent
-(Jack Bradshaw), which are the only programs parsed so far. The planner works end to end on
+A research prototype. The model is tested against published programs from two superintendents
+(Jack Bradshaw and Rau Dog Shows), the only ones with parsers so far. The planner works end to end on
 real inputs, but planning a real show would need its actual group and Best in Show durations
 and ring layout, and real exhibitor sign-ups.

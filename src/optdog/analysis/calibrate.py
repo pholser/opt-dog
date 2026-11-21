@@ -221,7 +221,7 @@ def render(m: Measurements) -> str:
 
 def load_all() -> list[tuple[str, JudgingProgram]]:
     data = CsvDataset()
-    return [(key.slug, data.program(key)) for key in data.program_keys()]
+    return [(f"{key.source}/{key.slug}", data.program(key)) for key in data.program_keys()]
 
 
 def main() -> None:

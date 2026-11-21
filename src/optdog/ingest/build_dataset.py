@@ -1,6 +1,11 @@
-"""Parse the raw judging programs listed in each manifest into data/parsed/.
+"""Parse the raw judging programs listed in each superintendent's manifest into data/parsed/.
 
-    python -m optdog.ingest.build_dataset
+    python -m optdog.ingest.build_dataset            # every superintendent with a parser
+    python -m optdog.ingest.build_dataset rau        # only these
+
+Each superintendent has a parser (``PARSERS``) and ``data/raw/<source>/manifest.csv``: one row
+per show day with its file, the day as the program names it, the club, the date, whether to
+include it, and notes.
 
 Only regular breed events of the all-breed show are kept (U 2026-11-13): the parser reads
 sweepstakes, Junior Showmanship, Beginner Puppy, FSS open shows, concurrent specialties, obedience
@@ -12,14 +17,21 @@ from __future__ import annotations
 
 import csv
 import re
+import sys
+from collections.abc import Callable
 from pathlib import Path
 
-from optdog.ingest.bradshaw import BradshawParser, ParsedDay
+from optdog.ingest.bradshaw import BradshawParser
+from optdog.ingest.common import ParsedDay
+from optdog.ingest.rau import RauParser
 from optdog.io.csv_dataset import CsvDataset
 from optdog.sources import ShowKey
 
 ROOT = Path(__file__).resolve().parents[3]
 RAW = ROOT / "data" / "raw"
+
+# superintendent -> its parser: ``parse(pdf)`` gives every all-breed day in the file
+PARSERS: dict[str, Callable[[], BradshawParser | RauParser]] = {"bradshaw": BradshawParser, "rau": RauParser}
 
 
 def slug(s: str) -> str:
@@ -58,10 +70,10 @@ def write_report(pd: ParsedDay, path: Path) -> None:
     path.write_text("\n".join(lines) + "\n")
 
 
-def build_bradshaw() -> list[tuple[str, ParsedDay]]:
-    parser = BradshawParser()
+def build(source: str) -> list[tuple[str, ParsedDay]]:
+    parser = PARSERS[source]()
     data = CsvDataset()
-    src = RAW / "bradshaw"
+    src = RAW / source
     with open(src / "manifest.csv", newline="") as f:
         rows = [r for r in csv.DictReader(f) if r["include"] == "1"]
     by_file: dict[str, list[dict]] = {}
@@ -78,21 +90,22 @@ def build_bradshaw() -> list[tuple[str, ParsedDay]]:
             pd.program.show.date = e["date"]
             if e["notes"]:
                 pd.report.notes.append(f"manifest: {e['notes']}")
-            key = ShowKey("bradshaw", f"{e['date']}-{slug(e['show'])}")
-            data.put_program(key, pd.program, origin=f"bradshaw/{fname}#{e['day']}")
+            key = ShowKey(source, f"{e['date']}-{slug(e['show'])}")
+            data.put_program(key, pd.program, origin=f"{source}/{fname}#{e['day']}")
             write_report(pd, data.program_dir(key) / "report.md")
             out.append((key.slug, pd))
     return out
 
 
-def main() -> None:
-    results = build_bradshaw()
-    print(f"{'show':55} {'checks':>9} {'index':>9}")
+def main(argv: list[str] | None = None) -> None:
+    sources = (sys.argv[1:] if argv is None else argv) or list(PARSERS)
+    results = [(f"{s}/{key}", pd) for s in sources for key, pd in build(s)]
+    print(f"{'show':62} {'checks':>9} {'index':>9}")
     for key, pd in results:
         r = pd.report
         idx = next((c for c in r.checks if c[0].startswith("breed index")), None)
         ok = len(r.checks) - len(r.failed_checks)
-        print(f"{key:55} {ok:>4}/{len(r.checks):<4} {(f'{idx[2]}/{idx[1]}' if idx else '-'):>9}")
+        print(f"{key:62} {ok:>4}/{len(r.checks):<4} {(f'{idx[2]}/{idx[1]}' if idx else '-'):>9}")
 
 
 if __name__ == "__main__":

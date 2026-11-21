@@ -1,0 +1,639 @@
+dog,sex,status,exhibitor,judge,event
+D00001,B,class,O0001,Grace M Fritz,Chinese Shar-Pei
+D00002,B,class,O0002,Grace M Fritz,Chinese Shar-Pei
+D00003,B,class,O0003,Grace M Fritz,Keeshonden
+D00006,D,class,O0004,Grace M Fritz,French Bulldogs
+D00007,B,class,O0001,Grace M Fritz,French Bulldogs
+D00014,B,champion,O0006,Grace M Fritz,French Bulldogs
+D00015,D,champion,O0003,Grace M Fritz,Xoloitzcuintli
+D00017,D,class,O0008,Grace M Fritz,Tibetan Spaniels
+D00018,B,class,O0009,Grace M Fritz,Tibetan Spaniels
+D00019,B,class,O0009,Grace M Fritz,Tibetan Spaniels
+D00020,D,champion,O0011,Grace M Fritz,Tibetan Spaniels
+D00021,D,champion,O0012,Grace M Fritz,Tibetan Spaniels
+D00022,D,champion,O0013,Grace M Fritz,Tibetan Spaniels
+D00023,B,champion,O0014,Grace M Fritz,Tibetan Spaniels
+D00025,B,class,O0015,Grace M Fritz,Tibetan Terriers
+D00027,D,champion,O0016,Grace M Fritz,Lowchen
+D00028,D,class,O0017,Grace M Fritz,Spaniels (English Cocker)
+D00030,D,champion,O0018,Grace M Fritz,Spaniels (English Cocker)
+D00031,D,champion,O0018,Grace M Fritz,Spaniels (English Cocker)
+D00033,D,champion,O0020,Grace M Fritz,Spaniels (Field)
+D00035,B,champion,O0021,Grace M Fritz,Spaniels (Boykin)
+D00040,B,class,O0022,Grace M Fritz,Spinone Italiano
+D00041,B,class,O0018,Grace M Fritz,Spinone Italiano
+D00042,B,class,O0018,Grace M Fritz,Spinone Italiano
+D00043,B,class,O0025,Grace M Fritz,Spinone Italiano
+D00045,B,champion,O0026,Grace M Fritz,Spinone Italiano
+D00046,D,class,O0027,Peggy Beisel-McIlwaine,German Shepherd Dogs
+D00047,D,class,O0028,Peggy Beisel-McIlwaine,German Shepherd Dogs
+D00048,B,class,O0029,Peggy Beisel-McIlwaine,German Shepherd Dogs
+D00049,B,class,O0030,Peggy Beisel-McIlwaine,German Shepherd Dogs
+D00050,B,champion,O0020,Peggy Beisel-McIlwaine,German Shepherd Dogs
+D00054,B,class,O0032,Peggy Beisel-McIlwaine,Australian Shepherds
+D00056,B,class,O0033,Peggy Beisel-McIlwaine,Australian Shepherds
+D00057,B,class,O0034,Peggy Beisel-McIlwaine,Australian Shepherds
+D00058,B,class,O0035,Peggy Beisel-McIlwaine,Australian Shepherds
+D00059,D,champion,O0001,Peggy Beisel-McIlwaine,Australian Shepherds
+D00062,D,champion,O0037,Peggy Beisel-McIlwaine,Beauceron
+D00064,D,champion,O0038,Peggy Beisel-McIlwaine,Belgian Malinois
+D00066,B,class,O0008,Peggy Beisel-McIlwaine,Belgian Sheepdogs
+D00067,D,champion,O0008,Peggy Beisel-McIlwaine,Belgian Sheepdogs
+D00071,B,class,O0041,Peggy Beisel-McIlwaine,Border Collies
+D00072,B,champion,O0041,Peggy Beisel-McIlwaine,Border Collies
+D00073,B,champion,O0043,Peggy Beisel-McIlwaine,Border Collies
+D00074,D,champion,O0044,Peggy Beisel-McIlwaine,Berger Picards
+D00075,D,class,O0045,Peggy Beisel-McIlwaine,Shetland Sheepdogs
+D00077,B,class,O0003,Peggy Beisel-McIlwaine,Shetland Sheepdogs
+D00079,B,class,O0047,Peggy Beisel-McIlwaine,Shetland Sheepdogs
+D00080,D,champion,O0048,Peggy Beisel-McIlwaine,Shetland Sheepdogs
+D00081,D,champion,O0049,Peggy Beisel-McIlwaine,Shetland Sheepdogs
+D00086,B,champion,O0050,Peggy Beisel-McIlwaine,Briards
+D00087,B,champion,O0034,Peggy Beisel-McIlwaine,Briards
+D00089,D,class,O0052,Peggy Beisel-McIlwaine,Entlebucher Mountain Dog
+D00090,D,champion,O0053,Peggy Beisel-McIlwaine,Mudik
+D00092,B,class,O0054,Peggy Beisel-McIlwaine,Cardigan Welsh Corgis
+D00094,D,champion,O0055,Peggy Beisel-McIlwaine,Cardigan Welsh Corgis
+D00096,D,class,O0056,Peggy Beisel-McIlwaine,Miniature American Shepherds
+D00098,B,class,O0056,Peggy Beisel-McIlwaine,Miniature American Shepherds
+D00099,B,class,O0058,Peggy Beisel-McIlwaine,Miniature American Shepherds
+D00100,D,champion,O0059,Peggy Beisel-McIlwaine,Miniature American Shepherds
+D00102,B,champion,O0060,Peggy Beisel-McIlwaine,Miniature American Shepherds
+D00104,B,class,O0043,Peggy Beisel-McIlwaine,Pembroke Welsh Corgis
+D00105,B,class,O0043,Peggy Beisel-McIlwaine,Pembroke Welsh Corgis
+D00106,B,class,O0043,Peggy Beisel-McIlwaine,Pembroke Welsh Corgis
+D00107,B,class,O0064,Peggy Beisel-McIlwaine,Pembroke Welsh Corgis
+D00108,D,champion,O0064,Peggy Beisel-McIlwaine,Pembroke Welsh Corgis
+D00111,D,champion,O0066,Dr. Kenneth H. Levison,Basset Hounds
+D00114,B,champion,O0067,Dr. Kenneth H. Levison,Cirneco Dell'Etna
+D00115,D,class,O0068,Dr. Kenneth H. Levison,Whippets
+D00116,D,class,O0069,Dr. Kenneth H. Levison,Whippets
+D00117,B,class,O0070,Dr. Kenneth H. Levison,Whippets
+D00119,B,class,O0071,Dr. Kenneth H. Levison,Whippets
+D00120,B,class,O0072,Dr. Kenneth H. Levison,Whippets
+D00121,B,class,O0072,Dr. Kenneth H. Levison,Whippets
+D00122,B,class,O0074,Dr. Kenneth H. Levison,Whippets
+D00124,B,champion,O0074,Dr. Kenneth H. Levison,Whippets
+D00125,B,champion,O0076,Dr. Kenneth H. Levison,Whippets
+D00128,D,class,O0077,Dr. Kenneth H. Levison,American Foxhounds
+D00131,B,champion,O0078,Dr. Kenneth H. Levison,American Foxhounds
+D00132,D,class,O0079,Dr. Kenneth H. Levison,Black and Tan Coonhounds
+D00133,B,champion,O0080,Dr. Kenneth H. Levison,Bloodhounds
+D00134,B,champion,O0081,Dr. Kenneth H. Levison,English Foxhound
+D00137,B,champion,O0082,Dr. Kenneth H. Levison,Ibizan Hounds
+D00139,B,class,O0083,Dr. Kenneth H. Levison,Irish Wolfhounds
+D00140,B,champion,O0084,Dr. Kenneth H. Levison,Irish Wolfhounds
+D00141,B,class,O0085,Dr. Kenneth H. Levison,Salukis
+D00142,D,class,O0086,Dr. Kenneth H. Levison,Rhodesian Ridgebacks
+D00144,B,class,O0087,Dr. Kenneth H. Levison,Rhodesian Ridgebacks
+D00145,D,champion,O0079,Dr. Kenneth H. Levison,Rhodesian Ridgebacks
+D00147,B,champion,O0079,Dr. Kenneth H. Levison,Rhodesian Ridgebacks
+D00150,B,champion,O0027,Dr. Kenneth H. Levison,Otterhounds
+D00152,D,champion,O0091,Dr. Kenneth H. Levison,Borzois
+D00153,D,champion,O0091,Dr. Kenneth H. Levison,Borzois
+D00160,D,champion,O0093,Dr. Kenneth H. Levison,Afghan Hounds
+D00161,B,class,O0094,Dr. Kenneth H. Levison,Dachshunds (Longhaired)
+D00163,B,class,O0095,Dr. Kenneth H. Levison,Petit Basset Griffon Vendeen
+D00164,D,champion,O0095,Dr. Kenneth H. Levison,Petit Basset Griffon Vendeen
+D00165,D,class,O0097,Dr. Kenneth H. Levison,Basenjis
+D00168,D,champion,O0098,Dr. Kenneth H. Levison,Dachshunds (Smooth)
+D00173,B,champion,O0099,Dr. Kenneth H. Levison,Beagles (13''-15'')
+D00174,B,champion,O0100,Dr. Kenneth H. Levison,Beagles (13''-15'')
+D00175,B,class,O0101,Dr. Kenneth H. Levison,Dachshunds (Wirehaired)
+D00176,D,champion,O0102,Dr. Kenneth H. Levison,Dachshunds (Wirehaired)
+D00177,D,champion,O0085,Dr. Kenneth H. Levison,Dachshunds (Wirehaired)
+D00178,D,class,O0104,Patricia V Trotter,Weimaraners
+D00179,D,class,O0105,Patricia V Trotter,Weimaraners
+D00180,B,class,O0105,Patricia V Trotter,Weimaraners
+D00181,D,champion,O0105,Patricia V Trotter,Weimaraners
+D00182,D,champion,O0105,Patricia V Trotter,Weimaraners
+D00184,D,class,O0109,Patricia V Trotter,Wirehaired Pointing Griffons
+D00185,D,champion,O0110,Patricia V Trotter,Wirehaired Pointing Griffons
+D00189,D,class,O0111,Patricia V Trotter,Vizslas
+D00190,D,class,O0112,Patricia V Trotter,Vizslas
+D00191,D,class,O0113,Patricia V Trotter,Vizslas
+D00192,D,class,O0113,Patricia V Trotter,Vizslas
+D00193,D,class,O0115,Patricia V Trotter,Vizslas
+D00194,D,class,O0116,Patricia V Trotter,Vizslas
+D00195,B,class,O0117,Patricia V Trotter,Vizslas
+D00198,B,class,O0118,Patricia V Trotter,Vizslas
+D00199,B,class,O0086,Patricia V Trotter,Vizslas
+D00201,B,champion,O0120,Patricia V Trotter,Vizslas
+D00202,B,champion,O0120,Patricia V Trotter,Vizslas
+D00203,D,champion,O0122,Patricia V Trotter,American Staffordshire Terrier
+D00205,B,class,O0123,Patricia V Trotter,Soft-Coated Wheaten Terriers
+D00207,D,class,O0124,Patricia V Trotter,Miniature Bull Terriers
+D00208,B,class,O0125,Patricia V Trotter,Miniature Bull Terriers
+D00209,B,class,O0125,Patricia V Trotter,Miniature Bull Terriers
+D00211,B,champion,O0123,Patricia V Trotter,Bull Terriers (Colored)
+D00214,B,champion,O0128,Patricia V Trotter,Border Terriers
+D00215,B,champion,O0129,Patricia V Trotter,Border Terriers
+D00216,D,class,O0130,Patricia V Trotter,Cairn Terriers
+D00217,B,class,O0131,Patricia V Trotter,Cairn Terriers
+D00218,B,class,O0131,Patricia V Trotter,Cairn Terriers
+D00222,B,champion,O0133,Patricia V Trotter,Russell Terrier
+D00223,D,class,O0134,Patricia V Trotter,West Highland White Terriers
+D00224,D,class,O0135,Patricia V Trotter,West Highland White Terriers
+D00225,B,class,O0135,Patricia V Trotter,West Highland White Terriers
+D00227,D,champion,O0137,Patricia V Trotter,West Highland White Terriers
+D00228,B,champion,O0138,Patricia V Trotter,West Highland White Terriers
+D00229,D,class,O0139,Patricia V Trotter,Fox Terriers (Wire)
+D00232,B,champion,O0140,Patricia V Trotter,American Hairless Terrier
+D00235,B,champion,O0141,Patricia V Trotter,Glen of Imaal Terrier
+D00236,B,champion,O0142,Patricia V Trotter,Lakeland Terriers
+D00238,D,class,O0143,Patricia V Trotter,Norwich Terriers
+D00239,B,class,O0144,Patricia V Trotter,Norwich Terriers
+D00240,B,class,O0145,Patricia V Trotter,Norwich Terriers
+D00242,D,class,O0146,Patricia V Trotter,Scottish Terriers
+D00243,D,class,O0147,Patricia V Trotter,Scottish Terriers
+D00245,B,class,O0148,Patricia V Trotter,Scottish Terriers
+D00246,B,champion,O0148,Patricia V Trotter,Scottish Terriers
+D00247,D,champion,O0150,Patricia V Trotter,Sealyham Terriers
+D00248,B,champion,O0151,Patricia V Trotter,Sealyham Terriers
+D00253,B,class,O0152,Patricia V Trotter,Miniature Schnauzers
+D00256,D,class,O0153,Patricia V Trotter,Siberian Huskies
+D00257,D,class,O0154,Patricia V Trotter,Siberian Huskies
+D00258,D,class,O0155,Patricia V Trotter,Siberian Huskies
+D00259,D,class,O0156,Patricia V Trotter,Siberian Huskies
+D00262,B,class,O0001,Patricia V Trotter,Siberian Huskies
+D00263,B,class,O0158,Patricia V Trotter,Siberian Huskies
+D00267,D,class,O0159,Patricia V Trotter,Samoyeds
+D00269,D,class,O0160,Patricia V Trotter,Samoyeds
+D00270,B,class,O0160,Patricia V Trotter,Samoyeds
+D00272,B,class,O0162,Patricia V Trotter,Samoyeds
+D00274,B,class,O0163,Patricia V Trotter,Samoyeds
+D00275,B,class,O0164,Patricia V Trotter,Samoyeds
+D00276,B,class,O0165,Patricia V Trotter,Samoyeds
+D00277,B,class,O0165,Patricia V Trotter,Samoyeds
+D00278,D,champion,O0167,Patricia V Trotter,Samoyeds
+D00282,B,champion,O0168,Patricia V Trotter,Samoyeds
+D00284,B,class,O0169,Mrs. Betty Nelson Pollock,Toy Fox Terrier
+D00285,B,class,O0170,Mrs. Betty Nelson Pollock,Russian Toys
+D00286,B,class,O0170,Mrs. Betty Nelson Pollock,Russian Toys
+D00287,B,class,O0170,Mrs. Betty Nelson Pollock,Russian Toys
+D00290,B,champion,O0173,Mrs. Betty Nelson Pollock,Russian Toys
+D00292,D,class,O0174,Mrs. Betty Nelson Pollock,Miniature Pinschers
+D00295,D,class,O0175,Mrs. Betty Nelson Pollock,Japanese Chin
+D00296,D,champion,O0175,Mrs. Betty Nelson Pollock,Japanese Chin
+D00297,D,champion,O0177,Mrs. Betty Nelson Pollock,Japanese Chin
+D00298,B,champion,O0177,Mrs. Betty Nelson Pollock,Japanese Chin
+D00299,D,class,O0179,Mrs. Betty Nelson Pollock,Cavalier King Charles Spaniels
+D00300,D,class,O0179,Mrs. Betty Nelson Pollock,Cavalier King Charles Spaniels
+D00301,D,class,O0181,Mrs. Betty Nelson Pollock,Cavalier King Charles Spaniels
+D00302,B,class,O0182,Mrs. Betty Nelson Pollock,Cavalier King Charles Spaniels
+D00303,D,champion,O0183,Mrs. Betty Nelson Pollock,Cavalier King Charles Spaniels
+D00305,B,champion,O0184,Mrs. Betty Nelson Pollock,Cavalier King Charles Spaniels
+D00306,B,class,O0185,Mrs. Betty Nelson Pollock,English Toy Spaniels (KC&R)
+D00308,D,class,O0186,Mrs. Betty Nelson Pollock,English Toy Spaniels (B&PC)
+D00309,D,class,O0187,Mrs. Betty Nelson Pollock,English Toy Spaniels (B&PC)
+D00310,B,class,O0072,Mrs. Betty Nelson Pollock,English Toy Spaniels (B&PC)
+D00311,B,champion,O0072,Mrs. Betty Nelson Pollock,English Toy Spaniels (B&PC)
+D00313,D,class,O0190,Mrs. Betty Nelson Pollock,Chihuahuas (Long Coat)
+D00314,B,class,O0191,Mrs. Betty Nelson Pollock,Chihuahuas (Long Coat)
+D00316,B,class,O0191,Mrs. Betty Nelson Pollock,Chihuahuas (Long Coat)
+D00319,B,class,O0193,Mrs. Betty Nelson Pollock,Affenpinschers
+D00320,B,class,O0194,Mrs. Betty Nelson Pollock,Affenpinschers
+D00321,D,champion,O0195,Mrs. Betty Nelson Pollock,Affenpinschers
+D00322,D,champion,O0195,Mrs. Betty Nelson Pollock,Affenpinschers
+D00324,D,champion,O0197,Mrs. Betty Nelson Pollock,Papillons
+D00326,D,class,O0198,Mrs. Betty Nelson Pollock,Italian Greyhounds
+D00327,D,class,O0199,Mrs. Betty Nelson Pollock,Italian Greyhounds
+D00328,B,class,O0200,Mrs. Betty Nelson Pollock,Italian Greyhounds
+D00330,B,champion,O0201,Mrs. Betty Nelson Pollock,Italian Greyhounds
+D00331,D,class,O0202,Mrs. Betty Nelson Pollock,Yorkshire Terriers
+D00332,B,class,O0202,Mrs. Betty Nelson Pollock,Yorkshire Terriers
+D00335,B,class,O0204,Mrs. Betty Nelson Pollock,Pomeranians
+D00336,B,class,O0204,Mrs. Betty Nelson Pollock,Pomeranians
+D00337,B,class,O0206,Mrs. Betty Nelson Pollock,Pomeranians
+D00338,B,class,O0206,Mrs. Betty Nelson Pollock,Pomeranians
+D00339,B,class,O0191,Mrs. Betty Nelson Pollock,Pomeranians
+D00340,B,class,O0191,Mrs. Betty Nelson Pollock,Pomeranians
+D00341,D,champion,O0210,Mrs. Betty Nelson Pollock,Pomeranians
+D00342,D,champion,O0177,Mrs. Betty Nelson Pollock,Pomeranians
+D00343,D,champion,O0212,Mrs. Betty Nelson Pollock,Pomeranians
+D00344,D,class,O0213,Mrs. Betty Nelson Pollock,Biewer Terriers
+D00346,B,class,O0214,Mrs. Betty Nelson Pollock,Biewer Terriers
+D00347,B,class,O0215,Mrs. Betty Nelson Pollock,Biewer Terriers
+D00348,B,champion,O0216,Mrs. Betty Nelson Pollock,Biewer Terriers
+D00349,D,class,O0185,Mrs. Betty Nelson Pollock,Chinese Crested
+D00351,B,class,O0218,Mrs. Betty Nelson Pollock,Chinese Crested
+D00352,D,champion,O0219,Mrs. Betty Nelson Pollock,Chinese Crested
+D00353,B,champion,O0219,Mrs. Betty Nelson Pollock,Chinese Crested
+D00354,D,class,O0221,Mrs. Betty Nelson Pollock,Maltese
+D00355,B,class,O0221,Mrs. Betty Nelson Pollock,Maltese
+D00356,B,class,O0223,Mrs. Betty Nelson Pollock,Maltese
+D00357,B,class,O0224,Mrs. Betty Nelson Pollock,Havanese
+D00358,B,class,O0224,Mrs. Betty Nelson Pollock,Havanese
+D00360,B,class,O0224,Mrs. Betty Nelson Pollock,Havanese
+D00362,D,class,O0227,Ms. Jan N Paulk,Boxers
+D00363,B,class,O0228,Ms. Jan N Paulk,Boxers
+D00365,B,class,O0228,Ms. Jan N Paulk,Boxers
+D00366,B,class,O0228,Ms. Jan N Paulk,Boxers
+D00367,B,class,O0183,Ms. Jan N Paulk,Boxers
+D00369,B,class,O0232,Ms. Jan N Paulk,Boxers
+D00370,B,class,O0233,Ms. Jan N Paulk,Boxers
+D00375,B,class,O0234,Ms. Jan N Paulk,Rottweilers
+D00376,D,champion,O0235,Ms. Jan N Paulk,Rottweilers
+D00379,D,class,O0236,Ms. Jan N Paulk,Great Danes
+D00381,B,class,O0236,Ms. Jan N Paulk,Great Danes
+D00382,B,class,O0238,Ms. Jan N Paulk,Great Danes
+D00383,B,class,O0238,Ms. Jan N Paulk,Great Danes
+D00384,B,class,O0240,Ms. Jan N Paulk,Great Danes
+D00389,B,class,O0241,Ms. Jan N Paulk,Doberman Pinschers
+D00390,B,class,O0241,Ms. Jan N Paulk,Doberman Pinschers
+D00391,B,class,O0243,Ms. Jan N Paulk,Doberman Pinschers
+D00395,D,champion,O0244,Ms. Jan N Paulk,Dogues de Bordeaux
+D00397,B,class,O0245,Ms. Jan N Paulk,Saint Bernards
+D00399,D,class,O0246,Ms. Jan N Paulk,Newfoundlands
+D00400,B,class,O0247,Ms. Jan N Paulk,Portuguese Water Dogs
+D00403,D,champion,O0248,Ms. Jan N Paulk,Portuguese Water Dogs
+D00405,D,class,O0249,Ms. Jan N Paulk,Greater Swiss Mountain Dogs
+D00406,D,class,O0250,Ms. Jan N Paulk,Greater Swiss Mountain Dogs
+D00407,D,class,O0250,Ms. Jan N Paulk,Greater Swiss Mountain Dogs
+D00408,D,class,O0252,Ms. Jan N Paulk,Greater Swiss Mountain Dogs
+D00409,D,class,O0252,Ms. Jan N Paulk,Greater Swiss Mountain Dogs
+D00410,B,class,O0254,Ms. Jan N Paulk,Greater Swiss Mountain Dogs
+D00412,D,champion,O0254,Ms. Jan N Paulk,Greater Swiss Mountain Dogs
+D00414,B,champion,O0256,Ms. Jan N Paulk,Greater Swiss Mountain Dogs
+D00415,B,champion,O0256,Ms. Jan N Paulk,Greater Swiss Mountain Dogs
+D00418,B,class,O0258,Mrs. Betty Nelson Pollock,Cane Corso
+D00419,B,class,O0258,Mrs. Betty Nelson Pollock,Cane Corso
+D00420,D,champion,O0258,Mrs. Betty Nelson Pollock,Cane Corso
+D00422,B,champion,O0256,Mrs. Betty Nelson Pollock,Cane Corso
+D00425,D,champion,O0262,Mrs. Betty Nelson Pollock,Bullmastiffs
+D00426,B,champion,O0263,Mrs. Betty Nelson Pollock,Bullmastiffs
+D00427,D,class,O0264,Mrs. Betty Nelson Pollock,Collies (Rough)
+D00428,D,class,O0265,Mrs. Betty Nelson Pollock,Collies (Rough)
+D00429,D,class,O0266,Mrs. Betty Nelson Pollock,Collies (Rough)
+D00430,B,class,O0267,Mrs. Betty Nelson Pollock,Collies (Rough)
+D00431,B,class,O0268,Mrs. Betty Nelson Pollock,Collies (Rough)
+D00432,B,class,O0269,Mrs. Betty Nelson Pollock,Collies (Rough)
+D00434,D,champion,O0270,Mrs. Betty Nelson Pollock,Collies (Rough)
+D00435,D,champion,O0270,Mrs. Betty Nelson Pollock,Collies (Rough)
+D00436,D,champion,O0272,Mrs. Betty Nelson Pollock,Collies (Rough)
+D00438,D,class,O0273,Mrs. Betty Nelson Pollock,Collies (Smooth)
+D00439,B,class,O0274,Mrs. Betty Nelson Pollock,Collies (Smooth)
+D00441,D,champion,O0275,Mrs. Betty Nelson Pollock,Collies (Smooth)
+D00442,D,champion,O0275,Mrs. Betty Nelson Pollock,Collies (Smooth)
+D00443,B,champion,O0277,Mrs. Betty Nelson Pollock,Collies (Smooth)
+D00444,B,champion,O0277,Mrs. Betty Nelson Pollock,Collies (Smooth)
+D00445,D,class,O0279,Mrs. Betty Nelson Pollock,Pointers (German Shorthaired)
+D00447,B,champion,O0279,Mrs. Betty Nelson Pollock,Pointers (German Shorthaired)
+D00450,B,class,O0281,Mrs. Betty Nelson Pollock,Spaniels (English Springer)
+D00455,D,class,O0282,Mrs. Betty Nelson Pollock,Pyrenean Shepherds
+D00457,D,champion,O0282,Mrs. Betty Nelson Pollock,Pyrenean Shepherds
+D00458,D,class,O0284,Mrs. Donna Ernst,Retrievers (Nova Scotia Duck T
+D00460,B,champion,O0284,Mrs. Donna Ernst,Retrievers (Nova Scotia Duck T
+D00461,D,class,O0286,Mrs. Donna Ernst,Retrievers (Labrador)
+D00462,D,class,O0287,Mrs. Donna Ernst,Retrievers (Labrador)
+D00463,D,class,O0287,Mrs. Donna Ernst,Retrievers (Labrador)
+D00467,B,class,O0287,Mrs. Donna Ernst,Retrievers (Labrador)
+D00468,B,class,O0287,Mrs. Donna Ernst,Retrievers (Labrador)
+D00469,B,class,O0291,Mrs. Donna Ernst,Retrievers (Labrador)
+D00470,B,class,O0292,Mrs. Donna Ernst,Retrievers (Labrador)
+D00471,B,class,O0292,Mrs. Donna Ernst,Retrievers (Labrador)
+D00472,B,class,O0294,Mrs. Donna Ernst,Retrievers (Labrador)
+D00473,D,champion,O0295,Mrs. Donna Ernst,Retrievers (Labrador)
+D00476,B,class,O0296,Mrs. Donna Ernst,Retrievers (Flat-Coated)
+D00479,B,class,O0297,Mrs. Donna Ernst,Retrievers (Curly-Coated)
+D00482,B,champion,O0298,Mrs. Donna Ernst,Pointers
+D00483,D,class,O0299,Mrs. Donna Ernst,Retrievers (Golden)
+D00484,D,class,O0299,Mrs. Donna Ernst,Retrievers (Golden)
+D00487,D,class,O0299,Mrs. Donna Ernst,Retrievers (Golden)
+D00488,D,class,O0302,Mrs. Donna Ernst,Retrievers (Golden)
+D00489,D,class,O0303,Mrs. Donna Ernst,Retrievers (Golden)
+D00490,D,class,O0304,Mrs. Donna Ernst,Retrievers (Golden)
+D00491,B,class,O0018,Mrs. Donna Ernst,Retrievers (Golden)
+D00492,B,class,O0018,Mrs. Donna Ernst,Retrievers (Golden)
+D00493,B,class,O0307,Mrs. Donna Ernst,Retrievers (Golden)
+D00494,B,class,O0053,Mrs. Donna Ernst,Retrievers (Golden)
+D00495,B,class,O0309,Mrs. Donna Ernst,Retrievers (Golden)
+D00496,B,class,O0310,Mrs. Donna Ernst,Retrievers (Golden)
+D00497,B,class,O0310,Mrs. Donna Ernst,Retrievers (Golden)
+D00499,B,class,O0312,Mrs. Donna Ernst,Retrievers (Golden)
+D00501,B,class,O0313,Mrs. Donna Ernst,Retrievers (Golden)
+D00504,B,class,O0314,Mrs. Donna Ernst,Retrievers (Golden)
+D00509,B,champion,O0314,Mrs. Donna Ernst,Retrievers (Golden)
+D00511,B,class,O0316,Mrs. Donna Ernst,Poodles (Toy)
+D00514,D,class,O0317,Mrs. Donna Ernst,Retrievers (Chesapeake Bay)
+D00515,B,class,O0317,Mrs. Donna Ernst,Retrievers (Chesapeake Bay)
+D00516,D,champion,O0319,Mrs. Donna Ernst,Retrievers (Chesapeake Bay)
+D00517,D,champion,O0320,Mrs. Donna Ernst,Retrievers (Chesapeake Bay)
+D00522,B,champion,O0320,Mrs. Donna Ernst,Retrievers (Chesapeake Bay)
+D00523,B,class,O0322,Mrs. Donna Ernst,Dalmatians
+D00524,D,champion,O0322,Mrs. Donna Ernst,Dalmatians
+D00525,D,champion,O0324,Mrs. Donna Ernst,Dalmatians
+D00526,B,champion,O0325,Mrs. Donna Ernst,Dalmatians
+D00529,D,class,O0326,Mrs. Donna Ernst,Poodles (Miniature)
+D00530,B,class,O0327,Mrs. Donna Ernst,Poodles (Miniature)
+D00532,B,class,O0328,Mrs. Donna Ernst,Poodles (Miniature)
+D00533,B,class,O0329,Mrs. Donna Ernst,Poodles (Miniature)
+D00535,B,class,O0299,Mrs. Donna Ernst,Nederlandse Kooikerhondjes
+D00536,B,class,O0331,Mrs. Donna Ernst,Nederlandse Kooikerhondjes
+D00537,B,class,O0331,Mrs. Donna Ernst,Nederlandse Kooikerhondjes
+D00538,D,champion,O0333,Mrs. Donna Ernst,Nederlandse Kooikerhondjes
+D00540,D,class,O0334,Mrs. Donna Ernst,Poodles (Standard)
+D00543,B,class,O0334,Mrs. Donna Ernst,Poodles (Standard)
+D00544,B,class,O0336,Mrs. Donna Ernst,Poodles (Standard)
+D00546,B,class,O0336,Mrs. Donna Ernst,Poodles (Standard)
+D00548,B,class,O0336,Mrs. Donna Ernst,Poodles (Standard)
+D00549,B,class,O0339,Mrs. Donna Ernst,Poodles (Standard)
+D00550,D,champion,O0339,Mrs. Donna Ernst,Poodles (Standard)
+D00551,D,champion,O0341,Mrs. Donna Ernst,Poodles (Standard)
+D00553,B,champion,O0341,Mrs. Donna Ernst,Poodles (Standard)
+D00555,B,class,O0343,Mrs. Donna Ernst,Setters (English)
+D00557,B,class,O0344,Mrs. Donna Ernst,Lagotto Romagnolo
+D00560,B,champion,O0345,Mrs. Donna Ernst,Brittanys
+D00562,D,class,O0346,Grace M Fritz,Coton de Tulear
+D00563,D,champion,O0347,Grace M Fritz,Coton de Tulear
+D00567,D,class,O0348,Grace M Fritz,Bernese Mountain Dogs
+D00570,D,class,O0349,Grace M Fritz,Bernese Mountain Dogs
+D00571,D,class,O0165,Grace M Fritz,Bernese Mountain Dogs
+D00573,B,class,O0165,Grace M Fritz,Bernese Mountain Dogs
+D00576,B,class,O0352,Grace M Fritz,Bernese Mountain Dogs
+D00577,B,class,O0353,Grace M Fritz,Bernese Mountain Dogs
+D00578,B,class,O0354,Grace M Fritz,Bernese Mountain Dogs
+D00579,B,class,O0355,Grace M Fritz,Bernese Mountain Dogs
+D00580,B,class,O0355,Grace M Fritz,Bernese Mountain Dogs
+D00581,B,class,O0357,Grace M Fritz,Bernese Mountain Dogs
+D00582,B,class,O0357,Grace M Fritz,Bernese Mountain Dogs
+D00583,B,class,O0359,Grace M Fritz,Bernese Mountain Dogs
+D00587,D,champion,O0360,Grace M Fritz,Bernese Mountain Dogs
+D00592,D,champion,O0361,Grace M Fritz,Bernese Mountain Dogs
+D00594,B,champion,O0362,Grace M Fritz,Bernese Mountain Dogs
+D00595,B,champion,O0165,Grace M Fritz,Bernese Mountain Dogs
+D00599,D,class,O0364,Mrs. Donna Ernst,Chow Chows
+D00601,B,class,O0365,Mrs. Donna Ernst,Chow Chows
+D00602,B,class,O0366,Mrs. Donna Ernst,Chow Chows
+D00604,D,champion,O0355,Mrs. Donna Ernst,Chow Chows
+D00608,D,champion,O0368,Mrs. Donna Ernst,Chow Chows
+D00609,D,champion,O0368,Mrs. Donna Ernst,Chow Chows
+D00611,B,champion,O0370,Mrs. Donna Ernst,Chow Chows
+D00612,D,class,O0371,Ms. Jan N Paulk,Standard Schnauzers
+D00613,D,class,O0372,Ms. Jan N Paulk,Standard Schnauzers
+D00614,D,class,O0373,Ms. Jan N Paulk,Standard Schnauzers
+D00615,B,class,O0373,Ms. Jan N Paulk,Standard Schnauzers
+D00616,B,class,O0373,Ms. Jan N Paulk,Standard Schnauzers
+D00619,D,champion,O0373,Ms. Jan N Paulk,Standard Schnauzers
+D00621,D,champion,O0373,Ms. Jan N Paulk,Standard Schnauzers
+D00624,B,champion,O0378,Ms. Jan N Paulk,Standard Schnauzers
+D00625,D,class,O0379,Ms. Jan N Paulk,Great Pyrenees
+D00626,D,class,O0380,Ms. Jan N Paulk,Great Pyrenees
+D00627,D,class,O0380,Ms. Jan N Paulk,Great Pyrenees
+D00628,D,class,O0380,Ms. Jan N Paulk,Great Pyrenees
+D00629,B,class,O0383,Ms. Jan N Paulk,Great Pyrenees
+D00630,B,class,O0167,Ms. Jan N Paulk,Great Pyrenees
+D00631,B,class,O0256,Ms. Jan N Paulk,Great Pyrenees
+D00632,B,class,O0386,Ms. Jan N Paulk,Great Pyrenees
+D00633,B,class,O0387,Ms. Jan N Paulk,Great Pyrenees
+D00634,B,class,O0388,Ms. Jan N Paulk,Great Pyrenees
+D00638,B,champion,O0389,Ms. Jan N Paulk,Great Pyrenees
+D00590,D,champion,P001,Grace M Fritz,Bernese Mountain Dogs
+D00230,D,champion,P001,Patricia V Trotter,American Hairless Terrier
+D00231,D,champion,P001,Patricia V Trotter,American Hairless Terrier
+D00213,B,champion,P001,Patricia V Trotter,Border Terriers
+D00254,B,class,P001,Patricia V Trotter,Miniature Schnauzers
+D00220,B,champion,P001,Patricia V Trotter,Russell Terrier
+D00244,B,class,P001,Patricia V Trotter,Scottish Terriers
+D00251,D,champion,P001,Patricia V Trotter,Welsh Terriers
+D00005,D,class,P001-A1,Grace M Fritz,French Bulldogs
+D00004,B,champion,P001-A1,Grace M Fritz,Keeshonden
+D00061,B,champion,P001-A1,Peggy Beisel-McIlwaine,Australian Shepherds
+D00069,D,class,P001-A1,Peggy Beisel-McIlwaine,Border Collies
+D00093,B,class,P001-A1,Peggy Beisel-McIlwaine,Cardigan Welsh Corgis
+D00095,B,champion,P001-A1,Peggy Beisel-McIlwaine,Cardigan Welsh Corgis
+D00433,B,class,P001-A1,Mrs. Betty Nelson Pollock,Collies (Rough)
+D00440,B,class,P001-A1,Mrs. Betty Nelson Pollock,Collies (Smooth)
+D00620,D,champion,P002,Ms. Jan N Paulk,Standard Schnauzers
+D00204,D,champion,P002,Patricia V Trotter,American Staffordshire Terrier
+D00233,D,champion,P002,Patricia V Trotter,Australian Terriers
+D00210,B,champion,P002,Patricia V Trotter,Bull Terriers (Colored)
+D00212,B,champion,P002,Patricia V Trotter,Bull Terriers (Colored)
+D00219,D,champion,P002,Patricia V Trotter,Russell Terrier
+D00221,B,champion,P002,Patricia V Trotter,Russell Terrier
+D00226,B,class,P002,Patricia V Trotter,West Highland White Terriers
+D00051,D,class,P002,Peggy Beisel-McIlwaine,Australian Shepherds
+D00063,B,class,P002,Peggy Beisel-McIlwaine,Belgian Malinois
+D00085,B,champion,P002,Peggy Beisel-McIlwaine,Pumi
+D00556,D,champion,P003,Mrs. Donna Ernst,Bracchi Italiani
+D00520,B,champion,P003,Mrs. Donna Ernst,Retrievers (Chesapeake Bay)
+D00480,B,champion,P003,Mrs. Donna Ernst,Retrievers (Curly-Coated)
+D00485,D,class,P003,Mrs. Donna Ernst,Retrievers (Golden)
+D00500,B,class,P003,Mrs. Donna Ernst,Retrievers (Golden)
+D00503,B,class,P003,Mrs. Donna Ernst,Retrievers (Golden)
+D00507,D,champion,P003,Mrs. Donna Ernst,Retrievers (Golden)
+D00037,D,champion,P003,Grace M Fritz,Setters (Irish)
+D00454,B,champion,P003,Mrs. Betty Nelson Pollock,Spaniels (English Springer)
+D00197,B,class,P003,Patricia V Trotter,Vizslas
+D00200,B,champion,P003,Patricia V Trotter,Vizslas
+D00123,D,champion,P003,Dr. Kenneth H. Levison,Whippets
+D00568,D,class,P003-A1,Grace M Fritz,Bernese Mountain Dogs
+D00598,B,champion,P003-A1,Grace M Fritz,Bernese Mountain Dogs
+D00368,B,class,P003-A1,Ms. Jan N Paulk,Boxers
+D00417,B,class,P003-A1,Mrs. Betty Nelson Pollock,Cane Corso
+D00421,D,champion,P003-A1,Mrs. Betty Nelson Pollock,Cane Corso
+D00393,D,champion,P003-A1,Ms. Jan N Paulk,Doberman Pinschers
+D00378,D,class,P003-A1,Ms. Jan N Paulk,Great Danes
+D00402,D,champion,P003-A1,Ms. Jan N Paulk,Portuguese Water Dogs
+D00373,D,class,P003-A1,Ms. Jan N Paulk,Rottweilers
+D00264,D,champion,P003-A1,Patricia V Trotter,Siberian Huskies
+D00622,D,champion,P003-A1,Ms. Jan N Paulk,Standard Schnauzers
+D00527,B,champion,P003-A1,Mrs. Donna Ernst,Dalmatians
+D00498,B,class,P004,Mrs. Donna Ernst,Retrievers (Golden)
+D00508,D,champion,P004,Mrs. Donna Ernst,Retrievers (Golden)
+D00474,D,champion,P004,Mrs. Donna Ernst,Retrievers (Labrador)
+D00554,D,class,P004,Mrs. Donna Ernst,Setters (English)
+D00158,D,champion,P004,Dr. Kenneth H. Levison,Afghan Hounds
+D00249,D,class,P004,Patricia V Trotter,Welsh Terriers
+D00250,B,class,P004,Patricia V Trotter,Welsh Terriers
+D00307,D,champion,P004,Mrs. Betty Nelson Pollock,English Toy Spaniels (KC&R)
+D00359,B,class,P004,Mrs. Betty Nelson Pollock,Havanese
+D00294,B,champion,P004,Mrs. Betty Nelson Pollock,Miniature Pinschers
+D00283,B,champion,P004,Mrs. Betty Nelson Pollock,Pugs
+D00452,D,champion,P005,Mrs. Betty Nelson Pollock,Spaniels (English Springer)
+D00155,B,champion,P005,Dr. Kenneth H. Levison,Borzois
+D00569,D,class,P005,Grace M Fritz,Bernese Mountain Dogs
+D00588,D,champion,P005,Grace M Fritz,Bernese Mountain Dogs
+D00589,D,champion,P005,Grace M Fritz,Bernese Mountain Dogs
+D00424,D,champion,P005,Mrs. Betty Nelson Pollock,Bullmastiffs
+D00423,B,champion,P005,Mrs. Betty Nelson Pollock,Cane Corso
+D00394,D,champion,P005,Ms. Jan N Paulk,Dogo Argentinos
+D00636,D,champion,P005,Ms. Jan N Paulk,Great Pyrenees
+D00398,D,champion,P005,Ms. Jan N Paulk,Saint Bernards
+D00279,D,champion,P005-A1,Patricia V Trotter,Samoyeds
+D00280,B,champion,P005-A1,Patricia V Trotter,Samoyeds
+D00281,B,champion,P005-A1,Patricia V Trotter,Samoyeds
+D00265,B,champion,P005-A1,Patricia V Trotter,Siberian Huskies
+D00234,B,champion,P005-A1,Patricia V Trotter,Dandie Dinmont Terriers
+D00255,B,class,P005-A1,Patricia V Trotter,Miniature Schnauzers
+D00206,B,champion,P005-A1,Patricia V Trotter,Soft-Coated Wheaten Terriers
+D00304,B,champion,P005-A1,Mrs. Betty Nelson Pollock,Cavalier King Charles Spaniels
+D00456,B,class,P005-A1,Mrs. Betty Nelson Pollock,Pyrenean Shepherds
+D00032,D,champion,P006,Grace M Fritz,Spaniels (Sussex)
+D00187,D,class,P006,Patricia V Trotter,Vizslas
+D00574,B,class,P006,Grace M Fritz,Bernese Mountain Dogs
+D00593,B,champion,P006,Grace M Fritz,Bernese Mountain Dogs
+D00364,B,class,P006,Ms. Jan N Paulk,Boxers
+D00371,B,champion,P006,Ms. Jan N Paulk,Boxers
+D00372,B,champion,P006,Ms. Jan N Paulk,Boxers
+D00392,D,champion,P006,Ms. Jan N Paulk,Doberman Pinschers
+D00386,D,champion,P006-A1,Ms. Jan N Paulk,Great Danes
+D00637,B,champion,P006-A1,Ms. Jan N Paulk,Great Pyrenees
+D00413,D,champion,P006-A1,Ms. Jan N Paulk,Greater Swiss Mountain Dogs
+D00377,D,champion,P006-A1,Ms. Jan N Paulk,Rottweilers
+D00623,B,champion,P006-A1,Ms. Jan N Paulk,Standard Schnauzers
+D00241,B,champion,P006-A1,Patricia V Trotter,Norwich Terriers
+D00252,B,champion,P006-A1,Patricia V Trotter,Welsh Terriers
+D00510,B,class,P006-A1,Mrs. Donna Ernst,Poodles (Toy)
+D00559,B,champion,P007,Mrs. Donna Ernst,Brittanys
+D00171,D,champion,P007,Dr. Kenneth H. Levison,Beagles (13''-15'')
+D00151,B,class,P007,Dr. Kenneth H. Levison,Borzois
+D00112,D,champion,P007,Dr. Kenneth H. Levison,Cirneco Dell'Etna
+D00113,B,champion,P007,Dr. Kenneth H. Levison,Cirneco Dell'Etna
+D00162,D,champion,P007,Dr. Kenneth H. Levison,Dachshunds (Longhaired)
+D00135,B,class,P007,Dr. Kenneth H. Levison,Greyhounds
+D00138,D,champion,P007,Dr. Kenneth H. Levison,Pharaoh Hounds
+D00148,B,champion,P007-A1,Dr. Kenneth H. Levison,Rhodesian Ridgebacks
+D00345,B,class,P007-A1,Mrs. Betty Nelson Pollock,Biewer Terriers
+D00312,D,class,P007-A1,Mrs. Betty Nelson Pollock,Chihuahuas (Long Coat)
+D00318,D,champion,P007-A1,Mrs. Betty Nelson Pollock,Chihuahuas (Smooth Coat)
+D00323,B,class,P007-A1,Mrs. Betty Nelson Pollock,Papillons
+D00325,B,champion,P007-A1,Mrs. Betty Nelson Pollock,Papillons
+D00288,B,class,P007-A1,Mrs. Betty Nelson Pollock,Russian Toys
+D00289,D,champion,P007-A1,Mrs. Betty Nelson Pollock,Russian Toys
+D00110,D,champion,P008,Dr. Kenneth H. Levison,Basset Hounds
+D00172,D,champion,P008,Dr. Kenneth H. Levison,Beagles (13''-15'')
+D00149,B,champion,P008,Dr. Kenneth H. Levison,Otterhounds
+D00126,B,champion,P008,Dr. Kenneth H. Levison,Whippets
+D00127,B,champion,P008,Dr. Kenneth H. Levison,Whippets
+D00237,B,champion,P008,Patricia V Trotter,Norfolk Terriers
+D00317,B,champion,P008,Mrs. Betty Nelson Pollock,Chihuahuas (Long Coat)
+D00291,B,champion,P008,Mrs. Betty Nelson Pollock,Manchester Terriers (Toy)
+D00333,D,class,P008,Mrs. Betty Nelson Pollock,Pomeranians
+D00166,D,champion,P009,Dr. Kenneth H. Levison,Basenjis
+D00167,D,champion,P009,Dr. Kenneth H. Levison,Basenjis
+D00156,B,champion,P009,Dr. Kenneth H. Levison,Borzois
+D00157,B,champion,P009,Dr. Kenneth H. Levison,Borzois
+D00136,B,champion,P009,Dr. Kenneth H. Levison,Greyhounds
+D00118,B,class,P009,Dr. Kenneth H. Levison,Whippets
+D00572,D,class,P009,Grace M Fritz,Bernese Mountain Dogs
+D00585,D,champion,P009,Grace M Fritz,Bernese Mountain Dogs
+D00586,D,champion,P009,Grace M Fritz,Bernese Mountain Dogs
+D00404,D,champion,P009,Ms. Jan N Paulk,Portuguese Water Dogs
+D00481,D,champion,P010,Mrs. Donna Ernst,Pointers
+D00518,D,champion,P010,Mrs. Donna Ernst,Retrievers (Chesapeake Bay)
+D00521,B,champion,P010,Mrs. Donna Ernst,Retrievers (Chesapeake Bay)
+D00478,B,champion,P010,Mrs. Donna Ernst,Retrievers (Flat-Coated)
+D00505,D,champion,P010,Mrs. Donna Ernst,Retrievers (Golden)
+D00475,B,champion,P010,Mrs. Donna Ernst,Retrievers (Labrador)
+D00029,B,class,P010,Grace M Fritz,Spaniels (English Cocker)
+D00188,D,class,P010,Patricia V Trotter,Vizslas
+D00566,D,class,P010,Grace M Fritz,Bernese Mountain Dogs
+D00380,B,class,P010,Ms. Jan N Paulk,Great Danes
+D00411,B,class,P010-A1,Ms. Jan N Paulk,Greater Swiss Mountain Dogs
+D00060,B,champion,P010-A1,Peggy Beisel-McIlwaine,Australian Shepherds
+D00068,D,champion,P010-A1,Peggy Beisel-McIlwaine,Belgian Tervuren
+D00070,B,class,P010-A1,Peggy Beisel-McIlwaine,Border Collies
+D00091,D,class,P010-A1,Peggy Beisel-McIlwaine,Cardigan Welsh Corgis
+D00097,B,class,P010-A1,Peggy Beisel-McIlwaine,Miniature American Shepherds
+D00103,B,class,P010-A1,Peggy Beisel-McIlwaine,Pembroke Welsh Corgis
+D00076,D,class,P010-A1,Peggy Beisel-McIlwaine,Shetland Sheepdogs
+D00078,B,class,P010-A1,Peggy Beisel-McIlwaine,Shetland Sheepdogs
+D00513,D,class,P011,Mrs. Donna Ernst,Retrievers (Chesapeake Bay)
+D00169,B,champion,P011,Dr. Kenneth H. Levison,Beagles (13'')
+D00146,D,champion,P011,Dr. Kenneth H. Levison,Rhodesian Ridgebacks
+D00575,B,class,P011,Grace M Fritz,Bernese Mountain Dogs
+D00584,B,class,P011,Grace M Fritz,Bernese Mountain Dogs
+D00596,B,champion,P011,Grace M Fritz,Bernese Mountain Dogs
+D00597,B,champion,P011,Grace M Fritz,Bernese Mountain Dogs
+D00635,D,champion,P011,Ms. Jan N Paulk,Great Pyrenees
+D00396,D,champion,P011-A1,Ms. Jan N Paulk,Leonberger
+D00268,D,class,P011-A1,Patricia V Trotter,Samoyeds
+D00617,B,class,P011-A1,Ms. Jan N Paulk,Standard Schnauzers
+D00361,B,champion,P011-A1,Mrs. Betty Nelson Pollock,Havanese
+D00329,D,champion,P011-A1,Mrs. Betty Nelson Pollock,Italian Greyhounds
+D00334,D,class,P011-A1,Mrs. Betty Nelson Pollock,Pomeranians
+D00512,B,champion,P011-A1,Mrs. Donna Ernst,Poodles (Toy)
+D00083,B,champion,P011-A1,Peggy Beisel-McIlwaine,Pumi
+D00387,B,champion,P012,Ms. Jan N Paulk,Great Danes
+D00016,D,champion,P012,Grace M Fritz,American Eskimo Dog
+D00539,B,champion,P012,Mrs. Donna Ernst,Bulldogs
+D00600,B,class,P012,Mrs. Donna Ernst,Chow Chows
+D00603,D,champion,P012,Mrs. Donna Ernst,Chow Chows
+D00610,B,champion,P012,Mrs. Donna Ernst,Chow Chows
+D00564,B,champion,P012,Grace M Fritz,Coton de Tulear
+D00565,B,champion,P012,Grace M Fritz,Coton de Tulear
+D00026,D,champion,P012-A1,Grace M Fritz,Lowchen
+D00528,D,class,P012-A1,Mrs. Donna Ernst,Poodles (Miniature)
+D00541,D,class,P012-A1,Mrs. Donna Ernst,Poodles (Standard)
+D00552,B,champion,P012-A1,Mrs. Donna Ernst,Poodles (Standard)
+D00024,B,champion,P012-A1,Grace M Fritz,Tibetan Spaniels
+D00385,B,class,P013,Ms. Jan N Paulk,Great Danes
+D00315,B,class,P013,Mrs. Betty Nelson Pollock,Chihuahuas (Long Coat)
+D00350,B,class,P013,Mrs. Betty Nelson Pollock,Chinese Crested
+D00293,D,champion,P013,Mrs. Betty Nelson Pollock,Miniature Pinschers
+D00052,B,class,P013,Peggy Beisel-McIlwaine,Australian Shepherds
+D00055,B,class,P013,Peggy Beisel-McIlwaine,Australian Shepherds
+D00065,B,champion,P013,Peggy Beisel-McIlwaine,Belgian Malinois
+D00101,D,champion,P013,Peggy Beisel-McIlwaine,Miniature American Shepherds
+D00088,D,champion,P013,Peggy Beisel-McIlwaine,Old English Sheepdogs
+D00109,D,champion,P013,Peggy Beisel-McIlwaine,Pembroke Welsh Corgis
+D00082,D,champion,P013,Peggy Beisel-McIlwaine,Pumi
+D00084,B,champion,P013,Peggy Beisel-McIlwaine,Pumi
+D00159,D,champion,P014,Dr. Kenneth H. Levison,Afghan Hounds
+D00129,D,champion,P014,Dr. Kenneth H. Levison,American Foxhounds
+D00130,B,champion,P014,Dr. Kenneth H. Levison,American Foxhounds
+D00170,D,champion,P014,Dr. Kenneth H. Levison,Beagles (13''-15'')
+D00154,D,champion,P014,Dr. Kenneth H. Levison,Borzois
+D00143,D,class,P014,Dr. Kenneth H. Levison,Rhodesian Ridgebacks
+D00591,D,champion,P014,Grace M Fritz,Bernese Mountain Dogs
+D00416,B,champion,P014,Ms. Jan N Paulk,Greater Swiss Mountain Dogs
+D00401,B,class,P014-A1,Ms. Jan N Paulk,Portuguese Water Dogs
+D00374,D,class,P014-A1,Ms. Jan N Paulk,Rottweilers
+D00271,B,class,P014-A1,Patricia V Trotter,Samoyeds
+D00260,D,class,P014-A1,Patricia V Trotter,Siberian Huskies
+D00266,B,champion,P014-A1,Patricia V Trotter,Siberian Huskies
+D00531,B,class,P014-A1,Mrs. Donna Ernst,Poodles (Miniature)
+D00053,B,class,P014-A1,Peggy Beisel-McIlwaine,Australian Shepherds
+D00558,D,champion,P015,Mrs. Donna Ernst,Brittanys
+D00519,D,champion,P015,Mrs. Donna Ernst,Retrievers (Chesapeake Bay)
+D00464,D,class,P015,Mrs. Donna Ernst,Retrievers (Labrador)
+D00449,D,class,P015,Mrs. Betty Nelson Pollock,Spaniels (English Springer)
+D00451,D,champion,P015,Mrs. Betty Nelson Pollock,Spaniels (English Springer)
+D00044,D,champion,P015,Grace M Fritz,Spinone Italiano
+D00186,D,class,P015,Patricia V Trotter,Vizslas
+D00388,D,class,P015,Ms. Jan N Paulk,Doberman Pinschers
+D00273,B,class,P015,Patricia V Trotter,Samoyeds
+D00607,D,champion,P015,Mrs. Donna Ernst,Chow Chows
+D00008,B,class,P015,Grace M Fritz,French Bulldogs
+D00446,D,champion,P016,Mrs. Betty Nelson Pollock,Pointers (German Shorthaired)
+D00448,B,champion,P016,Mrs. Betty Nelson Pollock,Pointers (German Shorthaired)
+D00477,D,champion,P016,Mrs. Donna Ernst,Retrievers (Flat-Coated)
+D00486,D,class,P016,Mrs. Donna Ernst,Retrievers (Golden)
+D00502,B,class,P016,Mrs. Donna Ernst,Retrievers (Golden)
+D00506,D,champion,P016,Mrs. Donna Ernst,Retrievers (Golden)
+D00465,D,class,P016,Mrs. Donna Ernst,Retrievers (Labrador)
+D00466,B,class,P016,Mrs. Donna Ernst,Retrievers (Labrador)
+D00459,D,champion,P016,Mrs. Donna Ernst,Retrievers (Nova Scotia Duck T
+D00036,D,champion,P016,Grace M Fritz,Setters (Gordon)
+D00038,B,champion,P016,Grace M Fritz,Setters (Irish)
+D00453,B,champion,P016-A1,Mrs. Betty Nelson Pollock,Spaniels (English Springer)
+D00034,B,champion,P016-A1,Grace M Fritz,Spaniels (Field)
+D00039,B,class,P016-A1,Grace M Fritz,Spinone Italiano
+D00196,B,class,P016-A1,Patricia V Trotter,Vizslas
+D00183,B,champion,P016-A1,Patricia V Trotter,Weimaraners
+D00261,D,class,P016-A1,Patricia V Trotter,Siberian Huskies
+D00618,D,champion,P016-A1,Ms. Jan N Paulk,Standard Schnauzers
+D00605,D,champion,P016-A1,Mrs. Donna Ernst,Chow Chows
+D00606,D,champion,P016-A1,Mrs. Donna Ernst,Chow Chows
+D00009,B,class,P016-A1,Grace M Fritz,French Bulldogs
+D00010,B,class,P016-A1,Grace M Fritz,French Bulldogs
+D00011,B,class,P016-A1,Grace M Fritz,French Bulldogs
+D00012,D,champion,P016-A1,Grace M Fritz,French Bulldogs
+D00013,D,champion,P016-A1,Grace M Fritz,French Bulldogs
+D00534,B,class,P016-A2,Mrs. Donna Ernst,Poodles (Miniature)
+D00542,D,class,P016-A2,Mrs. Donna Ernst,Poodles (Standard)
+D00545,B,class,P016-A2,Mrs. Donna Ernst,Poodles (Standard)
+D00547,B,class,P016-A2,Mrs. Donna Ernst,Poodles (Standard)
+D00561,D,champion,P016-A2,Grace M Fritz,Schipperkes
+D00437,B,champion,P016-A2,Mrs. Betty Nelson Pollock,Australian Cattle Dogs

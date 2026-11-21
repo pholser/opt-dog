@@ -1,0 +1,400 @@
+dog,sex,status,exhibitor,judge,event
+D00001,D,class,O0001,Ms. JoAnne M Buehler,Boxers
+D00002,D,class,O0002,Ms. JoAnne M Buehler,Boxers
+D00003,D,class,O0003,Ms. JoAnne M Buehler,Boxers
+D00004,D,class,O0003,Ms. JoAnne M Buehler,Boxers
+D00005,B,class,O0005,Ms. JoAnne M Buehler,Boxers
+D00006,,nonregular,O0006,Ms. JoAnne M Buehler,Boxers
+D00008,B,champion,O0007,Ms. JoAnne M Buehler,Boxers
+D00009,B,class,O0008,Ms. JoAnne M Buehler,Giant Schnauzers
+D00010,D,class,O0003,Ms. JoAnne M Buehler,Doberman Pinschers
+D00012,D,class,O0003,Ms. JoAnne M Buehler,Doberman Pinschers
+D00013,D,class,O0011,Ms. JoAnne M Buehler,Doberman Pinschers
+D00014,B,class,O0012,Ms. JoAnne M Buehler,Doberman Pinschers
+D00015,B,class,O0013,Ms. JoAnne M Buehler,Doberman Pinschers
+D00016,B,class,O0014,Ms. JoAnne M Buehler,Doberman Pinschers
+D00017,B,class,O0014,Ms. JoAnne M Buehler,Doberman Pinschers
+D00019,B,class,O0014,Ms. JoAnne M Buehler,Doberman Pinschers
+D00020,B,class,O0017,Ms. JoAnne M Buehler,Doberman Pinschers
+D00021,D,champion,O0018,Ms. JoAnne M Buehler,Doberman Pinschers
+D00022,D,champion,O0018,Ms. JoAnne M Buehler,Doberman Pinschers
+D00023,D,champion,O0020,Ms. JoAnne M Buehler,Doberman Pinschers
+D00024,D,champion,O0021,Ms. JoAnne M Buehler,Doberman Pinschers
+D00025,D,champion,O0022,Ms. JoAnne M Buehler,Doberman Pinschers
+D00026,D,class,O0023,Ms. JoAnne M Buehler,Rottweilers
+D00027,D,class,O0023,Ms. JoAnne M Buehler,Rottweilers
+D00028,D,champion,O0023,Ms. JoAnne M Buehler,Rottweilers
+D00030,B,class,O0023,Ms. JoAnne M Buehler,Leonberger
+D00032,D,champion,O0023,Ms. JoAnne M Buehler,Leonberger
+D00036,D,champion,O0028,Ms. JoAnne M Buehler,Dogues de Bordeaux
+D00038,D,class,O0029,Ms. JoAnne M Buehler,Greater Swiss Mountain Dogs
+D00043,D,champion,O0030,Ms. JoAnne M Buehler,Greater Swiss Mountain Dogs
+D00044,B,champion,O0030,Ms. JoAnne M Buehler,Greater Swiss Mountain Dogs
+D00045,B,champion,O0032,Ms. JoAnne M Buehler,Greater Swiss Mountain Dogs
+D00046,D,class,O0033,Ms. JoAnne M Buehler,Siberian Huskies
+D00047,B,class,O0034,Ms. JoAnne M Buehler,Siberian Huskies
+D00048,B,class,O0035,Ms. JoAnne M Buehler,Siberian Huskies
+D00052,D,class,O0036,Ms. JoAnne M Buehler,Newfoundlands
+D00053,D,class,O0037,Ms. JoAnne M Buehler,Newfoundlands
+D00054,D,class,O0038,Ms. JoAnne M Buehler,Newfoundlands
+D00060,D,class,O0039,Ms. JoAnne M Buehler,Bernese Mountain Dogs
+D00061,B,class,O0039,Ms. JoAnne M Buehler,Bernese Mountain Dogs
+D00065,D,champion,O0039,Ms. JoAnne M Buehler,Bernese Mountain Dogs
+D00067,D,class,O0042,Ms. JoAnne M Buehler,Great Danes
+D00069,D,class,O0042,Ms. JoAnne M Buehler,Great Danes
+D00070,B,class,O0042,Ms. JoAnne M Buehler,Great Danes
+D00071,B,class,O0045,Ms. JoAnne M Buehler,Great Danes
+D00072,B,class,O0008,Ms. JoAnne M Buehler,Great Danes
+D00073,D,champion,O0008,Ms. JoAnne M Buehler,Great Danes
+D00077,D,class,O0048,Ms. JoAnne M Buehler,Standard Schnauzers
+D00078,,nonregular,O0048,Ms. JoAnne M Buehler,Standard Schnauzers
+D00079,D,champion,O0050,Ms. JoAnne M Buehler,Standard Schnauzers
+D00080,B,class,O0051,Ms. JoAnne M Buehler,Pomeranians
+D00081,B,class,O0051,Ms. JoAnne M Buehler,Pomeranians
+D00083,D,class,O0053,Ms. JoAnne M Buehler,Papillons
+D00086,D,class,O0054,Ms. JoAnne M Buehler,Cairn Terriers
+D00088,D,champion,O0055,Ms. JoAnne M Buehler,Cairn Terriers
+D00091,D,class,O0056,Ms. JoAnne M Buehler,Akitas
+D00092,D,class,O0057,Ms. JoAnne M Buehler,Akitas
+D00093,B,class,O0058,Ms. JoAnne M Buehler,Akitas
+D00094,B,champion,O0059,Ms. JoAnne M Buehler,Akitas
+D00097,,nonregular,O0060,Mr. Bob Eisele,Weimaraners
+D00098,,nonregular,O0061,Mr. Bob Eisele,Weimaraners
+D00100,D,champion,O0062,Mr. Bob Eisele,Weimaraners
+D00101,D,champion,O0063,Mr. Bob Eisele,Weimaraners
+D00102,B,champion,O0063,Mr. Bob Eisele,Weimaraners
+D00104,B,champion,O0065,Mr. Bob Eisele,Weimaraners
+D00105,B,class,O0066,Mr. Bob Eisele,Wirehaired Pointing Griffons
+D00108,D,champion,O0067,Mr. Bob Eisele,Wirehaired Vizsla
+D00109,D,class,O0068,Mr. Bob Eisele,Retrievers (Labrador)
+D00110,D,class,O0068,Mr. Bob Eisele,Retrievers (Labrador)
+D00111,B,class,O0068,Mr. Bob Eisele,Retrievers (Labrador)
+D00112,B,class,O0071,Mr. Bob Eisele,Retrievers (Labrador)
+D00114,B,class,O0072,Mr. Bob Eisele,Pointers (German Shorthaired)
+D00115,B,class,O0073,Mr. Bob Eisele,Pointers (German Shorthaired)
+D00116,B,class,O0063,Mr. Bob Eisele,Pointers (German Shorthaired)
+D00118,D,class,O0075,Mr. Bob Eisele,Retrievers (Flat-Coated)
+D00120,B,champion,O0076,Mr. Bob Eisele,Barbets
+D00121,D,class,O0077,Mr. Bob Eisele,Retrievers (Golden)
+D00122,D,class,O0078,Mr. Bob Eisele,Retrievers (Golden)
+D00123,D,class,O0079,Mr. Bob Eisele,Retrievers (Golden)
+D00124,D,class,O0080,Mr. Bob Eisele,Retrievers (Golden)
+D00125,B,class,O0076,Mr. Bob Eisele,Retrievers (Golden)
+D00127,D,champion,O0082,Mr. Bob Eisele,Retrievers (Golden)
+D00128,B,champion,O0082,Mr. Bob Eisele,Retrievers (Golden)
+D00129,B,champion,O0082,Mr. Bob Eisele,Retrievers (Golden)
+D00130,B,class,O0085,Mr. Bob Eisele,Bracchi Italiani
+D00132,D,champion,O0086,Mr. Bob Eisele,Brittanys
+D00133,D,class,O0087,Mr. Bob Eisele,Setters (Irish)
+D00137,D,champion,O0088,Mr. Bob Eisele,Retrievers (Nova Scotia Duck T
+D00138,B,class,O0089,Mr. Bob Eisele,Spaniels (English Springer)
+D00140,B,champion,O0090,Mr. Bob Eisele,Spaniels (English Springer)
+D00141,D,champion,O0091,Mr. Bob Eisele,Spaniels (Cocker) Black
+D00142,D,class,O0092,Mr. Bob Eisele,Spaniels (Cocker) ASCOB
+D00143,D,class,O0093,Mr. Bob Eisele,Vizslas
+D00144,D,class,O0093,Mr. Bob Eisele,Vizslas
+D00145,D,class,O0082,Mr. Bob Eisele,Vizslas
+D00146,D,class,O0096,Mr. Bob Eisele,Vizslas
+D00148,B,class,O0096,Mr. Bob Eisele,Vizslas
+D00149,B,class,O0098,Mr. Bob Eisele,Vizslas
+D00150,B,class,O0099,Mr. Bob Eisele,Vizslas
+D00151,B,class,O0100,Mr. Bob Eisele,Vizslas
+D00152,B,class,O0063,Mr. Bob Eisele,Vizslas
+D00154,B,class,O0102,Mr. Bob Eisele,Vizslas
+D00155,B,class,O0103,Mr. Bob Eisele,Vizslas
+D00158,B,champion,O0103,Mr. Bob Eisele,Vizslas
+D00159,B,champion,O0103,Mr. Bob Eisele,Vizslas
+D00161,B,champion,O0103,Mr. Bob Eisele,Vizslas
+D00162,D,champion,O0107,James R. Dickson,Pointers
+D00164,B,class,O0108,James R. Dickson,Spaniels (English Cocker)
+D00165,B,class,O0109,James R. Dickson,Spaniels (English Cocker)
+D00166,D,class,O0110,James R. Dickson,Spaniels (Welsh Springer)
+D00168,B,class,O0111,James R. Dickson,Spaniels (Welsh Springer)
+D00171,D,class,O0054,James R. Dickson,Irish Terriers
+D00172,D,class,O0113,James R. Dickson,Irish Terriers
+D00173,D,class,O0114,James R. Dickson,Irish Terriers
+D00174,B,class,O0114,James R. Dickson,Irish Terriers
+D00175,D,champion,O0116,James R. Dickson,Irish Terriers
+D00177,D,class,O0117,James R. Dickson,Soft-Coated Wheaten Terriers
+D00179,B,class,O0118,James R. Dickson,Soft-Coated Wheaten Terriers
+D00180,,nonregular,O0119,James R. Dickson,Soft-Coated Wheaten Terriers
+D00184,B,champion,O0120,James R. Dickson,Soft-Coated Wheaten Terriers
+D00186,D,class,O0121,James R. Dickson,Border Terriers
+D00187,D,class,O0122,James R. Dickson,Border Terriers
+D00188,B,class,O0122,James R. Dickson,Border Terriers
+D00189,B,champion,O0122,James R. Dickson,Border Terriers
+D00190,B,class,O0118,James R. Dickson,West Highland White Terriers
+D00191,B,class,O0126,James R. Dickson,West Highland White Terriers
+D00192,B,class,O0127,James R. Dickson,West Highland White Terriers
+D00195,B,class,O0128,James R. Dickson,Welsh Terriers
+D00199,B,class,O0129,James R. Dickson,Great Pyrenees
+D00205,B,class,O0130,Mr. Alfred J Ferruggiaro,Chinese Crested
+D00206,B,class,O0051,Mr. Alfred J Ferruggiaro,Chinese Crested
+D00208,B,champion,O0132,Mr. Alfred J Ferruggiaro,Chinese Crested
+D00209,B,champion,O0133,Mr. Alfred J Ferruggiaro,Chinese Crested
+D00211,B,class,O0134,Mr. Alfred J Ferruggiaro,Brussels Griffons
+D00214,B,class,O0135,Mr. Alfred J Ferruggiaro,Yorkshire Terriers
+D00215,B,class,O0136,Mr. Alfred J Ferruggiaro,Yorkshire Terriers
+D00216,B,class,O0136,Mr. Alfred J Ferruggiaro,Yorkshire Terriers
+D00217,B,class,O0138,Mr. Alfred J Ferruggiaro,Yorkshire Terriers
+D00218,B,champion,O0139,Mr. Alfred J Ferruggiaro,Maltese
+D00220,D,champion,O0140,Mr. Alfred J Ferruggiaro,English Toy Spaniels (KC&R)
+D00221,D,class,O0141,Mr. Alfred J Ferruggiaro,Cavalier King Charles Spaniels
+D00222,B,class,O0142,Mr. Alfred J Ferruggiaro,Cavalier King Charles Spaniels
+D00224,D,champion,O0143,Mr. Alfred J Ferruggiaro,Cavalier King Charles Spaniels
+D00225,D,class,O0144,John Schoeneman,Bulldogs
+D00226,D,class,O0145,John Schoeneman,Bulldogs
+D00227,B,class,O0146,John Schoeneman,Bulldogs
+D00231,B,champion,O0147,John Schoeneman,Chinese Shar-Pei
+D00232,B,class,O0148,John Schoeneman,Keeshonden
+D00234,D,champion,O0149,John Schoeneman,Dalmatians
+D00236,D,class,O0150,John Schoeneman,Coton de Tulear
+D00237,D,class,O0151,John Schoeneman,Boston Terriers
+D00238,B,class,O0152,John Schoeneman,Boston Terriers
+D00243,B,class,O0153,John Schoeneman,French Bulldogs
+D00244,B,class,O0154,John Schoeneman,French Bulldogs
+D00248,D,champion,O0155,John Schoeneman,Schipperkes
+D00251,B,class,O0156,John Schoeneman,German Shepherd Dogs
+D00252,,nonregular,O0156,John Schoeneman,German Shepherd Dogs
+D00254,B,champion,O0158,John Schoeneman,German Shepherd Dogs
+D00255,D,class,O0158,John Schoeneman,Collies (Smooth)
+D00258,B,champion,O0160,John Schoeneman,Australian Cattle Dogs
+D00260,D,champion,O0161,John Schoeneman,Belgian Tervuren
+D00261,B,class,O0162,John Schoeneman,Bergamasco Sheepdog
+D00262,B,class,O0158,John Schoeneman,Bergamasco Sheepdog
+D00265,D,class,O0164,John Schoeneman,Australian Shepherds
+D00271,D,champion,O0165,John Schoeneman,Australian Shepherds
+D00272,D,champion,O0166,John Schoeneman,Finnish Lapphunds
+D00274,B,class,O0167,John Schoeneman,Norwegian Buhunds
+D00279,B,class,O0167,John Schoeneman,Pembroke Welsh Corgis
+D00280,B,class,O0167,John Schoeneman,Pembroke Welsh Corgis
+D00281,D,champion,O0170,John Schoeneman,Pembroke Welsh Corgis
+D00283,D,class,O0171,John Schoeneman,Shetland Sheepdogs
+D00287,D,champion,O0172,John Schoeneman,Bearded Collies
+D00290,D,class,O0173,John Schoeneman,Old English Sheepdogs
+D00293,D,champion,O0174,John Schoeneman,Old English Sheepdogs
+D00295,B,champion,O0175,John Schoeneman,Old English Sheepdogs
+D00296,D,class,O0176,John Schoeneman,Poodles (Standard)
+D00298,D,class,O0177,John Schoeneman,Poodles (Standard)
+D00299,B,class,O0178,John Schoeneman,Poodles (Standard)
+D00301,D,champion,O0179,John Schoeneman,Tibetan Spaniels
+D00309,D,champion,O0153,John Schoeneman,Lhasa Apsos
+D00311,B,champion,O0181,John Schoeneman,Lhasa Apsos
+D00315,B,champion,O0182,Mr. Alfred J Ferruggiaro,Borzois
+D00317,B,class,O0183,Mr. Alfred J Ferruggiaro,Greyhounds
+D00318,B,class,O0184,Mr. Alfred J Ferruggiaro,Redbone Coonhounds
+D00319,D,champion,O0185,Mr. Alfred J Ferruggiaro,Ibizan Hounds
+D00321,B,class,O0186,Mr. Alfred J Ferruggiaro,Irish Wolfhounds
+D00322,B,class,O0187,Mr. Alfred J Ferruggiaro,Irish Wolfhounds
+D00323,B,class,O0188,Mr. Alfred J Ferruggiaro,Irish Wolfhounds
+D00324,D,champion,O0189,Mr. Alfred J Ferruggiaro,Irish Wolfhounds
+D00325,D,class,O0182,Mr. Alfred J Ferruggiaro,Rhodesian Ridgebacks
+D00326,D,class,O0171,Mr. Alfred J Ferruggiaro,Rhodesian Ridgebacks
+D00327,B,class,O0192,Mr. Alfred J Ferruggiaro,Rhodesian Ridgebacks
+D00328,B,class,O0193,Mr. Alfred J Ferruggiaro,Rhodesian Ridgebacks
+D00330,B,class,O0194,Mr. Alfred J Ferruggiaro,Rhodesian Ridgebacks
+D00331,B,class,O0195,Mr. Alfred J Ferruggiaro,Rhodesian Ridgebacks
+D00332,D,champion,O0196,Mr. Alfred J Ferruggiaro,Rhodesian Ridgebacks
+D00335,B,champion,O0197,Mr. Alfred J Ferruggiaro,Rhodesian Ridgebacks
+D00336,B,champion,O0198,Mr. Alfred J Ferruggiaro,Rhodesian Ridgebacks
+D00338,D,class,O0199,Mr. Alfred J Ferruggiaro,Airedale Terriers
+D00339,B,class,O0200,Mr. Alfred J Ferruggiaro,Airedale Terriers
+D00340,B,class,O0147,Mr. Alfred J Ferruggiaro,Airedale Terriers
+D00341,B,class,O0147,Mr. Alfred J Ferruggiaro,Airedale Terriers
+D00342,B,class,O0122,Mr. Alfred J Ferruggiaro,Airedale Terriers
+D00343,B,class,O0204,Mr. Alfred J Ferruggiaro,American Staffordshire Terrier
+D00345,D,champion,O0205,Mr. Alfred J Ferruggiaro,American Staffordshire Terrier
+D00346,D,class,O0206,Mr. Alfred J Ferruggiaro,Miniature Bull Terriers
+D00347,B,class,O0182,Mr. Alfred J Ferruggiaro,Whippets
+D00348,B,class,O0182,Mr. Alfred J Ferruggiaro,Whippets
+D00350,B,champion,O0209,Mr. Alfred J Ferruggiaro,Whippets
+D00355,B,class,O0172,Mr. Alfred J Ferruggiaro,Basenjis
+D00356,B,class,O0172,Mr. Alfred J Ferruggiaro,Basenjis
+D00357,D,champion,O0212,Mr. Alfred J Ferruggiaro,Basenjis
+D00358,D,champion,O0213,Mr. Alfred J Ferruggiaro,Basenjis
+D00359,D,champion,O0214,Mr. Alfred J Ferruggiaro,Basenjis
+D00361,B,champion,O0215,Mr. Alfred J Ferruggiaro,Basenjis
+D00362,B,champion,O0216,Mr. Alfred J Ferruggiaro,Basenjis
+D00363,D,class,O0217,Mr. Alfred J Ferruggiaro,Dachshunds (Smooth)
+D00364,B,class,O0182,Mr. Alfred J Ferruggiaro,Dachshunds (Smooth)
+D00366,B,class,O0219,Mr. Alfred J Ferruggiaro,Dachshunds (Smooth)
+D00367,B,class,O0220,Mr. Alfred J Ferruggiaro,Dachshunds (Smooth)
+D00368,B,class,O0220,Mr. Alfred J Ferruggiaro,Dachshunds (Smooth)
+D00370,B,champion,O0220,Mr. Alfred J Ferruggiaro,Dachshunds (Smooth)
+D00371,D,class,O0223,Mr. Alfred J Ferruggiaro,Dachshunds (Longhaired)
+D00372,B,class,O0223,Mr. Alfred J Ferruggiaro,Dachshunds (Longhaired)
+D00373,B,class,O0225,Mr. Alfred J Ferruggiaro,Dachshunds (Longhaired)
+D00374,B,class,O0226,Mr. Alfred J Ferruggiaro,Dachshunds (Longhaired)
+D00379,D,champion,O0050,Mr. Alfred J Ferruggiaro,Lakeland Terriers
+D00381,B,champion,O0228,Mr. Alfred J Ferruggiaro,Manchester Terriers (Standard)
+D00382,B,class,O0229,Mr. Alfred J Ferruggiaro,Russell Terrier
+D00383,B,class,O0230,Mr. Alfred J Ferruggiaro,Russell Terrier
+D00384,D,champion,O0230,Mr. Alfred J Ferruggiaro,Russell Terrier
+D00391,D,class,O0232,Mr. Alfred J Ferruggiaro,Pugs
+D00392,B,class,O0233,Mr. Alfred J Ferruggiaro,Pugs
+D00393,B,class,O0130,Mr. Alfred J Ferruggiaro,Pugs
+D00395,B,champion,O0130,Mr. Alfred J Ferruggiaro,Pugs
+D00397,D,champion,O0236,Mr. Alfred J Ferruggiaro,Manchester Terriers (Toy)
+D00398,D,champion,O0236,Mr. Alfred J Ferruggiaro,Manchester Terriers (Toy)
+D00399,D,class,O0238,Mr. Alfred J Ferruggiaro,Havanese
+D00389,B,class,P001,Mr. Alfred J Ferruggiaro,Bedlington Terriers
+D00084,B,class,P001,Ms. JoAnne M Buehler,Scottish Terriers
+D00388,B,champion,P001,Mr. Alfred J Ferruggiaro,Sealyham Terriers
+D00178,D,class,P001,James R. Dickson,Soft-Coated Wheaten Terriers
+D00182,B,champion,P001,James R. Dickson,Soft-Coated Wheaten Terriers
+D00183,B,champion,P001,James R. Dickson,Soft-Coated Wheaten Terriers
+D00229,B,champion,P001,John Schoeneman,Bulldogs
+D00235,D,champion,P001,John Schoeneman,Dalmatians
+D00310,D,champion,P001,John Schoeneman,Lhasa Apsos
+D00297,D,class,P001,John Schoeneman,Poodles (Standard)
+D00303,B,champion,P001,John Schoeneman,Tibetan Spaniels
+D00267,B,class,P001,John Schoeneman,Australian Shepherds
+D00269,D,champion,P001,John Schoeneman,Australian Shepherds
+D00270,D,champion,P001,John Schoeneman,Australian Shepherds
+D00285,B,class,P001-A1,John Schoeneman,Bearded Collies
+D00286,B,class,P001-A1,John Schoeneman,Bearded Collies
+D00289,B,champion,P001-A1,John Schoeneman,Bearded Collies
+D00259,B,class,P001-A1,John Schoeneman,Belgian Sheepdogs
+D00264,B,champion,P001-A1,John Schoeneman,Bergamasco Sheepdog
+D00276,D,champion,P001-A1,John Schoeneman,Cardigan Welsh Corgis
+D00256,,nonregular,P001-A1,John Schoeneman,Collies (Smooth)
+D00257,B,champion,P001-A1,John Schoeneman,Collies (Smooth)
+D00282,D,champion,P001-A1,John Schoeneman,Pembroke Welsh Corgis
+D00167,D,class,P002,James R. Dickson,Spaniels (Welsh Springer)
+D00064,B,class,P002,Ms. JoAnne M Buehler,Bernese Mountain Dogs
+D00087,D,champion,P002,Ms. JoAnne M Buehler,Cairn Terriers
+D00377,B,champion,P002,Mr. Alfred J Ferruggiaro,Glen of Imaal Terrier
+D00197,B,champion,P002,James R. Dickson,Welsh Terriers
+D00247,B,champion,P002,John Schoeneman,French Bulldogs
+D00233,B,class,P002,John Schoeneman,Keeshonden
+D00312,B,champion,P002,John Schoeneman,Lhasa Apsos
+D00266,B,class,P002-A1,John Schoeneman,Australian Shepherds
+D00268,,nonregular,P002-A1,John Schoeneman,Australian Shepherds
+D00263,D,champion,P002-A1,John Schoeneman,Bergamasco Sheepdog
+D00273,D,champion,P002-A1,John Schoeneman,Finnish Lapphunds
+D00250,B,class,P002-A1,John Schoeneman,German Shepherd Dogs
+D00253,D,champion,P002-A1,John Schoeneman,German Shepherd Dogs
+D00291,D,champion,P002-A1,John Schoeneman,Old English Sheepdogs
+D00278,B,class,P002-A1,John Schoeneman,Pembroke Welsh Corgis
+D00135,B,class,P003,Mr. Bob Eisele,Retrievers (Nova Scotia Duck T
+D00136,B,class,P003,Mr. Bob Eisele,Retrievers (Nova Scotia Duck T
+D00169,B,class,P003,James R. Dickson,Spaniels (Welsh Springer)
+D00153,B,class,P003,Mr. Bob Eisele,Vizslas
+D00157,B,champion,P003,Mr. Bob Eisele,Vizslas
+D00160,B,champion,P003,Mr. Bob Eisele,Vizslas
+D00095,B,class,P003,Mr. Bob Eisele,Weimaraners
+D00103,B,champion,P003,Mr. Bob Eisele,Weimaraners
+D00353,B,champion,P003,Mr. Alfred J Ferruggiaro,Dachshunds (Wirehaired)
+D00351,B,champion,P003,Mr. Alfred J Ferruggiaro,Whippets
+D00040,B,class,P003-A1,Ms. JoAnne M Buehler,Greater Swiss Mountain Dogs
+D00033,B,champion,P003-A1,Ms. JoAnne M Buehler,Leonberger
+D00034,B,champion,P003-A1,Ms. JoAnne M Buehler,Leonberger
+D00058,B,champion,P003-A1,Ms. JoAnne M Buehler,Newfoundlands
+D00075,D,champion,P003-A1,Ms. JoAnne M Buehler,Portuguese Water Dogs
+D00049,B,champion,P003-A1,Ms. JoAnne M Buehler,Siberian Huskies
+D00378,B,champion,P003-A1,Mr. Alfred J Ferruggiaro,Glen of Imaal Terrier
+D00245,B,class,P003-A1,John Schoeneman,French Bulldogs
+D00305,D,champion,P003-A1,John Schoeneman,Lowchen
+D00249,B,champion,P003-A1,John Schoeneman,Schipperkes
+D00170,D,class,P004,James R. Dickson,Irish Terriers
+D00380,B,class,P004,Mr. Alfred J Ferruggiaro,Manchester Terriers (Standard)
+D00386,B,champion,P004,Mr. Alfred J Ferruggiaro,Russell Terrier
+D00387,B,champion,P004,Mr. Alfred J Ferruggiaro,Sealyham Terriers
+D00193,B,class,P004,James R. Dickson,West Highland White Terriers
+D00396,B,class,P004,Mr. Alfred J Ferruggiaro,Chihuahuas (Long Coat)
+D00207,D,champion,P004,Mr. Alfred J Ferruggiaro,Chinese Crested
+D00082,D,champion,P004,Ms. JoAnne M Buehler,Pomeranians
+D00240,B,champion,P004,John Schoeneman,Boston Terriers
+D00246,D,champion,P004,John Schoeneman,French Bulldogs
+D00314,D,champion,P005,Mr. Alfred J Ferruggiaro,Borzois
+D00059,D,class,P005,Ms. JoAnne M Buehler,Bernese Mountain Dogs
+D00200,D,champion,P005,James R. Dickson,Great Pyrenees
+D00035,B,champion,P005,Ms. JoAnne M Buehler,Leonberger
+D00055,B,class,P005,Ms. JoAnne M Buehler,Newfoundlands
+D00344,B,class,P005,Mr. Alfred J Ferruggiaro,American Staffordshire Terrier
+D00390,B,champion,P005,Mr. Alfred J Ferruggiaro,Bedlington Terriers
+D00089,B,champion,P005,Ms. JoAnne M Buehler,Cairn Terriers
+D00185,B,class,P005,James R. Dickson,Fox Terriers (Smooth)
+D00090,D,champion,P005,Ms. JoAnne M Buehler,Kerry Blue Terriers
+D00196,,nonregular,P005,James R. Dickson,Welsh Terriers
+D00223,D,champion,P005,Mr. Alfred J Ferruggiaro,Cavalier King Charles Spaniels
+D00117,B,class,P006,Mr. Bob Eisele,Retrievers (Chesapeake Bay)
+D00369,D,champion,P006,Mr. Alfred J Ferruggiaro,Dachshunds (Smooth)
+D00018,B,class,P006,Ms. JoAnne M Buehler,Doberman Pinschers
+D00074,D,champion,P006,Ms. JoAnne M Buehler,Great Danes
+D00202,D,champion,P006,James R. Dickson,Great Pyrenees
+D00029,D,class,P006,Ms. JoAnne M Buehler,Leonberger
+D00076,D,champion,P006,Ms. JoAnne M Buehler,Portuguese Water Dogs
+D00050,B,champion,P006,Ms. JoAnne M Buehler,Siberian Huskies
+D00176,D,champion,P006-A1,James R. Dickson,Irish Terriers
+D00085,D,class,P006-A1,Ms. JoAnne M Buehler,Miniature Schnauzers
+D00181,D,champion,P006-A1,James R. Dickson,Soft-Coated Wheaten Terriers
+D00198,B,champion,P006-A1,James R. Dickson,Welsh Terriers
+D00194,B,champion,P006-A1,James R. Dickson,West Highland White Terriers
+D00228,D,champion,P006-A1,John Schoeneman,Bulldogs
+D00304,B,champion,P006-A1,John Schoeneman,Tibetan Spaniels
+D00360,D,champion,P007,Mr. Alfred J Ferruggiaro,Basenjis
+D00313,D,champion,P007,Mr. Alfred J Ferruggiaro,Borzois
+D00316,B,champion,P007,Mr. Alfred J Ferruggiaro,Borzois
+D00352,B,champion,P007,Mr. Alfred J Ferruggiaro,Dachshunds (Wirehaired)
+D00329,B,class,P007,Mr. Alfred J Ferruggiaro,Rhodesian Ridgebacks
+D00334,D,champion,P007,Mr. Alfred J Ferruggiaro,Rhodesian Ridgebacks
+D00063,B,class,P007,Ms. JoAnne M Buehler,Bernese Mountain Dogs
+D00066,B,champion,P007,Ms. JoAnne M Buehler,Bernese Mountain Dogs
+D00212,D,champion,P007-A1,Mr. Alfred J Ferruggiaro,Brussels Griffons
+D00210,B,champion,P007-A1,Mr. Alfred J Ferruggiaro,Chinese Crested
+D00230,B,class,P007-A1,John Schoeneman,Chinese Shar-Pei
+D00302,B,champion,P007-A1,John Schoeneman,Tibetan Spaniels
+D00307,D,champion,P007-A1,John Schoeneman,Tibetan Terriers
+D00147,D,class,P008,Mr. Bob Eisele,Vizslas
+D00354,B,class,P008,Mr. Alfred J Ferruggiaro,Basenjis
+D00375,B,class,P008,Mr. Alfred J Ferruggiaro,Dachshunds (Longhaired)
+D00376,D,champion,P008,Mr. Alfred J Ferruggiaro,Dachshunds (Longhaired)
+D00333,D,champion,P008,Mr. Alfred J Ferruggiaro,Rhodesian Ridgebacks
+D00385,B,champion,P008,Mr. Alfred J Ferruggiaro,Russell Terrier
+D00204,D,champion,P008,Mr. Alfred J Ferruggiaro,Biewer Terriers
+D00394,D,champion,P008,Mr. Alfred J Ferruggiaro,Pugs
+D00213,D,class,P008-A1,Mr. Alfred J Ferruggiaro,Yorkshire Terriers
+D00239,B,champion,P008-A1,John Schoeneman,Boston Terriers
+D00242,B,class,P008-A1,John Schoeneman,French Bulldogs
+D00300,D,champion,P008-A1,John Schoeneman,Poodles (Standard)
+D00308,B,champion,P008-A1,John Schoeneman,Tibetan Terriers
+D00288,D,champion,P008-A1,John Schoeneman,Bearded Collies
+D00275,D,champion,P008-A1,John Schoeneman,Cardigan Welsh Corgis
+D00292,D,champion,P008-A1,John Schoeneman,Old English Sheepdogs
+D00365,B,class,P009,Mr. Alfred J Ferruggiaro,Dachshunds (Smooth)
+D00320,D,class,P009,Mr. Alfred J Ferruggiaro,Irish Wolfhounds
+D00337,B,champion,P009,Mr. Alfred J Ferruggiaro,Rhodesian Ridgebacks
+D00349,B,champion,P009,Mr. Alfred J Ferruggiaro,Whippets
+D00062,B,class,P009,Ms. JoAnne M Buehler,Bernese Mountain Dogs
+D00007,B,champion,P009,Ms. JoAnne M Buehler,Boxers
+D00011,D,class,P009,Ms. JoAnne M Buehler,Doberman Pinschers
+D00037,D,champion,P009,Ms. JoAnne M Buehler,Dogues de Bordeaux
+D00068,D,class,P009,Ms. JoAnne M Buehler,Great Danes
+D00201,D,champion,P009,James R. Dickson,Great Pyrenees
+D00203,B,champion,P009,James R. Dickson,Great Pyrenees
+D00039,B,class,P009-A1,Ms. JoAnne M Buehler,Greater Swiss Mountain Dogs
+D00041,D,champion,P009-A1,Ms. JoAnne M Buehler,Greater Swiss Mountain Dogs
+D00042,D,champion,P009-A1,Ms. JoAnne M Buehler,Greater Swiss Mountain Dogs
+D00031,D,champion,P009-A1,Ms. JoAnne M Buehler,Leonberger
+D00056,D,champion,P009-A1,Ms. JoAnne M Buehler,Newfoundlands
+D00051,B,champion,P009-A1,Ms. JoAnne M Buehler,Siberian Huskies
+D00241,D,class,P009-A1,John Schoeneman,French Bulldogs
+D00306,D,champion,P009-A1,John Schoeneman,Lowchen
+D00131,D,champion,P010,Mr. Bob Eisele,Bracchi Italiani
+D00134,D,champion,P010,Mr. Bob Eisele,Lagotto Romagnolo
+D00163,B,champion,P010,James R. Dickson,Pointers
+D00119,D,champion,P010,Mr. Bob Eisele,Retrievers (Flat-Coated)
+D00126,D,champion,P010,Mr. Bob Eisele,Retrievers (Golden)
+D00113,D,champion,P010,Mr. Bob Eisele,Retrievers (Labrador)
+D00139,B,champion,P010,Mr. Bob Eisele,Spaniels (English Springer)
+D00106,,nonregular,P010,Mr. Bob Eisele,Spinone Italiano
+D00107,B,champion,P010,Mr. Bob Eisele,Spinone Italiano
+D00156,D,champion,P010-A1,Mr. Bob Eisele,Vizslas
+D00096,B,class,P010-A1,Mr. Bob Eisele,Weimaraners
+D00099,,nonregular,P010-A1,Mr. Bob Eisele,Weimaraners
+D00057,D,champion,P010-A1,Ms. JoAnne M Buehler,Newfoundlands
+D00219,D,champion,P010-A1,Mr. Alfred J Ferruggiaro,English Toy Spaniels (B&PC)
+D00277,D,champion,P010-A1,John Schoeneman,Cardigan Welsh Corgis
+D00294,B,champion,P010-A1,John Schoeneman,Old English Sheepdogs
+D00284,,nonregular,P010-A1,John Schoeneman,Shetland Sheepdogs
