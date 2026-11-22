@@ -1,6 +1,6 @@
 # opt-dog: the solution as it stands
 
-As of 2026-11-14. Rule numbers (H1, S9 and so on) and their sources are in
+As of 2026-11-21. Rule numbers (H1, S9 and so on) and their sources are in
 [`SPEC.md`](SPEC.md), and the optimization model in [`FORMULATION.md`](FORMULATION.md). Per-day
 results are in [`baseline.md`](baseline.md) and [`figures.html`](figures.html).
 
@@ -30,7 +30,7 @@ represent them.
 
 | Stage | Code | Role |
 |---|---|---|
-| Ingest | `ingest/` | Parses published Bradshaw and Rau programs into `data/parsed/`, one parser per superintendent |
+| Ingest | `ingest/` | Parses published Bradshaw, Rau and MB-F programs into `data/parsed/`, one parser per superintendent |
 | Domain model | `domain.py`, `instance.py`, `breeds.py` | Typed objects. CSV appears only at the I/O edges (`io/`). Times of day are `TimeOfDay` and lengths of time `Duration`; neither mixes with plain numbers, and they become integers only inside the CP-SAT models and the files |
 | Greedy schedule | `solve/greedy.py` | A fast valid schedule, used as the solver's starting point and as a baseline |
 | Lower bounds | `solve/bounds.py`, `solve/relaxation.py` | The earliest finish any valid schedule could reach |
@@ -135,8 +135,9 @@ nothing if the result breaks a hard rule other than V1.
 
 ## 4. Results
 
-These cover 14 published all-breed days from two superintendents: 11 from Jack Bradshaw (California
-and Arizona, 2022–2026) and 3 from Rau Dog Shows (New Jersey and Maryland, 2024).
+These cover 16 published all-breed days from three superintendents: 11 from Jack Bradshaw
+(California and Arizona, 2022–2026), 3 from Rau Dog Shows (New Jersey and Maryland, 2024) and 2
+from MB-F (North Carolina and Michigan, 2026).
 
 | Day | Lower bound | Published | 3c | 3c status |
 |---|---|---|---|---|
@@ -154,22 +155,30 @@ and Arizona, 2022–2026) and 3 from Rau Dog Shows (New Jersey and Maryland, 202
 | Anne Arundel 2024-05-16 (Rau) | 5:03 PM | 7:43 PM | 5:08 PM | Optimal |
 | Anne Arundel 2024-05-17 (Rau) | 5:07 PM | 7:52 PM | 5:12 PM | Optimal |
 | Twin Brooks 2024-07-15 (Rau) | 3:51 PM | 5:36 PM | 3:51 PM | Optimal |
+| Furniture City 2026-11-08 (MB-F) | 5:28 PM | 7:58 PM | 5:28 PM | Optimal |
+| Ingham County 2026-11-29 (MB-F) | 6:02 PM | 8:02 PM | 6:02 PM | Optimal |
 
-| Total over the 14 days (Bradshaw + Rau) | Published | 3b | 3c |
+| Total over the 16 days (Bradshaw + Rau + MB-F) | Published | 3b | 3c |
 |---|---|---|---|
-| Short blocks (under 15 dogs) | 59 (55 + 4) | 45 (44 + 1) | 15 (14 + 1) |
-| Equipment switches in a ring | 436 (358 + 78) | 206 (166 + 40) | 203 (163 + 40) |
-| Judge ring changes (outside lunch) | 32 (21 + 11) | 0 | 0 |
-| Exhibitor conflict minutes (opted-in, synthetic seed 0) | 17,466 (16,937 + 529) | 7,491 (7,401 + 90) | 7,674 (7,541 + 133) |
-| Judge idle minutes | 1,657 (1,258 + 399) | 2,146 (1,911 + 235) | 1,724 (1,549 + 175) |
-| Mean minutes above the lower bound | 98 (86, 143) | 6 (7, 2) | 4 (4, 3) |
+| Short blocks (under 15 dogs) | 60 (55 + 4 + 1) | 46 (44 + 1 + 1) | 16 (14 + 1 + 1) |
+| Equipment switches in a ring | 511 (358 + 78 + 75) | 238 (166 + 40 + 32) | 233 (163 + 40 + 30) |
+| Judge ring changes (outside lunch) | 33 (21 + 11 + 1) | 0 | 0 |
+| Exhibitor conflict minutes (opted-in, synthetic seed 0) | 18,227 (16,937 + 529 + 761) | 7,688 (7,401 + 90 + 197) | 7,941 (7,541 + 133 + 267) |
+| Judge idle minutes | 1,731 (1,258 + 399 + 74) | 2,384 (1,911 + 235 + 238) | 1,938 (1,549 + 175 + 214) |
+| Mean minutes above the lower bound | 103 (86, 143, 135) | 5 (7, 2, 0) | 3 (4, 3, 0) |
 
-- Conflicts in 3c are lower than published on every day: 55% lower in total, 39–98% lower on
-  the eight smaller days, and 47–61% lower on the three Palm Springs days, where most
-  conflict minutes are.
+- Conflicts in 3c are lower than published on every day: 56% lower in total, 39–98% lower on
+  the eight smaller Bradshaw days, and 47–61% lower on the three Palm Springs days, where most
+  conflict minutes are. On the MB-F days they fall 92% and 59%.
 - Judge idle is the price on the Bradshaw days: 3c has 1,549 idle minutes, more than the
   published programs' 1,258. The budget allows up to twice the least idle the idle phase finds.
-  On the Rau days idle falls instead (399 → 175), with conflicts down 75% (529 → 133).
+  On the Rau days idle falls instead (399 → 175), with conflicts down 75% (529 → 133). On the
+  MB-F days the published programs are already low on idle (74 minutes), and 3c triples it
+  (214) while cutting conflicts from 761 to 267.
+- **The MB-F days reach the bound exactly** (5:28 and 6:02 PM, proven optimal), against
+  published finishes 2–2½ hours later (7:58 and 8:02 PM). 3c starts groups at 11:45 AM; the
+  programs start them at 2:15 and 1:45 PM. Ingham County is the largest day so far: 1,032 breed
+  entries, 11 judges, 10 rings.
 - **The Rau days start groups two hours earlier than published.** 3c starts groups at
   11:05–11:15 AM; the programs start them at 1:00–1:45 PM. No Rau judge has more than 120 entries
   (under five hours), so no one needs a lunch and H14 does not hold groups back. This sharpens the
@@ -177,7 +186,9 @@ and Arizona, 2022–2026) and 3 from Rau Dog Shows (New Jersey and Maryland, 202
 - **Closing time.** The Rau programs print show hours, so those days carry a closing time (H12):
   7:00 PM at Anne Arundel, 6:30 PM at Twin Brooks. 3c meets it with 1½–2½ hours to spare. Both
   published Anne Arundel programs finish after it (7:43 and 7:52 PM) when timed with the model's
-  conservative group and BIS durations, which is why the validator flags them.
+  conservative group and BIS durations, which is why the validator flags them. MB-F programs
+  print show hours too: Furniture City closes at 7:00 PM, and its published program (7:58 PM)
+  breaks H12 the same way; Ingham County closes at 10:00 PM.
 - No judge changes rings outside lunch in 3b or 3c. The 12 and 16 changes of earlier runs came
   from pinned Beginner Puppy, FSS and specialty blocks, which are no longer scheduled.
 - Phase limits mattered. With 60-second idle and conflict phases, 3c had 10,361 conflict
@@ -193,8 +204,9 @@ and Arizona, 2022–2026) and 3 from Rau Dog Shows (New Jersey and Maryland, 202
   dogs, so they cannot be made larger.
 - 3c breaks no hard rule on any day. No judge is over the V1 limit once juniors and sweepstakes
   are left out (the heaviest has 175 entries).
-- 8 of the 14 published programs (6 Bradshaw, 2 Rau) break at least one hard rule as this project
-  defines them.
+- 10 of the 16 published programs (6 Bradshaw, 2 Rau, 2 MB-F) break at least one hard rule as this
+  project defines them. The MB-F programs are scheduled at about 30 dogs an hour, so timed at 25
+  their blocks overrun (H1, H3, H4).
 
 **How to read the clock times.** Group and BIS durations are deliberately conservative upper
 bounds (SPEC §2.5), so modeled finishes run later than real shows close. Published programs are
@@ -206,7 +218,7 @@ packing step fixed, at the trade price of 10 minutes per short block.
 
 **Runtime.** A full batch of bound and all four steps took about 57 minutes for 11 days, or 2–9
 minutes per day, before the conflict phases. With them, at 180 seconds each, the batch took
-about 3.5 hours, or 13–25 minutes per day. The three Rau days took 15–20 minutes each.
+about 3.5 hours, or 13–25 minutes per day. The three Rau days took 15–20 minutes each, and the two MB-F days 17 and 19.
 
 **Ring-size experiment.** Three days, with invented layouts, because no published program states
 ring sizes. Each cell lists Del Sur 5/1, Palm Springs 1/4 and Sir Francis Drake 9/12.
@@ -221,7 +233,7 @@ Limiting ring sizes barely moved the finish, but cost ring changes and idle time
 are rough, because the last phase runs out of time on these runs, and they predate the change that
 counts any wait beyond a lunch's length as idle, so they understate it.
 
-**Tests.** All 296 pass, in about 6 minutes. The solver tests use short time limits, so they
+**Tests.** All 350 pass, in about 6 minutes. The solver tests use short time limits, so they
 should run with nothing else competing for CPU.
 
 **Type checking.** `mypy` (a dev extra) checks `src/optdog` clean. `solve/cpsat.py` is exempt
@@ -274,7 +286,7 @@ literals use, which OR-Tools' type stubs cannot express.
 |---|---|
 | From-scratch CP-SAT | Run end to end on one day only (Del Sur 5/1). Input round-trips and the greedy path are tested on all 11 |
 | Ring sizes | No real ring layout has been tested. The experiment covers three days with invented layouts |
-| Two data sources | Bradshaw (11 days, California and Arizona) and Rau (3 days, New Jersey and Maryland) are parsed. Baray and the Mid-Kentucky excerpt are in `data/raw/` but not ingested, and the larger superintendents (MB-F, Onofrio) are not represented |
+| Few data sources | Bradshaw (11 days, California and Arizona), Rau (3 days, New Jersey and Maryland) and MB-F (2 days, North Carolina and Michigan) are parsed and solved. Onofrio programs are in `data/raw/` without a parser, as are Baray and the Mid-Kentucky excerpt. MB-F and Onofrio post only the current year's programs, so more days mean collecting them as they appear |
 | Validator coverage | It does not independently check H5, H10, H11 or H15. Those hold by construction in the solver |
 | No practitioner review | No superintendent or show chair has looked at a generated program |
 

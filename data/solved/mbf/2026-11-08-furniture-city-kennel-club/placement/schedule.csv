@@ -1,0 +1,138 @@
+ring,judge,block_start,position,event,breed,group
+1,Mr. James A. Moses,08:00,0,Greyhounds,Greyhound,Hound
+1,Mr. James A. Moses,08:00,1,Ibizan Hounds,Ibizan Hound,Hound
+1,Mr. James A. Moses,08:00,2,Rhodesian Ridgebacks,Rhodesian Ridgeback,Hound
+1,Mr. James A. Moses,08:00,3,Salukis,Saluki,Hound
+1,Mr. James A. Moses,08:00,4,Treeing Walker Coonhounds,Treeing Walker Coonhound,Hound
+1,Mr. James A. Moses,08:50,0,Whippets,Whippet,Hound
+1,Mr. James A. Moses,08:50,1,Anatolian Shepherd Dogs,Anatolian Shepherd Dog,Working
+1,Mr. James A. Moses,09:50,0,Bernese Mountain Dogs,Bernese Mountain Dog,Working
+1,Mr. James A. Moses,09:50,1,Black Russian Terriers,Black Russian Terrier,Working
+1,Mr. James A. Moses,09:50,2,Giant Schnauzers,Giant Schnauzer,Working
+1,Mr. James A. Moses,09:50,3,Great Pyrenees,Great Pyrenees,Working
+1,Mr. James A. Moses,09:50,4,Greater Swiss Mountain Dogs,Greater Swiss Mountain Dog,Working
+1,Mr. James A. Moses,09:50,5,Leonbergers,Leonberger,Working
+1,Mr. James A. Moses,09:50,6,Neapolitan Mastiffs,Neapolitan Mastiff,Working
+1,Mr. James A. Moses,09:50,7,Newfoundlands,Newfoundland,Working
+1,Mr. James A. Moses,09:50,8,Portuguese Water Dogs,Portuguese Water Dog,Working
+1,Mr. James A. Moses,09:50,9,Rottweilers,Rottweiler,Working
+1,Mr. James A. Moses,09:50,10,Saint Bernards,Saint Bernard,Working
+1,Mr. James A. Moses,10:50,0,Samoyeds,Samoyed,Working
+1,Mr. James A. Moses,10:50,1,Siberian Huskies,Siberian Husky,Working
+1,Mr. James A. Moses,10:50,2,Standard Schnauzers,Standard Schnauzer,Working
+1,Mr. James A. Moses,10:50,3,Scottish Terriers,Scottish Terrier,Terrier
+1,Mr. David J. Kirkland,11:50,0,Soft Coated Wheaten Terriers,Soft Coated Wheaten Terrier,Terrier
+1,Mr. David J. Kirkland,11:50,1,American Hairless Terriers,American Hairless Terrier,Terrier
+1,Mr. David J. Kirkland,11:50,2,Australian Terriers,Australian Terrier,Terrier
+1,Mr. David J. Kirkland,11:50,3,Border Terriers,Border Terrier,Terrier
+1,Mr. David J. Kirkland,11:50,4,Cairn Terriers,Cairn Terrier,Terrier
+1,Mr. David J. Kirkland,11:50,5,Miniature Schnauzers,Miniature Schnauzer,Terrier
+2,Mr. David J. Kirkland,08:00,0,Manchester Terriers (Toy),Manchester Terrier (Toy),Toy
+2,Mr. David J. Kirkland,08:00,1,Miniature Pinschers,Miniature Pinscher,Toy
+2,Mr. David J. Kirkland,08:00,2,Papillons,Papillon,Toy
+2,Mr. David J. Kirkland,08:00,3,Pekingese,Pekingese,Toy
+2,Mr. David J. Kirkland,08:55,0,Poodles (Toy),Poodle (Toy),Toy
+2,Mr. David J. Kirkland,08:55,1,Pugs,Pug,Toy
+2,Mr. David J. Kirkland,10:00,0,Russian Toys,Russian Toy,Toy
+2,Mr. David J. Kirkland,10:00,1,Russian Tsvetnaya Bolonkas,Russian Tsvetnaya Bolonka,Toy
+2,Mr. David J. Kirkland,10:00,2,Spaniels (Field),Field Spaniel,Sporting
+2,Mr. David J. Kirkland,10:00,3,Pointers,Pointer,Sporting
+2,Mr. David J. Kirkland,10:00,4,Spaniels (English Springer),English Springer Spaniel,Sporting
+2,Mr. David J. Kirkland,10:00,5,Spaniels (Sussex),Sussex Spaniel,Sporting
+2,Mr. David J. Kirkland,10:00,6,Airedale Terriers,Airedale Terrier,Terrier
+2,Mr. David J. Kirkland,10:00,7,Staffordshire Bull Terriers,Staffordshire Bull Terrier,Terrier
+3,"Dr. Andrea Bradford, MD",08:00,0,Biewer Terriers,Biewer Terrier,Toy
+3,"Dr. Andrea Bradford, MD",08:00,1,Brussels Griffons,Brussels Griffon,Toy
+3,Mrs. Danelle M. Brown,08:40,0,Chihuahuas (Smooth Coat),Chihuahua (Smooth Coat),Toy
+3,Mrs. Danelle M. Brown,09:25,0,Pomeranians,Pomeranian,Toy
+3,Mrs. Danelle M. Brown,09:25,1,Ret (Nova Scotia Duck Tolling),Nova Scotia Duck Tolling Retriever,Sporting
+3,Mrs. Danelle M. Brown,09:25,2,Vizslas,Vizsla,Sporting
+3,Mrs. Danelle M. Brown,09:25,3,Weimaraners,Weimaraner,Sporting
+3,Mrs. Angela Pickett,10:20,0,Spaniels (Cocker) Parti-Color,Cocker Spaniel (Parti-Color),Sporting
+3,Mrs. Angela Pickett,10:20,1,Bluetick Coonhounds,Bluetick Coonhound,Hound
+3,Mrs. Angela Pickett,10:20,2,Borzois,Borzoi,Hound
+3,Mrs. Angela Pickett,10:20,3,Harriers,Harrier,Hound
+3,Mrs. Angela Pickett,10:20,4,Irish Wolfhounds,Irish Wolfhound,Hound
+3,Mrs. Angela Pickett,10:20,5,Dachshunds (Longhaired),Dachshund (Longhaired),Hound
+3,Mrs. Angela Pickett,10:20,6,Dachshunds (Smooth),Dachshund (Smooth),Hound
+3,Mrs. Angela Pickett,11:20,0,Dachshunds (Wirehaired),Dachshund (Wirehaired),Hound
+3,Mrs. Angela Pickett,11:20,1,Poodles (Standard),Poodle (Standard),Non-Sporting
+3,Mrs. Angela Pickett,11:20,2,Boston Terriers,Boston Terrier,Non-Sporting
+3,Mrs. Angela Pickett,11:20,3,Tibetan Terriers,Tibetan Terrier,Non-Sporting
+3,Mrs. Angela Pickett,11:20,4,Xoloitzcuintli,Xoloitzcuintli,Non-Sporting
+3,Mr. James A. Moses,12:25,0,French Bulldogs,French Bulldog,Non-Sporting
+4,Mr. Charles L. Olvis,08:00,0,Toy Fox Terriers,Toy Fox Terrier,Toy
+4,Mr. Charles L. Olvis,08:00,1,Yorkshire Terriers,Yorkshire Terrier,Toy
+4,Mr. Charles L. Olvis,08:00,2,Setters (English),English Setter,Sporting
+4,Mr. Charles L. Olvis,08:00,3,Setters (Gordon),Gordon Setter,Sporting
+4,Mr. Charles L. Olvis,08:00,4,Setters (Irish),Irish Setter,Sporting
+4,Mr. Charles L. Olvis,08:00,5,Spaniels (English Cocker),English Cocker Spaniel,Sporting
+4,Mr. Charles L. Olvis,08:00,6,Akitas,Akita,Working
+4,Mr. Charles L. Olvis,08:00,7,Alaskan Malamutes,Alaskan Malamute,Working
+4,Mr. Charles L. Olvis,08:00,8,Kerry Blue Terriers,Kerry Blue Terrier,Terrier
+4,Mr. Charles L. Olvis,09:00,0,Australian Cattle Dogs,Australian Cattle Dog,Herding
+4,Mr. Charles L. Olvis,09:00,1,Australian Shepherds,Australian Shepherd,Herding
+4,Mr. Charles L. Olvis,09:00,2,Bearded Collies,Bearded Collie,Herding
+4,Mr. Charles L. Olvis,09:00,3,Beaucerons,Beauceron,Herding
+4,Mr. Charles L. Olvis,10:00,0,Belgian Malinois,Belgian Malinois,Herding
+4,Mr. Charles L. Olvis,10:00,1,Belgian Sheepdogs,Belgian Sheepdog,Herding
+4,Mr. Charles L. Olvis,10:00,2,Belgian Tervuren,Belgian Tervuren,Herding
+4,Mr. Charles L. Olvis,10:00,3,Berger Picards,Berger Picard,Herding
+4,Mr. Charles L. Olvis,10:00,4,Border Collies,Border Collie,Herding
+4,Mr. Charles L. Olvis,10:00,5,Bouviers des Flandres,Bouvier des Flandres,Herding
+4,Mr. Charles L. Olvis,10:00,6,Briards,Briard,Herding
+4,Mr. Charles L. Olvis,10:00,7,Collies (Rough),Collie (Rough),Herding
+4,Mr. Charles L. Olvis,10:00,8,Cardigan Welsh Corgis,Cardigan Welsh Corgi,Herding
+4,Mr. Charles L. Olvis,11:05,0,Miniature American Shepherds,Miniature American Shepherd,Herding
+4,Mr. James A. Moses,11:45,0,Bulldogs,Bulldog,Non-Sporting
+4,Mr. James A. Moses,11:45,1,Chinese Shar-Pei,Chinese Shar-Pei,Non-Sporting
+4,Mr. James A. Moses,11:45,2,Chow Chows,Chow Chow,Non-Sporting
+4,"Dr. Andrea Bradford, MD",12:40,0,Doberman Pinschers,Doberman Pinscher,Working
+4,"Dr. Andrea Bradford, MD",12:40,1,Dogo Argentinos,Dogo Argentino,Working
+4,"Dr. Andrea Bradford, MD",12:40,2,Great Danes,Great Dane,Working
+5,Mrs. Angela Pickett,08:00,0,Spaniels (Boykin),Boykin Spaniel,Sporting
+5,Mrs. Angela Pickett,08:00,1,Bracchi Italiani,Bracco Italiano,Sporting
+5,Mrs. Angela Pickett,08:00,2,Brittanys,Brittany,Sporting
+5,Mrs. Angela Pickett,08:00,3,Retrievers (Chesapeake Bay),Chesapeake Bay Retriever,Sporting
+5,Mrs. Angela Pickett,08:00,4,Pointers (German Shorthaired),German Shorthaired Pointer,Sporting
+5,Mrs. Angela Pickett,08:45,0,Retrievers (Golden),Golden Retriever,Sporting
+5,Mrs. Angela Pickett,09:20,0,Retrievers (Labrador),Labrador Retriever,Sporting
+5,Mrs. Angela Pickett,09:20,1,Spaniels (Cocker) A.S.C.O.B.,Cocker Spaniel (ASCOB),Sporting
+5,Mrs. Angela Pickett,09:20,2,Spaniels (Cocker) Black,Cocker Spaniel (Black),Sporting
+5,Mrs. Danelle M. Brown,10:20,0,Dalmatians,Dalmatian,Non-Sporting
+5,Mrs. Danelle M. Brown,10:20,1,Lhasa Apsos,Lhasa Apso,Non-Sporting
+5,Mrs. Danelle M. Brown,10:20,2,Entlebucher Mountain Dogs,Entlebucher Mountain Dog,Herding
+5,Mrs. Danelle M. Brown,10:20,3,German Shepherd Dogs,German Shepherd Dog,Herding
+5,Mrs. Danelle M. Brown,10:20,4,Mudik,Mudi,Herding
+5,Mrs. Danelle M. Brown,10:20,5,Polish Lowland Sheepdogs,Polish Lowland Sheepdog,Herding
+5,Mrs. Danelle M. Brown,11:10,0,Pembroke Welsh Corgis,Pembroke Welsh Corgi,Herding
+5,Mrs. Danelle M. Brown,11:10,1,Shetland Sheepdogs,Shetland Sheepdog,Herding
+5,Mrs. Danelle M. Brown,12:05,0,Swedish Vallhunds,Swedish Vallhund,Herding
+5,Mrs. Danelle M. Brown,12:05,1,Pyrenean Mastiffs,Pyrenean Mastiff,Miscellaneous
+6,Mrs. Danelle M. Brown,08:00,0,Chihuahuas (Long Coat),Chihuahua (Long Coat),Toy
+6,"Dr. Andrea Bradford, MD",08:40,0,Cavalier King Charles Spaniels,Cavalier King Charles Spaniel,Toy
+6,"Dr. Andrea Bradford, MD",09:40,0,Chinese Cresteds,Chinese Crested,Toy
+6,"Dr. Andrea Bradford, MD",09:40,1,English Toy Spaniels (B & PC),English Toy Spaniel (B&PC),Toy
+6,"Dr. Andrea Bradford, MD",09:40,2,English Toy Spaniels (KC & R),English Toy Spaniel (KC&R),Toy
+6,"Dr. Andrea Bradford, MD",09:40,3,Havanese,Havanese,Toy
+6,"Dr. Andrea Bradford, MD",09:40,4,Italian Greyhounds,Italian Greyhound,Toy
+6,"Dr. Andrea Bradford, MD",10:40,0,Japanese Chin,Japanese Chin,Toy
+6,"Dr. Andrea Bradford, MD",10:40,1,Afghan Hounds,Afghan Hound,Hound
+6,"Dr. Andrea Bradford, MD",10:40,2,American Foxhounds,American Foxhound,Hound
+6,"Dr. Andrea Bradford, MD",10:40,3,Azawakhs,Azawakh,Hound
+6,"Dr. Andrea Bradford, MD",10:40,4,Basenjis,Basenji,Hound
+6,"Dr. Andrea Bradford, MD",11:40,0,Basset Fauve de Bretagnes,Basset Fauve de Bretagne,Hound
+6,"Dr. Andrea Bradford, MD",11:40,1,Basset Hounds,Basset Hound,Hound
+6,"Dr. Andrea Bradford, MD",11:40,2,"Beagles, 13 Inch",Beagle (13 Inch),Hound
+6,"Dr. Andrea Bradford, MD",11:40,3,"Beagles, 15 Inch",Beagle (15 Inch),Hound
+6,"Dr. Andrea Bradford, MD",11:40,4,Boxers,Boxer,Working
+6,"Dr. Andrea Bradford, MD",11:40,5,Cane Corsos,Cane Corso,Working
+6,Mr. David J. Kirkland,12:40,0,Rat Terriers,Rat Terrier,Terrier
+6,Mr. David J. Kirkland,12:40,1,Sealyham Terriers,Sealyham Terrier,Terrier
+6,Mr. David J. Kirkland,12:40,2,Fox Terriers (Smooth),Smooth Fox Terrier,Terrier
+6,Mr. David J. Kirkland,12:40,3,Welsh Terriers,Welsh Terrier,Terrier
+6,Mr. David J. Kirkland,12:40,4,Poodles (Miniature),Poodle (Miniature),Non-Sporting
+6,Mr. David J. Kirkland,13:40,0,Tibetan Spaniels,Tibetan Spaniel,Non-Sporting
+6,Mr. David J. Kirkland,13:40,1,Collies (Smooth),Collie (Smooth),Herding
+6,Mr. David J. Kirkland,13:40,2,Old English Sheepdogs,Old English Sheepdog,Herding
+6,Mr. David J. Kirkland,13:40,3,Pumik,Pumi,Herding

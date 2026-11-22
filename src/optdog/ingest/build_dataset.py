@@ -23,6 +23,7 @@ from pathlib import Path
 
 from optdog.ingest.bradshaw import BradshawParser
 from optdog.ingest.common import ParsedDay
+from optdog.ingest.mbf import MbfParser
 from optdog.ingest.rau import RauParser
 from optdog.io.csv_dataset import CsvDataset
 from optdog.sources import ShowKey
@@ -31,7 +32,9 @@ ROOT = Path(__file__).resolve().parents[3]
 RAW = ROOT / "data" / "raw"
 
 # superintendent -> its parser: ``parse(pdf)`` gives every all-breed day in the file
-PARSERS: dict[str, Callable[[], BradshawParser | RauParser]] = {"bradshaw": BradshawParser, "rau": RauParser}
+PARSERS: dict[str, Callable[[], BradshawParser | RauParser | MbfParser]] = {
+    "bradshaw": BradshawParser, "rau": RauParser, "mbf": MbfParser,
+}
 
 
 def slug(s: str) -> str:

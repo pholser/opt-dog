@@ -1,0 +1,1033 @@
+dog,sex,status,exhibitor,judge,event
+D00001,B,class,,Mrs. Sioux Forsyth-Green,Mastiffs
+D00002,D,class,,Mrs. Sioux Forsyth-Green,Leonbergers
+D00003,B,champion,,Mrs. Sioux Forsyth-Green,Leonbergers
+D00004,D,class,,Mrs. Sioux Forsyth-Green,Rottweilers
+D00005,B,class,,Mrs. Sioux Forsyth-Green,Rottweilers
+D00006,B,class,,Mrs. Sioux Forsyth-Green,Rottweilers
+D00007,B,class,,Mrs. Sioux Forsyth-Green,Rottweilers
+D00008,B,class,,Mrs. Sioux Forsyth-Green,Rottweilers
+D00009,B,class,,Mrs. Sioux Forsyth-Green,Rottweilers
+D00010,B,class,,Mrs. Sioux Forsyth-Green,Rottweilers
+D00011,D,champion,,Mrs. Sioux Forsyth-Green,Rottweilers
+D00012,D,champion,,Mrs. Sioux Forsyth-Green,Rottweilers
+D00013,B,champion,,Mrs. Sioux Forsyth-Green,Rottweilers
+D00014,B,champion,,Mrs. Sioux Forsyth-Green,Rottweilers
+D00015,B,champion,,Mrs. Sioux Forsyth-Green,Rottweilers
+D00016,B,champion,,Mrs. Sioux Forsyth-Green,Rottweilers
+D00017,D,class,,Mrs. Sioux Forsyth-Green,Retrievers (Labrador)
+D00018,D,class,,Mrs. Sioux Forsyth-Green,Retrievers (Labrador)
+D00019,D,class,,Mrs. Sioux Forsyth-Green,Retrievers (Labrador)
+D00020,D,class,,Mrs. Sioux Forsyth-Green,Retrievers (Labrador)
+D00021,D,class,,Mrs. Sioux Forsyth-Green,Retrievers (Labrador)
+D00022,D,class,,Mrs. Sioux Forsyth-Green,Retrievers (Labrador)
+D00023,D,class,,Mrs. Sioux Forsyth-Green,Retrievers (Labrador)
+D00024,B,class,,Mrs. Sioux Forsyth-Green,Retrievers (Labrador)
+D00025,B,class,,Mrs. Sioux Forsyth-Green,Retrievers (Labrador)
+D00026,B,class,,Mrs. Sioux Forsyth-Green,Retrievers (Labrador)
+D00027,B,class,,Mrs. Sioux Forsyth-Green,Retrievers (Labrador)
+D00028,B,class,,Mrs. Sioux Forsyth-Green,Retrievers (Labrador)
+D00029,B,class,,Mrs. Sioux Forsyth-Green,Retrievers (Labrador)
+D00030,D,champion,,Mrs. Sioux Forsyth-Green,Retrievers (Labrador)
+D00031,D,champion,,Mrs. Sioux Forsyth-Green,Lagotto Romagnolo
+D00032,D,class,,Mrs. Sioux Forsyth-Green,German Pinschers
+D00033,B,class,,Mrs. Sioux Forsyth-Green,German Pinschers
+D00034,D,champion,,Mrs. Sioux Forsyth-Green,Nederlandse Kooikerhondjes
+D00035,B,champion,,Mrs. Sioux Forsyth-Green,Great Pyrenees
+D00036,D,champion,,Mrs. Sioux Forsyth-Green,Kuvaszok
+D00037,D,champion,,Mrs. Sioux Forsyth-Green,Kuvaszok
+D00038,D,class,,Mrs. Sioux Forsyth-Green,Pointers (German Wirehaired)
+D00039,D,class,,Mrs. Sioux Forsyth-Green,Pointers (German Wirehaired)
+D00040,B,class,,Mrs. Sioux Forsyth-Green,Pointers (German Wirehaired)
+D00041,B,class,,Mrs. Sioux Forsyth-Green,Pointers (German Wirehaired)
+D00042,B,class,,Mrs. Sioux Forsyth-Green,Pointers (German Wirehaired)
+D00043,B,class,,Mrs. Sioux Forsyth-Green,Giant Schnauzers
+D00044,B,class,,Mrs. Sioux Forsyth-Green,Giant Schnauzers
+D00045,B,class,,Mrs. Sioux Forsyth-Green,Giant Schnauzers
+D00046,B,class,,Mrs. Sioux Forsyth-Green,Giant Schnauzers
+D00047,B,class,,Mrs. Sioux Forsyth-Green,Giant Schnauzers
+D00048,D,champion,,Mrs. Sioux Forsyth-Green,Giant Schnauzers
+D00049,B,class,,Mrs. Sioux Forsyth-Green,Pointers
+D00050,B,class,,Mrs. Sioux Forsyth-Green,Pointers
+D00051,B,class,,Mrs. Sioux Forsyth-Green,Pointers
+D00052,B,class,,Mrs. Sioux Forsyth-Green,Pointers
+D00053,D,champion,,Mrs. Sioux Forsyth-Green,Pointers
+D00054,B,champion,,Mrs. Sioux Forsyth-Green,Pointers
+D00055,B,champion,,Mrs. Sioux Forsyth-Green,Pointers
+D00056,D,class,,Mrs. Sioux Forsyth-Green,Retrievers (Chesapeake Bay)
+D00057,D,class,,Mrs. Sioux Forsyth-Green,Retrievers (Chesapeake Bay)
+D00058,B,class,,Mrs. Sioux Forsyth-Green,Retrievers (Chesapeake Bay)
+D00059,B,class,,Mrs. Sioux Forsyth-Green,Retrievers (Chesapeake Bay)
+D00060,B,class,,Mrs. Sioux Forsyth-Green,Retrievers (Chesapeake Bay)
+D00061,B,class,,Mrs. Sioux Forsyth-Green,Retrievers (Chesapeake Bay)
+D00062,D,champion,,Mrs. Sioux Forsyth-Green,Retrievers (Chesapeake Bay)
+D00063,D,champion,,Mrs. Sioux Forsyth-Green,Retrievers (Chesapeake Bay)
+D00064,D,champion,,Mrs. Sioux Forsyth-Green,Retrievers (Chesapeake Bay)
+D00065,B,champion,,Mrs. Sioux Forsyth-Green,Retrievers (Chesapeake Bay)
+D00066,D,class,,Mr. Gregory Griner,Great Danes
+D00067,D,class,,Mr. Gregory Griner,Great Danes
+D00068,D,class,,Mr. Gregory Griner,Great Danes
+D00069,D,class,,Mr. Gregory Griner,Great Danes
+D00070,D,class,,Mr. Gregory Griner,Great Danes
+D00071,D,class,,Mr. Gregory Griner,Great Danes
+D00072,D,class,,Mr. Gregory Griner,Great Danes
+D00073,D,class,,Mr. Gregory Griner,Great Danes
+D00074,D,class,,Mr. Gregory Griner,Great Danes
+D00075,B,class,,Mr. Gregory Griner,Great Danes
+D00076,B,class,,Mr. Gregory Griner,Great Danes
+D00077,B,class,,Mr. Gregory Griner,Great Danes
+D00078,B,class,,Mr. Gregory Griner,Great Danes
+D00079,B,class,,Mr. Gregory Griner,Great Danes
+D00080,B,class,,Mr. Gregory Griner,Great Danes
+D00081,B,class,,Mr. Gregory Griner,Great Danes
+D00082,B,class,,Mr. Gregory Griner,Great Danes
+D00083,B,class,,Mr. Gregory Griner,Great Danes
+D00084,B,class,,Mr. Gregory Griner,Great Danes
+D00085,B,class,,Mr. Gregory Griner,Great Danes
+D00086,B,class,,Mr. Gregory Griner,Great Danes
+D00087,B,class,,Mr. Gregory Griner,Great Danes
+D00088,B,class,,Mr. Gregory Griner,Great Danes
+D00089,D,champion,,Mr. Gregory Griner,Great Danes
+D00090,D,champion,,Mr. Gregory Griner,Great Danes
+D00091,D,champion,,Mr. Gregory Griner,Great Danes
+D00092,D,champion,,Mr. Gregory Griner,Great Danes
+D00093,D,champion,,Mr. Gregory Griner,Great Danes
+D00094,D,champion,,Mr. Gregory Griner,Great Danes
+D00095,D,champion,,Mr. Gregory Griner,Great Danes
+D00096,D,champion,,Mr. Gregory Griner,Great Danes
+D00097,B,champion,,Mr. Gregory Griner,Great Danes
+D00098,B,champion,,Mr. Gregory Griner,Great Danes
+D00099,B,champion,,Mr. Gregory Griner,Great Danes
+D00100,B,champion,,Mr. Gregory Griner,Great Danes
+D00101,B,champion,,Mr. Gregory Griner,Great Danes
+D00102,D,class,,Ms. Beverly R. Andersen,Brittanys
+D00103,B,champion,,Ms. Beverly R. Andersen,Brittanys
+D00104,B,champion,,Ms. Beverly R. Andersen,Brittanys
+D00105,B,champion,,Ms. Beverly R. Andersen,Brittanys
+D00106,B,class,,Ms. Beverly R. Andersen,Barbets
+D00107,D,class,,Ms. Beverly R. Andersen,Pointers (German Shorthaired)
+D00108,D,class,,Ms. Beverly R. Andersen,Pointers (German Shorthaired)
+D00109,D,class,,Ms. Beverly R. Andersen,Pointers (German Shorthaired)
+D00110,D,class,,Ms. Beverly R. Andersen,Pointers (German Shorthaired)
+D00111,D,class,,Ms. Beverly R. Andersen,Pointers (German Shorthaired)
+D00112,D,class,,Ms. Beverly R. Andersen,Pointers (German Shorthaired)
+D00113,D,class,,Ms. Beverly R. Andersen,Pointers (German Shorthaired)
+D00114,B,class,,Ms. Beverly R. Andersen,Pointers (German Shorthaired)
+D00115,B,class,,Ms. Beverly R. Andersen,Pointers (German Shorthaired)
+D00116,B,class,,Ms. Beverly R. Andersen,Pointers (German Shorthaired)
+D00117,B,class,,Ms. Beverly R. Andersen,Pointers (German Shorthaired)
+D00118,B,class,,Ms. Beverly R. Andersen,Pointers (German Shorthaired)
+D00119,D,champion,,Ms. Beverly R. Andersen,Pointers (German Shorthaired)
+D00120,B,champion,,Ms. Beverly R. Andersen,Pointers (German Shorthaired)
+D00121,B,class,,Ms. Beverly R. Andersen,Setters (Gordon)
+D00122,B,champion,,Ms. Beverly R. Andersen,Setters (Gordon)
+D00123,D,class,,Ms. Beverly R. Andersen,Bracchi Italiani
+D00124,B,class,,Ms. Beverly R. Andersen,Bracchi Italiani
+D00125,D,champion,,Ms. Beverly R. Andersen,Bracchi Italiani
+D00126,B,champion,,Ms. Beverly R. Andersen,Bracchi Italiani
+D00127,B,champion,,Ms. Beverly R. Andersen,Bracchi Italiani
+D00128,B,class,,Ms. Beverly R. Andersen,Bull Terriers (White)
+D00129,D,champion,,Ms. Beverly R. Andersen,Bull Terriers (Colored)
+D00130,D,champion,,Ms. Beverly R. Andersen,Bull Terriers (Colored)
+D00131,D,class,,Ms. Beverly R. Andersen,Wirehaired Pointing Griffons
+D00132,D,champion,,Ms. Beverly R. Andersen,Wirehaired Pointing Griffons
+D00133,B,champion,,Ms. Beverly R. Andersen,Wirehaired Pointing Griffons
+D00134,B,champion,,Ms. Beverly R. Andersen,Wirehaired Pointing Griffons
+D00135,D,class,,Ms. Beverly R. Andersen,Fox Terriers (Smooth)
+D00136,D,class,,Ms. Beverly R. Andersen,Fox Terriers (Smooth)
+D00137,D,champion,,Ms. Beverly R. Andersen,Fox Terriers (Smooth)
+D00138,D,champion,,Ms. Beverly R. Andersen,Fox Terriers (Smooth)
+D00139,D,champion,,Ms. Beverly R. Andersen,Irish Terriers
+D00140,B,champion,,Ms. Beverly R. Andersen,Irish Terriers
+D00141,D,class,,Ms. Beverly R. Andersen,Staffordshire Bull Terriers
+D00142,B,class,,Ms. Beverly R. Andersen,Staffordshire Bull Terriers
+D00143,D,class,,Ms. Beverly R. Andersen,Australian Terriers
+D00144,D,class,,Ms. Beverly R. Andersen,Miniature American Shepherds
+D00145,D,class,,Ms. Beverly R. Andersen,Miniature American Shepherds
+D00146,B,class,,Ms. Beverly R. Andersen,Miniature American Shepherds
+D00147,B,class,,Ms. Beverly R. Andersen,Miniature American Shepherds
+D00148,B,class,,Ms. Beverly R. Andersen,Miniature American Shepherds
+D00149,D,champion,,Ms. Beverly R. Andersen,Miniature American Shepherds
+D00150,D,champion,,Ms. Beverly R. Andersen,Miniature American Shepherds
+D00151,B,champion,,Ms. Beverly R. Andersen,Miniature American Shepherds
+D00152,B,champion,,Ms. Beverly R. Andersen,Fox Terriers (Wire)
+D00153,B,champion,,Ms. Beverly R. Andersen,Fox Terriers (Wire)
+D00154,D,class,,Ms. Beverly R. Andersen,Miniature Schnauzers
+D00155,B,class,,Ms. Beverly R. Andersen,Miniature Schnauzers
+D00156,B,class,,Ms. Beverly R. Andersen,Miniature Schnauzers
+D00157,B,champion,,Ms. Beverly R. Andersen,Miniature Schnauzers
+D00158,D,class,,Ms. Beverly R. Andersen,Doberman Pinschers
+D00159,D,class,,Ms. Beverly R. Andersen,Doberman Pinschers
+D00160,D,class,,Ms. Beverly R. Andersen,Doberman Pinschers
+D00161,B,class,,Ms. Beverly R. Andersen,Doberman Pinschers
+D00162,B,class,,Ms. Beverly R. Andersen,Doberman Pinschers
+D00163,B,class,,Ms. Beverly R. Andersen,Doberman Pinschers
+D00164,B,class,,Ms. Beverly R. Andersen,Doberman Pinschers
+D00165,B,class,,Ms. Beverly R. Andersen,Doberman Pinschers
+D00166,B,class,,Ms. Beverly R. Andersen,Doberman Pinschers
+D00167,D,champion,,Ms. Beverly R. Andersen,Doberman Pinschers
+D00168,D,champion,,Ms. Beverly R. Andersen,Doberman Pinschers
+D00169,B,champion,,Ms. Beverly R. Andersen,Doberman Pinschers
+D00170,D,class,,Mrs. Sandra Pretari Hickson,Bullmastiffs
+D00171,D,champion,,Mrs. Sandra Pretari Hickson,Bullmastiffs
+D00172,B,champion,,Mrs. Sandra Pretari Hickson,Bullmastiffs
+D00173,D,class,,Mrs. Sandra Pretari Hickson,Siberian Huskies
+D00174,D,class,,Mrs. Sandra Pretari Hickson,Siberian Huskies
+D00175,D,class,,Mrs. Sandra Pretari Hickson,Siberian Huskies
+D00176,D,class,,Mrs. Sandra Pretari Hickson,Siberian Huskies
+D00177,D,class,,Mrs. Sandra Pretari Hickson,Siberian Huskies
+D00178,B,class,,Mrs. Sandra Pretari Hickson,Siberian Huskies
+D00179,B,class,,Mrs. Sandra Pretari Hickson,Siberian Huskies
+D00180,B,class,,Mrs. Sandra Pretari Hickson,Siberian Huskies
+D00181,B,class,,Mrs. Sandra Pretari Hickson,Siberian Huskies
+D00182,B,class,,Mrs. Sandra Pretari Hickson,Siberian Huskies
+D00183,B,class,,Mrs. Sandra Pretari Hickson,Siberian Huskies
+D00184,D,champion,,Mrs. Sandra Pretari Hickson,Siberian Huskies
+D00185,D,champion,,Mrs. Sandra Pretari Hickson,Siberian Huskies
+D00186,D,champion,,Mrs. Sandra Pretari Hickson,Siberian Huskies
+D00187,D,champion,,Mrs. Sandra Pretari Hickson,Siberian Huskies
+D00188,D,champion,,Mrs. Sandra Pretari Hickson,Siberian Huskies
+D00189,B,champion,,Mrs. Sandra Pretari Hickson,Siberian Huskies
+D00190,B,champion,,Mrs. Sandra Pretari Hickson,Siberian Huskies
+D00191,B,champion,,Mrs. Sandra Pretari Hickson,Siberian Huskies
+D00192,B,champion,,Mrs. Sandra Pretari Hickson,Siberian Huskies
+D00193,B,champion,,Mrs. Sandra Pretari Hickson,Siberian Huskies
+D00194,B,champion,,Mrs. Sandra Pretari Hickson,Portuguese Water Dogs
+D00195,B,class,,Mrs. Sandra Pretari Hickson,Newfoundlands
+D00196,B,class,,Mrs. Sandra Pretari Hickson,Newfoundlands
+D00197,B,class,,Mrs. Sandra Pretari Hickson,Newfoundlands
+D00198,D,champion,,Mrs. Sandra Pretari Hickson,Newfoundlands
+D00199,D,champion,,Mrs. Sandra Pretari Hickson,Newfoundlands
+D00200,D,champion,,Mrs. Sandra Pretari Hickson,Newfoundlands
+D00201,B,champion,,Mrs. Sandra Pretari Hickson,Newfoundlands
+D00202,D,class,,Mrs. Sandra Pretari Hickson,Saint Bernards
+D00203,D,class,,Mrs. Sandra Pretari Hickson,Saint Bernards
+D00204,D,class,,Mrs. Sandra Pretari Hickson,Saint Bernards
+D00205,D,class,,Mrs. Sandra Pretari Hickson,Saint Bernards
+D00206,D,class,,Mrs. Sandra Pretari Hickson,Saint Bernards
+D00207,B,class,,Mrs. Sandra Pretari Hickson,Saint Bernards
+D00208,B,class,,Mrs. Sandra Pretari Hickson,Saint Bernards
+D00209,B,class,,Mrs. Sandra Pretari Hickson,Saint Bernards
+D00210,D,champion,,Mrs. Sandra Pretari Hickson,Saint Bernards
+D00211,B,champion,,Mrs. Sandra Pretari Hickson,Saint Bernards
+D00212,D,class,,Mrs. Sandra Pretari Hickson,Lakeland Terriers
+D00213,B,class,,Mrs. Sandra Pretari Hickson,Skye Terriers
+D00214,D,class,,Mrs. Sandra Pretari Hickson,Cairn Terriers
+D00215,B,class,,Mrs. Sandra Pretari Hickson,Cairn Terriers
+D00216,B,class,,Mrs. Sandra Pretari Hickson,Parson Russell Terriers
+D00217,B,class,,Mrs. Sandra Pretari Hickson,Parson Russell Terriers
+D00218,B,class,,Mrs. Sandra Pretari Hickson,American Staffordshire Terriers
+D00219,B,class,,Mrs. Sandra Pretari Hickson,American Staffordshire Terriers
+D00220,D,champion,,Mrs. Sandra Pretari Hickson,American Staffordshire Terriers
+D00221,D,class,,Mrs. Sandra Pretari Hickson,Kerry Blue Terriers
+D00222,B,class,,Mrs. Sandra Pretari Hickson,Kerry Blue Terriers
+D00223,B,class,,Mrs. Sandra Pretari Hickson,Kerry Blue Terriers
+D00224,D,champion,,Mrs. Sandra Pretari Hickson,Soft Coated Wheaten Terriers
+D00225,D,class,,Mrs. Sandra Pretari Hickson,West Highland White Terriers
+D00226,D,class,,Mrs. Sandra Pretari Hickson,American Hairless Terriers
+D00227,D,class,,Mrs. Sandra Pretari Hickson,American Hairless Terriers
+D00228,D,class,,Mrs. Sandra Pretari Hickson,American Hairless Terriers
+D00229,D,class,,Mrs. Sandra Pretari Hickson,American Hairless Terriers
+D00230,B,class,,Mrs. Sandra Pretari Hickson,American Hairless Terriers
+D00231,B,class,,Mrs. Sandra Pretari Hickson,American Hairless Terriers
+D00232,B,class,,Mrs. Sandra Pretari Hickson,American Hairless Terriers
+D00233,B,class,,Mrs. Sandra Pretari Hickson,American Hairless Terriers
+D00234,D,champion,,Mrs. Sandra Pretari Hickson,American Hairless Terriers
+D00235,D,champion,,Mrs. Sandra Pretari Hickson,American Hairless Terriers
+D00236,D,champion,,Mrs. Sandra Pretari Hickson,American Hairless Terriers
+D00237,B,champion,,Mrs. Sandra Pretari Hickson,American Hairless Terriers
+D00238,D,class,,Mrs. Sandra Pretari Hickson,Welsh Terriers
+D00239,D,champion,,Mrs. Sandra Pretari Hickson,Welsh Terriers
+D00240,D,class,,Mrs. Sandra Pretari Hickson,Samoyeds
+D00241,D,class,,Mrs. Sandra Pretari Hickson,Samoyeds
+D00242,D,class,,Mrs. Sandra Pretari Hickson,Samoyeds
+D00243,B,class,,Mrs. Sandra Pretari Hickson,Samoyeds
+D00244,B,class,,Mrs. Sandra Pretari Hickson,Samoyeds
+D00245,B,class,,Mrs. Sandra Pretari Hickson,Samoyeds
+D00246,B,class,,Mrs. Sandra Pretari Hickson,Samoyeds
+D00247,B,class,,Mrs. Sandra Pretari Hickson,Samoyeds
+D00248,B,class,,Mrs. Sandra Pretari Hickson,Samoyeds
+D00249,B,class,,Mrs. Sandra Pretari Hickson,Samoyeds
+D00250,B,class,,Mrs. Sandra Pretari Hickson,Samoyeds
+D00251,D,champion,,Mrs. Sandra Pretari Hickson,Samoyeds
+D00252,D,champion,,Mrs. Sandra Pretari Hickson,Samoyeds
+D00253,D,champion,,Mrs. Sandra Pretari Hickson,Samoyeds
+D00254,D,champion,,Mrs. Sandra Pretari Hickson,Samoyeds
+D00255,D,champion,,Mrs. Sandra Pretari Hickson,Samoyeds
+D00256,B,champion,,Mrs. Sandra Pretari Hickson,Samoyeds
+D00257,B,champion,,Mrs. Sandra Pretari Hickson,Samoyeds
+D00258,B,champion,,Mrs. Sandra Pretari Hickson,Samoyeds
+D00259,B,champion,,Mrs. Sandra Pretari Hickson,Samoyeds
+D00260,D,class,,Mr. John Constantine,American Foxhounds
+D00261,D,class,,Mr. John Constantine,American Foxhounds
+D00262,B,class,,Mr. John Constantine,American Foxhounds
+D00263,D,champion,,Mr. John Constantine,American Foxhounds
+D00264,B,class,,Mr. John Constantine,Basset Hounds
+D00265,D,champion,,Mr. John Constantine,Basset Hounds
+D00266,B,class,,Mr. John Constantine,"Beagles, 13 Inch"
+D00267,B,champion,,Mr. John Constantine,"Beagles, 13 Inch"
+D00268,B,champion,,Mr. John Constantine,"Beagles, 13 Inch"
+D00269,D,class,,Mr. John Constantine,"Beagles, 15 Inch"
+D00270,D,class,,Mr. John Constantine,"Beagles, 15 Inch"
+D00271,D,class,,Mr. John Constantine,"Beagles, 15 Inch"
+D00272,B,class,,Mr. John Constantine,"Beagles, 15 Inch"
+D00273,B,class,,Mr. John Constantine,"Beagles, 15 Inch"
+D00274,B,class,,Mr. John Constantine,"Beagles, 15 Inch"
+D00275,B,class,,Mr. John Constantine,"Beagles, 15 Inch"
+D00276,D,champion,,Mr. John Constantine,"Beagles, 15 Inch"
+D00277,D,champion,,Mr. John Constantine,"Beagles, 15 Inch"
+D00278,D,class,,Mr. John Constantine,Borzois
+D00279,B,class,,Mr. John Constantine,Borzois
+D00280,B,class,,Mr. John Constantine,Borzois
+D00281,B,class,,Mr. John Constantine,Borzois
+D00282,B,class,,Mr. John Constantine,Borzois
+D00283,B,class,,Mr. John Constantine,Borzois
+D00284,D,champion,,Mr. John Constantine,Borzois
+D00285,D,champion,,Mr. John Constantine,Borzois
+D00286,D,champion,,Mr. John Constantine,Borzois
+D00287,D,champion,,Mr. John Constantine,Borzois
+D00288,D,champion,,Mr. John Constantine,Borzois
+D00289,B,champion,,Mr. John Constantine,Borzois
+D00290,D,class,,Mr. John Constantine,Afghan Hounds
+D00291,D,class,,Mr. John Constantine,Afghan Hounds
+D00292,D,class,,Mr. John Constantine,Afghan Hounds
+D00293,B,class,,Mr. John Constantine,Afghan Hounds
+D00294,B,class,,Mr. John Constantine,Afghan Hounds
+D00295,D,champion,,Mr. John Constantine,Afghan Hounds
+D00296,D,champion,,Mr. John Constantine,Afghan Hounds
+D00297,B,champion,,Mr. John Constantine,Afghan Hounds
+D00298,B,champion,,Mr. John Constantine,Afghan Hounds
+D00299,B,class,,Mr. John Constantine,Pugs
+D00300,B,class,,Mr. John Constantine,Pugs
+D00301,B,class,,Mr. John Constantine,Pugs
+D00302,D,champion,,Mr. John Constantine,Pugs
+D00303,D,champion,,Mr. John Constantine,Pugs
+D00304,D,champion,,Mr. John Constantine,Pugs
+D00305,D,class,,Mr. John Constantine,Italian Greyhounds
+D00306,D,class,,Mr. John Constantine,Italian Greyhounds
+D00307,D,champion,,Mr. John Constantine,Italian Greyhounds
+D00308,B,champion,,Mr. John Constantine,Italian Greyhounds
+D00309,B,champion,,Mr. John Constantine,Italian Greyhounds
+D00310,B,champion,,Mr. John Constantine,Italian Greyhounds
+D00311,B,champion,,Mr. John Constantine,Italian Greyhounds
+D00312,B,champion,,Mr. John Constantine,Italian Greyhounds
+D00313,D,class,,Mr. John Constantine,Brussels Griffons
+D00314,D,class,,Mr. John Constantine,Brussels Griffons
+D00315,D,class,,Mr. John Constantine,Brussels Griffons
+D00316,B,class,,Mr. John Constantine,Brussels Griffons
+D00317,D,champion,,Mr. John Constantine,Brussels Griffons
+D00318,D,champion,,Mr. John Constantine,Brussels Griffons
+D00319,B,champion,,Mr. John Constantine,Brussels Griffons
+D00320,B,champion,,Mr. John Constantine,Brussels Griffons
+D00321,B,champion,,Mr. John Constantine,Brussels Griffons
+D00322,D,champion,,Mr. John Constantine,Japanese Chin
+D00323,B,champion,,Mr. John Constantine,Japanese Chin
+D00324,D,champion,,Mr. John Constantine,Silky Terriers
+D00325,D,class,,Mr. John Constantine,Chinese Cresteds
+D00326,D,class,,Mr. John Constantine,Chinese Cresteds
+D00327,B,class,,Mr. John Constantine,Chinese Cresteds
+D00328,B,class,,Mr. John Constantine,Chinese Cresteds
+D00329,B,class,,Mr. John Constantine,Chinese Cresteds
+D00330,B,class,,Mr. John Constantine,Chinese Cresteds
+D00331,B,class,,Mr. John Constantine,Chinese Cresteds
+D00332,B,class,,Mr. John Constantine,Chinese Cresteds
+D00333,B,class,,Mr. John Constantine,Chinese Cresteds
+D00334,D,champion,,Mr. John Constantine,Chinese Cresteds
+D00335,B,champion,,Mr. John Constantine,Chinese Cresteds
+D00336,B,champion,,Mr. John Constantine,Chinese Cresteds
+D00337,B,champion,,Mr. John Constantine,Chinese Cresteds
+D00338,D,class,,Mr. John Constantine,Miniature Pinschers
+D00339,D,class,,Mr. John Constantine,Miniature Pinschers
+D00340,D,class,,Mr. John Constantine,Miniature Pinschers
+D00341,D,class,,Mr. John Constantine,Miniature Pinschers
+D00342,D,class,,Mr. John Constantine,Miniature Pinschers
+D00343,B,class,,Mr. John Constantine,Miniature Pinschers
+D00344,B,class,,Mr. John Constantine,Miniature Pinschers
+D00345,B,class,,Mr. John Constantine,Miniature Pinschers
+D00346,B,champion,,Mr. John Constantine,Miniature Pinschers
+D00347,B,champion,,Mr. John Constantine,Miniature Pinschers
+D00348,B,champion,,Mr. John Constantine,Miniature Pinschers
+D00349,B,champion,,Mr. John Constantine,Miniature Pinschers
+D00350,B,class,,Mr. John Constantine,Yorkshire Terriers
+D00351,B,class,,Mr. John Constantine,Yorkshire Terriers
+D00352,D,champion,,Mr. John Constantine,Yorkshire Terriers
+D00353,D,champion,,Mr. John Constantine,Yorkshire Terriers
+D00354,B,champion,,Mr. John Constantine,Yorkshire Terriers
+D00355,B,champion,,Mr. John Constantine,Yorkshire Terriers
+D00356,D,class,,Mr. John Constantine,Pekingese
+D00357,D,class,,Mr. John Constantine,Pekingese
+D00358,B,class,,Mr. John Constantine,Pekingese
+D00359,B,class,,Mr. John Constantine,Pekingese
+D00360,B,class,,Mr. John Constantine,Pekingese
+D00361,B,class,,Mr. John Constantine,Pekingese
+D00362,D,champion,,Mr. John Constantine,Pekingese
+D00363,D,champion,,Mr. John Constantine,Pekingese
+D00364,D,class,,Mr. John Constantine,Havanese
+D00365,D,class,,Mr. John Constantine,Havanese
+D00366,B,class,,Mr. John Constantine,Havanese
+D00367,B,class,,Mr. John Constantine,Havanese
+D00368,B,class,,Mr. John Constantine,Havanese
+D00369,D,champion,,Mr. John Constantine,Havanese
+D00370,D,champion,,Mr. John Constantine,Havanese
+D00371,D,champion,,Mr. John Constantine,Havanese
+D00372,D,champion,,Mr. John Constantine,Havanese
+D00373,D,champion,,Mr. John Constantine,Havanese
+D00374,D,champion,,Mr. John Constantine,Havanese
+D00375,B,champion,,Mr. John Constantine,Havanese
+D00376,B,class,,Mr. John Constantine,Maltese
+D00377,B,champion,,Mr. John Constantine,Maltese
+D00378,B,class,,Mr. John Constantine,Manchester Terriers (Toy)
+D00379,B,champion,,Mr. John Constantine,Manchester Terriers (Toy)
+D00380,B,champion,,Mr. John Constantine,Manchester Terriers (Toy)
+D00381,D,champion,,Mr. John Constantine,Russian Toys
+D00382,B,champion,,Mr. John Constantine,Russian Toys
+D00383,B,champion,,Mr. John Constantine,Russian Toys
+D00384,D,class,,Mr. John Constantine,Shih Tzu
+D00385,B,class,,Mr. John Constantine,Shih Tzu
+D00386,B,class,,Mr. John Constantine,Shih Tzu
+D00387,D,class,,Mr. John Constantine,Pomeranians
+D00388,D,class,,Mr. John Constantine,Pomeranians
+D00389,D,class,,Mr. John Constantine,Pomeranians
+D00390,B,class,,Mr. John Constantine,Pomeranians
+D00391,D,champion,,Mr. John Constantine,Pomeranians
+D00392,D,champion,,Mr. John Constantine,Pomeranians
+D00393,D,champion,,Mr. John Constantine,Pomeranians
+D00394,D,champion,,Mr. John Constantine,Pomeranians
+D00395,D,champion,,Mr. John Constantine,Pomeranians
+D00396,B,champion,,Mr. John Constantine,Pomeranians
+D00397,D,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Smooth)
+D00398,D,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Smooth)
+D00399,D,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Smooth)
+D00400,B,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Smooth)
+D00401,B,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Smooth)
+D00402,B,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Smooth)
+D00403,B,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Smooth)
+D00404,B,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Smooth)
+D00405,B,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Smooth)
+D00406,D,champion,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Smooth)
+D00407,B,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Wirehaired)
+D00408,D,champion,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Wirehaired)
+D00409,D,champion,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Wirehaired)
+D00410,D,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Longhaired)
+D00411,D,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Longhaired)
+D00412,D,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Longhaired)
+D00413,D,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Longhaired)
+D00414,B,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Longhaired)
+D00415,B,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Longhaired)
+D00416,B,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Longhaired)
+D00417,B,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Longhaired)
+D00418,B,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Longhaired)
+D00419,B,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Longhaired)
+D00420,B,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Longhaired)
+D00421,B,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Longhaired)
+D00422,B,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Longhaired)
+D00423,B,class,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Longhaired)
+D00424,D,champion,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Longhaired)
+D00425,D,champion,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Longhaired)
+D00426,D,champion,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Longhaired)
+D00427,D,champion,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Longhaired)
+D00428,D,champion,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Longhaired)
+D00429,D,champion,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Longhaired)
+D00430,B,champion,,"Mr. Raymond V. Filburn, Jr.",Dachshunds (Longhaired)
+D00431,D,champion,,"Mr. Raymond V. Filburn, Jr.",Petits Bassets Griffons Vendeens
+D00432,B,champion,,"Mr. Raymond V. Filburn, Jr.",Petits Bassets Griffons Vendeens
+D00433,B,class,,"Mr. Raymond V. Filburn, Jr.",Chihuahuas (Smooth Coat)
+D00434,B,class,,"Mr. Raymond V. Filburn, Jr.",Chihuahuas (Smooth Coat)
+D00435,D,champion,,"Mr. Raymond V. Filburn, Jr.",Chihuahuas (Smooth Coat)
+D00436,D,champion,,"Mr. Raymond V. Filburn, Jr.",Chihuahuas (Smooth Coat)
+D00437,B,champion,,"Mr. Raymond V. Filburn, Jr.",Chihuahuas (Smooth Coat)
+D00438,B,champion,,"Mr. Raymond V. Filburn, Jr.",Chihuahuas (Smooth Coat)
+D00439,D,class,,"Mr. Raymond V. Filburn, Jr.",Chihuahuas (Long Coat)
+D00440,D,class,,"Mr. Raymond V. Filburn, Jr.",Chihuahuas (Long Coat)
+D00441,D,class,,"Mr. Raymond V. Filburn, Jr.",Chihuahuas (Long Coat)
+D00442,B,class,,"Mr. Raymond V. Filburn, Jr.",Chihuahuas (Long Coat)
+D00443,B,class,,"Mr. Raymond V. Filburn, Jr.",Chihuahuas (Long Coat)
+D00444,B,class,,"Mr. Raymond V. Filburn, Jr.",Chihuahuas (Long Coat)
+D00445,D,champion,,"Mr. Raymond V. Filburn, Jr.",Chihuahuas (Long Coat)
+D00446,D,class,,"Mr. Raymond V. Filburn, Jr.",Portuguese Podengo Pequenos
+D00447,D,class,,"Mr. Raymond V. Filburn, Jr.",Portuguese Podengo Pequenos
+D00448,D,class,,"Mr. Raymond V. Filburn, Jr.",Portuguese Podengo Pequenos
+D00449,D,class,,"Mr. Raymond V. Filburn, Jr.",Portuguese Podengo Pequenos
+D00450,D,class,,"Mr. Raymond V. Filburn, Jr.",Portuguese Podengo Pequenos
+D00451,B,class,,"Mr. Raymond V. Filburn, Jr.",Portuguese Podengo Pequenos
+D00452,D,champion,,"Mr. Raymond V. Filburn, Jr.",Portuguese Podengo Pequenos
+D00453,D,champion,,"Mr. Raymond V. Filburn, Jr.",Portuguese Podengo Pequenos
+D00454,B,champion,,"Mr. Raymond V. Filburn, Jr.",Portuguese Podengo Pequenos
+D00455,B,champion,,"Mr. Raymond V. Filburn, Jr.",Portuguese Podengo Pequenos
+D00456,B,champion,,"Mr. Raymond V. Filburn, Jr.",Portuguese Podengo Pequenos
+D00457,B,champion,,"Mr. Raymond V. Filburn, Jr.",Portuguese Podengo Pequenos
+D00458,D,champion,,"Mr. Raymond V. Filburn, Jr.",Harriers
+D00459,D,class,,"Mr. Raymond V. Filburn, Jr.",Salukis
+D00460,B,class,,"Mr. Raymond V. Filburn, Jr.",Salukis
+D00461,B,class,,"Mr. Raymond V. Filburn, Jr.",Salukis
+D00462,B,class,,"Mr. Raymond V. Filburn, Jr.",Salukis
+D00463,B,class,,"Mr. Raymond V. Filburn, Jr.",Salukis
+D00464,B,class,,"Mr. Raymond V. Filburn, Jr.",Salukis
+D00465,B,class,,"Mr. Raymond V. Filburn, Jr.",Salukis
+D00466,B,class,,"Mr. Raymond V. Filburn, Jr.",Salukis
+D00467,B,class,,"Mr. Raymond V. Filburn, Jr.",Salukis
+D00468,D,champion,,"Mr. Raymond V. Filburn, Jr.",Salukis
+D00469,D,champion,,"Mr. Raymond V. Filburn, Jr.",Salukis
+D00470,B,champion,,"Mr. Raymond V. Filburn, Jr.",Salukis
+D00471,B,champion,,"Mr. Raymond V. Filburn, Jr.",Salukis
+D00472,B,champion,,"Mr. Raymond V. Filburn, Jr.",Salukis
+D00473,B,champion,,"Mr. Raymond V. Filburn, Jr.",Salukis
+D00474,D,class,,"Mr. Raymond V. Filburn, Jr.",Rhodesian Ridgebacks
+D00475,B,class,,"Mr. Raymond V. Filburn, Jr.",Rhodesian Ridgebacks
+D00476,B,class,,"Mr. Raymond V. Filburn, Jr.",Rhodesian Ridgebacks
+D00477,B,class,,"Mr. Raymond V. Filburn, Jr.",Rhodesian Ridgebacks
+D00478,B,class,,"Mr. Raymond V. Filburn, Jr.",Rhodesian Ridgebacks
+D00479,B,class,,"Mr. Raymond V. Filburn, Jr.",Rhodesian Ridgebacks
+D00480,B,class,,"Mr. Raymond V. Filburn, Jr.",Rhodesian Ridgebacks
+D00481,D,champion,,"Mr. Raymond V. Filburn, Jr.",Rhodesian Ridgebacks
+D00482,D,champion,,"Mr. Raymond V. Filburn, Jr.",Rhodesian Ridgebacks
+D00483,D,champion,,"Mr. Raymond V. Filburn, Jr.",Rhodesian Ridgebacks
+D00484,D,champion,,"Mr. Raymond V. Filburn, Jr.",Rhodesian Ridgebacks
+D00485,D,champion,,"Mr. Raymond V. Filburn, Jr.",Rhodesian Ridgebacks
+D00486,D,champion,,"Mr. Raymond V. Filburn, Jr.",Rhodesian Ridgebacks
+D00487,D,champion,,"Mr. Raymond V. Filburn, Jr.",Rhodesian Ridgebacks
+D00488,B,champion,,"Mr. Raymond V. Filburn, Jr.",Rhodesian Ridgebacks
+D00489,B,champion,,"Mr. Raymond V. Filburn, Jr.",Rhodesian Ridgebacks
+D00490,D,class,,"Mr. Raymond V. Filburn, Jr.",Treeing Walker Coonhounds
+D00491,B,class,,"Mr. Raymond V. Filburn, Jr.",Treeing Walker Coonhounds
+D00492,D,class,,"Mr. Raymond V. Filburn, Jr.",Scottish Deerhounds
+D00493,D,class,,"Mr. Raymond V. Filburn, Jr.",Scottish Deerhounds
+D00494,D,champion,,"Mr. Raymond V. Filburn, Jr.",Scottish Deerhounds
+D00495,B,champion,,"Mr. Raymond V. Filburn, Jr.",Scottish Deerhounds
+D00496,D,class,,"Mr. Raymond V. Filburn, Jr.",Papillons
+D00497,D,class,,"Mr. Raymond V. Filburn, Jr.",Papillons
+D00498,D,class,,"Mr. Raymond V. Filburn, Jr.",Papillons
+D00499,B,class,,"Mr. Raymond V. Filburn, Jr.",Papillons
+D00500,B,class,,"Mr. Raymond V. Filburn, Jr.",Papillons
+D00501,B,champion,,"Mr. Raymond V. Filburn, Jr.",Papillons
+D00502,B,champion,,"Mr. Raymond V. Filburn, Jr.",Papillons
+D00503,B,class,,"Mr. Raymond V. Filburn, Jr.",Basenjis
+D00504,B,class,,"Mr. Raymond V. Filburn, Jr.",Basenjis
+D00505,D,champion,,"Mr. Raymond V. Filburn, Jr.",Basenjis
+D00506,D,champion,,"Mr. Raymond V. Filburn, Jr.",Basenjis
+D00507,D,champion,,"Mr. Raymond V. Filburn, Jr.",Basenjis
+D00508,D,champion,,"Mr. Raymond V. Filburn, Jr.",Basenjis
+D00509,D,champion,,"Mr. Raymond V. Filburn, Jr.",Basenjis
+D00510,B,champion,,"Mr. Raymond V. Filburn, Jr.",Basenjis
+D00511,B,champion,,"Mr. Raymond V. Filburn, Jr.",Basenjis
+D00512,B,champion,,"Mr. Raymond V. Filburn, Jr.",Basenjis
+D00513,D,class,,Ms. Lori L. Nelson,Spinoni Italiani
+D00514,D,class,,Ms. Lori L. Nelson,Spinoni Italiani
+D00515,B,class,,Ms. Lori L. Nelson,Spinoni Italiani
+D00516,B,class,,Ms. Lori L. Nelson,Spinoni Italiani
+D00517,B,class,,Ms. Lori L. Nelson,Spinoni Italiani
+D00518,D,champion,,Ms. Lori L. Nelson,Spinoni Italiani
+D00519,D,champion,,Ms. Lori L. Nelson,Spinoni Italiani
+D00520,D,class,,Ms. Lori L. Nelson,Weimaraners
+D00521,B,class,,Ms. Lori L. Nelson,Weimaraners
+D00522,B,class,,Ms. Lori L. Nelson,Weimaraners
+D00523,B,class,,Ms. Lori L. Nelson,Weimaraners
+D00524,D,champion,,Ms. Lori L. Nelson,Weimaraners
+D00525,D,champion,,Ms. Lori L. Nelson,Weimaraners
+D00526,B,champion,,Ms. Lori L. Nelson,Weimaraners
+D00527,B,champion,,Ms. Lori L. Nelson,Weimaraners
+D00528,B,class,,Ms. Lori L. Nelson,Retrievers (Flat-Coated)
+D00529,B,class,,Ms. Lori L. Nelson,Wirehaired Vizslas
+D00530,D,class,,Ms. Lori L. Nelson,Vizslas
+D00531,D,class,,Ms. Lori L. Nelson,Vizslas
+D00532,D,class,,Ms. Lori L. Nelson,Vizslas
+D00533,B,class,,Ms. Lori L. Nelson,Vizslas
+D00534,B,class,,Ms. Lori L. Nelson,Vizslas
+D00535,B,class,,Ms. Lori L. Nelson,Vizslas
+D00536,B,class,,Ms. Lori L. Nelson,Vizslas
+D00537,B,class,,Ms. Lori L. Nelson,Vizslas
+D00538,B,class,,Ms. Lori L. Nelson,Vizslas
+D00539,B,class,,Ms. Lori L. Nelson,Vizslas
+D00540,B,class,,Ms. Lori L. Nelson,Vizslas
+D00541,D,champion,,Ms. Lori L. Nelson,Vizslas
+D00542,D,champion,,Ms. Lori L. Nelson,Vizslas
+D00543,B,champion,,Ms. Lori L. Nelson,Vizslas
+D00544,B,champion,,Ms. Lori L. Nelson,Vizslas
+D00545,B,champion,,Ms. Lori L. Nelson,Spaniels (Clumber)
+D00546,D,champion,,Ms. Lori L. Nelson,Spaniels (Field)
+D00547,B,champion,,Ms. Lori L. Nelson,Spaniels (Sussex)
+D00548,B,class,,Ms. Lori L. Nelson,Ret (Nova Scotia Duck Tolling)
+D00549,B,class,,Ms. Lori L. Nelson,Ret (Nova Scotia Duck Tolling)
+D00550,B,champion,,Ms. Lori L. Nelson,Ret (Nova Scotia Duck Tolling)
+D00551,D,class,,Ms. Lori L. Nelson,Spaniels (English Springer)
+D00552,D,class,,Ms. Lori L. Nelson,Spaniels (English Springer)
+D00553,B,class,,Ms. Lori L. Nelson,Spaniels (English Springer)
+D00554,B,class,,Ms. Lori L. Nelson,Spaniels (English Springer)
+D00555,D,champion,,Ms. Lori L. Nelson,Spaniels (English Springer)
+D00556,D,class,,Ms. Lori L. Nelson,Spaniels (English Cocker)
+D00557,D,class,,Ms. Lori L. Nelson,Spaniels (English Cocker)
+D00558,D,class,,Ms. Lori L. Nelson,Spaniels (English Cocker)
+D00559,D,class,,Ms. Lori L. Nelson,Spaniels (English Cocker)
+D00560,D,class,,Ms. Lori L. Nelson,Spaniels (English Cocker)
+D00561,D,class,,Ms. Lori L. Nelson,Spaniels (English Cocker)
+D00562,B,class,,Ms. Lori L. Nelson,Spaniels (English Cocker)
+D00563,B,class,,Ms. Lori L. Nelson,Spaniels (English Cocker)
+D00564,B,class,,Ms. Lori L. Nelson,Spaniels (English Cocker)
+D00565,D,champion,,Ms. Lori L. Nelson,Spaniels (English Cocker)
+D00566,D,champion,,Ms. Lori L. Nelson,Spaniels (English Cocker)
+D00567,D,champion,,Ms. Lori L. Nelson,Spaniels (English Cocker)
+D00568,D,champion,,Ms. Lori L. Nelson,Spaniels (English Cocker)
+D00569,D,champion,,Ms. Lori L. Nelson,Spaniels (English Cocker)
+D00570,D,champion,,Ms. Lori L. Nelson,Spaniels (English Cocker)
+D00571,D,champion,,Ms. Lori L. Nelson,Spaniels (Cocker) Black
+D00572,D,champion,,Ms. Lori L. Nelson,Spaniels (Cocker) Black
+D00573,D,class,,Ms. Lori L. Nelson,Spaniels (Cocker) A.S.C.O.B.
+D00574,D,class,,Ms. Lori L. Nelson,Spaniels (Cocker) A.S.C.O.B.
+D00575,D,class,,Ms. Lori L. Nelson,Spaniels (Cocker) A.S.C.O.B.
+D00576,D,class,,Ms. Lori L. Nelson,Spaniels (Cocker) A.S.C.O.B.
+D00577,B,class,,Ms. Lori L. Nelson,Spaniels (Cocker) A.S.C.O.B.
+D00578,B,class,,Ms. Lori L. Nelson,Spaniels (Cocker) A.S.C.O.B.
+D00579,D,champion,,Ms. Lori L. Nelson,Spaniels (Cocker) A.S.C.O.B.
+D00580,B,champion,,Ms. Lori L. Nelson,Spaniels (Cocker) A.S.C.O.B.
+D00581,D,class,,Ms. Lori L. Nelson,Spaniels (Cocker) Parti-Color
+D00582,D,class,,Ms. Lori L. Nelson,Spaniels (Cocker) Parti-Color
+D00583,D,class,,Ms. Lori L. Nelson,Spaniels (Cocker) Parti-Color
+D00584,B,champion,,Ms. Lori L. Nelson,Spaniels (Cocker) Parti-Color
+D00585,B,champion,,Ms. Lori L. Nelson,Spaniels (Cocker) Parti-Color
+D00586,D,champion,,Ms. Lori L. Nelson,Setters (Irish Red and White)
+D00587,D,champion,,Ms. Lori L. Nelson,Norwegian Elkhounds
+D00588,D,champion,,Ms. Lori L. Nelson,Norwegian Elkhounds
+D00589,D,champion,,Ms. Lori L. Nelson,Norwegian Elkhounds
+D00590,B,champion,,Ms. Lori L. Nelson,Norwegian Elkhounds
+D00591,B,champion,,Ms. Lori L. Nelson,Norwegian Elkhounds
+D00592,D,class,,Ms. Lori L. Nelson,Setters (Irish)
+D00593,B,class,,Ms. Lori L. Nelson,Setters (Irish)
+D00594,B,champion,,Ms. Lori L. Nelson,Setters (Irish)
+D00595,B,champion,,Ms. Lori L. Nelson,Setters (Irish)
+D00596,B,champion,,Ms. Lori L. Nelson,Setters (Irish)
+D00597,B,class,,Ms. Lori L. Nelson,Setters (English)
+D00598,D,champion,,Ms. Lori L. Nelson,Setters (English)
+D00599,D,class,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00600,D,class,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00601,D,class,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00602,D,class,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00603,D,class,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00604,D,class,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00605,D,class,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00606,D,class,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00607,B,class,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00608,B,class,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00609,B,class,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00610,B,class,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00611,B,class,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00612,B,class,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00613,B,class,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00614,B,class,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00615,B,class,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00616,B,class,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00617,B,class,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00618,B,class,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00619,D,champion,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00620,D,champion,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00621,D,champion,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00622,D,champion,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00623,D,champion,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00624,D,champion,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00625,D,champion,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00626,D,champion,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00627,B,champion,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00628,B,champion,,Ms. Lori L. Nelson,Retrievers (Golden)
+D00629,D,class,,Mr. Gary L. Andersen,Collies (Smooth)
+D00630,B,class,,Mr. Gary L. Andersen,Collies (Smooth)
+D00631,B,champion,,Mr. Gary L. Andersen,Collies (Smooth)
+D00632,B,champion,,Mr. Gary L. Andersen,Collies (Smooth)
+D00633,D,class,,Mr. Gary L. Andersen,Boston Terriers
+D00634,B,class,,Mr. Gary L. Andersen,Boston Terriers
+D00635,D,champion,,Mr. Gary L. Andersen,Boston Terriers
+D00636,D,champion,,Mr. Gary L. Andersen,Boston Terriers
+D00637,D,class,,Mr. Gary L. Andersen,Pembroke Welsh Corgis
+D00638,D,class,,Mr. Gary L. Andersen,Pembroke Welsh Corgis
+D00639,D,class,,Mr. Gary L. Andersen,Pembroke Welsh Corgis
+D00640,B,class,,Mr. Gary L. Andersen,Pembroke Welsh Corgis
+D00641,B,class,,Mr. Gary L. Andersen,Pembroke Welsh Corgis
+D00642,B,class,,Mr. Gary L. Andersen,Pembroke Welsh Corgis
+D00643,B,class,,Mr. Gary L. Andersen,Pembroke Welsh Corgis
+D00644,B,class,,Mr. Gary L. Andersen,Pembroke Welsh Corgis
+D00645,B,class,,Mr. Gary L. Andersen,Pembroke Welsh Corgis
+D00646,B,class,,Mr. Gary L. Andersen,Pembroke Welsh Corgis
+D00647,D,champion,,Mr. Gary L. Andersen,Pembroke Welsh Corgis
+D00648,B,champion,,Mr. Gary L. Andersen,Pembroke Welsh Corgis
+D00649,D,class,,Mr. Gary L. Andersen,American Eskimo Dogs
+D00650,D,class,,Mr. Gary L. Andersen,Cavalier King Charles Spaniels
+D00651,D,class,,Mr. Gary L. Andersen,Cavalier King Charles Spaniels
+D00652,D,class,,Mr. Gary L. Andersen,Cavalier King Charles Spaniels
+D00653,D,class,,Mr. Gary L. Andersen,Cavalier King Charles Spaniels
+D00654,D,class,,Mr. Gary L. Andersen,Cavalier King Charles Spaniels
+D00655,B,class,,Mr. Gary L. Andersen,Cavalier King Charles Spaniels
+D00656,B,class,,Mr. Gary L. Andersen,Cavalier King Charles Spaniels
+D00657,B,class,,Mr. Gary L. Andersen,Cavalier King Charles Spaniels
+D00658,B,class,,Mr. Gary L. Andersen,Cavalier King Charles Spaniels
+D00659,B,class,,Mr. Gary L. Andersen,Cavalier King Charles Spaniels
+D00660,B,class,,Mr. Gary L. Andersen,Cavalier King Charles Spaniels
+D00661,B,class,,Mr. Gary L. Andersen,Cavalier King Charles Spaniels
+D00662,B,class,,Mr. Gary L. Andersen,Cavalier King Charles Spaniels
+D00663,B,class,,Mr. Gary L. Andersen,Cavalier King Charles Spaniels
+D00664,D,champion,,Mr. Gary L. Andersen,Cavalier King Charles Spaniels
+D00665,B,champion,,Mr. Gary L. Andersen,Cavalier King Charles Spaniels
+D00666,D,class,,Mr. Gary L. Andersen,Collies (Rough)
+D00667,D,class,,Mr. Gary L. Andersen,Collies (Rough)
+D00668,D,class,,Mr. Gary L. Andersen,Collies (Rough)
+D00669,D,class,,Mr. Gary L. Andersen,Collies (Rough)
+D00670,D,class,,Mr. Gary L. Andersen,Collies (Rough)
+D00671,B,class,,Mr. Gary L. Andersen,Collies (Rough)
+D00672,B,class,,Mr. Gary L. Andersen,Collies (Rough)
+D00673,B,class,,Mr. Gary L. Andersen,Collies (Rough)
+D00674,B,class,,Mr. Gary L. Andersen,Collies (Rough)
+D00675,B,class,,Mr. Gary L. Andersen,Collies (Rough)
+D00676,B,class,,Mr. Gary L. Andersen,Collies (Rough)
+D00677,B,class,,Mr. Gary L. Andersen,Collies (Rough)
+D00678,B,class,,Mr. Gary L. Andersen,Collies (Rough)
+D00679,D,champion,,Mr. Gary L. Andersen,Collies (Rough)
+D00680,B,class,,Mr. Gary L. Andersen,Akitas
+D00681,B,class,,Mr. Gary L. Andersen,Akitas
+D00682,B,class,,Mr. Gary L. Andersen,Akitas
+D00683,D,class,,Mr. Gary L. Andersen,Whippets
+D00684,D,class,,Mr. Gary L. Andersen,Whippets
+D00685,D,class,,Mr. Gary L. Andersen,Whippets
+D00686,D,class,,Mr. Gary L. Andersen,Whippets
+D00687,D,class,,Mr. Gary L. Andersen,Whippets
+D00688,D,class,,Mr. Gary L. Andersen,Whippets
+D00689,D,class,,Mr. Gary L. Andersen,Whippets
+D00690,D,class,,Mr. Gary L. Andersen,Whippets
+D00691,D,class,,Mr. Gary L. Andersen,Whippets
+D00692,B,class,,Mr. Gary L. Andersen,Whippets
+D00693,B,class,,Mr. Gary L. Andersen,Whippets
+D00694,B,class,,Mr. Gary L. Andersen,Whippets
+D00695,B,class,,Mr. Gary L. Andersen,Whippets
+D00696,B,class,,Mr. Gary L. Andersen,Whippets
+D00697,B,class,,Mr. Gary L. Andersen,Whippets
+D00698,B,class,,Mr. Gary L. Andersen,Whippets
+D00699,B,class,,Mr. Gary L. Andersen,Whippets
+D00700,D,champion,,Mr. Gary L. Andersen,Whippets
+D00701,D,champion,,Mr. Gary L. Andersen,Whippets
+D00702,B,champion,,Mr. Gary L. Andersen,Whippets
+D00703,B,champion,,Mr. Gary L. Andersen,Whippets
+D00704,B,champion,,Mr. Gary L. Andersen,Whippets
+D00705,B,champion,,Mr. Gary L. Andersen,Whippets
+D00706,D,class,,Mr. Gary L. Andersen,Alaskan Malamutes
+D00707,D,class,,Mr. Gary L. Andersen,Alaskan Malamutes
+D00708,B,class,,Mr. Gary L. Andersen,Alaskan Malamutes
+D00709,B,class,,Mr. Gary L. Andersen,Alaskan Malamutes
+D00710,B,class,,Mr. Gary L. Andersen,Alaskan Malamutes
+D00711,D,champion,,Mr. Gary L. Andersen,Alaskan Malamutes
+D00712,D,champion,,Mr. Gary L. Andersen,Alaskan Malamutes
+D00713,B,champion,,Mr. Gary L. Andersen,Alaskan Malamutes
+D00714,B,champion,,Mr. Gary L. Andersen,Alaskan Malamutes
+D00715,D,class,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00716,D,class,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00717,D,class,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00718,D,class,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00719,D,class,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00720,D,class,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00721,D,class,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00722,D,class,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00723,D,class,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00724,D,class,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00725,D,class,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00726,D,class,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00727,B,class,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00728,B,class,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00729,B,class,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00730,B,class,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00731,B,class,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00732,B,class,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00733,B,class,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00734,B,class,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00735,D,champion,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00736,D,champion,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00737,D,champion,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00738,D,champion,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00739,B,champion,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00740,B,champion,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00741,B,champion,,Mr. Gary L. Andersen,Shetland Sheepdogs
+D00742,D,champion,,Ms. Deirdre Petrie,Boxers
+D00743,D,champion,,Ms. Deirdre Petrie,Boxers
+D00744,D,champion,,Ms. Deirdre Petrie,Boxers
+D00745,D,champion,,Ms. Deirdre Petrie,Boxers
+D00746,B,champion,,Ms. Deirdre Petrie,Boxers
+D00747,B,champion,,Ms. Deirdre Petrie,Boxers
+D00748,B,champion,,Ms. Deirdre Petrie,Boxers
+D00749,B,champion,,Ms. Deirdre Petrie,Boxers
+D00750,D,class,,Ms. Deirdre Petrie,Chinese Shar-Pei
+D00751,B,class,,Ms. Deirdre Petrie,Chinese Shar-Pei
+D00752,D,champion,,Ms. Deirdre Petrie,Chinese Shar-Pei
+D00753,B,champion,,Ms. Deirdre Petrie,Chinese Shar-Pei
+D00754,D,class,,Ms. Deirdre Petrie,Bulldogs
+D00755,D,class,,Ms. Deirdre Petrie,Bulldogs
+D00756,D,class,,Ms. Deirdre Petrie,Bulldogs
+D00757,D,class,,Ms. Deirdre Petrie,Bulldogs
+D00758,D,class,,Ms. Deirdre Petrie,Bulldogs
+D00759,B,class,,Ms. Deirdre Petrie,Bulldogs
+D00760,B,class,,Ms. Deirdre Petrie,Bulldogs
+D00761,B,class,,Ms. Deirdre Petrie,Bulldogs
+D00762,B,class,,Ms. Deirdre Petrie,Bulldogs
+D00763,B,class,,Ms. Deirdre Petrie,Bulldogs
+D00764,B,class,,Ms. Deirdre Petrie,Bulldogs
+D00765,B,class,,Ms. Deirdre Petrie,Bulldogs
+D00766,B,class,,Ms. Deirdre Petrie,Bulldogs
+D00767,B,class,,Ms. Deirdre Petrie,Bulldogs
+D00768,B,class,,Ms. Deirdre Petrie,Bulldogs
+D00769,B,class,,Ms. Deirdre Petrie,Bulldogs
+D00770,B,champion,,Ms. Deirdre Petrie,Bulldogs
+D00771,D,champion,,Ms. Deirdre Petrie,Keeshonden
+D00772,D,class,,Ms. Deirdre Petrie,French Bulldogs
+D00773,D,class,,Ms. Deirdre Petrie,French Bulldogs
+D00774,D,class,,Ms. Deirdre Petrie,French Bulldogs
+D00775,D,class,,Ms. Deirdre Petrie,French Bulldogs
+D00776,D,class,,Ms. Deirdre Petrie,French Bulldogs
+D00777,D,class,,Ms. Deirdre Petrie,French Bulldogs
+D00778,D,class,,Ms. Deirdre Petrie,French Bulldogs
+D00779,D,class,,Ms. Deirdre Petrie,French Bulldogs
+D00780,D,class,,Ms. Deirdre Petrie,French Bulldogs
+D00781,B,class,,Ms. Deirdre Petrie,French Bulldogs
+D00782,B,class,,Ms. Deirdre Petrie,French Bulldogs
+D00783,B,class,,Ms. Deirdre Petrie,French Bulldogs
+D00784,B,class,,Ms. Deirdre Petrie,French Bulldogs
+D00785,B,class,,Ms. Deirdre Petrie,French Bulldogs
+D00786,B,class,,Ms. Deirdre Petrie,French Bulldogs
+D00787,B,class,,Ms. Deirdre Petrie,French Bulldogs
+D00788,B,class,,Ms. Deirdre Petrie,French Bulldogs
+D00789,B,class,,Ms. Deirdre Petrie,French Bulldogs
+D00790,B,class,,Ms. Deirdre Petrie,French Bulldogs
+D00791,B,class,,Ms. Deirdre Petrie,French Bulldogs
+D00792,B,class,,Ms. Deirdre Petrie,French Bulldogs
+D00793,B,class,,Ms. Deirdre Petrie,French Bulldogs
+D00794,B,class,,Ms. Deirdre Petrie,French Bulldogs
+D00795,B,class,,Ms. Deirdre Petrie,French Bulldogs
+D00796,B,class,,Ms. Deirdre Petrie,French Bulldogs
+D00797,B,class,,Ms. Deirdre Petrie,French Bulldogs
+D00798,B,class,,Ms. Deirdre Petrie,French Bulldogs
+D00799,B,class,,Ms. Deirdre Petrie,French Bulldogs
+D00800,D,champion,,Ms. Deirdre Petrie,French Bulldogs
+D00801,D,champion,,Ms. Deirdre Petrie,French Bulldogs
+D00802,D,champion,,Ms. Deirdre Petrie,French Bulldogs
+D00803,B,champion,,Ms. Deirdre Petrie,French Bulldogs
+D00804,B,class,,Ms. Deirdre Petrie,Tibetan Spaniels
+D00805,B,class,,Ms. Deirdre Petrie,Tibetan Spaniels
+D00806,B,class,,Ms. Deirdre Petrie,Tibetan Spaniels
+D00807,D,champion,,Ms. Deirdre Petrie,Tibetan Spaniels
+D00808,D,champion,,Ms. Deirdre Petrie,Tibetan Spaniels
+D00809,B,champion,,Ms. Deirdre Petrie,Tibetan Spaniels
+D00810,D,class,,Ms. Deirdre Petrie,Dalmatians
+D00811,D,class,,Ms. Deirdre Petrie,Dalmatians
+D00812,D,class,,Ms. Deirdre Petrie,Dalmatians
+D00813,D,class,,Ms. Deirdre Petrie,Dalmatians
+D00814,B,class,,Ms. Deirdre Petrie,Dalmatians
+D00815,B,class,,Ms. Deirdre Petrie,Dalmatians
+D00816,B,class,,Ms. Deirdre Petrie,Dalmatians
+D00817,B,class,,Ms. Deirdre Petrie,Dalmatians
+D00818,B,class,,Ms. Deirdre Petrie,Dalmatians
+D00819,B,class,,Ms. Deirdre Petrie,Dalmatians
+D00820,D,champion,,Ms. Deirdre Petrie,Dalmatians
+D00821,D,champion,,Ms. Deirdre Petrie,Dalmatians
+D00822,D,champion,,Ms. Deirdre Petrie,Dalmatians
+D00823,D,champion,,Ms. Deirdre Petrie,Dalmatians
+D00824,D,champion,,Ms. Deirdre Petrie,Dalmatians
+D00825,D,champion,,Ms. Deirdre Petrie,Dalmatians
+D00826,D,champion,,Ms. Deirdre Petrie,Dalmatians
+D00827,B,champion,,Ms. Deirdre Petrie,Dalmatians
+D00828,B,champion,,Ms. Deirdre Petrie,Dalmatians
+D00829,B,champion,,Ms. Deirdre Petrie,Dalmatians
+D00830,B,champion,,Ms. Deirdre Petrie,Greyhounds
+D00831,D,class,,Ms. Deirdre Petrie,Irish Wolfhounds
+D00832,B,class,,Ms. Deirdre Petrie,Irish Wolfhounds
+D00833,B,class,,Ms. Deirdre Petrie,Irish Wolfhounds
+D00834,B,class,,Ms. Deirdre Petrie,Irish Wolfhounds
+D00835,D,champion,,Ms. Deirdre Petrie,Irish Wolfhounds
+D00836,B,champion,,Ms. Deirdre Petrie,Irish Wolfhounds
+D00837,B,champion,,Ms. Deirdre Petrie,Irish Wolfhounds
+D00838,B,champion,,Ms. Deirdre Petrie,Irish Wolfhounds
+D00839,D,class,,Ms. Deirdre Petrie,Schipperkes
+D00840,B,class,,Ms. Deirdre Petrie,Schipperkes
+D00841,D,champion,,Ms. Deirdre Petrie,Schipperkes
+D00842,B,champion,,Ms. Deirdre Petrie,Schipperkes
+D00843,B,champion,,Ms. Deirdre Petrie,Schipperkes
+D00844,B,champion,,Ms. Deirdre Petrie,Schipperkes
+D00845,B,class,,Ms. Deirdre Petrie,Xoloitzcuintli
+D00846,B,class,,Ms. Deirdre Petrie,Xoloitzcuintli
+D00847,B,champion,,Ms. Deirdre Petrie,Xoloitzcuintli
+D00848,B,class,,Ms. Deirdre Petrie,Manchester Terriers (Standard)
+D00849,D,class,,Ms. Deirdre Petrie,Border Terriers
+D00850,D,class,,Ms. Deirdre Petrie,Border Terriers
+D00851,B,class,,Ms. Deirdre Petrie,Border Terriers
+D00852,B,class,,Ms. Deirdre Petrie,Border Terriers
+D00853,B,class,,Ms. Deirdre Petrie,Border Terriers
+D00854,D,champion,,Ms. Deirdre Petrie,Border Terriers
+D00855,D,champion,,Ms. Deirdre Petrie,Border Terriers
+D00856,D,champion,,Ms. Deirdre Petrie,Border Terriers
+D00857,D,champion,,Ms. Deirdre Petrie,Border Terriers
+D00858,B,champion,,Ms. Deirdre Petrie,Border Terriers
+D00859,B,champion,,Ms. Deirdre Petrie,Border Terriers
+D00860,D,class,,Ms. Deirdre Petrie,Russell Terriers
+D00861,B,class,,Ms. Deirdre Petrie,Russell Terriers
+D00862,D,champion,,Ms. Deirdre Petrie,Russell Terriers
+D00863,B,champion,,Ms. Deirdre Petrie,Russell Terriers
+D00864,B,champion,,Ms. Deirdre Petrie,Russell Terriers
+D00865,B,class,,Ms. Deirdre Petrie,Ibizan Hounds
+D00866,D,champion,,Ms. Deirdre Petrie,Ibizan Hounds
+D00867,D,class,,Ms. Deirdre Petrie,Shiba Inu
+D00868,D,class,,Ms. Deirdre Petrie,Shiba Inu
+D00869,B,class,,Ms. Deirdre Petrie,Shiba Inu
+D00870,D,class,,Ms. Denise Dean,Australian Cattle Dogs
+D00871,D,class,,Ms. Denise Dean,Australian Cattle Dogs
+D00872,D,class,,Ms. Denise Dean,Australian Cattle Dogs
+D00873,B,class,,Ms. Denise Dean,Australian Cattle Dogs
+D00874,D,champion,,Ms. Denise Dean,Norwegian Buhunds
+D00875,D,champion,,Ms. Denise Dean,Norwegian Buhunds
+D00876,B,champion,,Ms. Denise Dean,Norwegian Buhunds
+D00877,B,champion,,Ms. Denise Dean,Norwegian Buhunds
+D00878,D,class,,Ms. Denise Dean,Icelandic Sheepdogs
+D00879,B,class,,Ms. Denise Dean,Icelandic Sheepdogs
+D00880,B,class,,Ms. Denise Dean,Icelandic Sheepdogs
+D00881,B,class,,Ms. Denise Dean,Icelandic Sheepdogs
+D00882,B,class,,Ms. Denise Dean,Icelandic Sheepdogs
+D00883,D,champion,,Ms. Denise Dean,Icelandic Sheepdogs
+D00884,D,champion,,Ms. Denise Dean,Icelandic Sheepdogs
+D00885,D,champion,,Ms. Denise Dean,Icelandic Sheepdogs
+D00886,D,champion,,Ms. Denise Dean,Icelandic Sheepdogs
+D00887,B,champion,,Ms. Denise Dean,Icelandic Sheepdogs
+D00888,D,champion,,Ms. Denise Dean,Finnish Lapphunds
+D00889,B,champion,,Ms. Denise Dean,Finnish Lapphunds
+D00890,D,class,,Ms. Denise Dean,Swedish Vallhunds
+D00891,D,champion,,Ms. Denise Dean,Swedish Vallhunds
+D00892,B,class,,Ms. Denise Dean,Cardigan Welsh Corgis
+D00893,D,champion,,Ms. Denise Dean,Cardigan Welsh Corgis
+D00894,B,champion,,Ms. Denise Dean,Cardigan Welsh Corgis
+D00895,D,champion,,Ms. Denise Dean,Berger Picards
+D00896,D,class,,Ms. Denise Dean,Australian Shepherds
+D00897,D,class,,Ms. Denise Dean,Australian Shepherds
+D00898,D,class,,Ms. Denise Dean,Australian Shepherds
+D00899,D,class,,Ms. Denise Dean,Australian Shepherds
+D00900,D,class,,Ms. Denise Dean,Australian Shepherds
+D00901,D,class,,Ms. Denise Dean,Australian Shepherds
+D00902,D,class,,Ms. Denise Dean,Australian Shepherds
+D00903,D,class,,Ms. Denise Dean,Australian Shepherds
+D00904,D,class,,Ms. Denise Dean,Australian Shepherds
+D00905,D,class,,Ms. Denise Dean,Australian Shepherds
+D00906,D,class,,Ms. Denise Dean,Australian Shepherds
+D00907,D,class,,Ms. Denise Dean,Australian Shepherds
+D00908,B,class,,Ms. Denise Dean,Australian Shepherds
+D00909,B,class,,Ms. Denise Dean,Australian Shepherds
+D00910,B,class,,Ms. Denise Dean,Australian Shepherds
+D00911,B,class,,Ms. Denise Dean,Australian Shepherds
+D00912,B,class,,Ms. Denise Dean,Australian Shepherds
+D00913,B,class,,Ms. Denise Dean,Australian Shepherds
+D00914,B,class,,Ms. Denise Dean,Australian Shepherds
+D00915,B,class,,Ms. Denise Dean,Australian Shepherds
+D00916,B,class,,Ms. Denise Dean,Australian Shepherds
+D00917,B,class,,Ms. Denise Dean,Australian Shepherds
+D00918,B,class,,Ms. Denise Dean,Australian Shepherds
+D00919,B,class,,Ms. Denise Dean,Australian Shepherds
+D00920,B,class,,Ms. Denise Dean,Australian Shepherds
+D00921,B,class,,Ms. Denise Dean,Australian Shepherds
+D00922,D,champion,,Ms. Denise Dean,Australian Shepherds
+D00923,D,champion,,Ms. Denise Dean,Australian Shepherds
+D00924,D,champion,,Ms. Denise Dean,Australian Shepherds
+D00925,B,champion,,Ms. Denise Dean,Australian Shepherds
+D00926,B,champion,,Ms. Denise Dean,Australian Shepherds
+D00927,D,class,,Ms. Denise Dean,Border Collies
+D00928,D,class,,Ms. Denise Dean,Border Collies
+D00929,D,class,,Ms. Denise Dean,Border Collies
+D00930,D,class,,Ms. Denise Dean,Border Collies
+D00931,B,class,,Ms. Denise Dean,Border Collies
+D00932,B,class,,Ms. Denise Dean,Border Collies
+D00933,B,class,,Ms. Denise Dean,Border Collies
+D00934,D,champion,,Ms. Denise Dean,Border Collies
+D00935,D,champion,,Ms. Denise Dean,Border Collies
+D00936,D,champion,,Ms. Denise Dean,Border Collies
+D00937,B,champion,,Ms. Denise Dean,Border Collies
+D00938,B,champion,,Ms. Denise Dean,Border Collies
+D00939,B,champion,,Ms. Denise Dean,Border Collies
+D00940,D,class,,Ms. Denise Dean,German Shepherd Dogs
+D00941,D,class,,Ms. Denise Dean,German Shepherd Dogs
+D00942,D,class,,Ms. Denise Dean,German Shepherd Dogs
+D00943,B,class,,Ms. Denise Dean,German Shepherd Dogs
+D00944,B,class,,Ms. Denise Dean,German Shepherd Dogs
+D00945,B,class,,Ms. Denise Dean,German Shepherd Dogs
+D00946,B,class,,Ms. Denise Dean,German Shepherd Dogs
+D00947,B,class,,Ms. Denise Dean,German Shepherd Dogs
+D00948,B,class,,Ms. Denise Dean,German Shepherd Dogs
+D00949,B,class,,Ms. Denise Dean,German Shepherd Dogs
+D00950,B,class,,Ms. Denise Dean,German Shepherd Dogs
+D00951,D,champion,,Ms. Denise Dean,German Shepherd Dogs
+D00952,B,champion,,Ms. Denise Dean,German Shepherd Dogs
+D00953,B,champion,,Ms. Denise Dean,German Shepherd Dogs
+D00954,D,class,,Ms. Denise Dean,Poodles (Toy)
+D00955,B,class,,Ms. Denise Dean,Poodles (Toy)
+D00956,B,class,,Ms. Denise Dean,Poodles (Toy)
+D00957,D,champion,,Ms. Denise Dean,Poodles (Toy)
+D00958,D,class,,Ms. Denise Dean,Belgian Sheepdogs
+D00959,B,class,,Ms. Denise Dean,Belgian Sheepdogs
+D00960,D,champion,,Ms. Denise Dean,Belgian Sheepdogs
+D00961,D,class,,Ms. Denise Dean,Briards
+D00962,B,class,,Ms. Denise Dean,Briards
+D00963,B,class,,Ms. Denise Dean,Briards
+D00964,B,class,,Ms. Denise Dean,Briards
+D00965,B,class,,Ms. Denise Dean,Briards
+D00966,B,champion,,Ms. Denise Dean,Briards
+D00967,B,champion,,Ms. Denise Dean,Briards
+D00968,D,class,,Ms. Denise Dean,Belgian Tervuren
+D00969,B,class,,Ms. Denise Dean,Belgian Tervuren
+D00970,B,class,,Ms. Denise Dean,Belgian Tervuren
+D00971,B,class,,Ms. Denise Dean,Belgian Tervuren
+D00972,D,champion,,Ms. Denise Dean,Belgian Tervuren
+D00973,D,champion,,Ms. Denise Dean,Belgian Tervuren
+D00974,B,champion,,Ms. Denise Dean,Belgian Tervuren
+D00975,B,champion,,Ms. Denise Dean,Belgian Tervuren
+D00976,D,champion,,Ms. Denise Dean,Beaucerons
+D00977,B,champion,,Ms. Denise Dean,Beaucerons
+D00978,B,class,,Ms. Denise Dean,Belgian Malinois
+D00979,D,champion,,Ms. Denise Dean,Belgian Malinois
+D00980,B,class,,Ms. Denise Dean,Poodles (Miniature)
+D00981,B,champion,,Ms. Denise Dean,Poodles (Miniature)
+D00982,D,champion,,Ms. Denise Dean,Pulik
+D00983,D,champion,,Ms. Denise Dean,Pyrenean Shepherds
+D00984,D,champion,,Ms. Denise Dean,Bouviers des Flandres
+D00985,D,champion,,Ms. Denise Dean,Bouviers des Flandres
+D00986,B,class,,Ms. Denise Dean,Bearded Collies
+D00987,D,champion,,Ms. Denise Dean,Bearded Collies
+D00988,D,champion,,Ms. Denise Dean,Bearded Collies
+D00989,D,class,,Ms. Denise Dean,Poodles (Standard)
+D00990,D,class,,Ms. Denise Dean,Poodles (Standard)
+D00991,D,class,,Ms. Denise Dean,Poodles (Standard)
+D00992,B,class,,Ms. Denise Dean,Poodles (Standard)
+D00993,B,class,,Ms. Denise Dean,Poodles (Standard)
+D00994,B,class,,Ms. Denise Dean,Poodles (Standard)
+D00995,B,class,,Ms. Denise Dean,Poodles (Standard)
+D00996,B,class,,Ms. Denise Dean,Poodles (Standard)
+D00997,B,class,,Ms. Denise Dean,Poodles (Standard)
+D00998,D,champion,,Ms. Denise Dean,Poodles (Standard)
+D00999,D,champion,,Ms. Denise Dean,Poodles (Standard)
+D01000,D,champion,,Ms. Denise Dean,Poodles (Standard)
+D01001,B,champion,,Ms. Denise Dean,Poodles (Standard)
+D01002,B,champion,,Ms. Denise Dean,Poodles (Standard)
+D01003,B,champion,,Ms. Denise Dean,Poodles (Standard)
+D01004,D,class,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01005,D,class,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01006,D,class,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01007,D,class,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01008,D,class,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01009,D,class,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01010,D,class,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01011,B,class,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01012,B,class,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01013,B,class,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01014,B,class,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01015,B,class,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01016,B,class,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01017,B,class,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01018,B,class,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01019,B,class,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01020,B,class,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01021,D,champion,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01022,D,champion,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01023,D,champion,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01024,D,champion,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01025,D,champion,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01026,D,champion,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01027,B,champion,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01028,B,champion,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01029,B,champion,,"Dr. Lawrence A. Letsche, DVM",Bernese Mountain Dogs
+D01030,D,class,,"Dr. Lawrence A. Letsche, DVM",Bichons Frises
+D01031,B,class,,"Dr. Lawrence A. Letsche, DVM",Bichons Frises
+D01032,B,champion,,"Dr. Lawrence A. Letsche, DVM",Bichons Frises

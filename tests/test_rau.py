@@ -6,7 +6,8 @@ from pathlib import Path
 import pytest
 
 from optdog.domain import VARIETY_GROUPS, TimeOfDay
-from optdog.ingest.rau import RauParser, _clock, _norm
+from optdog.ingest.common import clock, norm_name
+from optdog.ingest.rau import RauParser
 from optdog.io.program_csv import read_program, write_program
 
 RAW = Path(__file__).resolve().parents[1] / "data" / "raw" / "rau"
@@ -39,12 +40,12 @@ def parsed():
     ("12:00 NOON", TimeOfDay.at(12)), ("LUNCH", None),
 ])
 def test_clock(text, expected):
-    assert _clock(text) == expected
+    assert clock(text) == expected
 
 
 def test_judge_names_match_across_the_program():
-    assert _norm("Mr. James R Dickson") == _norm("James R. Dickson")
-    assert _norm("Ms. Peggy Beisel-McIlwaine") == _norm("Peggy Beisel-McIlwaine")
+    assert norm_name("Mr. James R Dickson") == norm_name("James R. Dickson")
+    assert norm_name("Ms. Peggy Beisel-McIlwaine") == norm_name("Peggy Beisel-McIlwaine")
 
 
 @pytest.mark.parametrize("row", _manifest(), ids=lambda r: r["file"])

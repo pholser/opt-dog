@@ -209,7 +209,7 @@ without published times.
 $$y_{ur} = 1,\; r \in R_G \;\Rightarrow\; e_u + \sigma \le F.$$
 
 *Why:* groups need the ring. When two rings are used, **both** must be clear before the first
-group (U). That is stricter than 2 of the 14 published days, where breed judging continued in
+group (U). That is stricter than 2 of the 16 published days, where breed judging continued in
 the second group ring after groups began (E).
 
 **Two groups' breeds done first (H13).** With binary $z_g$ for "all of $g$'s breeds are done":
@@ -224,7 +224,7 @@ before group judging is scheduled to begin." Which two is the solver's choice.
 
 $$F \ge \ell_j + \lambda \qquad \forall j \in J^L.$$
 
-*Why:* this is not an AKC rule. It holds on all 14 published days (E), and the user made it hard
+*Why:* this is not an AKC rule. It holds on all 16 published days (E), and the user made it hard
 (U). It can be switched off (`groups_after_all_lunches`).
 
 **Pinned blocks (H11).** A pinned block keeps its ring, start and events.
@@ -404,8 +404,8 @@ valid program can beat:
 Neither bound uses the closing time $T_{\text{end}}$: it limits how late a program may finish,
 not how early, so the bounds stay valid with or without it.
 
-Step 3c's finish is within 0–10 minutes of the lower bound on every one of the 14 published
-days (mean 4; SOLUTION.md §4), and proven optimal for the restricted problem on 13 of them. The gap measures both the restriction of section 7 and the bound's own
+Step 3c's finish is within 0–10 minutes of the lower bound on every one of the 16 published
+days (mean 3; SOLUTION.md §4), and proven optimal for the restricted problem on 15 of them. The gap measures both the restriction of section 7 and the bound's own
 weakness, so the restricted problem is not losing much.
 
 ## 9. Modeling choices and why
@@ -433,8 +433,8 @@ published days the modeled groups and BIS take 5–7½ hours, so modeled end tim
 ones and are not a calibration target (U). Two group rings act as one (U).
 
 **Strict where humans bend.** H9 (both group rings clear) and H14 (groups after every lunch) are
-hard even though humans bend H9 on 2 of 14 days, because the user decided so (U). The final
-segment rule (AKC: at most 50 dogs) is a soft cost (S8), because humans exceed it on 4 of 14 days
+hard even though humans bend H9 on 2 of 16 days, because the user decided so (U). The final
+segment rule (AKC: at most 50 dogs) is a soft cost (S8), because humans exceed it on 4 of 16 days
 and the user chose to follow practice (U, E).
 
 **The lunch window is hard.** A lunch must start in the window because the window reflects when

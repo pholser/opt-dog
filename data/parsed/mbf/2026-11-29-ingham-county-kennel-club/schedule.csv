@@ -1,0 +1,151 @@
+ring,judge,block_start,position,event,breed,group
+1,Mrs. Sioux Forsyth-Green,08:00,0,Mastiffs,Mastiff,Working
+1,Mrs. Sioux Forsyth-Green,08:00,1,Leonbergers,Leonberger,Working
+1,Mrs. Sioux Forsyth-Green,08:00,2,Rottweilers,Rottweiler,Working
+1,Mrs. Sioux Forsyth-Green,08:00,3,Retrievers (Labrador),Labrador Retriever,Sporting
+1,Mrs. Sioux Forsyth-Green,09:00,0,Lagotto Romagnolo,Lagotto Romagnolo,Sporting
+1,Mrs. Sioux Forsyth-Green,09:00,1,German Pinschers,German Pinscher,Working
+1,Mrs. Sioux Forsyth-Green,09:00,2,Nederlandse Kooikerhondjes,Nederlandse Kooikerhondje,Sporting
+1,Mrs. Sioux Forsyth-Green,09:00,3,Great Pyrenees,Great Pyrenees,Working
+1,Mrs. Sioux Forsyth-Green,09:00,4,Kuvaszok,Kuvasz,Working
+1,Mrs. Sioux Forsyth-Green,09:00,5,Pointers (German Wirehaired),German Wirehaired Pointer,Sporting
+1,Mrs. Sioux Forsyth-Green,09:00,6,Giant Schnauzers,Giant Schnauzer,Working
+1,Mrs. Sioux Forsyth-Green,09:00,7,Pointers,Pointer,Sporting
+1,Mrs. Sioux Forsyth-Green,09:00,8,Retrievers (Chesapeake Bay),Chesapeake Bay Retriever,Sporting
+1,Mr. Gregory Griner,10:15,0,Great Danes,Great Dane,Working
+2,Ms. Beverly R. Andersen,08:00,0,Brittanys,Brittany,Sporting
+2,Ms. Beverly R. Andersen,08:00,1,Barbets,Barbet,Sporting
+2,Ms. Beverly R. Andersen,08:00,2,Pointers (German Shorthaired),German Shorthaired Pointer,Sporting
+2,Ms. Beverly R. Andersen,08:45,0,Setters (Gordon),Gordon Setter,Sporting
+2,Ms. Beverly R. Andersen,08:45,1,Bracchi Italiani,Bracco Italiano,Sporting
+2,Ms. Beverly R. Andersen,08:45,2,Bull Terriers (White),Bull Terrier (White),Terrier
+2,Ms. Beverly R. Andersen,08:45,3,Bull Terriers (Colored),Bull Terrier (Colored),Terrier
+2,Ms. Beverly R. Andersen,08:45,4,Wirehaired Pointing Griffons,Wirehaired Pointing Griffon,Sporting
+2,Ms. Beverly R. Andersen,08:45,5,Fox Terriers (Smooth),Smooth Fox Terrier,Terrier
+2,Ms. Beverly R. Andersen,08:45,6,Irish Terriers,Irish Terrier,Terrier
+2,Ms. Beverly R. Andersen,08:45,7,Staffordshire Bull Terriers,Staffordshire Bull Terrier,Terrier
+2,Ms. Beverly R. Andersen,08:45,8,Australian Terriers,Australian Terrier,Terrier
+2,Ms. Beverly R. Andersen,08:45,9,Miniature American Shepherds,Miniature American Shepherd,Herding
+2,Ms. Beverly R. Andersen,10:00,0,Fox Terriers (Wire),Wire Fox Terrier,Terrier
+2,Ms. Beverly R. Andersen,10:00,1,Miniature Schnauzers,Miniature Schnauzer,Terrier
+2,Ms. Beverly R. Andersen,10:00,2,Doberman Pinschers,Doberman Pinscher,Working
+3,Mrs. Sandra Pretari Hickson,08:00,0,Bullmastiffs,Bullmastiff,Working
+3,Mrs. Sandra Pretari Hickson,08:00,1,Siberian Huskies,Siberian Husky,Working
+3,Mrs. Sandra Pretari Hickson,09:00,0,Portuguese Water Dogs,Portuguese Water Dog,Working
+3,Mrs. Sandra Pretari Hickson,09:00,1,Newfoundlands,Newfoundland,Working
+3,Mrs. Sandra Pretari Hickson,09:00,2,Saint Bernards,Saint Bernard,Working
+3,Mrs. Sandra Pretari Hickson,09:00,3,Lakeland Terriers,Lakeland Terrier,Terrier
+3,Mrs. Sandra Pretari Hickson,09:00,4,Skye Terriers,Skye Terrier,Terrier
+3,Mrs. Sandra Pretari Hickson,09:00,5,Cairn Terriers,Cairn Terrier,Terrier
+3,Mrs. Sandra Pretari Hickson,09:00,6,Parson Russell Terriers,Parson Russell Terrier,Terrier
+3,Mrs. Sandra Pretari Hickson,10:00,0,American Staffordshire Terriers,American Staffordshire Terrier,Terrier
+3,Mrs. Sandra Pretari Hickson,10:00,1,Kerry Blue Terriers,Kerry Blue Terrier,Terrier
+3,Mrs. Sandra Pretari Hickson,10:00,2,Soft Coated Wheaten Terriers,Soft Coated Wheaten Terrier,Terrier
+3,Mrs. Sandra Pretari Hickson,10:00,3,West Highland White Terriers,West Highland White Terrier,Terrier
+3,Mrs. Sandra Pretari Hickson,10:00,4,American Hairless Terriers,American Hairless Terrier,Terrier
+3,Mrs. Sandra Pretari Hickson,11:00,0,Welsh Terriers,Welsh Terrier,Terrier
+3,Mrs. Sandra Pretari Hickson,11:00,1,Samoyeds,Samoyed,Working
+4,Mr. John Constantine,08:00,0,American Foxhounds,American Foxhound,Hound
+4,Mr. John Constantine,08:00,1,Basset Hounds,Basset Hound,Hound
+4,Mr. John Constantine,08:00,2,"Beagles, 13 Inch",Beagle (13 Inch),Hound
+4,Mr. John Constantine,08:00,3,"Beagles, 15 Inch",Beagle (15 Inch),Hound
+4,Mr. John Constantine,08:00,4,Borzois,Borzoi,Hound
+4,Mr. John Constantine,08:00,5,Afghan Hounds,Afghan Hound,Hound
+4,Mr. John Constantine,09:30,0,Pugs,Pug,Toy
+4,Mr. John Constantine,09:30,1,Italian Greyhounds,Italian Greyhound,Toy
+4,Mr. John Constantine,09:30,2,Brussels Griffons,Brussels Griffon,Toy
+4,Mr. John Constantine,09:30,3,Japanese Chin,Japanese Chin,Toy
+4,Mr. John Constantine,10:30,0,Silky Terriers,Silky Terrier,Toy
+4,Mr. John Constantine,10:30,1,Chinese Cresteds,Chinese Crested,Toy
+4,Mr. John Constantine,10:30,2,Miniature Pinschers,Miniature Pinscher,Toy
+4,Mr. John Constantine,11:30,0,Yorkshire Terriers,Yorkshire Terrier,Toy
+4,Mr. John Constantine,11:30,1,Pekingese,Pekingese,Toy
+4,Mr. John Constantine,11:30,2,Havanese,Havanese,Toy
+4,Mr. John Constantine,13:15,0,Maltese,Maltese,Toy
+4,Mr. John Constantine,13:15,1,Manchester Terriers (Toy),Manchester Terrier (Toy),Toy
+4,Mr. John Constantine,13:15,2,Russian Toys,Russian Toy,Toy
+4,Mr. John Constantine,13:15,3,Shih Tzu,Shih Tzu,Toy
+4,Mr. John Constantine,13:15,4,Pomeranians,Pomeranian,Toy
+5,"Mr. Raymond V. Filburn, Jr.",08:00,0,Dachshunds (Smooth),Dachshund (Smooth),Hound
+5,"Mr. Raymond V. Filburn, Jr.",08:00,1,Dachshunds (Wirehaired),Dachshund (Wirehaired),Hound
+5,"Mr. Raymond V. Filburn, Jr.",08:00,2,Dachshunds (Longhaired),Dachshund (Longhaired),Hound
+5,"Mr. Raymond V. Filburn, Jr.",09:15,0,Petits Bassets Griffons Vendeens,Petit Basset Griffon Vendeen,Hound
+5,"Mr. Raymond V. Filburn, Jr.",09:15,1,Chihuahuas (Smooth Coat),Chihuahua (Smooth Coat),Toy
+5,"Mr. Raymond V. Filburn, Jr.",09:15,2,Chihuahuas (Long Coat),Chihuahua (Long Coat),Toy
+5,"Mr. Raymond V. Filburn, Jr.",09:15,3,Portuguese Podengo Pequenos,Portuguese Podengo Pequeno,Hound
+5,"Mr. Raymond V. Filburn, Jr.",10:15,0,Harriers,Harrier,Hound
+5,"Mr. Raymond V. Filburn, Jr.",10:15,1,Salukis,Saluki,Hound
+5,"Mr. Raymond V. Filburn, Jr.",10:15,2,Rhodesian Ridgebacks,Rhodesian Ridgeback,Hound
+5,"Mr. Raymond V. Filburn, Jr.",11:30,0,Treeing Walker Coonhounds,Treeing Walker Coonhound,Hound
+5,"Mr. Raymond V. Filburn, Jr.",11:30,1,Scottish Deerhounds,Scottish Deerhound,Hound
+5,"Mr. Raymond V. Filburn, Jr.",11:30,2,Papillons,Papillon,Toy
+5,"Mr. Raymond V. Filburn, Jr.",11:30,3,Basenjis,Basenji,Hound
+6,Ms. Lori L. Nelson,08:00,0,Spinoni Italiani,Spinone Italiano,Sporting
+6,Ms. Lori L. Nelson,08:00,1,Weimaraners,Weimaraner,Sporting
+6,Ms. Lori L. Nelson,08:00,2,Retrievers (Flat-Coated),Flat-Coated Retriever,Sporting
+6,Ms. Lori L. Nelson,08:00,3,Wirehaired Vizslas,Wirehaired Vizsla,Sporting
+6,Ms. Lori L. Nelson,08:00,4,Vizslas,Vizsla,Sporting
+6,Ms. Lori L. Nelson,09:15,0,Spaniels (Clumber),Clumber Spaniel,Sporting
+6,Ms. Lori L. Nelson,09:15,1,Spaniels (Field),Field Spaniel,Sporting
+6,Ms. Lori L. Nelson,09:15,2,Spaniels (Sussex),Sussex Spaniel,Sporting
+6,Ms. Lori L. Nelson,09:15,3,Ret (Nova Scotia Duck Tolling),Nova Scotia Duck Tolling Retriever,Sporting
+6,Ms. Lori L. Nelson,09:15,4,Spaniels (English Springer),English Springer Spaniel,Sporting
+6,Ms. Lori L. Nelson,09:15,5,Spaniels (English Cocker),English Cocker Spaniel,Sporting
+6,Ms. Lori L. Nelson,10:15,0,Spaniels (Cocker) Black,Cocker Spaniel (Black),Sporting
+6,Ms. Lori L. Nelson,10:15,1,Spaniels (Cocker) A.S.C.O.B.,Cocker Spaniel (ASCOB),Sporting
+6,Ms. Lori L. Nelson,10:15,2,Spaniels (Cocker) Parti-Color,Cocker Spaniel (Parti-Color),Sporting
+6,Ms. Lori L. Nelson,10:15,3,Setters (Irish Red and White),Irish Red and White Setter,Sporting
+6,Ms. Lori L. Nelson,10:15,4,Norwegian Elkhounds,Norwegian Elkhound,Hound
+6,Ms. Lori L. Nelson,10:15,5,Setters (Irish),Irish Setter,Sporting
+6,Ms. Lori L. Nelson,11:15,0,Setters (English),English Setter,Sporting
+6,Ms. Lori L. Nelson,11:15,1,Retrievers (Golden),Golden Retriever,Sporting
+7,Mr. Gary L. Andersen,08:00,0,Collies (Smooth),Collie (Smooth),Herding
+7,Mr. Gary L. Andersen,08:00,1,Boston Terriers,Boston Terrier,Non-Sporting
+7,Mr. Gary L. Andersen,08:00,2,Pembroke Welsh Corgis,Pembroke Welsh Corgi,Herding
+7,Mr. Gary L. Andersen,08:45,0,American Eskimo Dogs,American Eskimo Dog,Non-Sporting
+7,Mr. Gary L. Andersen,08:45,1,Cavalier King Charles Spaniels,Cavalier King Charles Spaniel,Toy
+7,Mr. Gary L. Andersen,08:45,2,Collies (Rough),Collie (Rough),Herding
+7,Mr. Gary L. Andersen,10:00,0,Akitas,Akita,Working
+7,Mr. Gary L. Andersen,10:00,1,Whippets,Whippet,Hound
+7,Mr. Gary L. Andersen,11:00,0,Alaskan Malamutes,Alaskan Malamute,Working
+7,Mr. Gary L. Andersen,11:00,1,Shetland Sheepdogs,Shetland Sheepdog,Herding
+8,Ms. Deirdre Petrie,08:00,0,Boxers,Boxer,Working
+8,Ms. Deirdre Petrie,08:00,1,Chinese Shar-Pei,Chinese Shar-Pei,Non-Sporting
+8,Ms. Deirdre Petrie,08:00,2,Bulldogs,Bulldog,Non-Sporting
+8,Ms. Deirdre Petrie,08:00,3,Keeshonden,Keeshond,Non-Sporting
+8,Ms. Deirdre Petrie,09:15,0,French Bulldogs,French Bulldog,Non-Sporting
+8,Ms. Deirdre Petrie,10:30,0,Tibetan Spaniels,Tibetan Spaniel,Non-Sporting
+8,Ms. Deirdre Petrie,10:30,1,Dalmatians,Dalmatian,Non-Sporting
+8,Ms. Deirdre Petrie,11:30,0,Greyhounds,Greyhound,Hound
+8,Ms. Deirdre Petrie,11:30,1,Irish Wolfhounds,Irish Wolfhound,Hound
+8,Ms. Deirdre Petrie,11:30,2,Schipperkes,Schipperke,Non-Sporting
+8,Ms. Deirdre Petrie,11:30,3,Xoloitzcuintli,Xoloitzcuintli,Non-Sporting
+8,Ms. Deirdre Petrie,11:30,4,Manchester Terriers (Standard),Manchester Terrier (Standard),Terrier
+8,Ms. Deirdre Petrie,13:00,0,Border Terriers,Border Terrier,Terrier
+8,Ms. Deirdre Petrie,13:00,1,Russell Terriers,Russell Terrier,Terrier
+8,Ms. Deirdre Petrie,13:00,2,Ibizan Hounds,Ibizan Hound,Hound
+8,Ms. Deirdre Petrie,13:00,3,Shiba Inu,Shiba Inu,Non-Sporting
+9,Ms. Denise Dean,08:00,0,Australian Cattle Dogs,Australian Cattle Dog,Herding
+9,Ms. Denise Dean,08:00,1,Norwegian Buhunds,Norwegian Buhund,Herding
+9,Ms. Denise Dean,08:00,2,Icelandic Sheepdogs,Icelandic Sheepdog,Herding
+9,Ms. Denise Dean,08:00,3,Finnish Lapphunds,Finnish Lapphund,Herding
+9,Ms. Denise Dean,08:00,4,Swedish Vallhunds,Swedish Vallhund,Herding
+9,Ms. Denise Dean,08:00,5,Cardigan Welsh Corgis,Cardigan Welsh Corgi,Herding
+9,Ms. Denise Dean,09:00,0,Berger Picards,Berger Picard,Herding
+9,Ms. Denise Dean,09:00,1,Australian Shepherds,Australian Shepherd,Herding
+9,Ms. Denise Dean,10:15,0,Border Collies,Border Collie,Herding
+9,Ms. Denise Dean,10:15,1,German Shepherd Dogs,German Shepherd Dog,Herding
+9,Ms. Denise Dean,11:15,0,Poodles (Toy),Poodle (Toy),Toy
+9,Ms. Denise Dean,11:15,1,Belgian Sheepdogs,Belgian Sheepdog,Herding
+9,Ms. Denise Dean,11:15,2,Briards,Briard,Herding
+9,Ms. Denise Dean,11:15,3,Belgian Tervuren,Belgian Tervuren,Herding
+9,Ms. Denise Dean,11:15,4,Beaucerons,Beauceron,Herding
+9,Ms. Denise Dean,11:15,5,Belgian Malinois,Belgian Malinois,Herding
+9,Ms. Denise Dean,13:00,0,Poodles (Miniature),Poodle (Miniature),Non-Sporting
+9,Ms. Denise Dean,13:00,1,Pulik,Puli,Herding
+9,Ms. Denise Dean,13:00,2,Pyrenean Shepherds,Pyrenean Shepherd,Herding
+9,Ms. Denise Dean,13:00,3,Bouviers des Flandres,Bouvier des Flandres,Herding
+9,Ms. Denise Dean,13:00,4,Bearded Collies,Bearded Collie,Herding
+9,Ms. Denise Dean,13:00,5,Poodles (Standard),Poodle (Standard),Non-Sporting
+10,"Dr. Lawrence A. Letsche, DVM",08:00,0,Bernese Mountain Dogs,Bernese Mountain Dog,Working
+10,"Dr. Lawrence A. Letsche, DVM",08:00,1,Bichons Frises,Bichon Frise,Non-Sporting

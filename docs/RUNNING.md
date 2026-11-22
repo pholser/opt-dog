@@ -130,13 +130,13 @@ python -m optdog.analysis.figures       # 6. → docs/figures.html
 
 Steps 1–3, 5 and 6 take seconds. Step 4 solves every day with every solver step, each phase up
 to its time limit: the last full run took about 3.5 hours for the 11 Bradshaw days, and each
-Rau day took 15–20 minutes (SOLUTION.md §4).
+Rau or MB-F day took 15–20 minutes (SOLUTION.md §4).
 
 ### 1. Parse the published programs: `optdog.ingest.build_dataset`
 
 Real programs are the evidence: the constraints are checked against them and the solver is
 compared with them. Each superintendent lays out programs differently and has its own parser:
-Jack Bradshaw (`ingest/bradshaw.py`) and Rau Dog Shows (`ingest/rau.py`). This step parses each
+Jack Bradshaw (`ingest/bradshaw.py`), Rau Dog Shows (`ingest/rau.py`) and MB-F (`ingest/mbf.py`). This step parses each
 PDF listed in `data/raw/<superintendent>/manifest.csv` (rows with `include` = 1; a row left out
 says why in its notes) and writes one directory per show day to
 `data/parsed/<superintendent>/<date>-<club>/`: the program as CSV, plus `report.md`, which records
@@ -150,7 +150,7 @@ python -m optdog.ingest.build_dataset          # every superintendent
 python -m optdog.ingest.build_dataset rau      # only these
 ```
 
-The Baray programs and the Mid-Kentucky excerpt in `data/raw/` (see `data/raw/SOURCES.md`) have
+The Onofrio and Baray programs and the Mid-Kentucky excerpt in `data/raw/` (see `data/raw/SOURCES.md`) have
 no parser yet. The PDFs are untrusted input: they are parsed, never executed.
 
 ### Inspect a PDF: `optdog.ingest.pdftext`

@@ -20,7 +20,7 @@ soft costs are low.
 **Scope: regular breed events only** (U 2026-11-13). No other events exist for the model:
 sweepstakes, Junior Showmanship, Beginner Puppy, FSS open shows, concurrent specialties,
 obedience and rally are read when published programs are parsed, for the parser's checks
-against printed totals, but not kept (`ingest/bradshaw.py`, `ingest/rau.py`; each `report.md` counts them). Neither
+against printed totals, but not kept (`ingest/bradshaw.py`, `ingest/rau.py`, `ingest/mbf.py`; each `report.md` counts them). Neither
 the domain model nor the program and problem formats can represent them.
 
 This is a constraint-programming / optimization problem: a scheduling problem with
@@ -192,8 +192,8 @@ to a weighted sum, and what the default weights should be.
 From `docs/calibration.md`: the validator (`src/optdog/validate.py`) run on 11 parsed
 all-breed show days, 653–2,137 breed entries each. Timings assume 25 dogs/hr. The figures in this
 section and in §9 are from those 11 Bradshaw days (2022–2026). Three Rau days (2024, 399–759 breed
-entries) were added on 2026-11-20; `calibration.md` now covers all 14, and where a claim below
-was rechecked on them it says so.
+entries) were added on 2026-11-20, and two MB-F days (2026, 687 and 1,032) on 2026-11-21;
+`calibration.md` now covers all 16, and where a claim below was rechecked on them it says so.
 
 - **Rate.** Superintendents schedule at 25 dogs/hr: the median published gap is exactly
   2.40 min/dog. Times are rounded to 5-minute marks, so a block is often 1–2 dogs over the hour.
@@ -231,7 +231,7 @@ was rechecked on them it says so.
   groups at 11:10 AM–2:55 PM (median about noon); humans publish 1:15–2:30 PM. Best Practices
   asks for "the earliest possible opportunity". Whatever else holds humans back is not yet modeled.
   Candidates: exhibitors handling group dogs while breed judging continues, and convention.
-- **H14 holds.** On every parsed day (rechecked on all 14) the first group starts after the last published lunch ends
+- **H14 holds.** On every parsed day (rechecked on all 16) the first group starts after the last published lunch ends
   (last lunch ends 12:15–1:15 PM). Made a hard rule (U). With it, the greedy's groups start
   12:40–2:55 PM, still 15–75 min ahead of the humans on most days.
 

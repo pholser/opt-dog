@@ -31,35 +31,24 @@ from pathlib import Path
 import pdfplumber
 
 from optdog.breeds import BreedCatalog, default_catalog
-from optdog.domain import (
-    Block,
-    Break,
-    GroupsPlan,
-    JudgingEvent,
-    JudgingProgram,
-    Judge,
-    Ring,
-    ScheduledBlock,
-    Show,
-    TimeOfDay,
-)
+from optdog.domain import TimeOfDay
 from optdog.ingest.common import (
     DAYS,
     GROUP_WORDS,
+    NUMBER_WORDS,
+    GroupsTable,
     IndexRow,
     ParsedDay,
     ParseReport,
     RawBlock,
     RawEvent,
+    assemble,
+    clock,
     cross_check_index,
+    norm_name,
     parse_counts,
-    parse_time,
 )
 from optdog.ingest.pdftext import extract_columns
-
-NUMBER_WORDS = {w: i for i, w in enumerate(
-    "ONE TWO THREE FOUR FIVE SIX SEVEN EIGHT NINE TEN ELEVEN TWELVE THIRTEEN FOURTEEN FIFTEEN "
-    "SIXTEEN SEVENTEEN EIGHTEEN NINETEEN TWENTY".split(), 1)}
 
 RE_RING = re.compile(r"^RING ([A-Z]+)(\s*-\s*NOT IN USE)?$")
 RE_JUDGE = re.compile(r"^JUDGE:\s*(.+)$")
@@ -78,18 +67,8 @@ RE_TOTALS = re.compile(r"There are (\d+) dogs entered in this show with a total 
 RE_INDEX_ROW = re.compile(r"(\d+)\s+(\D.*?)\s+(\d{1,2})\s+(\d{1,2}):(\d{2})(?=\s|$)")
 RE_GROUP_ROW = re.compile(r"^\*?([A-Z][A-Z-]*) GROUP\s*\.+\s*(.+)$")
 RE_BIS_ROW = re.compile(r"^BEST IN SHOW\s*\.+\s*(.+)$")
-TITLES = re.compile(r"^(Mr|Mrs|Ms|Miss|Dr)\.?\s+", re.I)
 
 
-def _clock(s: str) -> TimeOfDay | None:
-    """'6:30 PM', '1:00 P.M.' -> a time of day."""
-    s = re.sub(r"\s*([AP])\.?M\.?$", r" \1M", s.strip(), flags=re.I)
-    return parse_time(s)
-
-
-def _norm(name: str) -> str:
-    """A judge's name without title, periods or case, for matching across the program."""
-    return " ".join(TITLES.sub("", name.strip().lstrip("*")).replace(".", "").lower().split())
 
 
 class RauParser:
@@ -155,7 +134,7 @@ class RauParser:
                     continue
                 if RE_SEE.match(line) or re.fullmatch(r"\d+", line):
                     continue
-                if (t := _clock(line)) is not None:
+                if (t := clock(line)) is not None:
                     cur_time, cur, sweeps = t, None, False
                     continue
                 if RE_SWEEPS.match(line):
@@ -210,48 +189,15 @@ class RauParser:
 
     def _build(self, pdf_path, show_name, day_name, cover, pages, blocks, breaks_raw, subtotals, starred,
                groups, report: ParseReport) -> ParsedDay:
-        judges: dict[str, Judge] = {}
-
-        def judge_of(raw: str) -> Judge:
-            key = _norm(raw)
-            if key not in judges:
-                judges[key] = Judge(name=raw.strip().lstrip("*").strip())
-            return judges[key]
-
-        rings: dict[int, Ring] = {}
-
-        def ring_of(n: int) -> Ring:
-            return rings.setdefault(n, Ring(n))
-
-        events: list[JudgingEvent] = []
-        scheduled: list[ScheduledBlock] = []
-        other_competitions = not_breed = 0
-        for rb in blocks:
-            j = judge_of(rb.judge)
-            evs = []
-            for raw in rb.events:
-                counts = raw.counts
-                if counts is not None:
-                    # The breakdown gives regular classes and BOB; the non-regular classes are listed
-                    # below it (``Veteran Dog``). The entry count agrees with the ring totals and the
-                    # index, so it stands; the breakdown is checked against it.
-                    if counts.total != raw.entries:
-                        report.checks.append((f"breakdown and non-regular classes {raw.name}", raw.entries, counts.total))
-                    regular = counts.total - counts.nonregular
-                    counts = replace(counts, nonregular=raw.entries - regular) if regular <= raw.entries else None
-                if not rb.all_breed:
-                    other_competitions += 1
-                    continue
-                if not raw.breed:
-                    not_breed += 1
-                    continue
-                breed = self.catalog.get(raw.name)
-                if breed is None:
-                    report.unknown_breeds.append(raw.name)
-                evs.append(JudgingEvent(raw.name, j, raw.entries, breed, counts))
-            events += evs
-            if evs:
-                scheduled.append(ScheduledBlock(Block(j, tuple(evs)), ring_of(rb.ring), rb.start))
+        closing = None
+        if m := RE_HOURS.search(cover):
+            closing = clock(m.group(2))
+        # The breakdown gives regular classes and BOB; the non-regular classes are listed below it
+        # (``Veteran Dog``).
+        pd = assemble(pdf_path, show_name, day_name, blocks, breaks_raw, groups, closing, self.catalog, report,
+                      breakdown_check="breakdown and non-regular classes")
+        other_competitions = sum(len(rb.events) for rb in blocks if not rb.all_breed)
+        not_breed = sum(1 for rb in blocks if rb.all_breed for e in rb.events if not e.breed)
         if other_competitions:
             report.not_kept.append(f"{other_competitions} events of other competitions on the program (Beginner Puppy)")
         if not_breed:
@@ -259,14 +205,6 @@ class RauParser:
                                    "(sweepstakes, Junior Showmanship)")
         if starred:
             report.notes.append(f"{starred} breeds marked '*', which the program does not explain; judged at the judge's usual pace")
-        if not scheduled:
-            raise ValueError(f"{pdf_path}: no all-breed judging found")
-
-        breaks = []
-        for ring_no, jname, start in breaks_raw:
-            j = judge_of(jname)
-            nxt = [rb.start for rb in blocks if judge_of(rb.judge) == j and rb.start > start]
-            breaks.append(Break(j, ring_of(ring_no), start, (min(nxt) - start) if nxt else None))
 
         # checks against the program's own figures
         # a judge's "Total Dogs" covers their whole day, wherever it falls in the listing order
@@ -276,54 +214,21 @@ class RauParser:
         for jname, stated in stated_by.items():
             parsed = sum(e.entries for rb in blocks if rb.all_breed and rb.judge == jname for e in rb.events)
             report.checks.append((f"{jname} total dogs", stated, parsed))
-        start = min(sb.start for sb in scheduled)
+        show = pd.program.show
         cover_text = "\n".join(pages[:3])
         if m := RE_STARTS.search(cover_text):
-            stated_start = _clock(m.group(1))
+            stated_start = clock(m.group(1))
             report.checks.append(("breed judging start, minutes after midnight", round(stated_start.minutes) if stated_start else -1,
-                                  round(start.minutes)))
+                                  round(show.start.minutes)))
         if m := RE_TOTALS.search(" ".join(cover_text.split())):
-            report.checks.append(("breeds or varieties", int(m.group(3)), len(events)))
+            report.checks.append(("breeds or varieties", int(m.group(3)), len(show.events)))
             report.notes.append(f"program states {m.group(1)} dogs and a total entry of {m.group(2)}; "
-                                f"breed entries parsed: {sum(e.entries for e in events)}")
-        closing = None
+                                f"breed entries parsed: {sum(e.entries for e in show.events)}")
         if m := RE_HOURS.search(cover):
-            closing = _clock(m.group(2))
             report.notes.append(f"show hours {m.group(1)} to {m.group(2)}: the closing time")
         else:
             report.notes.append("no show hours on the cover: no closing time")
-
-        show = Show(name=show_name, date=day_name, judges=list(judges.values()), events=events,
-                    rings=sorted(rings.values(), key=lambda r: r.number), start=start, closing_time=closing)
-        plan = None
-        if groups:
-            def resolve(raw: str) -> Judge:
-                key = _norm(raw)
-                if key in judges:
-                    return judges[key]
-                last = key.split()[-1]
-                same = [j for k, j in judges.items() if k.split()[-1] == last and k[0] == key[0]]
-                if len(same) == 1:
-                    return same[0]
-                report.notes.append(f"group/BIS judge not found among breed judges: {raw!r}")
-                return judge_of(raw)
-
-            group_judges = {g: resolve(name) for g, name in groups["order"]}
-            show.group_judges = group_judges
-            show.bis_judge = resolve(groups["bis"]) if groups["bis"] else None
-            show.group_rings = tuple(ring_of(n) for n in groups["rings"])
-            plan = GroupsPlan(show.group_rings, groups["start"], tuple(g for g, _ in groups["order"]),
-                              group_judges, show.bis_judge)
-            if len(plan.order) != 7:
-                report.notes.append(f"groups table lists {len(plan.order)} groups: {plan.order}")
-        else:
-            report.notes.append("no groups table found")
-        judging = {sb.judge for sb in scheduled}
-        panel = judging | set(show.group_judges.values()) | ({show.bis_judge} if show.bis_judge else set())
-        used = {sb.ring for sb in scheduled} | set(show.group_rings)
-        show.judges = [j for j in show.judges if j in judging]
-        show.rings = [r for r in show.rings if r in used]
-        return ParsedDay(JudgingProgram(show, scheduled, [b for b in breaks if b.judge in panel], plan), report)
+        return pd
 
 
 # --------------------------------------------------------------------------- full-width pages
@@ -347,7 +252,7 @@ def _parse_index(pages: list[str]) -> list[IndexRow]:
     return rows
 
 
-def _parse_groups(pages: list[str]) -> dict | None:
+def _parse_groups(pages: list[str]) -> GroupsTable | None:
     """The Variety Groups table: its rings, start time, order and judges. The NOHS table that
     follows is another competition."""
     for text in pages:
@@ -358,15 +263,15 @@ def _parse_groups(pages: list[str]) -> dict | None:
                 continue
             ring_line = next((x for x in reversed(lines[:i]) if re.match(r"^RINGS? ", x)), "")
             numbers = [NUMBER_WORDS[w] for w in re.findall(r"[A-Z]+", ring_line) if w in NUMBER_WORDS]
-            info: dict = {"start": _clock(m.group(1)), "rings": tuple(numbers), "order": [], "bis": None}
+            info = GroupsTable(tuple(numbers), clock(m.group(1)))
             for row in lines[i + 1:]:
                 if row.startswith("_") or "NOHS" in row:
                     break
                 if gm := RE_GROUP_ROW.match(row):
                     g = GROUP_WORDS.get(gm.group(1).lower())
-                    if g is not None and g not in [x for x, _ in info["order"]]:
-                        info["order"].append((g, gm.group(2).strip()))
+                    if g is not None and g not in [x for x, _ in info.order]:
+                        info.order.append((g, gm.group(2).strip()))
                 elif bm := RE_BIS_ROW.match(row):
-                    info["bis"] = bm.group(1).strip()
+                    info.bis = bm.group(1).strip()
             return info
     return None

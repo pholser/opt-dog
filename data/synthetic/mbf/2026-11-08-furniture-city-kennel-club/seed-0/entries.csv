@@ -1,0 +1,688 @@
+dog,sex,status,exhibitor,judge,event
+D00001,D,class,O0001,"Dr. Andrea Bradford, MD",American Foxhounds
+D00002,D,class,O0002,"Dr. Andrea Bradford, MD",American Foxhounds
+D00003,D,class,O0003,"Dr. Andrea Bradford, MD",American Foxhounds
+D00004,D,class,O0003,"Dr. Andrea Bradford, MD",American Foxhounds
+D00005,B,class,O0005,"Dr. Andrea Bradford, MD",American Foxhounds
+D00006,D,class,O0006,"Dr. Andrea Bradford, MD",Cane Corsos
+D00007,D,class,O0005,"Dr. Andrea Bradford, MD",Cane Corsos
+D00009,B,class,O0003,"Dr. Andrea Bradford, MD",Cane Corsos
+D00010,D,champion,O0009,"Dr. Andrea Bradford, MD",Cane Corsos
+D00012,D,class,O0010,"Dr. Andrea Bradford, MD",Great Danes
+D00013,D,class,O0011,"Dr. Andrea Bradford, MD",Great Danes
+D00014,D,class,O0012,"Dr. Andrea Bradford, MD",Great Danes
+D00017,D,champion,O0013,"Dr. Andrea Bradford, MD",Great Danes
+D00018,D,class,O0014,"Dr. Andrea Bradford, MD",Doberman Pinschers
+D00019,D,class,O0015,"Dr. Andrea Bradford, MD",Doberman Pinschers
+D00020,B,class,O0016,"Dr. Andrea Bradford, MD",Doberman Pinschers
+D00021,B,class,O0017,"Dr. Andrea Bradford, MD",Doberman Pinschers
+D00022,B,class,O0013,"Dr. Andrea Bradford, MD",Doberman Pinschers
+D00025,B,champion,O0019,"Dr. Andrea Bradford, MD",Doberman Pinschers
+D00028,D,champion,O0002,"Dr. Andrea Bradford, MD",Basset Hounds
+D00029,B,class,O0021,"Dr. Andrea Bradford, MD",Basset Fauve de Bretagnes
+D00030,B,class,O0002,"Dr. Andrea Bradford, MD",Basset Fauve de Bretagnes
+D00031,B,class,O0023,"Dr. Andrea Bradford, MD",Basset Fauve de Bretagnes
+D00032,B,class,O0024,"Dr. Andrea Bradford, MD","Beagles, 13 Inch"
+D00033,D,class,O0003,"Dr. Andrea Bradford, MD",English Toy Spaniels (B & PC)
+D00034,B,class,O0026,"Dr. Andrea Bradford, MD",English Toy Spaniels (B & PC)
+D00038,D,class,O0027,"Dr. Andrea Bradford, MD",Brussels Griffons
+D00039,D,champion,O0027,"Dr. Andrea Bradford, MD",Brussels Griffons
+D00041,B,class,O0029,"Dr. Andrea Bradford, MD",Basenjis
+D00043,B,class,O0030,"Dr. Andrea Bradford, MD",Italian Greyhounds
+D00045,B,class,O0026,"Dr. Andrea Bradford, MD",Italian Greyhounds
+D00046,B,class,O0032,"Dr. Andrea Bradford, MD",Italian Greyhounds
+D00047,B,class,O0033,"Dr. Andrea Bradford, MD",Italian Greyhounds
+D00051,D,class,O0034,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00052,D,class,O0034,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00053,D,class,O0036,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00056,D,class,O0026,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00057,D,class,O0038,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00058,B,class,O0038,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00059,B,class,O0001,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00060,B,class,O0041,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00061,B,class,O0041,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00062,B,class,O0027,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00063,B,class,O0027,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00064,B,class,O0027,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00065,B,class,O0033,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00066,B,class,O0033,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00068,D,champion,O0033,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00072,D,champion,O0033,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00073,B,champion,O0050,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00074,B,champion,O0051,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00077,D,class,O0052,"Dr. Andrea Bradford, MD",Havanese
+D00078,D,class,O0052,"Dr. Andrea Bradford, MD",Havanese
+D00080,B,class,O0054,"Dr. Andrea Bradford, MD",Havanese
+D00081,B,class,O0055,"Dr. Andrea Bradford, MD",Havanese
+D00082,B,class,O0056,"Dr. Andrea Bradford, MD",Havanese
+D00084,D,class,O0057,"Dr. Andrea Bradford, MD",Boxers
+D00085,D,class,O0058,"Dr. Andrea Bradford, MD",Boxers
+D00086,B,class,O0059,"Dr. Andrea Bradford, MD",Boxers
+D00087,B,class,O0060,"Dr. Andrea Bradford, MD",Boxers
+D00090,B,class,O0061,"Dr. Andrea Bradford, MD",Boxers
+D00091,B,class,O0062,"Dr. Andrea Bradford, MD",Boxers
+D00092,D,champion,O0062,"Dr. Andrea Bradford, MD",Boxers
+D00093,D,champion,O0064,"Dr. Andrea Bradford, MD",Boxers
+D00094,B,champion,O0065,"Dr. Andrea Bradford, MD",Boxers
+D00095,D,class,O0066,"Dr. Andrea Bradford, MD",Chinese Cresteds
+D00097,B,class,O0066,"Dr. Andrea Bradford, MD",Chinese Cresteds
+D00098,B,class,O0068,"Dr. Andrea Bradford, MD",Chinese Cresteds
+D00099,B,class,O0069,"Dr. Andrea Bradford, MD",Chinese Cresteds
+D00101,B,champion,O0070,"Dr. Andrea Bradford, MD",Chinese Cresteds
+D00102,D,class,O0071,"Dr. Andrea Bradford, MD",Japanese Chin
+D00104,B,class,O0041,"Dr. Andrea Bradford, MD",Japanese Chin
+D00105,B,class,O0041,"Dr. Andrea Bradford, MD",Japanese Chin
+D00106,B,class,O0041,"Dr. Andrea Bradford, MD",Japanese Chin
+D00107,B,class,O0075,"Dr. Andrea Bradford, MD",Japanese Chin
+D00108,D,champion,O0075,"Dr. Andrea Bradford, MD",Japanese Chin
+D00110,D,class,O0077,"Dr. Andrea Bradford, MD",Afghan Hounds
+D00111,D,class,O0078,"Dr. Andrea Bradford, MD",Afghan Hounds
+D00112,B,class,O0079,"Dr. Andrea Bradford, MD",Afghan Hounds
+D00113,B,class,O0080,"Dr. Andrea Bradford, MD",Afghan Hounds
+D00115,D,champion,O0081,"Dr. Andrea Bradford, MD",Afghan Hounds
+D00117,D,champion,O0081,"Dr. Andrea Bradford, MD",Afghan Hounds
+D00119,B,class,O0083,Mrs. Angela Pickett,Poodles (Standard)
+D00120,B,class,O0084,Mrs. Angela Pickett,Poodles (Standard)
+D00123,B,champion,O0085,Mrs. Angela Pickett,Poodles (Standard)
+D00124,B,champion,O0085,Mrs. Angela Pickett,Poodles (Standard)
+D00125,B,champion,O0087,Mrs. Angela Pickett,Poodles (Standard)
+D00126,D,class,O0088,Mrs. Angela Pickett,Boston Terriers
+D00127,D,class,O0088,Mrs. Angela Pickett,Boston Terriers
+D00128,D,class,O0088,Mrs. Angela Pickett,Boston Terriers
+D00129,D,class,O0091,Mrs. Angela Pickett,Boston Terriers
+D00130,D,class,O0092,Mrs. Angela Pickett,Boston Terriers
+D00131,B,class,O0093,Mrs. Angela Pickett,Boston Terriers
+D00132,B,class,O0094,Mrs. Angela Pickett,Boston Terriers
+D00133,B,class,O0095,Mrs. Angela Pickett,Boston Terriers
+D00134,D,champion,O0096,Mrs. Angela Pickett,Boston Terriers
+D00135,D,champion,O0096,Mrs. Angela Pickett,Boston Terriers
+D00136,D,class,O0098,Mrs. Danelle M. Brown,Chihuahuas (Long Coat)
+D00137,D,class,O0099,Mrs. Danelle M. Brown,Chihuahuas (Long Coat)
+D00139,D,class,O0100,Mrs. Danelle M. Brown,Chihuahuas (Long Coat)
+D00141,D,class,O0101,Mrs. Danelle M. Brown,Chihuahuas (Long Coat)
+D00142,D,class,O0102,Mrs. Danelle M. Brown,Chihuahuas (Long Coat)
+D00143,B,class,O0102,Mrs. Danelle M. Brown,Chihuahuas (Long Coat)
+D00144,B,class,O0052,Mrs. Danelle M. Brown,Chihuahuas (Long Coat)
+D00146,B,class,O0052,Mrs. Danelle M. Brown,Chihuahuas (Long Coat)
+D00149,B,champion,O0052,Mrs. Danelle M. Brown,Chihuahuas (Long Coat)
+D00150,B,champion,O0052,Mrs. Danelle M. Brown,Chihuahuas (Long Coat)
+D00152,D,class,O0108,Mrs. Danelle M. Brown,Swedish Vallhunds
+D00153,B,class,O0108,Mrs. Danelle M. Brown,Swedish Vallhunds
+D00155,B,class,O0110,Mrs. Danelle M. Brown,Swedish Vallhunds
+D00156,B,class,O0111,Mrs. Danelle M. Brown,Swedish Vallhunds
+D00157,B,class,O0112,Mrs. Danelle M. Brown,Swedish Vallhunds
+D00159,B,class,O0112,Mrs. Danelle M. Brown,Swedish Vallhunds
+D00163,B,champion,O0114,Mrs. Danelle M. Brown,Mudik
+D00165,B,class,O0115,Mrs. Danelle M. Brown,Ret (Nova Scotia Duck Tolling)
+D00166,D,class,O0033,Mrs. Danelle M. Brown,Chihuahuas (Smooth Coat)
+D00167,D,class,O0117,Mrs. Danelle M. Brown,Chihuahuas (Smooth Coat)
+D00168,B,class,O0118,Mrs. Danelle M. Brown,Chihuahuas (Smooth Coat)
+D00169,B,class,O0118,Mrs. Danelle M. Brown,Chihuahuas (Smooth Coat)
+D00171,B,class,O0120,Mrs. Danelle M. Brown,Chihuahuas (Smooth Coat)
+D00172,B,class,O0121,Mrs. Danelle M. Brown,Chihuahuas (Smooth Coat)
+D00173,B,class,O0122,Mrs. Danelle M. Brown,Chihuahuas (Smooth Coat)
+D00174,B,class,O0123,Mrs. Danelle M. Brown,Chihuahuas (Smooth Coat)
+D00175,B,class,O0052,Mrs. Danelle M. Brown,Chihuahuas (Smooth Coat)
+D00176,B,class,O0125,Mrs. Danelle M. Brown,Chihuahuas (Smooth Coat)
+D00177,B,class,O0125,Mrs. Danelle M. Brown,Chihuahuas (Smooth Coat)
+D00182,B,champion,O0127,Mrs. Danelle M. Brown,Chihuahuas (Smooth Coat)
+D00183,B,champion,O0128,Mrs. Danelle M. Brown,Chihuahuas (Smooth Coat)
+D00187,D,class,O0129,Mrs. Danelle M. Brown,Vizslas
+D00188,B,class,O0130,Mrs. Danelle M. Brown,Vizslas
+D00189,B,class,O0131,Mrs. Danelle M. Brown,Vizslas
+D00190,B,class,O0131,Mrs. Danelle M. Brown,Vizslas
+D00191,B,class,O0133,Mrs. Danelle M. Brown,Vizslas
+D00192,B,champion,O0134,Mrs. Danelle M. Brown,Vizslas
+D00193,B,class,O0135,Mrs. Danelle M. Brown,Weimaraners
+D00194,D,champion,O0135,Mrs. Danelle M. Brown,Weimaraners
+D00196,D,class,O0137,Mrs. Danelle M. Brown,Dalmatians
+D00197,D,class,O0138,Mrs. Danelle M. Brown,Dalmatians
+D00198,D,class,O0138,Mrs. Danelle M. Brown,Dalmatians
+D00199,B,class,O0140,Mrs. Danelle M. Brown,Dalmatians
+D00201,D,champion,O0141,Mrs. Danelle M. Brown,Dalmatians
+D00202,D,champion,O0141,Mrs. Danelle M. Brown,Dalmatians
+D00205,D,class,O0143,Mrs. Danelle M. Brown,Pyrenean Mastiffs
+D00206,D,class,O0144,Mrs. Danelle M. Brown,Pyrenean Mastiffs
+D00207,B,class,O0145,Mrs. Danelle M. Brown,Pyrenean Mastiffs
+D00208,B,class,O0145,Mrs. Danelle M. Brown,Pyrenean Mastiffs
+D00210,B,class,O0145,Mrs. Danelle M. Brown,Pyrenean Mastiffs
+D00211,D,class,O0148,Mrs. Danelle M. Brown,Pembroke Welsh Corgis
+D00214,B,class,O0149,Mrs. Danelle M. Brown,Pembroke Welsh Corgis
+D00215,B,class,O0150,Mrs. Danelle M. Brown,Pembroke Welsh Corgis
+D00216,B,class,O0151,Mrs. Danelle M. Brown,Pembroke Welsh Corgis
+D00217,B,class,O0152,Mrs. Danelle M. Brown,Pembroke Welsh Corgis
+D00218,B,class,O0152,Mrs. Danelle M. Brown,Pembroke Welsh Corgis
+D00221,D,champion,O0154,Mrs. Danelle M. Brown,Pembroke Welsh Corgis
+D00223,D,champion,O0155,Mrs. Danelle M. Brown,Pembroke Welsh Corgis
+D00227,B,class,O0156,Mrs. Danelle M. Brown,Lhasa Apsos
+D00228,B,class,O0157,Mrs. Danelle M. Brown,Lhasa Apsos
+D00231,D,class,O0158,Mrs. Danelle M. Brown,Shetland Sheepdogs
+D00232,D,class,O0158,Mrs. Danelle M. Brown,Shetland Sheepdogs
+D00234,B,class,O0160,Mrs. Danelle M. Brown,Shetland Sheepdogs
+D00235,B,class,O0161,Mrs. Danelle M. Brown,Shetland Sheepdogs
+D00237,B,class,O0161,Mrs. Danelle M. Brown,Shetland Sheepdogs
+D00238,D,class,O0163,Mrs. Danelle M. Brown,Pomeranians
+D00239,D,class,O0164,Mrs. Danelle M. Brown,Pomeranians
+D00240,D,class,O0165,Mrs. Danelle M. Brown,Pomeranians
+D00241,D,class,O0165,Mrs. Danelle M. Brown,Pomeranians
+D00242,D,class,O0167,Mrs. Danelle M. Brown,Pomeranians
+D00244,B,class,O0168,Mrs. Danelle M. Brown,Pomeranians
+D00245,D,champion,O0168,Mrs. Danelle M. Brown,Pomeranians
+D00246,D,champion,O0170,Mrs. Danelle M. Brown,Pomeranians
+D00247,D,champion,O0170,Mrs. Danelle M. Brown,Pomeranians
+D00248,D,champion,O0170,Mrs. Danelle M. Brown,Pomeranians
+D00249,B,class,O0173,Mr. James A. Moses,Greyhounds
+D00250,D,class,O0174,Mr. James A. Moses,Ibizan Hounds
+D00251,D,champion,O0175,Mr. James A. Moses,Salukis
+D00252,D,class,O0078,Mr. James A. Moses,Whippets
+D00255,D,class,O0177,Mr. James A. Moses,Whippets
+D00256,D,class,O0178,Mr. James A. Moses,Whippets
+D00257,D,class,O0179,Mr. James A. Moses,Whippets
+D00258,B,class,O0180,Mr. James A. Moses,Whippets
+D00260,B,class,O0181,Mr. James A. Moses,Whippets
+D00262,B,class,O0182,Mr. James A. Moses,Whippets
+D00264,B,class,O0183,Mr. James A. Moses,Whippets
+D00265,B,class,O0184,Mr. James A. Moses,Whippets
+D00266,B,class,O0185,Mr. James A. Moses,Whippets
+D00267,D,champion,O0185,Mr. James A. Moses,Whippets
+D00272,B,champion,O0187,Mr. James A. Moses,Whippets
+D00274,D,class,O0188,Mr. James A. Moses,Bulldogs
+D00275,D,class,O0188,Mr. James A. Moses,Bulldogs
+D00276,D,class,O0190,Mr. James A. Moses,Bulldogs
+D00277,D,class,O0190,Mr. James A. Moses,Bulldogs
+D00280,B,class,O0192,Mr. James A. Moses,Bulldogs
+D00281,B,class,O0193,Mr. James A. Moses,Bulldogs
+D00282,B,class,O0095,Mr. James A. Moses,Bulldogs
+D00290,B,champion,O0009,Mr. James A. Moses,Great Pyrenees
+D00293,D,class,O0196,Mr. James A. Moses,Neapolitan Mastiffs
+D00295,B,class,O0197,Mr. James A. Moses,Newfoundlands
+D00296,B,class,O0197,Mr. James A. Moses,Newfoundlands
+D00299,D,champion,O0199,Mr. James A. Moses,Greater Swiss Mountain Dogs
+D00302,D,champion,O0200,Mr. James A. Moses,Rottweilers
+D00304,D,class,O0201,Mr. James A. Moses,Treeing Walker Coonhounds
+D00305,D,class,O0202,Mr. James A. Moses,Anatolian Shepherd Dogs
+D00307,D,class,O0203,Mr. James A. Moses,Siberian Huskies
+D00311,B,class,O0204,Mr. James A. Moses,Portuguese Water Dogs
+D00312,B,class,O0205,Mr. James A. Moses,Portuguese Water Dogs
+D00314,D,class,O0206,Mr. James A. Moses,Bernese Mountain Dogs
+D00315,B,class,O0207,Mr. James A. Moses,Bernese Mountain Dogs
+D00316,D,champion,O0208,Mr. James A. Moses,Bernese Mountain Dogs
+D00317,B,champion,O0209,Mr. James A. Moses,Bernese Mountain Dogs
+D00318,B,champion,O0210,Mr. James A. Moses,Bernese Mountain Dogs
+D00319,D,class,O0211,Mr. James A. Moses,Rhodesian Ridgebacks
+D00320,D,class,O0212,Mr. James A. Moses,Rhodesian Ridgebacks
+D00321,D,class,O0213,Mr. James A. Moses,Rhodesian Ridgebacks
+D00322,D,class,O0213,Mr. James A. Moses,Rhodesian Ridgebacks
+D00323,D,class,O0184,Mr. James A. Moses,Rhodesian Ridgebacks
+D00324,B,class,O0216,Mr. James A. Moses,Rhodesian Ridgebacks
+D00326,B,class,O0217,Mr. James A. Moses,Rhodesian Ridgebacks
+D00327,B,class,O0218,Mr. James A. Moses,Rhodesian Ridgebacks
+D00330,B,class,O0219,Mr. James A. Moses,Rhodesian Ridgebacks
+D00335,B,class,O0170,Mr. James A. Moses,Samoyeds
+D00336,B,class,O0170,Mr. James A. Moses,Samoyeds
+D00337,B,class,O0222,Mr. James A. Moses,Samoyeds
+D00338,D,champion,O0223,Mr. James A. Moses,Samoyeds
+D00339,D,class,O0224,Mr. James A. Moses,Scottish Terriers
+D00340,B,class,O0224,Mr. James A. Moses,Scottish Terriers
+D00342,B,class,O0226,Mr. James A. Moses,Scottish Terriers
+D00343,B,class,O0227,Mr. James A. Moses,Scottish Terriers
+D00344,B,class,O0227,Mr. James A. Moses,Scottish Terriers
+D00345,B,class,O0027,Mr. James A. Moses,Scottish Terriers
+D00346,D,champion,O0027,Mr. James A. Moses,Scottish Terriers
+D00348,D,champion,O0231,Mr. James A. Moses,Scottish Terriers
+D00349,B,champion,O0232,Mr. James A. Moses,Scottish Terriers
+D00351,B,champion,O0232,Mr. James A. Moses,Scottish Terriers
+D00352,D,class,O0234,Mr. James A. Moses,French Bulldogs
+D00353,D,class,O0234,Mr. James A. Moses,French Bulldogs
+D00354,D,class,O0236,Mr. James A. Moses,French Bulldogs
+D00355,D,class,O0237,Mr. James A. Moses,French Bulldogs
+D00357,D,class,O0238,Mr. James A. Moses,French Bulldogs
+D00358,D,class,O0239,Mr. James A. Moses,French Bulldogs
+D00360,B,class,O0239,Mr. James A. Moses,French Bulldogs
+D00361,B,class,O0239,Mr. James A. Moses,French Bulldogs
+D00362,B,class,O0183,Mr. James A. Moses,French Bulldogs
+D00364,B,class,O0243,Mr. James A. Moses,French Bulldogs
+D00365,B,class,O0244,Mr. James A. Moses,French Bulldogs
+D00370,D,class,O0245,Mr. David J. Kirkland,Pugs
+D00371,D,class,O0246,Mr. David J. Kirkland,Pugs
+D00372,D,class,O0247,Mr. David J. Kirkland,Pugs
+D00374,B,class,O0248,Mr. David J. Kirkland,Pugs
+D00375,B,class,O0249,Mr. David J. Kirkland,Pugs
+D00376,B,class,O0249,Mr. David J. Kirkland,Pugs
+D00377,B,class,O0249,Mr. David J. Kirkland,Pugs
+D00379,B,class,O0252,Mr. David J. Kirkland,Pugs
+D00380,B,class,O0253,Mr. David J. Kirkland,Pugs
+D00381,B,class,O0254,Mr. David J. Kirkland,Pugs
+D00383,B,champion,O0254,Mr. David J. Kirkland,Pugs
+D00384,D,class,O0002,Mr. David J. Kirkland,Tibetan Spaniels
+D00385,D,class,O0257,Mr. David J. Kirkland,Tibetan Spaniels
+D00389,D,champion,O0156,Mr. David J. Kirkland,Tibetan Spaniels
+D00390,D,champion,O0259,Mr. David J. Kirkland,Tibetan Spaniels
+D00392,B,champion,O0260,Mr. David J. Kirkland,Tibetan Spaniels
+D00396,B,champion,O0234,Mr. David J. Kirkland,Tibetan Spaniels
+D00397,B,champion,O0234,Mr. David J. Kirkland,Tibetan Spaniels
+D00398,B,champion,O0263,Mr. David J. Kirkland,Tibetan Spaniels
+D00399,D,class,O0264,Mr. David J. Kirkland,Fox Terriers (Smooth)
+D00400,B,class,O0265,Mr. David J. Kirkland,Fox Terriers (Smooth)
+D00402,D,champion,O0266,Mr. David J. Kirkland,Manchester Terriers (Toy)
+D00403,D,class,O0267,Mr. David J. Kirkland,Pumik
+D00404,D,class,O0268,Mr. David J. Kirkland,Pumik
+D00405,B,class,O0269,Mr. David J. Kirkland,Border Terriers
+D00406,B,class,O0269,Mr. David J. Kirkland,Border Terriers
+D00407,D,champion,O0269,Mr. David J. Kirkland,Border Terriers
+D00410,D,class,O0272,Mr. David J. Kirkland,Pekingese
+D00411,D,class,O0272,Mr. David J. Kirkland,Pekingese
+D00412,D,class,O0272,Mr. David J. Kirkland,Pekingese
+D00414,D,champion,O0168,Mr. David J. Kirkland,Pekingese
+D00417,B,class,O0276,Mr. David J. Kirkland,Russian Toys
+D00418,B,class,O0277,Mr. David J. Kirkland,Russian Toys
+D00419,B,champion,O0278,Mr. David J. Kirkland,Russian Toys
+D00420,D,class,O0279,Mr. David J. Kirkland,American Hairless Terriers
+D00421,D,class,O0280,Mr. David J. Kirkland,American Hairless Terriers
+D00422,B,class,O0281,Mr. David J. Kirkland,American Hairless Terriers
+D00423,B,class,O0282,Mr. David J. Kirkland,American Hairless Terriers
+D00424,B,champion,O0283,Mr. David J. Kirkland,Australian Terriers
+D00426,B,champion,O0284,Mr. David J. Kirkland,Welsh Terriers
+D00427,D,class,O0285,Mr. David J. Kirkland,Rat Terriers
+D00428,D,class,O0286,Mr. David J. Kirkland,Rat Terriers
+D00431,B,class,O0287,Mr. David J. Kirkland,Rat Terriers
+D00432,D,champion,O0288,Mr. David J. Kirkland,Rat Terriers
+D00434,D,champion,O0288,Mr. David J. Kirkland,Rat Terriers
+D00435,B,champion,O0290,Mr. David J. Kirkland,Rat Terriers
+D00436,B,champion,O0290,Mr. David J. Kirkland,Rat Terriers
+D00437,D,class,O0292,Mr. David J. Kirkland,Poodles (Toy)
+D00439,D,class,O0293,Mr. David J. Kirkland,Poodles (Toy)
+D00440,B,class,O0294,Mr. David J. Kirkland,Poodles (Toy)
+D00441,B,class,O0294,Mr. David J. Kirkland,Poodles (Toy)
+D00442,B,class,O0296,Mr. David J. Kirkland,Poodles (Toy)
+D00444,B,class,O0297,Mr. David J. Kirkland,Poodles (Toy)
+D00445,B,class,O0298,Mr. David J. Kirkland,Poodles (Toy)
+D00449,D,class,O0299,Mr. David J. Kirkland,Papillons
+D00450,D,class,O0300,Mr. David J. Kirkland,Papillons
+D00452,B,class,O0055,Mr. David J. Kirkland,Papillons
+D00453,B,class,O0302,Mr. David J. Kirkland,Papillons
+D00457,D,class,O0303,Mr. David J. Kirkland,Poodles (Miniature)
+D00459,B,class,O0304,Mr. David J. Kirkland,Poodles (Miniature)
+D00460,B,class,O0305,Mr. David J. Kirkland,Poodles (Miniature)
+D00461,B,class,O0306,Mr. David J. Kirkland,Poodles (Miniature)
+D00462,B,class,O0307,Mr. David J. Kirkland,Poodles (Miniature)
+D00463,B,class,O0308,Mr. David J. Kirkland,Poodles (Miniature)
+D00464,B,class,O0308,Mr. David J. Kirkland,Poodles (Miniature)
+D00467,B,class,O0310,Mr. David J. Kirkland,Airedale Terriers
+D00468,D,class,O0311,Mr. David J. Kirkland,Pointers
+D00470,B,class,O0312,Mr. David J. Kirkland,Old English Sheepdogs
+D00472,B,champion,O0209,Mr. David J. Kirkland,Old English Sheepdogs
+D00477,B,champion,O0314,Mr. David J. Kirkland,Collies (Smooth)
+D00479,B,class,O0315,Mr. David J. Kirkland,Spaniels (English Springer)
+D00481,D,class,O0316,Mr. David J. Kirkland,Spaniels (Field)
+D00482,B,class,O0317,Mr. David J. Kirkland,Spaniels (Field)
+D00483,B,class,O0318,Mr. David J. Kirkland,Spaniels (Field)
+D00484,D,class,O0319,Mr. David J. Kirkland,Staffordshire Bull Terriers
+D00487,B,class,O0320,Mr. David J. Kirkland,Spaniels (Sussex)
+D00488,B,class,O0321,Mr. David J. Kirkland,Spaniels (Sussex)
+D00489,B,class,O0322,Mr. David J. Kirkland,Spaniels (Sussex)
+D00490,B,class,O0322,Mr. David J. Kirkland,Spaniels (Sussex)
+D00493,D,champion,O0324,Mr. David J. Kirkland,Spaniels (Sussex)
+D00494,B,champion,O0325,Mr. David J. Kirkland,Spaniels (Sussex)
+D00495,B,class,O0326,Mr. David J. Kirkland,Soft Coated Wheaten Terriers
+D00498,D,class,O0327,Mr. David J. Kirkland,Cairn Terriers
+D00501,B,class,O0328,Mr. David J. Kirkland,Miniature Schnauzers
+D00502,B,class,O0329,Mr. David J. Kirkland,Miniature Schnauzers
+D00503,B,class,O0330,Mr. David J. Kirkland,Miniature Schnauzers
+D00504,D,champion,O0331,Mr. David J. Kirkland,Miniature Schnauzers
+D00505,B,champion,O0332,Mr. David J. Kirkland,Miniature Schnauzers
+D00506,B,class,O0333,Mr. David J. Kirkland,Miniature Pinschers
+D00507,B,class,O0334,Mr. David J. Kirkland,Miniature Pinschers
+D00508,B,class,O0334,Mr. David J. Kirkland,Miniature Pinschers
+D00510,D,champion,O0336,Mr. David J. Kirkland,Miniature Pinschers
+D00512,B,champion,O0337,Mr. David J. Kirkland,Miniature Pinschers
+D00513,B,class,O0338,Mrs. Angela Pickett,Brittanys
+D00515,D,champion,O0338,Mrs. Angela Pickett,Brittanys
+D00516,B,class,O0340,Mrs. Angela Pickett,Irish Wolfhounds
+D00519,D,class,O0341,Mrs. Angela Pickett,Retrievers (Labrador)
+D00520,D,class,O0342,Mrs. Angela Pickett,Retrievers (Labrador)
+D00522,D,class,O0343,Mrs. Angela Pickett,Retrievers (Labrador)
+D00524,B,class,O0344,Mrs. Angela Pickett,Retrievers (Labrador)
+D00526,B,class,O0344,Mrs. Angela Pickett,Retrievers (Labrador)
+D00527,B,class,O0135,Mrs. Angela Pickett,Retrievers (Labrador)
+D00528,B,class,O0347,Mrs. Angela Pickett,Retrievers (Labrador)
+D00537,B,champion,O0348,Mrs. Angela Pickett,Retrievers (Labrador)
+D00540,D,class,O0349,Mrs. Angela Pickett,Pointers (German Shorthaired)
+D00541,D,class,O0349,Mrs. Angela Pickett,Pointers (German Shorthaired)
+D00542,B,class,O0351,Mrs. Angela Pickett,Pointers (German Shorthaired)
+D00544,B,class,O0352,Mrs. Angela Pickett,Pointers (German Shorthaired)
+D00545,B,class,O0353,Mrs. Angela Pickett,Pointers (German Shorthaired)
+D00546,B,class,O0354,Mrs. Angela Pickett,Pointers (German Shorthaired)
+D00548,B,champion,O0355,Mrs. Angela Pickett,Pointers (German Shorthaired)
+D00549,D,class,O0356,Mrs. Angela Pickett,Retrievers (Golden)
+D00550,D,class,O0357,Mrs. Angela Pickett,Retrievers (Golden)
+D00552,D,class,O0358,Mrs. Angela Pickett,Retrievers (Golden)
+D00553,B,class,O0359,Mrs. Angela Pickett,Retrievers (Golden)
+D00555,B,class,O0359,Mrs. Angela Pickett,Retrievers (Golden)
+D00556,B,class,O0359,Mrs. Angela Pickett,Retrievers (Golden)
+D00557,B,class,O0344,Mrs. Angela Pickett,Retrievers (Golden)
+D00559,B,class,O0344,Mrs. Angela Pickett,Retrievers (Golden)
+D00567,B,class,O0364,Mrs. Angela Pickett,Borzois
+D00568,B,class,O0365,Mrs. Angela Pickett,Borzois
+D00572,D,class,O0269,Mrs. Angela Pickett,Xoloitzcuintli
+D00573,B,class,O0367,Mrs. Angela Pickett,Dachshunds (Longhaired)
+D00574,B,class,O0368,Mrs. Angela Pickett,Dachshunds (Longhaired)
+D00577,D,class,O0369,Mrs. Angela Pickett,Dachshunds (Smooth)
+D00578,D,class,O0370,Mrs. Angela Pickett,Dachshunds (Smooth)
+D00579,B,class,O0371,Mrs. Angela Pickett,Dachshunds (Smooth)
+D00580,D,champion,O0371,Mrs. Angela Pickett,Dachshunds (Smooth)
+D00581,B,champion,O0373,Mrs. Angela Pickett,Dachshunds (Smooth)
+D00582,D,class,O0374,Mrs. Angela Pickett,Dachshunds (Wirehaired)
+D00583,D,class,O0374,Mrs. Angela Pickett,Dachshunds (Wirehaired)
+D00584,B,class,O0376,Mrs. Angela Pickett,Dachshunds (Wirehaired)
+D00585,B,class,O0377,Mrs. Angela Pickett,Dachshunds (Wirehaired)
+D00587,B,champion,O0125,Mrs. Angela Pickett,Dachshunds (Wirehaired)
+D00588,B,champion,O0379,Mrs. Angela Pickett,Dachshunds (Wirehaired)
+D00589,B,class,O0380,Mrs. Angela Pickett,Spaniels (Boykin)
+D00590,B,champion,O0380,Mrs. Angela Pickett,Spaniels (Boykin)
+D00592,D,class,O0355,Mrs. Angela Pickett,Spaniels (Cocker) A.S.C.O.B.
+D00593,B,class,O0383,Mrs. Angela Pickett,Spaniels (Cocker) A.S.C.O.B.
+D00596,D,class,O0384,Mrs. Angela Pickett,Spaniels (Cocker) Parti-Color
+D00597,B,class,O0384,Mrs. Angela Pickett,Spaniels (Cocker) Parti-Color
+D00599,B,champion,O0386,Mrs. Angela Pickett,Spaniels (Cocker) Parti-Color
+D00600,D,class,O0387,Mr. Charles L. Olvis,Kerry Blue Terriers
+D00602,D,class,O0388,Mr. Charles L. Olvis,Australian Cattle Dogs
+D00603,B,class,O0389,Mr. Charles L. Olvis,Australian Cattle Dogs
+D00604,B,class,O0389,Mr. Charles L. Olvis,Australian Cattle Dogs
+D00606,B,class,O0389,Mr. Charles L. Olvis,Australian Cattle Dogs
+D00607,B,class,O0392,Mr. Charles L. Olvis,Australian Cattle Dogs
+D00610,D,champion,O0393,Mr. Charles L. Olvis,Australian Cattle Dogs
+D00611,B,champion,O0394,Mr. Charles L. Olvis,Australian Cattle Dogs
+D00612,B,champion,O0394,Mr. Charles L. Olvis,Australian Cattle Dogs
+D00613,B,champion,O0085,Mr. Charles L. Olvis,Australian Cattle Dogs
+D00614,D,class,O0397,Mr. Charles L. Olvis,Miniature American Shepherds
+D00615,D,class,O0398,Mr. Charles L. Olvis,Miniature American Shepherds
+D00616,D,class,O0399,Mr. Charles L. Olvis,Miniature American Shepherds
+D00618,D,class,O0400,Mr. Charles L. Olvis,Miniature American Shepherds
+D00619,B,class,O0401,Mr. Charles L. Olvis,Miniature American Shepherds
+D00620,B,class,O0402,Mr. Charles L. Olvis,Miniature American Shepherds
+D00622,B,class,O0403,Mr. Charles L. Olvis,Miniature American Shepherds
+D00623,B,class,O0404,Mr. Charles L. Olvis,Miniature American Shepherds
+D00625,B,class,O0405,Mr. Charles L. Olvis,Miniature American Shepherds
+D00627,D,class,O0081,Mr. Charles L. Olvis,Australian Shepherds
+D00628,D,class,O0407,Mr. Charles L. Olvis,Australian Shepherds
+D00629,B,class,O0408,Mr. Charles L. Olvis,Australian Shepherds
+D00632,D,class,O0409,Mr. Charles L. Olvis,Yorkshire Terriers
+D00634,B,class,O0410,Mr. Charles L. Olvis,Cardigan Welsh Corgis
+D00635,D,champion,O0149,Mr. Charles L. Olvis,Cardigan Welsh Corgis
+D00636,D,class,O0412,Mr. Charles L. Olvis,Spaniels (English Cocker)
+D00637,B,class,O0412,Mr. Charles L. Olvis,Spaniels (English Cocker)
+D00638,B,class,O0412,Mr. Charles L. Olvis,Spaniels (English Cocker)
+D00639,B,class,O0415,Mr. Charles L. Olvis,Spaniels (English Cocker)
+D00642,B,class,O0416,Mr. Charles L. Olvis,Belgian Tervuren
+D00643,D,champion,O0417,Mr. Charles L. Olvis,Belgian Tervuren
+D00644,D,champion,O0418,Mr. Charles L. Olvis,Belgian Tervuren
+D00646,D,class,O0419,Mr. Charles L. Olvis,Belgian Malinois
+D00647,D,class,O0111,Mr. Charles L. Olvis,Belgian Malinois
+D00648,D,class,O0421,Mr. Charles L. Olvis,Belgian Malinois
+D00650,B,class,O0421,Mr. Charles L. Olvis,Belgian Malinois
+D00651,B,class,O0423,Mr. Charles L. Olvis,Belgian Malinois
+D00652,D,class,O0158,Mr. Charles L. Olvis,Beaucerons
+D00653,B,class,O0425,Mr. Charles L. Olvis,Beaucerons
+D00656,D,champion,O0425,Mr. Charles L. Olvis,Beaucerons
+D00660,B,champion,O0427,Mr. Charles L. Olvis,Belgian Sheepdogs
+D00662,B,class,O0428,Mr. Charles L. Olvis,Setters (Gordon)
+D00663,D,champion,O0429,Mr. Charles L. Olvis,Setters (Gordon)
+D00665,B,class,O0430,Mr. Charles L. Olvis,Alaskan Malamutes
+D00667,D,class,O0431,Mr. Charles L. Olvis,Collies (Rough)
+D00668,B,class,O0432,Mr. Charles L. Olvis,Collies (Rough)
+D00669,B,class,O0433,Mr. Charles L. Olvis,Collies (Rough)
+D00670,D,champion,O0434,Mr. Charles L. Olvis,Collies (Rough)
+D00671,B,class,O0435,Mr. Charles L. Olvis,Setters (English)
+D00672,B,class,O0436,Mr. Charles L. Olvis,Setters (English)
+D00673,D,class,O0437,Mr. Charles L. Olvis,Akitas
+D00674,B,class,O0438,Mr. Charles L. Olvis,Akitas
+D00675,D,class,O0439,Mr. Charles L. Olvis,Bouviers des Flandres
+D00677,D,champion,O0440,Mr. Charles L. Olvis,Setters (Irish)
+D00680,D,class,O0441,Mr. Charles L. Olvis,Border Collies
+D00682,B,class,O0441,Mr. Charles L. Olvis,Border Collies
+D00685,D,class,O0443,Mr. Charles L. Olvis,Berger Picards
+D00640,B,class,P001,Mr. Charles L. Olvis,Spaniels (English Cocker)
+D00116,D,champion,P001,"Dr. Andrea Bradford, MD",Afghan Hounds
+D00586,D,champion,P001,Mrs. Angela Pickett,Dachshunds (Wirehaired)
+D00300,D,class,P001,Mr. James A. Moses,Rottweilers
+D00409,B,champion,P001,Mr. David J. Kirkland,Border Terriers
+D00429,D,class,P001,Mr. David J. Kirkland,Rat Terriers
+D00243,B,class,P001,Mrs. Danelle M. Brown,Pomeranians
+D00608,D,champion,P001,Mr. Charles L. Olvis,Australian Cattle Dogs
+D00655,D,champion,P001,Mr. Charles L. Olvis,Beaucerons
+D00659,B,champion,P001,Mr. Charles L. Olvis,Beaucerons
+D00475,D,champion,P001-A1,Mr. David J. Kirkland,Collies (Smooth)
+D00476,D,champion,P001-A1,Mr. David J. Kirkland,Collies (Smooth)
+D00478,B,champion,P001-A1,Mr. David J. Kirkland,Collies (Smooth)
+D00621,B,class,P001-A1,Mr. Charles L. Olvis,Miniature American Shepherds
+D00213,B,class,P001-A1,Mrs. Danelle M. Brown,Pembroke Welsh Corgis
+D00219,B,class,P001-A1,Mrs. Danelle M. Brown,Pembroke Welsh Corgis
+D00222,D,champion,P001-A1,Mrs. Danelle M. Brown,Pembroke Welsh Corgis
+D00151,D,class,P001-A1,Mrs. Danelle M. Brown,Swedish Vallhunds
+D00069,D,champion,P002,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00283,D,champion,P002,Mr. James A. Moses,Bulldogs
+D00122,D,champion,P002,Mrs. Angela Pickett,Poodles (Standard)
+D00658,B,champion,P002,Mr. Charles L. Olvis,Beaucerons
+D00649,B,class,P002,Mr. Charles L. Olvis,Belgian Malinois
+D00645,B,champion,P002,Mr. Charles L. Olvis,Belgian Tervuren
+D00676,D,champion,P002,Mr. Charles L. Olvis,Bouviers des Flandres
+D00162,D,champion,P002-A1,Mrs. Danelle M. Brown,Entlebucher Mountain Dogs
+D00624,B,class,P002-A1,Mr. Charles L. Olvis,Miniature American Shepherds
+D00212,D,class,P002-A1,Mrs. Danelle M. Brown,Pembroke Welsh Corgis
+D00220,B,class,P002-A1,Mrs. Danelle M. Brown,Pembroke Welsh Corgis
+D00236,B,class,P002-A1,Mrs. Danelle M. Brown,Shetland Sheepdogs
+D00158,B,class,P002-A1,Mrs. Danelle M. Brown,Swedish Vallhunds
+D00160,D,champion,P002-A1,Mrs. Danelle M. Brown,Swedish Vallhunds
+D00529,D,champion,P003,Mrs. Angela Pickett,Retrievers (Labrador)
+D00532,D,champion,P003,Mrs. Angela Pickett,Retrievers (Labrador)
+D00535,B,champion,P003,Mrs. Angela Pickett,Retrievers (Labrador)
+D00591,B,class,P003,Mrs. Angela Pickett,Spaniels (Cocker) Black
+D00195,B,champion,P003,Mrs. Danelle M. Brown,Weimaraners
+D00089,B,class,P003,"Dr. Andrea Bradford, MD",Boxers
+D00024,B,champion,P003,"Dr. Andrea Bradford, MD",Doberman Pinschers
+D00291,B,champion,P003,Mr. James A. Moses,Leonbergers
+D00499,B,champion,P003,Mr. David J. Kirkland,Cairn Terriers
+D00363,B,class,P003,Mr. James A. Moses,French Bulldogs
+D00543,B,class,P004,Mrs. Angela Pickett,Pointers (German Shorthaired)
+D00500,D,class,P004,Mr. David J. Kirkland,Miniature Schnauzers
+D00347,D,champion,P004,Mr. James A. Moses,Scottish Terriers
+D00350,B,champion,P004,Mr. James A. Moses,Scottish Terriers
+D00497,D,champion,P004,Mr. David J. Kirkland,Sealyham Terriers
+D00485,D,champion,P004,Mr. David J. Kirkland,Staffordshire Bull Terriers
+D00075,B,champion,P004,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00138,D,class,P004,Mrs. Danelle M. Brown,Chihuahuas (Long Coat)
+D00147,D,champion,P004,Mrs. Danelle M. Brown,Chihuahuas (Long Coat)
+D00170,B,class,P004-A1,Mrs. Danelle M. Brown,Chihuahuas (Smooth Coat)
+D00179,D,champion,P004-A1,Mrs. Danelle M. Brown,Chihuahuas (Smooth Coat)
+D00180,D,champion,P004-A1,Mrs. Danelle M. Brown,Chihuahuas (Smooth Coat)
+D00413,D,champion,P004-A1,Mr. David J. Kirkland,Pekingese
+D00446,D,champion,P004-A1,Mr. David J. Kirkland,Poodles (Toy)
+D00447,D,champion,P004-A1,Mr. David J. Kirkland,Poodles (Toy)
+D00373,B,class,P004-A1,Mr. David J. Kirkland,Pugs
+D00368,D,class,P004-A1,Mr. David J. Kirkland,Russian Tsvetnaya Bolonkas
+D00630,D,class,P004-A1,Mr. Charles L. Olvis,Toy Fox Terriers
+D00551,D,class,P005,Mrs. Angela Pickett,Retrievers (Golden)
+D00523,D,class,P005,Mrs. Angela Pickett,Retrievers (Labrador)
+D00333,B,champion,P005,Mr. James A. Moses,Rhodesian Ridgebacks
+D00008,D,class,P005,"Dr. Andrea Bradford, MD",Cane Corsos
+D00023,D,champion,P005,"Dr. Andrea Bradford, MD",Doberman Pinschers
+D00294,B,champion,P005,Mr. James A. Moses,Neapolitan Mastiffs
+D00310,D,class,P005,Mr. James A. Moses,Portuguese Water Dogs
+D00301,D,champion,P005,Mr. James A. Moses,Rottweilers
+D00341,B,class,P005,Mr. James A. Moses,Scottish Terriers
+D00496,B,class,P005,Mr. David J. Kirkland,Soft Coated Wheaten Terriers
+D00448,B,champion,P005,Mr. David J. Kirkland,Poodles (Toy)
+D00233,D,class,P005,Mrs. Danelle M. Brown,Shetland Sheepdogs
+D00664,B,class,P006,Mr. Charles L. Olvis,Alaskan Malamutes
+D00011,B,champion,P006,"Dr. Andrea Bradford, MD",Cane Corsos
+D00334,B,champion,P006,Mr. James A. Moses,Giant Schnauzers
+D00288,B,class,P006,Mr. James A. Moses,Standard Schnauzers
+D00486,D,champion,P006,Mr. David J. Kirkland,Staffordshire Bull Terriers
+D00037,D,champion,P006,"Dr. Andrea Bradford, MD",English Toy Spaniels (KC & R)
+D00278,D,class,P006,Mr. James A. Moses,Bulldogs
+D00185,D,champion,P006,Mrs. Danelle M. Brown,German Shepherd Dogs
+D00040,B,class,P007,"Dr. Andrea Bradford, MD",Basenjis
+D00518,B,champion,P007,Mrs. Angela Pickett,Irish Wolfhounds
+D00325,B,class,P007,Mr. James A. Moses,Rhodesian Ridgebacks
+D00332,D,champion,P007,Mr. James A. Moses,Rhodesian Ridgebacks
+D00253,D,class,P007,Mr. James A. Moses,Whippets
+D00148,D,champion,P007,Mrs. Danelle M. Brown,Chihuahuas (Long Coat)
+D00096,D,class,P007,"Dr. Andrea Bradford, MD",Chinese Cresteds
+D00443,B,class,P007,Mr. David J. Kirkland,Poodles (Toy)
+D00415,D,class,P007,Mr. David J. Kirkland,Russian Toys
+D00631,D,champion,P007,Mr. Charles L. Olvis,Toy Fox Terriers
+D00209,B,class,P007,Mrs. Danelle M. Brown,Pyrenean Mastiffs
+D00480,D,champion,P008,Mr. David J. Kirkland,Spaniels (English Springer)
+D00026,D,class,P008,"Dr. Andrea Bradford, MD",Azawakhs
+D00539,B,champion,P008,Mrs. Angela Pickett,Bluetick Coonhounds
+D00576,B,champion,P008,Mrs. Angela Pickett,Dachshunds (Longhaired)
+D00564,B,champion,P008,Mrs. Angela Pickett,Harriers
+D00331,D,champion,P008,Mr. James A. Moses,Rhodesian Ridgebacks
+D00263,B,class,P008,Mr. James A. Moses,Whippets
+D00271,D,champion,P008,Mr. James A. Moses,Whippets
+D00297,D,class,P008-A1,Mr. James A. Moses,Greater Swiss Mountain Dogs
+D00451,B,class,P008-A1,Mr. David J. Kirkland,Papillons
+D00378,B,class,P008-A1,Mr. David J. Kirkland,Pugs
+D00382,B,class,P008-A1,Mr. David J. Kirkland,Pugs
+D00633,B,class,P008-A1,Mr. Charles L. Olvis,Yorkshire Terriers
+D00121,B,class,P008-A1,Mrs. Angela Pickett,Poodles (Standard)
+D00471,B,champion,P008-A1,Mr. David J. Kirkland,Old English Sheepdogs
+D00561,B,class,P009,Mrs. Angela Pickett,Retrievers (Golden)
+D00042,B,champion,P009,"Dr. Andrea Bradford, MD",Basenjis
+D00076,B,class,P009,"Dr. Andrea Bradford, MD","Beagles, 15 Inch"
+D00570,B,champion,P009,Mrs. Angela Pickett,Borzois
+D00328,B,class,P009,Mr. James A. Moses,Rhodesian Ridgebacks
+D00268,D,champion,P009,Mr. James A. Moses,Whippets
+D00666,D,champion,P009,Mr. Charles L. Olvis,Alaskan Malamutes
+D00083,D,class,P009-A1,"Dr. Andrea Bradford, MD",Boxers
+D00292,D,champion,P009-A1,Mr. James A. Moses,Saint Bernards
+D00308,B,champion,P009-A1,Mr. James A. Moses,Siberian Huskies
+D00289,D,champion,P009-A1,Mr. James A. Moses,Chow Chows
+D00684,B,champion,P009-A1,Mr. Charles L. Olvis,Border Collies
+D00626,D,champion,P009-A1,Mr. Charles L. Olvis,Miniature American Shepherds
+D00469,D,champion,P010,Mr. David J. Kirkland,Pointers
+D00547,D,champion,P010,Mrs. Angela Pickett,Pointers (German Shorthaired)
+D00530,D,champion,P010,Mrs. Angela Pickett,Retrievers (Labrador)
+D00536,B,champion,P010,Mrs. Angela Pickett,Retrievers (Labrador)
+D00678,D,champion,P010,Mr. Charles L. Olvis,Setters (Irish)
+D00598,D,champion,P010,Mrs. Angela Pickett,Spaniels (Cocker) Parti-Color
+D00641,D,champion,P010,Mr. Charles L. Olvis,Spaniels (English Cocker)
+D00186,D,class,P010,Mrs. Danelle M. Brown,Vizslas
+D00079,D,class,P010,"Dr. Andrea Bradford, MD",Havanese
+D00609,D,champion,P010,Mr. Charles L. Olvis,Australian Cattle Dogs
+D00681,D,class,P010-A1,Mr. Charles L. Olvis,Border Collies
+D00683,D,champion,P010-A1,Mr. Charles L. Olvis,Border Collies
+D00687,D,class,P010-A1,Mr. Charles L. Olvis,Briards
+D00473,B,class,P010-A1,Mr. David J. Kirkland,Collies (Smooth)
+D00474,B,class,P010-A1,Mr. David J. Kirkland,Collies (Smooth)
+D00184,D,class,P010-A1,Mrs. Danelle M. Brown,German Shepherd Dogs
+D00617,D,class,P010-A1,Mr. Charles L. Olvis,Miniature American Shepherds
+D00224,B,champion,P010-A1,Mrs. Danelle M. Brown,Pembroke Welsh Corgis
+D00161,D,champion,P010-A1,Mrs. Danelle M. Brown,Swedish Vallhunds
+D00562,B,champion,P011,Mrs. Angela Pickett,Retrievers (Golden)
+D00027,D,champion,P011,"Dr. Andrea Bradford, MD",Dogo Argentinos
+D00303,B,champion,P011,Mr. James A. Moses,Rottweilers
+D00055,D,class,P011,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00145,B,class,P011,Mrs. Danelle M. Brown,Chihuahuas (Long Coat)
+D00035,D,class,P011,"Dr. Andrea Bradford, MD",English Toy Spaniels (KC & R)
+D00044,B,class,P011,"Dr. Andrea Bradford, MD",Italian Greyhounds
+D00109,B,champion,P011,"Dr. Andrea Bradford, MD",Japanese Chin
+D00401,D,champion,P011-A1,Mr. David J. Kirkland,Manchester Terriers (Toy)
+D00454,D,champion,P011-A1,Mr. David J. Kirkland,Papillons
+D00455,D,champion,P011-A1,Mr. David J. Kirkland,Papillons
+D00456,D,champion,P011-A1,Mr. David J. Kirkland,Papillons
+D00438,D,class,P011-A1,Mr. David J. Kirkland,Poodles (Toy)
+D00416,D,class,P011-A1,Mr. David J. Kirkland,Russian Toys
+D00657,B,champion,P011-A1,Mr. Charles L. Olvis,Beaucerons
+D00070,D,champion,P012,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00071,D,champion,P012,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00181,D,champion,P012,Mrs. Danelle M. Brown,Chihuahuas (Smooth Coat)
+D00509,D,champion,P012,Mr. David J. Kirkland,Miniature Pinschers
+D00279,D,class,P012,Mr. James A. Moses,Bulldogs
+D00229,D,champion,P012,Mrs. Danelle M. Brown,Lhasa Apsos
+D00230,B,champion,P012,Mrs. Danelle M. Brown,Lhasa Apsos
+D00386,B,class,P012,Mr. David J. Kirkland,Tibetan Spaniels
+D00387,B,class,P012,Mr. David J. Kirkland,Tibetan Spaniels
+D00388,D,champion,P012,Mr. David J. Kirkland,Tibetan Spaniels
+D00571,D,champion,P012,Mrs. Angela Pickett,Tibetan Terriers
+D00225,B,champion,P012,Mrs. Danelle M. Brown,Pembroke Welsh Corgis
+D00601,D,champion,P013,Mr. Charles L. Olvis,Kerry Blue Terriers
+D00049,B,class,P013,"Dr. Andrea Bradford, MD",Biewer Terriers
+D00050,D,champion,P013,"Dr. Andrea Bradford, MD",Biewer Terriers
+D00054,D,class,P013,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00067,D,champion,P013,"Dr. Andrea Bradford, MD",Cavalier King Charles Spaniels
+D00178,D,champion,P013,Mrs. Danelle M. Brown,Chihuahuas (Smooth Coat)
+D00100,D,champion,P013,"Dr. Andrea Bradford, MD",Chinese Cresteds
+D00036,B,class,P013,"Dr. Andrea Bradford, MD",English Toy Spaniels (KC & R)
+D00048,D,champion,P013,"Dr. Andrea Bradford, MD",Italian Greyhounds
+D00103,D,class,P013-A1,"Dr. Andrea Bradford, MD",Japanese Chin
+D00511,B,champion,P013-A1,Mr. David J. Kirkland,Miniature Pinschers
+D00369,D,champion,P013-A1,Mr. David J. Kirkland,Russian Tsvetnaya Bolonkas
+D00605,B,class,P013-A1,Mr. Charles L. Olvis,Australian Cattle Dogs
+D00654,B,class,P013-A1,Mr. Charles L. Olvis,Beaucerons
+D00661,B,champion,P013-A1,Mr. Charles L. Olvis,Belgian Sheepdogs
+D00164,B,champion,P013-A1,Mrs. Danelle M. Brown,Polish Lowland Sheepdogs
+D00154,B,class,P013-A1,Mrs. Danelle M. Brown,Swedish Vallhunds
+D00114,B,class,P014,"Dr. Andrea Bradford, MD",Afghan Hounds
+D00538,B,champion,P014,Mrs. Angela Pickett,Bluetick Coonhounds
+D00569,B,class,P014,Mrs. Angela Pickett,Borzois
+D00517,B,champion,P014,Mrs. Angela Pickett,Irish Wolfhounds
+D00329,B,class,P014,Mr. James A. Moses,Rhodesian Ridgebacks
+D00254,D,class,P014,Mr. James A. Moses,Whippets
+D00259,B,class,P014,Mr. James A. Moses,Whippets
+D00261,B,class,P014,Mr. James A. Moses,Whippets
+D00269,D,champion,P014,Mr. James A. Moses,Whippets
+D00306,B,class,P014-A1,Mr. James A. Moses,Black Russian Terriers
+D00088,B,class,P014-A1,"Dr. Andrea Bradford, MD",Boxers
+D00015,B,class,P014-A1,"Dr. Andrea Bradford, MD",Great Danes
+D00016,D,champion,P014-A1,"Dr. Andrea Bradford, MD",Great Danes
+D00298,D,champion,P014-A1,Mr. James A. Moses,Greater Swiss Mountain Dogs
+D00566,B,champion,P015,Mrs. Angela Pickett,Bracchi Italiani
+D00563,B,champion,P015,Mrs. Angela Pickett,Retrievers (Chesapeake Bay)
+D00554,B,class,P015,Mrs. Angela Pickett,Retrievers (Golden)
+D00560,B,class,P015,Mrs. Angela Pickett,Retrievers (Golden)
+D00531,D,champion,P015,Mrs. Angela Pickett,Retrievers (Labrador)
+D00679,B,champion,P015,Mr. Charles L. Olvis,Setters (Irish)
+D00594,B,class,P015,Mrs. Angela Pickett,Spaniels (Cocker) A.S.C.O.B.
+D00595,B,champion,P015,Mrs. Angela Pickett,Spaniels (Cocker) A.S.C.O.B.
+D00491,D,champion,P015,Mr. David J. Kirkland,Spaniels (Sussex)
+D00492,D,champion,P015,Mr. David J. Kirkland,Spaniels (Sussex)
+D00270,D,champion,P015-A1,Mr. James A. Moses,Whippets
+D00273,B,champion,P015-A1,Mr. James A. Moses,Whippets
+D00285,B,class,P015-A1,Mr. James A. Moses,Chinese Shar-Pei
+D00286,B,class,P015-A1,Mr. James A. Moses,Chinese Shar-Pei
+D00287,B,champion,P015-A1,Mr. James A. Moses,Chinese Shar-Pei
+D00200,B,class,P015-A1,Mrs. Danelle M. Brown,Dalmatians
+D00203,B,champion,P015-A1,Mrs. Danelle M. Brown,Dalmatians
+D00356,D,class,P015-A1,Mr. James A. Moses,French Bulldogs
+D00359,D,class,P015-A1,Mr. James A. Moses,French Bulldogs
+D00366,D,champion,P015-A1,Mr. James A. Moses,French Bulldogs
+D00367,D,champion,P015-A1,Mr. James A. Moses,French Bulldogs
+D00466,B,champion,P015-A2,Mr. David J. Kirkland,Poodles (Miniature)
+D00118,D,class,P015-A2,Mrs. Angela Pickett,Poodles (Standard)
+D00393,B,champion,P015-A2,Mr. David J. Kirkland,Tibetan Spaniels
+D00395,B,champion,P015-A2,Mr. David J. Kirkland,Tibetan Spaniels
+D00565,B,champion,P016,Mrs. Angela Pickett,Bracchi Italiani
+D00514,D,champion,P016,Mrs. Angela Pickett,Brittanys
+D00558,B,class,P016,Mrs. Angela Pickett,Retrievers (Golden)
+D00521,D,class,P016,Mrs. Angela Pickett,Retrievers (Labrador)
+D00525,B,class,P016,Mrs. Angela Pickett,Retrievers (Labrador)
+D00533,D,champion,P016,Mrs. Angela Pickett,Retrievers (Labrador)
+D00534,B,champion,P016,Mrs. Angela Pickett,Retrievers (Labrador)
+D00430,B,class,P016,Mr. David J. Kirkland,Rat Terriers
+D00284,B,champion,P016-A1,Mr. James A. Moses,Bulldogs
+D00204,B,champion,P016-A1,Mrs. Danelle M. Brown,Dalmatians
+D00226,B,class,P016-A1,Mrs. Danelle M. Brown,Lhasa Apsos
+D00458,D,class,P016-A1,Mr. David J. Kirkland,Poodles (Miniature)
+D00465,D,champion,P016-A1,Mr. David J. Kirkland,Poodles (Miniature)
+D00391,B,champion,P016-A1,Mr. David J. Kirkland,Tibetan Spaniels
+D00394,B,champion,P016-A1,Mr. David J. Kirkland,Tibetan Spaniels
+D00686,B,champion,P016-A1,Mr. Charles L. Olvis,Bearded Collies
+D00575,D,champion,P017,Mrs. Angela Pickett,Dachshunds (Longhaired)
+D00313,B,champion,P017,Mr. James A. Moses,Portuguese Water Dogs
+D00309,B,champion,P017,Mr. James A. Moses,Siberian Huskies
+D00408,D,champion,P017,Mr. David J. Kirkland,Border Terriers
+D00433,D,champion,P017,Mr. David J. Kirkland,Rat Terriers
+D00425,B,champion,P017,Mr. David J. Kirkland,Welsh Terriers
+D00140,D,class,P017,Mrs. Danelle M. Brown,Chihuahuas (Long Coat)
